@@ -9,8 +9,8 @@ var server = require('http').Server(app);
 
 app.set('port', (process.env.PORT || 5000));
 
-app.use(exp.static(__dirname + "/cliente/dist/cliente"));
-//app.use(exp.static(__dirname + "/cliente_Prueba"));
+//app.use(exp.static(__dirname + "/cliente/dist/cliente"));
+app.use(exp.static(__dirname + "/cliente_Prueba"));
 
 var bodyParser=require("body-parser");
 
