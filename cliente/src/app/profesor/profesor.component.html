@@ -1,0 +1,112 @@
+<div class="row">
+    <div class="col-md-2">
+        <!--<app-sidenav-profesor></app-sidenav-profesor>-->
+        <div class="sidenav list-group">
+            <a href="#" (click)="abrirAlumnos()">Alumno</a>
+            <a href="#" (click)="abrirActividades()">Actividades</a>
+        </div>
+    </div>
+    <div *ngIf="gestionAlumnos" class="col-md-10">
+        <br>
+        <div class="row justify-content-md-center">
+            <div class="col-md-10">
+                <h4>Alumno</h4>
+            </div>
+            <div class="col-md-2">
+                <button type="button" (click)="abrirActividades()" class="btn btn-outline-primary">Crear Actividad</button>
+            </div>
+        </div>
+        <div class="row justify-content-md-center">
+            <!--<div class="card-body card-body-cascade text-center wow fadeIn">
+                <h4>Hola mundo</h4>
+                <p>asdalksdjlajsdklasjdkljlañksjfñdskladsfjñalksfj</p>
+            </div>-->
+            <div class="card col-md-6">
+                <div *ngIf="!editarAlumno" class="card-body">
+                    <h4 class="card-title">Crear Alumno</h4>
+                    <div>
+                        <label>Nombre del Alumn@</label>
+                        <input [(ngModel)]="alumnoCreate.nombre" type="text" class="form-control" id="nombre"
+                            placeholder="Nombre">
+                        <br>
+                        <label>Apellidos</label>
+                        <input [(ngModel)]="alumnoCreate.apellidos" type="text" class="form-control" id="apellidos"
+                            ng-model="apellidos" placeholder="Apellidos">
+                        <br>
+                        <label>Clase</label>
+                        <input [(ngModel)]="alumnoCreate.clase" type="text" class="form-control" id="clase"
+                            ng-model="clase" placeholder="Clase">
+                        <br>
+                        <label>Email</label>
+                        <input [(ngModel)]="alumnoCreate.email" type="email" class="form-control" id="email"
+                            ng-model="email" placeholder="Enter email">
+                        <small id="emailHelp" class="form-text text-muted">El email tiene que ser unico</small>
+                        <br>
+                        <label>Contraseña</label>
+                        <input [(ngModel)]="alumnoCreate.contrasena" type="password" class="form-control"
+                            id="contrasena" ng-model="contrasena" placeholder="Contraseña">
+                        <small id="contrasenaHelp" class="form-text text-muted">El usuario podra entrar con esta
+                            contraseña</small>
+                        <button type="button" (click)="limpiar()" class="btn btn-raised btn-danger">Limpiar</button>
+                        <button type="button" (click)="anadirAlumno()" class="btn btn-raised btn-success">Guardar
+                            Alumn@</button>
+                    </div>
+                </div>
+                <div *ngIf="editarAlumno" class="card-body">
+                    <h4  class="card-title">Editar Alumno</h4>
+                    <div>
+                        <label>Nombre del Alumn@</label>
+                        <input [(ngModel)]="onSelectedAlumno.nombre" type="text" class="form-control" id="nombre"
+                            placeholder="Nombre">
+                        <br>
+                        <label>Apellidos</label>
+                        <input [(ngModel)]="onSelectedAlumno.apellidos" type="text" class="form-control" id="apellidos"
+                            ng-model="apellidos" placeholder="Apellidos">
+                        <br>
+                        <label>Clase</label>
+                        <input [(ngModel)]="onSelectedAlumno.clase" type="text" class="form-control" id="clase"
+                            ng-model="clase" placeholder="Clase">
+                        <br>
+                        <label>Email</label>
+                        <input [(ngModel)]="onSelectedAlumno.email" type="email" class="form-control" id="email"
+                            ng-model="email" placeholder="Enter email">
+                        <small id="emailHelp" class="form-text text-muted">El email tiene que ser unico</small>
+                        <br>
+                        <label>Contraseña</label>
+                        <input [(ngModel)]="onSelectedAlumno.contrasena" type="password" class="form-control"
+                            id="contrasena" ng-model="contrasena" placeholder="Contraseña">
+                        <small id="contrasenaHelp" class="form-text text-muted">El usuario podra entrar con esta
+                            contraseña</small>
+                        <button type="button" (click)="limpiar()" class="btn btn-raised btn-danger">Limpiar</button>
+                        <button type="button" (click)="actualizarAlumno()" class="btn btn-raised btn-success">Actualizar
+                            Alumn@</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h3>Lista de Alumnos</h3>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Apellidos</th>
+                            <th scope="col">Clase</th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody *ngFor="let alumno of listaAlumnos">
+                        <tr>
+                            <td>{{alumno.nombre}}</td>
+                            <td>{{alumno.apellidos}}</td>
+                            <td>{{alumno.clase}}</td>
+                            <td><i (click)="editar(alumno)" class="fa fa-edit"></i></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="gestionActividades">
+        <a>Hola</a>
+    </div>
+</div>
