@@ -17,7 +17,6 @@ var bodyParser=require("body-parser");
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
 
-
 server.listen(app.get('port'), function() {
 	console.log('Node app se está ejecutando en el puerto', port);
   });
