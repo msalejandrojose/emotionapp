@@ -6,8 +6,6 @@ var exp=require("express");
 var app=exp(); 
 var server = require('http').Server(app);
 
-
-
 app.set('port', (process.env.PORT || 5000));
 app.use(exp.static(__dirname + "/cliente"));
 
