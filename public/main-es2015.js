@@ -58,7 +58,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"card\">\n    <div class=\"card-body\">\n        <h5 class=\"card-title\">Crear Actividad</h5>\n        <mat-horizontal-stepper linear #stepper>\n            <mat-step label=\"Crear Actividad\" [stepControl]=\"datosPrimarios\">\n                <br>\n                <form [formGroup]=\"datosPrimarios\">\n                    <div class=\"col-md-6\">\n                        <label>Nombre de la Actividad</label>\n                        <input formControlName=\"fromControlNombreActividad\" [(ngModel)]=\"actividadCreate.nombre\"\n                            type=\"text\" class=\"form-control\" id=\"nombreActividad\" placeholder=\"Nombre de la actividad\"\n                            required>\n                        <br>\n                        <label>Nombre del Profesor</label>\n                        <input formControlName=\"fromControlNombreProfesor\" [(ngModel)]=\"actividadCreate.profesor\"\n                            type=\"text\" class=\"form-control\" id=\"nombreProfesor\" placeholder=\"Nombre del Profesor\"\n                            required>\n                        <br>\n\n                    </div>\n                    <div class=\"row justify-content-md-center\">\n                        <button mat-button matStepperNext class=\"btn btn-success\">Siguiente Paso</button>\n                    </div>\n\n                </form>\n            </mat-step>\n            <mat-step label=\"Seleccionar Alumnos\">\n                <!--Tabla de alumnos-->\n                <br>\n                <div class=\"row justify-content-md-center\">\n                    <table mat-table [dataSource]=\"dataSource\" class=\"mat-elevation-z8\">\n\n                        <!-- Checkbox Column -->\n                        <ng-container matColumnDef=\"select\">\n                            <th mat-header-cell *matHeaderCellDef>\n                                <mat-checkbox (change)=\"$event ? masterToggle() : null\"\n                                    [checked]=\"selection.hasValue() && isAllSelected()\"\n                                    [indeterminate]=\"selection.hasValue() && !isAllSelected()\"\n                                    [aria-label]=\"checkboxLabel()\">\n                                </mat-checkbox>\n                            </th>\n                            <td mat-cell *matCellDef=\"let row\">\n                                <mat-checkbox (click)=\"$event.stopPropagation()\"\n                                    (change)=\"$event ? selection.toggle(row) : null\"\n                                    [checked]=\"selection.isSelected(row)\" [aria-label]=\"checkboxLabel(row)\">\n                                </mat-checkbox>\n                            </td>\n                        </ng-container>\n\n                        <!-- Position Column -->\n                        <ng-container matColumnDef=\"position\">\n                            <th mat-header-cell *matHeaderCellDef> Nombre </th>\n                            <td mat-cell *matCellDef=\"let element\"> {{element.position}} </td>\n                        </ng-container>\n\n                        <!-- Name Column -->\n                        <ng-container matColumnDef=\"name\">\n                            <th mat-header-cell *matHeaderCellDef> Apellidos </th>\n                            <td mat-cell *matCellDef=\"let element\"> {{element.name}} </td>\n                        </ng-container>\n\n                        <!-- Weight Column -->\n                        <ng-container matColumnDef=\"weight\">\n                            <th mat-header-cell *matHeaderCellDef> Clase </th>\n                            <td mat-cell *matCellDef=\"let element\"> {{element.weight}} </td>\n                        </ng-container>\n\n                        <!-- Symbol Column -->\n                        <ng-container matColumnDef=\"symbol\">\n                            <th mat-header-cell *matHeaderCellDef> Symbol </th>\n                            <td mat-cell *matCellDef=\"let element\"> {{element.symbol}} </td>\n                        </ng-container>\n\n                        <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\n                        <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\" (click)=\"selection.toggle(row)\">\n                        </tr>\n                    </table>\n                </div>\n                <br>\n                <div class=\"row justify-content-md-center\">\n                    <button mat-button matStepperPrevious class=\"btn btn-info\">Volver atras</button>\n                    <p> </p>\n                    <button mat-button matStepperNext class=\"btn btn-success\">Siguiente Paso</button>\n                </div>\n            </mat-step>\n            <mat-step label=\"Localizacion de los alumnos\">\n                <div>\n                    <button mat-button matStepperPrevious>Volver Atras</button>\n                    <button mat-button>Guardar</button>\n                </div>\n            </mat-step>\n        </mat-horizontal-stepper>\n    </div>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"card\">\n  <div class=\"card-body\">\n    <h5 class=\"card-title\">Crear Actividad</h5>\n    <mat-horizontal-stepper linear #stepper>\n      <mat-step label=\"Crear Actividad\" [stepControl]=\"datosPrimarios\">\n        <br>\n        <form [formGroup]=\"datosPrimarios\">\n          <div class=\"col-md-6\">\n            <label>Nombre de la Actividad</label>\n            <input formControlName=\"fromControlNombreActividad\" [(ngModel)]=\"actividadCreate.nombre\" type=\"text\"\n              class=\"form-control\" id=\"nombreActividad\" placeholder=\"Nombre de la actividad\" >\n            <br>\n            <label>Nombre del Profesor</label>\n            <input formControlName=\"fromControlNombreProfesor\" [(ngModel)]=\"actividadCreate.profesor\" type=\"text\"\n              class=\"form-control\" id=\"nombreProfesor\" placeholder=\"Nombre del Profesor\" >\n            <br>\n\n          </div>\n          <div class=\"row justify-content-md-center\">\n            <button mat-button matStepperNext class=\"btn btn-success\">Siguiente Paso</button>\n          </div>\n\n        </form>\n      </mat-step>\n      <mat-step label=\"Seleccionar Alumnos\">\n        <!--Tabla de alumnos-->\n        <br>\n\n        <div class=\"example-header\">\n          <mat-form-field>\n            <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filtrar\">\n          </mat-form-field>\n        </div>\n\n        <div class=\"example-container mat-elevation-z8\">\n\n          <mat-table [dataSource]=\"dataSource\" matSort>\n\n            <ng-container matColumnDef=\"select\">\n              <th mat-header-cell *matHeaderCellDef>\n                <mat-checkbox (change)=\"$event ? masterToggle() : null\"\n                  [checked]=\"selection.hasValue() && isAllSelected()\"\n                  [indeterminate]=\"selection.hasValue() && !isAllSelected()\" [aria-label]=\"checkboxLabel()\">\n                </mat-checkbox>\n              </th>\n              <td mat-cell *matCellDef=\"let row\">\n                <mat-checkbox (click)=\"$event.stopPropagation()\" (change)=\"$event ? selection.toggle(row) : null\"\n                  [checked]=\"selection.isSelected(row)\" [aria-label]=\"checkboxLabel(row)\">\n                </mat-checkbox>\n              </td>\n            </ng-container>\n\n            <!-- ID Column -->\n            <ng-container matColumnDef=\"nombre\">\n              <mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </mat-header-cell>\n              <mat-cell *matCellDef=\"let row\"> {{row.nombre}} </mat-cell>\n            </ng-container>\n\n            <!-- Progress Column -->\n            <ng-container matColumnDef=\"apellidos\">\n              <mat-header-cell *matHeaderCellDef mat-sort-header> Apellidos </mat-header-cell>\n              <mat-cell *matCellDef=\"let row\"> {{row.apellidos}} </mat-cell>\n            </ng-container>\n\n            <!-- Name Column -->\n            <ng-container matColumnDef=\"clase\">\n              <mat-header-cell *matHeaderCellDef mat-sort-header> Clase </mat-header-cell>\n              <mat-cell *matCellDef=\"let row\"> {{row.clase}} </mat-cell>\n            </ng-container>\n\n            <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\n            <mat-row *matRowDef=\"let row; columns: displayedColumns;\">\n            </mat-row>\n          </mat-table>\n\n          <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\n        </div>\n        <br>\n        <div class=\"row justify-content-md-center\">\n          <button mat-button matStepperPrevious class=\"btn btn-info\">Volver atras</button>\n          <p> </p>\n          <button mat-button matStepperNext class=\"btn btn-success\" (click)=\"verSeleccionados()\">Siguiente Paso</button>\n        </div>\n      </mat-step>\n      <mat-step label=\"Localizacion de los alumnos\">\n        <h4>Localizacion de Alumnos</h4>\n        <div id=\"clase\" class=\"example-boundary\">\n\n        </div>\n        <br>\n        <div class=\"row justify-content-md-center\">\n          <button mat-button matStepperPrevious class=\"btn btn-info\">Volver atras</button>\n          <p> </p>\n          <button mat-button matStepperNext class=\"btn btn-success\" (click)=\"verSeleccionados()\">Siguiente Paso</button>\n        </div>\n        <div>\n          <button mat-button matStepperPrevious>Volver Atras</button>\n          <button mat-button>Guardar</button>\n        </div>\n      </mat-step>\n    </mat-horizontal-stepper>\n  </div>\n</div>");
 
 /***/ }),
 
@@ -587,6 +587,16 @@ AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
             _angular_material_tree__WEBPACK_IMPORTED_MODULE_42__["MatTreeModule"],
             _angular_cdk_portal__WEBPACK_IMPORTED_MODULE_4__["PortalModule"],
             _angular_cdk_scrolling__WEBPACK_IMPORTED_MODULE_5__["ScrollingModule"],
+            _angular_material_button__WEBPACK_IMPORTED_MODULE_12__["MatButtonModule"],
+            _angular_material_input__WEBPACK_IMPORTED_MODULE_24__["MatInputModule"],
+            _angular_material_core__WEBPACK_IMPORTED_MODULE_27__["MatRippleModule"],
+            _angular_material_toolbar__WEBPACK_IMPORTED_MODULE_40__["MatToolbarModule"],
+            _angular_material_button__WEBPACK_IMPORTED_MODULE_12__["MatButtonModule"],
+            _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_33__["MatSidenavModule"],
+            _angular_material_icon__WEBPACK_IMPORTED_MODULE_23__["MatIconModule"],
+            _angular_material_list__WEBPACK_IMPORTED_MODULE_25__["MatListModule"],
+            _angular_material_stepper__WEBPACK_IMPORTED_MODULE_17__["MatStepperModule"],
+            _angular_material_input__WEBPACK_IMPORTED_MODULE_24__["MatInputModule"]
         ],
         imports: [
             _angular_platform_browser__WEBPACK_IMPORTED_MODULE_43__["BrowserModule"],
@@ -599,7 +609,15 @@ AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
             _angular_material_stepper__WEBPACK_IMPORTED_MODULE_17__["MatStepperModule"],
             _angular_forms__WEBPACK_IMPORTED_MODULE_44__["ReactiveFormsModule"],
             _angular_material_table__WEBPACK_IMPORTED_MODULE_38__["MatTableModule"],
-            _angular_material_checkbox__WEBPACK_IMPORTED_MODULE_15__["MatCheckboxModule"]
+            _angular_material_checkbox__WEBPACK_IMPORTED_MODULE_15__["MatCheckboxModule"],
+            _angular_material_toolbar__WEBPACK_IMPORTED_MODULE_40__["MatToolbarModule"],
+            _angular_material_button__WEBPACK_IMPORTED_MODULE_12__["MatButtonModule"],
+            _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_33__["MatSidenavModule"],
+            _angular_material_icon__WEBPACK_IMPORTED_MODULE_23__["MatIconModule"],
+            _angular_material_list__WEBPACK_IMPORTED_MODULE_25__["MatListModule"],
+            _angular_material_stepper__WEBPACK_IMPORTED_MODULE_17__["MatStepperModule"],
+            _angular_material_input__WEBPACK_IMPORTED_MODULE_24__["MatInputModule"],
+            _angular_material_paginator__WEBPACK_IMPORTED_MODULE_28__["MatPaginatorModule"]
         ],
         providers: [_angular_material_sidenav__WEBPACK_IMPORTED_MODULE_33__["MatSidenavModule"],
             _angular_material_stepper__WEBPACK_IMPORTED_MODULE_17__["MatStepperModule"],
@@ -608,31 +626,6 @@ AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     })
 ], AppModule);
 
-
-
-/***/ }),
-
-/***/ "./src/app/estudiante/alumno.ts":
-/*!**************************************!*\
-  !*** ./src/app/estudiante/alumno.ts ***!
-  \**************************************/
-/*! exports provided: Alumno */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Alumno", function() { return Alumno; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-
-class Alumno {
-    constructor(nombre, apellidos, clase, email, contrasena) {
-        this.nombre = nombre;
-        this.apellidos = apellidos;
-        this.clase = clase;
-        this.email = email;
-        this.contrasena = contrasena;
-    }
-}
 
 
 /***/ }),
@@ -690,7 +683,7 @@ EstudianteComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("table {\n    width: 100%;\n  }\n  \n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcHJvZmVzb3IvY3JlYXItYWN0aXZpZGFkL2NyZWFyLWFjdGl2aWRhZC5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0lBQ0ksV0FBVztFQUNiIiwiZmlsZSI6InNyYy9hcHAvcHJvZmVzb3IvY3JlYXItYWN0aXZpZGFkL2NyZWFyLWFjdGl2aWRhZC5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsidGFibGUge1xuICAgIHdpZHRoOiAxMDAlO1xuICB9XG4gICJdfQ== */");
+/* harmony default export */ __webpack_exports__["default"] = ("table {\n  width: 100%;\n}\n\n.example-container {\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n          flex-direction: column;\n  min-width: 300px;\n}\n\n.example-header {\n  min-height: 64px;\n  padding: 8px 24px 0;\n}\n\n.mat-form-field {\n  font-size: 14px;\n  width: 100%;\n}\n\n.mat-table {\n  overflow: auto;\n  max-height: 500px;\n}\n\n.example-box {\n  width: 70px;\n  height: 70px;\n  border: solid 1px #ccc;\n  color: rgba(0, 0, 0, 0.87);\n  cursor: move;\n  display: -webkit-inline-box;\n  display: inline-flex;\n  -webkit-box-pack: center;\n          justify-content: center;\n  -webkit-box-align: center;\n          align-items: center;\n  text-align: center;\n  background: #fff;\n  border-radius: 4px;\n  margin-right: 25px;\n  position: relative;\n  z-index: 1;\n  box-sizing: border-box;\n  padding: 10px;\n  -webkit-transition: box-shadow 200ms cubic-bezier(0, 0, 0.2, 1);\n  transition: box-shadow 200ms cubic-bezier(0, 0, 0.2, 1);\n  box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);\n}\n\n.example-box:active {\n  box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2), 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12);\n}\n\n.example-boundary {\n  width: 400px;\n  height: 400px;\n  max-width: 100%;\n  border: dotted #ccc 2px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcHJvZmVzb3IvY3JlYXItYWN0aXZpZGFkL2NyZWFyLWFjdGl2aWRhZC5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsV0FBVztBQUNiOztBQUVBO0VBQ0Usb0JBQWE7RUFBYixhQUFhO0VBQ2IsNEJBQXNCO0VBQXRCLDZCQUFzQjtVQUF0QixzQkFBc0I7RUFDdEIsZ0JBQWdCO0FBQ2xCOztBQUVBO0VBQ0UsZ0JBQWdCO0VBQ2hCLG1CQUFtQjtBQUNyQjs7QUFFQTtFQUNFLGVBQWU7RUFDZixXQUFXO0FBQ2I7O0FBRUE7RUFDRSxjQUFjO0VBQ2QsaUJBQWlCO0FBQ25COztBQUVBO0VBQ0UsV0FBVztFQUNYLFlBQVk7RUFDWixzQkFBc0I7RUFDdEIsMEJBQTBCO0VBQzFCLFlBQVk7RUFDWiwyQkFBb0I7RUFBcEIsb0JBQW9CO0VBQ3BCLHdCQUF1QjtVQUF2Qix1QkFBdUI7RUFDdkIseUJBQW1CO1VBQW5CLG1CQUFtQjtFQUNuQixrQkFBa0I7RUFDbEIsZ0JBQWdCO0VBQ2hCLGtCQUFrQjtFQUNsQixrQkFBa0I7RUFDbEIsa0JBQWtCO0VBQ2xCLFVBQVU7RUFDVixzQkFBc0I7RUFDdEIsYUFBYTtFQUNiLCtEQUF1RDtFQUF2RCx1REFBdUQ7RUFDdkQsK0dBQStHO0FBQ2pIOztBQUVBO0VBQ0UscUhBQXFIO0FBQ3ZIOztBQUVBO0VBQ0UsWUFBWTtFQUNaLGFBQWE7RUFDYixlQUFlO0VBQ2YsdUJBQXVCO0FBQ3pCIiwiZmlsZSI6InNyYy9hcHAvcHJvZmVzb3IvY3JlYXItYWN0aXZpZGFkL2NyZWFyLWFjdGl2aWRhZC5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsidGFibGUge1xuICB3aWR0aDogMTAwJTtcbn1cblxuLmV4YW1wbGUtY29udGFpbmVyIHtcbiAgZGlzcGxheTogZmxleDtcbiAgZmxleC1kaXJlY3Rpb246IGNvbHVtbjtcbiAgbWluLXdpZHRoOiAzMDBweDtcbn1cblxuLmV4YW1wbGUtaGVhZGVyIHtcbiAgbWluLWhlaWdodDogNjRweDtcbiAgcGFkZGluZzogOHB4IDI0cHggMDtcbn1cblxuLm1hdC1mb3JtLWZpZWxkIHtcbiAgZm9udC1zaXplOiAxNHB4O1xuICB3aWR0aDogMTAwJTtcbn1cblxuLm1hdC10YWJsZSB7XG4gIG92ZXJmbG93OiBhdXRvO1xuICBtYXgtaGVpZ2h0OiA1MDBweDtcbn1cblxuLmV4YW1wbGUtYm94IHtcbiAgd2lkdGg6IDcwcHg7XG4gIGhlaWdodDogNzBweDtcbiAgYm9yZGVyOiBzb2xpZCAxcHggI2NjYztcbiAgY29sb3I6IHJnYmEoMCwgMCwgMCwgMC44Nyk7XG4gIGN1cnNvcjogbW92ZTtcbiAgZGlzcGxheTogaW5saW5lLWZsZXg7XG4gIGp1c3RpZnktY29udGVudDogY2VudGVyO1xuICBhbGlnbi1pdGVtczogY2VudGVyO1xuICB0ZXh0LWFsaWduOiBjZW50ZXI7XG4gIGJhY2tncm91bmQ6ICNmZmY7XG4gIGJvcmRlci1yYWRpdXM6IDRweDtcbiAgbWFyZ2luLXJpZ2h0OiAyNXB4O1xuICBwb3NpdGlvbjogcmVsYXRpdmU7XG4gIHotaW5kZXg6IDE7XG4gIGJveC1zaXppbmc6IGJvcmRlci1ib3g7XG4gIHBhZGRpbmc6IDEwcHg7XG4gIHRyYW5zaXRpb246IGJveC1zaGFkb3cgMjAwbXMgY3ViaWMtYmV6aWVyKDAsIDAsIDAuMiwgMSk7XG4gIGJveC1zaGFkb3c6IDAgM3B4IDFweCAtMnB4IHJnYmEoMCwgMCwgMCwgMC4yKSwgMCAycHggMnB4IDAgcmdiYSgwLCAwLCAwLCAwLjE0KSwgMCAxcHggNXB4IDAgcmdiYSgwLCAwLCAwLCAwLjEyKTtcbn1cblxuLmV4YW1wbGUtYm94OmFjdGl2ZSB7XG4gIGJveC1zaGFkb3c6IDAgNXB4IDVweCAtM3B4IHJnYmEoMCwgMCwgMCwgMC4yKSwgMCA4cHggMTBweCAxcHggcmdiYSgwLCAwLCAwLCAwLjE0KSwgMCAzcHggMTRweCAycHggcmdiYSgwLCAwLCAwLCAwLjEyKTtcbn1cblxuLmV4YW1wbGUtYm91bmRhcnkge1xuICB3aWR0aDogNDAwcHg7XG4gIGhlaWdodDogNDAwcHg7XG4gIG1heC13aWR0aDogMTAwJTtcbiAgYm9yZGVyOiBkb3R0ZWQgI2NjYyAycHg7XG59Il19 */");
 
 /***/ }),
 
@@ -707,8 +700,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
-/* harmony import */ var _angular_material_table__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/material/table */ "./node_modules/@angular/material/esm2015/table.js");
-/* harmony import */ var _angular_cdk_collections__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/cdk/collections */ "./node_modules/@angular/cdk/esm2015/collections.js");
+/* harmony import */ var _angular_cdk_collections__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/cdk/collections */ "./node_modules/@angular/cdk/esm2015/collections.js");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm2015/material.js");
 
 
 
@@ -729,23 +722,39 @@ const ELEMENT_DATA = [
 let CrearActividadComponent = class CrearActividadComponent {
     constructor(_formBuilder) {
         this._formBuilder = _formBuilder;
+        //Prueba de una tabla con filtro y paginacion
+        this.displayedColumns = ['select', 'nombre', 'apellidos', 'clase'];
+        this.selection = new _angular_cdk_collections__WEBPACK_IMPORTED_MODULE_3__["SelectionModel"](true, []);
         this.actividadCreate = {
             nombre: '',
             profesor: '',
             alumnos: {},
         };
-        this.displayedColumns = ['select', 'position', 'name', 'weight', 'symbol'];
-        this.dataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_3__["MatTableDataSource"](ELEMENT_DATA);
-        this.selection = new _angular_cdk_collections__WEBPACK_IMPORTED_MODULE_4__["SelectionModel"](true, []);
+        this.estudiante = {
+            nombre: '',
+            apellidos: '',
+            clase: '',
+            posicionEnClase: ''
+        };
     }
     ngOnInit() {
-        console.log(this.estudiantes);
         this.datosPrimarios = this._formBuilder.group({
-            fromControlNombreActividad: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required],
-            fromControlNombreProfesor: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required]
+            fromControlNombreActividad: true,
+            fromControlNombreProfesor: true //['', Validators.required]
         });
     }
-    //selection = new SelectionModel<PeriodicElement>(true,[]);
+    ngOnChanges() {
+        this.dataSource = new _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatTableDataSource"](this.estudiantes);
+    }
+    ngAfterViewInit() {
+        this.dataSource.paginator = this.paginator;
+        this.dataSource.sort = this.sort;
+    }
+    applyFilter(filterValue) {
+        filterValue = filterValue.trim(); // Remove whitespace
+        filterValue = filterValue.toLowerCase(); // Datasource defaults to lowercase matches
+        this.dataSource.filter = filterValue;
+    }
     /** Whether the number of selected elements matches the total number of rows. */
     isAllSelected() {
         const numSelected = this.selection.selected.length;
@@ -758,12 +767,22 @@ let CrearActividadComponent = class CrearActividadComponent {
             this.selection.clear() :
             this.dataSource.data.forEach(row => this.selection.select(row));
     }
-    /** The label for the checkbox on the passed row */
     checkboxLabel(row) {
         if (!row) {
             return `${this.isAllSelected() ? 'select' : 'deselect'} all`;
         }
-        return `${this.selection.isSelected(row) ? 'deselect' : 'select'} row ${row.position + 1}`;
+        return `${this.selection.isSelected(row) ? 'deselect' : 'select'}`;
+    }
+    verSeleccionados() {
+        //console.log(this.comprobarSeleccionados())
+        this.crearActividad();
+    }
+    comprobarSeleccionados() {
+        return (this.selection.selected.length > 0);
+    }
+    crearActividad() {
+        this.actividadCreate.alumnos = this.selection.selected;
+        console.log(this.actividadCreate);
     }
 };
 CrearActividadComponent.ctorParameters = () => [
@@ -772,6 +791,12 @@ CrearActividadComponent.ctorParameters = () => [
 tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])()
 ], CrearActividadComponent.prototype, "estudiantes", void 0);
+tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])(_angular_material__WEBPACK_IMPORTED_MODULE_4__["MatPaginator"], null)
+], CrearActividadComponent.prototype, "paginator", void 0);
+tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])(_angular_material__WEBPACK_IMPORTED_MODULE_4__["MatSort"], null)
+], CrearActividadComponent.prototype, "sort", void 0);
 CrearActividadComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'app-crear-actividad',
@@ -809,9 +834,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ProfesorComponent", function() { return ProfesorComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var _estudiante_alumno__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../estudiante/alumno */ "./src/app/estudiante/alumno.ts");
-/* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/esm2015/dialog.js");
-
+/* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/esm2015/dialog.js");
 
 
 
@@ -836,7 +859,8 @@ let ProfesorComponent = class ProfesorComponent {
     }
     //anadirAlumno(nombre:string,apellidos:string,clase:string,email:string,contrasena:string) {
     anadirAlumno() {
-        this.listaAlumnos.push(new _estudiante_alumno__WEBPACK_IMPORTED_MODULE_2__["Alumno"](this.alumnoCreate.nombre, this.alumnoCreate.apellidos, this.alumnoCreate.clase, this.alumnoCreate.email, this.alumnoCreate.contrasena));
+        //this.listaAlumnos.push(new Alumno(this.alumnoCreate.nombre, this.alumnoCreate.apellidos, this.alumnoCreate.clase, this.alumnoCreate.email, this.alumnoCreate.contrasena));
+        this.listaAlumnos.push(this.alumnoCreate);
         this.limpiar();
         this.editarAlumno = false;
     }
@@ -888,7 +912,7 @@ let ProfesorComponent = class ProfesorComponent {
     }
 };
 ProfesorComponent.ctorParameters = () => [
-    { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_3__["MatDialog"] }
+    { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"] }
 ];
 ProfesorComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
