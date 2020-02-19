@@ -1,5 +1,5 @@
 
-const video = document.getElementById('deteccionEmocionesVideo');
+const video = document.getElementById('video');
 
 Promise.all([
   //faceapi.nets.faceExpressionNet.loadFromUri('/modelos'),
