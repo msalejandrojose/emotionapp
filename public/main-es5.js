@@ -71,7 +71,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"row\">\n    <div class=\"col-md-2\">\n        <!--<app-sidenav-profesor></app-sidenav-profesor>-->\n        <div class=\"sidenav list-group\">\n            <a href=\"#\">Emociones</a>\n        </div>\n    </div>\n</div>\n<div class=\"row justify-content-md-center\">\n    <div class=\"col-md-8\">\n        <video id=\"video\" width=\"480\" height=\"360\" autoplay muted></video>\n    </div>\n</div>\n\n";
+    __webpack_exports__["default"] = "<div class=\"row\">\n    <div class=\"col-md-2\">\n        <!--<app-sidenav-profesor></app-sidenav-profesor>-->\n        <div class=\"sidenav list-group\">\n            <a href=\"#\">Emociones</a>\n        </div>\n    </div>\n</div>\n<div class=\"row justify-content-md-center\">\n    <!--<div class=\"col-md-8\">\n        <video id=\"video\" width=\"480\" height=\"360\" autoplay muted></video>\n    </div>-->\n    <webcam></webcam>\n</div>\n\n";
     /***/
   },
 
@@ -1156,49 +1156,55 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var _app_routing_module__WEBPACK_IMPORTED_MODULE_45__ = __webpack_require__(
+    var ngx_webcam__WEBPACK_IMPORTED_MODULE_45__ = __webpack_require__(
+    /*! ngx-webcam */
+    "./node_modules/ngx-webcam/fesm2015/ngx-webcam.js");
+    /* harmony import */
+
+
+    var _app_routing_module__WEBPACK_IMPORTED_MODULE_46__ = __webpack_require__(
     /*! ./app-routing.module */
     "./src/app/app-routing.module.ts");
     /* harmony import */
 
 
-    var _app_component__WEBPACK_IMPORTED_MODULE_46__ = __webpack_require__(
+    var _app_component__WEBPACK_IMPORTED_MODULE_47__ = __webpack_require__(
     /*! ./app.component */
     "./src/app/app.component.ts");
     /* harmony import */
 
 
-    var _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_47__ = __webpack_require__(
+    var _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_48__ = __webpack_require__(
     /*! @angular/platform-browser/animations */
     "./node_modules/@angular/platform-browser/fesm2015/animations.js");
     /* harmony import */
 
 
-    var _profesor_profesor_component__WEBPACK_IMPORTED_MODULE_48__ = __webpack_require__(
+    var _profesor_profesor_component__WEBPACK_IMPORTED_MODULE_49__ = __webpack_require__(
     /*! ./profesor/profesor.component */
     "./src/app/profesor/profesor.component.ts");
     /* harmony import */
 
 
-    var _estudiante_estudiante_component__WEBPACK_IMPORTED_MODULE_49__ = __webpack_require__(
+    var _estudiante_estudiante_component__WEBPACK_IMPORTED_MODULE_50__ = __webpack_require__(
     /*! ./estudiante/estudiante.component */
     "./src/app/estudiante/estudiante.component.ts");
     /* harmony import */
 
 
-    var _profesor_sidenav_profesor_sidenav_profesor_component__WEBPACK_IMPORTED_MODULE_50__ = __webpack_require__(
+    var _profesor_sidenav_profesor_sidenav_profesor_component__WEBPACK_IMPORTED_MODULE_51__ = __webpack_require__(
     /*! ./profesor/sidenav-profesor/sidenav-profesor.component */
     "./src/app/profesor/sidenav-profesor/sidenav-profesor.component.ts");
     /* harmony import */
 
 
-    var _profesor_crear_actividad_crear_actividad_component__WEBPACK_IMPORTED_MODULE_51__ = __webpack_require__(
+    var _profesor_crear_actividad_crear_actividad_component__WEBPACK_IMPORTED_MODULE_52__ = __webpack_require__(
     /*! ./profesor/crear-actividad/crear-actividad.component */
     "./src/app/profesor/crear-actividad/crear-actividad.component.ts");
     /* harmony import */
 
 
-    var _profesor_ver_actividad_ver_actividad_component__WEBPACK_IMPORTED_MODULE_52__ = __webpack_require__(
+    var _profesor_ver_actividad_ver_actividad_component__WEBPACK_IMPORTED_MODULE_53__ = __webpack_require__(
     /*! ./profesor/ver-actividad/ver-actividad.component */
     "./src/app/profesor/ver-actividad/ver-actividad.component.ts");
     /*
@@ -1216,12 +1222,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     };
 
     AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-      declarations: [_app_component__WEBPACK_IMPORTED_MODULE_46__["AppComponent"], _profesor_profesor_component__WEBPACK_IMPORTED_MODULE_48__["ProfesorComponent"], _estudiante_estudiante_component__WEBPACK_IMPORTED_MODULE_49__["EstudianteComponent"], _profesor_sidenav_profesor_sidenav_profesor_component__WEBPACK_IMPORTED_MODULE_50__["SidenavProfesorComponent"], _profesor_crear_actividad_crear_actividad_component__WEBPACK_IMPORTED_MODULE_51__["CrearActividadComponent"], _profesor_ver_actividad_ver_actividad_component__WEBPACK_IMPORTED_MODULE_52__["VerActividadComponent"]],
+      declarations: [_app_component__WEBPACK_IMPORTED_MODULE_47__["AppComponent"], _profesor_profesor_component__WEBPACK_IMPORTED_MODULE_49__["ProfesorComponent"], _estudiante_estudiante_component__WEBPACK_IMPORTED_MODULE_50__["EstudianteComponent"], _profesor_sidenav_profesor_sidenav_profesor_component__WEBPACK_IMPORTED_MODULE_51__["SidenavProfesorComponent"], _profesor_crear_actividad_crear_actividad_component__WEBPACK_IMPORTED_MODULE_52__["CrearActividadComponent"], _profesor_ver_actividad_ver_actividad_component__WEBPACK_IMPORTED_MODULE_53__["VerActividadComponent"]],
       exports: [_angular_material_sidenav__WEBPACK_IMPORTED_MODULE_33__["MatSidenavModule"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_19__["MatDialogModule"], _angular_material_stepper__WEBPACK_IMPORTED_MODULE_17__["MatStepperModule"], _angular_cdk_a11y__WEBPACK_IMPORTED_MODULE_2__["A11yModule"], //ClipboardModule,
       _angular_cdk_stepper__WEBPACK_IMPORTED_MODULE_6__["CdkStepperModule"], _angular_cdk_table__WEBPACK_IMPORTED_MODULE_7__["CdkTableModule"], _angular_cdk_tree__WEBPACK_IMPORTED_MODULE_8__["CdkTreeModule"], _angular_cdk_drag_drop__WEBPACK_IMPORTED_MODULE_3__["DragDropModule"], _angular_material_autocomplete__WEBPACK_IMPORTED_MODULE_9__["MatAutocompleteModule"], _angular_material_badge__WEBPACK_IMPORTED_MODULE_10__["MatBadgeModule"], _angular_material_bottom_sheet__WEBPACK_IMPORTED_MODULE_11__["MatBottomSheetModule"], _angular_material_button__WEBPACK_IMPORTED_MODULE_12__["MatButtonModule"], _angular_material_button_toggle__WEBPACK_IMPORTED_MODULE_13__["MatButtonToggleModule"], _angular_material_card__WEBPACK_IMPORTED_MODULE_14__["MatCardModule"], _angular_material_checkbox__WEBPACK_IMPORTED_MODULE_15__["MatCheckboxModule"], _angular_material_chips__WEBPACK_IMPORTED_MODULE_16__["MatChipsModule"], _angular_material_stepper__WEBPACK_IMPORTED_MODULE_17__["MatStepperModule"], _angular_material_datepicker__WEBPACK_IMPORTED_MODULE_18__["MatDatepickerModule"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_19__["MatDialogModule"], _angular_material_divider__WEBPACK_IMPORTED_MODULE_20__["MatDividerModule"], _angular_material_expansion__WEBPACK_IMPORTED_MODULE_21__["MatExpansionModule"], _angular_material_grid_list__WEBPACK_IMPORTED_MODULE_22__["MatGridListModule"], _angular_material_icon__WEBPACK_IMPORTED_MODULE_23__["MatIconModule"], _angular_material_input__WEBPACK_IMPORTED_MODULE_24__["MatInputModule"], _angular_material_list__WEBPACK_IMPORTED_MODULE_25__["MatListModule"], _angular_material_menu__WEBPACK_IMPORTED_MODULE_26__["MatMenuModule"], _angular_material_core__WEBPACK_IMPORTED_MODULE_27__["MatNativeDateModule"], _angular_material_paginator__WEBPACK_IMPORTED_MODULE_28__["MatPaginatorModule"], _angular_material_progress_bar__WEBPACK_IMPORTED_MODULE_29__["MatProgressBarModule"], _angular_material_progress_spinner__WEBPACK_IMPORTED_MODULE_30__["MatProgressSpinnerModule"], _angular_material_radio__WEBPACK_IMPORTED_MODULE_31__["MatRadioModule"], _angular_material_core__WEBPACK_IMPORTED_MODULE_27__["MatRippleModule"], _angular_material_select__WEBPACK_IMPORTED_MODULE_32__["MatSelectModule"], _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_33__["MatSidenavModule"], _angular_material_slider__WEBPACK_IMPORTED_MODULE_34__["MatSliderModule"], _angular_material_slide_toggle__WEBPACK_IMPORTED_MODULE_35__["MatSlideToggleModule"], _angular_material_snack_bar__WEBPACK_IMPORTED_MODULE_36__["MatSnackBarModule"], _angular_material_sort__WEBPACK_IMPORTED_MODULE_37__["MatSortModule"], _angular_material_table__WEBPACK_IMPORTED_MODULE_38__["MatTableModule"], _angular_material_tabs__WEBPACK_IMPORTED_MODULE_39__["MatTabsModule"], _angular_material_toolbar__WEBPACK_IMPORTED_MODULE_40__["MatToolbarModule"], _angular_material_tooltip__WEBPACK_IMPORTED_MODULE_41__["MatTooltipModule"], _angular_material_tree__WEBPACK_IMPORTED_MODULE_42__["MatTreeModule"], _angular_cdk_portal__WEBPACK_IMPORTED_MODULE_4__["PortalModule"], _angular_cdk_scrolling__WEBPACK_IMPORTED_MODULE_5__["ScrollingModule"], _angular_material_button__WEBPACK_IMPORTED_MODULE_12__["MatButtonModule"], _angular_material_input__WEBPACK_IMPORTED_MODULE_24__["MatInputModule"], _angular_material_core__WEBPACK_IMPORTED_MODULE_27__["MatRippleModule"], _angular_material_toolbar__WEBPACK_IMPORTED_MODULE_40__["MatToolbarModule"], _angular_material_button__WEBPACK_IMPORTED_MODULE_12__["MatButtonModule"], _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_33__["MatSidenavModule"], _angular_material_icon__WEBPACK_IMPORTED_MODULE_23__["MatIconModule"], _angular_material_list__WEBPACK_IMPORTED_MODULE_25__["MatListModule"], _angular_material_stepper__WEBPACK_IMPORTED_MODULE_17__["MatStepperModule"], _angular_material_input__WEBPACK_IMPORTED_MODULE_24__["MatInputModule"]],
-      imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_43__["BrowserModule"], _app_routing_module__WEBPACK_IMPORTED_MODULE_45__["AppRoutingModule"], _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_47__["BrowserAnimationsModule"], _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_33__["MatSidenavModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_44__["FormsModule"], _angular_material_button__WEBPACK_IMPORTED_MODULE_12__["MatButtonModule"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_19__["MatDialogModule"], _angular_material_stepper__WEBPACK_IMPORTED_MODULE_17__["MatStepperModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_44__["ReactiveFormsModule"], _angular_material_table__WEBPACK_IMPORTED_MODULE_38__["MatTableModule"], _angular_material_checkbox__WEBPACK_IMPORTED_MODULE_15__["MatCheckboxModule"], _angular_material_toolbar__WEBPACK_IMPORTED_MODULE_40__["MatToolbarModule"], _angular_material_button__WEBPACK_IMPORTED_MODULE_12__["MatButtonModule"], _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_33__["MatSidenavModule"], _angular_material_icon__WEBPACK_IMPORTED_MODULE_23__["MatIconModule"], _angular_material_list__WEBPACK_IMPORTED_MODULE_25__["MatListModule"], _angular_material_stepper__WEBPACK_IMPORTED_MODULE_17__["MatStepperModule"], _angular_material_input__WEBPACK_IMPORTED_MODULE_24__["MatInputModule"], _angular_material_paginator__WEBPACK_IMPORTED_MODULE_28__["MatPaginatorModule"], _angular_cdk_drag_drop__WEBPACK_IMPORTED_MODULE_3__["DragDropModule"]],
+      imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_43__["BrowserModule"], _app_routing_module__WEBPACK_IMPORTED_MODULE_46__["AppRoutingModule"], _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_48__["BrowserAnimationsModule"], _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_33__["MatSidenavModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_44__["FormsModule"], _angular_material_button__WEBPACK_IMPORTED_MODULE_12__["MatButtonModule"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_19__["MatDialogModule"], _angular_material_stepper__WEBPACK_IMPORTED_MODULE_17__["MatStepperModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_44__["ReactiveFormsModule"], _angular_material_table__WEBPACK_IMPORTED_MODULE_38__["MatTableModule"], _angular_material_checkbox__WEBPACK_IMPORTED_MODULE_15__["MatCheckboxModule"], _angular_material_toolbar__WEBPACK_IMPORTED_MODULE_40__["MatToolbarModule"], _angular_material_button__WEBPACK_IMPORTED_MODULE_12__["MatButtonModule"], _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_33__["MatSidenavModule"], _angular_material_icon__WEBPACK_IMPORTED_MODULE_23__["MatIconModule"], _angular_material_list__WEBPACK_IMPORTED_MODULE_25__["MatListModule"], _angular_material_stepper__WEBPACK_IMPORTED_MODULE_17__["MatStepperModule"], _angular_material_input__WEBPACK_IMPORTED_MODULE_24__["MatInputModule"], _angular_material_paginator__WEBPACK_IMPORTED_MODULE_28__["MatPaginatorModule"], _angular_cdk_drag_drop__WEBPACK_IMPORTED_MODULE_3__["DragDropModule"], ngx_webcam__WEBPACK_IMPORTED_MODULE_45__["WebcamModule"]],
       providers: [_angular_material_sidenav__WEBPACK_IMPORTED_MODULE_33__["MatSidenavModule"], _angular_material_stepper__WEBPACK_IMPORTED_MODULE_17__["MatStepperModule"]],
-      bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_46__["AppComponent"]]
+      bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_47__["AppComponent"]]
     })], AppModule);
     /***/
   },
