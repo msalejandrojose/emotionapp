@@ -6,6 +6,10 @@ var exp=require("express");
 var app=exp(); 
 var server = require('http').Server(app);
 
+var modelo=require("./servidor/modelo");
+
+var centro = new modelo.Centro();
+
 
 app.set('port', (process.env.PORT || 5000));
 
@@ -16,6 +20,13 @@ var bodyParser=require("body-parser");
 
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
+
+app.get("/verEstudiantes",function(request,response){
+	centro.mostrarEstudiantes(function(res){
+    response.send(res);
+    return res;
+	})
+});
 
 
 server.listen(app.get('port'), function() {

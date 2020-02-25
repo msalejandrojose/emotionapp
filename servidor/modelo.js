@@ -181,7 +181,7 @@ function Centro() {
                 db.close();
             });
         });
-        return this.estudiantes;
+        //return this.estudiantes;
     }
 
     this.mostrarActividades = function(callback){

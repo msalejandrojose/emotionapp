@@ -45,7 +45,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"row\">\n    <div class=\"col-md-2\">\n        <!--<app-sidenav-profesor></app-sidenav-profesor>-->\n        <div class=\"sidenav list-group\">\n            <a href=\"#\">Emociones</a>\n        </div>\n    </div>\n</div>\n<div class=\"row justify-content-md-center\">\n    <div class=\"col-md-8\">\n        <video id=\"video\" width=\"480\" height=\"360\" autoplay muted></video>\n    </div>\n    <!--<webcam></webcam>-->\n</div>\n\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"row\">\n    <div class=\"col-md-2\">\n        <!--<app-sidenav-profesor></app-sidenav-profesor>-->\n        <div class=\"sidenav list-group\">\n            <a href=\"#\">Emociones</a>\n        </div>\n    </div>\n</div>\n<div class=\"row justify-content-md-center\">\n    <div class=\"col-md-8\">\n        <video id=\"video\" width=\"480\" height=\"360\" autoplay muted></video>\n    </div>\n</div>\n\n");
 
 /***/ }),
 
@@ -385,10 +385,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppComponent", function() { return AppComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _estudiante_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./estudiante.service */ "./src/app/estudiante.service.ts");
+
 
 
 let AppComponent = class AppComponent {
-    constructor() {
+    constructor(estudiantes) {
+        this.estudiantes = estudiantes;
         this.title = 'cliente';
         this.dentro = false;
         this.profesor = false;
@@ -397,6 +400,8 @@ let AppComponent = class AppComponent {
     entrarProfesor() {
         this.dentro = true;
         this.profesor = true;
+        //console.log("Se ha accedido");
+        //console.log(this.estudiantes.getEstudiantes());
     }
     entrarEstudiante() {
         this.dentro = true;
@@ -408,6 +413,9 @@ let AppComponent = class AppComponent {
         this.estudiante = false;
     }
 };
+AppComponent.ctorParameters = () => [
+    { type: _estudiante_service__WEBPACK_IMPORTED_MODULE_2__["EstudianteService"] }
+];
 AppComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'app-root',
@@ -476,14 +484,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_43__ = __webpack_require__(/*! @angular/platform-browser */ "./node_modules/@angular/platform-browser/fesm2015/platform-browser.js");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_44__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
 /* harmony import */ var ngx_webcam__WEBPACK_IMPORTED_MODULE_45__ = __webpack_require__(/*! ngx-webcam */ "./node_modules/ngx-webcam/fesm2015/ngx-webcam.js");
-/* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_46__ = __webpack_require__(/*! ./app-routing.module */ "./src/app/app-routing.module.ts");
-/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_47__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
-/* harmony import */ var _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_48__ = __webpack_require__(/*! @angular/platform-browser/animations */ "./node_modules/@angular/platform-browser/fesm2015/animations.js");
-/* harmony import */ var _profesor_profesor_component__WEBPACK_IMPORTED_MODULE_49__ = __webpack_require__(/*! ./profesor/profesor.component */ "./src/app/profesor/profesor.component.ts");
-/* harmony import */ var _estudiante_estudiante_component__WEBPACK_IMPORTED_MODULE_50__ = __webpack_require__(/*! ./estudiante/estudiante.component */ "./src/app/estudiante/estudiante.component.ts");
-/* harmony import */ var _profesor_sidenav_profesor_sidenav_profesor_component__WEBPACK_IMPORTED_MODULE_51__ = __webpack_require__(/*! ./profesor/sidenav-profesor/sidenav-profesor.component */ "./src/app/profesor/sidenav-profesor/sidenav-profesor.component.ts");
-/* harmony import */ var _profesor_crear_actividad_crear_actividad_component__WEBPACK_IMPORTED_MODULE_52__ = __webpack_require__(/*! ./profesor/crear-actividad/crear-actividad.component */ "./src/app/profesor/crear-actividad/crear-actividad.component.ts");
-/* harmony import */ var _profesor_ver_actividad_ver_actividad_component__WEBPACK_IMPORTED_MODULE_53__ = __webpack_require__(/*! ./profesor/ver-actividad/ver-actividad.component */ "./src/app/profesor/ver-actividad/ver-actividad.component.ts");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_46__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
+/* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_47__ = __webpack_require__(/*! ./app-routing.module */ "./src/app/app-routing.module.ts");
+/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_48__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
+/* harmony import */ var _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_49__ = __webpack_require__(/*! @angular/platform-browser/animations */ "./node_modules/@angular/platform-browser/fesm2015/animations.js");
+/* harmony import */ var _profesor_profesor_component__WEBPACK_IMPORTED_MODULE_50__ = __webpack_require__(/*! ./profesor/profesor.component */ "./src/app/profesor/profesor.component.ts");
+/* harmony import */ var _estudiante_estudiante_component__WEBPACK_IMPORTED_MODULE_51__ = __webpack_require__(/*! ./estudiante/estudiante.component */ "./src/app/estudiante/estudiante.component.ts");
+/* harmony import */ var _profesor_sidenav_profesor_sidenav_profesor_component__WEBPACK_IMPORTED_MODULE_52__ = __webpack_require__(/*! ./profesor/sidenav-profesor/sidenav-profesor.component */ "./src/app/profesor/sidenav-profesor/sidenav-profesor.component.ts");
+/* harmony import */ var _profesor_crear_actividad_crear_actividad_component__WEBPACK_IMPORTED_MODULE_53__ = __webpack_require__(/*! ./profesor/crear-actividad/crear-actividad.component */ "./src/app/profesor/crear-actividad/crear-actividad.component.ts");
+/* harmony import */ var _profesor_ver_actividad_ver_actividad_component__WEBPACK_IMPORTED_MODULE_54__ = __webpack_require__(/*! ./profesor/ver-actividad/ver-actividad.component */ "./src/app/profesor/ver-actividad/ver-actividad.component.ts");
 
 /*
 import { NgModule } from '@angular/core';
@@ -546,17 +555,18 @@ import {MatStepperModule} from '@angular/material/stepper';*/
 
 
 
+
 let AppModule = class AppModule {
 };
 AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
         declarations: [
-            _app_component__WEBPACK_IMPORTED_MODULE_47__["AppComponent"],
-            _profesor_profesor_component__WEBPACK_IMPORTED_MODULE_49__["ProfesorComponent"],
-            _estudiante_estudiante_component__WEBPACK_IMPORTED_MODULE_50__["EstudianteComponent"],
-            _profesor_sidenav_profesor_sidenav_profesor_component__WEBPACK_IMPORTED_MODULE_51__["SidenavProfesorComponent"],
-            _profesor_crear_actividad_crear_actividad_component__WEBPACK_IMPORTED_MODULE_52__["CrearActividadComponent"],
-            _profesor_ver_actividad_ver_actividad_component__WEBPACK_IMPORTED_MODULE_53__["VerActividadComponent"],
+            _app_component__WEBPACK_IMPORTED_MODULE_48__["AppComponent"],
+            _profesor_profesor_component__WEBPACK_IMPORTED_MODULE_50__["ProfesorComponent"],
+            _estudiante_estudiante_component__WEBPACK_IMPORTED_MODULE_51__["EstudianteComponent"],
+            _profesor_sidenav_profesor_sidenav_profesor_component__WEBPACK_IMPORTED_MODULE_52__["SidenavProfesorComponent"],
+            _profesor_crear_actividad_crear_actividad_component__WEBPACK_IMPORTED_MODULE_53__["CrearActividadComponent"],
+            _profesor_ver_actividad_ver_actividad_component__WEBPACK_IMPORTED_MODULE_54__["VerActividadComponent"],
         ],
         exports: [
             _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_33__["MatSidenavModule"],
@@ -618,8 +628,8 @@ AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         ],
         imports: [
             _angular_platform_browser__WEBPACK_IMPORTED_MODULE_43__["BrowserModule"],
-            _app_routing_module__WEBPACK_IMPORTED_MODULE_46__["AppRoutingModule"],
-            _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_48__["BrowserAnimationsModule"],
+            _app_routing_module__WEBPACK_IMPORTED_MODULE_47__["AppRoutingModule"],
+            _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_49__["BrowserAnimationsModule"],
             _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_33__["MatSidenavModule"],
             _angular_forms__WEBPACK_IMPORTED_MODULE_44__["FormsModule"],
             _angular_material_button__WEBPACK_IMPORTED_MODULE_12__["MatButtonModule"],
@@ -638,13 +648,63 @@ AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
             _angular_material_paginator__WEBPACK_IMPORTED_MODULE_28__["MatPaginatorModule"],
             _angular_cdk_drag_drop__WEBPACK_IMPORTED_MODULE_3__["DragDropModule"],
             ngx_webcam__WEBPACK_IMPORTED_MODULE_45__["WebcamModule"],
+            _angular_common_http__WEBPACK_IMPORTED_MODULE_46__["HttpClientModule"],
         ],
         providers: [_angular_material_sidenav__WEBPACK_IMPORTED_MODULE_33__["MatSidenavModule"],
             _angular_material_stepper__WEBPACK_IMPORTED_MODULE_17__["MatStepperModule"],
         ],
-        bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_47__["AppComponent"]]
+        bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_48__["AppComponent"]]
     })
 ], AppModule);
+
+
+
+/***/ }),
+
+/***/ "./src/app/estudiante.service.ts":
+/*!***************************************!*\
+  !*** ./src/app/estudiante.service.ts ***!
+  \***************************************/
+/*! exports provided: EstudianteService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EstudianteService", function() { return EstudianteService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
+
+
+
+let EstudianteService = class EstudianteService {
+    constructor(http) {
+        this.http = http;
+        this.urlapi = 'http://localhost:5000/';
+    }
+    getEstudiantes() {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
+            //console.log(this.http.get('/verEstudiantes'));
+            /*let datos:Estudiante[];
+            await $.getJSON("/verEstudiantes", function (data) {
+              datos=data;
+            });
+            return datos;*/
+            //return this.http.get<Estudiante[]>('localhost:5000/verEstudiantes');
+            //let datos:Observable<Object[]> = this.http.get('http://localhost:5000/verEstudiantes');
+            //return this.http.get('/verEstudiantes');
+            //return null;
+        });
+    }
+};
+EstudianteService.ctorParameters = () => [
+    { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"] }
+];
+EstudianteService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+        providedIn: 'root'
+    })
+], EstudianteService);
 
 
 
@@ -722,7 +782,7 @@ let EstudianteComponent = class EstudianteComponent {
                     var datosSurprised = faceapi.resizeResults(detections, displaySize).expressions.surprised;
                     var datosDisgusted = faceapi.resizeResults(detections, displaySize).expressions.disgusted;
                     var maximo = Math.max(datosAngry, datosDisgusted, datosFearful, datosHappy, datosNeutral, datosSad, datosSurprised);
-                    console.log("Emociones detectadas:" + detections);
+                    console.log("Emociones detectadas:" + datosHappy);
                 }
                 catch (error) {
                 }
@@ -947,13 +1007,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/esm2015/dialog.js");
+/* harmony import */ var _estudiante_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! .././estudiante.service */ "./src/app/estudiante.service.ts");
+
 
 
 
 let ProfesorComponent = class ProfesorComponent {
-    constructor(matDialog) {
+    constructor(matDialog, estudiantes) {
         this.matDialog = matDialog;
+        this.estudiantes = estudiantes;
         this.alumnoCreate = {
+            _id: '',
             nombre: '',
             apellidos: '',
             clase: '',
@@ -969,6 +1033,15 @@ let ProfesorComponent = class ProfesorComponent {
         this.gestionActividades = false;
     }
     ngOnInit() {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
+            var ju = this;
+            //this.listaAlumnos=this.estudiantes.getEstudiantes();
+            yield $.getJSON("/verEstudiantes", function (data) {
+                //console.log(data);
+                ju.listaAlumnos = data;
+            });
+            //console.log(this.listaAlumnos);
+        });
     }
     //anadirAlumno(nombre:string,apellidos:string,clase:string,email:string,contrasena:string) {
     anadirAlumno() {
@@ -984,6 +1057,7 @@ let ProfesorComponent = class ProfesorComponent {
     limpiar() {
         if (this.editarAlumno) {
             this.onSelectedAlumno = {
+                _id: '',
                 nombre: '',
                 apellidos: '',
                 clase: '',
@@ -993,6 +1067,7 @@ let ProfesorComponent = class ProfesorComponent {
         }
         else {
             this.alumnoCreate = {
+                _id: '',
                 nombre: '',
                 apellidos: '',
                 clase: '',
@@ -1039,7 +1114,8 @@ let ProfesorComponent = class ProfesorComponent {
     }
 };
 ProfesorComponent.ctorParameters = () => [
-    { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"] }
+    { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"] },
+    { type: _estudiante_service__WEBPACK_IMPORTED_MODULE_3__["EstudianteService"] }
 ];
 ProfesorComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({

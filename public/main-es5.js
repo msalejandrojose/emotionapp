@@ -71,7 +71,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"row\">\n    <div class=\"col-md-2\">\n        <!--<app-sidenav-profesor></app-sidenav-profesor>-->\n        <div class=\"sidenav list-group\">\n            <a href=\"#\">Emociones</a>\n        </div>\n    </div>\n</div>\n<div class=\"row justify-content-md-center\">\n    <div class=\"col-md-8\">\n        <video id=\"video\" width=\"480\" height=\"360\" autoplay muted></video>\n    </div>\n    <!--<webcam></webcam>-->\n</div>\n\n";
+    __webpack_exports__["default"] = "<div class=\"row\">\n    <div class=\"col-md-2\">\n        <!--<app-sidenav-profesor></app-sidenav-profesor>-->\n        <div class=\"sidenav list-group\">\n            <a href=\"#\">Emociones</a>\n        </div>\n    </div>\n</div>\n<div class=\"row justify-content-md-center\">\n    <div class=\"col-md-8\">\n        <video id=\"video\" width=\"480\" height=\"360\" autoplay muted></video>\n    </div>\n</div>\n\n";
     /***/
   },
 
@@ -815,13 +815,20 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
     /*! @angular/core */
     "./node_modules/@angular/core/fesm2015/core.js");
+    /* harmony import */
+
+
+    var _estudiante_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! ./estudiante.service */
+    "./src/app/estudiante.service.ts");
 
     var AppComponent =
     /*#__PURE__*/
     function () {
-      function AppComponent() {
+      function AppComponent(estudiantes) {
         _classCallCheck(this, AppComponent);
 
+        this.estudiantes = estudiantes;
         this.title = 'cliente';
         this.dentro = false;
         this.profesor = false;
@@ -832,7 +839,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         key: "entrarProfesor",
         value: function entrarProfesor() {
           this.dentro = true;
-          this.profesor = true;
+          this.profesor = true; //console.log("Se ha accedido");
+          //console.log(this.estudiantes.getEstudiantes());
         }
       }, {
         key: "entrarEstudiante",
@@ -851,6 +859,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
       return AppComponent;
     }();
+
+    AppComponent.ctorParameters = function () {
+      return [{
+        type: _estudiante_service__WEBPACK_IMPORTED_MODULE_2__["EstudianteService"]
+      }];
+    };
 
     AppComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
       selector: 'app-root',
@@ -1162,49 +1176,55 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var _app_routing_module__WEBPACK_IMPORTED_MODULE_46__ = __webpack_require__(
+    var _angular_common_http__WEBPACK_IMPORTED_MODULE_46__ = __webpack_require__(
+    /*! @angular/common/http */
+    "./node_modules/@angular/common/fesm2015/http.js");
+    /* harmony import */
+
+
+    var _app_routing_module__WEBPACK_IMPORTED_MODULE_47__ = __webpack_require__(
     /*! ./app-routing.module */
     "./src/app/app-routing.module.ts");
     /* harmony import */
 
 
-    var _app_component__WEBPACK_IMPORTED_MODULE_47__ = __webpack_require__(
+    var _app_component__WEBPACK_IMPORTED_MODULE_48__ = __webpack_require__(
     /*! ./app.component */
     "./src/app/app.component.ts");
     /* harmony import */
 
 
-    var _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_48__ = __webpack_require__(
+    var _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_49__ = __webpack_require__(
     /*! @angular/platform-browser/animations */
     "./node_modules/@angular/platform-browser/fesm2015/animations.js");
     /* harmony import */
 
 
-    var _profesor_profesor_component__WEBPACK_IMPORTED_MODULE_49__ = __webpack_require__(
+    var _profesor_profesor_component__WEBPACK_IMPORTED_MODULE_50__ = __webpack_require__(
     /*! ./profesor/profesor.component */
     "./src/app/profesor/profesor.component.ts");
     /* harmony import */
 
 
-    var _estudiante_estudiante_component__WEBPACK_IMPORTED_MODULE_50__ = __webpack_require__(
+    var _estudiante_estudiante_component__WEBPACK_IMPORTED_MODULE_51__ = __webpack_require__(
     /*! ./estudiante/estudiante.component */
     "./src/app/estudiante/estudiante.component.ts");
     /* harmony import */
 
 
-    var _profesor_sidenav_profesor_sidenav_profesor_component__WEBPACK_IMPORTED_MODULE_51__ = __webpack_require__(
+    var _profesor_sidenav_profesor_sidenav_profesor_component__WEBPACK_IMPORTED_MODULE_52__ = __webpack_require__(
     /*! ./profesor/sidenav-profesor/sidenav-profesor.component */
     "./src/app/profesor/sidenav-profesor/sidenav-profesor.component.ts");
     /* harmony import */
 
 
-    var _profesor_crear_actividad_crear_actividad_component__WEBPACK_IMPORTED_MODULE_52__ = __webpack_require__(
+    var _profesor_crear_actividad_crear_actividad_component__WEBPACK_IMPORTED_MODULE_53__ = __webpack_require__(
     /*! ./profesor/crear-actividad/crear-actividad.component */
     "./src/app/profesor/crear-actividad/crear-actividad.component.ts");
     /* harmony import */
 
 
-    var _profesor_ver_actividad_ver_actividad_component__WEBPACK_IMPORTED_MODULE_53__ = __webpack_require__(
+    var _profesor_ver_actividad_ver_actividad_component__WEBPACK_IMPORTED_MODULE_54__ = __webpack_require__(
     /*! ./profesor/ver-actividad/ver-actividad.component */
     "./src/app/profesor/ver-actividad/ver-actividad.component.ts");
     /*
@@ -1222,13 +1242,95 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     };
 
     AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-      declarations: [_app_component__WEBPACK_IMPORTED_MODULE_47__["AppComponent"], _profesor_profesor_component__WEBPACK_IMPORTED_MODULE_49__["ProfesorComponent"], _estudiante_estudiante_component__WEBPACK_IMPORTED_MODULE_50__["EstudianteComponent"], _profesor_sidenav_profesor_sidenav_profesor_component__WEBPACK_IMPORTED_MODULE_51__["SidenavProfesorComponent"], _profesor_crear_actividad_crear_actividad_component__WEBPACK_IMPORTED_MODULE_52__["CrearActividadComponent"], _profesor_ver_actividad_ver_actividad_component__WEBPACK_IMPORTED_MODULE_53__["VerActividadComponent"]],
+      declarations: [_app_component__WEBPACK_IMPORTED_MODULE_48__["AppComponent"], _profesor_profesor_component__WEBPACK_IMPORTED_MODULE_50__["ProfesorComponent"], _estudiante_estudiante_component__WEBPACK_IMPORTED_MODULE_51__["EstudianteComponent"], _profesor_sidenav_profesor_sidenav_profesor_component__WEBPACK_IMPORTED_MODULE_52__["SidenavProfesorComponent"], _profesor_crear_actividad_crear_actividad_component__WEBPACK_IMPORTED_MODULE_53__["CrearActividadComponent"], _profesor_ver_actividad_ver_actividad_component__WEBPACK_IMPORTED_MODULE_54__["VerActividadComponent"]],
       exports: [_angular_material_sidenav__WEBPACK_IMPORTED_MODULE_33__["MatSidenavModule"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_19__["MatDialogModule"], _angular_material_stepper__WEBPACK_IMPORTED_MODULE_17__["MatStepperModule"], _angular_cdk_a11y__WEBPACK_IMPORTED_MODULE_2__["A11yModule"], //ClipboardModule,
       _angular_cdk_stepper__WEBPACK_IMPORTED_MODULE_6__["CdkStepperModule"], _angular_cdk_table__WEBPACK_IMPORTED_MODULE_7__["CdkTableModule"], _angular_cdk_tree__WEBPACK_IMPORTED_MODULE_8__["CdkTreeModule"], _angular_cdk_drag_drop__WEBPACK_IMPORTED_MODULE_3__["DragDropModule"], _angular_material_autocomplete__WEBPACK_IMPORTED_MODULE_9__["MatAutocompleteModule"], _angular_material_badge__WEBPACK_IMPORTED_MODULE_10__["MatBadgeModule"], _angular_material_bottom_sheet__WEBPACK_IMPORTED_MODULE_11__["MatBottomSheetModule"], _angular_material_button__WEBPACK_IMPORTED_MODULE_12__["MatButtonModule"], _angular_material_button_toggle__WEBPACK_IMPORTED_MODULE_13__["MatButtonToggleModule"], _angular_material_card__WEBPACK_IMPORTED_MODULE_14__["MatCardModule"], _angular_material_checkbox__WEBPACK_IMPORTED_MODULE_15__["MatCheckboxModule"], _angular_material_chips__WEBPACK_IMPORTED_MODULE_16__["MatChipsModule"], _angular_material_stepper__WEBPACK_IMPORTED_MODULE_17__["MatStepperModule"], _angular_material_datepicker__WEBPACK_IMPORTED_MODULE_18__["MatDatepickerModule"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_19__["MatDialogModule"], _angular_material_divider__WEBPACK_IMPORTED_MODULE_20__["MatDividerModule"], _angular_material_expansion__WEBPACK_IMPORTED_MODULE_21__["MatExpansionModule"], _angular_material_grid_list__WEBPACK_IMPORTED_MODULE_22__["MatGridListModule"], _angular_material_icon__WEBPACK_IMPORTED_MODULE_23__["MatIconModule"], _angular_material_input__WEBPACK_IMPORTED_MODULE_24__["MatInputModule"], _angular_material_list__WEBPACK_IMPORTED_MODULE_25__["MatListModule"], _angular_material_menu__WEBPACK_IMPORTED_MODULE_26__["MatMenuModule"], _angular_material_core__WEBPACK_IMPORTED_MODULE_27__["MatNativeDateModule"], _angular_material_paginator__WEBPACK_IMPORTED_MODULE_28__["MatPaginatorModule"], _angular_material_progress_bar__WEBPACK_IMPORTED_MODULE_29__["MatProgressBarModule"], _angular_material_progress_spinner__WEBPACK_IMPORTED_MODULE_30__["MatProgressSpinnerModule"], _angular_material_radio__WEBPACK_IMPORTED_MODULE_31__["MatRadioModule"], _angular_material_core__WEBPACK_IMPORTED_MODULE_27__["MatRippleModule"], _angular_material_select__WEBPACK_IMPORTED_MODULE_32__["MatSelectModule"], _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_33__["MatSidenavModule"], _angular_material_slider__WEBPACK_IMPORTED_MODULE_34__["MatSliderModule"], _angular_material_slide_toggle__WEBPACK_IMPORTED_MODULE_35__["MatSlideToggleModule"], _angular_material_snack_bar__WEBPACK_IMPORTED_MODULE_36__["MatSnackBarModule"], _angular_material_sort__WEBPACK_IMPORTED_MODULE_37__["MatSortModule"], _angular_material_table__WEBPACK_IMPORTED_MODULE_38__["MatTableModule"], _angular_material_tabs__WEBPACK_IMPORTED_MODULE_39__["MatTabsModule"], _angular_material_toolbar__WEBPACK_IMPORTED_MODULE_40__["MatToolbarModule"], _angular_material_tooltip__WEBPACK_IMPORTED_MODULE_41__["MatTooltipModule"], _angular_material_tree__WEBPACK_IMPORTED_MODULE_42__["MatTreeModule"], _angular_cdk_portal__WEBPACK_IMPORTED_MODULE_4__["PortalModule"], _angular_cdk_scrolling__WEBPACK_IMPORTED_MODULE_5__["ScrollingModule"], _angular_material_button__WEBPACK_IMPORTED_MODULE_12__["MatButtonModule"], _angular_material_input__WEBPACK_IMPORTED_MODULE_24__["MatInputModule"], _angular_material_core__WEBPACK_IMPORTED_MODULE_27__["MatRippleModule"], _angular_material_toolbar__WEBPACK_IMPORTED_MODULE_40__["MatToolbarModule"], _angular_material_button__WEBPACK_IMPORTED_MODULE_12__["MatButtonModule"], _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_33__["MatSidenavModule"], _angular_material_icon__WEBPACK_IMPORTED_MODULE_23__["MatIconModule"], _angular_material_list__WEBPACK_IMPORTED_MODULE_25__["MatListModule"], _angular_material_stepper__WEBPACK_IMPORTED_MODULE_17__["MatStepperModule"], _angular_material_input__WEBPACK_IMPORTED_MODULE_24__["MatInputModule"]],
-      imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_43__["BrowserModule"], _app_routing_module__WEBPACK_IMPORTED_MODULE_46__["AppRoutingModule"], _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_48__["BrowserAnimationsModule"], _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_33__["MatSidenavModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_44__["FormsModule"], _angular_material_button__WEBPACK_IMPORTED_MODULE_12__["MatButtonModule"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_19__["MatDialogModule"], _angular_material_stepper__WEBPACK_IMPORTED_MODULE_17__["MatStepperModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_44__["ReactiveFormsModule"], _angular_material_table__WEBPACK_IMPORTED_MODULE_38__["MatTableModule"], _angular_material_checkbox__WEBPACK_IMPORTED_MODULE_15__["MatCheckboxModule"], _angular_material_toolbar__WEBPACK_IMPORTED_MODULE_40__["MatToolbarModule"], _angular_material_button__WEBPACK_IMPORTED_MODULE_12__["MatButtonModule"], _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_33__["MatSidenavModule"], _angular_material_icon__WEBPACK_IMPORTED_MODULE_23__["MatIconModule"], _angular_material_list__WEBPACK_IMPORTED_MODULE_25__["MatListModule"], _angular_material_stepper__WEBPACK_IMPORTED_MODULE_17__["MatStepperModule"], _angular_material_input__WEBPACK_IMPORTED_MODULE_24__["MatInputModule"], _angular_material_paginator__WEBPACK_IMPORTED_MODULE_28__["MatPaginatorModule"], _angular_cdk_drag_drop__WEBPACK_IMPORTED_MODULE_3__["DragDropModule"], ngx_webcam__WEBPACK_IMPORTED_MODULE_45__["WebcamModule"]],
+      imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_43__["BrowserModule"], _app_routing_module__WEBPACK_IMPORTED_MODULE_47__["AppRoutingModule"], _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_49__["BrowserAnimationsModule"], _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_33__["MatSidenavModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_44__["FormsModule"], _angular_material_button__WEBPACK_IMPORTED_MODULE_12__["MatButtonModule"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_19__["MatDialogModule"], _angular_material_stepper__WEBPACK_IMPORTED_MODULE_17__["MatStepperModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_44__["ReactiveFormsModule"], _angular_material_table__WEBPACK_IMPORTED_MODULE_38__["MatTableModule"], _angular_material_checkbox__WEBPACK_IMPORTED_MODULE_15__["MatCheckboxModule"], _angular_material_toolbar__WEBPACK_IMPORTED_MODULE_40__["MatToolbarModule"], _angular_material_button__WEBPACK_IMPORTED_MODULE_12__["MatButtonModule"], _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_33__["MatSidenavModule"], _angular_material_icon__WEBPACK_IMPORTED_MODULE_23__["MatIconModule"], _angular_material_list__WEBPACK_IMPORTED_MODULE_25__["MatListModule"], _angular_material_stepper__WEBPACK_IMPORTED_MODULE_17__["MatStepperModule"], _angular_material_input__WEBPACK_IMPORTED_MODULE_24__["MatInputModule"], _angular_material_paginator__WEBPACK_IMPORTED_MODULE_28__["MatPaginatorModule"], _angular_cdk_drag_drop__WEBPACK_IMPORTED_MODULE_3__["DragDropModule"], ngx_webcam__WEBPACK_IMPORTED_MODULE_45__["WebcamModule"], _angular_common_http__WEBPACK_IMPORTED_MODULE_46__["HttpClientModule"]],
       providers: [_angular_material_sidenav__WEBPACK_IMPORTED_MODULE_33__["MatSidenavModule"], _angular_material_stepper__WEBPACK_IMPORTED_MODULE_17__["MatStepperModule"]],
-      bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_47__["AppComponent"]]
+      bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_48__["AppComponent"]]
     })], AppModule);
+    /***/
+  },
+
+  /***/
+  "./src/app/estudiante.service.ts":
+  /*!***************************************!*\
+    !*** ./src/app/estudiante.service.ts ***!
+    \***************************************/
+
+  /*! exports provided: EstudianteService */
+
+  /***/
+  function srcAppEstudianteServiceTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "EstudianteService", function () {
+      return EstudianteService;
+    });
+    /* harmony import */
+
+
+    var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! tslib */
+    "./node_modules/tslib/tslib.es6.js");
+    /* harmony import */
+
+
+    var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! @angular/core */
+    "./node_modules/@angular/core/fesm2015/core.js");
+    /* harmony import */
+
+
+    var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! @angular/common/http */
+    "./node_modules/@angular/common/fesm2015/http.js");
+
+    var EstudianteService =
+    /*#__PURE__*/
+    function () {
+      function EstudianteService(http) {
+        _classCallCheck(this, EstudianteService);
+
+        this.http = http;
+        this.urlapi = 'http://localhost:5000/';
+      }
+
+      _createClass(EstudianteService, [{
+        key: "getEstudiantes",
+        value: function getEstudiantes() {
+          return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
+          /*#__PURE__*/
+          regeneratorRuntime.mark(function _callee() {
+            return regeneratorRuntime.wrap(function _callee$(_context) {
+              while (1) {
+                switch (_context.prev = _context.next) {
+                  case 0:
+                  case "end":
+                    return _context.stop();
+                }
+              }
+            }, _callee);
+          }));
+        }
+      }]);
+
+      return EstudianteService;
+    }();
+
+    EstudianteService.ctorParameters = function () {
+      return [{
+        type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"]
+      }];
+    };
+
+    EstudianteService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+      providedIn: 'root'
+    })], EstudianteService);
     /***/
   },
 
@@ -1335,18 +1437,18 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             setInterval(function () {
               return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](_this, void 0, void 0,
               /*#__PURE__*/
-              regeneratorRuntime.mark(function _callee() {
+              regeneratorRuntime.mark(function _callee2() {
                 var detections, datosNeutral, datosHappy, datosSad, datosAngry, datosFearful, datosSurprised, datosDisgusted, maximo;
-                return regeneratorRuntime.wrap(function _callee$(_context) {
+                return regeneratorRuntime.wrap(function _callee2$(_context2) {
                   while (1) {
-                    switch (_context.prev = _context.next) {
+                    switch (_context2.prev = _context2.next) {
                       case 0:
-                        _context.prev = 0;
-                        _context.next = 3;
+                        _context2.prev = 0;
+                        _context2.next = 3;
                         return faceapi.detectSingleFace(this.video, new faceapi.TinyFaceDetectorOptions()).withFaceLandmarks().withFaceExpressions();
 
                       case 3:
-                        detections = _context.sent;
+                        detections = _context2.sent;
                         datosNeutral = faceapi.resizeResults(detections, displaySize).expressions.neutral;
                         datosHappy = faceapi.resizeResults(detections, displaySize).expressions.happy;
                         datosSad = faceapi.resizeResults(detections, displaySize).expressions.sad;
@@ -1355,20 +1457,20 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                         datosSurprised = faceapi.resizeResults(detections, displaySize).expressions.surprised;
                         datosDisgusted = faceapi.resizeResults(detections, displaySize).expressions.disgusted;
                         maximo = Math.max(datosAngry, datosDisgusted, datosFearful, datosHappy, datosNeutral, datosSad, datosSurprised);
-                        console.log("Emociones detectadas:" + detections);
-                        _context.next = 17;
+                        console.log("Emociones detectadas:" + datosHappy);
+                        _context2.next = 17;
                         break;
 
                       case 15:
-                        _context.prev = 15;
-                        _context.t0 = _context["catch"](0);
+                        _context2.prev = 15;
+                        _context2.t0 = _context2["catch"](0);
 
                       case 17:
                       case "end":
-                        return _context.stop();
+                        return _context2.stop();
                     }
                   }
-                }, _callee, this, [[0, 15]]);
+                }, _callee2, this, [[0, 15]]);
               }));
             }, 1000);
           });
@@ -1715,15 +1817,23 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
     /*! @angular/material/dialog */
     "./node_modules/@angular/material/esm2015/dialog.js");
+    /* harmony import */
+
+
+    var _estudiante_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! .././estudiante.service */
+    "./src/app/estudiante.service.ts");
 
     var ProfesorComponent =
     /*#__PURE__*/
     function () {
-      function ProfesorComponent(matDialog) {
+      function ProfesorComponent(matDialog, estudiantes) {
         _classCallCheck(this, ProfesorComponent);
 
         this.matDialog = matDialog;
+        this.estudiantes = estudiantes;
         this.alumnoCreate = {
+          _id: '',
           nombre: '',
           apellidos: '',
           clase: '',
@@ -1741,7 +1851,31 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
       _createClass(ProfesorComponent, [{
         key: "ngOnInit",
-        value: function ngOnInit() {} //anadirAlumno(nombre:string,apellidos:string,clase:string,email:string,contrasena:string) {
+        value: function ngOnInit() {
+          return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
+          /*#__PURE__*/
+          regeneratorRuntime.mark(function _callee3() {
+            var ju;
+            return regeneratorRuntime.wrap(function _callee3$(_context3) {
+              while (1) {
+                switch (_context3.prev = _context3.next) {
+                  case 0:
+                    ju = this; //this.listaAlumnos=this.estudiantes.getEstudiantes();
+
+                    _context3.next = 3;
+                    return $.getJSON("/verEstudiantes", function (data) {
+                      //console.log(data);
+                      ju.listaAlumnos = data;
+                    });
+
+                  case 3:
+                  case "end":
+                    return _context3.stop();
+                }
+              }
+            }, _callee3, this);
+          }));
+        } //anadirAlumno(nombre:string,apellidos:string,clase:string,email:string,contrasena:string) {
 
       }, {
         key: "anadirAlumno",
@@ -1762,6 +1896,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function limpiar() {
           if (this.editarAlumno) {
             this.onSelectedAlumno = {
+              _id: '',
               nombre: '',
               apellidos: '',
               clase: '',
@@ -1770,6 +1905,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             };
           } else {
             this.alumnoCreate = {
+              _id: '',
               nombre: '',
               apellidos: '',
               clase: '',
@@ -1839,6 +1975,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     ProfesorComponent.ctorParameters = function () {
       return [{
         type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"]
+      }, {
+        type: _estudiante_service__WEBPACK_IMPORTED_MODULE_3__["EstudianteService"]
       }];
     };
 
