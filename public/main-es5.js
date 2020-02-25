@@ -71,7 +71,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"row\">\n    <div class=\"col-md-2\">\n        <!--<app-sidenav-profesor></app-sidenav-profesor>-->\n        <div class=\"sidenav list-group\">\n            <a href=\"#\">Emociones</a>\n        </div>\n    </div>\n</div>\n<div class=\"row justify-content-md-center\">\n    <!--<div class=\"col-md-8\">\n        <video id=\"video\" width=\"480\" height=\"360\" autoplay muted></video>\n    </div>-->\n    <webcam></webcam>\n</div>\n\n";
+    __webpack_exports__["default"] = "<div class=\"row\">\n    <div class=\"col-md-2\">\n        <!--<app-sidenav-profesor></app-sidenav-profesor>-->\n        <div class=\"sidenav list-group\">\n            <a href=\"#\">Emociones</a>\n        </div>\n    </div>\n</div>\n<div class=\"row justify-content-md-center\">\n    <div class=\"col-md-8\">\n        <video id=\"video\" width=\"480\" height=\"360\" autoplay muted></video>\n    </div>\n    <!--<webcam></webcam>-->\n</div>\n\n";
     /***/
   },
 
@@ -1288,12 +1288,91 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*#__PURE__*/
     function () {
       function EstudianteComponent() {
+        /*Promise.all([
+          //faceapi.nets.ageGenderNet.loadFromUri('/modelos'),
+          faceapi.nets.faceExpressionNet.loadFromUri('/modelos'),
+          faceapi.nets.faceLandmark68Net.loadFromUri('/modelos'),
+          //faceapi.nets.faceLandmark68TinyNet.loadFromUri('/modelos'),
+          faceapi.nets.faceRecognitionNet.loadFromUri('/modelos'),
+          //faceapi.nets.ssdMobilenetv1.loadFromUri('/modelos'),
+          faceapi.nets.tinyFaceDetector.loadFromUri('/modelos')
+          //faceapi.nets.tinyYolov2.loadFromUri('/modelos')
+        ]);*/
+
         _classCallCheck(this, EstudianteComponent);
       }
 
       _createClass(EstudianteComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {}
+      }, {
+        key: "ngAfterViewInit",
+        value: function ngAfterViewInit() {
+          var _this = this;
+
+          this.video = document.getElementById('video');
+          navigator.getUserMedia({
+            video: {}
+          }, function (stream) {
+            return _this.video.srcObject = stream;
+          }, function (err) {
+            return console.error(err);
+          });
+          Promise.all([//faceapi.nets.ageGenderNet.loadFromUri('/modelos'),
+          faceapi.nets.faceExpressionNet.loadFromUri('assets/modelos'), faceapi.nets.faceLandmark68Net.loadFromUri('assets/modelos'), //faceapi.nets.faceLandmark68TinyNet.loadFromUri('/modelos'),
+          faceapi.nets.faceRecognitionNet.loadFromUri('assets/modelos'), //faceapi.nets.ssdMobilenetv1.loadFromUri('/modelos'),
+          faceapi.nets.tinyFaceDetector.loadFromUri('assets/modelos') //faceapi.nets.tinyYolov2.loadFromUri('/modelos')
+          ]);
+          console.log("hemos cargado los modelos");
+          this.video.addEventListener('play', function () {
+            var canvas = faceapi.createCanvasFromMedia(_this.video);
+            document.body.append(canvas);
+            var displaySize = {
+              width: _this.video.width,
+              height: _this.video.height
+            };
+            faceapi.matchDimensions(canvas, displaySize);
+            setInterval(function () {
+              return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](_this, void 0, void 0,
+              /*#__PURE__*/
+              regeneratorRuntime.mark(function _callee() {
+                var detections, datosNeutral, datosHappy, datosSad, datosAngry, datosFearful, datosSurprised, datosDisgusted, maximo;
+                return regeneratorRuntime.wrap(function _callee$(_context) {
+                  while (1) {
+                    switch (_context.prev = _context.next) {
+                      case 0:
+                        _context.prev = 0;
+                        _context.next = 3;
+                        return faceapi.detectSingleFace(this.video, new faceapi.TinyFaceDetectorOptions()).withFaceLandmarks().withFaceExpressions();
+
+                      case 3:
+                        detections = _context.sent;
+                        datosNeutral = faceapi.resizeResults(detections, displaySize).expressions.neutral;
+                        datosHappy = faceapi.resizeResults(detections, displaySize).expressions.happy;
+                        datosSad = faceapi.resizeResults(detections, displaySize).expressions.sad;
+                        datosAngry = faceapi.resizeResults(detections, displaySize).expressions.angry;
+                        datosFearful = faceapi.resizeResults(detections, displaySize).expressions.fearful;
+                        datosSurprised = faceapi.resizeResults(detections, displaySize).expressions.surprised;
+                        datosDisgusted = faceapi.resizeResults(detections, displaySize).expressions.disgusted;
+                        maximo = Math.max(datosAngry, datosDisgusted, datosFearful, datosHappy, datosNeutral, datosSad, datosSurprised);
+                        console.log("Emociones detectadas:" + detections);
+                        _context.next = 17;
+                        break;
+
+                      case 15:
+                        _context.prev = 15;
+                        _context.t0 = _context["catch"](0);
+
+                      case 17:
+                      case "end":
+                        return _context.stop();
+                    }
+                  }
+                }, _callee, this, [[0, 15]]);
+              }));
+            }, 1000);
+          });
+        }
       }]);
 
       return EstudianteComponent;
@@ -1455,10 +1534,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "masterToggle",
         value: function masterToggle() {
-          var _this = this;
+          var _this2 = this;
 
           this.isAllSelected() ? this.selection.clear() : this.dataSource.data.forEach(function (row) {
-            return _this.selection.select(row);
+            return _this2.selection.select(row);
           });
         }
       }, {

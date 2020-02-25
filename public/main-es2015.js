@@ -45,7 +45,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"row\">\n    <div class=\"col-md-2\">\n        <!--<app-sidenav-profesor></app-sidenav-profesor>-->\n        <div class=\"sidenav list-group\">\n            <a href=\"#\">Emociones</a>\n        </div>\n    </div>\n</div>\n<div class=\"row justify-content-md-center\">\n    <!--<div class=\"col-md-8\">\n        <video id=\"video\" width=\"480\" height=\"360\" autoplay muted></video>\n    </div>-->\n    <webcam></webcam>\n</div>\n\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"row\">\n    <div class=\"col-md-2\">\n        <!--<app-sidenav-profesor></app-sidenav-profesor>-->\n        <div class=\"sidenav list-group\">\n            <a href=\"#\">Emociones</a>\n        </div>\n    </div>\n</div>\n<div class=\"row justify-content-md-center\">\n    <div class=\"col-md-8\">\n        <video id=\"video\" width=\"480\" height=\"360\" autoplay muted></video>\n    </div>\n    <!--<webcam></webcam>-->\n</div>\n\n");
 
 /***/ }),
 
@@ -678,8 +678,56 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let EstudianteComponent = class EstudianteComponent {
-    constructor() { }
+    constructor() {
+        /*Promise.all([
+          //faceapi.nets.ageGenderNet.loadFromUri('/modelos'),
+          faceapi.nets.faceExpressionNet.loadFromUri('/modelos'),
+          faceapi.nets.faceLandmark68Net.loadFromUri('/modelos'),
+          //faceapi.nets.faceLandmark68TinyNet.loadFromUri('/modelos'),
+          faceapi.nets.faceRecognitionNet.loadFromUri('/modelos'),
+          //faceapi.nets.ssdMobilenetv1.loadFromUri('/modelos'),
+          faceapi.nets.tinyFaceDetector.loadFromUri('/modelos')
+          //faceapi.nets.tinyYolov2.loadFromUri('/modelos')
+        ]);*/
+    }
     ngOnInit() {
+    }
+    ngAfterViewInit() {
+        this.video = document.getElementById('video');
+        navigator.getUserMedia({ video: {} }, stream => this.video.srcObject = stream, err => console.error(err));
+        Promise.all([
+            //faceapi.nets.ageGenderNet.loadFromUri('/modelos'),
+            faceapi.nets.faceExpressionNet.loadFromUri('assets/modelos'),
+            faceapi.nets.faceLandmark68Net.loadFromUri('assets/modelos'),
+            //faceapi.nets.faceLandmark68TinyNet.loadFromUri('/modelos'),
+            faceapi.nets.faceRecognitionNet.loadFromUri('assets/modelos'),
+            //faceapi.nets.ssdMobilenetv1.loadFromUri('/modelos'),
+            faceapi.nets.tinyFaceDetector.loadFromUri('assets/modelos')
+            //faceapi.nets.tinyYolov2.loadFromUri('/modelos')
+        ]);
+        console.log("hemos cargado los modelos");
+        this.video.addEventListener('play', () => {
+            const canvas = faceapi.createCanvasFromMedia(this.video);
+            document.body.append(canvas);
+            const displaySize = { width: this.video.width, height: this.video.height };
+            faceapi.matchDimensions(canvas, displaySize);
+            setInterval(() => tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
+                try {
+                    const detections = yield faceapi.detectSingleFace(this.video, new faceapi.TinyFaceDetectorOptions()).withFaceLandmarks().withFaceExpressions();
+                    var datosNeutral = faceapi.resizeResults(detections, displaySize).expressions.neutral;
+                    var datosHappy = faceapi.resizeResults(detections, displaySize).expressions.happy;
+                    var datosSad = faceapi.resizeResults(detections, displaySize).expressions.sad;
+                    var datosAngry = faceapi.resizeResults(detections, displaySize).expressions.angry;
+                    var datosFearful = faceapi.resizeResults(detections, displaySize).expressions.fearful;
+                    var datosSurprised = faceapi.resizeResults(detections, displaySize).expressions.surprised;
+                    var datosDisgusted = faceapi.resizeResults(detections, displaySize).expressions.disgusted;
+                    var maximo = Math.max(datosAngry, datosDisgusted, datosFearful, datosHappy, datosNeutral, datosSad, datosSurprised);
+                    console.log("Emociones detectadas:" + detections);
+                }
+                catch (error) {
+                }
+            }), 1000);
+        });
     }
 };
 EstudianteComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
