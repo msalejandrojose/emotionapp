@@ -48,8 +48,8 @@ function Centro() {
 
         this.dao.connect(function (db) {
 
-            ju.dao.modificarEstudiante(est._u,e, function (u) {
-                console.log(est._id);
+            ju.dao.modificarEstudiante(est._id,e, function (u) {
+                //console.log(est._id);
                 //ju.estudiantes[est._id] = ju.estudiantes[est._id].modificarDatos(e);
                 callback(u);
                 db.close();
