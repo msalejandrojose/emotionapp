@@ -48,14 +48,16 @@ function Centro() {
 
         this.dao.connect(function (db) {
 
-            ju.dao.modificarEstudiante(est._id,e, function (u) {
+            ju.dao.modificarEstudiante(est._id, e, function (u) {
                 //console.log(est._id);
-                //ju.estudiantes[est._id] = ju.estudiantes[est._id].modificarDatos(e);
+                delete ju.estudiantes[est._id];
+                ju.estudiantes[est._id] = est;
+                //ju.estudiantes[est._id].modificarDatos(est);
+                //console.log(ju.estudiantes[est._id]);
                 callback(u);
                 db.close();
             });
         });
-
     }
 
     this.borrarEstudiante = function (est, callback) {
