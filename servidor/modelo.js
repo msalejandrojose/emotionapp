@@ -25,8 +25,8 @@ function Centro() {
 
         this.dao.connect(function (db) {
             ju.dao.insertarEstudiante(e, function (u) {
-                ju.estudiantes[email] = new Estudiante(u._id, u.nombre, u.apellidos, u.clase, u.email, u.contrasena);
-                console.log(ju.estudiantes[email]);
+                ju.estudiantes[u._id] = new Estudiante(u._id, u.nombre, u.apellidos, u.clase, u.email, u.contrasena);
+                console.log(ju.estudiantes[u._id]);
                 //ju.borrarEstudiante(email);
                 //ju.modificarEstudiante("emailAntiguo", "nombre", "apellidos", "clase", "emailNuevo", "contrasena");
                 callback(u);
@@ -36,21 +36,21 @@ function Centro() {
 
     }
 
-    this.modificarEstudiante = function (emailAntiguo, nombre, apellidos, clase, emailNuevo, contrasena, callback) {
+    this.modificarEstudiante = function (est, callback) {
         var ju = this;
         let e = {
-            _id: this.estudiantes[emailAntiguo]._id,
-            nombre: nombre,
-            apellidos: apellidos,
-            clase: clase,
-            email: emailNuevo,
-            contrasena: contrasena,
+            nombre: est.nombre,
+            apellidos: est.apellidos,
+            clase: est.clase,
+            email: est.email,
+            contrasena: est.contrasena,
         }
 
         this.dao.connect(function (db) {
-            ju.dao.modificarEstudiante(e, function (u) {
-                ju.estudiantes[emailNuevo] = ju.estudiantes[emailAntiguo].modificarDatos(u.nombre, u.apellidos, u.clase, u.emailNuevo, u.contrasena);
-                delete ju.estudiantes[emailAntiguo];
+
+            ju.dao.modificarEstudiante(est._u,e, function (u) {
+                console.log(est._id);
+                //ju.estudiantes[est._id] = ju.estudiantes[est._id].modificarDatos(e);
                 callback(u);
                 db.close();
             });
@@ -58,17 +58,18 @@ function Centro() {
 
     }
 
-    this.borrarEstudiante = function (email, callback) {
+    this.borrarEstudiante = function (est, callback) {
         var ju = this;
-        if (this.estudiantes[email] != null) {
-            this.dao.connect(function (db) {
-                ju.dao.eliminarEstudiante(ju.estudiantes[email]._id, function (u) {
-                    delete ju.estudiantes[email];
-                    callback(u);
-                    db.close();
-                });
+        //console.log(this.estudiantes[_id]);
+
+        this.dao.connect(function (db) {
+            ju.dao.eliminarEstudiante(est, function (u) {
+                delete ju.estudiantes[est._id];
+                //console.log(u);
+                callback(est);
+                db.close();
             });
-        }
+        });
     }
 
     //CRUD Actividades
@@ -87,42 +88,41 @@ function Centro() {
 
         this.dao.connect(function (db) {
             ju.dao.insertarActividad(a, function (u) {
-                ju.actividades[nombre] = new Actividad(u._id, u.nombre, u.profesor, u.alumnos, u.estado);
+                ju.actividades[u._id] = new Actividad(u._id, u.nombre, u.profesor, u.alumnos, u.estado);
                 callback(u);
                 db.close();
             });
         });
     }
-    this.editarActividad = function (nombreAntiguo, nombreNuevo, profesor, estudiantes, estado, callback) {
+    this.editarActividad = function (act, callback) {
         var ju = this;
-        if (this.actividades[nombreAntiguo] != null) {
+        if (this.actividades[act._id] != null) {
             let alumnos = {};
             for (var email in estudiantes) {
                 alumnos[email] = new Alumno(estudiantes[email]);
             }
             let a = {
-                _id: this.actividades[nombreAntiguo]._id,
-                nombre: nombreNuevo,
-                profesor: profesor,
-                alumnos: alumnos,
-                estado: estado,
+                _id: act._id,
+                nombre: act.nombre,
+                profesor: act.profesor,
+                alumnos: act.alumnos,
+                estado: act.estado,
             }
             this.dao.connect(function (db) {
                 ju.dao.modificarActividad(a, function (u) {
-                    ju.actividades[nombreNuevo] = ju.actividades[nombreAntiguo].editarActividad(u.nombreNuevo, u.profesor, u.alumnos, u.estado);
-                    delete ju.actividades[nombreAntiguo];
+                    ju.actividades[u._id].editarActividad(u.nombre, u.profesor, u.alumnos, u.estado);
                     callback(u);
                     db.close();
                 });
             });
         }
     }
-    this.borrarActividad = function (nombre, callback) {
+    this.borrarActividad = function (_id, callback) {
         var ju = this;
-        if (this.actividades[nombre] != null) {
+        if (this.actividades[_id] != null) {
             this.dao.connect(function (db) {
-                ju.dao.eliminarActividad(ju.actividades[nombre]._id, function (u) {
-                    delete ju.actividades[nombre];
+                ju.dao.eliminarActividad(_id, function (u) {
+                    delete ju.actividades[_id];
                     callback(u);
                     db.close();
                 });
@@ -131,15 +131,15 @@ function Centro() {
     }
 
     //Añadir Alumnos a la Actividad
-    this.anadirAlumnoaActividad = function (nombreActividad, emailEstudiante,callback) {
+    this.anadirAlumnoaActividad = function (_id, emailEstudiante, callback) {
         var ju = this;
-        var act = this.actividades[nombreActividad];
+        var act = this.actividades[_id];
         if (act != null) {
             act.alumnos[emailEstudiante] = new Alumno(this.estudiantes[emailEstudiante]);
             this.dao.connect(function (db) {
                 ju.dao.modificarActividad(act, function (u) {
                     console.log(ju.actividades);
-                    ju.actividades[nombreActividad].anadirAlumno(ju.estudiantes[emailEstudiante]);
+                    ju.actividades[_id].anadirAlumno(ju.estudiantes[emailEstudiante]);
                     callback(u);
                     db.close();
                 });
@@ -147,18 +147,18 @@ function Centro() {
         }
     }
 
-    this.borrarAlumnoDeActividad = function (nombreActividad, emailAlumno,callback) {
-        this.actividades[nombreActividad].borrarAlumno(emailAlumno);
+    this.borrarAlumnoDeActividad = function (_id, emailAlumno, callback) {
+        this.actividades[_id].borrarAlumno(emailAlumno);
 
         var ju = this;
-        var act = this.actividades[nombreActividad];
+        var act = this.actividades[_id];
         if (act != null) {
             delete act.alumnos[emailAlumno];
             this.dao.connect(function (db) {
                 ju.dao.modificarActividad(act, function (u) {
                     console.log(ju.actividades);
                     //ju.actividades[nombreActividad].anadirAlumno(ju.estudiantes[emailEstudiante]);
-                    ju.actividades[nombreActividad].borrarAlumno(emailAlumno);
+                    ju.actividades[_id].borrarAlumno(emailAlumno);
                     callback(u);
                     db.close();
                 });
@@ -176,19 +176,18 @@ function Centro() {
         var ju = this;
         this.dao.connect(function (db) {
             ju.dao.mostrarEstudiantes(function (u) {
-                ju.estudiantes=u;
+                ju.estudiantes = u;
                 callback(u);
                 db.close();
             });
         });
         //return this.estudiantes;
     }
-
-    this.mostrarActividades = function(callback){
+    this.mostrarActividades = function (callback) {
         var ju = this;
-        this.dao.connect(function (db){
-            ju.dao.mostrarActividades(function(u){
-                ju.actividades=u;
+        this.dao.connect(function (db) {
+            ju.dao.mostrarActividades(function (u) {
+                ju.actividades = u;
                 callback(u);
                 db.close();
             });
@@ -241,12 +240,12 @@ function Estudiante(id, nombre, apellidos, clase, email, contrasena) {
     this.email = email;
     this.contrasena = contrasena;
 
-    this.modificarDatos = function (nombre, apellidos, clase, email, contrasena) {
-        this.nombre = nombre;
-        this.apellidos = apellidos;
-        this.clase = clase;
-        this.email = email;
-        this.contrasena = contrasena;
+    this.modificarDatos = function (est) {
+        this.nombre = est.nombre;
+        this.apellidos = est.apellidos;
+        this.clase = est.clase;
+        this.email = est.email;
+        this.contrasena = est.contrasena;
         return this;
     }
 

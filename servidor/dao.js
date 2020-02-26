@@ -32,37 +32,37 @@ function Dao() {
         obtener(this.usuarios, criterio, callback);
     };*/
 
-    this.insertarEstudiante = function(est,callback){
+    this.insertarEstudiante = function (est, callback) {
         //console.log(estudiante);
         insertar(this.Estudiante, est, callback);
     }
 
-    this.modificarEstudiante = function(est,callback){
-        modificarColeccion(this.Estudiante,est,callback);
+    this.modificarEstudiante = function (id,est, callback) {
+        modificarColeccion(this.Estudiante, id ,est, callback);
     }
 
-    this.eliminarEstudiante = function(id,callback){
-        eliminar(this.Estudiante,{ _id: ObjectID(id) },callback);
+    this.eliminarEstudiante = function (est, callback) {
+        eliminar(this.Estudiante, { _id: ObjectID(est._id) }, callback);
     }
 
-    this.mostrarEstudiantes = function(callback){
-        obtenerTodos(this.Estudiante,callback);
+    this.mostrarEstudiantes = function (callback) {
+        obtenerTodos(this.Estudiante, callback);
     }
 
-    this.insertarActividad = function(act,callback){
-        insertar(this.Actividad,act,callback);
+    this.insertarActividad = function (act, callback) {
+        insertar(this.Actividad, act, callback);
     }
 
-    this.modificarActividad = function(act,callback){
-        modificarColeccion(this.Actividad,act,callback);
+    this.modificarActividad = function (act, callback) {
+        modificarColeccion(this.Actividad, act, callback);
     }
 
-    this.eliminarActividad = function(id,callback){
-        eliminar(this.Actividad,{ _id: ObjectID(id) },callback);
+    this.eliminarActividad = function (id, callback) {
+        eliminar(this.Actividad, { _id: ObjectID(id) }, callback);
     }
 
-    this.mostrarActividades = function(callback){
-        obtenerTodos(this.Actividad,callback);
+    this.mostrarActividades = function (callback) {
+        obtenerTodos(this.Actividad, callback);
     }
 
     function obtener(coleccion, criterio, callback) {
@@ -80,10 +80,11 @@ function Dao() {
         modificarColeccion(this.usuarios, usr, callback);
     }*/
 
-    function modificarColeccion(coleccion, usr, callback) {
-        coleccion.findAndModify({ _id: ObjectID(usr._id) }, {}, usr, {}, function (err, result) {
+    function modificarColeccion(coleccion, id, usr, callback) {
+        coleccion.update({ _id: ObjectID(id) }, usr, {}, function (err, result) {
             if (err) {
                 console.log("No se pudo actualizar (método genérico)");
+                console.log(err)
             }
             else {
                 console.log("Elemento actualizado");
