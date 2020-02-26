@@ -75,12 +75,12 @@ function Centro() {
     }
 
     //CRUD Actividades
-    this.agregarActividad = function (nombre, profesor, estudiantes, callback) {
+    this.agregarActividad = function (nombre, profesor, alumnos, callback) {
         var ju = this;
-        let alumnos = {};
+        /*let alumnos = {};
         for (var email in estudiantes) {
             alumnos[email] = new Alumno(estudiantes[email]);
-        }
+        }*/
         let a = {
             nombre: nombre,
             profesor: profesor,
@@ -253,11 +253,11 @@ function Estudiante(id, nombre, apellidos, clase, email, contrasena) {
 
 }
 
-function Alumno(estudiante) {
+function Alumno(estudiante,posicion) {
 
     //Atributos
     this.estudiante = estudiante;
-    this.posicion = { x: 0, y: 0 }
+    this.posicion = posicion;
 
 
 }

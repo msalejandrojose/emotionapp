@@ -906,9 +906,11 @@ let CrearActividadComponent = class CrearActividadComponent {
                 arryaAlumnos.push({
                     'nombre': this.selection.selected[i].nombre,
                     'apellidos': this.selection.selected[i].apellidos,
+                    'clase': '',
                     posicion: { x: 0, y: 0 },
                     posicionInicial: { x: columna * 70, y: 70 * fila },
                 });
+                //arryaAlumnos[this.selection.selected[i].email]=this.selection.selected[i];
                 columna++;
             }
             else {
@@ -1155,6 +1157,7 @@ let ProfesorComponent = class ProfesorComponent {
     }
     guardarActividad(actividad) {
         //this.actividadCreada = actividad;
+        console.log(actividad);
         this.listaActividades.push(actividad);
         this.crearActividad = false;
         console.log(this.listaActividades);

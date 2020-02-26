@@ -54,6 +54,16 @@ app.delete("/eliminarEstudiante", function (request, response) {
   });
 });
 
+app.post("/registrarActividad", function (request, response) {
+  var act = request.body;
+  centro.agregarActividad(act.nombre,act.profesor,act.alumnos,function(res){
+    if (res != '') {
+      console.log("Actividad agregada");
+      response.send(res);
+    }
+  })
+});
+
 
 server.listen(app.get('port'), function () {
   console.log('Node app se está ejecutando en el puerto', port);

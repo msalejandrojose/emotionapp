@@ -1668,6 +1668,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               arryaAlumnos.push({
                 'nombre': this.selection.selected[i].nombre,
                 'apellidos': this.selection.selected[i].apellidos,
+                'clase': '',
                 posicion: {
                   x: 0,
                   y: 0
@@ -1676,7 +1677,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                   x: columna * 70,
                   y: 70 * fila
                 }
-              });
+              }); //arryaAlumnos[this.selection.selected[i].email]=this.selection.selected[i];
+
               columna++;
             } else {
               fila++;
@@ -2006,6 +2008,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         key: "guardarActividad",
         value: function guardarActividad(actividad) {
           //this.actividadCreada = actividad;
+          console.log(actividad);
           this.listaActividades.push(actividad);
           this.crearActividad = false;
           console.log(this.listaActividades);
