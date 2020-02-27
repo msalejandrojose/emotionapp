@@ -469,7 +469,7 @@ let AppComponent = class AppComponent {
             email: '',
             contrasena: '',
         };
-        this.video = document.getElementById('video');
+        //this.video = document.getElementById('video');
     }
 };
 AppComponent.ctorParameters = () => [
@@ -544,14 +544,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_44__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
 /* harmony import */ var ngx_webcam__WEBPACK_IMPORTED_MODULE_45__ = __webpack_require__(/*! ngx-webcam */ "./node_modules/ngx-webcam/fesm2015/ngx-webcam.js");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_46__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
-/* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_47__ = __webpack_require__(/*! ./app-routing.module */ "./src/app/app-routing.module.ts");
-/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_48__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
-/* harmony import */ var _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_49__ = __webpack_require__(/*! @angular/platform-browser/animations */ "./node_modules/@angular/platform-browser/fesm2015/animations.js");
-/* harmony import */ var _profesor_profesor_component__WEBPACK_IMPORTED_MODULE_50__ = __webpack_require__(/*! ./profesor/profesor.component */ "./src/app/profesor/profesor.component.ts");
-/* harmony import */ var _estudiante_estudiante_component__WEBPACK_IMPORTED_MODULE_51__ = __webpack_require__(/*! ./estudiante/estudiante.component */ "./src/app/estudiante/estudiante.component.ts");
-/* harmony import */ var _profesor_sidenav_profesor_sidenav_profesor_component__WEBPACK_IMPORTED_MODULE_52__ = __webpack_require__(/*! ./profesor/sidenav-profesor/sidenav-profesor.component */ "./src/app/profesor/sidenav-profesor/sidenav-profesor.component.ts");
-/* harmony import */ var _profesor_crear_actividad_crear_actividad_component__WEBPACK_IMPORTED_MODULE_53__ = __webpack_require__(/*! ./profesor/crear-actividad/crear-actividad.component */ "./src/app/profesor/crear-actividad/crear-actividad.component.ts");
-/* harmony import */ var _profesor_ver_actividad_ver_actividad_component__WEBPACK_IMPORTED_MODULE_54__ = __webpack_require__(/*! ./profesor/ver-actividad/ver-actividad.component */ "./src/app/profesor/ver-actividad/ver-actividad.component.ts");
+/* harmony import */ var _socketio_service__WEBPACK_IMPORTED_MODULE_47__ = __webpack_require__(/*! ./socketio.service */ "./src/app/socketio.service.ts");
+/* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_48__ = __webpack_require__(/*! ./app-routing.module */ "./src/app/app-routing.module.ts");
+/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_49__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
+/* harmony import */ var _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_50__ = __webpack_require__(/*! @angular/platform-browser/animations */ "./node_modules/@angular/platform-browser/fesm2015/animations.js");
+/* harmony import */ var _profesor_profesor_component__WEBPACK_IMPORTED_MODULE_51__ = __webpack_require__(/*! ./profesor/profesor.component */ "./src/app/profesor/profesor.component.ts");
+/* harmony import */ var _estudiante_estudiante_component__WEBPACK_IMPORTED_MODULE_52__ = __webpack_require__(/*! ./estudiante/estudiante.component */ "./src/app/estudiante/estudiante.component.ts");
+/* harmony import */ var _profesor_sidenav_profesor_sidenav_profesor_component__WEBPACK_IMPORTED_MODULE_53__ = __webpack_require__(/*! ./profesor/sidenav-profesor/sidenav-profesor.component */ "./src/app/profesor/sidenav-profesor/sidenav-profesor.component.ts");
+/* harmony import */ var _profesor_crear_actividad_crear_actividad_component__WEBPACK_IMPORTED_MODULE_54__ = __webpack_require__(/*! ./profesor/crear-actividad/crear-actividad.component */ "./src/app/profesor/crear-actividad/crear-actividad.component.ts");
+/* harmony import */ var _profesor_ver_actividad_ver_actividad_component__WEBPACK_IMPORTED_MODULE_55__ = __webpack_require__(/*! ./profesor/ver-actividad/ver-actividad.component */ "./src/app/profesor/ver-actividad/ver-actividad.component.ts");
 
 /*
 import { NgModule } from '@angular/core';
@@ -615,17 +616,18 @@ import {MatStepperModule} from '@angular/material/stepper';*/
 
 
 
+
 let AppModule = class AppModule {
 };
 AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
         declarations: [
-            _app_component__WEBPACK_IMPORTED_MODULE_48__["AppComponent"],
-            _profesor_profesor_component__WEBPACK_IMPORTED_MODULE_50__["ProfesorComponent"],
-            _estudiante_estudiante_component__WEBPACK_IMPORTED_MODULE_51__["EstudianteComponent"],
-            _profesor_sidenav_profesor_sidenav_profesor_component__WEBPACK_IMPORTED_MODULE_52__["SidenavProfesorComponent"],
-            _profesor_crear_actividad_crear_actividad_component__WEBPACK_IMPORTED_MODULE_53__["CrearActividadComponent"],
-            _profesor_ver_actividad_ver_actividad_component__WEBPACK_IMPORTED_MODULE_54__["VerActividadComponent"],
+            _app_component__WEBPACK_IMPORTED_MODULE_49__["AppComponent"],
+            _profesor_profesor_component__WEBPACK_IMPORTED_MODULE_51__["ProfesorComponent"],
+            _estudiante_estudiante_component__WEBPACK_IMPORTED_MODULE_52__["EstudianteComponent"],
+            _profesor_sidenav_profesor_sidenav_profesor_component__WEBPACK_IMPORTED_MODULE_53__["SidenavProfesorComponent"],
+            _profesor_crear_actividad_crear_actividad_component__WEBPACK_IMPORTED_MODULE_54__["CrearActividadComponent"],
+            _profesor_ver_actividad_ver_actividad_component__WEBPACK_IMPORTED_MODULE_55__["VerActividadComponent"],
         ],
         exports: [
             _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_33__["MatSidenavModule"],
@@ -687,8 +689,8 @@ AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         ],
         imports: [
             _angular_platform_browser__WEBPACK_IMPORTED_MODULE_43__["BrowserModule"],
-            _app_routing_module__WEBPACK_IMPORTED_MODULE_47__["AppRoutingModule"],
-            _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_49__["BrowserAnimationsModule"],
+            _app_routing_module__WEBPACK_IMPORTED_MODULE_48__["AppRoutingModule"],
+            _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_50__["BrowserAnimationsModule"],
             _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_33__["MatSidenavModule"],
             _angular_forms__WEBPACK_IMPORTED_MODULE_44__["FormsModule"],
             _angular_material_button__WEBPACK_IMPORTED_MODULE_12__["MatButtonModule"],
@@ -711,8 +713,9 @@ AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         ],
         providers: [_angular_material_sidenav__WEBPACK_IMPORTED_MODULE_33__["MatSidenavModule"],
             _angular_material_stepper__WEBPACK_IMPORTED_MODULE_17__["MatStepperModule"],
+            _socketio_service__WEBPACK_IMPORTED_MODULE_47__["SocketioService"],
         ],
-        bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_48__["AppComponent"]]
+        bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_49__["AppComponent"]]
     })
 ], AppModule);
 
@@ -794,10 +797,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EstudianteComponent", function() { return EstudianteComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _socketio_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../socketio.service */ "./src/app/socketio.service.ts");
+
 
 
 let EstudianteComponent = class EstudianteComponent {
-    constructor() {
+    constructor(socketService) {
+        this.socketService = socketService;
         this.estudianteIniciado = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
         this.ColorHappy = 'rgba(255,255,84,1)'; //Color de la felicidad Correcto
         this.ColorNeutral = 'rgba(84,255,84,1)'; //Color Neutro Incorrecto
@@ -844,6 +850,7 @@ let EstudianteComponent = class EstudianteComponent {
                 ju.estudiante = data;
                 ju.noHayEstudiante = false;
                 ju.estudianteIniciado.emit(ju.estudiante);
+                ju.socketService.setupSocketConnection();
                 ju.empezar();
             },
             contentType: 'application/json',
@@ -980,6 +987,9 @@ let EstudianteComponent = class EstudianteComponent {
         });
     }
 };
+EstudianteComponent.ctorParameters = () => [
+    { type: _socketio_service__WEBPACK_IMPORTED_MODULE_2__["SocketioService"] }
+];
 tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])()
 ], EstudianteComponent.prototype, "estudianteIniciado", void 0);
@@ -1533,6 +1543,43 @@ VerActividadComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 /***/ }),
 
+/***/ "./src/app/socketio.service.ts":
+/*!*************************************!*\
+  !*** ./src/app/socketio.service.ts ***!
+  \*************************************/
+/*! exports provided: SocketioService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SocketioService", function() { return SocketioService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var socket_io_client__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! socket.io-client */ "./node_modules/socket.io-client/lib/index.js");
+/* harmony import */ var socket_io_client__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(socket_io_client__WEBPACK_IMPORTED_MODULE_2__);
+
+
+
+let SocketioService = class SocketioService {
+    constructor() { }
+    setupSocketConnection() {
+        this.socket = socket_io_client__WEBPACK_IMPORTED_MODULE_2__();
+        this.socket.emit('mi mensaje', 'Hola desde Angular');
+        this.socket.on('mi mensaje', (data) => {
+            console.log(data);
+        });
+    }
+};
+SocketioService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+        providedIn: 'root'
+    })
+], SocketioService);
+
+
+
+/***/ }),
+
 /***/ "./src/environments/environment.ts":
 /*!*****************************************!*\
   !*** ./src/environments/environment.ts ***!
@@ -1603,6 +1650,17 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_3__["platformB
 
 module.exports = __webpack_require__(/*! /Users/msalejandrojose/Documents/TFG/emotionapp/cliente/src/main.ts */"./src/main.ts");
 
+
+/***/ }),
+
+/***/ 1:
+/*!********************!*\
+  !*** ws (ignored) ***!
+  \********************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+/* (ignored) */
 
 /***/ })
 

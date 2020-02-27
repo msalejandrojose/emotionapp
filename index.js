@@ -86,7 +86,7 @@ app.delete("/eliminarActividad", function (request, response) {
 
 app.post("/estudianteIniciarSesion", function (request, response) {
   var est = request.body;
-  console.log(est);
+  //console.log(est);
   centro.iniciarSesion(est.email,est.contrasena,function(res){
     response.send(res);
   })

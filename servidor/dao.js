@@ -71,7 +71,7 @@ function Dao() {
 
     function obtener(coleccion, criterio, callback) {
         coleccion.find(criterio).toArray(function (error, usr) {
-            console.log(usr)
+            //console.log(usr)
             if (usr.length == 0) {
                 callback(undefined);
             }
@@ -133,13 +133,13 @@ function Dao() {
                 console.log("No pudo conectar a la base de datos: " + err)
             }
             else {
-                console.log("conectado a Mongo: EmotionAppAJ");
+                //console.log("conectado a Mongo: EmotionAppAJ");
                 database.db("emotionappaj").collection("Actividad", function (err, col) {
                     if (err) {
                         console.log("No pude obtener la coleccion Actividad")
                     }
                     else {
-                        console.log("tenemos la colección Actividad");
+                        //console.log("tenemos la colección Actividad");
                         dao.Actividad = col;
                     }
                 });
@@ -148,7 +148,7 @@ function Dao() {
                         console.log("No pude obtener la coleccion Estudiante")
                     }
                     else {
-                        console.log("tenemos la colección Estudiante");
+                        //console.log("tenemos la colección Estudiante");
                         dao.Estudiante = col;
                     }
                 });
@@ -157,7 +157,7 @@ function Dao() {
                         console.log("No pude obtener la coleccion Profesor")
                     }
                     else {
-                        console.log("tenemos la colección Profesor");
+                        //console.log("tenemos la colección Profesor");
                         dao.Profesor = col;
                     }
                 });

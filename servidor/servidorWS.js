@@ -12,6 +12,12 @@ function ServidorWS() {
         var cli = this;
         io.on('connection', function (socket) {
             console.log("Nueva conexión");
+
+            socket.on ('mi mensaje', ( msg ) => { 
+                console .log ('mensaje:' + msg); 
+                cli.enviarRemitente(socket,"mi mensaje","hola soy el servidor WS");
+              });
+
             /*
             socket.on('crearPartida', function (nick, nombrePartida) {
                 juego.crearPartida(nombrePartida, nick, function (partida) {

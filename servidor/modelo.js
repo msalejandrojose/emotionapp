@@ -214,11 +214,11 @@ function Centro() {
         this.dao.connect(function (db) {
             ju.dao.obtenerEstudianteCriterio({ $and: [{ 'contrasena': contrasena }, { 'email': email }] }, function (u) {
 				if (!u) {
-					console.log("No se ha podido loguear");
+					//console.log("No se ha podido loguear");
 				}
 				else {
-					console.log("El usuario es: " + u._id);
-					console.log("Se ha podido Loguear");
+					//console.log("El usuario es: " + u._id);
+					//console.log("Se ha podido Loguear");
 					callback(u);
 				}
 				db.close();
