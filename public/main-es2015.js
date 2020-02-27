@@ -852,7 +852,12 @@ let EstudianteComponent = class EstudianteComponent {
     }
     empezar() {
         this.video = document.getElementById('video');
+        let constraints = {
+            audio: false,
+            video: true
+        };
         navigator.getUserMedia({ video: {} }, stream => this.video.srcObject = stream, err => console.error(err));
+        navigator.mediaDevices.getUserMedia(constraints);
         Promise.all([
             //faceapi.nets.ageGenderNet.loadFromUri('/modelos'),
             faceapi.nets.faceExpressionNet.loadFromUri('assets/modelos'),

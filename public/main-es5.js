@@ -1555,6 +1555,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           var _this = this;
 
           this.video = document.getElementById('video');
+          var constraints = {
+            audio: false,
+            video: true
+          };
           navigator.getUserMedia({
             video: {}
           }, function (stream) {
@@ -1562,6 +1566,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           }, function (err) {
             return console.error(err);
           });
+          navigator.mediaDevices.getUserMedia(constraints);
           Promise.all([//faceapi.nets.ageGenderNet.loadFromUri('/modelos'),
           faceapi.nets.faceExpressionNet.loadFromUri('assets/modelos'), faceapi.nets.faceLandmark68Net.loadFromUri('assets/modelos'), //faceapi.nets.faceLandmark68TinyNet.loadFromUri('/modelos'),
           faceapi.nets.faceRecognitionNet.loadFromUri('assets/modelos'), //faceapi.nets.ssdMobilenetv1.loadFromUri('/modelos'),
