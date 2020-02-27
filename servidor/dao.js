@@ -32,6 +32,10 @@ function Dao() {
         obtener(this.usuarios, criterio, callback);
     };*/
 
+    this.obtenerEstudianteCriterio = function(criterio,callback){
+        obtener(this.Estudiante,criterio,callback);
+    }
+
     this.insertarEstudiante = function (est, callback) {
         //console.log(estudiante);
         insertar(this.Estudiante, est, callback);
@@ -67,6 +71,7 @@ function Dao() {
 
     function obtener(coleccion, criterio, callback) {
         coleccion.find(criterio).toArray(function (error, usr) {
+            console.log(usr)
             if (usr.length == 0) {
                 callback(undefined);
             }

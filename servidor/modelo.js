@@ -208,6 +208,25 @@ function Centro() {
         });
     }
 
+    //Iniciar Sesion
+    this.iniciarSesion = function(email,contrasena,callback){
+        var ju = this;
+        this.dao.connect(function (db) {
+            ju.dao.obtenerEstudianteCriterio({ $and: [{ 'contrasena': contrasena }, { 'email': email }] }, function (u) {
+				if (!u) {
+					console.log("No se ha podido loguear");
+				}
+				else {
+					console.log("El usuario es: " + u._id);
+					console.log("Se ha podido Loguear");
+					callback(u);
+				}
+				db.close();
+			});
+        });
+
+    }
+
 }
 
 function Actividad(id, nombre, profesor, alumnos, estado) {

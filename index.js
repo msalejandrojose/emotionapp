@@ -71,7 +71,7 @@ app.post("/registrarActividad", function (request, response) {
   })
 });
 
-//eliminarActividad
+//actualizarActividad
 
 app.delete("/eliminarActividad", function (request, response) {
   var act = request.body;
@@ -79,6 +79,14 @@ app.delete("/eliminarActividad", function (request, response) {
   centro.borrarActividad(act, function (res) {
     response.send(res);
   });
+});
+
+app.post("/estudianteIniciarSesion", function (request, response) {
+  var est = request.body;
+  console.log(est);
+  centro.iniciarSesion(est.email,est.contrasena,function(res){
+    response.send(res);
+  })
 });
 
 
