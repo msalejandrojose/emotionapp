@@ -45,7 +45,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<!--<div class=\"row\">\n    <div class=\"col-md-2\">\n        <!--<app-sidenav-profesor></app-sidenav-profesor>\n        <div class=\"sidenav list-group\">\n            <a href=\"#\">Emociones</a>\n        </div>\n    </div>\n</div>-->\n<br>\n<div *ngIf=\"noHayEstudiante\" class=\"row justify-content-md-center\">\n    <div class=\"card col-md-6\">\n        <div class=\"card-body\">\n            <h4 class=\"card-title\">Iniciar Sesion</h4>\n            <div>\n                <label>Email</label>\n                <input [(ngModel)]=\"estudiante.email\" type=\"email\" class=\"form-control\" id=\"emailIS\" ng-model=\"email\"\n                    placeholder=\"Email\">\n                <br>\n                <label>Contraseña</label>\n                <input [(ngModel)]=\"estudiante.contrasena\" type=\"password\" class=\"form-control\" id=\"contrasenaIS\"\n                    ng-model=\"contrasena\" placeholder=\"Contraseña\">\n                <br>\n                <button type=\"button\" (click)=\"limpiar()\" class=\"btn btn-raised btn-danger\">Cancelar</button>\n                <button type=\"button\" (click)=\"iniciarSesion()\" class=\"btn btn-raised btn-success\">Iniciar\n                    Sesion</button>\n            </div>\n        </div>\n    </div>\n</div>\n<div class=\"row justify-content-md-center\">\n    <div class=\"col-md-8\">\n        <video id=\"video\" width=\"480\" height=\"360\" autoplay muted></video>\n    </div>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<!--<div class=\"row\">\n    <div class=\"col-md-2\">\n        <!--<app-sidenav-profesor></app-sidenav-profesor>\n        <div class=\"sidenav list-group\">\n            <a href=\"#\">Emociones</a>\n        </div>\n    </div>\n</div>-->\n<br>\n<div *ngIf=\"noHayEstudiante\" class=\"row justify-content-md-center\">\n    <div class=\"card col-md-6\">\n        <div class=\"card-body\">\n            <h4 class=\"card-title\">Iniciar Sesion</h4>\n            <div>\n                <label>Email</label>\n                <input [(ngModel)]=\"estudiante.email\" type=\"email\" class=\"form-control\" id=\"emailIS\" ng-model=\"email\"\n                    placeholder=\"Email\">\n                <br>\n                <label>Contraseña</label>\n                <input [(ngModel)]=\"estudiante.contrasena\" type=\"password\" class=\"form-control\" id=\"contrasenaIS\"\n                    ng-model=\"contrasena\" placeholder=\"Contraseña\">\n                <br>\n                <button type=\"button\" (click)=\"limpiar()\" class=\"btn btn-raised btn-danger\">Cancelar</button>\n                <button type=\"button\" (click)=\"iniciarSesion()\" class=\"btn btn-raised btn-success\">Iniciar\n                    Sesion</button>\n            </div>\n        </div>\n    </div>\n</div>\n<div class=\"row justify-content-md-center\">\n    <div class=\"col-md-8\">\n        <video id=\"video\" width=\"480\" height=\"360\" autoplay muted></video>\n    </div>\n    <div class=\"col-md-4\" id=\"estadoAlumno\" class=\"circulo\">\n        <p>Estado</p>\n    </div>\n</div>");
 
 /***/ }),
 
@@ -469,6 +469,7 @@ let AppComponent = class AppComponent {
             email: '',
             contrasena: '',
         };
+        this.video = document.getElementById('video');
     }
 };
 AppComponent.ctorParameters = () => [
@@ -777,7 +778,7 @@ EstudianteService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("/* The sidebar menu */\n.sidenav {\n    height: 100%; /* Full-height: remove this if you want \"auto\" height */\n    \n    z-index: 1; /* Stay on top */\n    top: auto; /* Stay at the top */\n    left: 0;\n    background-color: #4A7B9D; /* Black */\n    overflow-x: hidden; /* Disable horizontal scroll */\n    \n  }\n/* The navigation menu links */\n.sidenav a {\n    padding: 6px 8px 6px 16px;\n    text-decoration: none;\n    font-size: 25px;\n    color: #ECFFB0;\n    display: block;\n  }\n/* When you mouse over the navigation links, change their color */\n.sidenav a:hover {\n    color: #9AA899;\n  }\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvZXN0dWRpYW50ZS9lc3R1ZGlhbnRlLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEscUJBQXFCO0FBQ3JCO0lBQ0ksWUFBWSxFQUFFLHVEQUF1RDs7SUFFckUsVUFBVSxFQUFFLGdCQUFnQjtJQUM1QixTQUFTLEVBQUUsb0JBQW9CO0lBQy9CLE9BQU87SUFDUCx5QkFBeUIsRUFBRSxVQUFVO0lBQ3JDLGtCQUFrQixFQUFFLDhCQUE4Qjs7RUFFcEQ7QUFFQSw4QkFBOEI7QUFDOUI7SUFDRSx5QkFBeUI7SUFDekIscUJBQXFCO0lBQ3JCLGVBQWU7SUFDZixjQUFjO0lBQ2QsY0FBYztFQUNoQjtBQUVBLGlFQUFpRTtBQUNqRTtJQUNFLGNBQWM7RUFDaEIiLCJmaWxlIjoic3JjL2FwcC9lc3R1ZGlhbnRlL2VzdHVkaWFudGUuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi8qIFRoZSBzaWRlYmFyIG1lbnUgKi9cbi5zaWRlbmF2IHtcbiAgICBoZWlnaHQ6IDEwMCU7IC8qIEZ1bGwtaGVpZ2h0OiByZW1vdmUgdGhpcyBpZiB5b3Ugd2FudCBcImF1dG9cIiBoZWlnaHQgKi9cbiAgICBcbiAgICB6LWluZGV4OiAxOyAvKiBTdGF5IG9uIHRvcCAqL1xuICAgIHRvcDogYXV0bzsgLyogU3RheSBhdCB0aGUgdG9wICovXG4gICAgbGVmdDogMDtcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiAjNEE3QjlEOyAvKiBCbGFjayAqL1xuICAgIG92ZXJmbG93LXg6IGhpZGRlbjsgLyogRGlzYWJsZSBob3Jpem9udGFsIHNjcm9sbCAqL1xuICAgIFxuICB9XG4gIFxuICAvKiBUaGUgbmF2aWdhdGlvbiBtZW51IGxpbmtzICovXG4gIC5zaWRlbmF2IGEge1xuICAgIHBhZGRpbmc6IDZweCA4cHggNnB4IDE2cHg7XG4gICAgdGV4dC1kZWNvcmF0aW9uOiBub25lO1xuICAgIGZvbnQtc2l6ZTogMjVweDtcbiAgICBjb2xvcjogI0VDRkZCMDtcbiAgICBkaXNwbGF5OiBibG9jaztcbiAgfVxuICBcbiAgLyogV2hlbiB5b3UgbW91c2Ugb3ZlciB0aGUgbmF2aWdhdGlvbiBsaW5rcywgY2hhbmdlIHRoZWlyIGNvbG9yICovXG4gIC5zaWRlbmF2IGE6aG92ZXIge1xuICAgIGNvbG9yOiAjOUFBODk5O1xuICB9Il19 */");
+/* harmony default export */ __webpack_exports__["default"] = ("/* The sidebar menu */\n\n.sidenav {\n  height: 100%;\n  /* Full-height: remove this if you want \"auto\" height */\n  z-index: 1;\n  /* Stay on top */\n  top: auto;\n  /* Stay at the top */\n  left: 0;\n  background-color: #4A7B9D;\n  /* Black */\n  overflow-x: hidden;\n  /* Disable horizontal scroll */\n}\n\n/* The navigation menu links */\n\n.sidenav a {\n  padding: 6px 8px 6px 16px;\n  text-decoration: none;\n  font-size: 25px;\n  color: #ECFFB0;\n  display: block;\n}\n\n/* When you mouse over the navigation links, change their color */\n\n.sidenav a:hover {\n  color: #9AA899;\n}\n\n.circulo {\n  width: 10rem;\n  height: 10rem;\n  border-radius: 50%;\n  background: red;\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-pack: center;\n          justify-content: center;\n  -webkit-box-align: center;\n          align-items: center;\n  text-align: center;\n}\n\n.circulo>p {\n  font-family: sans-serif;\n  color: white;\n  font-size: 1rem;\n  font-weight: bold;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvZXN0dWRpYW50ZS9lc3R1ZGlhbnRlLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEscUJBQXFCOztBQUVyQjtFQUNFLFlBQVk7RUFDWix1REFBdUQ7RUFDdkQsVUFBVTtFQUNWLGdCQUFnQjtFQUNoQixTQUFTO0VBQ1Qsb0JBQW9CO0VBQ3BCLE9BQU87RUFDUCx5QkFBeUI7RUFDekIsVUFBVTtFQUNWLGtCQUFrQjtFQUNsQiw4QkFBOEI7QUFDaEM7O0FBRUEsOEJBQThCOztBQUU5QjtFQUNFLHlCQUF5QjtFQUN6QixxQkFBcUI7RUFDckIsZUFBZTtFQUNmLGNBQWM7RUFDZCxjQUFjO0FBQ2hCOztBQUVBLGlFQUFpRTs7QUFFakU7RUFDRSxjQUFjO0FBQ2hCOztBQUVBO0VBQ0UsWUFBWTtFQUNaLGFBQWE7RUFDYixrQkFBa0I7RUFDbEIsZUFBZTtFQUNmLG9CQUFhO0VBQWIsYUFBYTtFQUNiLHdCQUF1QjtVQUF2Qix1QkFBdUI7RUFDdkIseUJBQW1CO1VBQW5CLG1CQUFtQjtFQUNuQixrQkFBa0I7QUFDcEI7O0FBRUE7RUFDRSx1QkFBdUI7RUFDdkIsWUFBWTtFQUNaLGVBQWU7RUFDZixpQkFBaUI7QUFDbkIiLCJmaWxlIjoic3JjL2FwcC9lc3R1ZGlhbnRlL2VzdHVkaWFudGUuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi8qIFRoZSBzaWRlYmFyIG1lbnUgKi9cblxuLnNpZGVuYXYge1xuICBoZWlnaHQ6IDEwMCU7XG4gIC8qIEZ1bGwtaGVpZ2h0OiByZW1vdmUgdGhpcyBpZiB5b3Ugd2FudCBcImF1dG9cIiBoZWlnaHQgKi9cbiAgei1pbmRleDogMTtcbiAgLyogU3RheSBvbiB0b3AgKi9cbiAgdG9wOiBhdXRvO1xuICAvKiBTdGF5IGF0IHRoZSB0b3AgKi9cbiAgbGVmdDogMDtcbiAgYmFja2dyb3VuZC1jb2xvcjogIzRBN0I5RDtcbiAgLyogQmxhY2sgKi9cbiAgb3ZlcmZsb3cteDogaGlkZGVuO1xuICAvKiBEaXNhYmxlIGhvcml6b250YWwgc2Nyb2xsICovXG59XG5cbi8qIFRoZSBuYXZpZ2F0aW9uIG1lbnUgbGlua3MgKi9cblxuLnNpZGVuYXYgYSB7XG4gIHBhZGRpbmc6IDZweCA4cHggNnB4IDE2cHg7XG4gIHRleHQtZGVjb3JhdGlvbjogbm9uZTtcbiAgZm9udC1zaXplOiAyNXB4O1xuICBjb2xvcjogI0VDRkZCMDtcbiAgZGlzcGxheTogYmxvY2s7XG59XG5cbi8qIFdoZW4geW91IG1vdXNlIG92ZXIgdGhlIG5hdmlnYXRpb24gbGlua3MsIGNoYW5nZSB0aGVpciBjb2xvciAqL1xuXG4uc2lkZW5hdiBhOmhvdmVyIHtcbiAgY29sb3I6ICM5QUE4OTk7XG59XG5cbi5jaXJjdWxvIHtcbiAgd2lkdGg6IDEwcmVtO1xuICBoZWlnaHQ6IDEwcmVtO1xuICBib3JkZXItcmFkaXVzOiA1MCU7XG4gIGJhY2tncm91bmQ6IHJlZDtcbiAgZGlzcGxheTogZmxleDtcbiAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XG4gIGFsaWduLWl0ZW1zOiBjZW50ZXI7XG4gIHRleHQtYWxpZ246IGNlbnRlcjtcbn1cblxuLmNpcmN1bG8+cCB7XG4gIGZvbnQtZmFtaWx5OiBzYW5zLXNlcmlmO1xuICBjb2xvcjogd2hpdGU7XG4gIGZvbnQtc2l6ZTogMXJlbTtcbiAgZm9udC13ZWlnaHQ6IGJvbGQ7XG59Il19 */");
 
 /***/ }),
 
@@ -798,6 +799,13 @@ __webpack_require__.r(__webpack_exports__);
 let EstudianteComponent = class EstudianteComponent {
     constructor() {
         this.estudianteIniciado = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+        this.ColorHappy = 'rgba(255,255,84,1)'; //Color de la felicidad Correcto
+        this.ColorNeutral = 'rgba(84,255,84,1)'; //Color Neutro Incorrecto
+        this.ColorSad = 'rgba(81,81,255,1)'; //Color de la tristeza Correcto
+        this.ColorAngry = 'rgba(255,0,0,1)'; //Color del enfado Correcto
+        this.ColorFearful = 'rgba(0,150,0,1)'; //Color del miedo Correcto
+        this.ColorDisgusted = 'rgba(0,0,0,0.5)'; //Color del disgusto Incorrecto
+        this.ColorSurprised = 'rgba(89,189,255,1)'; //Color de la Sorpresa Correcto
         this.estudiante = {
             _id: '',
             nombre: '',
@@ -836,6 +844,7 @@ let EstudianteComponent = class EstudianteComponent {
                 ju.estudiante = data;
                 ju.noHayEstudiante = false;
                 ju.estudianteIniciado.emit(ju.estudiante);
+                ju.empezar();
             },
             contentType: 'application/json',
             dataType: 'json'
@@ -871,11 +880,98 @@ let EstudianteComponent = class EstudianteComponent {
                     var datosSurprised = faceapi.resizeResults(detections, displaySize).expressions.surprised;
                     var datosDisgusted = faceapi.resizeResults(detections, displaySize).expressions.disgusted;
                     var maximo = Math.max(datosAngry, datosDisgusted, datosFearful, datosHappy, datosNeutral, datosSad, datosSurprised);
-                    console.log("Emociones detectadas:" + datosHappy);
+                    if (datosNeutral == maximo) {
+                        //console.log("Neutro: "+maximo);
+                        $('#estadoAlumno').css('background-color', this.ColorNeutral);
+                        //this.ContadorNeutro++
+                        //this.usuario.Neutro.valor = this.usuario.Neutro.valor + 1;
+                    }
+                    if (datosFearful == maximo) {
+                        //console.log("Miedo: "+maximo);
+                        $('#estadoAlumno').css('background-color', this.ColorFearful);
+                        //this.ContadorMiedo++
+                        //this.usuario.Miedo.valor = this.usuario.Miedo.valor + 1;
+                    }
+                    if (datosAngry == maximo) {
+                        //console.log("Enfadado: "+maximo);
+                        $('#estadoAlumno').css('background-color', this.ColorAngry);
+                        //this.ContadorEnfadado++
+                        //this.usuario.Enfadado.valor = this.usuario.Enfadado.valor + 1;
+                    }
+                    if (datosHappy == maximo) {
+                        //console.log("Feliz: "+maximo);
+                        $('#estadoAlumno').css('background-color', this.ColorHappy);
+                        //this.ContadorFeliz++
+                        //this.usuario.Felicidad.valor = this.usuario.Felicidad.valor + 1;
+                    }
+                    if (datosSad == maximo) {
+                        //console.log("Triste: "+maximo);
+                        $('#estadoAlumno').css('background-color', this.ColorSad);
+                        //this.ContadorTriste++
+                        //this.usuario.Triste.valor = this.usuario.Triste.valor + 1;
+                    }
+                    if (datosSurprised == maximo) {
+                        $('#estadoAlumno').css('background-color', this.ColorSurprised);
+                        //this.ContadorSorprendido++
+                        //this.usuario.Sorpresa.valor = this.usuario.Sorpresa.valor + 1;
+                    }
+                    if (datosDisgusted == maximo) {
+                        //console.log("Disgustado: "+maximo);
+                        $('#estadoAlumno').css('background-color', this.ColorDisgusted);
+                        //this.ContadorDisgustado++
+                        //this.usuario.Disgustado.valor = this.usuario.Disgustado.valor + 1;
+                    }
+                    //this.contador = this.contador + 1;
+                    //console.log(contador);
                 }
                 catch (error) {
+                    //console.log("Ha dado error");
+                    //this.ContadorNeutro++;
+                    //this.usuario.Neutro.valor = this.usuario.Neutro.valor + 1;
+                    //this.contador++;
                 }
+                /*if (this.contador == 5) {
+                  //enviar resultados
+                  //console.log('Hemos llegado a 10');
+                  //console.log('Resultado: ['+this.ContadorDisgustado+']['+this.ContadorEnfadado+']['+this.ContadorFeliz+']['+this.ContadorMiedo+']['+this.ContadorNeutro+']['+this.ContadorSorprendido+']['+this.ContadorTriste)+']';
+                  //console.log(this.ContadorNeutro);
+                  console.log(usuario);
+                  var datos = [
+                    { "label": "Neutro", "valor": this.ContadorNeutro },
+                    { "label": "Felicidad", "valor": this.ContadorFeliz },
+                    { "label": "Triste", "valor": this.ContadorTriste },
+                    { "label": "Enfadado", "valor": this.ContadorEnfadado },
+                    { "label": "Miedo", "valor": this.ContadorMiedo },
+                    { "label": "Disgustado", "valor": this.ContadorDisgustado },
+                    { "label": "Sorpresa", "valor": this.ContadorSorprendido }
+                  ];
+                  //console.log(datos);
+                  ponerDatos(usuario, datos);
+                  this.ContadorDisgustado = 0;
+                  this.ContadorEnfadado = 0;
+                  this.ContadorFeliz = 0;
+                  this.ContadorMiedo = 0;
+                  this.ContadorNeutro = 0;
+                  this.ContadorSorprendido = 0;
+                  this.ContadorTriste = 0;
+                  this.contador = 0;
+                  this.usuario.Disgustado.valor = 0;
+                  this.usuario.Enfadado.valor = 0;
+                  this.usuario.Felicidad.valor = 0;
+                  this.usuario.Miedo.valor = 0;
+                  this.usuario.Neutro.valor = 0;
+                  this.usuario.Sorpresa.valor = 0;
+                  this.usuario.Triste.valor = 0;
+                }*/
+                //const age = await faceapi.detectSingleFace(video, new faceapi.TinyFaceDetectorOptions()).withFaceLandmarks().withAgeAndGender()
+                //console.log(faceapi.resizeResults(detections, displaySize));
+                //console.log(faceapi.resizeResults(age, displaySize));
             }), 1000);
+        });
+    }
+    parar() {
+        this.video.addEventListener('stop', function () {
+            console.log("Se ha parado");
         });
     }
 };

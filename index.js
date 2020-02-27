@@ -5,6 +5,9 @@ var port = config.port;
 var exp = require("express");
 var app = exp();
 var server = require('http').Server(app);
+var io = require('socket.io').listen(server);
+var srvWS=require('./servidor/servidorWS');
+var ws=new srvWS.ServidorWS();
 
 var modelo = require("./servidor/modelo");
 
@@ -93,3 +96,5 @@ app.post("/estudianteIniciarSesion", function (request, response) {
 server.listen(app.get('port'), function () {
   console.log('Node app se está ejecutando en el puerto', port);
 });
+
+ws.lanzarSocketSrv(io,centro);
