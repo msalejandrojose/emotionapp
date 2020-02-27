@@ -978,7 +978,7 @@ let EstudianteComponent = class EstudianteComponent {
                 //const age = await faceapi.detectSingleFace(video, new faceapi.TinyFaceDetectorOptions()).withFaceLandmarks().withAgeAndGender()
                 //console.log(faceapi.resizeResults(detections, displaySize));
                 //console.log(faceapi.resizeResults(age, displaySize));
-            }), 1000);
+            }), 2000);
         });
     }
     parar() {

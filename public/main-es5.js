@@ -1675,7 +1675,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                   }
                 }, _callee2, this, [[0, 21]]);
               }));
-            }, 1000);
+            }, 2000);
           });
         }
       }, {
