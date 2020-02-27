@@ -53,12 +53,12 @@ function Dao() {
         insertar(this.Actividad, act, callback);
     }
 
-    this.modificarActividad = function (act, callback) {
-        modificarColeccion(this.Actividad, act, callback);
+    this.modificarActividad = function (id,act, callback) {
+        modificarColeccion(this.Actividad, id, act, callback);
     }
 
-    this.eliminarActividad = function (id, callback) {
-        eliminar(this.Actividad, { _id: ObjectID(id) }, callback);
+    this.eliminarActividad = function (act, callback) {
+        eliminar(this.Actividad, { _id: ObjectID(act._id) }, callback);
     }
 
     this.mostrarActividades = function (callback) {

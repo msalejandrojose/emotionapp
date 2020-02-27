@@ -89,10 +89,22 @@ function Centro() {
         }
 
         this.dao.connect(function (db) {
-            ju.dao.insertarActividad(a, function (u) {
-                ju.actividades[u._id] = new Actividad(u._id, u.nombre, u.profesor, u.alumnos, u.estado);
-                callback(u);
-                db.close();
+            ju.dao.insertarActividad(a, function (ru) {
+                let alu = [];
+                //console.log(ru);
+                for (item of ru.alumnos) {
+                    item.id_item = item.estudiante._id + ru._id;
+                    //console.log(item);
+                    alu.push(item);
+                }
+                ru.alumnos = alu;
+                ju.dao.modificarActividad(ru._id, ru, function (u) {
+                    ju.actividades[u._id] = new Actividad(u._id, u.nombre, u.profesor, u.alumnos, u.estado);
+                    //console.log(ru);
+                    callback(u);
+                    db.close();
+                });
+
             });
         });
     }
@@ -119,17 +131,17 @@ function Centro() {
             });
         }
     }
-    this.borrarActividad = function (_id, callback) {
+    this.borrarActividad = function (act, callback) {
         var ju = this;
-        if (this.actividades[_id] != null) {
-            this.dao.connect(function (db) {
-                ju.dao.eliminarActividad(_id, function (u) {
-                    delete ju.actividades[_id];
-                    callback(u);
-                    db.close();
-                });
+        //if (this.actividades[_id] != null) {
+        this.dao.connect(function (db) {
+            ju.dao.eliminarActividad(act, function (u) {
+                delete ju.actividades[act._id];
+                callback(u);
+                db.close();
             });
-        }
+        });
+        //}
     }
 
     //Añadir Alumnos a la Actividad
@@ -208,9 +220,9 @@ function Actividad(id, nombre, profesor, alumnos, estado) {
     this.estado = estado;
 
     //Metodos
-    this.anadirAlumno = function (estudiante) {
+    this.anadirAlumno = function (estudiante, posicion) {
 
-        this.alumnos[estudiante.email] = new Alumno(estudiante);
+        this.alumnos[estudiante.email] = new Alumno(estudiante, posicion, this);
 
     }
     this.editarActividad = function (nombre, profesor, alumnos, estado) {
@@ -253,13 +265,16 @@ function Estudiante(id, nombre, apellidos, clase, email, contrasena) {
 
 }
 
-function Alumno(estudiante,posicion) {
+function Alumno(estudiante, posicion, actividad) {
 
     //Atributos
     this.estudiante = estudiante;
     this.posicion = posicion;
+    this.id_item = this.estudiante._id + actividad._id;
 
-
+    this.setActividad = function (act) {
+        this.id_item = this.estudiante._id + act._id;
+    }
 }
 
 module.exports.Centro = Centro;

@@ -54,6 +54,13 @@ app.delete("/eliminarEstudiante", function (request, response) {
   });
 });
 
+app.get("/verActividades", function (request, response) {
+  centro.mostrarActividades(function (res) {
+    response.send(res);
+    return res;
+  })
+});
+
 app.post("/registrarActividad", function (request, response) {
   var act = request.body;
   centro.agregarActividad(act.nombre,act.profesor,act.alumnos,function(res){
@@ -62,6 +69,16 @@ app.post("/registrarActividad", function (request, response) {
       response.send(res);
     }
   })
+});
+
+//eliminarActividad
+
+app.delete("/eliminarActividad", function (request, response) {
+  var act = request.body;
+  console.log(act._id);
+  centro.borrarActividad(act, function (res) {
+    response.send(res);
+  });
 });
 
 

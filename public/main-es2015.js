@@ -58,7 +58,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"card\">\n  <div class=\"card-body\">\n    <h5 class=\"card-title\">Crear Actividad</h5>\n    <mat-horizontal-stepper linear #stepper>\n      <mat-step label=\"Crear Actividad\" [stepControl]=\"datosPrimarios\">\n        <br>\n        <form [formGroup]=\"datosPrimarios\">\n          <div class=\"col-md-6\">\n            <label>Nombre de la Actividad</label>\n            <input formControlName=\"fromControlNombreActividad\" [(ngModel)]=\"actividadCreate.nombre\" type=\"text\"\n              class=\"form-control\" id=\"nombreActividad\" placeholder=\"Nombre de la actividad\">\n            <br>\n            <label>Nombre del Profesor</label>\n            <input formControlName=\"fromControlNombreProfesor\" [(ngModel)]=\"actividadCreate.profesor\" type=\"text\"\n              class=\"form-control\" id=\"nombreProfesor\" placeholder=\"Nombre del Profesor\">\n            <br>\n\n          </div>\n          <div class=\"row justify-content-md-center\">\n            <button mat-button matStepperNext class=\"btn btn-success\">Siguiente Paso</button>\n          </div>\n\n        </form>\n      </mat-step>\n      <mat-step label=\"Seleccionar Alumnos\">\n        <!--Tabla de alumnos-->\n        <br>\n\n        <div class=\"example-header\">\n          <mat-form-field>\n            <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filtrar\">\n          </mat-form-field>\n        </div>\n\n        <div class=\"example-container mat-elevation-z8\">\n\n          <mat-table [dataSource]=\"dataSource\" matSort>\n\n            <ng-container matColumnDef=\"select\">\n              <th mat-header-cell *matHeaderCellDef>\n                <mat-checkbox (change)=\"$event ? masterToggle() : null\"\n                  [checked]=\"selection.hasValue() && isAllSelected()\"\n                  [indeterminate]=\"selection.hasValue() && !isAllSelected()\" [aria-label]=\"checkboxLabel()\">\n                </mat-checkbox>\n              </th>\n              <td mat-cell *matCellDef=\"let row\">\n                <mat-checkbox (click)=\"$event.stopPropagation()\" (change)=\"$event ? selection.toggle(row) : null\"\n                  [checked]=\"selection.isSelected(row)\" [aria-label]=\"checkboxLabel(row)\">\n                </mat-checkbox>\n              </td>\n            </ng-container>\n\n            <!-- ID Column -->\n            <ng-container matColumnDef=\"nombre\">\n              <mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </mat-header-cell>\n              <mat-cell *matCellDef=\"let row\"> {{row.nombre}} </mat-cell>\n            </ng-container>\n\n            <!-- Progress Column -->\n            <ng-container matColumnDef=\"apellidos\">\n              <mat-header-cell *matHeaderCellDef mat-sort-header> Apellidos </mat-header-cell>\n              <mat-cell *matCellDef=\"let row\"> {{row.apellidos}} </mat-cell>\n            </ng-container>\n\n            <!-- Name Column -->\n            <ng-container matColumnDef=\"clase\">\n              <mat-header-cell *matHeaderCellDef mat-sort-header> Clase </mat-header-cell>\n              <mat-cell *matCellDef=\"let row\"> {{row.clase}} </mat-cell>\n            </ng-container>\n\n            <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\n            <mat-row *matRowDef=\"let row; columns: displayedColumns;\">\n            </mat-row>\n          </mat-table>\n\n          <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\n        </div>\n        <br>\n        <div class=\"row justify-content-md-center\">\n          <button mat-button matStepperPrevious class=\"btn btn-info\">Volver atras</button>\n          <p> </p>\n          <button mat-button matStepperNext class=\"btn btn-success\" (click)=\"ponerAlumnos()\">Siguiente Paso</button>\n        </div>\n      </mat-step>\n      <mat-step label=\"Localizacion de los alumnos\">\n        <h4>Localizacion de Alumnos</h4>\n        <div id=\"clase\" class=\"example-boundary\">\n          <!--<app-alumno *ngFor=\"let item of alumnosSeleccionados\" [alumno]=\"item\"></app-alumno>-->\n          <div *ngFor=\"let item of alumnosSeleccionados\" class=\"example-box\" ondrop=\"myFunction(item)\"\n            [cdkDragFreeDragPosition]=\"item.posicion\" cdkDragBoundary=\".example-boundary\" cdkDrag\n            (cdkDragEnded)=\"dragEnded($event,item)\">\n            {{item.nombre}}\n          </div>\n        </div>\n        <br>\n        <div class=\"row justify-content-md-center\">\n          <button mat-button matStepperPrevious class=\"btn btn-info\">Volver atras</button>\n          <p> </p>\n          <button mat-button matStepperNext class=\"btn btn-success\" (click)=guardarActividad()>Guardar</button>\n        </div>\n      </mat-step>\n    </mat-horizontal-stepper>\n  </div>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"card\">\n  <div class=\"card-body\">\n    <h5 class=\"card-title\">Crear Actividad</h5>\n    <mat-horizontal-stepper linear #stepper>\n      <mat-step label=\"Crear Actividad\" [stepControl]=\"datosPrimarios\">\n        <br>\n        <form [formGroup]=\"datosPrimarios\">\n          <div class=\"col-md-6\">\n            <label>Nombre de la Actividad</label>\n            <input formControlName=\"fromControlNombreActividad\" [(ngModel)]=\"actividadCreate.nombre\" type=\"text\"\n              class=\"form-control\" id=\"nombreActividad\" placeholder=\"Nombre de la actividad\">\n            <br>\n            <label>Nombre del Profesor</label>\n            <input formControlName=\"fromControlNombreProfesor\" [(ngModel)]=\"actividadCreate.profesor\" type=\"text\"\n              class=\"form-control\" id=\"nombreProfesor\" placeholder=\"Nombre del Profesor\">\n            <br>\n\n          </div>\n          <div class=\"row justify-content-md-center\">\n            <button mat-button matStepperNext class=\"btn btn-success\">Siguiente Paso</button>\n          </div>\n\n        </form>\n      </mat-step>\n      <mat-step label=\"Seleccionar Alumnos\">\n        <!--Tabla de alumnos-->\n        <br>\n\n        <div class=\"example-header\">\n          <mat-form-field>\n            <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filtrar\">\n          </mat-form-field>\n        </div>\n\n        <div class=\"example-container mat-elevation-z8\">\n\n          <mat-table [dataSource]=\"dataSource\" matSort>\n\n            <ng-container matColumnDef=\"select\">\n              <th mat-header-cell *matHeaderCellDef>\n                <mat-checkbox (change)=\"$event ? masterToggle() : null\"\n                  [checked]=\"selection.hasValue() && isAllSelected()\"\n                  [indeterminate]=\"selection.hasValue() && !isAllSelected()\" [aria-label]=\"checkboxLabel()\">\n                </mat-checkbox>\n              </th>\n              <td mat-cell *matCellDef=\"let row\">\n                <mat-checkbox (click)=\"$event.stopPropagation()\" (change)=\"$event ? selection.toggle(row) : null\"\n                  [checked]=\"selection.isSelected(row)\" [aria-label]=\"checkboxLabel(row)\">\n                </mat-checkbox>\n              </td>\n            </ng-container>\n\n            <!-- ID Column -->\n            <ng-container matColumnDef=\"nombre\">\n              <mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </mat-header-cell>\n              <mat-cell *matCellDef=\"let row\"> {{row.nombre}} </mat-cell>\n            </ng-container>\n\n            <!-- Progress Column -->\n            <ng-container matColumnDef=\"apellidos\">\n              <mat-header-cell *matHeaderCellDef mat-sort-header> Apellidos </mat-header-cell>\n              <mat-cell *matCellDef=\"let row\"> {{row.apellidos}} </mat-cell>\n            </ng-container>\n\n            <!-- Name Column -->\n            <ng-container matColumnDef=\"clase\">\n              <mat-header-cell *matHeaderCellDef mat-sort-header> Clase </mat-header-cell>\n              <mat-cell *matCellDef=\"let row\"> {{row.clase}} </mat-cell>\n            </ng-container>\n\n            <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\n            <mat-row *matRowDef=\"let row; columns: displayedColumns;\">\n            </mat-row>\n          </mat-table>\n\n          <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\n        </div>\n        <br>\n        <div class=\"row justify-content-md-center\">\n          <button mat-button matStepperPrevious class=\"btn btn-info\">Volver atras</button>\n          <p> </p>\n          <button mat-button matStepperNext class=\"btn btn-success\" (click)=\"ponerAlumnos()\">Siguiente Paso</button>\n        </div>\n      </mat-step>\n      <mat-step label=\"Localizacion de los alumnos\">\n        <h4>Localizacion de Alumnos</h4>\n        <div id=\"clase\" class=\"example-boundary\">\n          <!--<app-alumno *ngFor=\"let item of alumnosSeleccionados\" [alumno]=\"item\"></app-alumno>-->\n          <div *ngFor=\"let item of alumnosSeleccionados\" class=\"example-box\" ondrop=\"myFunction(item)\"\n            [cdkDragFreeDragPosition]=\"item.estudiante.posicion\" cdkDragBoundary=\".example-boundary\" cdkDrag\n            (cdkDragEnded)=\"dragEnded($event,item)\">\n            {{item.estudiante.nombre}}\n          </div>\n        </div>\n        <br>\n        <div class=\"row justify-content-md-center\">\n          <button mat-button matStepperPrevious class=\"btn btn-info\">Volver atras</button>\n          <p> </p>\n          <button mat-button matStepperNext class=\"btn btn-success\" (click)=guardarActividad()>Guardar</button>\n        </div>\n      </mat-step>\n    </mat-horizontal-stepper>\n  </div>\n</div>");
 
 /***/ }),
 
@@ -71,7 +71,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"row\">\n    <div class=\"col-md-2\">\n        <!--<app-sidenav-profesor></app-sidenav-profesor>-->\n        <div class=\"sidenav list-group\">\n            <a href=\"#\" (click)=\"abrirAlumnos()\">Alumno</a>\n            <a href=\"#\" (click)=\"abrirActividades()\">Actividades</a>\n        </div>\n    </div>\n    <div *ngIf=\"gestionAlumnos\" class=\"col-md-10\">\n        <br>\n        <div class=\"row justify-content-md-center\">\n            <div class=\"col-md-10\">\n                <h4>Alumno</h4>\n            </div>\n            <div class=\"col-md-2\">\n                <button type=\"button\" (click)=\"abrirActividades()\" class=\"btn btn-outline-primary\">Crear\n                    Actividad</button>\n            </div>\n        </div>\n        <div class=\"row justify-content-md-center\">\n            <!--<div class=\"card-body card-body-cascade text-center wow fadeIn\">\n                <h4>Hola mundo</h4>\n                <p>asdalksdjlajsdklasjdkljlañksjfñdskladsfjñalksfj</p>\n            </div>-->\n            <div class=\"card col-md-6\">\n                <div *ngIf=\"!editarAlumno\" class=\"card-body\">\n                    <h4 class=\"card-title\">Crear Alumno</h4>\n                    <div>\n                        <label>Nombre del Alumn@</label>\n                        <input [(ngModel)]=\"alumnoCreate.nombre\" type=\"text\" class=\"form-control\" id=\"nombre\"\n                            placeholder=\"Nombre\">\n                        <br>\n                        <label>Apellidos</label>\n                        <input [(ngModel)]=\"alumnoCreate.apellidos\" type=\"text\" class=\"form-control\" id=\"apellidos\"\n                            ng-model=\"apellidos\" placeholder=\"Apellidos\">\n                        <br>\n                        <label>Clase</label>\n                        <input [(ngModel)]=\"alumnoCreate.clase\" type=\"text\" class=\"form-control\" id=\"clase\"\n                            ng-model=\"clase\" placeholder=\"Clase\">\n                        <br>\n                        <label>Email</label>\n                        <input [(ngModel)]=\"alumnoCreate.email\" type=\"email\" class=\"form-control\" id=\"email\"\n                            ng-model=\"email\" placeholder=\"Enter email\">\n                        <small id=\"emailHelp\" class=\"form-text text-muted\">El email tiene que ser unico</small>\n                        <br>\n                        <label>Contraseña</label>\n                        <input [(ngModel)]=\"alumnoCreate.contrasena\" type=\"password\" class=\"form-control\"\n                            id=\"contrasena\" ng-model=\"contrasena\" placeholder=\"Contraseña\">\n                        <small id=\"contrasenaHelp\" class=\"form-text text-muted\">El usuario podra entrar con esta\n                            contraseña</small>\n                        <button type=\"button\" (click)=\"limpiar()\" class=\"btn btn-raised btn-danger\">Limpiar</button>\n                        <button type=\"button\" (click)=\"anadirAlumno()\" class=\"btn btn-raised btn-success\">Guardar\n                            Alumn@</button>\n                    </div>\n                </div>\n                <div *ngIf=\"editarAlumno\" class=\"card-body\">\n                    <h4 class=\"card-title\">Editar Alumno</h4>\n                    <div>\n                        <label>Nombre del Alumn@</label>\n                        <input [(ngModel)]=\"onSelectedAlumno.nombre\" type=\"text\" class=\"form-control\" id=\"nombre\"\n                            placeholder=\"Nombre\">\n                        <br>\n                        <label>Apellidos</label>\n                        <input [(ngModel)]=\"onSelectedAlumno.apellidos\" type=\"text\" class=\"form-control\" id=\"apellidos\"\n                            ng-model=\"apellidos\" placeholder=\"Apellidos\">\n                        <br>\n                        <label>Clase</label>\n                        <input [(ngModel)]=\"onSelectedAlumno.clase\" type=\"text\" class=\"form-control\" id=\"clase\"\n                            ng-model=\"clase\" placeholder=\"Clase\">\n                        <br>\n                        <label>Email</label>\n                        <input [(ngModel)]=\"onSelectedAlumno.email\" type=\"email\" class=\"form-control\" id=\"email\"\n                            ng-model=\"email\" placeholder=\"Enter email\">\n                        <small id=\"emailHelp\" class=\"form-text text-muted\">El email tiene que ser unico</small>\n                        <br>\n                        <label>Contraseña</label>\n                        <input [(ngModel)]=\"onSelectedAlumno.contrasena\" type=\"password\" class=\"form-control\"\n                            id=\"contrasena\" ng-model=\"contrasena\" placeholder=\"Contraseña\">\n                        <small id=\"contrasenaHelp\" class=\"form-text text-muted\">El usuario podra entrar con esta\n                            contraseña</small>\n                        <button type=\"button\" (click)=\"limpiar()\" class=\"btn btn-raised btn-danger\">Limpiar</button>\n                        <button type=\"button\" (click)=\"actualizarAlumno()\" class=\"btn btn-raised btn-success\">Actualizar\n                            Alumn@</button>\n                    </div>\n                </div>\n            </div>\n            <div class=\"col-md-6\">\n                <h3>Lista de Alumnos</h3>\n                <table class=\"table table-striped\">\n                    <thead>\n                        <tr>\n                            <th scope=\"col\">Nombre</th>\n                            <th scope=\"col\">Apellidos</th>\n                            <th scope=\"col\">Clase</th>\n                            <th scope=\"col\"></th>\n                            <th scope=\"col\"></th>\n                        </tr>\n                    </thead>\n                    <tbody *ngFor=\"let alumno of listaAlumnos\">\n                        <tr>\n                            <td>{{alumno.nombre}}</td>\n                            <td>{{alumno.apellidos}}</td>\n                            <td>{{alumno.clase}}</td>\n                            <td><i (click)=\"editar(alumno)\" class=\"fa fa-edit\"></i></td>\n                            <td><i (click)=\"borrar(alumno)\" class=\"fa fa-trash-o\"></i></td>\n                        </tr>\n                    </tbody>\n                </table>\n            </div>\n        </div>\n    </div>\n    <div *ngIf=\"gestionActividades\" class=\"col-md-10\">\n        <br>\n        <div class=\"row justify-content-md-center\">\n            <div class=\"col-md-10\">\n                <h4>Actividades</h4>\n            </div>\n            <div class=\"col-md-2\">\n                <button type=\"button\" *ngIf=\"!crearActividad && !verActividad\" (click)=\"abrirCrearActividad()\" class=\"btn btn-outline-primary\">Crear\n                    Actividad</button>\n                <button type=\"button\" *ngIf=\"crearActividad && !verActividad\" (click)=\"cerrarCrearActividad()\" class=\"btn btn-outline-danger\">Cancelar</button>\n                <button type=\"button\" *ngIf=\"!crearActividad && verActividad\" (click)=\"cerrarActividad()\" class=\"btn btn-outline-danger\">Cerrar Actividad</button>\n            </div>\n        </div>\n        <br>\n        <div class=\"col-md-11\">\n            <app-crear-actividad [estudiantes]=\"listaAlumnos\" (actividadCreada)=\"guardarActividad($event)\" *ngIf=\"crearActividad\"></app-crear-actividad>\n        </div>\n        <br>\n        <div *ngIf=\"verActividad\">\n            <app-ver-actividad [actividad]=\"actividadSelected\"></app-ver-actividad>\n        </div>\n        <div *ngIf=\"!verActividad\" class=\"row justify-content-md-center\">\n            <div class=\"col-md-10\">\n                <h3>Lista de Actividades</h3>\n                <table class=\"table table-striped\">\n                    <thead>\n                        <tr>\n                            <th scope=\"col\">Nombre</th>\n                            <th scope=\"col\">Profesor</th>\n                            <th scope=\"col\">Estado</th>\n                            <th scope=\"col\"></th>\n                            <th scope=\"col\"></th>\n                        </tr>\n                    </thead>\n                    <tbody *ngFor=\"let actividad of listaActividades\">\n                        <tr *ngIf=\"actividad.estado=='Creada'\">\n                            <td>{{actividad.nombre}}</td>\n                            <td>{{actividad.profesor}}</td>\n                            <td>{{actividad.estado}}</td>\n                            <td><button type=\"button\" class=\"btn btn-outline-primary\" (click)=\"abrirActividad(actividad)\">Comenzar</button></td>\n                            <td><i (click)=\"editar(actividad)\" class=\"fa fa-edit\"></i></td>\n                        </tr>\n                        <tr *ngIf=\"actividad.estado=='Comenzada'\">\n                            <td>{{actividad.nombre}}</td>\n                            <td>{{actividad.profesor}}</td>\n                            <td>{{actividad.estado}}</td>\n                            <td><button type=\"button\" class=\"btn btn-outline-success\">Ver</button></td>\n                            <td><i (click)=\"editar(actividad)\" class=\"fa fa-edit\"></i></td>\n                        </tr>\n                    </tbody>\n                </table>\n            </div>\n        </div>\n    </div>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"row\">\n    <div class=\"col-md-2\">\n        <!--<app-sidenav-profesor></app-sidenav-profesor>-->\n        <div class=\"sidenav list-group\">\n            <a href=\"#\" (click)=\"abrirAlumnos()\">Alumno</a>\n            <a href=\"#\" (click)=\"abrirActividades()\">Actividades</a>\n        </div>\n    </div>\n    <div *ngIf=\"gestionAlumnos\" class=\"col-md-10\">\n        <br>\n        <div class=\"row justify-content-md-center\">\n            <div class=\"col-md-10\">\n                <h4>Alumno</h4>\n            </div>\n            <div class=\"col-md-2\">\n                <button type=\"button\" (click)=\"abrirActividades()\" class=\"btn btn-outline-primary\">Crear\n                    Actividad</button>\n            </div>\n        </div>\n        <div class=\"row justify-content-md-center\">\n            <!--<div class=\"card-body card-body-cascade text-center wow fadeIn\">\n                <h4>Hola mundo</h4>\n                <p>asdalksdjlajsdklasjdkljlañksjfñdskladsfjñalksfj</p>\n            </div>-->\n            <div class=\"card col-md-6\">\n                <div *ngIf=\"!editarAlumno\" class=\"card-body\">\n                    <h4 class=\"card-title\">Crear Alumno</h4>\n                    <div>\n                        <label>Nombre del Alumn@</label>\n                        <input [(ngModel)]=\"alumnoCreate.nombre\" type=\"text\" class=\"form-control\" id=\"nombre\"\n                            placeholder=\"Nombre\">\n                        <br>\n                        <label>Apellidos</label>\n                        <input [(ngModel)]=\"alumnoCreate.apellidos\" type=\"text\" class=\"form-control\" id=\"apellidos\"\n                            ng-model=\"apellidos\" placeholder=\"Apellidos\">\n                        <br>\n                        <label>Clase</label>\n                        <input [(ngModel)]=\"alumnoCreate.clase\" type=\"text\" class=\"form-control\" id=\"clase\"\n                            ng-model=\"clase\" placeholder=\"Clase\">\n                        <br>\n                        <label>Email</label>\n                        <input [(ngModel)]=\"alumnoCreate.email\" type=\"email\" class=\"form-control\" id=\"email\"\n                            ng-model=\"email\" placeholder=\"Enter email\">\n                        <small id=\"emailHelp\" class=\"form-text text-muted\">El email tiene que ser unico</small>\n                        <br>\n                        <label>Contraseña</label>\n                        <input [(ngModel)]=\"alumnoCreate.contrasena\" type=\"password\" class=\"form-control\"\n                            id=\"contrasena\" ng-model=\"contrasena\" placeholder=\"Contraseña\">\n                        <small id=\"contrasenaHelp\" class=\"form-text text-muted\">El usuario podra entrar con esta\n                            contraseña</small>\n                        <button type=\"button\" (click)=\"limpiar()\" class=\"btn btn-raised btn-danger\">Limpiar</button>\n                        <button type=\"button\" (click)=\"anadirAlumno()\" class=\"btn btn-raised btn-success\">Guardar\n                            Alumn@</button>\n                    </div>\n                </div>\n                <div *ngIf=\"editarAlumno\" class=\"card-body\">\n                    <h4 class=\"card-title\">Editar Alumno</h4>\n                    <div>\n                        <label>Nombre del Alumn@</label>\n                        <input [(ngModel)]=\"onSelectedAlumno.nombre\" type=\"text\" class=\"form-control\" id=\"nombre\"\n                            placeholder=\"Nombre\">\n                        <br>\n                        <label>Apellidos</label>\n                        <input [(ngModel)]=\"onSelectedAlumno.apellidos\" type=\"text\" class=\"form-control\" id=\"apellidos\"\n                            ng-model=\"apellidos\" placeholder=\"Apellidos\">\n                        <br>\n                        <label>Clase</label>\n                        <input [(ngModel)]=\"onSelectedAlumno.clase\" type=\"text\" class=\"form-control\" id=\"clase\"\n                            ng-model=\"clase\" placeholder=\"Clase\">\n                        <br>\n                        <label>Email</label>\n                        <input [(ngModel)]=\"onSelectedAlumno.email\" type=\"email\" class=\"form-control\" id=\"email\"\n                            ng-model=\"email\" placeholder=\"Enter email\">\n                        <small id=\"emailHelp\" class=\"form-text text-muted\">El email tiene que ser unico</small>\n                        <br>\n                        <label>Contraseña</label>\n                        <input [(ngModel)]=\"onSelectedAlumno.contrasena\" type=\"password\" class=\"form-control\"\n                            id=\"contrasena\" ng-model=\"contrasena\" placeholder=\"Contraseña\">\n                        <small id=\"contrasenaHelp\" class=\"form-text text-muted\">El usuario podra entrar con esta\n                            contraseña</small>\n                        <button type=\"button\" (click)=\"limpiar()\" class=\"btn btn-raised btn-danger\">Limpiar</button>\n                        <button type=\"button\" (click)=\"actualizarAlumno()\" class=\"btn btn-raised btn-success\">Actualizar\n                            Alumn@</button>\n                    </div>\n                </div>\n            </div>\n            <div class=\"col-md-6\">\n                <h3>Lista de Alumnos</h3>\n                <table class=\"table table-striped\">\n                    <thead>\n                        <tr>\n                            <th scope=\"col\">Nombre</th>\n                            <th scope=\"col\">Apellidos</th>\n                            <th scope=\"col\">Clase</th>\n                            <th scope=\"col\"></th>\n                            <th scope=\"col\"></th>\n                        </tr>\n                    </thead>\n                    <tbody *ngFor=\"let alumno of listaAlumnos\">\n                        <tr>\n                            <td>{{alumno.nombre}}</td>\n                            <td>{{alumno.apellidos}}</td>\n                            <td>{{alumno.clase}}</td>\n                            <td><i (click)=\"editar(alumno)\" class=\"fa fa-edit\"></i></td>\n                            <td><i (click)=\"borrar(alumno)\" class=\"fa fa-trash-o\"></i></td>\n                        </tr>\n                    </tbody>\n                </table>\n            </div>\n        </div>\n    </div>\n    <div *ngIf=\"gestionActividades\" class=\"col-md-10\">\n        <br>\n        <div class=\"row justify-content-md-center\">\n            <div class=\"col-md-10\">\n                <h4>Actividades</h4>\n            </div>\n            <div class=\"col-md-2\">\n                <button type=\"button\" *ngIf=\"!crearActividad && !verActividad\" (click)=\"abrirCrearActividad()\" class=\"btn btn-outline-primary\">Crear\n                    Actividad</button>\n                <button type=\"button\" *ngIf=\"crearActividad && !verActividad\" (click)=\"cerrarCrearActividad()\" class=\"btn btn-outline-danger\">Cancelar</button>\n                <button type=\"button\" *ngIf=\"!crearActividad && verActividad\" (click)=\"cerrarActividad()\" class=\"btn btn-outline-danger\">Cerrar Actividad</button>\n            </div>\n        </div>\n        <br>\n        <div class=\"col-md-11\">\n            <app-crear-actividad [estudiantes]=\"listaAlumnos\" (actividadCreada)=\"guardarActividad($event)\" *ngIf=\"crearActividad\"></app-crear-actividad>\n        </div>\n        <br>\n        <div *ngIf=\"verActividad\">\n            <app-ver-actividad [actividad]=\"actividadSelected\"></app-ver-actividad>\n        </div>\n        <div *ngIf=\"!verActividad\" class=\"row justify-content-md-center\">\n            <div class=\"col-md-10\">\n                <h3>Lista de Actividades</h3>\n                <table class=\"table table-striped\">\n                    <thead>\n                        <tr>\n                            <th scope=\"col\">Nombre</th>\n                            <th scope=\"col\">Profesor</th>\n                            <th scope=\"col\">Estado</th>\n                            <th scope=\"col\"></th>\n                            <th scope=\"col\"></th>\n                            <th scope=\"col\"></th>\n                        </tr>\n                    </thead>\n                    <tbody *ngFor=\"let actividad of listaActividades\">\n                        <tr *ngIf=\"actividad.estado=='Creada'\">\n                            <td>{{actividad.nombre}}</td>\n                            <td>{{actividad.profesor}}</td>\n                            <td>{{actividad.estado}}</td>\n                            <td><button type=\"button\" class=\"btn btn-outline-primary\" (click)=\"abrirActividad(actividad)\">Comenzar</button></td>\n                            <td><i (click)=\"editar(actividad)\" class=\"fa fa-edit\"></i></td>\n                            <td><i (click)=\"borrarA(actividad)\" class=\"fa fa-trash-o\"></i></td>\n                        </tr>\n                        <tr *ngIf=\"actividad.estado=='Comenzada'\">\n                            <td>{{actividad.nombre}}</td>\n                            <td>{{actividad.profesor}}</td>\n                            <td>{{actividad.estado}}</td>\n                            <td><button type=\"button\" class=\"btn btn-outline-success\">Ver</button></td>\n                            <td><i (click)=\"editarA(actividad)\" class=\"fa fa-edit\"></i></td>\n                            <td><i (click)=\"borrarA(actividad)\" class=\"fa fa-trash-o\"></i></td>\n                        </tr>\n                    </tbody>\n                </table>\n            </div>\n        </div>\n    </div>\n</div>");
 
 /***/ }),
 
@@ -97,7 +97,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"row justify-content-md-center\">\n    <div class=\"card col-md-10\">\n        <div class=\"card-body\">\n            <h5 class=\"card-title\">Distribucion de la clase</h5>\n            <div id=\"clase\" class=\"example-boundary\">\n                <div id=\"alumno-{{item.nombre}}\" *ngFor=\"let item of actividad.alumnos\" class=\"example-box\" ondrop=\"myFunction(item)\"\n                    [cdkDragFreeDragPosition]=\"item.posicion\" cdkDragBoundary=\".example-boundary\" cdkDrag\n                    (cdkDragEnded)=\"dragEnded($event,item)\">\n                    {{item.nombre}}\n                </div>\n            </div>\n        </div>\n    </div>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"row justify-content-md-center\">\n    <div class=\"card col-md-10\">\n        <div class=\"card-body\">\n            <h5 class=\"card-title\">Distribucion de la clase</h5>\n            <div id=\"clase\" class=\"example-boundary\">\n                <div id=\"{{item.id_item}}\" *ngFor=\"let item of actividad.alumnos\" class=\"example-box\" ondrop=\"myFunction(item)\"\n                    [cdkDragFreeDragPosition]=\"item.posicion\" cdkDragBoundary=\".example-boundary\" cdkDrag\n                    (cdkDragEnded)=\"dragEnded($event,item)\">\n                    {{item.estudiante.nombre}}\n                </div>\n            </div>\n        </div>\n    </div>\n</div>");
 
 /***/ }),
 
@@ -325,6 +325,45 @@ function __importStar(mod) {
 
 function __importDefault(mod) {
     return (mod && mod.__esModule) ? mod : { default: mod };
+}
+
+
+/***/ }),
+
+/***/ "./src/app/Modelos/modelos.ts":
+/*!************************************!*\
+  !*** ./src/app/Modelos/modelos.ts ***!
+  \************************************/
+/*! exports provided: Estudiante, Alumnos */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Estudiante", function() { return Estudiante; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Alumnos", function() { return Alumnos; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+
+class Estudiante {
+    constructor() {
+        this._id = '';
+        this.nombre = '';
+        this.apellidos = '';
+        this.clase = '';
+        this.email = '';
+        this.contrasena = '';
+    }
+}
+class Alumnos {
+    constructor(est, posicion, act) {
+        this.id_item = '';
+        this.posicion = {};
+        this.estudiante = est;
+        this.id_item = est._id + act._id;
+        this.posicion = posicion;
+    }
+    setActividad(act) {
+        this.id_item = this.estudiante._id + act._id;
+    }
 }
 
 
@@ -830,6 +869,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
 /* harmony import */ var _angular_cdk_collections__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/cdk/collections */ "./node_modules/@angular/cdk/esm2015/collections.js");
 /* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm2015/material.js");
+/* harmony import */ var _Modelos_modelos__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../Modelos/modelos */ "./src/app/Modelos/modelos.ts");
+
 
 
 
@@ -902,28 +943,33 @@ let CrearActividadComponent = class CrearActividadComponent {
         let columna = 0;
         let arryaAlumnos = []; // = this.selection.selected;
         for (let i = 0; i < this.selection.selected.length; i++) {
-            if (columna <= 5) {
-                arryaAlumnos.push({
-                    'nombre': this.selection.selected[i].nombre,
-                    'apellidos': this.selection.selected[i].apellidos,
-                    'clase': '',
-                    posicion: { x: 0, y: 0 },
-                    posicionInicial: { x: columna * 70, y: 70 * fila },
+            //MODIFICADO
+            /*if(columna<=5){
+              arryaAlumnos.push({
+                'nombre':this.selection.selected[i].nombre,
+                'apellidos':this.selection.selected[i].apellidos,
+                'clase':this.selection.selected[i].clase,
+      
+                posicion: {x:0,y:0},
+                posicionInicial:{x:columna*70,y:70*fila},
                 });
-                //arryaAlumnos[this.selection.selected[i].email]=this.selection.selected[i];
+              
+              
+              //arryaAlumnos[this.selection.selected[i].email]=this.selection.selected[i];
                 columna++;
-            }
-            else {
-                fila++;
-                columna = 0;
-                arryaAlumnos.push({
-                    'nombre': this.selection.selected[i].nombre,
-                    'apellidos': this.selection.selected[i].apellidos,
-                    posicion: { x: 0, y: 0 },
-                    posicionInicial: { x: columna * 70, y: 70 * fila },
+            }else{
+              fila++;
+              columna=0;
+              arryaAlumnos.push({
+                'nombre':this.selection.selected[i].nombre,
+                'apellidos':this.selection.selected[i].apellidos,
+                posicion: {x:0,y:0},
+                posicionInicial:{x:columna*70,y:70*fila},
                 });
                 columna++;
-            }
+            }*/
+            //MODIFICADO
+            arryaAlumnos.push(new _Modelos_modelos__WEBPACK_IMPORTED_MODULE_5__["Alumnos"](this.selection.selected[i], { x: 0, y: 0 }, this.actividadCreate));
         }
         this.alumnosSeleccionados = arryaAlumnos;
         /*this.actividadCreate.alumnos=arryaAlumnos;
@@ -940,12 +986,16 @@ let CrearActividadComponent = class CrearActividadComponent {
         console.log("Vamos a guardar la actividad");
         //console.log(this.comprobarSeleccionados())
         //this.crearActividad();
-        var alumnos = [];
-        for (let i = 0; i < this.alumnosSeleccionados.length; i++) {
-            //alumnos.push({nombre:this.alumnosSeleccionados[i].nombre,apellidos:this.alumnosSeleccionados[i].apellidos,posicion:this.alumnosSeleccionados[i].posicion,posicionInicial:this.alumnosSeleccionados[i].posicionInicial});
-            alumnos.push(this.alumnosSeleccionados[i]);
+        //MODIFICADO
+        /*var alumnos=[];
+        for(let i = 0;i<this.alumnosSeleccionados.length;i++){
+          //alumnos.push({nombre:this.alumnosSeleccionados[i].nombre,apellidos:this.alumnosSeleccionados[i].apellidos,posicion:this.alumnosSeleccionados[i].posicion,posicionInicial:this.alumnosSeleccionados[i].posicionInicial});
+          alumnos.push(this.alumnosSeleccionados[i]);
         }
-        this.actividadCreate.alumnos = alumnos;
+        this.actividadCreate.alumnos=alumnos;
+        */
+        //MODIFICADO
+        this.actividadCreate.alumnos = this.alumnosSeleccionados;
         console.log(this.actividadCreate);
         this.actividadCreada.emit(this.actividadCreate);
         this.actividadCreate = {
@@ -1049,6 +1099,10 @@ let ProfesorComponent = class ProfesorComponent {
             yield $.getJSON("/verEstudiantes", function (data) {
                 //console.log(data);
                 ju.listaAlumnos = data;
+            });
+            yield $.getJSON("/verActividades", function (data) {
+                //console.log(data);
+                ju.listaActividades = data;
             });
             //console.log(this.listaAlumnos);
         });
@@ -1157,10 +1211,47 @@ let ProfesorComponent = class ProfesorComponent {
     }
     guardarActividad(actividad) {
         //this.actividadCreada = actividad;
+        var ju = this;
         console.log(actividad);
-        this.listaActividades.push(actividad);
-        this.crearActividad = false;
-        console.log(this.listaActividades);
+        $.ajax({
+            type: 'POST',
+            url: '/registrarActividad',
+            data: JSON.stringify(actividad),
+            success: function (data) {
+                /*$.getJSON("/verEstudiantes", function (data) {
+                  //console.log(data);
+                  ju.listaAlumnos = data;
+                  ju.limpiar();
+                  ju.editarAlumno = false;
+                  console.log(ju.listaAlumnos);
+                });*/
+                $.getJSON("/verActividades", function (data) {
+                    //console.log(data);
+                    ju.listaActividades = data;
+                    ju.crearActividad = false;
+                    console.log(ju.listaActividades);
+                });
+                //ju.listaActividades.push(actividad);
+            },
+            contentType: 'application/json',
+            dataType: 'json'
+        });
+    }
+    borrarA(act) {
+        var ju = this;
+        $.ajax({
+            type: 'DELETE',
+            url: '/eliminarActividad',
+            data: JSON.stringify(act),
+            success: function (data) {
+                console.log("Actividad eliminado");
+                $.getJSON("/verActividades", function (data) {
+                    ju.listaActividades = data;
+                });
+            },
+            contentType: 'application/json',
+            dataType: 'json'
+        });
     }
     abrirActividad(actividad) {
         this.verActividad = true;
@@ -1267,7 +1358,7 @@ let VerActividadComponent = class VerActividadComponent {
         console.log(this.actividad);
     }
     dragEnded($event, item) {
-        let posicion = $event.source.getFreeDragPosition();
+        //let posicion=$event.source.getFreeDragPosition();
         item.posicion = $event.source.getFreeDragPosition();
         console.log(item);
         //this.alumno.posicion=this.dragPosition;
