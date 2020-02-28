@@ -7,6 +7,7 @@ function Centro() {
 
     this.actividades = {};
     this.estudiantes = {};
+    this.actividadesListas = {};
     this.dao = new dao.Dao();
 
 
@@ -206,6 +207,32 @@ function Centro() {
                 db.close();
             });
         });
+    }
+
+    this.anadirActividadLista = function(act,callback){
+        if(this.actividadesListas[act._id]==null){
+            this.actividadesListas[act._id]=act;
+        }
+        console.log(this.actividadesListas);
+        callback(this.actividadesListas[act._id]);
+    }
+
+    this.borrarActividadLista = function(act,callback){
+        delete this.actividadesListas[act._id];
+        callback(act);
+    }
+
+    this.mostrarActividadListasxAlumno = function(id_alu,callback){
+        let actividades = [];
+        for (var id in this.actividadesListas) {
+            for(var id_a in this.actividadesListas[id].alumnos){
+                if(this.actividadesListas[id].alumnos[id_a]==id_alu){
+                    actividades.push(this.this.actividadesListas[id]);
+                    break;
+                }
+            }
+        }
+        callback(actividades);
     }
 
     //Iniciar Sesion

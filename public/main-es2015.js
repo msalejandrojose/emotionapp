@@ -45,7 +45,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<!--<div class=\"row\">\n    <div class=\"col-md-2\">\n        <!--<app-sidenav-profesor></app-sidenav-profesor>\n        <div class=\"sidenav list-group\">\n            <a href=\"#\">Emociones</a>\n        </div>\n    </div>\n</div>-->\n<br>\n<div *ngIf=\"noHayEstudiante\" class=\"row justify-content-md-center\">\n    <div class=\"card col-md-6\">\n        <div class=\"card-body\">\n            <h4 class=\"card-title\">Iniciar Sesion</h4>\n            <div>\n                <label>Email</label>\n                <input [(ngModel)]=\"estudiante.email\" type=\"email\" class=\"form-control\" id=\"emailIS\" ng-model=\"email\"\n                    placeholder=\"Email\">\n                <br>\n                <label>Contraseña</label>\n                <input [(ngModel)]=\"estudiante.contrasena\" type=\"password\" class=\"form-control\" id=\"contrasenaIS\"\n                    ng-model=\"contrasena\" placeholder=\"Contraseña\">\n                <br>\n                <button type=\"button\" (click)=\"limpiar()\" class=\"btn btn-raised btn-danger\">Cancelar</button>\n                <button type=\"button\" (click)=\"iniciarSesion()\" class=\"btn btn-raised btn-success\">Iniciar\n                    Sesion</button>\n            </div>\n        </div>\n    </div>\n</div>\n<div class=\"row justify-content-md-center\">\n    <div class=\"col-md-8\">\n        <video id=\"video\" width=\"480\" height=\"360\" autoplay muted></video>\n    </div>\n    <div class=\"col-md-4\" id=\"estadoAlumno\" class=\"circulo\">\n        <p>Estado</p>\n    </div>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<!--<div class=\"row\">\n    <div class=\"col-md-2\">\n        <!--<app-sidenav-profesor></app-sidenav-profesor>\n        <div class=\"sidenav list-group\">\n            <a href=\"#\">Emociones</a>\n        </div>\n    </div>\n</div>-->\n<br>\n<div *ngIf=\"noHayEstudiante\" class=\"row justify-content-md-center\">\n    <div class=\"card col-md-6\">\n        <div class=\"card-body\">\n            <h4 class=\"card-title\">Iniciar Sesion</h4>\n            <div>\n                <label>Email</label>\n                <input [(ngModel)]=\"estudiante.email\" type=\"email\" class=\"form-control\" id=\"emailIS\" ng-model=\"email\"\n                    placeholder=\"Email\">\n                <br>\n                <label>Contraseña</label>\n                <input [(ngModel)]=\"estudiante.contrasena\" type=\"password\" class=\"form-control\" id=\"contrasenaIS\"\n                    ng-model=\"contrasena\" placeholder=\"Contraseña\">\n                <br>\n                <button type=\"button\" (click)=\"limpiar()\" class=\"btn btn-raised btn-danger\">Cancelar</button>\n                <button type=\"button\" (click)=\"iniciarSesion()\" class=\"btn btn-raised btn-success\">Iniciar\n                    Sesion</button>\n            </div>\n        </div>\n    </div>\n</div>\n<div *ngIf=\"!noHayEstudiante\" class=\"row justify-content-md-center\">\n    <div class=\"col-md-10\">\n        <h3>Actividades listas</h3>\n        <table class=\"table table-striped\">\n            <thead>\n                <tr>\n                    <th scope=\"col\">Nombre</th>\n                    <th scope=\"col\">Profesor</th>\n                    <th scope=\"col\">Estado</th>\n                    <th scope=\"col\"></th>\n                    <th scope=\"col\"></th>\n                    <th scope=\"col\"></th>\n                </tr>\n            </thead>\n            <tbody *ngFor=\"let actividad of listaActividades\">\n                <tr>\n                    <td>{{actividad.nombre}}</td>\n                    <td>{{actividad.profesor}}</td>\n                    <td>{{actividad.estado}}</td>\n                    <td><button type=\"button\" class=\"btn btn-outline-primary\"\n                            (click)=\"conectarse(actividad)\">Conectarse</button></td>\n                </tr>\n            </tbody>\n        </table>\n    </div>\n</div>\n<div *ngIf=\"!noHayEstudiante && conectadoaActividad\" class=\"row justify-content-md-center\">\n    <div class=\"col-md-8\">\n        <video id=\"video\" width=\"480\" height=\"360\" autoplay muted></video>\n    </div>\n    <div class=\"col-md-4\" id=\"estadoAlumno\" class=\"circulo\">\n        <p>Estado</p>\n    </div>\n</div>");
 
 /***/ }),
 
@@ -363,6 +363,154 @@ class Alumnos {
     }
     setActividad(act) {
         this.id_item = this.estudiante._id + act._id;
+    }
+}
+
+
+/***/ }),
+
+/***/ "./src/app/WebSockets/clienteWS.ts":
+/*!*****************************************!*\
+  !*** ./src/app/WebSockets/clienteWS.ts ***!
+  \*****************************************/
+/*! exports provided: ClienteWS */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ClienteWS", function() { return ClienteWS; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var socket_io_client__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! socket.io-client */ "./node_modules/socket.io-client/lib/index.js");
+/* harmony import */ var socket_io_client__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(socket_io_client__WEBPACK_IMPORTED_MODULE_1__);
+
+
+class ClienteWS {
+    constructor(id) {
+        this.socket = undefined;
+        this.id = '';
+        this.crearActividadLista = function (actividad) {
+            this.socket.emit('crearActividadLista', actividad);
+            console.log("Actividad: " + actividad._id + " está lista.");
+        };
+        this.borrarActividadLista = function (actividad) {
+            this.socket.emit('borrarActividadLista', actividad);
+            console.log("Actividad: " + actividad._id + " YA NO está lista.");
+        };
+        /*
+        this.crearPartida=function(nombrePartida){
+            //this.nombrePartida=nombre;
+            this.socket.emit('crearPartida',this.nick,nombrePartida);
+                console.log("usuario "+this.nick+" crea partida "+nombrePartida);
+        }
+        this.obtenerPartidas=function(){
+            this.socket.emit("obtenerPartidas");
+        }
+        this.unirAPartida=function(idp,nick){
+            this.socket.emit("unirAPartida",idp,nick);
+        }
+        this.salir=function(){
+            this.socket.emit("salir",this.idp,this.nick);
+        }
+        this.preparado=function(){
+            $('#preparadoBtn').remove();
+            this.socket.emit("preparado",this.idp,this.nick);
+        }
+        this.enviarResultado=function(){
+            this.socket.emit("enviarResultado",this.idp,this.nick);
+        }
+        this.muereEnemigo=function(enemy){
+            this.socket.emit("muereEnemigo",this.idp,this.nick,enemy);
+        }
+        this.jugadorHerido=function(){
+            this.socket.emit("jugadorHerido",this.idp,this.nick);
+        }
+        this.mover=function(operacion,posicion){
+            if(this.rival){
+                this.socket.emit("mover",this.idp,this.nick,operacion,posicion);
+            }
+            
+        }
+        this.obtenerRival=function(jugadores){
+            var rival=undefined;
+            for(var key in jugadores){
+                if (key!=ws.nick){
+                    rival=jugadores[key];
+                }
+            }
+            return rival;
+        }*/
+        this.lanzarSocketSrv = function () {
+            var cli = this;
+            this.socket.on('connect', function () {
+                console.log("Conectado al servidor de WebSockets");
+            });
+            this.socket.on('actividadAnadida', function (res) {
+                console.log("Se ha añadido una actividad a las listas: " + res._id);
+            });
+            this.socket.on('actividadBorrada', function (res) {
+                console.log("Se ha borrado una actividad a las listas: " + res._id);
+            });
+            this.socket.on('actividades', function (res) {
+                this.EstudianteComponent.prueba(res);
+                console.log(res);
+            });
+            /*
+            this.socket.on('partidaCreada',function(partida){
+                console.log("partida creada:",partida);
+                cli.idp=partida.idp;
+                mostrarPartida(partida);
+                mostrarListaJugadores(partida.jugadores);
+            });
+            this.socket.on('partidas',function(partidas){
+                mostrarListaPartidas(partidas);
+            });
+            this.socket.on('unido',function(partida){
+                cli.idp=partida.idp;
+                mostrarPartida(partida);
+                mostrarListaJugadores(partida.jugadores);
+            });
+            this.socket.on('nuevoJugador',function(jugadores){
+                mostrarListaJugadores(jugadores);
+            });
+            this.socket.on('saliste',function(){
+                mostrarCrearPartida(cli.nick);
+                borrarCanvas();
+            });
+            this.socket.on('saleJugador',function(jugadores){
+                mostrarListaJugadores(jugadores);
+            });
+            this.socket.on('otropreparado',function(jugadores){
+                mostrarListaJugadores(jugadores);
+            });
+            this.socket.on('aJugar',function(data){
+                cli.jugador=data.jugadores[cli.nick];
+                cli.rival=cli.obtenerRival(data.jugadores);
+                mostrarCanvas(data.numJugadores);
+            });
+            this.socket.on('anotado',function(){ //function(resultados)
+                //mostrarListaResultados(resultados)
+                console.log("Resultado anotado");
+            });
+            this.socket.on('finPartida',function(){
+                console.log("Fin de la partida");
+                alert("Fin de la partida");
+                cli.salir();
+            });
+            this.socket.on("sigueVivo",function(){
+                console.log("sigue vivo");
+                cli.spriteLocal.volverAInicio();
+            });
+            this.socket.on("mover",function(operacion,posicion){
+                if (cli.spriteRival){
+                    cli.spriteRival.mover(operacion,posicion);
+                }
+            });*/
+        };
+        this.id = id;
+    }
+    ini() {
+        this.socket = socket_io_client__WEBPACK_IMPORTED_MODULE_1__["connect"]();
+        this.lanzarSocketSrv();
     }
 }
 
@@ -798,6 +946,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _socketio_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../socketio.service */ "./src/app/socketio.service.ts");
+/* harmony import */ var _WebSockets_clienteWS__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../WebSockets/clienteWS */ "./src/app/WebSockets/clienteWS.ts");
+
 
 
 
@@ -821,8 +971,17 @@ let EstudianteComponent = class EstudianteComponent {
             contrasena: '',
         };
         this.noHayEstudiante = true;
+        this.conectadoaActividad = false;
+        this.listaActividades = [];
     }
     ngOnInit() {
+    }
+    prueba(act) {
+        console.log(act);
+    }
+    conectarse(actividad) {
+        console.log("Me he conectado a la actividad");
+        this.conectadoaActividad = true;
     }
     limpiar() {
         this.estudiante = {
@@ -850,8 +1009,10 @@ let EstudianteComponent = class EstudianteComponent {
                 ju.estudiante = data;
                 ju.noHayEstudiante = false;
                 ju.estudianteIniciado.emit(ju.estudiante);
-                ju.socketService.setupSocketConnection();
-                ju.empezar();
+                ju.socket = new _WebSockets_clienteWS__WEBPACK_IMPORTED_MODULE_3__["ClienteWS"](ju.estudiante._id);
+                ju.socket.ini();
+                //ju.socketService.setupSocketConnection();
+                //ju.empezar();
             },
             contentType: 'application/json',
             dataType: 'json'
@@ -1224,6 +1385,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/esm2015/dialog.js");
 /* harmony import */ var _estudiante_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! .././estudiante.service */ "./src/app/estudiante.service.ts");
+/* harmony import */ var _WebSockets_clienteWS__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../WebSockets/clienteWS */ "./src/app/WebSockets/clienteWS.ts");
+
 
 
 
@@ -1258,6 +1421,8 @@ let ProfesorComponent = class ProfesorComponent {
     }
     ngOnInit() {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
+            this.socket = new _WebSockets_clienteWS__WEBPACK_IMPORTED_MODULE_4__["ClienteWS"]('profesor');
+            this.socket.ini();
             var ju = this;
             //this.listaAlumnos=this.estudiantes.getEstudiantes();
             yield $.getJSON("/verEstudiantes", function (data) {
@@ -1420,6 +1585,7 @@ let ProfesorComponent = class ProfesorComponent {
     abrirActividad(actividad) {
         this.verActividad = true;
         this.actividadSelected = actividad;
+        this.socket.crearActividadLista(actividad);
     }
     cerrarActividad() {
         this.verActividad = false;

@@ -8,15 +8,43 @@ function ServidorWS() {
     this.enviarATodosMenosRemitente = function (socket, nombre, mens, datos) {
         socket.broadcast.to(nombre).emit(mens, datos)
     };
+    this.enviarCliente = function (io, socket, id_socket, mens, datos) {
+        console.log(io.sockets);
+        io.sockets.in(id_socket).emit(mens, datos);
+    }
     this.lanzarSocketSrv = function (io, centro) {
         var cli = this;
         io.on('connection', function (socket) {
+            socket.join('123');
             console.log("Nueva conexión");
 
-            socket.on ('mi mensaje', ( msg ) => { 
-                console .log ('mensaje:' + msg); 
-                cli.enviarRemitente(socket,"mi mensaje","hola soy el servidor WS");
-              });
+            socket.on('crearActividadLista', function (actividad) {
+
+                centro.anadirActividadLista(actividad, function (u) {
+                    cli.enviarRemitente(socket, "actividadAnadida", u);
+                    //console.log(u.alumnos);
+                    //console.log(u.alumnos[i].estudiante._id);
+                    //socket.join("123");
+                    cli.enviarATodos(io, "123", "actividades", u);
+                })
+
+                /*juego.crearPartida(nombrePartida, nick, function (partida) {
+                    cli.enviarRemitente(socket, "partidaCreada", partida);
+                    socket.join(partida.idp);
+                });*/
+            });
+
+            socket.on('borrarActividadLista', function (actividad) {
+                centro.borrarActividadLista(actividad, function (u) {
+                    cli.enviarRemitente(socket, "actividadBorrada", u);
+                });
+            })
+
+            /*
+            this.socket.emit('crearActividadLista',this.id,actividad,function(){
+			    console.log("Actividad: "+actividad._id+" está lista.");
+		    })
+            */
 
             /*
             socket.on('crearPartida', function (nick, nombrePartida) {
