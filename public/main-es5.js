@@ -71,7 +71,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<!--<div class=\"row\">\n    <div class=\"col-md-2\">\n        <!--<app-sidenav-profesor></app-sidenav-profesor>\n        <div class=\"sidenav list-group\">\n            <a href=\"#\">Emociones</a>\n        </div>\n    </div>\n</div>-->\n<br>\n<div *ngIf=\"noHayEstudiante\" class=\"row justify-content-md-center\">\n    <div class=\"card col-md-6\">\n        <div class=\"card-body\">\n            <h4 class=\"card-title\">Iniciar Sesion</h4>\n            <div>\n                <label>Email</label>\n                <input [(ngModel)]=\"estudiante.email\" type=\"email\" class=\"form-control\" id=\"emailIS\" ng-model=\"email\"\n                    placeholder=\"Email\">\n                <br>\n                <label>Contraseña</label>\n                <input [(ngModel)]=\"estudiante.contrasena\" type=\"password\" class=\"form-control\" id=\"contrasenaIS\"\n                    ng-model=\"contrasena\" placeholder=\"Contraseña\">\n                <br>\n                <button type=\"button\" (click)=\"limpiar()\" class=\"btn btn-raised btn-danger\">Cancelar</button>\n                <button type=\"button\" (click)=\"iniciarSesion()\" class=\"btn btn-raised btn-success\">Iniciar\n                    Sesion</button>\n            </div>\n        </div>\n    </div>\n</div>\n<div *ngIf=\"!noHayEstudiante\" class=\"row justify-content-md-center\">\n    <div class=\"col-md-10\">\n        <h3>Actividades listas</h3>\n        <table class=\"table table-striped\">\n            <thead>\n                <tr>\n                    <th scope=\"col\">Nombre</th>\n                    <th scope=\"col\">Profesor</th>\n                    <th scope=\"col\">Estado</th>\n                    <th scope=\"col\"></th>\n                    <th scope=\"col\"></th>\n                    <th scope=\"col\"></th>\n                </tr>\n            </thead>\n            <tbody *ngFor=\"let actividad of listaActividades\">\n                <tr>\n                    <td>{{actividad.nombre}}</td>\n                    <td>{{actividad.profesor}}</td>\n                    <td>{{actividad.estado}}</td>\n                    <td><button type=\"button\" class=\"btn btn-outline-primary\"\n                            (click)=\"conectarse(actividad)\">Conectarse</button></td>\n                </tr>\n            </tbody>\n        </table>\n    </div>\n</div>\n<div *ngIf=\"!noHayEstudiante && conectadoaActividad\" class=\"row justify-content-md-center\">\n    <div class=\"col-md-8\">\n        <video id=\"video\" width=\"480\" height=\"360\" autoplay muted></video>\n    </div>\n    <div class=\"col-md-4\" id=\"estadoAlumno\" class=\"circulo\">\n        <p>Estado</p>\n    </div>\n</div>";
+    __webpack_exports__["default"] = "<!--<div class=\"row\">\n    <div class=\"col-md-2\">\n        <!--<app-sidenav-profesor></app-sidenav-profesor>\n        <div class=\"sidenav list-group\">\n            <a href=\"#\">Emociones</a>\n        </div>\n    </div>\n</div>-->\n<br>\n<div *ngIf=\"noHayEstudiante\" class=\"row justify-content-md-center\">\n    <div class=\"card col-md-6\">\n        <div class=\"card-body\">\n            <h4 class=\"card-title\">Iniciar Sesion</h4>\n            <div>\n                <label>Email</label>\n                <input [(ngModel)]=\"estudiante.email\" type=\"email\" class=\"form-control\" id=\"emailIS\" ng-model=\"email\"\n                    placeholder=\"Email\">\n                <br>\n                <label>Contraseña</label>\n                <input [(ngModel)]=\"estudiante.contrasena\" type=\"password\" class=\"form-control\" id=\"contrasenaIS\"\n                    ng-model=\"contrasena\" placeholder=\"Contraseña\">\n                <br>\n                <button type=\"button\" (click)=\"limpiar()\" class=\"btn btn-raised btn-danger\">Cancelar</button>\n                <button type=\"button\" (click)=\"iniciarSesion()\" class=\"btn btn-raised btn-success\">Iniciar\n                    Sesion</button>\n            </div>\n        </div>\n    </div>\n</div>\n<div *ngIf=\"!noHayEstudiante\" class=\"row justify-content-md-center\">\n    <div class=\"col-md-10\">\n        <h3>Actividades listas</h3>\n        <table class=\"table table-striped\">\n            <thead>\n                <tr>\n                    <th scope=\"col\">Nombre</th>\n                    <th scope=\"col\">Profesor</th>\n                    <th scope=\"col\">Estado</th>\n                    <th scope=\"col\"></th>\n                </tr>\n            </thead>\n            <tbody *ngFor=\"let actividad of listaActividades\">\n                <tr>\n                    <td>{{actividad.nombre}}</td>\n                    <td>{{actividad.profesor}}</td>\n                    <td>{{actividad.estado}}</td>\n                    <td><button type=\"button\" class=\"btn btn-outline-primary\"\n                            (click)=\"conectarse(actividad)\">Conectarse</button></td>\n                </tr>\n            </tbody>\n        </table>\n    </div>\n</div>\n<div  class=\"row justify-content-md-center\"> <!--*ngIf=\"!noHayEstudiante && conectadoaActividad\"-->\n    <div class=\"col-md-8\">\n        <video id=\"video\" width=\"480\" height=\"360\" autoplay muted></video>\n    </div>\n    <div *ngIf=\"conectadoaActividad\" class=\"col-md-4\" id=\"estadoAlumno\" class=\"circulo\">\n        <p>Estado</p>\n    </div>\n</div>\n";
     /***/
   },
 
@@ -777,192 +777,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }]);
 
       return Alumnos;
-    }();
-    /***/
-
-  },
-
-  /***/
-  "./src/app/WebSockets/clienteWS.ts":
-  /*!*****************************************!*\
-    !*** ./src/app/WebSockets/clienteWS.ts ***!
-    \*****************************************/
-
-  /*! exports provided: ClienteWS */
-
-  /***/
-  function srcAppWebSocketsClienteWSTs(module, __webpack_exports__, __webpack_require__) {
-    "use strict";
-
-    __webpack_require__.r(__webpack_exports__);
-    /* harmony export (binding) */
-
-
-    __webpack_require__.d(__webpack_exports__, "ClienteWS", function () {
-      return ClienteWS;
-    });
-    /* harmony import */
-
-
-    var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
-    /*! tslib */
-    "./node_modules/tslib/tslib.es6.js");
-    /* harmony import */
-
-
-    var socket_io_client__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
-    /*! socket.io-client */
-    "./node_modules/socket.io-client/lib/index.js");
-    /* harmony import */
-
-
-    var socket_io_client__WEBPACK_IMPORTED_MODULE_1___default =
-    /*#__PURE__*/
-    __webpack_require__.n(socket_io_client__WEBPACK_IMPORTED_MODULE_1__);
-
-    var ClienteWS =
-    /*#__PURE__*/
-    function () {
-      function ClienteWS(id) {
-        _classCallCheck(this, ClienteWS);
-
-        this.socket = undefined;
-        this.id = '';
-
-        this.crearActividadLista = function (actividad) {
-          this.socket.emit('crearActividadLista', actividad);
-          console.log("Actividad: " + actividad._id + " está lista.");
-        };
-
-        this.borrarActividadLista = function (actividad) {
-          this.socket.emit('borrarActividadLista', actividad);
-          console.log("Actividad: " + actividad._id + " YA NO está lista.");
-        };
-        /*
-        this.crearPartida=function(nombrePartida){
-            //this.nombrePartida=nombre;
-            this.socket.emit('crearPartida',this.nick,nombrePartida);
-                console.log("usuario "+this.nick+" crea partida "+nombrePartida);
-        }
-        this.obtenerPartidas=function(){
-            this.socket.emit("obtenerPartidas");
-        }
-        this.unirAPartida=function(idp,nick){
-            this.socket.emit("unirAPartida",idp,nick);
-        }
-        this.salir=function(){
-            this.socket.emit("salir",this.idp,this.nick);
-        }
-        this.preparado=function(){
-            $('#preparadoBtn').remove();
-            this.socket.emit("preparado",this.idp,this.nick);
-        }
-        this.enviarResultado=function(){
-            this.socket.emit("enviarResultado",this.idp,this.nick);
-        }
-        this.muereEnemigo=function(enemy){
-            this.socket.emit("muereEnemigo",this.idp,this.nick,enemy);
-        }
-        this.jugadorHerido=function(){
-            this.socket.emit("jugadorHerido",this.idp,this.nick);
-        }
-        this.mover=function(operacion,posicion){
-            if(this.rival){
-                this.socket.emit("mover",this.idp,this.nick,operacion,posicion);
-            }
-            
-        }
-        this.obtenerRival=function(jugadores){
-            var rival=undefined;
-            for(var key in jugadores){
-                if (key!=ws.nick){
-                    rival=jugadores[key];
-                }
-            }
-            return rival;
-        }*/
-
-
-        this.lanzarSocketSrv = function () {
-          var cli = this;
-          this.socket.on('connect', function () {
-            console.log("Conectado al servidor de WebSockets");
-          });
-          this.socket.on('actividadAnadida', function (res) {
-            console.log("Se ha añadido una actividad a las listas: " + res._id);
-          });
-          this.socket.on('actividadBorrada', function (res) {
-            console.log("Se ha borrado una actividad a las listas: " + res._id);
-          });
-          this.socket.on('actividades', function (res) {
-            this.EstudianteComponent.prueba(res);
-            console.log(res);
-          });
-          /*
-          this.socket.on('partidaCreada',function(partida){
-              console.log("partida creada:",partida);
-              cli.idp=partida.idp;
-              mostrarPartida(partida);
-              mostrarListaJugadores(partida.jugadores);
-          });
-          this.socket.on('partidas',function(partidas){
-              mostrarListaPartidas(partidas);
-          });
-          this.socket.on('unido',function(partida){
-              cli.idp=partida.idp;
-              mostrarPartida(partida);
-              mostrarListaJugadores(partida.jugadores);
-          });
-          this.socket.on('nuevoJugador',function(jugadores){
-              mostrarListaJugadores(jugadores);
-          });
-          this.socket.on('saliste',function(){
-              mostrarCrearPartida(cli.nick);
-              borrarCanvas();
-          });
-          this.socket.on('saleJugador',function(jugadores){
-              mostrarListaJugadores(jugadores);
-          });
-          this.socket.on('otropreparado',function(jugadores){
-              mostrarListaJugadores(jugadores);
-          });
-          this.socket.on('aJugar',function(data){
-              cli.jugador=data.jugadores[cli.nick];
-              cli.rival=cli.obtenerRival(data.jugadores);
-              mostrarCanvas(data.numJugadores);
-          });
-          this.socket.on('anotado',function(){ //function(resultados)
-              //mostrarListaResultados(resultados)
-              console.log("Resultado anotado");
-          });
-          this.socket.on('finPartida',function(){
-              console.log("Fin de la partida");
-              alert("Fin de la partida");
-              cli.salir();
-          });
-          this.socket.on("sigueVivo",function(){
-              console.log("sigue vivo");
-              cli.spriteLocal.volverAInicio();
-          });
-          this.socket.on("mover",function(operacion,posicion){
-              if (cli.spriteRival){
-                  cli.spriteRival.mover(operacion,posicion);
-              }
-          });*/
-        };
-
-        this.id = id;
-      }
-
-      _createClass(ClienteWS, [{
-        key: "ini",
-        value: function ini() {
-          this.socket = socket_io_client__WEBPACK_IMPORTED_MODULE_1__["connect"]();
-          this.lanzarSocketSrv();
-        }
-      }]);
-
-      return ClienteWS;
     }();
     /***/
 
@@ -1676,9 +1490,15 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var _WebSockets_clienteWS__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ../WebSockets/clienteWS */
-    "./src/app/WebSockets/clienteWS.ts");
+    var socket_io_client__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! socket.io-client */
+    "./node_modules/socket.io-client/lib/index.js");
+    /* harmony import */
+
+
+    var socket_io_client__WEBPACK_IMPORTED_MODULE_3___default =
+    /*#__PURE__*/
+    __webpack_require__.n(socket_io_client__WEBPACK_IMPORTED_MODULE_3__);
 
     var EstudianteComponent =
     /*#__PURE__*/
@@ -1713,11 +1533,102 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         this.noHayEstudiante = true;
         this.conectadoaActividad = false;
         this.listaActividades = [];
+        this.id = '';
+
+        this.soyEstudiante = function () {
+          this.socket.emit('soyEstudiante');
+        };
+
+        this.crearActividadLista = function (actividad) {
+          this.socket.emit('crearActividadLista', actividad);
+          console.log("Actividad: " + actividad._id + " está lista.");
+        };
+
+        this.borrarActividadLista = function (actividad) {
+          this.socket.emit('borrarActividadLista', actividad);
+          console.log("Actividad: " + actividad._id + " YA NO está lista.");
+        };
+
+        this.enviarEmocionesWebCam = function (datos) {
+          this.socket.emit('envioDeEmociones', datos);
+        };
+
+        this.lanzarSocketSrv = function () {
+          var cli = this;
+          this.socket.on('connect', function () {
+            console.log("Conectado al servidor de WebSockets");
+          });
+          this.socket.on('actividadAnadida', function (res) {
+            console.log("Se ha añadido una actividad a las listas: " + res._id);
+          });
+          this.socket.on('actividadBorrada', function (res) {
+            console.log("Se ha borrado una actividad a las listas: " + res._id);
+          });
+          this.socket.on('actividades', function (res) {
+            cli.listaActividades.push(res);
+            console.log(res); //callback(res);
+          });
+          this.socket.on('recepcionEmociones', function (datos) {
+            console.log(datos);
+          });
+          /*
+          this.socket.on('partidaCreada',function(partida){
+              console.log("partida creada:",partida);
+              cli.idp=partida.idp;
+              mostrarPartida(partida);
+              mostrarListaJugadores(partida.jugadores);
+          });
+          this.socket.on('partidas',function(partidas){
+              mostrarListaPartidas(partidas);
+          });
+          this.socket.on('unido',function(partida){
+              cli.idp=partida.idp;
+              mostrarPartida(partida);
+              mostrarListaJugadores(partida.jugadores);
+          });
+          this.socket.on('nuevoJugador',function(jugadores){
+              mostrarListaJugadores(jugadores);
+          });
+          this.socket.on('saliste',function(){
+              mostrarCrearPartida(cli.nick);
+              borrarCanvas();
+          });
+          this.socket.on('saleJugador',function(jugadores){
+              mostrarListaJugadores(jugadores);
+          });
+          this.socket.on('otropreparado',function(jugadores){
+              mostrarListaJugadores(jugadores);
+          });
+          this.socket.on('aJugar',function(data){
+              cli.jugador=data.jugadores[cli.nick];
+              cli.rival=cli.obtenerRival(data.jugadores);
+              mostrarCanvas(data.numJugadores);
+          });
+          this.socket.on('anotado',function(){ //function(resultados)
+              //mostrarListaResultados(resultados)
+              console.log("Resultado anotado");
+          });
+          this.socket.on('finPartida',function(){
+              console.log("Fin de la partida");
+              alert("Fin de la partida");
+              cli.salir();
+          });
+          this.socket.on("sigueVivo",function(){
+              console.log("sigue vivo");
+              cli.spriteLocal.volverAInicio();
+          });
+          this.socket.on("mover",function(operacion,posicion){
+              if (cli.spriteRival){
+                  cli.spriteRival.mover(operacion,posicion);
+              }
+          });*/
+        };
       }
 
       _createClass(EstudianteComponent, [{
         key: "ngOnInit",
-        value: function ngOnInit() {}
+        value: function ngOnInit() {//this.empezar();
+        }
       }, {
         key: "prueba",
         value: function prueba(act) {
@@ -1728,6 +1639,16 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function conectarse(actividad) {
           console.log("Me he conectado a la actividad");
           this.conectadoaActividad = true;
+          this.actividadActual = actividad;
+          console.log(this.actividadActual.alumnos);
+
+          for (var key in this.actividadActual.alumnos) {
+            if (this.actividadActual.alumnos[key].estudiante._id = this.estudiante._id) {
+              this.id_item = this.actividadActual.alumnos[key].id_item;
+            }
+          }
+
+          this.empezar();
         }
       }, {
         key: "limpiar",
@@ -1745,12 +1666,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         key: "iniciarSesion",
         value: function iniciarSesion() {
           var ju = this;
-          /*$.getJSON("/estudiante/iniciarSesion", function (data) {
-            console.log(data);
-            /*ju.estudiante=data;
-            this.noHayEstudiante = false;
-          });*/
-
           $.ajax({
             type: 'POST',
             url: '/estudianteIniciarSesion',
@@ -1760,8 +1675,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               ju.estudiante = data;
               ju.noHayEstudiante = false;
               ju.estudianteIniciado.emit(ju.estudiante);
-              ju.socket = new _WebSockets_clienteWS__WEBPACK_IMPORTED_MODULE_3__["ClienteWS"](ju.estudiante._id);
-              ju.socket.ini(); //ju.socketService.setupSocketConnection();
+              ju.id = ju.estudiante._id;
+              ju.ini(); //ju.socket = new SocketioService(ju.estudiante._id);
+              //ju.socket.ini();
+              //ju.socketService.setupSocketConnection();
+              //ju.conectadoaActividad = true;
               //ju.empezar();
             },
             contentType: 'application/json',
@@ -1774,18 +1692,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           var _this = this;
 
           this.video = document.getElementById('video');
-          var constraints = {
-            audio: false,
-            video: true
-          };
           navigator.getUserMedia({
-            video: {}
+            video: true
           }, function (stream) {
             return _this.video.srcObject = stream;
           }, function (err) {
             return console.error(err);
           });
-          navigator.mediaDevices.getUserMedia(constraints);
           Promise.all([//faceapi.nets.ageGenderNet.loadFromUri('/modelos'),
           faceapi.nets.faceExpressionNet.loadFromUri('assets/modelos'), faceapi.nets.faceLandmark68Net.loadFromUri('assets/modelos'), //faceapi.nets.faceLandmark68TinyNet.loadFromUri('/modelos'),
           faceapi.nets.faceRecognitionNet.loadFromUri('assets/modelos'), //faceapi.nets.ssdMobilenetv1.loadFromUri('/modelos'),
@@ -1826,41 +1739,69 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
                         if (datosNeutral == maximo) {
                           //console.log("Neutro: "+maximo);
+                          this.enviarEmocionesWebCam({
+                            id_item: this.id_item,
+                            color: this.ColorNeutral
+                          });
                           $('#estadoAlumno').css('background-color', this.ColorNeutral); //this.ContadorNeutro++
                           //this.usuario.Neutro.valor = this.usuario.Neutro.valor + 1;
                         }
 
                         if (datosFearful == maximo) {
                           //console.log("Miedo: "+maximo);
+                          this.enviarEmocionesWebCam({
+                            id_item: this.id_item,
+                            color: this.ColorFearful
+                          });
                           $('#estadoAlumno').css('background-color', this.ColorFearful); //this.ContadorMiedo++
                           //this.usuario.Miedo.valor = this.usuario.Miedo.valor + 1;
                         }
 
                         if (datosAngry == maximo) {
                           //console.log("Enfadado: "+maximo);
+                          this.enviarEmocionesWebCam({
+                            id_item: this.id_item,
+                            color: this.ColorAngry
+                          });
                           $('#estadoAlumno').css('background-color', this.ColorAngry); //this.ContadorEnfadado++
                           //this.usuario.Enfadado.valor = this.usuario.Enfadado.valor + 1;
                         }
 
                         if (datosHappy == maximo) {
                           //console.log("Feliz: "+maximo);
+                          this.enviarEmocionesWebCam({
+                            id_item: this.id_item,
+                            color: this.ColorHappy
+                          });
                           $('#estadoAlumno').css('background-color', this.ColorHappy); //this.ContadorFeliz++
                           //this.usuario.Felicidad.valor = this.usuario.Felicidad.valor + 1;
                         }
 
                         if (datosSad == maximo) {
                           //console.log("Triste: "+maximo);
+                          this.enviarEmocionesWebCam({
+                            id_item: this.id_item,
+                            color: this.ColorSad
+                          });
                           $('#estadoAlumno').css('background-color', this.ColorSad); //this.ContadorTriste++
                           //this.usuario.Triste.valor = this.usuario.Triste.valor + 1;
                         }
 
                         if (datosSurprised == maximo) {
+                          this.enviarEmocionesWebCam({
+                            id_item: this.id_item,
+                            color: this.ColorSurprised
+                          });
                           $('#estadoAlumno').css('background-color', this.ColorSurprised); //this.ContadorSorprendido++
                           //this.usuario.Sorpresa.valor = this.usuario.Sorpresa.valor + 1;
                         }
 
                         if (datosDisgusted == maximo) {
                           //console.log("Disgustado: "+maximo);
+                          this.enviarEmocionesWebCam({
+                            id_item: this.id_item,
+                            color: this.ColorDisgusted
+                          });
                           $('#estadoAlumno').css('background-color', this.ColorDisgusted); //this.ContadorDisgustado++
                           //this.usuario.Disgustado.valor = this.usuario.Disgustado.valor + 1;
                         } //this.contador = this.contador + 1;
@@ -1890,6 +1831,14 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           this.video.addEventListener('stop', function () {
             console.log("Se ha parado");
           });
+        } //Implementacion de los sockets
+
+      }, {
+        key: "ini",
+        value: function ini() {
+          this.socket = socket_io_client__WEBPACK_IMPORTED_MODULE_3__["connect"]();
+          this.lanzarSocketSrv();
+          this.soyEstudiante();
         }
       }]);
 
@@ -2257,9 +2206,15 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var _WebSockets_clienteWS__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-    /*! ../WebSockets/clienteWS */
-    "./src/app/WebSockets/clienteWS.ts");
+    var socket_io_client__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! socket.io-client */
+    "./node_modules/socket.io-client/lib/index.js");
+    /* harmony import */
+
+
+    var socket_io_client__WEBPACK_IMPORTED_MODULE_4___default =
+    /*#__PURE__*/
+    __webpack_require__.n(socket_io_client__WEBPACK_IMPORTED_MODULE_4__);
 
     var ProfesorComponent =
     /*#__PURE__*/
@@ -2292,6 +2247,88 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         this.verActividad = false;
         this.gestionAlumnos = true;
         this.gestionActividades = false;
+
+        this.soyProfesor = function () {
+          this.socket.emit('soyProfesor');
+        };
+
+        this.crearActividadLista = function (actividad) {
+          this.socket.emit('crearActividadLista', actividad);
+          console.log("Actividad: " + actividad._id + " está lista.");
+        };
+
+        this.borrarActividadLista = function (actividad) {
+          this.socket.emit('borrarActividadLista', actividad);
+          console.log("Actividad: " + actividad._id + " YA NO está lista.");
+        };
+
+        this.lanzarSocketSrv = function () {
+          var cli = this;
+          this.socket.on('connect', function () {
+            console.log("Conectado al servidor de WebSockets");
+          });
+          this.socket.on('actividadAnadida', function (res) {
+            console.log("Se ha añadido una actividad a las listas: " + res._id);
+          });
+          this.socket.on('actividadBorrada', function (res) {
+            console.log("Se ha borrado una actividad a las listas: " + res._id);
+          });
+          this.socket.on('recepcionEmociones', function (datos) {
+            //console.log(datos);
+            $('#' + datos.id_item + '').css("background-color", datos.color);
+          });
+          /*
+          this.socket.on('partidaCreada',function(partida){
+              console.log("partida creada:",partida);
+              cli.idp=partida.idp;
+              mostrarPartida(partida);
+              mostrarListaJugadores(partida.jugadores);
+          });
+          this.socket.on('partidas',function(partidas){
+              mostrarListaPartidas(partidas);
+          });
+          this.socket.on('unido',function(partida){
+              cli.idp=partida.idp;
+              mostrarPartida(partida);
+              mostrarListaJugadores(partida.jugadores);
+          });
+          this.socket.on('nuevoJugador',function(jugadores){
+              mostrarListaJugadores(jugadores);
+          });
+          this.socket.on('saliste',function(){
+              mostrarCrearPartida(cli.nick);
+              borrarCanvas();
+          });
+          this.socket.on('saleJugador',function(jugadores){
+              mostrarListaJugadores(jugadores);
+          });
+          this.socket.on('otropreparado',function(jugadores){
+              mostrarListaJugadores(jugadores);
+          });
+          this.socket.on('aJugar',function(data){
+              cli.jugador=data.jugadores[cli.nick];
+              cli.rival=cli.obtenerRival(data.jugadores);
+              mostrarCanvas(data.numJugadores);
+          });
+          this.socket.on('anotado',function(){ //function(resultados)
+              //mostrarListaResultados(resultados)
+              console.log("Resultado anotado");
+          });
+          this.socket.on('finPartida',function(){
+              console.log("Fin de la partida");
+              alert("Fin de la partida");
+              cli.salir();
+          });
+          this.socket.on("sigueVivo",function(){
+              console.log("sigue vivo");
+              cli.spriteLocal.volverAInicio();
+          });
+          this.socket.on("mover",function(operacion,posicion){
+              if (cli.spriteRival){
+                  cli.spriteRival.mover(operacion,posicion);
+              }
+          });*/
+        };
       }
 
       _createClass(ProfesorComponent, [{
@@ -2305,24 +2342,26 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               while (1) {
                 switch (_context3.prev = _context3.next) {
                   case 0:
-                    this.socket = new _WebSockets_clienteWS__WEBPACK_IMPORTED_MODULE_4__["ClienteWS"]('profesor');
-                    this.socket.ini();
+                    //this.socket = new ClienteWS('profesor');
+                    //this.socket.ini();
+                    this.ini(); ///
+
                     ju = this; //this.listaAlumnos=this.estudiantes.getEstudiantes();
 
-                    _context3.next = 5;
+                    _context3.next = 4;
                     return $.getJSON("/verEstudiantes", function (data) {
                       //console.log(data);
                       ju.listaAlumnos = data;
                     });
 
-                  case 5:
-                    _context3.next = 7;
+                  case 4:
+                    _context3.next = 6;
                     return $.getJSON("/verActividades", function (data) {
                       //console.log(data);
                       ju.listaActividades = data;
                     });
 
-                  case 7:
+                  case 6:
                   case "end":
                     return _context3.stop();
                 }
@@ -2500,13 +2539,21 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function abrirActividad(actividad) {
           this.verActividad = true;
           this.actividadSelected = actividad;
-          this.socket.crearActividadLista(actividad);
+          this.crearActividadLista(actividad);
         }
       }, {
         key: "cerrarActividad",
         value: function cerrarActividad() {
           this.verActividad = false;
           this.actividadSelected = null;
+        } //Gestion de los WebSockets
+
+      }, {
+        key: "ini",
+        value: function ini() {
+          this.socket = socket_io_client__WEBPACK_IMPORTED_MODULE_4__["connect"]();
+          this.lanzarSocketSrv();
+          this.soyProfesor();
         }
       }]);
 
@@ -2755,6 +2802,84 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     function () {
       function SocketioService() {
         _classCallCheck(this, SocketioService);
+
+        this.crearActividadLista = function (socket, actividad) {
+          socket.emit('crearActividadLista', actividad);
+          console.log("Actividad: " + actividad._id + " está lista.");
+        };
+
+        this.borrarActividadLista = function (socket, actividad) {
+          socket.emit('borrarActividadLista', actividad);
+          console.log("Actividad: " + actividad._id + " YA NO está lista.");
+        };
+
+        this.lanzarSocketSrv = function () {
+          var cli = this;
+          this.socket.on('connect', function () {
+            console.log("Conectado al servidor de WebSockets");
+          });
+          this.socket.on('actividadAnadida', function (res) {
+            console.log("Se ha añadido una actividad a las listas: " + res._id);
+          });
+          this.socket.on('actividadBorrada', function (res) {
+            console.log("Se ha borrado una actividad a las listas: " + res._id);
+          });
+          this.socket.on('actividades', function (res) {
+            cli.listaActividades.push(res);
+            console.log(res); //callback(res);
+          });
+          /*
+          this.socket.on('partidaCreada',function(partida){
+              console.log("partida creada:",partida);
+              cli.idp=partida.idp;
+              mostrarPartida(partida);
+              mostrarListaJugadores(partida.jugadores);
+          });
+          this.socket.on('partidas',function(partidas){
+              mostrarListaPartidas(partidas);
+          });
+          this.socket.on('unido',function(partida){
+              cli.idp=partida.idp;
+              mostrarPartida(partida);
+              mostrarListaJugadores(partida.jugadores);
+          });
+          this.socket.on('nuevoJugador',function(jugadores){
+              mostrarListaJugadores(jugadores);
+          });
+          this.socket.on('saliste',function(){
+              mostrarCrearPartida(cli.nick);
+              borrarCanvas();
+          });
+          this.socket.on('saleJugador',function(jugadores){
+              mostrarListaJugadores(jugadores);
+          });
+          this.socket.on('otropreparado',function(jugadores){
+              mostrarListaJugadores(jugadores);
+          });
+          this.socket.on('aJugar',function(data){
+              cli.jugador=data.jugadores[cli.nick];
+              cli.rival=cli.obtenerRival(data.jugadores);
+              mostrarCanvas(data.numJugadores);
+          });
+          this.socket.on('anotado',function(){ //function(resultados)
+              //mostrarListaResultados(resultados)
+              console.log("Resultado anotado");
+          });
+          this.socket.on('finPartida',function(){
+              console.log("Fin de la partida");
+              alert("Fin de la partida");
+              cli.salir();
+          });
+          this.socket.on("sigueVivo",function(){
+              console.log("sigue vivo");
+              cli.spriteLocal.volverAInicio();
+          });
+          this.socket.on("mover",function(operacion,posicion){
+              if (cli.spriteRival){
+                  cli.spriteRival.mover(operacion,posicion);
+              }
+          });*/
+        };
       }
 
       _createClass(SocketioService, [{
@@ -2765,6 +2890,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           this.socket.on('mi mensaje', function (data) {
             console.log(data);
           });
+        }
+      }, {
+        key: "ini",
+        value: function ini() {
+          this.socket = socket_io_client__WEBPACK_IMPORTED_MODULE_2__["connect"]();
+          this.lanzarSocketSrv();
         }
       }]);
 

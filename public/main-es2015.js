@@ -45,7 +45,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<!--<div class=\"row\">\n    <div class=\"col-md-2\">\n        <!--<app-sidenav-profesor></app-sidenav-profesor>\n        <div class=\"sidenav list-group\">\n            <a href=\"#\">Emociones</a>\n        </div>\n    </div>\n</div>-->\n<br>\n<div *ngIf=\"noHayEstudiante\" class=\"row justify-content-md-center\">\n    <div class=\"card col-md-6\">\n        <div class=\"card-body\">\n            <h4 class=\"card-title\">Iniciar Sesion</h4>\n            <div>\n                <label>Email</label>\n                <input [(ngModel)]=\"estudiante.email\" type=\"email\" class=\"form-control\" id=\"emailIS\" ng-model=\"email\"\n                    placeholder=\"Email\">\n                <br>\n                <label>Contraseña</label>\n                <input [(ngModel)]=\"estudiante.contrasena\" type=\"password\" class=\"form-control\" id=\"contrasenaIS\"\n                    ng-model=\"contrasena\" placeholder=\"Contraseña\">\n                <br>\n                <button type=\"button\" (click)=\"limpiar()\" class=\"btn btn-raised btn-danger\">Cancelar</button>\n                <button type=\"button\" (click)=\"iniciarSesion()\" class=\"btn btn-raised btn-success\">Iniciar\n                    Sesion</button>\n            </div>\n        </div>\n    </div>\n</div>\n<div *ngIf=\"!noHayEstudiante\" class=\"row justify-content-md-center\">\n    <div class=\"col-md-10\">\n        <h3>Actividades listas</h3>\n        <table class=\"table table-striped\">\n            <thead>\n                <tr>\n                    <th scope=\"col\">Nombre</th>\n                    <th scope=\"col\">Profesor</th>\n                    <th scope=\"col\">Estado</th>\n                    <th scope=\"col\"></th>\n                    <th scope=\"col\"></th>\n                    <th scope=\"col\"></th>\n                </tr>\n            </thead>\n            <tbody *ngFor=\"let actividad of listaActividades\">\n                <tr>\n                    <td>{{actividad.nombre}}</td>\n                    <td>{{actividad.profesor}}</td>\n                    <td>{{actividad.estado}}</td>\n                    <td><button type=\"button\" class=\"btn btn-outline-primary\"\n                            (click)=\"conectarse(actividad)\">Conectarse</button></td>\n                </tr>\n            </tbody>\n        </table>\n    </div>\n</div>\n<div *ngIf=\"!noHayEstudiante && conectadoaActividad\" class=\"row justify-content-md-center\">\n    <div class=\"col-md-8\">\n        <video id=\"video\" width=\"480\" height=\"360\" autoplay muted></video>\n    </div>\n    <div class=\"col-md-4\" id=\"estadoAlumno\" class=\"circulo\">\n        <p>Estado</p>\n    </div>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<!--<div class=\"row\">\n    <div class=\"col-md-2\">\n        <!--<app-sidenav-profesor></app-sidenav-profesor>\n        <div class=\"sidenav list-group\">\n            <a href=\"#\">Emociones</a>\n        </div>\n    </div>\n</div>-->\n<br>\n<div *ngIf=\"noHayEstudiante\" class=\"row justify-content-md-center\">\n    <div class=\"card col-md-6\">\n        <div class=\"card-body\">\n            <h4 class=\"card-title\">Iniciar Sesion</h4>\n            <div>\n                <label>Email</label>\n                <input [(ngModel)]=\"estudiante.email\" type=\"email\" class=\"form-control\" id=\"emailIS\" ng-model=\"email\"\n                    placeholder=\"Email\">\n                <br>\n                <label>Contraseña</label>\n                <input [(ngModel)]=\"estudiante.contrasena\" type=\"password\" class=\"form-control\" id=\"contrasenaIS\"\n                    ng-model=\"contrasena\" placeholder=\"Contraseña\">\n                <br>\n                <button type=\"button\" (click)=\"limpiar()\" class=\"btn btn-raised btn-danger\">Cancelar</button>\n                <button type=\"button\" (click)=\"iniciarSesion()\" class=\"btn btn-raised btn-success\">Iniciar\n                    Sesion</button>\n            </div>\n        </div>\n    </div>\n</div>\n<div *ngIf=\"!noHayEstudiante\" class=\"row justify-content-md-center\">\n    <div class=\"col-md-10\">\n        <h3>Actividades listas</h3>\n        <table class=\"table table-striped\">\n            <thead>\n                <tr>\n                    <th scope=\"col\">Nombre</th>\n                    <th scope=\"col\">Profesor</th>\n                    <th scope=\"col\">Estado</th>\n                    <th scope=\"col\"></th>\n                </tr>\n            </thead>\n            <tbody *ngFor=\"let actividad of listaActividades\">\n                <tr>\n                    <td>{{actividad.nombre}}</td>\n                    <td>{{actividad.profesor}}</td>\n                    <td>{{actividad.estado}}</td>\n                    <td><button type=\"button\" class=\"btn btn-outline-primary\"\n                            (click)=\"conectarse(actividad)\">Conectarse</button></td>\n                </tr>\n            </tbody>\n        </table>\n    </div>\n</div>\n<div  class=\"row justify-content-md-center\"> <!--*ngIf=\"!noHayEstudiante && conectadoaActividad\"-->\n    <div class=\"col-md-8\">\n        <video id=\"video\" width=\"480\" height=\"360\" autoplay muted></video>\n    </div>\n    <div *ngIf=\"conectadoaActividad\" class=\"col-md-4\" id=\"estadoAlumno\" class=\"circulo\">\n        <p>Estado</p>\n    </div>\n</div>\n");
 
 /***/ }),
 
@@ -363,154 +363,6 @@ class Alumnos {
     }
     setActividad(act) {
         this.id_item = this.estudiante._id + act._id;
-    }
-}
-
-
-/***/ }),
-
-/***/ "./src/app/WebSockets/clienteWS.ts":
-/*!*****************************************!*\
-  !*** ./src/app/WebSockets/clienteWS.ts ***!
-  \*****************************************/
-/*! exports provided: ClienteWS */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ClienteWS", function() { return ClienteWS; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var socket_io_client__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! socket.io-client */ "./node_modules/socket.io-client/lib/index.js");
-/* harmony import */ var socket_io_client__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(socket_io_client__WEBPACK_IMPORTED_MODULE_1__);
-
-
-class ClienteWS {
-    constructor(id) {
-        this.socket = undefined;
-        this.id = '';
-        this.crearActividadLista = function (actividad) {
-            this.socket.emit('crearActividadLista', actividad);
-            console.log("Actividad: " + actividad._id + " está lista.");
-        };
-        this.borrarActividadLista = function (actividad) {
-            this.socket.emit('borrarActividadLista', actividad);
-            console.log("Actividad: " + actividad._id + " YA NO está lista.");
-        };
-        /*
-        this.crearPartida=function(nombrePartida){
-            //this.nombrePartida=nombre;
-            this.socket.emit('crearPartida',this.nick,nombrePartida);
-                console.log("usuario "+this.nick+" crea partida "+nombrePartida);
-        }
-        this.obtenerPartidas=function(){
-            this.socket.emit("obtenerPartidas");
-        }
-        this.unirAPartida=function(idp,nick){
-            this.socket.emit("unirAPartida",idp,nick);
-        }
-        this.salir=function(){
-            this.socket.emit("salir",this.idp,this.nick);
-        }
-        this.preparado=function(){
-            $('#preparadoBtn').remove();
-            this.socket.emit("preparado",this.idp,this.nick);
-        }
-        this.enviarResultado=function(){
-            this.socket.emit("enviarResultado",this.idp,this.nick);
-        }
-        this.muereEnemigo=function(enemy){
-            this.socket.emit("muereEnemigo",this.idp,this.nick,enemy);
-        }
-        this.jugadorHerido=function(){
-            this.socket.emit("jugadorHerido",this.idp,this.nick);
-        }
-        this.mover=function(operacion,posicion){
-            if(this.rival){
-                this.socket.emit("mover",this.idp,this.nick,operacion,posicion);
-            }
-            
-        }
-        this.obtenerRival=function(jugadores){
-            var rival=undefined;
-            for(var key in jugadores){
-                if (key!=ws.nick){
-                    rival=jugadores[key];
-                }
-            }
-            return rival;
-        }*/
-        this.lanzarSocketSrv = function () {
-            var cli = this;
-            this.socket.on('connect', function () {
-                console.log("Conectado al servidor de WebSockets");
-            });
-            this.socket.on('actividadAnadida', function (res) {
-                console.log("Se ha añadido una actividad a las listas: " + res._id);
-            });
-            this.socket.on('actividadBorrada', function (res) {
-                console.log("Se ha borrado una actividad a las listas: " + res._id);
-            });
-            this.socket.on('actividades', function (res) {
-                this.EstudianteComponent.prueba(res);
-                console.log(res);
-            });
-            /*
-            this.socket.on('partidaCreada',function(partida){
-                console.log("partida creada:",partida);
-                cli.idp=partida.idp;
-                mostrarPartida(partida);
-                mostrarListaJugadores(partida.jugadores);
-            });
-            this.socket.on('partidas',function(partidas){
-                mostrarListaPartidas(partidas);
-            });
-            this.socket.on('unido',function(partida){
-                cli.idp=partida.idp;
-                mostrarPartida(partida);
-                mostrarListaJugadores(partida.jugadores);
-            });
-            this.socket.on('nuevoJugador',function(jugadores){
-                mostrarListaJugadores(jugadores);
-            });
-            this.socket.on('saliste',function(){
-                mostrarCrearPartida(cli.nick);
-                borrarCanvas();
-            });
-            this.socket.on('saleJugador',function(jugadores){
-                mostrarListaJugadores(jugadores);
-            });
-            this.socket.on('otropreparado',function(jugadores){
-                mostrarListaJugadores(jugadores);
-            });
-            this.socket.on('aJugar',function(data){
-                cli.jugador=data.jugadores[cli.nick];
-                cli.rival=cli.obtenerRival(data.jugadores);
-                mostrarCanvas(data.numJugadores);
-            });
-            this.socket.on('anotado',function(){ //function(resultados)
-                //mostrarListaResultados(resultados)
-                console.log("Resultado anotado");
-            });
-            this.socket.on('finPartida',function(){
-                console.log("Fin de la partida");
-                alert("Fin de la partida");
-                cli.salir();
-            });
-            this.socket.on("sigueVivo",function(){
-                console.log("sigue vivo");
-                cli.spriteLocal.volverAInicio();
-            });
-            this.socket.on("mover",function(operacion,posicion){
-                if (cli.spriteRival){
-                    cli.spriteRival.mover(operacion,posicion);
-                }
-            });*/
-        };
-        this.id = id;
-    }
-    ini() {
-        this.socket = socket_io_client__WEBPACK_IMPORTED_MODULE_1__["connect"]();
-        this.lanzarSocketSrv();
     }
 }
 
@@ -946,7 +798,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _socketio_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../socketio.service */ "./src/app/socketio.service.ts");
-/* harmony import */ var _WebSockets_clienteWS__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../WebSockets/clienteWS */ "./src/app/WebSockets/clienteWS.ts");
+/* harmony import */ var socket_io_client__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! socket.io-client */ "./node_modules/socket.io-client/lib/index.js");
+/* harmony import */ var socket_io_client__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(socket_io_client__WEBPACK_IMPORTED_MODULE_3__);
 
 
 
@@ -973,8 +826,95 @@ let EstudianteComponent = class EstudianteComponent {
         this.noHayEstudiante = true;
         this.conectadoaActividad = false;
         this.listaActividades = [];
+        this.id = '';
+        this.soyEstudiante = function () {
+            this.socket.emit('soyEstudiante');
+        };
+        this.crearActividadLista = function (actividad) {
+            this.socket.emit('crearActividadLista', actividad);
+            console.log("Actividad: " + actividad._id + " está lista.");
+        };
+        this.borrarActividadLista = function (actividad) {
+            this.socket.emit('borrarActividadLista', actividad);
+            console.log("Actividad: " + actividad._id + " YA NO está lista.");
+        };
+        this.enviarEmocionesWebCam = function (datos) {
+            this.socket.emit('envioDeEmociones', datos);
+        };
+        this.lanzarSocketSrv = function () {
+            var cli = this;
+            this.socket.on('connect', function () {
+                console.log("Conectado al servidor de WebSockets");
+            });
+            this.socket.on('actividadAnadida', function (res) {
+                console.log("Se ha añadido una actividad a las listas: " + res._id);
+            });
+            this.socket.on('actividadBorrada', function (res) {
+                console.log("Se ha borrado una actividad a las listas: " + res._id);
+            });
+            this.socket.on('actividades', function (res) {
+                cli.listaActividades.push(res);
+                console.log(res);
+                //callback(res);
+            });
+            this.socket.on('recepcionEmociones', function (datos) {
+                console.log(datos);
+            });
+            /*
+            this.socket.on('partidaCreada',function(partida){
+                console.log("partida creada:",partida);
+                cli.idp=partida.idp;
+                mostrarPartida(partida);
+                mostrarListaJugadores(partida.jugadores);
+            });
+            this.socket.on('partidas',function(partidas){
+                mostrarListaPartidas(partidas);
+            });
+            this.socket.on('unido',function(partida){
+                cli.idp=partida.idp;
+                mostrarPartida(partida);
+                mostrarListaJugadores(partida.jugadores);
+            });
+            this.socket.on('nuevoJugador',function(jugadores){
+                mostrarListaJugadores(jugadores);
+            });
+            this.socket.on('saliste',function(){
+                mostrarCrearPartida(cli.nick);
+                borrarCanvas();
+            });
+            this.socket.on('saleJugador',function(jugadores){
+                mostrarListaJugadores(jugadores);
+            });
+            this.socket.on('otropreparado',function(jugadores){
+                mostrarListaJugadores(jugadores);
+            });
+            this.socket.on('aJugar',function(data){
+                cli.jugador=data.jugadores[cli.nick];
+                cli.rival=cli.obtenerRival(data.jugadores);
+                mostrarCanvas(data.numJugadores);
+            });
+            this.socket.on('anotado',function(){ //function(resultados)
+                //mostrarListaResultados(resultados)
+                console.log("Resultado anotado");
+            });
+            this.socket.on('finPartida',function(){
+                console.log("Fin de la partida");
+                alert("Fin de la partida");
+                cli.salir();
+            });
+            this.socket.on("sigueVivo",function(){
+                console.log("sigue vivo");
+                cli.spriteLocal.volverAInicio();
+            });
+            this.socket.on("mover",function(operacion,posicion){
+                if (cli.spriteRival){
+                    cli.spriteRival.mover(operacion,posicion);
+                }
+            });*/
+        };
     }
     ngOnInit() {
+        //this.empezar();
     }
     prueba(act) {
         console.log(act);
@@ -982,6 +922,14 @@ let EstudianteComponent = class EstudianteComponent {
     conectarse(actividad) {
         console.log("Me he conectado a la actividad");
         this.conectadoaActividad = true;
+        this.actividadActual = actividad;
+        console.log(this.actividadActual.alumnos);
+        for (var key in this.actividadActual.alumnos) {
+            if (this.actividadActual.alumnos[key].estudiante._id = this.estudiante._id) {
+                this.id_item = this.actividadActual.alumnos[key].id_item;
+            }
+        }
+        this.empezar();
     }
     limpiar() {
         this.estudiante = {
@@ -995,11 +943,6 @@ let EstudianteComponent = class EstudianteComponent {
     }
     iniciarSesion() {
         var ju = this;
-        /*$.getJSON("/estudiante/iniciarSesion", function (data) {
-          console.log(data);
-          /*ju.estudiante=data;
-          this.noHayEstudiante = false;
-        });*/
         $.ajax({
             type: 'POST',
             url: '/estudianteIniciarSesion',
@@ -1009,9 +952,12 @@ let EstudianteComponent = class EstudianteComponent {
                 ju.estudiante = data;
                 ju.noHayEstudiante = false;
                 ju.estudianteIniciado.emit(ju.estudiante);
-                ju.socket = new _WebSockets_clienteWS__WEBPACK_IMPORTED_MODULE_3__["ClienteWS"](ju.estudiante._id);
-                ju.socket.ini();
+                ju.id = ju.estudiante._id;
+                ju.ini();
+                //ju.socket = new SocketioService(ju.estudiante._id);
+                //ju.socket.ini();
                 //ju.socketService.setupSocketConnection();
+                //ju.conectadoaActividad = true;
                 //ju.empezar();
             },
             contentType: 'application/json',
@@ -1020,12 +966,7 @@ let EstudianteComponent = class EstudianteComponent {
     }
     empezar() {
         this.video = document.getElementById('video');
-        let constraints = {
-            audio: false,
-            video: true
-        };
-        navigator.getUserMedia({ video: {} }, stream => this.video.srcObject = stream, err => console.error(err));
-        navigator.mediaDevices.getUserMedia(constraints);
+        navigator.getUserMedia({ video: true }, stream => this.video.srcObject = stream, err => console.error(err));
         Promise.all([
             //faceapi.nets.ageGenderNet.loadFromUri('/modelos'),
             faceapi.nets.faceExpressionNet.loadFromUri('assets/modelos'),
@@ -1055,41 +996,48 @@ let EstudianteComponent = class EstudianteComponent {
                     var maximo = Math.max(datosAngry, datosDisgusted, datosFearful, datosHappy, datosNeutral, datosSad, datosSurprised);
                     if (datosNeutral == maximo) {
                         //console.log("Neutro: "+maximo);
+                        this.enviarEmocionesWebCam({ id_item: this.id_item, color: this.ColorNeutral });
                         $('#estadoAlumno').css('background-color', this.ColorNeutral);
                         //this.ContadorNeutro++
                         //this.usuario.Neutro.valor = this.usuario.Neutro.valor + 1;
                     }
                     if (datosFearful == maximo) {
                         //console.log("Miedo: "+maximo);
+                        this.enviarEmocionesWebCam({ id_item: this.id_item, color: this.ColorFearful });
                         $('#estadoAlumno').css('background-color', this.ColorFearful);
                         //this.ContadorMiedo++
                         //this.usuario.Miedo.valor = this.usuario.Miedo.valor + 1;
                     }
                     if (datosAngry == maximo) {
                         //console.log("Enfadado: "+maximo);
+                        this.enviarEmocionesWebCam({ id_item: this.id_item, color: this.ColorAngry });
                         $('#estadoAlumno').css('background-color', this.ColorAngry);
                         //this.ContadorEnfadado++
                         //this.usuario.Enfadado.valor = this.usuario.Enfadado.valor + 1;
                     }
                     if (datosHappy == maximo) {
                         //console.log("Feliz: "+maximo);
+                        this.enviarEmocionesWebCam({ id_item: this.id_item, color: this.ColorHappy });
                         $('#estadoAlumno').css('background-color', this.ColorHappy);
                         //this.ContadorFeliz++
                         //this.usuario.Felicidad.valor = this.usuario.Felicidad.valor + 1;
                     }
                     if (datosSad == maximo) {
                         //console.log("Triste: "+maximo);
+                        this.enviarEmocionesWebCam({ id_item: this.id_item, color: this.ColorSad });
                         $('#estadoAlumno').css('background-color', this.ColorSad);
                         //this.ContadorTriste++
                         //this.usuario.Triste.valor = this.usuario.Triste.valor + 1;
                     }
                     if (datosSurprised == maximo) {
+                        this.enviarEmocionesWebCam({ id_item: this.id_item, color: this.ColorSurprised });
                         $('#estadoAlumno').css('background-color', this.ColorSurprised);
                         //this.ContadorSorprendido++
                         //this.usuario.Sorpresa.valor = this.usuario.Sorpresa.valor + 1;
                     }
                     if (datosDisgusted == maximo) {
                         //console.log("Disgustado: "+maximo);
+                        this.enviarEmocionesWebCam({ id_item: this.id_item, color: this.ColorDisgusted });
                         $('#estadoAlumno').css('background-color', this.ColorDisgusted);
                         //this.ContadorDisgustado++
                         //this.usuario.Disgustado.valor = this.usuario.Disgustado.valor + 1;
@@ -1146,6 +1094,12 @@ let EstudianteComponent = class EstudianteComponent {
         this.video.addEventListener('stop', function () {
             console.log("Se ha parado");
         });
+    }
+    //Implementacion de los sockets
+    ini() {
+        this.socket = socket_io_client__WEBPACK_IMPORTED_MODULE_3__["connect"]();
+        this.lanzarSocketSrv();
+        this.soyEstudiante();
     }
 };
 EstudianteComponent.ctorParameters = () => [
@@ -1385,7 +1339,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/esm2015/dialog.js");
 /* harmony import */ var _estudiante_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! .././estudiante.service */ "./src/app/estudiante.service.ts");
-/* harmony import */ var _WebSockets_clienteWS__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../WebSockets/clienteWS */ "./src/app/WebSockets/clienteWS.ts");
+/* harmony import */ var socket_io_client__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! socket.io-client */ "./node_modules/socket.io-client/lib/index.js");
+/* harmony import */ var socket_io_client__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(socket_io_client__WEBPACK_IMPORTED_MODULE_4__);
 
 
 
@@ -1418,11 +1373,91 @@ let ProfesorComponent = class ProfesorComponent {
         this.verActividad = false;
         this.gestionAlumnos = true;
         this.gestionActividades = false;
+        this.soyProfesor = function () {
+            this.socket.emit('soyProfesor');
+        };
+        this.crearActividadLista = function (actividad) {
+            this.socket.emit('crearActividadLista', actividad);
+            console.log("Actividad: " + actividad._id + " está lista.");
+        };
+        this.borrarActividadLista = function (actividad) {
+            this.socket.emit('borrarActividadLista', actividad);
+            console.log("Actividad: " + actividad._id + " YA NO está lista.");
+        };
+        this.lanzarSocketSrv = function () {
+            var cli = this;
+            this.socket.on('connect', function () {
+                console.log("Conectado al servidor de WebSockets");
+            });
+            this.socket.on('actividadAnadida', function (res) {
+                console.log("Se ha añadido una actividad a las listas: " + res._id);
+            });
+            this.socket.on('actividadBorrada', function (res) {
+                console.log("Se ha borrado una actividad a las listas: " + res._id);
+            });
+            this.socket.on('recepcionEmociones', function (datos) {
+                //console.log(datos);
+                $('#' + datos.id_item + '').css("background-color", datos.color);
+            });
+            /*
+            this.socket.on('partidaCreada',function(partida){
+                console.log("partida creada:",partida);
+                cli.idp=partida.idp;
+                mostrarPartida(partida);
+                mostrarListaJugadores(partida.jugadores);
+            });
+            this.socket.on('partidas',function(partidas){
+                mostrarListaPartidas(partidas);
+            });
+            this.socket.on('unido',function(partida){
+                cli.idp=partida.idp;
+                mostrarPartida(partida);
+                mostrarListaJugadores(partida.jugadores);
+            });
+            this.socket.on('nuevoJugador',function(jugadores){
+                mostrarListaJugadores(jugadores);
+            });
+            this.socket.on('saliste',function(){
+                mostrarCrearPartida(cli.nick);
+                borrarCanvas();
+            });
+            this.socket.on('saleJugador',function(jugadores){
+                mostrarListaJugadores(jugadores);
+            });
+            this.socket.on('otropreparado',function(jugadores){
+                mostrarListaJugadores(jugadores);
+            });
+            this.socket.on('aJugar',function(data){
+                cli.jugador=data.jugadores[cli.nick];
+                cli.rival=cli.obtenerRival(data.jugadores);
+                mostrarCanvas(data.numJugadores);
+            });
+            this.socket.on('anotado',function(){ //function(resultados)
+                //mostrarListaResultados(resultados)
+                console.log("Resultado anotado");
+            });
+            this.socket.on('finPartida',function(){
+                console.log("Fin de la partida");
+                alert("Fin de la partida");
+                cli.salir();
+            });
+            this.socket.on("sigueVivo",function(){
+                console.log("sigue vivo");
+                cli.spriteLocal.volverAInicio();
+            });
+            this.socket.on("mover",function(operacion,posicion){
+                if (cli.spriteRival){
+                    cli.spriteRival.mover(operacion,posicion);
+                }
+            });*/
+        };
     }
     ngOnInit() {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
-            this.socket = new _WebSockets_clienteWS__WEBPACK_IMPORTED_MODULE_4__["ClienteWS"]('profesor');
-            this.socket.ini();
+            //this.socket = new ClienteWS('profesor');
+            //this.socket.ini();
+            this.ini();
+            ///
             var ju = this;
             //this.listaAlumnos=this.estudiantes.getEstudiantes();
             yield $.getJSON("/verEstudiantes", function (data) {
@@ -1585,11 +1620,17 @@ let ProfesorComponent = class ProfesorComponent {
     abrirActividad(actividad) {
         this.verActividad = true;
         this.actividadSelected = actividad;
-        this.socket.crearActividadLista(actividad);
+        this.crearActividadLista(actividad);
     }
     cerrarActividad() {
         this.verActividad = false;
         this.actividadSelected = null;
+    }
+    //Gestion de los WebSockets
+    ini() {
+        this.socket = socket_io_client__WEBPACK_IMPORTED_MODULE_4__["connect"]();
+        this.lanzarSocketSrv();
+        this.soyProfesor();
     }
 };
 ProfesorComponent.ctorParameters = () => [
@@ -1727,13 +1768,94 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let SocketioService = class SocketioService {
-    constructor() { }
+    constructor() {
+        this.crearActividadLista = function (socket, actividad) {
+            socket.emit('crearActividadLista', actividad);
+            console.log("Actividad: " + actividad._id + " está lista.");
+        };
+        this.borrarActividadLista = function (socket, actividad) {
+            socket.emit('borrarActividadLista', actividad);
+            console.log("Actividad: " + actividad._id + " YA NO está lista.");
+        };
+        this.lanzarSocketSrv = function () {
+            var cli = this;
+            this.socket.on('connect', function () {
+                console.log("Conectado al servidor de WebSockets");
+            });
+            this.socket.on('actividadAnadida', function (res) {
+                console.log("Se ha añadido una actividad a las listas: " + res._id);
+            });
+            this.socket.on('actividadBorrada', function (res) {
+                console.log("Se ha borrado una actividad a las listas: " + res._id);
+            });
+            this.socket.on('actividades', function (res) {
+                cli.listaActividades.push(res);
+                console.log(res);
+                //callback(res);
+            });
+            /*
+            this.socket.on('partidaCreada',function(partida){
+                console.log("partida creada:",partida);
+                cli.idp=partida.idp;
+                mostrarPartida(partida);
+                mostrarListaJugadores(partida.jugadores);
+            });
+            this.socket.on('partidas',function(partidas){
+                mostrarListaPartidas(partidas);
+            });
+            this.socket.on('unido',function(partida){
+                cli.idp=partida.idp;
+                mostrarPartida(partida);
+                mostrarListaJugadores(partida.jugadores);
+            });
+            this.socket.on('nuevoJugador',function(jugadores){
+                mostrarListaJugadores(jugadores);
+            });
+            this.socket.on('saliste',function(){
+                mostrarCrearPartida(cli.nick);
+                borrarCanvas();
+            });
+            this.socket.on('saleJugador',function(jugadores){
+                mostrarListaJugadores(jugadores);
+            });
+            this.socket.on('otropreparado',function(jugadores){
+                mostrarListaJugadores(jugadores);
+            });
+            this.socket.on('aJugar',function(data){
+                cli.jugador=data.jugadores[cli.nick];
+                cli.rival=cli.obtenerRival(data.jugadores);
+                mostrarCanvas(data.numJugadores);
+            });
+            this.socket.on('anotado',function(){ //function(resultados)
+                //mostrarListaResultados(resultados)
+                console.log("Resultado anotado");
+            });
+            this.socket.on('finPartida',function(){
+                console.log("Fin de la partida");
+                alert("Fin de la partida");
+                cli.salir();
+            });
+            this.socket.on("sigueVivo",function(){
+                console.log("sigue vivo");
+                cli.spriteLocal.volverAInicio();
+            });
+            this.socket.on("mover",function(operacion,posicion){
+                if (cli.spriteRival){
+                    cli.spriteRival.mover(operacion,posicion);
+                }
+            });*/
+        };
+    }
     setupSocketConnection() {
         this.socket = socket_io_client__WEBPACK_IMPORTED_MODULE_2__();
         this.socket.emit('mi mensaje', 'Hola desde Angular');
         this.socket.on('mi mensaje', (data) => {
             console.log(data);
         });
+    }
+    ini() {
+        this.socket = socket_io_client__WEBPACK_IMPORTED_MODULE_2__["connect"]();
+        this.lanzarSocketSrv();
     }
 };
 SocketioService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([

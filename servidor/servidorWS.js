@@ -15,8 +15,18 @@ function ServidorWS() {
     this.lanzarSocketSrv = function (io, centro) {
         var cli = this;
         io.on('connection', function (socket) {
-            socket.join('123');
+            //socket.join('123');
             console.log("Nueva conexión");
+
+            socket.on('soyEstudiante',function(){
+                socket.join("estudiantes");
+                console.log("Conexion asignada al estudiante");
+            })
+            socket.on('soyProfesor',function(){
+                socket.join("profesores");
+                console.log("Conexion asignada al profesor");
+            })
+
 
             socket.on('crearActividadLista', function (actividad) {
 
@@ -24,8 +34,8 @@ function ServidorWS() {
                     cli.enviarRemitente(socket, "actividadAnadida", u);
                     //console.log(u.alumnos);
                     //console.log(u.alumnos[i].estudiante._id);
-                    //socket.join("123");
-                    cli.enviarATodos(io, "123", "actividades", u);
+                    //socket.join("profesor");
+                    cli.enviarATodos(io, "estudiantes", "actividades", u);
                 })
 
                 /*juego.crearPartida(nombrePartida, nick, function (partida) {
@@ -38,6 +48,11 @@ function ServidorWS() {
                 centro.borrarActividadLista(actividad, function (u) {
                     cli.enviarRemitente(socket, "actividadBorrada", u);
                 });
+            })
+
+            socket.on('envioDeEmociones',function(datos){
+                console.log(datos);
+                cli.enviarATodos(io, "profesores", "recepcionEmociones", datos);
             })
 
             /*
