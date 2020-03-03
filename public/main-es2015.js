@@ -930,6 +930,7 @@ let EstudianteComponent = class EstudianteComponent {
             }
         }
         this.empezar();
+        this.conectarLed();
     }
     limpiar() {
         this.estudiante = {
@@ -997,6 +998,7 @@ let EstudianteComponent = class EstudianteComponent {
                     if (datosNeutral == maximo) {
                         //console.log("Neutro: "+maximo);
                         this.enviarEmocionesWebCam({ id_item: this.id_item, color: this.ColorNeutral });
+                        this.ponerNeutral();
                         $('#estadoAlumno').css('background-color', this.ColorNeutral);
                         //this.ContadorNeutro++
                         //this.usuario.Neutro.valor = this.usuario.Neutro.valor + 1;
@@ -1004,6 +1006,7 @@ let EstudianteComponent = class EstudianteComponent {
                     if (datosFearful == maximo) {
                         //console.log("Miedo: "+maximo);
                         this.enviarEmocionesWebCam({ id_item: this.id_item, color: this.ColorFearful });
+                        this.ponerFearful();
                         $('#estadoAlumno').css('background-color', this.ColorFearful);
                         //this.ContadorMiedo++
                         //this.usuario.Miedo.valor = this.usuario.Miedo.valor + 1;
@@ -1011,6 +1014,7 @@ let EstudianteComponent = class EstudianteComponent {
                     if (datosAngry == maximo) {
                         //console.log("Enfadado: "+maximo);
                         this.enviarEmocionesWebCam({ id_item: this.id_item, color: this.ColorAngry });
+                        this.ponerAngry();
                         $('#estadoAlumno').css('background-color', this.ColorAngry);
                         //this.ContadorEnfadado++
                         //this.usuario.Enfadado.valor = this.usuario.Enfadado.valor + 1;
@@ -1018,6 +1022,7 @@ let EstudianteComponent = class EstudianteComponent {
                     if (datosHappy == maximo) {
                         //console.log("Feliz: "+maximo);
                         this.enviarEmocionesWebCam({ id_item: this.id_item, color: this.ColorHappy });
+                        this.ponerHappy();
                         $('#estadoAlumno').css('background-color', this.ColorHappy);
                         //this.ContadorFeliz++
                         //this.usuario.Felicidad.valor = this.usuario.Felicidad.valor + 1;
@@ -1025,12 +1030,14 @@ let EstudianteComponent = class EstudianteComponent {
                     if (datosSad == maximo) {
                         //console.log("Triste: "+maximo);
                         this.enviarEmocionesWebCam({ id_item: this.id_item, color: this.ColorSad });
+                        this.ponerSad();
                         $('#estadoAlumno').css('background-color', this.ColorSad);
                         //this.ContadorTriste++
                         //this.usuario.Triste.valor = this.usuario.Triste.valor + 1;
                     }
                     if (datosSurprised == maximo) {
                         this.enviarEmocionesWebCam({ id_item: this.id_item, color: this.ColorSurprised });
+                        this.ponerSurprised();
                         $('#estadoAlumno').css('background-color', this.ColorSurprised);
                         //this.ContadorSorprendido++
                         //this.usuario.Sorpresa.valor = this.usuario.Sorpresa.valor + 1;
@@ -1038,6 +1045,7 @@ let EstudianteComponent = class EstudianteComponent {
                     if (datosDisgusted == maximo) {
                         //console.log("Disgustado: "+maximo);
                         this.enviarEmocionesWebCam({ id_item: this.id_item, color: this.ColorDisgusted });
+                        this.ponerDisgusted();
                         $('#estadoAlumno').css('background-color', this.ColorDisgusted);
                         //this.ContadorDisgustado++
                         //this.usuario.Disgustado.valor = this.usuario.Disgustado.valor + 1;
@@ -1093,6 +1101,79 @@ let EstudianteComponent = class EstudianteComponent {
     parar() {
         this.video.addEventListener('stop', function () {
             console.log("Se ha parado");
+        });
+    }
+    //Implementacion del led
+    conectarLed() {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
+            console.log("Conectandose...");
+            try {
+                this.device = yield navigator.hid.requestDevice({
+                    filters: [{
+                            vendorId: 0x20a0,
+                            productId: 0x41e5,
+                        }]
+                });
+                //device.open();
+                console.log(this.device);
+                yield this.device.open();
+            }
+            catch (err) {
+                // No device was selected.
+            }
+            if (this.device !== undefined) {
+                // Add |device| to the UI.
+            }
+        });
+    }
+    ponerHappy() {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
+            yield this.fadeToColor(this.device, [255, 255, 84]);
+        });
+    }
+    ponerNeutral() {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
+            yield this.fadeToColor(this.device, [84, 255, 84]);
+        });
+    }
+    ponerSad() {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
+            yield this.fadeToColor(this.device, [81, 81, 255]);
+        });
+    }
+    ponerAngry() {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
+            yield this.fadeToColor(this.device, [255, 0, 0]);
+        });
+    }
+    ponerFearful() {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
+            yield this.fadeToColor(this.device, [0, 150, 0]);
+        });
+    }
+    ponerDisgusted() {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
+            yield this.fadeToColor(this.device, [80, 80, 80]);
+        });
+    }
+    ponerSurprised() {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
+            yield this.fadeToColor(this.device, [89, 189, 255]);
+        });
+    }
+    fadeToColor(device, [r, g, b]) {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
+            const reportId = 1;
+            const data = Uint8Array.from([r, g, b]);
+            //const negro = Uint8Array.from([0x63, 0, 0, 0, 0x00, 0x10, 0x00, 0x00]);
+            try {
+                console.log(data);
+                yield device.sendFeatureReport(1, data);
+                //await device.sendFeatureReport(1,negro);
+            }
+            catch (error) {
+                console.error('fadeToColor: failed:', error);
+            }
         });
     }
     //Implementacion de los sockets

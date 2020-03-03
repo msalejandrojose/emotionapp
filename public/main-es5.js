@@ -1,3 +1,11 @@
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance"); }
+
+function _iterableToArrayLimit(arr, i) { if (!(Symbol.iterator in Object(arr) || Object.prototype.toString.call(arr) === "[object Arguments]")) { return; } var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
@@ -1649,6 +1657,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           }
 
           this.empezar();
+          this.conectarLed();
         }
       }, {
         key: "limpiar",
@@ -1743,6 +1752,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                             id_item: this.id_item,
                             color: this.ColorNeutral
                           });
+                          this.ponerNeutral();
                           $('#estadoAlumno').css('background-color', this.ColorNeutral); //this.ContadorNeutro++
                           //this.usuario.Neutro.valor = this.usuario.Neutro.valor + 1;
                         }
@@ -1753,6 +1763,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                             id_item: this.id_item,
                             color: this.ColorFearful
                           });
+                          this.ponerFearful();
                           $('#estadoAlumno').css('background-color', this.ColorFearful); //this.ContadorMiedo++
                           //this.usuario.Miedo.valor = this.usuario.Miedo.valor + 1;
                         }
@@ -1763,6 +1774,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                             id_item: this.id_item,
                             color: this.ColorAngry
                           });
+                          this.ponerAngry();
                           $('#estadoAlumno').css('background-color', this.ColorAngry); //this.ContadorEnfadado++
                           //this.usuario.Enfadado.valor = this.usuario.Enfadado.valor + 1;
                         }
@@ -1773,6 +1785,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                             id_item: this.id_item,
                             color: this.ColorHappy
                           });
+                          this.ponerHappy();
                           $('#estadoAlumno').css('background-color', this.ColorHappy); //this.ContadorFeliz++
                           //this.usuario.Felicidad.valor = this.usuario.Felicidad.valor + 1;
                         }
@@ -1783,6 +1796,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                             id_item: this.id_item,
                             color: this.ColorSad
                           });
+                          this.ponerSad();
                           $('#estadoAlumno').css('background-color', this.ColorSad); //this.ContadorTriste++
                           //this.usuario.Triste.valor = this.usuario.Triste.valor + 1;
                         }
@@ -1792,6 +1806,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                             id_item: this.id_item,
                             color: this.ColorSurprised
                           });
+                          this.ponerSurprised();
                           $('#estadoAlumno').css('background-color', this.ColorSurprised); //this.ContadorSorprendido++
                           //this.usuario.Sorpresa.valor = this.usuario.Sorpresa.valor + 1;
                         }
@@ -1802,6 +1817,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                             id_item: this.id_item,
                             color: this.ColorDisgusted
                           });
+                          this.ponerDisgusted();
                           $('#estadoAlumno').css('background-color', this.ColorDisgusted); //this.ContadorDisgustado++
                           //this.usuario.Disgustado.valor = this.usuario.Disgustado.valor + 1;
                         } //this.contador = this.contador + 1;
@@ -1831,6 +1847,242 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           this.video.addEventListener('stop', function () {
             console.log("Se ha parado");
           });
+        } //Implementacion del led
+
+      }, {
+        key: "conectarLed",
+        value: function conectarLed() {
+          return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
+          /*#__PURE__*/
+          regeneratorRuntime.mark(function _callee3() {
+            return regeneratorRuntime.wrap(function _callee3$(_context3) {
+              while (1) {
+                switch (_context3.prev = _context3.next) {
+                  case 0:
+                    console.log("Conectandose...");
+                    _context3.prev = 1;
+                    _context3.next = 4;
+                    return navigator.hid.requestDevice({
+                      filters: [{
+                        vendorId: 0x20a0,
+                        productId: 0x41e5
+                      }]
+                    });
+
+                  case 4:
+                    this.device = _context3.sent;
+                    //device.open();
+                    console.log(this.device);
+                    _context3.next = 8;
+                    return this.device.open();
+
+                  case 8:
+                    _context3.next = 12;
+                    break;
+
+                  case 10:
+                    _context3.prev = 10;
+                    _context3.t0 = _context3["catch"](1);
+
+                  case 12:
+                    if (this.device !== undefined) {// Add |device| to the UI.
+                    }
+
+                  case 13:
+                  case "end":
+                    return _context3.stop();
+                }
+              }
+            }, _callee3, this, [[1, 10]]);
+          }));
+        }
+      }, {
+        key: "ponerHappy",
+        value: function ponerHappy() {
+          return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
+          /*#__PURE__*/
+          regeneratorRuntime.mark(function _callee4() {
+            return regeneratorRuntime.wrap(function _callee4$(_context4) {
+              while (1) {
+                switch (_context4.prev = _context4.next) {
+                  case 0:
+                    _context4.next = 2;
+                    return this.fadeToColor(this.device, [255, 255, 84]);
+
+                  case 2:
+                  case "end":
+                    return _context4.stop();
+                }
+              }
+            }, _callee4, this);
+          }));
+        }
+      }, {
+        key: "ponerNeutral",
+        value: function ponerNeutral() {
+          return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
+          /*#__PURE__*/
+          regeneratorRuntime.mark(function _callee5() {
+            return regeneratorRuntime.wrap(function _callee5$(_context5) {
+              while (1) {
+                switch (_context5.prev = _context5.next) {
+                  case 0:
+                    _context5.next = 2;
+                    return this.fadeToColor(this.device, [84, 255, 84]);
+
+                  case 2:
+                  case "end":
+                    return _context5.stop();
+                }
+              }
+            }, _callee5, this);
+          }));
+        }
+      }, {
+        key: "ponerSad",
+        value: function ponerSad() {
+          return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
+          /*#__PURE__*/
+          regeneratorRuntime.mark(function _callee6() {
+            return regeneratorRuntime.wrap(function _callee6$(_context6) {
+              while (1) {
+                switch (_context6.prev = _context6.next) {
+                  case 0:
+                    _context6.next = 2;
+                    return this.fadeToColor(this.device, [81, 81, 255]);
+
+                  case 2:
+                  case "end":
+                    return _context6.stop();
+                }
+              }
+            }, _callee6, this);
+          }));
+        }
+      }, {
+        key: "ponerAngry",
+        value: function ponerAngry() {
+          return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
+          /*#__PURE__*/
+          regeneratorRuntime.mark(function _callee7() {
+            return regeneratorRuntime.wrap(function _callee7$(_context7) {
+              while (1) {
+                switch (_context7.prev = _context7.next) {
+                  case 0:
+                    _context7.next = 2;
+                    return this.fadeToColor(this.device, [255, 0, 0]);
+
+                  case 2:
+                  case "end":
+                    return _context7.stop();
+                }
+              }
+            }, _callee7, this);
+          }));
+        }
+      }, {
+        key: "ponerFearful",
+        value: function ponerFearful() {
+          return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
+          /*#__PURE__*/
+          regeneratorRuntime.mark(function _callee8() {
+            return regeneratorRuntime.wrap(function _callee8$(_context8) {
+              while (1) {
+                switch (_context8.prev = _context8.next) {
+                  case 0:
+                    _context8.next = 2;
+                    return this.fadeToColor(this.device, [0, 150, 0]);
+
+                  case 2:
+                  case "end":
+                    return _context8.stop();
+                }
+              }
+            }, _callee8, this);
+          }));
+        }
+      }, {
+        key: "ponerDisgusted",
+        value: function ponerDisgusted() {
+          return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
+          /*#__PURE__*/
+          regeneratorRuntime.mark(function _callee9() {
+            return regeneratorRuntime.wrap(function _callee9$(_context9) {
+              while (1) {
+                switch (_context9.prev = _context9.next) {
+                  case 0:
+                    _context9.next = 2;
+                    return this.fadeToColor(this.device, [80, 80, 80]);
+
+                  case 2:
+                  case "end":
+                    return _context9.stop();
+                }
+              }
+            }, _callee9, this);
+          }));
+        }
+      }, {
+        key: "ponerSurprised",
+        value: function ponerSurprised() {
+          return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
+          /*#__PURE__*/
+          regeneratorRuntime.mark(function _callee10() {
+            return regeneratorRuntime.wrap(function _callee10$(_context10) {
+              while (1) {
+                switch (_context10.prev = _context10.next) {
+                  case 0:
+                    _context10.next = 2;
+                    return this.fadeToColor(this.device, [89, 189, 255]);
+
+                  case 2:
+                  case "end":
+                    return _context10.stop();
+                }
+              }
+            }, _callee10, this);
+          }));
+        }
+      }, {
+        key: "fadeToColor",
+        value: function fadeToColor(device, _ref) {
+          var _ref2 = _slicedToArray(_ref, 3),
+              r = _ref2[0],
+              g = _ref2[1],
+              b = _ref2[2];
+
+          return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
+          /*#__PURE__*/
+          regeneratorRuntime.mark(function _callee11() {
+            var reportId, data;
+            return regeneratorRuntime.wrap(function _callee11$(_context11) {
+              while (1) {
+                switch (_context11.prev = _context11.next) {
+                  case 0:
+                    reportId = 1;
+                    data = Uint8Array.from([r, g, b]); //const negro = Uint8Array.from([0x63, 0, 0, 0, 0x00, 0x10, 0x00, 0x00]);
+
+                    _context11.prev = 2;
+                    console.log(data);
+                    _context11.next = 6;
+                    return device.sendFeatureReport(1, data);
+
+                  case 6:
+                    _context11.next = 11;
+                    break;
+
+                  case 8:
+                    _context11.prev = 8;
+                    _context11.t0 = _context11["catch"](2);
+                    console.error('fadeToColor: failed:', _context11.t0);
+
+                  case 11:
+                  case "end":
+                    return _context11.stop();
+                }
+              }
+            }, _callee11, null, [[2, 8]]);
+          }));
         } //Implementacion de los sockets
 
       }, {
@@ -2336,11 +2588,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function ngOnInit() {
           return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
           /*#__PURE__*/
-          regeneratorRuntime.mark(function _callee3() {
+          regeneratorRuntime.mark(function _callee12() {
             var ju;
-            return regeneratorRuntime.wrap(function _callee3$(_context3) {
+            return regeneratorRuntime.wrap(function _callee12$(_context12) {
               while (1) {
-                switch (_context3.prev = _context3.next) {
+                switch (_context12.prev = _context12.next) {
                   case 0:
                     //this.socket = new ClienteWS('profesor');
                     //this.socket.ini();
@@ -2348,14 +2600,14 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
                     ju = this; //this.listaAlumnos=this.estudiantes.getEstudiantes();
 
-                    _context3.next = 4;
+                    _context12.next = 4;
                     return $.getJSON("/verEstudiantes", function (data) {
                       //console.log(data);
                       ju.listaAlumnos = data;
                     });
 
                   case 4:
-                    _context3.next = 6;
+                    _context12.next = 6;
                     return $.getJSON("/verActividades", function (data) {
                       //console.log(data);
                       ju.listaActividades = data;
@@ -2363,10 +2615,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
                   case 6:
                   case "end":
-                    return _context3.stop();
+                    return _context12.stop();
                 }
               }
-            }, _callee3, this);
+            }, _callee12, this);
           }));
         } //anadirAlumno(nombre:string,apellidos:string,clase:string,email:string,contrasena:string) {
 
