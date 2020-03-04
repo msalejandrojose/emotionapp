@@ -924,11 +924,14 @@ let EstudianteComponent = class EstudianteComponent {
         this.conectadoaActividad = true;
         this.actividadActual = actividad;
         console.log(this.actividadActual.alumnos);
-        for (var key in this.actividadActual.alumnos) {
-            if (this.actividadActual.alumnos[key].estudiante._id = this.estudiante._id) {
-                this.id_item = this.actividadActual.alumnos[key].id_item;
-            }
-        }
+        /*for (var key in this.actividadActual.alumnos) {
+          if(this.actividadActual.alumnos[key].estudiante._id=this.estudiante._id){
+            console.log("Estudiate id: "+this.estudiante._id)
+            this.id_item=this.actividadActual.alumnos[key].id_item;
+            //console.log(this.id_item);
+          }
+        }*/
+        this.id_item = this.estudiante._id + actividad._id;
         this.empezar();
         this.conectarLed();
     }
