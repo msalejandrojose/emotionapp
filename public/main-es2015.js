@@ -967,7 +967,16 @@ let EstudianteComponent = class EstudianteComponent {
     }
     empezar() {
         this.video = document.getElementById('video');
-        navigator.getUserMedia({ video: true }, stream => this.video.srcObject = stream, err => console.error(err));
+        /*navigator.getUserMedia(
+          { video: true },
+          stream => this.video.srcObject = stream,
+          err => console.error(err)
+        )*/
+        navigator.mediaDevices.getUserMedia({ video: true })
+            .then((stream) => {
+            console.log(stream);
+            this.video.srcObject = stream;
+        }).catch((err) => console.log(err));
         Promise.all([
             //faceapi.nets.ageGenderNet.loadFromUri('/modelos'),
             faceapi.nets.faceExpressionNet.loadFromUri('assets/modelos'),
@@ -1128,7 +1137,7 @@ let EstudianteComponent = class EstudianteComponent {
     }
     ponerHappy() {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
-            yield this.fadeToColor(this.device, [255, 255, 84]);
+            yield this.fadeToColor(this.device, [255, 255, 0]);
         });
     }
     ponerNeutral() {

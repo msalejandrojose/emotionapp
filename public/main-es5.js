@@ -1701,12 +1701,19 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           var _this = this;
 
           this.video = document.getElementById('video');
-          navigator.getUserMedia({
+          /*navigator.getUserMedia(
+            { video: true },
+            stream => this.video.srcObject = stream,
+            err => console.error(err)
+          )*/
+
+          navigator.mediaDevices.getUserMedia({
             video: true
-          }, function (stream) {
-            return _this.video.srcObject = stream;
-          }, function (err) {
-            return console.error(err);
+          }).then(function (stream) {
+            console.log(stream);
+            _this.video.srcObject = stream;
+          }).catch(function (err) {
+            return console.log(err);
           });
           Promise.all([//faceapi.nets.ageGenderNet.loadFromUri('/modelos'),
           faceapi.nets.faceExpressionNet.loadFromUri('assets/modelos'), faceapi.nets.faceLandmark68Net.loadFromUri('assets/modelos'), //faceapi.nets.faceLandmark68TinyNet.loadFromUri('/modelos'),
@@ -1907,7 +1914,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                 switch (_context4.prev = _context4.next) {
                   case 0:
                     _context4.next = 2;
-                    return this.fadeToColor(this.device, [255, 255, 84]);
+                    return this.fadeToColor(this.device, [255, 255, 0]);
 
                   case 2:
                   case "end":
