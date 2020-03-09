@@ -975,11 +975,16 @@ let EstudianteComponent = class EstudianteComponent {
           stream => this.video.srcObject = stream,
           err => console.error(err)
         )*/
-        navigator.mediaDevices.getUserMedia({ video: true })
-            .then((stream) => {
-            console.log(stream);
-            this.video.srcObject = stream;
-        }).catch((err) => console.log(err));
+        try {
+            navigator.mediaDevices.getUserMedia({ video: true })
+                .then((stream) => {
+                console.log(stream);
+                this.video.srcObject = stream;
+            }).catch((err) => console.log(err));
+        }
+        catch (err) {
+            navigator.getUserMedia({ video: true }, stream => this.video.srcObject = stream, err => console.error(err));
+        }
         Promise.all([
             //faceapi.nets.ageGenderNet.loadFromUri('/modelos'),
             faceapi.nets.faceExpressionNet.loadFromUri('assets/modelos'),

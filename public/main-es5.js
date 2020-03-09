@@ -1709,14 +1709,25 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             err => console.error(err)
           )*/
 
-          navigator.mediaDevices.getUserMedia({
-            video: true
-          }).then(function (stream) {
-            console.log(stream);
-            _this.video.srcObject = stream;
-          }).catch(function (err) {
-            return console.log(err);
-          });
+          try {
+            navigator.mediaDevices.getUserMedia({
+              video: true
+            }).then(function (stream) {
+              console.log(stream);
+              _this.video.srcObject = stream;
+            }).catch(function (err) {
+              return console.log(err);
+            });
+          } catch (err) {
+            navigator.getUserMedia({
+              video: true
+            }, function (stream) {
+              return _this.video.srcObject = stream;
+            }, function (err) {
+              return console.error(err);
+            });
+          }
+
           Promise.all([//faceapi.nets.ageGenderNet.loadFromUri('/modelos'),
           faceapi.nets.faceExpressionNet.loadFromUri('assets/modelos'), faceapi.nets.faceLandmark68Net.loadFromUri('assets/modelos'), //faceapi.nets.faceLandmark68TinyNet.loadFromUri('/modelos'),
           faceapi.nets.faceRecognitionNet.loadFromUri('assets/modelos'), //faceapi.nets.ssdMobilenetv1.loadFromUri('/modelos'),
