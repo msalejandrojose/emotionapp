@@ -1721,16 +1721,15 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           } catch (err) {
             navigator.getUserMedia({
               video: true
-            }, function (stream) {
-              return _this.video.srcObject = stream;
-            }, function (err) {
-              return console.error(err);
+            }).then(function (stream) {
+              console.log(stream);
+              _this.video.srcObject = stream;
+            }).catch(function (err) {
+              return console.log(err);
             });
           }
 
-          Promise.all([//faceapi.nets.ageGenderNet.loadFromUri('/modelos'),
-          faceapi.nets.faceExpressionNet.loadFromUri('assets/modelos'), faceapi.nets.faceLandmark68Net.loadFromUri('assets/modelos'), //faceapi.nets.faceLandmark68TinyNet.loadFromUri('/modelos'),
-          faceapi.nets.faceRecognitionNet.loadFromUri('assets/modelos'), //faceapi.nets.ssdMobilenetv1.loadFromUri('/modelos'),
+          Promise.all([faceapi.nets.ageGenderNet.loadFromUri('/modelos'), faceapi.nets.faceExpressionNet.loadFromUri('assets/modelos'), faceapi.nets.faceLandmark68Net.loadFromUri('assets/modelos'), faceapi.nets.faceLandmark68TinyNet.loadFromUri('/modelos'), faceapi.nets.faceRecognitionNet.loadFromUri('assets/modelos'), //faceapi.nets.ssdMobilenetv1.loadFromUri('/modelos'),
           faceapi.nets.tinyFaceDetector.loadFromUri('assets/modelos') //faceapi.nets.tinyYolov2.loadFromUri('/modelos')
           ]);
           console.log("hemos cargado los modelos");

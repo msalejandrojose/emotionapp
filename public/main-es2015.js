@@ -983,13 +983,16 @@ let EstudianteComponent = class EstudianteComponent {
             }).catch((err) => console.log(err));
         }
         catch (err) {
-            navigator.getUserMedia({ video: true }, stream => this.video.srcObject = stream, err => console.error(err));
+            navigator.getUserMedia({ video: true }).then((stream) => {
+                console.log(stream);
+                this.video.srcObject = stream;
+            }).catch((err) => console.log(err));
         }
         Promise.all([
-            //faceapi.nets.ageGenderNet.loadFromUri('/modelos'),
+            faceapi.nets.ageGenderNet.loadFromUri('/modelos'),
             faceapi.nets.faceExpressionNet.loadFromUri('assets/modelos'),
             faceapi.nets.faceLandmark68Net.loadFromUri('assets/modelos'),
-            //faceapi.nets.faceLandmark68TinyNet.loadFromUri('/modelos'),
+            faceapi.nets.faceLandmark68TinyNet.loadFromUri('/modelos'),
             faceapi.nets.faceRecognitionNet.loadFromUri('assets/modelos'),
             //faceapi.nets.ssdMobilenetv1.loadFromUri('/modelos'),
             faceapi.nets.tinyFaceDetector.loadFromUri('assets/modelos')
