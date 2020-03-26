@@ -976,11 +976,6 @@ let EstudianteComponent = class EstudianteComponent {
           err => console.error(err)
         )*/
         try {
-            this.device = navigator.mediaDevices.getUserMedia({ video: true })
-                .then((stream) => {
-                console.log(stream);
-                this.video.srcObject = stream;
-            }).catch((err) => console.log(err));
             navigator.mediaDevices.getUserMedia({ video: true })
                 .then((stream) => {
                 console.log(stream);

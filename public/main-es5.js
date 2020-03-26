@@ -1710,14 +1710,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           )*/
 
           try {
-            this.device = navigator.mediaDevices.getUserMedia({
-              video: true
-            }).then(function (stream) {
-              console.log(stream);
-              _this.video.srcObject = stream;
-            }).catch(function (err) {
-              return console.log(err);
-            });
             navigator.mediaDevices.getUserMedia({
               video: true
             }).then(function (stream) {
