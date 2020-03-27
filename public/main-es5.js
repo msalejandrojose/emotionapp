@@ -1541,10 +1541,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         this.noHayEstudiante = true;
         this.conectadoaActividad = false;
         this.listaActividades = [];
+        this.listaGestionActividades = {};
         this.id = '';
 
         this.soyEstudiante = function () {
-          this.socket.emit('soyEstudiante');
+          this.socket.emit('soyEstudiante', this.estudiante);
         };
 
         this.crearActividadLista = function (actividad) {
@@ -1573,8 +1574,39 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             console.log("Se ha borrado una actividad a las listas: " + res._id);
           });
           this.socket.on('actividades', function (res) {
-            cli.listaActividades.push(res);
-            console.log(res); //callback(res);
+            /*console.log(res._id);
+            console.log(cli.listaGestionActividades[res._id]);
+            console.log("\\\\\\\\\\\\\\\\\\\\\\\\\\")
+            if (!cli.listaGestionActividades[res._id]) {
+              cli.listaGestionActividades[res._id] = res;
+              console.log(cli.listaGestionActividades[res._id]);
+              cli.listaActividades == null;
+              for (var key in cli.listaGestionActividades) {
+                cli.listaActividades.push(cli.listaGestionActividades[key]);
+              }
+            }*/
+            //callback(res);
+            cli.listaGestionActividades[res._id] = res;
+            console.log(cli.listaGestionActividades); //console.log(cli.listaGestionActividades[res._id]);
+
+            cli.listaActividades.length = 0;
+
+            for (var key in cli.listaGestionActividades) {
+              console.log(cli.listaGestionActividades[key]);
+              cli.listaActividades.push(cli.listaGestionActividades[key]);
+            }
+          });
+          this.socket.on('borrarActividad', function (res) {
+            //console.log(cli.listaGestionActividades[res._id]);
+            delete cli.listaGestionActividades[res._id];
+            console.log(cli.listaGestionActividades); //console.log(cli.listaGestionActividades[res._id]);
+
+            cli.listaActividades.length = 0;
+            console.log(cli.listaActividades);
+
+            for (var key in cli.listaGestionActividades) {} //cli.listaActividades.push(cli.listaGestionActividades[key]);
+            //callback(res);
+
           });
           this.socket.on('recepcionEmociones', function (datos) {
             console.log(datos);
@@ -1657,7 +1689,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             }
           }*/
 
-          this.id_item = this.estudiante._id + actividad._id;
+          this.id_item = this.estudiante._id + actividad._id; //this.soyEstudiante();
+          //this.conectarActividad();
+
           this.empezar();
           this.conectarLed();
         }
@@ -1687,11 +1721,27 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               ju.noHayEstudiante = false;
               ju.estudianteIniciado.emit(ju.estudiante);
               ju.id = ju.estudiante._id;
-              ju.ini(); //ju.socket = new SocketioService(ju.estudiante._id);
+              ju.ini();
+              ju.obtenerActividadesComenzadas(); //ju.socket = new SocketioService(ju.estudiante._id);
               //ju.socket.ini();
               //ju.socketService.setupSocketConnection();
               //ju.conectadoaActividad = true;
               //ju.empezar();
+            },
+            contentType: 'application/json',
+            dataType: 'json'
+          });
+        }
+      }, {
+        key: "obtenerActividadesComenzadas",
+        value: function obtenerActividadesComenzadas() {
+          var ju = this;
+          $.ajax({
+            type: 'POST',
+            url: '/verActividadesComenzadas',
+            data: JSON.stringify(ju.estudiante),
+            success: function success(data) {
+              ju.listaActividades = data;
             },
             contentType: 'application/json',
             dataType: 'json'
@@ -1745,7 +1795,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](_this, void 0, void 0,
               /*#__PURE__*/
               regeneratorRuntime.mark(function _callee2() {
-                var detections, datosNeutral, datosHappy, datosSad, datosAngry, datosFearful, datosSurprised, datosDisgusted, maximo;
+                var detections, datos, datosNeutral, datosHappy, datosSad, datosAngry, datosFearful, datosSurprised, datosDisgusted, maximo;
                 return regeneratorRuntime.wrap(function _callee2$(_context2) {
                   while (1) {
                     switch (_context2.prev = _context2.next) {
@@ -1756,6 +1806,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
                       case 3:
                         detections = _context2.sent;
+                        datos = faceapi.resizeResults(detections, displaySize).expressions;
+                        console.log(datos);
                         datosNeutral = faceapi.resizeResults(detections, displaySize).expressions.neutral;
                         datosHappy = faceapi.resizeResults(detections, displaySize).expressions.happy;
                         datosSad = faceapi.resizeResults(detections, displaySize).expressions.sad;
@@ -1769,7 +1821,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                           //console.log("Neutro: "+maximo);
                           this.enviarEmocionesWebCam({
                             id_item: this.id_item,
-                            color: this.ColorNeutral
+                            color: this.ColorNeutral,
+                            datos: datos
                           });
                           this.ponerNeutral();
                           $('#estadoAlumno').css('background-color', this.ColorNeutral); //this.ContadorNeutro++
@@ -1780,7 +1833,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                           //console.log("Miedo: "+maximo);
                           this.enviarEmocionesWebCam({
                             id_item: this.id_item,
-                            color: this.ColorFearful
+                            color: this.ColorFearful,
+                            datos: datos
                           });
                           this.ponerFearful();
                           $('#estadoAlumno').css('background-color', this.ColorFearful); //this.ContadorMiedo++
@@ -1791,7 +1845,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                           //console.log("Enfadado: "+maximo);
                           this.enviarEmocionesWebCam({
                             id_item: this.id_item,
-                            color: this.ColorAngry
+                            color: this.ColorAngry,
+                            datos: datos
                           });
                           this.ponerAngry();
                           $('#estadoAlumno').css('background-color', this.ColorAngry); //this.ContadorEnfadado++
@@ -1802,7 +1857,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                           //console.log("Feliz: "+maximo);
                           this.enviarEmocionesWebCam({
                             id_item: this.id_item,
-                            color: this.ColorHappy
+                            color: this.ColorHappy,
+                            datos: datos
                           });
                           this.ponerHappy();
                           $('#estadoAlumno').css('background-color', this.ColorHappy); //this.ContadorFeliz++
@@ -1813,7 +1869,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                           //console.log("Triste: "+maximo);
                           this.enviarEmocionesWebCam({
                             id_item: this.id_item,
-                            color: this.ColorSad
+                            color: this.ColorSad,
+                            datos: datos
                           });
                           this.ponerSad();
                           $('#estadoAlumno').css('background-color', this.ColorSad); //this.ContadorTriste++
@@ -1823,7 +1880,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                         if (datosSurprised == maximo) {
                           this.enviarEmocionesWebCam({
                             id_item: this.id_item,
-                            color: this.ColorSurprised
+                            color: this.ColorSurprised,
+                            datos: datos
                           });
                           this.ponerSurprised();
                           $('#estadoAlumno').css('background-color', this.ColorSurprised); //this.ContadorSorprendido++
@@ -1834,7 +1892,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                           //console.log("Disgustado: "+maximo);
                           this.enviarEmocionesWebCam({
                             id_item: this.id_item,
-                            color: this.ColorDisgusted
+                            color: this.ColorDisgusted,
+                            datos: datos
                           });
                           this.ponerDisgusted();
                           $('#estadoAlumno').css('background-color', this.ColorDisgusted); //this.ContadorDisgustado++
@@ -1843,19 +1902,19 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                         //console.log(contador);
 
 
-                        _context2.next = 23;
+                        _context2.next = 25;
                         break;
 
-                      case 21:
-                        _context2.prev = 21;
+                      case 23:
+                        _context2.prev = 23;
                         _context2.t0 = _context2["catch"](0);
 
-                      case 23:
+                      case 25:
                       case "end":
                         return _context2.stop();
                     }
                   }
-                }, _callee2, this, [[0, 21]]);
+                }, _callee2, this, [[0, 23]]);
               }));
             }, 2000);
           });
@@ -2815,6 +2874,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "cerrarActividad",
         value: function cerrarActividad() {
+          console.log(this.actividadSelected);
+          this.borrarActividadLista(this.actividadSelected);
           this.verActividad = false;
           this.actividadSelected = null;
         } //Gestion de los WebSockets

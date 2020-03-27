@@ -18,8 +18,10 @@ function ServidorWS() {
             //socket.join('123');
             console.log("Nueva conexión");
 
-            socket.on('soyEstudiante',function(){
-                socket.join("estudiantes");
+            socket.on('soyEstudiante',function(estudiante){
+                //socket.join("estudiantes");
+                socket.join(estudiante._id);
+                console.log("El id del estudiante es: "+estudiante._id);
                 console.log("Conexion asignada al estudiante");
             })
             socket.on('soyProfesor',function(){
@@ -35,7 +37,10 @@ function ServidorWS() {
                     //console.log(u.alumnos);
                     //console.log(u.alumnos[i].estudiante._id);
                     //socket.join("profesor");
-                    cli.enviarATodos(io, "estudiantes", "actividades", u);
+                    for(let i =0;i<u.alumnos.length;i++){
+                        cli.enviarATodos(io, u.alumnos[i].estudiante._id, "actividades", u);
+                    }
+                    
                 })
 
                 /*juego.crearPartida(nombrePartida, nick, function (partida) {
@@ -47,6 +52,10 @@ function ServidorWS() {
             socket.on('borrarActividadLista', function (actividad) {
                 centro.borrarActividadLista(actividad, function (u) {
                     cli.enviarRemitente(socket, "actividadBorrada", u);
+                    for(let i =0;i<u.alumnos.length;i++){
+                        cli.enviarATodos(io, u.alumnos[i].estudiante._id, "borrarActividad", u);
+                    }
+                    //cli.enviarATodos(io, "estudiantes", "borrarActividad", u);
                 });
             })
 

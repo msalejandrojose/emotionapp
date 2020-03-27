@@ -224,10 +224,11 @@ function Centro() {
 
     this.mostrarActividadListasxAlumno = function(id_alu,callback){
         let actividades = [];
+        console.log(id_alu);
         for (var id in this.actividadesListas) {
-            for(var id_a in this.actividadesListas[id].alumnos){
-                if(this.actividadesListas[id].alumnos[id_a]==id_alu){
-                    actividades.push(this.this.actividadesListas[id]);
+            for(let i=0; i<this.actividadesListas[id].alumnos.length;i++){
+                if(this.actividadesListas[id].alumnos[i].estudiante._id==id_alu){
+                    actividades.push(this.actividadesListas[id]);
                     break;
                 }
             }

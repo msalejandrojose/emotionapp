@@ -64,6 +64,15 @@ app.get("/verActividades", function (request, response) {
   })
 });
 
+app.post("/verActividadesComenzadas", function (request, response) {
+  var alumno = request.body;
+  centro.mostrarActividadListasxAlumno(alumno._id,function(res){
+    console.log("Actividades abiertas");
+    console.log(res);
+    response.send(res);
+  })
+});
+
 app.post("/registrarActividad", function (request, response) {
   var act = request.body;
   centro.agregarActividad(act.nombre,act.profesor,act.alumnos,function(res){
