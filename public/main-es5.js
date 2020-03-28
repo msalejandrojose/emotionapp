@@ -79,7 +79,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<!--<div class=\"row\">\n    <div class=\"col-md-2\">\n        <!--<app-sidenav-profesor></app-sidenav-profesor>\n        <div class=\"sidenav list-group\">\n            <a href=\"#\">Emociones</a>\n        </div>\n    </div>\n</div>-->\n<br>\n<div *ngIf=\"noHayEstudiante\" class=\"row justify-content-md-center\">\n    <div class=\"card col-md-6\">\n        <div class=\"card-body\">\n            <h4 class=\"card-title\">Iniciar Sesion</h4>\n            <div>\n                <label>Email</label>\n                <input [(ngModel)]=\"estudiante.email\" type=\"email\" class=\"form-control\" id=\"emailIS\" ng-model=\"email\"\n                    placeholder=\"Email\">\n                <br>\n                <label>Contraseña</label>\n                <input [(ngModel)]=\"estudiante.contrasena\" type=\"password\" class=\"form-control\" id=\"contrasenaIS\"\n                    ng-model=\"contrasena\" placeholder=\"Contraseña\">\n                <br>\n                <button type=\"button\" (click)=\"limpiar()\" class=\"btn btn-raised btn-danger\">Cancelar</button>\n                <button type=\"button\" (click)=\"iniciarSesion()\" class=\"btn btn-raised btn-success\">Iniciar\n                    Sesion</button>\n            </div>\n        </div>\n    </div>\n</div>\n<div *ngIf=\"!noHayEstudiante\" class=\"row justify-content-md-center\">\n    <div class=\"col-md-10\">\n        <h3>Actividades listas</h3>\n        <table class=\"table table-striped\">\n            <thead>\n                <tr>\n                    <th scope=\"col\">Nombre</th>\n                    <th scope=\"col\">Profesor</th>\n                    <th scope=\"col\">Estado</th>\n                    <th scope=\"col\"></th>\n                </tr>\n            </thead>\n            <tbody *ngFor=\"let actividad of listaActividades\">\n                <tr>\n                    <td>{{actividad.nombre}}</td>\n                    <td>{{actividad.profesor}}</td>\n                    <td>{{actividad.estado}}</td>\n                    <td><button type=\"button\" class=\"btn btn-outline-primary\"\n                            (click)=\"conectarse(actividad)\">Conectarse</button></td>\n                </tr>\n            </tbody>\n        </table>\n    </div>\n</div>\n<div  class=\"row justify-content-md-center\"> <!--*ngIf=\"!noHayEstudiante && conectadoaActividad\"-->\n    <div class=\"col-md-8\">\n        <video id=\"video\" width=\"480\" height=\"360\" autoplay muted></video>\n    </div>\n    <div *ngIf=\"conectadoaActividad\" class=\"col-md-4\" id=\"estadoAlumno\" class=\"circulo\">\n        <p>Estado</p>\n    </div>\n</div>\n";
+    __webpack_exports__["default"] = "<!--<div class=\"row\">\n    <div class=\"col-md-2\">\n        <!--<app-sidenav-profesor></app-sidenav-profesor>\n        <div class=\"sidenav list-group\">\n            <a href=\"#\">Emociones</a>\n        </div>\n    </div>\n</div>-->\n<br>\n<div *ngIf=\"noHayEstudiante\" class=\"row justify-content-md-center\">\n    <div class=\"card col-md-6\">\n        <div class=\"card-body\">\n            <h4 class=\"card-title\">Iniciar Sesion</h4>\n            <div>\n                <label>Email</label>\n                <input [(ngModel)]=\"estudiante.email\" type=\"email\" class=\"form-control\" id=\"emailIS\" ng-model=\"email\"\n                    placeholder=\"Email\">\n                <br>\n                <label>Contraseña</label>\n                <input [(ngModel)]=\"estudiante.contrasena\" type=\"password\" class=\"form-control\" id=\"contrasenaIS\"\n                    ng-model=\"contrasena\" placeholder=\"Contraseña\">\n                <br>\n                <button type=\"button\" (click)=\"limpiar()\" class=\"btn btn-raised btn-danger\">Cancelar</button>\n                <button type=\"button\" (click)=\"iniciarSesion()\" class=\"btn btn-raised btn-success\">Iniciar\n                    Sesion</button>\n            </div>\n        </div>\n    </div>\n</div>\n<div *ngIf=\"!noHayEstudiante\" class=\"row\">\n    <div class=\"col\">\n        <h3>Sensores</h3>\n        <table class=\"table table-striped\">\n            <thead class=\"thead-light\">\n                <tr>\n                    <th scope=\"col\">Nombre</th>\n                    <th scope=\"col\">Estado</th>\n                    <th scope=\"col\"></th>\n                    <th scope=\"col\"></th>\n                </tr>\n            </thead>\n            <tbody *ngFor=\"let sensor of listaSensores\">\n                <tr>\n                    <td>{{sensor.nombre}}</td>\n                    <td>{{sensor.estado}}</td>\n                    <td *ngIf=\"sensor.estado=='Desconectado'\"><button type=\"button\" class=\"btn btn-outline-primary\"\n                            (click)=\"conectarSensor(sensor)\">Conectarse</button></td>\n                    <td *ngIf=\"sensor.estado=='Conectado'\"><button type=\"button\" class=\"btn btn-outline-danger\"\n                            (click)=\"desconectarSensor(sensor)\">Desconectarse</button></td>\n                    <td></td>\n                </tr>\n            </tbody>\n        </table>\n    </div>\n    \n    <div class=\"col\">\n        <h3>Actividades listas</h3>\n        <table class=\"table table-striped\">\n            <thead class=\"thead-light\">\n                <tr>\n                    <th scope=\"col\">Nombre</th>\n                    <th scope=\"col\">Profesor</th>\n                    <th scope=\"col\">Estado</th>\n                    <th scope=\"col\"></th>\n                </tr>\n            </thead>\n            <tbody *ngFor=\"let actividad of listaActividades\">\n                <tr>\n                    <td>{{actividad.nombre}}</td>\n                    <td>{{actividad.profesor}}</td>\n                    <td>{{actividad.estado}}</td>\n                    <td><button type=\"button\" class=\"btn btn-outline-primary\"\n                            (click)=\"conectarse(actividad)\">Conectarse</button></td>\n                </tr>\n            </tbody>\n        </table>\n    </div>\n</div>\n<div class=\"row justify-content-md-center\">\n    <!--*ngIf=\"!noHayEstudiante && conectadoaActividad\"-->\n    <div class=\"col-md-8\">\n        <video id=\"video\" width=\"480\" height=\"360\" autoplay muted></video>\n        <!--<video id=\"video\" playsinline autoplay></video>-->\n    </div>\n    <div *ngIf=\"conectadoaActividad\" class=\"col-md-4\" id=\"estadoAlumno\" class=\"circulo\">\n        <p>Estado</p>\n    </div>\n</div>";
     /***/
   },
 
@@ -1538,10 +1538,26 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           email: '',
           contrasena: ''
         };
+        this.camara = {
+          nombre: 'Camara',
+          estado: 'Desconectado',
+          data: null
+        };
+        this.led = {
+          nombre: 'Led',
+          estado: 'Desconectado',
+          data: null
+        };
+        this.pulsera = {
+          nombre: 'Pulsera',
+          estado: 'Desconectado',
+          data: null
+        };
         this.noHayEstudiante = true;
         this.conectadoaActividad = false;
         this.listaActividades = [];
         this.listaGestionActividades = {};
+        this.listaSensores = [];
         this.id = '';
 
         this.soyEstudiante = function () {
@@ -1667,7 +1683,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
       _createClass(EstudianteComponent, [{
         key: "ngOnInit",
-        value: function ngOnInit() {//this.empezar();
+        value: function ngOnInit() {
+          //this.empezar();
+          this.listaSensores.push(this.camara);
+          this.listaSensores.push(this.led);
+          this.listaSensores.push(this.pulsera);
         }
       }, {
         key: "prueba",
@@ -1692,8 +1712,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           this.id_item = this.estudiante._id + actividad._id; //this.soyEstudiante();
           //this.conectarActividad();
 
-          this.empezar();
-          this.conectarLed();
+          console.log("asd");
+          this.empezar(); //this.conectarLed();
         }
       }, {
         key: "limpiar",
@@ -1748,188 +1768,225 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           });
         }
       }, {
-        key: "empezar",
-        value: function empezar() {
-          var _this = this;
-
-          this.video = document.getElementById('video');
-          /*navigator.getUserMedia(
-            { video: true },
-            stream => this.video.srcObject = stream,
-            err => console.error(err)
-          )*/
+        key: "conectarWebCam",
+        value: function conectarWebCam(sensor) {
+          sensor.data = document.getElementById('video');
 
           try {
             navigator.mediaDevices.getUserMedia({
               video: true
             }).then(function (stream) {
-              console.log(stream);
-              _this.video.srcObject = stream;
+              //console.log(stream)
+              //this.video.srcObject = stream;
+              sensor.data.srcObject = stream;
+              sensor.estado = "Conectado";
             }).catch(function (err) {
               return console.log(err);
             });
           } catch (err) {
-            navigator.getUserMedia({
-              video: true
-            }).then(function (stream) {
-              console.log(stream);
-              _this.video.srcObject = stream;
-            }).catch(function (err) {
-              return console.log(err);
-            });
-          }
+            console.log("Error al conectar la WebCam");
+          } //this.empezar();
 
-          Promise.all([faceapi.nets.ageGenderNet.loadFromUri('/modelos'), faceapi.nets.faceExpressionNet.loadFromUri('assets/modelos'), faceapi.nets.faceLandmark68Net.loadFromUri('assets/modelos'), faceapi.nets.faceLandmark68TinyNet.loadFromUri('/modelos'), faceapi.nets.faceRecognitionNet.loadFromUri('assets/modelos'), //faceapi.nets.ssdMobilenetv1.loadFromUri('/modelos'),
+        }
+      }, {
+        key: "empezar",
+        value: function empezar() {
+          var _this = this;
+
+          //console.log(this.video.srcObject);
+          Promise.all([faceapi.nets.ageGenderNet.loadFromUri('assets/modelos'), faceapi.nets.faceExpressionNet.loadFromUri('assets/modelos'), faceapi.nets.faceLandmark68Net.loadFromUri('assets/modelos'), faceapi.nets.faceLandmark68TinyNet.loadFromUri('assets/modelos'), faceapi.nets.faceRecognitionNet.loadFromUri('assets/modelos'), //faceapi.nets.ssdMobilenetv1.loadFromUri('/modelos'),
           faceapi.nets.tinyFaceDetector.loadFromUri('assets/modelos') //faceapi.nets.tinyYolov2.loadFromUri('/modelos')
-          ]);
-          console.log("hemos cargado los modelos");
-          this.video.addEventListener('play', function () {
-            var canvas = faceapi.createCanvasFromMedia(_this.video);
-            document.body.append(canvas);
-            var displaySize = {
-              width: _this.video.width,
-              height: _this.video.height
-            };
-            faceapi.matchDimensions(canvas, displaySize);
-            setInterval(function () {
-              return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](_this, void 0, void 0,
-              /*#__PURE__*/
-              regeneratorRuntime.mark(function _callee2() {
-                var detections, datos, datosNeutral, datosHappy, datosSad, datosAngry, datosFearful, datosSurprised, datosDisgusted, maximo;
-                return regeneratorRuntime.wrap(function _callee2$(_context2) {
-                  while (1) {
-                    switch (_context2.prev = _context2.next) {
-                      case 0:
-                        _context2.prev = 0;
-                        _context2.next = 3;
-                        return faceapi.detectSingleFace(this.video, new faceapi.TinyFaceDetectorOptions()).withFaceLandmarks().withFaceExpressions();
+          ]); //console.log(this.video.srcObject);
+          //console.log("hemos cargado los modelos");
+          //this.video.addEventListener('play', () => {
 
-                      case 3:
-                        detections = _context2.sent;
-                        datos = faceapi.resizeResults(detections, displaySize).expressions;
-                        console.log(datos);
-                        datosNeutral = faceapi.resizeResults(detections, displaySize).expressions.neutral;
-                        datosHappy = faceapi.resizeResults(detections, displaySize).expressions.happy;
-                        datosSad = faceapi.resizeResults(detections, displaySize).expressions.sad;
-                        datosAngry = faceapi.resizeResults(detections, displaySize).expressions.angry;
-                        datosFearful = faceapi.resizeResults(detections, displaySize).expressions.fearful;
-                        datosSurprised = faceapi.resizeResults(detections, displaySize).expressions.surprised;
-                        datosDisgusted = faceapi.resizeResults(detections, displaySize).expressions.disgusted;
-                        maximo = Math.max(datosAngry, datosDisgusted, datosFearful, datosHappy, datosNeutral, datosSad, datosSurprised);
+          console.log(this.camara.data.srcObject);
+          var canvas = faceapi.createCanvasFromMedia(this.camara.data);
+          document.body.append(canvas);
+          var displaySize = {
+            width: this.camara.data.width,
+            height: this.camara.data.height
+          };
+          faceapi.matchDimensions(canvas, displaySize);
+          setInterval(function () {
+            return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](_this, void 0, void 0,
+            /*#__PURE__*/
+            regeneratorRuntime.mark(function _callee2() {
+              var detections, datos, datosNeutral, datosHappy, datosSad, datosAngry, datosFearful, datosSurprised, datosDisgusted, maximo;
+              return regeneratorRuntime.wrap(function _callee2$(_context2) {
+                while (1) {
+                  switch (_context2.prev = _context2.next) {
+                    case 0:
+                      _context2.prev = 0;
+                      _context2.next = 3;
+                      return faceapi.detectSingleFace(this.camara.data, new faceapi.TinyFaceDetectorOptions()).withFaceLandmarks().withFaceExpressions();
 
-                        if (datosNeutral == maximo) {
-                          //console.log("Neutro: "+maximo);
-                          this.enviarEmocionesWebCam({
-                            id_item: this.id_item,
-                            color: this.ColorNeutral,
-                            datos: datos
-                          });
-                          this.ponerNeutral();
-                          $('#estadoAlumno').css('background-color', this.ColorNeutral); //this.ContadorNeutro++
-                          //this.usuario.Neutro.valor = this.usuario.Neutro.valor + 1;
-                        }
+                    case 3:
+                      detections = _context2.sent;
+                      datos = faceapi.resizeResults(detections, displaySize).expressions;
+                      console.log(datos);
+                      datosNeutral = faceapi.resizeResults(detections, displaySize).expressions.neutral;
+                      datosHappy = faceapi.resizeResults(detections, displaySize).expressions.happy;
+                      datosSad = faceapi.resizeResults(detections, displaySize).expressions.sad;
+                      datosAngry = faceapi.resizeResults(detections, displaySize).expressions.angry;
+                      datosFearful = faceapi.resizeResults(detections, displaySize).expressions.fearful;
+                      datosSurprised = faceapi.resizeResults(detections, displaySize).expressions.surprised;
+                      datosDisgusted = faceapi.resizeResults(detections, displaySize).expressions.disgusted;
+                      maximo = Math.max(datosAngry, datosDisgusted, datosFearful, datosHappy, datosNeutral, datosSad, datosSurprised);
 
-                        if (datosFearful == maximo) {
-                          //console.log("Miedo: "+maximo);
-                          this.enviarEmocionesWebCam({
-                            id_item: this.id_item,
-                            color: this.ColorFearful,
-                            datos: datos
-                          });
-                          this.ponerFearful();
-                          $('#estadoAlumno').css('background-color', this.ColorFearful); //this.ContadorMiedo++
-                          //this.usuario.Miedo.valor = this.usuario.Miedo.valor + 1;
-                        }
+                      if (datosNeutral == maximo) {
+                        //console.log("Neutro: "+maximo);
+                        this.enviarEmocionesWebCam({
+                          id_item: this.id_item,
+                          color: this.ColorNeutral,
+                          datos: datos
+                        });
+                        this.ponerNeutral();
+                        $('#estadoAlumno').css('background-color', this.ColorNeutral); //this.ContadorNeutro++
+                        //this.usuario.Neutro.valor = this.usuario.Neutro.valor + 1;
+                      }
 
-                        if (datosAngry == maximo) {
-                          //console.log("Enfadado: "+maximo);
-                          this.enviarEmocionesWebCam({
-                            id_item: this.id_item,
-                            color: this.ColorAngry,
-                            datos: datos
-                          });
-                          this.ponerAngry();
-                          $('#estadoAlumno').css('background-color', this.ColorAngry); //this.ContadorEnfadado++
-                          //this.usuario.Enfadado.valor = this.usuario.Enfadado.valor + 1;
-                        }
+                      if (datosFearful == maximo) {
+                        //console.log("Miedo: "+maximo);
+                        this.enviarEmocionesWebCam({
+                          id_item: this.id_item,
+                          color: this.ColorFearful,
+                          datos: datos
+                        });
+                        this.ponerFearful();
+                        $('#estadoAlumno').css('background-color', this.ColorFearful); //this.ContadorMiedo++
+                        //this.usuario.Miedo.valor = this.usuario.Miedo.valor + 1;
+                      }
 
-                        if (datosHappy == maximo) {
-                          //console.log("Feliz: "+maximo);
-                          this.enviarEmocionesWebCam({
-                            id_item: this.id_item,
-                            color: this.ColorHappy,
-                            datos: datos
-                          });
-                          this.ponerHappy();
-                          $('#estadoAlumno').css('background-color', this.ColorHappy); //this.ContadorFeliz++
-                          //this.usuario.Felicidad.valor = this.usuario.Felicidad.valor + 1;
-                        }
+                      if (datosAngry == maximo) {
+                        //console.log("Enfadado: "+maximo);
+                        this.enviarEmocionesWebCam({
+                          id_item: this.id_item,
+                          color: this.ColorAngry,
+                          datos: datos
+                        });
+                        this.ponerAngry();
+                        $('#estadoAlumno').css('background-color', this.ColorAngry); //this.ContadorEnfadado++
+                        //this.usuario.Enfadado.valor = this.usuario.Enfadado.valor + 1;
+                      }
 
-                        if (datosSad == maximo) {
-                          //console.log("Triste: "+maximo);
-                          this.enviarEmocionesWebCam({
-                            id_item: this.id_item,
-                            color: this.ColorSad,
-                            datos: datos
-                          });
-                          this.ponerSad();
-                          $('#estadoAlumno').css('background-color', this.ColorSad); //this.ContadorTriste++
-                          //this.usuario.Triste.valor = this.usuario.Triste.valor + 1;
-                        }
+                      if (datosHappy == maximo) {
+                        //console.log("Feliz: "+maximo);
+                        this.enviarEmocionesWebCam({
+                          id_item: this.id_item,
+                          color: this.ColorHappy,
+                          datos: datos
+                        });
+                        this.ponerHappy();
+                        $('#estadoAlumno').css('background-color', this.ColorHappy); //this.ContadorFeliz++
+                        //this.usuario.Felicidad.valor = this.usuario.Felicidad.valor + 1;
+                      }
 
-                        if (datosSurprised == maximo) {
-                          this.enviarEmocionesWebCam({
-                            id_item: this.id_item,
-                            color: this.ColorSurprised,
-                            datos: datos
-                          });
-                          this.ponerSurprised();
-                          $('#estadoAlumno').css('background-color', this.ColorSurprised); //this.ContadorSorprendido++
-                          //this.usuario.Sorpresa.valor = this.usuario.Sorpresa.valor + 1;
-                        }
+                      if (datosSad == maximo) {
+                        //console.log("Triste: "+maximo);
+                        this.enviarEmocionesWebCam({
+                          id_item: this.id_item,
+                          color: this.ColorSad,
+                          datos: datos
+                        });
+                        this.ponerSad();
+                        $('#estadoAlumno').css('background-color', this.ColorSad); //this.ContadorTriste++
+                        //this.usuario.Triste.valor = this.usuario.Triste.valor + 1;
+                      }
 
-                        if (datosDisgusted == maximo) {
-                          //console.log("Disgustado: "+maximo);
-                          this.enviarEmocionesWebCam({
-                            id_item: this.id_item,
-                            color: this.ColorDisgusted,
-                            datos: datos
-                          });
-                          this.ponerDisgusted();
-                          $('#estadoAlumno').css('background-color', this.ColorDisgusted); //this.ContadorDisgustado++
-                          //this.usuario.Disgustado.valor = this.usuario.Disgustado.valor + 1;
-                        } //this.contador = this.contador + 1;
-                        //console.log(contador);
+                      if (datosSurprised == maximo) {
+                        this.enviarEmocionesWebCam({
+                          id_item: this.id_item,
+                          color: this.ColorSurprised,
+                          datos: datos
+                        });
+                        this.ponerSurprised();
+                        $('#estadoAlumno').css('background-color', this.ColorSurprised); //this.ContadorSorprendido++
+                        //this.usuario.Sorpresa.valor = this.usuario.Sorpresa.valor + 1;
+                      }
 
+                      if (datosDisgusted == maximo) {
+                        //console.log("Disgustado: "+maximo);
+                        this.enviarEmocionesWebCam({
+                          id_item: this.id_item,
+                          color: this.ColorDisgusted,
+                          datos: datos
+                        });
+                        this.ponerDisgusted();
+                        $('#estadoAlumno').css('background-color', this.ColorDisgusted); //this.ContadorDisgustado++
+                        //this.usuario.Disgustado.valor = this.usuario.Disgustado.valor + 1;
+                      }
 
-                        _context2.next = 25;
-                        break;
+                      _context2.next = 26;
+                      break;
 
-                      case 23:
-                        _context2.prev = 23;
-                        _context2.t0 = _context2["catch"](0);
+                    case 23:
+                      _context2.prev = 23;
+                      _context2.t0 = _context2["catch"](0);
+                      console.log(_context2.t0);
 
-                      case 25:
-                      case "end":
-                        return _context2.stop();
-                    }
+                    case 26:
+                    case "end":
+                      return _context2.stop();
                   }
-                }, _callee2, this, [[0, 23]]);
-              }));
-            }, 2000);
-          });
+                }
+              }, _callee2, this, [[0, 23]]);
+            }));
+          }, 2000);
         }
       }, {
         key: "parar",
-        value: function parar() {
-          this.video.addEventListener('stop', function () {
-            console.log("Se ha parado");
-          });
+        value: function parar() {}
+        /*this.video.addEventListener('stop', function () {
+          console.log("Se ha parado");
+        })*/
+        //Gestion de los Sensore
+
+      }, {
+        key: "conectarSensor",
+        value: function conectarSensor(sensor) {
+          if (sensor.nombre == "Led") {
+            this.conectarLed(sensor);
+          }
+
+          if (sensor.nombre == "Camara") {
+            this.conectarWebCam(sensor); //this.empezar()
+          }
+
+          if (sensor.nombre == "Pulsera") {}
+        }
+      }, {
+        key: "desconectarSensor",
+        value: function desconectarSensor(sensor) {
+          if (sensor.nombre == "Led") {
+            console.log(sensor);
+            sensor.data = null;
+            sensor.estado = "Desconectado";
+          }
+
+          if (sensor.nombre == "Camara") {
+            navigator.getUserMedia({
+              audio: false,
+              video: true
+            }, function (stream) {
+              // can also use getAudioTracks() or getVideoTracks()
+              var track = stream.getTracks()[0]; // if only one media track
+              // ...
+
+              track.stop();
+            }, function (error) {
+              console.log('getUserMedia() error', error);
+            });
+            sensor.data = null;
+            sensor.estado = "Desconectado";
+          }
+
+          if (sensor.nombre == "Pulsera") {}
         } //Implementacion del led
 
       }, {
         key: "conectarLed",
-        value: function conectarLed() {
+        value: function conectarLed(sensor) {
           return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
           /*#__PURE__*/
           regeneratorRuntime.mark(function _callee3() {
@@ -1948,13 +2005,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                     });
 
                   case 4:
-                    this.device = _context3.sent;
-                    //device.open();
-                    console.log(this.device);
-                    _context3.next = 8;
-                    return this.device.open();
+                    sensor.data = _context3.sent;
+                    _context3.next = 7;
+                    return sensor.data.open();
 
-                  case 8:
+                  case 7:
+                    sensor.estado = "Conectado";
                     _context3.next = 12;
                     break;
 
@@ -1985,7 +2041,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                 switch (_context4.prev = _context4.next) {
                   case 0:
                     _context4.next = 2;
-                    return this.fadeToColor(this.device, [255, 255, 0]);
+                    return this.fadeToColor(this.led.data, [255, 255, 0]);
 
                   case 2:
                   case "end":
@@ -2006,7 +2062,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                 switch (_context5.prev = _context5.next) {
                   case 0:
                     _context5.next = 2;
-                    return this.fadeToColor(this.device, [84, 255, 84]);
+                    return this.fadeToColor(this.led.data, [84, 255, 84]);
 
                   case 2:
                   case "end":
@@ -2027,7 +2083,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                 switch (_context6.prev = _context6.next) {
                   case 0:
                     _context6.next = 2;
-                    return this.fadeToColor(this.device, [81, 81, 255]);
+                    return this.fadeToColor(this.led.data, [81, 81, 255]);
 
                   case 2:
                   case "end":
@@ -2048,7 +2104,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                 switch (_context7.prev = _context7.next) {
                   case 0:
                     _context7.next = 2;
-                    return this.fadeToColor(this.device, [255, 0, 0]);
+                    return this.fadeToColor(this.led.data, [255, 0, 0]);
 
                   case 2:
                   case "end":
@@ -2069,7 +2125,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                 switch (_context8.prev = _context8.next) {
                   case 0:
                     _context8.next = 2;
-                    return this.fadeToColor(this.device, [0, 150, 0]);
+                    return this.fadeToColor(this.led.data, [0, 150, 0]);
 
                   case 2:
                   case "end":
@@ -2090,7 +2146,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                 switch (_context9.prev = _context9.next) {
                   case 0:
                     _context9.next = 2;
-                    return this.fadeToColor(this.device, [80, 80, 80]);
+                    return this.fadeToColor(this.led.data, [80, 80, 80]);
 
                   case 2:
                   case "end":
@@ -2111,7 +2167,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                 switch (_context10.prev = _context10.next) {
                   case 0:
                     _context10.next = 2;
-                    return this.fadeToColor(this.device, [89, 189, 255]);
+                    return this.fadeToColor(this.led.data, [89, 189, 255]);
 
                   case 2:
                   case "end":

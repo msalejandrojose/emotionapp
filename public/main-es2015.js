@@ -45,7 +45,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<!--<div class=\"row\">\n    <div class=\"col-md-2\">\n        <!--<app-sidenav-profesor></app-sidenav-profesor>\n        <div class=\"sidenav list-group\">\n            <a href=\"#\">Emociones</a>\n        </div>\n    </div>\n</div>-->\n<br>\n<div *ngIf=\"noHayEstudiante\" class=\"row justify-content-md-center\">\n    <div class=\"card col-md-6\">\n        <div class=\"card-body\">\n            <h4 class=\"card-title\">Iniciar Sesion</h4>\n            <div>\n                <label>Email</label>\n                <input [(ngModel)]=\"estudiante.email\" type=\"email\" class=\"form-control\" id=\"emailIS\" ng-model=\"email\"\n                    placeholder=\"Email\">\n                <br>\n                <label>Contraseña</label>\n                <input [(ngModel)]=\"estudiante.contrasena\" type=\"password\" class=\"form-control\" id=\"contrasenaIS\"\n                    ng-model=\"contrasena\" placeholder=\"Contraseña\">\n                <br>\n                <button type=\"button\" (click)=\"limpiar()\" class=\"btn btn-raised btn-danger\">Cancelar</button>\n                <button type=\"button\" (click)=\"iniciarSesion()\" class=\"btn btn-raised btn-success\">Iniciar\n                    Sesion</button>\n            </div>\n        </div>\n    </div>\n</div>\n<div *ngIf=\"!noHayEstudiante\" class=\"row justify-content-md-center\">\n    <div class=\"col-md-10\">\n        <h3>Actividades listas</h3>\n        <table class=\"table table-striped\">\n            <thead>\n                <tr>\n                    <th scope=\"col\">Nombre</th>\n                    <th scope=\"col\">Profesor</th>\n                    <th scope=\"col\">Estado</th>\n                    <th scope=\"col\"></th>\n                </tr>\n            </thead>\n            <tbody *ngFor=\"let actividad of listaActividades\">\n                <tr>\n                    <td>{{actividad.nombre}}</td>\n                    <td>{{actividad.profesor}}</td>\n                    <td>{{actividad.estado}}</td>\n                    <td><button type=\"button\" class=\"btn btn-outline-primary\"\n                            (click)=\"conectarse(actividad)\">Conectarse</button></td>\n                </tr>\n            </tbody>\n        </table>\n    </div>\n</div>\n<div  class=\"row justify-content-md-center\"> <!--*ngIf=\"!noHayEstudiante && conectadoaActividad\"-->\n    <div class=\"col-md-8\">\n        <video id=\"video\" width=\"480\" height=\"360\" autoplay muted></video>\n    </div>\n    <div *ngIf=\"conectadoaActividad\" class=\"col-md-4\" id=\"estadoAlumno\" class=\"circulo\">\n        <p>Estado</p>\n    </div>\n</div>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<!--<div class=\"row\">\n    <div class=\"col-md-2\">\n        <!--<app-sidenav-profesor></app-sidenav-profesor>\n        <div class=\"sidenav list-group\">\n            <a href=\"#\">Emociones</a>\n        </div>\n    </div>\n</div>-->\n<br>\n<div *ngIf=\"noHayEstudiante\" class=\"row justify-content-md-center\">\n    <div class=\"card col-md-6\">\n        <div class=\"card-body\">\n            <h4 class=\"card-title\">Iniciar Sesion</h4>\n            <div>\n                <label>Email</label>\n                <input [(ngModel)]=\"estudiante.email\" type=\"email\" class=\"form-control\" id=\"emailIS\" ng-model=\"email\"\n                    placeholder=\"Email\">\n                <br>\n                <label>Contraseña</label>\n                <input [(ngModel)]=\"estudiante.contrasena\" type=\"password\" class=\"form-control\" id=\"contrasenaIS\"\n                    ng-model=\"contrasena\" placeholder=\"Contraseña\">\n                <br>\n                <button type=\"button\" (click)=\"limpiar()\" class=\"btn btn-raised btn-danger\">Cancelar</button>\n                <button type=\"button\" (click)=\"iniciarSesion()\" class=\"btn btn-raised btn-success\">Iniciar\n                    Sesion</button>\n            </div>\n        </div>\n    </div>\n</div>\n<div *ngIf=\"!noHayEstudiante\" class=\"row\">\n    <div class=\"col\">\n        <h3>Sensores</h3>\n        <table class=\"table table-striped\">\n            <thead class=\"thead-light\">\n                <tr>\n                    <th scope=\"col\">Nombre</th>\n                    <th scope=\"col\">Estado</th>\n                    <th scope=\"col\"></th>\n                    <th scope=\"col\"></th>\n                </tr>\n            </thead>\n            <tbody *ngFor=\"let sensor of listaSensores\">\n                <tr>\n                    <td>{{sensor.nombre}}</td>\n                    <td>{{sensor.estado}}</td>\n                    <td *ngIf=\"sensor.estado=='Desconectado'\"><button type=\"button\" class=\"btn btn-outline-primary\"\n                            (click)=\"conectarSensor(sensor)\">Conectarse</button></td>\n                    <td *ngIf=\"sensor.estado=='Conectado'\"><button type=\"button\" class=\"btn btn-outline-danger\"\n                            (click)=\"desconectarSensor(sensor)\">Desconectarse</button></td>\n                    <td></td>\n                </tr>\n            </tbody>\n        </table>\n    </div>\n    \n    <div class=\"col\">\n        <h3>Actividades listas</h3>\n        <table class=\"table table-striped\">\n            <thead class=\"thead-light\">\n                <tr>\n                    <th scope=\"col\">Nombre</th>\n                    <th scope=\"col\">Profesor</th>\n                    <th scope=\"col\">Estado</th>\n                    <th scope=\"col\"></th>\n                </tr>\n            </thead>\n            <tbody *ngFor=\"let actividad of listaActividades\">\n                <tr>\n                    <td>{{actividad.nombre}}</td>\n                    <td>{{actividad.profesor}}</td>\n                    <td>{{actividad.estado}}</td>\n                    <td><button type=\"button\" class=\"btn btn-outline-primary\"\n                            (click)=\"conectarse(actividad)\">Conectarse</button></td>\n                </tr>\n            </tbody>\n        </table>\n    </div>\n</div>\n<div class=\"row justify-content-md-center\">\n    <!--*ngIf=\"!noHayEstudiante && conectadoaActividad\"-->\n    <div class=\"col-md-8\">\n        <video id=\"video\" width=\"480\" height=\"360\" autoplay muted></video>\n        <!--<video id=\"video\" playsinline autoplay></video>-->\n    </div>\n    <div *ngIf=\"conectadoaActividad\" class=\"col-md-4\" id=\"estadoAlumno\" class=\"circulo\">\n        <p>Estado</p>\n    </div>\n</div>");
 
 /***/ }),
 
@@ -823,10 +823,26 @@ let EstudianteComponent = class EstudianteComponent {
             email: '',
             contrasena: '',
         };
+        this.camara = {
+            nombre: 'Camara',
+            estado: 'Desconectado',
+            data: null
+        };
+        this.led = {
+            nombre: 'Led',
+            estado: 'Desconectado',
+            data: null
+        };
+        this.pulsera = {
+            nombre: 'Pulsera',
+            estado: 'Desconectado',
+            data: null
+        };
         this.noHayEstudiante = true;
         this.conectadoaActividad = false;
         this.listaActividades = [];
         this.listaGestionActividades = {};
+        this.listaSensores = [];
         this.id = '';
         this.soyEstudiante = function () {
             this.socket.emit('soyEstudiante', this.estudiante);
@@ -945,6 +961,9 @@ let EstudianteComponent = class EstudianteComponent {
     }
     ngOnInit() {
         //this.empezar();
+        this.listaSensores.push(this.camara);
+        this.listaSensores.push(this.led);
+        this.listaSensores.push(this.pulsera);
     }
     prueba(act) {
         console.log(act);
@@ -964,8 +983,9 @@ let EstudianteComponent = class EstudianteComponent {
         this.id_item = this.estudiante._id + actividad._id;
         //this.soyEstudiante();
         //this.conectarActividad();
+        console.log("asd");
         this.empezar();
-        this.conectarLed();
+        //this.conectarLed();
     }
     limpiar() {
         this.estudiante = {
@@ -1014,177 +1034,169 @@ let EstudianteComponent = class EstudianteComponent {
             dataType: 'json'
         });
     }
-    empezar() {
-        this.video = document.getElementById('video');
-        /*navigator.getUserMedia(
-          { video: true },
-          stream => this.video.srcObject = stream,
-          err => console.error(err)
-        )*/
+    conectarWebCam(sensor) {
+        sensor.data = document.getElementById('video');
         try {
             navigator.mediaDevices.getUserMedia({ video: true })
                 .then((stream) => {
-                console.log(stream);
-                this.video.srcObject = stream;
+                //console.log(stream)
+                //this.video.srcObject = stream;
+                sensor.data.srcObject = stream;
+                sensor.estado = "Conectado";
             }).catch((err) => console.log(err));
         }
         catch (err) {
-            navigator.getUserMedia({ video: true }).then((stream) => {
-                console.log(stream);
-                this.video.srcObject = stream;
-            }).catch((err) => console.log(err));
+            console.log("Error al conectar la WebCam");
         }
+        //this.empezar();
+    }
+    empezar() {
+        //console.log(this.video.srcObject);
         Promise.all([
-            faceapi.nets.ageGenderNet.loadFromUri('/modelos'),
+            faceapi.nets.ageGenderNet.loadFromUri('assets/modelos'),
             faceapi.nets.faceExpressionNet.loadFromUri('assets/modelos'),
             faceapi.nets.faceLandmark68Net.loadFromUri('assets/modelos'),
-            faceapi.nets.faceLandmark68TinyNet.loadFromUri('/modelos'),
+            faceapi.nets.faceLandmark68TinyNet.loadFromUri('assets/modelos'),
             faceapi.nets.faceRecognitionNet.loadFromUri('assets/modelos'),
             //faceapi.nets.ssdMobilenetv1.loadFromUri('/modelos'),
             faceapi.nets.tinyFaceDetector.loadFromUri('assets/modelos')
             //faceapi.nets.tinyYolov2.loadFromUri('/modelos')
         ]);
-        console.log("hemos cargado los modelos");
-        this.video.addEventListener('play', () => {
-            const canvas = faceapi.createCanvasFromMedia(this.video);
-            document.body.append(canvas);
-            const displaySize = { width: this.video.width, height: this.video.height };
-            faceapi.matchDimensions(canvas, displaySize);
-            setInterval(() => tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
-                try {
-                    const detections = yield faceapi.detectSingleFace(this.video, new faceapi.TinyFaceDetectorOptions()).withFaceLandmarks().withFaceExpressions();
-                    var datos = faceapi.resizeResults(detections, displaySize).expressions;
-                    console.log(datos);
-                    var datosNeutral = faceapi.resizeResults(detections, displaySize).expressions.neutral;
-                    var datosHappy = faceapi.resizeResults(detections, displaySize).expressions.happy;
-                    var datosSad = faceapi.resizeResults(detections, displaySize).expressions.sad;
-                    var datosAngry = faceapi.resizeResults(detections, displaySize).expressions.angry;
-                    var datosFearful = faceapi.resizeResults(detections, displaySize).expressions.fearful;
-                    var datosSurprised = faceapi.resizeResults(detections, displaySize).expressions.surprised;
-                    var datosDisgusted = faceapi.resizeResults(detections, displaySize).expressions.disgusted;
-                    var maximo = Math.max(datosAngry, datosDisgusted, datosFearful, datosHappy, datosNeutral, datosSad, datosSurprised);
-                    if (datosNeutral == maximo) {
-                        //console.log("Neutro: "+maximo);
-                        this.enviarEmocionesWebCam({ id_item: this.id_item, color: this.ColorNeutral, datos: datos });
-                        this.ponerNeutral();
-                        $('#estadoAlumno').css('background-color', this.ColorNeutral);
-                        //this.ContadorNeutro++
-                        //this.usuario.Neutro.valor = this.usuario.Neutro.valor + 1;
-                    }
-                    if (datosFearful == maximo) {
-                        //console.log("Miedo: "+maximo);
-                        this.enviarEmocionesWebCam({ id_item: this.id_item, color: this.ColorFearful, datos: datos });
-                        this.ponerFearful();
-                        $('#estadoAlumno').css('background-color', this.ColorFearful);
-                        //this.ContadorMiedo++
-                        //this.usuario.Miedo.valor = this.usuario.Miedo.valor + 1;
-                    }
-                    if (datosAngry == maximo) {
-                        //console.log("Enfadado: "+maximo);
-                        this.enviarEmocionesWebCam({ id_item: this.id_item, color: this.ColorAngry, datos: datos });
-                        this.ponerAngry();
-                        $('#estadoAlumno').css('background-color', this.ColorAngry);
-                        //this.ContadorEnfadado++
-                        //this.usuario.Enfadado.valor = this.usuario.Enfadado.valor + 1;
-                    }
-                    if (datosHappy == maximo) {
-                        //console.log("Feliz: "+maximo);
-                        this.enviarEmocionesWebCam({ id_item: this.id_item, color: this.ColorHappy, datos: datos });
-                        this.ponerHappy();
-                        $('#estadoAlumno').css('background-color', this.ColorHappy);
-                        //this.ContadorFeliz++
-                        //this.usuario.Felicidad.valor = this.usuario.Felicidad.valor + 1;
-                    }
-                    if (datosSad == maximo) {
-                        //console.log("Triste: "+maximo);
-                        this.enviarEmocionesWebCam({ id_item: this.id_item, color: this.ColorSad, datos: datos });
-                        this.ponerSad();
-                        $('#estadoAlumno').css('background-color', this.ColorSad);
-                        //this.ContadorTriste++
-                        //this.usuario.Triste.valor = this.usuario.Triste.valor + 1;
-                    }
-                    if (datosSurprised == maximo) {
-                        this.enviarEmocionesWebCam({ id_item: this.id_item, color: this.ColorSurprised, datos: datos });
-                        this.ponerSurprised();
-                        $('#estadoAlumno').css('background-color', this.ColorSurprised);
-                        //this.ContadorSorprendido++
-                        //this.usuario.Sorpresa.valor = this.usuario.Sorpresa.valor + 1;
-                    }
-                    if (datosDisgusted == maximo) {
-                        //console.log("Disgustado: "+maximo);
-                        this.enviarEmocionesWebCam({ id_item: this.id_item, color: this.ColorDisgusted, datos: datos });
-                        this.ponerDisgusted();
-                        $('#estadoAlumno').css('background-color', this.ColorDisgusted);
-                        //this.ContadorDisgustado++
-                        //this.usuario.Disgustado.valor = this.usuario.Disgustado.valor + 1;
-                    }
-                    //this.contador = this.contador + 1;
-                    //console.log(contador);
-                }
-                catch (error) {
-                    //console.log("Ha dado error");
-                    //this.ContadorNeutro++;
+        //console.log(this.video.srcObject);
+        //console.log("hemos cargado los modelos");
+        //this.video.addEventListener('play', () => {
+        console.log(this.camara.data.srcObject);
+        const canvas = faceapi.createCanvasFromMedia(this.camara.data);
+        document.body.append(canvas);
+        const displaySize = { width: this.camara.data.width, height: this.camara.data.height };
+        faceapi.matchDimensions(canvas, displaySize);
+        setInterval(() => tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
+            try {
+                const detections = yield faceapi.detectSingleFace(this.camara.data, new faceapi.TinyFaceDetectorOptions()).withFaceLandmarks().withFaceExpressions();
+                var datos = faceapi.resizeResults(detections, displaySize).expressions;
+                console.log(datos);
+                var datosNeutral = faceapi.resizeResults(detections, displaySize).expressions.neutral;
+                var datosHappy = faceapi.resizeResults(detections, displaySize).expressions.happy;
+                var datosSad = faceapi.resizeResults(detections, displaySize).expressions.sad;
+                var datosAngry = faceapi.resizeResults(detections, displaySize).expressions.angry;
+                var datosFearful = faceapi.resizeResults(detections, displaySize).expressions.fearful;
+                var datosSurprised = faceapi.resizeResults(detections, displaySize).expressions.surprised;
+                var datosDisgusted = faceapi.resizeResults(detections, displaySize).expressions.disgusted;
+                var maximo = Math.max(datosAngry, datosDisgusted, datosFearful, datosHappy, datosNeutral, datosSad, datosSurprised);
+                if (datosNeutral == maximo) {
+                    //console.log("Neutro: "+maximo);
+                    this.enviarEmocionesWebCam({ id_item: this.id_item, color: this.ColorNeutral, datos: datos });
+                    this.ponerNeutral();
+                    $('#estadoAlumno').css('background-color', this.ColorNeutral);
+                    //this.ContadorNeutro++
                     //this.usuario.Neutro.valor = this.usuario.Neutro.valor + 1;
-                    //this.contador++;
                 }
-                /*if (this.contador == 5) {
-                  //enviar resultados
-                  //console.log('Hemos llegado a 10');
-                  //console.log('Resultado: ['+this.ContadorDisgustado+']['+this.ContadorEnfadado+']['+this.ContadorFeliz+']['+this.ContadorMiedo+']['+this.ContadorNeutro+']['+this.ContadorSorprendido+']['+this.ContadorTriste)+']';
-                  //console.log(this.ContadorNeutro);
-                  console.log(usuario);
-                  var datos = [
-                    { "label": "Neutro", "valor": this.ContadorNeutro },
-                    { "label": "Felicidad", "valor": this.ContadorFeliz },
-                    { "label": "Triste", "valor": this.ContadorTriste },
-                    { "label": "Enfadado", "valor": this.ContadorEnfadado },
-                    { "label": "Miedo", "valor": this.ContadorMiedo },
-                    { "label": "Disgustado", "valor": this.ContadorDisgustado },
-                    { "label": "Sorpresa", "valor": this.ContadorSorprendido }
-                  ];
-                  //console.log(datos);
-                  ponerDatos(usuario, datos);
-                  this.ContadorDisgustado = 0;
-                  this.ContadorEnfadado = 0;
-                  this.ContadorFeliz = 0;
-                  this.ContadorMiedo = 0;
-                  this.ContadorNeutro = 0;
-                  this.ContadorSorprendido = 0;
-                  this.ContadorTriste = 0;
-                  this.contador = 0;
-                  this.usuario.Disgustado.valor = 0;
-                  this.usuario.Enfadado.valor = 0;
-                  this.usuario.Felicidad.valor = 0;
-                  this.usuario.Miedo.valor = 0;
-                  this.usuario.Neutro.valor = 0;
-                  this.usuario.Sorpresa.valor = 0;
-                  this.usuario.Triste.valor = 0;
-                }*/
-                //const age = await faceapi.detectSingleFace(video, new faceapi.TinyFaceDetectorOptions()).withFaceLandmarks().withAgeAndGender()
-                //console.log(faceapi.resizeResults(detections, displaySize));
-                //console.log(faceapi.resizeResults(age, displaySize));
-            }), 2000);
-        });
+                if (datosFearful == maximo) {
+                    //console.log("Miedo: "+maximo);
+                    this.enviarEmocionesWebCam({ id_item: this.id_item, color: this.ColorFearful, datos: datos });
+                    this.ponerFearful();
+                    $('#estadoAlumno').css('background-color', this.ColorFearful);
+                    //this.ContadorMiedo++
+                    //this.usuario.Miedo.valor = this.usuario.Miedo.valor + 1;
+                }
+                if (datosAngry == maximo) {
+                    //console.log("Enfadado: "+maximo);
+                    this.enviarEmocionesWebCam({ id_item: this.id_item, color: this.ColorAngry, datos: datos });
+                    this.ponerAngry();
+                    $('#estadoAlumno').css('background-color', this.ColorAngry);
+                    //this.ContadorEnfadado++
+                    //this.usuario.Enfadado.valor = this.usuario.Enfadado.valor + 1;
+                }
+                if (datosHappy == maximo) {
+                    //console.log("Feliz: "+maximo);
+                    this.enviarEmocionesWebCam({ id_item: this.id_item, color: this.ColorHappy, datos: datos });
+                    this.ponerHappy();
+                    $('#estadoAlumno').css('background-color', this.ColorHappy);
+                    //this.ContadorFeliz++
+                    //this.usuario.Felicidad.valor = this.usuario.Felicidad.valor + 1;
+                }
+                if (datosSad == maximo) {
+                    //console.log("Triste: "+maximo);
+                    this.enviarEmocionesWebCam({ id_item: this.id_item, color: this.ColorSad, datos: datos });
+                    this.ponerSad();
+                    $('#estadoAlumno').css('background-color', this.ColorSad);
+                    //this.ContadorTriste++
+                    //this.usuario.Triste.valor = this.usuario.Triste.valor + 1;
+                }
+                if (datosSurprised == maximo) {
+                    this.enviarEmocionesWebCam({ id_item: this.id_item, color: this.ColorSurprised, datos: datos });
+                    this.ponerSurprised();
+                    $('#estadoAlumno').css('background-color', this.ColorSurprised);
+                    //this.ContadorSorprendido++
+                    //this.usuario.Sorpresa.valor = this.usuario.Sorpresa.valor + 1;
+                }
+                if (datosDisgusted == maximo) {
+                    //console.log("Disgustado: "+maximo);
+                    this.enviarEmocionesWebCam({ id_item: this.id_item, color: this.ColorDisgusted, datos: datos });
+                    this.ponerDisgusted();
+                    $('#estadoAlumno').css('background-color', this.ColorDisgusted);
+                    //this.ContadorDisgustado++
+                    //this.usuario.Disgustado.valor = this.usuario.Disgustado.valor + 1;
+                }
+            }
+            catch (error) {
+                console.log(error);
+            }
+        }), 2000);
     }
     parar() {
-        this.video.addEventListener('stop', function () {
-            console.log("Se ha parado");
-        });
+        /*this.video.addEventListener('stop', function () {
+          console.log("Se ha parado");
+        })*/
+    }
+    //Gestion de los Sensore
+    conectarSensor(sensor) {
+        if (sensor.nombre == "Led") {
+            this.conectarLed(sensor);
+        }
+        if (sensor.nombre == "Camara") {
+            this.conectarWebCam(sensor);
+            //this.empezar()
+        }
+        if (sensor.nombre == "Pulsera") {
+        }
+    }
+    desconectarSensor(sensor) {
+        if (sensor.nombre == "Led") {
+            console.log(sensor);
+            sensor.data = null;
+            sensor.estado = "Desconectado";
+        }
+        if (sensor.nombre == "Camara") {
+            navigator.getUserMedia({ audio: false, video: true }, function (stream) {
+                // can also use getAudioTracks() or getVideoTracks()
+                var track = stream.getTracks()[0]; // if only one media track
+                // ...
+                track.stop();
+            }, function (error) {
+                console.log('getUserMedia() error', error);
+            });
+            sensor.data = null;
+            sensor.estado = "Desconectado";
+        }
+        if (sensor.nombre == "Pulsera") {
+        }
     }
     //Implementacion del led
-    conectarLed() {
+    conectarLed(sensor) {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
             console.log("Conectandose...");
             try {
-                this.device = yield navigator.hid.requestDevice({
+                sensor.data = yield navigator.hid.requestDevice({
                     filters: [{
                             vendorId: 0x20a0,
                             productId: 0x41e5,
                         }]
                 });
                 //device.open();
-                console.log(this.device);
-                yield this.device.open();
+                //console.log(this.device);
+                yield sensor.data.open();
+                sensor.estado = "Conectado";
             }
             catch (err) {
                 // No device was selected.
@@ -1196,37 +1208,37 @@ let EstudianteComponent = class EstudianteComponent {
     }
     ponerHappy() {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
-            yield this.fadeToColor(this.device, [255, 255, 0]);
+            yield this.fadeToColor(this.led.data, [255, 255, 0]);
         });
     }
     ponerNeutral() {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
-            yield this.fadeToColor(this.device, [84, 255, 84]);
+            yield this.fadeToColor(this.led.data, [84, 255, 84]);
         });
     }
     ponerSad() {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
-            yield this.fadeToColor(this.device, [81, 81, 255]);
+            yield this.fadeToColor(this.led.data, [81, 81, 255]);
         });
     }
     ponerAngry() {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
-            yield this.fadeToColor(this.device, [255, 0, 0]);
+            yield this.fadeToColor(this.led.data, [255, 0, 0]);
         });
     }
     ponerFearful() {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
-            yield this.fadeToColor(this.device, [0, 150, 0]);
+            yield this.fadeToColor(this.led.data, [0, 150, 0]);
         });
     }
     ponerDisgusted() {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
-            yield this.fadeToColor(this.device, [80, 80, 80]);
+            yield this.fadeToColor(this.led.data, [80, 80, 80]);
         });
     }
     ponerSurprised() {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
-            yield this.fadeToColor(this.device, [89, 189, 255]);
+            yield this.fadeToColor(this.led.data, [89, 189, 255]);
         });
     }
     fadeToColor(device, [r, g, b]) {

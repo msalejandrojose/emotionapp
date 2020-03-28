@@ -21,7 +21,7 @@ function ServidorWS() {
             socket.on('soyEstudiante',function(estudiante){
                 //socket.join("estudiantes");
                 socket.join(estudiante._id);
-                console.log("El id del estudiante es: "+estudiante._id);
+                //console.log("El id del estudiante es: "+estudiante._id);
                 console.log("Conexion asignada al estudiante");
             })
             socket.on('soyProfesor',function(){
@@ -60,7 +60,7 @@ function ServidorWS() {
             })
 
             socket.on('envioDeEmociones',function(datos){
-                console.log(datos);
+                //console.log(datos);
                 cli.enviarATodos(io, "profesores", "recepcionEmociones", datos);
             })
 
