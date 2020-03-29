@@ -1035,6 +1035,30 @@ let EstudianteComponent = class EstudianteComponent {
         });
     }
     conectarWebCam(sensor) {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
+            sensor.data = document.getElementById('video');
+            let constraints = {
+                audio: false,
+                video: {
+                    width: 720, height: 480
+                }
+            };
+            try {
+                const stream = yield navigator.mediaDevices.getUserMedia(constraints);
+                this.camara.data.srcObject = stream;
+                sensor.estado = "Conectado";
+            }
+            catch (e) {
+                //errorMsgElement.innerHTML = `navigator.getUserMedia error:${e.toString()}`;
+                console.log(e);
+            }
+        });
+    }
+    handleSuccess(stream) {
+        //window.stream = stream;
+        this.camara.data.srcObject = stream;
+    }
+    conectarWebCam2(sensor) {
         sensor.data = document.getElementById('video');
         try {
             navigator.mediaDevices.getUserMedia({ video: true })
@@ -1173,11 +1197,11 @@ let EstudianteComponent = class EstudianteComponent {
                 var track = stream.getTracks()[0]; // if only one media track
                 // ...
                 track.stop();
+                sensor.data = null;
+                sensor.estado = "Desconectado";
             }, function (error) {
                 console.log('getUserMedia() error', error);
             });
-            sensor.data = null;
-            sensor.estado = "Desconectado";
         }
         if (sensor.nombre == "Pulsera") {
         }
@@ -1195,12 +1219,13 @@ let EstudianteComponent = class EstudianteComponent {
                 });
                 //device.open();
                 //console.log(this.device);
+                this.led.estado = "Conectado";
                 yield sensor.data.open();
-                sensor.estado = "Conectado";
             }
             catch (err) {
                 // No device was selected.
             }
+            console.log(this.listaSensores);
             if (this.device !== undefined) {
                 // Add |device| to the UI.
             }

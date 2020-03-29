@@ -1770,6 +1770,56 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "conectarWebCam",
         value: function conectarWebCam(sensor) {
+          return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
+          /*#__PURE__*/
+          regeneratorRuntime.mark(function _callee2() {
+            var constraints, stream;
+            return regeneratorRuntime.wrap(function _callee2$(_context2) {
+              while (1) {
+                switch (_context2.prev = _context2.next) {
+                  case 0:
+                    sensor.data = document.getElementById('video');
+                    constraints = {
+                      audio: false,
+                      video: {
+                        width: 720,
+                        height: 480
+                      }
+                    };
+                    _context2.prev = 2;
+                    _context2.next = 5;
+                    return navigator.mediaDevices.getUserMedia(constraints);
+
+                  case 5:
+                    stream = _context2.sent;
+                    this.camara.data.srcObject = stream;
+                    sensor.estado = "Conectado";
+                    _context2.next = 13;
+                    break;
+
+                  case 10:
+                    _context2.prev = 10;
+                    _context2.t0 = _context2["catch"](2);
+                    //errorMsgElement.innerHTML = `navigator.getUserMedia error:${e.toString()}`;
+                    console.log(_context2.t0);
+
+                  case 13:
+                  case "end":
+                    return _context2.stop();
+                }
+              }
+            }, _callee2, this, [[2, 10]]);
+          }));
+        }
+      }, {
+        key: "handleSuccess",
+        value: function handleSuccess(stream) {
+          //window.stream = stream;
+          this.camara.data.srcObject = stream;
+        }
+      }, {
+        key: "conectarWebCam2",
+        value: function conectarWebCam2(sensor) {
           sensor.data = document.getElementById('video');
 
           try {
@@ -1811,18 +1861,18 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           setInterval(function () {
             return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](_this, void 0, void 0,
             /*#__PURE__*/
-            regeneratorRuntime.mark(function _callee2() {
+            regeneratorRuntime.mark(function _callee3() {
               var detections, datos, datosNeutral, datosHappy, datosSad, datosAngry, datosFearful, datosSurprised, datosDisgusted, maximo;
-              return regeneratorRuntime.wrap(function _callee2$(_context2) {
+              return regeneratorRuntime.wrap(function _callee3$(_context3) {
                 while (1) {
-                  switch (_context2.prev = _context2.next) {
+                  switch (_context3.prev = _context3.next) {
                     case 0:
-                      _context2.prev = 0;
-                      _context2.next = 3;
+                      _context3.prev = 0;
+                      _context3.next = 3;
                       return faceapi.detectSingleFace(this.camara.data, new faceapi.TinyFaceDetectorOptions()).withFaceLandmarks().withFaceExpressions();
 
                     case 3:
-                      detections = _context2.sent;
+                      detections = _context3.sent;
                       datos = faceapi.resizeResults(detections, displaySize).expressions;
                       console.log(datos);
                       datosNeutral = faceapi.resizeResults(detections, displaySize).expressions.neutral;
@@ -1917,20 +1967,20 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                         //this.usuario.Disgustado.valor = this.usuario.Disgustado.valor + 1;
                       }
 
-                      _context2.next = 26;
+                      _context3.next = 26;
                       break;
 
                     case 23:
-                      _context2.prev = 23;
-                      _context2.t0 = _context2["catch"](0);
-                      console.log(_context2.t0);
+                      _context3.prev = 23;
+                      _context3.t0 = _context3["catch"](0);
+                      console.log(_context3.t0);
 
                     case 26:
                     case "end":
-                      return _context2.stop();
+                      return _context3.stop();
                   }
                 }
-              }, _callee2, this, [[0, 23]]);
+              }, _callee3, this, [[0, 23]]);
             }));
           }, 2000);
         }
@@ -1974,11 +2024,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               // ...
 
               track.stop();
+              sensor.data = null;
+              sensor.estado = "Desconectado";
             }, function (error) {
               console.log('getUserMedia() error', error);
             });
-            sensor.data = null;
-            sensor.estado = "Desconectado";
           }
 
           if (sensor.nombre == "Pulsera") {}
@@ -1989,14 +2039,14 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function conectarLed(sensor) {
           return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
           /*#__PURE__*/
-          regeneratorRuntime.mark(function _callee3() {
-            return regeneratorRuntime.wrap(function _callee3$(_context3) {
+          regeneratorRuntime.mark(function _callee4() {
+            return regeneratorRuntime.wrap(function _callee4$(_context4) {
               while (1) {
-                switch (_context3.prev = _context3.next) {
+                switch (_context4.prev = _context4.next) {
                   case 0:
                     console.log("Conectandose...");
-                    _context3.prev = 1;
-                    _context3.next = 4;
+                    _context4.prev = 1;
+                    _context4.next = 4;
                     return navigator.hid.requestDevice({
                       filters: [{
                         vendorId: 0x20a0,
@@ -2005,55 +2055,38 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                     });
 
                   case 4:
-                    sensor.data = _context3.sent;
-                    _context3.next = 7;
+                    sensor.data = _context4.sent;
+                    //device.open();
+                    //console.log(this.device);
+                    this.led.estado = "Conectado";
+                    _context4.next = 8;
                     return sensor.data.open();
 
-                  case 7:
-                    sensor.estado = "Conectado";
-                    _context3.next = 12;
+                  case 8:
+                    _context4.next = 12;
                     break;
 
                   case 10:
-                    _context3.prev = 10;
-                    _context3.t0 = _context3["catch"](1);
+                    _context4.prev = 10;
+                    _context4.t0 = _context4["catch"](1);
 
                   case 12:
+                    console.log(this.listaSensores);
+
                     if (this.device !== undefined) {// Add |device| to the UI.
                     }
 
-                  case 13:
+                  case 14:
                   case "end":
-                    return _context3.stop();
+                    return _context4.stop();
                 }
               }
-            }, _callee3, this, [[1, 10]]);
+            }, _callee4, this, [[1, 10]]);
           }));
         }
       }, {
         key: "ponerHappy",
         value: function ponerHappy() {
-          return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
-          /*#__PURE__*/
-          regeneratorRuntime.mark(function _callee4() {
-            return regeneratorRuntime.wrap(function _callee4$(_context4) {
-              while (1) {
-                switch (_context4.prev = _context4.next) {
-                  case 0:
-                    _context4.next = 2;
-                    return this.fadeToColor(this.led.data, [255, 255, 0]);
-
-                  case 2:
-                  case "end":
-                    return _context4.stop();
-                }
-              }
-            }, _callee4, this);
-          }));
-        }
-      }, {
-        key: "ponerNeutral",
-        value: function ponerNeutral() {
           return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
           /*#__PURE__*/
           regeneratorRuntime.mark(function _callee5() {
@@ -2062,7 +2095,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                 switch (_context5.prev = _context5.next) {
                   case 0:
                     _context5.next = 2;
-                    return this.fadeToColor(this.led.data, [84, 255, 84]);
+                    return this.fadeToColor(this.led.data, [255, 255, 0]);
 
                   case 2:
                   case "end":
@@ -2073,8 +2106,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           }));
         }
       }, {
-        key: "ponerSad",
-        value: function ponerSad() {
+        key: "ponerNeutral",
+        value: function ponerNeutral() {
           return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
           /*#__PURE__*/
           regeneratorRuntime.mark(function _callee6() {
@@ -2083,7 +2116,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                 switch (_context6.prev = _context6.next) {
                   case 0:
                     _context6.next = 2;
-                    return this.fadeToColor(this.led.data, [81, 81, 255]);
+                    return this.fadeToColor(this.led.data, [84, 255, 84]);
 
                   case 2:
                   case "end":
@@ -2094,8 +2127,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           }));
         }
       }, {
-        key: "ponerAngry",
-        value: function ponerAngry() {
+        key: "ponerSad",
+        value: function ponerSad() {
           return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
           /*#__PURE__*/
           regeneratorRuntime.mark(function _callee7() {
@@ -2104,7 +2137,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                 switch (_context7.prev = _context7.next) {
                   case 0:
                     _context7.next = 2;
-                    return this.fadeToColor(this.led.data, [255, 0, 0]);
+                    return this.fadeToColor(this.led.data, [81, 81, 255]);
 
                   case 2:
                   case "end":
@@ -2115,8 +2148,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           }));
         }
       }, {
-        key: "ponerFearful",
-        value: function ponerFearful() {
+        key: "ponerAngry",
+        value: function ponerAngry() {
           return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
           /*#__PURE__*/
           regeneratorRuntime.mark(function _callee8() {
@@ -2125,7 +2158,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                 switch (_context8.prev = _context8.next) {
                   case 0:
                     _context8.next = 2;
-                    return this.fadeToColor(this.led.data, [0, 150, 0]);
+                    return this.fadeToColor(this.led.data, [255, 0, 0]);
 
                   case 2:
                   case "end":
@@ -2136,8 +2169,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           }));
         }
       }, {
-        key: "ponerDisgusted",
-        value: function ponerDisgusted() {
+        key: "ponerFearful",
+        value: function ponerFearful() {
           return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
           /*#__PURE__*/
           regeneratorRuntime.mark(function _callee9() {
@@ -2146,7 +2179,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                 switch (_context9.prev = _context9.next) {
                   case 0:
                     _context9.next = 2;
-                    return this.fadeToColor(this.led.data, [80, 80, 80]);
+                    return this.fadeToColor(this.led.data, [0, 150, 0]);
 
                   case 2:
                   case "end":
@@ -2157,8 +2190,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           }));
         }
       }, {
-        key: "ponerSurprised",
-        value: function ponerSurprised() {
+        key: "ponerDisgusted",
+        value: function ponerDisgusted() {
           return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
           /*#__PURE__*/
           regeneratorRuntime.mark(function _callee10() {
@@ -2167,7 +2200,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                 switch (_context10.prev = _context10.next) {
                   case 0:
                     _context10.next = 2;
-                    return this.fadeToColor(this.led.data, [89, 189, 255]);
+                    return this.fadeToColor(this.led.data, [80, 80, 80]);
 
                   case 2:
                   case "end":
@@ -2175,6 +2208,27 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                 }
               }
             }, _callee10, this);
+          }));
+        }
+      }, {
+        key: "ponerSurprised",
+        value: function ponerSurprised() {
+          return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
+          /*#__PURE__*/
+          regeneratorRuntime.mark(function _callee11() {
+            return regeneratorRuntime.wrap(function _callee11$(_context11) {
+              while (1) {
+                switch (_context11.prev = _context11.next) {
+                  case 0:
+                    _context11.next = 2;
+                    return this.fadeToColor(this.led.data, [89, 189, 255]);
+
+                  case 2:
+                  case "end":
+                    return _context11.stop();
+                }
+              }
+            }, _callee11, this);
           }));
         }
       }, {
@@ -2187,35 +2241,35 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
           return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
           /*#__PURE__*/
-          regeneratorRuntime.mark(function _callee11() {
+          regeneratorRuntime.mark(function _callee12() {
             var reportId, data;
-            return regeneratorRuntime.wrap(function _callee11$(_context11) {
+            return regeneratorRuntime.wrap(function _callee12$(_context12) {
               while (1) {
-                switch (_context11.prev = _context11.next) {
+                switch (_context12.prev = _context12.next) {
                   case 0:
                     reportId = 1;
                     data = Uint8Array.from([r, g, b]); //const negro = Uint8Array.from([0x63, 0, 0, 0, 0x00, 0x10, 0x00, 0x00]);
 
-                    _context11.prev = 2;
+                    _context12.prev = 2;
                     console.log(data);
-                    _context11.next = 6;
+                    _context12.next = 6;
                     return device.sendFeatureReport(1, data);
 
                   case 6:
-                    _context11.next = 11;
+                    _context12.next = 11;
                     break;
 
                   case 8:
-                    _context11.prev = 8;
-                    _context11.t0 = _context11["catch"](2);
-                    console.error('fadeToColor: failed:', _context11.t0);
+                    _context12.prev = 8;
+                    _context12.t0 = _context12["catch"](2);
+                    console.error('fadeToColor: failed:', _context12.t0);
 
                   case 11:
                   case "end":
-                    return _context11.stop();
+                    return _context12.stop();
                 }
               }
-            }, _callee11, null, [[2, 8]]);
+            }, _callee12, null, [[2, 8]]);
           }));
         } //Implementacion de los sockets
 
@@ -2722,11 +2776,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function ngOnInit() {
           return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
           /*#__PURE__*/
-          regeneratorRuntime.mark(function _callee12() {
+          regeneratorRuntime.mark(function _callee13() {
             var ju;
-            return regeneratorRuntime.wrap(function _callee12$(_context12) {
+            return regeneratorRuntime.wrap(function _callee13$(_context13) {
               while (1) {
-                switch (_context12.prev = _context12.next) {
+                switch (_context13.prev = _context13.next) {
                   case 0:
                     //this.socket = new ClienteWS('profesor');
                     //this.socket.ini();
@@ -2734,14 +2788,14 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
                     ju = this; //this.listaAlumnos=this.estudiantes.getEstudiantes();
 
-                    _context12.next = 4;
+                    _context13.next = 4;
                     return $.getJSON("/verEstudiantes", function (data) {
                       //console.log(data);
                       ju.listaAlumnos = data;
                     });
 
                   case 4:
-                    _context12.next = 6;
+                    _context13.next = 6;
                     return $.getJSON("/verActividades", function (data) {
                       //console.log(data);
                       ju.listaActividades = data;
@@ -2749,10 +2803,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
                   case 6:
                   case "end":
-                    return _context12.stop();
+                    return _context13.stop();
                 }
               }
-            }, _callee12, this);
+            }, _callee13, this);
           }));
         } //anadirAlumno(nombre:string,apellidos:string,clase:string,email:string,contrasena:string) {
 
