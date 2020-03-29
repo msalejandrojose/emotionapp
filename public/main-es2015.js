@@ -71,7 +71,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"row\">\n    <div class=\"col-md-2\">\n        <!--<app-sidenav-profesor></app-sidenav-profesor>-->\n        <div class=\"sidenav list-group\">\n            <a href=\"#\" (click)=\"abrirAlumnos()\">Alumno</a>\n            <a href=\"#\" (click)=\"abrirActividades()\">Actividades</a>\n        </div>\n    </div>\n    <div *ngIf=\"gestionAlumnos\" class=\"col-md-10\">\n        <br>\n        <div class=\"row justify-content-md-center\">\n            <div class=\"col-md-10\">\n                <h4>Alumno</h4>\n            </div>\n            <div class=\"col-md-2\">\n                <button type=\"button\" (click)=\"abrirActividades()\" class=\"btn btn-outline-primary\">Crear\n                    Actividad</button>\n            </div>\n        </div>\n        <div class=\"row justify-content-md-center\">\n            <!--<div class=\"card-body card-body-cascade text-center wow fadeIn\">\n                <h4>Hola mundo</h4>\n                <p>asdalksdjlajsdklasjdkljlañksjfñdskladsfjñalksfj</p>\n            </div>-->\n            <div class=\"card col-md-6\">\n                <div *ngIf=\"!editarAlumno\" class=\"card-body\">\n                    <h4 class=\"card-title\">Crear Alumno</h4>\n                    <div>\n                        <label>Nombre del Alumn@</label>\n                        <input [(ngModel)]=\"alumnoCreate.nombre\" type=\"text\" class=\"form-control\" id=\"nombre\"\n                            placeholder=\"Nombre\">\n                        <br>\n                        <label>Apellidos</label>\n                        <input [(ngModel)]=\"alumnoCreate.apellidos\" type=\"text\" class=\"form-control\" id=\"apellidos\"\n                            ng-model=\"apellidos\" placeholder=\"Apellidos\">\n                        <br>\n                        <label>Clase</label>\n                        <input [(ngModel)]=\"alumnoCreate.clase\" type=\"text\" class=\"form-control\" id=\"clase\"\n                            ng-model=\"clase\" placeholder=\"Clase\">\n                        <br>\n                        <label>Email</label>\n                        <input [(ngModel)]=\"alumnoCreate.email\" type=\"email\" class=\"form-control\" id=\"email\"\n                            ng-model=\"email\" placeholder=\"Enter email\">\n                        <small id=\"emailHelp\" class=\"form-text text-muted\">El email tiene que ser unico</small>\n                        <br>\n                        <label>Contraseña</label>\n                        <input [(ngModel)]=\"alumnoCreate.contrasena\" type=\"password\" class=\"form-control\"\n                            id=\"contrasena\" ng-model=\"contrasena\" placeholder=\"Contraseña\">\n                        <small id=\"contrasenaHelp\" class=\"form-text text-muted\">El usuario podra entrar con esta\n                            contraseña</small>\n                        <button type=\"button\" (click)=\"limpiar()\" class=\"btn btn-raised btn-danger\">Limpiar</button>\n                        <button type=\"button\" (click)=\"anadirAlumno()\" class=\"btn btn-raised btn-success\">Guardar\n                            Alumn@</button>\n                    </div>\n                </div>\n                <div *ngIf=\"editarAlumno\" class=\"card-body\">\n                    <h4 class=\"card-title\">Editar Alumno</h4>\n                    <div>\n                        <label>Nombre del Alumn@</label>\n                        <input [(ngModel)]=\"onSelectedAlumno.nombre\" type=\"text\" class=\"form-control\" id=\"nombre\"\n                            placeholder=\"Nombre\">\n                        <br>\n                        <label>Apellidos</label>\n                        <input [(ngModel)]=\"onSelectedAlumno.apellidos\" type=\"text\" class=\"form-control\" id=\"apellidos\"\n                            ng-model=\"apellidos\" placeholder=\"Apellidos\">\n                        <br>\n                        <label>Clase</label>\n                        <input [(ngModel)]=\"onSelectedAlumno.clase\" type=\"text\" class=\"form-control\" id=\"clase\"\n                            ng-model=\"clase\" placeholder=\"Clase\">\n                        <br>\n                        <label>Email</label>\n                        <input [(ngModel)]=\"onSelectedAlumno.email\" type=\"email\" class=\"form-control\" id=\"email\"\n                            ng-model=\"email\" placeholder=\"Enter email\">\n                        <small id=\"emailHelp\" class=\"form-text text-muted\">El email tiene que ser unico</small>\n                        <br>\n                        <label>Contraseña</label>\n                        <input [(ngModel)]=\"onSelectedAlumno.contrasena\" type=\"password\" class=\"form-control\"\n                            id=\"contrasena\" ng-model=\"contrasena\" placeholder=\"Contraseña\">\n                        <small id=\"contrasenaHelp\" class=\"form-text text-muted\">El usuario podra entrar con esta\n                            contraseña</small>\n                        <button type=\"button\" (click)=\"limpiar()\" class=\"btn btn-raised btn-danger\">Limpiar</button>\n                        <button type=\"button\" (click)=\"actualizarAlumno()\" class=\"btn btn-raised btn-success\">Actualizar\n                            Alumn@</button>\n                    </div>\n                </div>\n            </div>\n            <div class=\"col-md-6\">\n                <h3>Lista de Alumnos</h3>\n                <table class=\"table table-striped\">\n                    <thead>\n                        <tr>\n                            <th scope=\"col\">Nombre</th>\n                            <th scope=\"col\">Apellidos</th>\n                            <th scope=\"col\">Clase</th>\n                            <th scope=\"col\"></th>\n                            <th scope=\"col\"></th>\n                        </tr>\n                    </thead>\n                    <tbody *ngFor=\"let alumno of listaAlumnos\">\n                        <tr>\n                            <td>{{alumno.nombre}}</td>\n                            <td>{{alumno.apellidos}}</td>\n                            <td>{{alumno.clase}}</td>\n                            <td><i (click)=\"editar(alumno)\" class=\"fa fa-edit\"></i></td>\n                            <td><i (click)=\"borrar(alumno)\" class=\"fa fa-trash-o\"></i></td>\n                        </tr>\n                    </tbody>\n                </table>\n            </div>\n        </div>\n    </div>\n    <div *ngIf=\"gestionActividades\" class=\"col-md-10\">\n        <br>\n        <div class=\"row justify-content-md-center\">\n            <div class=\"col-md-10\">\n                <h4>Actividades</h4>\n            </div>\n            <div class=\"col-md-2\">\n                <button type=\"button\" *ngIf=\"!crearActividad && !verActividad\" (click)=\"abrirCrearActividad()\" class=\"btn btn-outline-primary\">Crear\n                    Actividad</button>\n                <button type=\"button\" *ngIf=\"crearActividad && !verActividad\" (click)=\"cerrarCrearActividad()\" class=\"btn btn-outline-danger\">Cancelar</button>\n                <button type=\"button\" *ngIf=\"!crearActividad && verActividad\" (click)=\"cerrarActividad()\" class=\"btn btn-outline-danger\">Cerrar Actividad</button>\n            </div>\n        </div>\n        <br>\n        <div class=\"col-md-11\">\n            <app-crear-actividad [estudiantes]=\"listaAlumnos\" (actividadCreada)=\"guardarActividad($event)\" *ngIf=\"crearActividad\"></app-crear-actividad>\n        </div>\n        <br>\n        <div *ngIf=\"verActividad\">\n            <app-ver-actividad [actividad]=\"actividadSelected\"></app-ver-actividad>\n        </div>\n        <div *ngIf=\"!verActividad\" class=\"row justify-content-md-center\">\n            <div class=\"col-md-10\">\n                <h3>Lista de Actividades</h3>\n                <table class=\"table table-striped\">\n                    <thead>\n                        <tr>\n                            <th scope=\"col\">Nombre</th>\n                            <th scope=\"col\">Profesor</th>\n                            <th scope=\"col\">Estado</th>\n                            <th scope=\"col\"></th>\n                            <th scope=\"col\"></th>\n                            <th scope=\"col\"></th>\n                        </tr>\n                    </thead>\n                    <tbody *ngFor=\"let actividad of listaActividades\">\n                        <tr *ngIf=\"actividad.estado=='Creada'\">\n                            <td>{{actividad.nombre}}</td>\n                            <td>{{actividad.profesor}}</td>\n                            <td>{{actividad.estado}}</td>\n                            <td><button type=\"button\" class=\"btn btn-outline-primary\" (click)=\"abrirActividad(actividad)\">Comenzar</button></td>\n                            <td><i (click)=\"editar(actividad)\" class=\"fa fa-edit\"></i></td>\n                            <td><i (click)=\"borrarA(actividad)\" class=\"fa fa-trash-o\"></i></td>\n                        </tr>\n                        <tr *ngIf=\"actividad.estado=='Comenzada'\">\n                            <td>{{actividad.nombre}}</td>\n                            <td>{{actividad.profesor}}</td>\n                            <td>{{actividad.estado}}</td>\n                            <td><button type=\"button\" class=\"btn btn-outline-success\">Ver</button></td>\n                            <td><i (click)=\"editarA(actividad)\" class=\"fa fa-edit\"></i></td>\n                            <td><i (click)=\"borrarA(actividad)\" class=\"fa fa-trash-o\"></i></td>\n                        </tr>\n                    </tbody>\n                </table>\n            </div>\n        </div>\n    </div>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"row\">\n    <div class=\"col-md-2\">\n        <!--<app-sidenav-profesor></app-sidenav-profesor>-->\n        <div class=\"sidenav list-group\">\n            <a href=\"#\" (click)=\"abrirAlumnos()\">Alumno</a>\n            <a href=\"#\" (click)=\"abrirActividades()\">Actividades</a>\n        </div>\n    </div>\n    <div *ngIf=\"gestionAlumnos\" class=\"col-md-10\">\n        <br>\n        <div class=\"row justify-content-md-center\">\n            <div class=\"col-md-10\">\n                <h4>Alumno</h4>\n            </div>\n            <div class=\"col-md-2\">\n                <button type=\"button\" (click)=\"abrirActividades()\" class=\"btn btn-outline-primary\">Crear\n                    Actividad</button>\n            </div>\n        </div>\n        <div class=\"row justify-content-md-center\">\n            <!--<div class=\"card-body card-body-cascade text-center wow fadeIn\">\n                <h4>Hola mundo</h4>\n                <p>asdalksdjlajsdklasjdkljlañksjfñdskladsfjñalksfj</p>\n            </div>-->\n            <div class=\"card col-md-6\">\n                <div *ngIf=\"!editarAlumno\" class=\"card-body\">\n                    <h4 class=\"card-title\">Crear Alumno</h4>\n                    <div>\n                        <label>Nombre del Alumn@</label>\n                        <input [(ngModel)]=\"alumnoCreate.nombre\" type=\"text\" class=\"form-control\" id=\"nombre\"\n                            placeholder=\"Nombre\">\n                        <br>\n                        <label>Apellidos</label>\n                        <input [(ngModel)]=\"alumnoCreate.apellidos\" type=\"text\" class=\"form-control\" id=\"apellidos\"\n                            ng-model=\"apellidos\" placeholder=\"Apellidos\">\n                        <br>\n                        <label>Clase</label>\n                        <input [(ngModel)]=\"alumnoCreate.clase\" type=\"text\" class=\"form-control\" id=\"clase\"\n                            ng-model=\"clase\" placeholder=\"Clase\">\n                        <br>\n                        <label>Email</label>\n                        <input [(ngModel)]=\"alumnoCreate.email\" type=\"email\" class=\"form-control\" id=\"email\"\n                            ng-model=\"email\" placeholder=\"Enter email\">\n                        <small id=\"emailHelp\" class=\"form-text text-muted\">El email tiene que ser unico</small>\n                        <br>\n                        <label>Contraseña</label>\n                        <input [(ngModel)]=\"alumnoCreate.contrasena\" type=\"password\" class=\"form-control\"\n                            id=\"contrasena\" ng-model=\"contrasena\" placeholder=\"Contraseña\">\n                        <small id=\"contrasenaHelp\" class=\"form-text text-muted\">El usuario podra entrar con esta\n                            contraseña</small>\n                        <button type=\"button\" (click)=\"limpiar()\" class=\"btn btn-raised btn-danger\">Limpiar</button>\n                        <button type=\"button\" (click)=\"anadirAlumno()\" class=\"btn btn-raised btn-success\">Guardar\n                            Alumn@</button>\n                    </div>\n                </div>\n                <div *ngIf=\"editarAlumno\" class=\"card-body\">\n                    <h4 class=\"card-title\">Editar Alumno</h4>\n                    <div>\n                        <label>Nombre del Alumn@</label>\n                        <input [(ngModel)]=\"onSelectedAlumno.nombre\" type=\"text\" class=\"form-control\" id=\"nombre\"\n                            placeholder=\"Nombre\">\n                        <br>\n                        <label>Apellidos</label>\n                        <input [(ngModel)]=\"onSelectedAlumno.apellidos\" type=\"text\" class=\"form-control\" id=\"apellidos\"\n                            ng-model=\"apellidos\" placeholder=\"Apellidos\">\n                        <br>\n                        <label>Clase</label>\n                        <input [(ngModel)]=\"onSelectedAlumno.clase\" type=\"text\" class=\"form-control\" id=\"clase\"\n                            ng-model=\"clase\" placeholder=\"Clase\">\n                        <br>\n                        <label>Email</label>\n                        <input [(ngModel)]=\"onSelectedAlumno.email\" type=\"email\" class=\"form-control\" id=\"email\"\n                            ng-model=\"email\" placeholder=\"Enter email\">\n                        <small id=\"emailHelp\" class=\"form-text text-muted\">El email tiene que ser unico</small>\n                        <br>\n                        <label>Contraseña</label>\n                        <input [(ngModel)]=\"onSelectedAlumno.contrasena\" type=\"password\" class=\"form-control\"\n                            id=\"contrasena\" ng-model=\"contrasena\" placeholder=\"Contraseña\">\n                        <small id=\"contrasenaHelp\" class=\"form-text text-muted\">El usuario podra entrar con esta\n                            contraseña</small>\n                        <button type=\"button\" (click)=\"limpiar()\" class=\"btn btn-raised btn-danger\">Limpiar</button>\n                        <button type=\"button\" (click)=\"actualizarAlumno()\" class=\"btn btn-raised btn-success\">Actualizar\n                            Alumn@</button>\n                    </div>\n                </div>\n            </div>\n            <div class=\"col-md-6\">\n                <h3>Lista de Alumnos</h3>\n                <table class=\"table table-striped\">\n                    <thead>\n                        <tr>\n                            <th scope=\"col\">Nombre</th>\n                            <th scope=\"col\">Apellidos</th>\n                            <th scope=\"col\">Clase</th>\n                            <th scope=\"col\"></th>\n                            <th scope=\"col\"></th>\n                        </tr>\n                    </thead>\n                    <tbody *ngFor=\"let alumno of listaAlumnos\">\n                        <tr>\n                            <td>{{alumno.nombre}}</td>\n                            <td>{{alumno.apellidos}}</td>\n                            <td>{{alumno.clase}}</td>\n                            <td><i (click)=\"editar(alumno)\" class=\"fa fa-edit\"></i></td>\n                            <td><i (click)=\"borrar(alumno)\" class=\"fa fa-trash-o\"></i></td>\n                        </tr>\n                    </tbody>\n                </table>\n            </div>\n        </div>\n    </div>\n    <div *ngIf=\"gestionActividades\" class=\"col-md-10\">\n        <br>\n        <div class=\"row justify-content-md-center\">\n            <div class=\"col-md-10\">\n                <h4>Actividades</h4>\n            </div>\n            <div class=\"col-md-2\">\n                <button type=\"button\" *ngIf=\"!crearActividad && !verActividad\" (click)=\"abrirCrearActividad()\" class=\"btn btn-outline-primary\">Crear\n                    Actividad</button>\n                <button type=\"button\" *ngIf=\"crearActividad && !verActividad\" (click)=\"cerrarCrearActividad()\" class=\"btn btn-outline-danger\">Cancelar</button>\n                <!--<button type=\"button\" *ngIf=\"!crearActividad && verActividad\" (click)=\"cerrarActividad()\" class=\"btn btn-outline-danger\">Cerrar Actividad</button>-->\n            </div>\n        </div>\n        <br>\n        <div class=\"col-md-11\">\n            <app-crear-actividad *ngIf=\"crearActividad\" [estudiantes]=\"listaAlumnos\" (actividadCreada)=\"guardarActividad($event)\" ></app-crear-actividad>\n            <app-crear-actividad *ngIf=\"editarActividad\" [estudiantes]=\"listaAlumnos\" [editarActividad]=\"ActividadparaEditar\" (actividadCreada)=\"guardarActividad($event)\" ></app-crear-actividad>\n        </div>\n        <br>\n        <div *ngIf=\"verActividad\">\n            <app-ver-actividad [actividad]=\"actividadSelected\" (actividadCreada)=\"cerrarActividad($event)\"></app-ver-actividad>\n        </div>\n        <div *ngIf=\"!verActividad\" class=\"row justify-content-md-center\">\n            <div class=\"col-md-10\">\n                <h3>Lista de Actividades</h3>\n                <table class=\"table table-striped\">\n                    <thead>\n                        <tr>\n                            <th scope=\"col\">Nombre</th>\n                            <th scope=\"col\">Profesor</th>\n                            <th scope=\"col\">Estado</th>\n                            <th scope=\"col\"></th>\n                            <th scope=\"col\"></th>\n                            <th scope=\"col\"></th>\n                        </tr>\n                    </thead>\n                    <tbody *ngFor=\"let actividad of listaActividades\">\n                        <tr *ngIf=\"actividad.estado=='Creada'\">\n                            <td>{{actividad.nombre}}</td>\n                            <td>{{actividad.profesor}}</td>\n                            <td>{{actividad.estado}}</td>\n                            <td><button type=\"button\" class=\"btn btn-outline-primary\" (click)=\"abrirActividad(actividad)\">Mostrar</button></td>\n                            <td><i (click)=\"editarA(actividad)\" class=\"fa fa-edit\"></i></td>\n                            <td><i (click)=\"borrarA(actividad)\" class=\"fa fa-trash-o\"></i></td>\n                        </tr>\n                        <tr *ngIf=\"actividad.estado=='Comenzada'\">\n                            <td>{{actividad.nombre}}</td>\n                            <td>{{actividad.profesor}}</td>\n                            <td>{{actividad.estado}}</td>\n                            <td><button type=\"button\" class=\"btn btn-outline-success\" (click)=\"abrirActividad(actividad)\">Ver</button></td>\n                            <td><i (click)=\"editarA(actividad)\" class=\"fa fa-edit\"></i></td>\n                            <td><i (click)=\"borrarA(actividad)\" class=\"fa fa-trash-o\"></i></td>\n                        </tr>\n                    </tbody>\n                </table>\n            </div>\n        </div>\n    </div>\n</div>");
 
 /***/ }),
 
@@ -97,7 +97,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"row justify-content-md-center\">\n    <div class=\"card col-md-10\">\n        <div class=\"card-body\">\n            <h5 class=\"card-title\">Distribucion de la clase</h5>\n            <div id=\"clase\" class=\"example-boundary\">\n                <div id=\"{{item.id_item}}\" *ngFor=\"let item of actividad.alumnos\" class=\"example-box\" ondrop=\"myFunction(item)\"\n                    [cdkDragFreeDragPosition]=\"item.posicion\" cdkDragBoundary=\".example-boundary\" cdkDrag\n                    (cdkDragEnded)=\"dragEnded($event,item)\">\n                    {{item.estudiante.nombre}}\n                </div>\n            </div>\n        </div>\n    </div>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"row justify-content-md-center\">\n    <div class=\"col-12\">\n        <h5 class=\"text-center\" *ngIf=\"actividad.estado=='Creada'\">Actividad sin empezar</h5>\n        <h5 class=\"text-center\" *ngIf=\"actividad.estado=='Comenzada'\">Actividad empezada</h5>\n        <h5 class=\"text-center\" *ngIf=\"actividad.estado=='Finalizada'\">Actividad finalizada</h5>\n    </div>\n</div>\n<div class=\"row justify-content-md-center\">\n    <div class=\"col-2\">\n        <button type=\"button\" class=\"btn btn-outline-danger\" (click)=\"cerrarActividad()\">Cerrar Actividad</button>\n    </div>\n    <div class=\"col-8\">\n        <div *ngIf=\"actividad.estado=='Creada'\" class=\"progress\">\n            <div class=\"progress-bar bg-success\" role=\"progressbar\" style=\"width: 0%\" aria-valuenow=\"25\"\n                aria-valuemin=\"0\" aria-valuemax=\"100\"></div>\n        </div>\n        <div *ngIf=\"actividad.estado=='Comenzada'\" class=\"progress\">\n            <div class=\"progress-bar bg-success\" role=\"progressbar\" style=\"width: 50%\" aria-valuenow=\"50\"\n                aria-valuemin=\"0\" aria-valuemax=\"100\"></div>\n        </div>\n        <div *ngIf=\"actividad.estado=='Finalizada'\" class=\"progress\">\n            <div class=\"progress-bar bg-success\" role=\"progressbar\" style=\"width: 100%\" aria-valuenow=\"75\"\n                aria-valuemin=\"0\" aria-valuemax=\"100\"></div>\n        </div>\n    </div>\n    <div class=\"col-2\">\n        <button *ngIf=\"actividad.estado=='Creada'\" type=\"button\" class=\"btn btn-outline-dark disenable\" (click)=\"comenzar()\">Comenzar</button>\n        <button *ngIf=\"actividad.estado=='Comenzada'\" type=\"button\" class=\"btn btn-outline-dark disenable\" (click)=\"terminar()\">Terminar</button>\n    </div>\n</div>\n<br>\n<div class=\"row justify-content-md-center\">\n    <div class=\"card col-md-11\">\n        <div class=\"card-body\">\n            <h5 class=\"card-title\">Distribucion de la clase</h5>\n            <div id=\"clase\" class=\"example-boundary\">\n                <div id=\"{{item.id_item}}\" *ngFor=\"let item of actividad.alumnos\" class=\"example-box\"\n                    ondrop=\"myFunction(item)\" [cdkDragFreeDragPosition]=\"item.posicion\"\n                    cdkDragBoundary=\".example-boundary\" cdkDrag (cdkDragEnded)=\"dragEnded($event,item)\">\n                    {{item.estudiante.nombre}}\n                </div>\n            </div>\n        </div>\n    </div>\n</div>");
 
 /***/ }),
 
@@ -843,6 +843,8 @@ let EstudianteComponent = class EstudianteComponent {
         this.listaActividades = [];
         this.listaGestionActividades = {};
         this.listaSensores = [];
+        this.pulsacionesMax = 180;
+        this.pulsacionesMin = 30;
         this.id = '';
         this.soyEstudiante = function () {
             this.socket.emit('soyEstudiante', this.estudiante);
@@ -1098,7 +1100,7 @@ let EstudianteComponent = class EstudianteComponent {
             try {
                 const detections = yield faceapi.detectSingleFace(this.camara.data, new faceapi.TinyFaceDetectorOptions()).withFaceLandmarks().withFaceExpressions();
                 var datos = faceapi.resizeResults(detections, displaySize).expressions;
-                console.log(datos);
+                //console.log(datos);
                 var datosNeutral = faceapi.resizeResults(detections, displaySize).expressions.neutral;
                 var datosHappy = faceapi.resizeResults(detections, displaySize).expressions.happy;
                 var datosSad = faceapi.resizeResults(detections, displaySize).expressions.sad;
@@ -1109,7 +1111,7 @@ let EstudianteComponent = class EstudianteComponent {
                 var maximo = Math.max(datosAngry, datosDisgusted, datosFearful, datosHappy, datosNeutral, datosSad, datosSurprised);
                 if (datosNeutral == maximo) {
                     //console.log("Neutro: "+maximo);
-                    this.enviarEmocionesWebCam({ id_item: this.id_item, color: this.ColorNeutral, datos: datos });
+                    this.enviarEmocionesWebCam({ id_item: this.id_item, color: this.ColorNeutral, datos: datos, pulsaciones: this.pulsaciones });
                     this.ponerNeutral();
                     $('#estadoAlumno').css('background-color', this.ColorNeutral);
                     //this.ContadorNeutro++
@@ -1117,7 +1119,7 @@ let EstudianteComponent = class EstudianteComponent {
                 }
                 if (datosFearful == maximo) {
                     //console.log("Miedo: "+maximo);
-                    this.enviarEmocionesWebCam({ id_item: this.id_item, color: this.ColorFearful, datos: datos });
+                    this.enviarEmocionesWebCam({ id_item: this.id_item, color: this.ColorFearful, datos: datos, pulsaciones: this.pulsaciones });
                     this.ponerFearful();
                     $('#estadoAlumno').css('background-color', this.ColorFearful);
                     //this.ContadorMiedo++
@@ -1125,7 +1127,7 @@ let EstudianteComponent = class EstudianteComponent {
                 }
                 if (datosAngry == maximo) {
                     //console.log("Enfadado: "+maximo);
-                    this.enviarEmocionesWebCam({ id_item: this.id_item, color: this.ColorAngry, datos: datos });
+                    this.enviarEmocionesWebCam({ id_item: this.id_item, color: this.ColorAngry, datos: datos, pulsaciones: this.pulsaciones });
                     this.ponerAngry();
                     $('#estadoAlumno').css('background-color', this.ColorAngry);
                     //this.ContadorEnfadado++
@@ -1133,7 +1135,7 @@ let EstudianteComponent = class EstudianteComponent {
                 }
                 if (datosHappy == maximo) {
                     //console.log("Feliz: "+maximo);
-                    this.enviarEmocionesWebCam({ id_item: this.id_item, color: this.ColorHappy, datos: datos });
+                    this.enviarEmocionesWebCam({ id_item: this.id_item, color: this.ColorHappy, datos: datos, pulsaciones: this.pulsaciones });
                     this.ponerHappy();
                     $('#estadoAlumno').css('background-color', this.ColorHappy);
                     //this.ContadorFeliz++
@@ -1141,14 +1143,14 @@ let EstudianteComponent = class EstudianteComponent {
                 }
                 if (datosSad == maximo) {
                     //console.log("Triste: "+maximo);
-                    this.enviarEmocionesWebCam({ id_item: this.id_item, color: this.ColorSad, datos: datos });
+                    this.enviarEmocionesWebCam({ id_item: this.id_item, color: this.ColorSad, datos: datos, pulsaciones: this.pulsaciones });
                     this.ponerSad();
                     $('#estadoAlumno').css('background-color', this.ColorSad);
                     //this.ContadorTriste++
                     //this.usuario.Triste.valor = this.usuario.Triste.valor + 1;
                 }
                 if (datosSurprised == maximo) {
-                    this.enviarEmocionesWebCam({ id_item: this.id_item, color: this.ColorSurprised, datos: datos });
+                    this.enviarEmocionesWebCam({ id_item: this.id_item, color: this.ColorSurprised, datos: datos, pulsaciones: this.pulsaciones });
                     this.ponerSurprised();
                     $('#estadoAlumno').css('background-color', this.ColorSurprised);
                     //this.ContadorSorprendido++
@@ -1156,7 +1158,7 @@ let EstudianteComponent = class EstudianteComponent {
                 }
                 if (datosDisgusted == maximo) {
                     //console.log("Disgustado: "+maximo);
-                    this.enviarEmocionesWebCam({ id_item: this.id_item, color: this.ColorDisgusted, datos: datos });
+                    this.enviarEmocionesWebCam({ id_item: this.id_item, color: this.ColorDisgusted, datos: datos, pulsaciones: this.pulsaciones });
                     this.ponerDisgusted();
                     $('#estadoAlumno').css('background-color', this.ColorDisgusted);
                     //this.ContadorDisgustado++
@@ -1183,11 +1185,40 @@ let EstudianteComponent = class EstudianteComponent {
             //this.empezar()
         }
         if (sensor.nombre == "Pulsera") {
+            this.conectarPulsera(sensor);
+        }
+    }
+    conectarPulsera(sensor) {
+        sensor.estado = "Conectado";
+        setInterval(async => {
+            this.pulsometro(sensor);
+        }, 1000);
+    }
+    pulsometro(sensor) {
+        if (sensor.estado == "Conectado") {
+            this.pulsaciones = Math.round(Math.random() * (130 - 40) + 40);
+            if (Math.round(Math.random() * (1 - 0) + 0) == 1) {
+                this.pulsaciones = this.pulsaciones + Math.round(Math.random() * (5 - 0) + 0);
+            }
+            else {
+                this.pulsaciones = this.pulsaciones - Math.round(Math.random() * (5 - 0) + 0);
+            }
+            if (this.pulsaciones >= this.pulsacionesMax) {
+                this.pulsaciones = this.pulsacionesMax;
+                console.log(this.pulsaciones);
+            }
+            else if (this.pulsaciones <= this.pulsacionesMin) {
+                this.pulsaciones = this.pulsacionesMin;
+                console.log(this.pulsaciones);
+            }
+            else {
+                console.log(this.pulsaciones);
+            }
         }
     }
     desconectarSensor(sensor) {
         if (sensor.nombre == "Led") {
-            console.log(sensor);
+            //console.log(sensor);
             sensor.data = null;
             sensor.estado = "Desconectado";
         }
@@ -1204,6 +1235,8 @@ let EstudianteComponent = class EstudianteComponent {
             });
         }
         if (sensor.nombre == "Pulsera") {
+            sensor.data = null;
+            sensor.estado = "Desconectado";
         }
     }
     //Implementacion del led
@@ -1369,6 +1402,14 @@ let CrearActividadComponent = class CrearActividadComponent {
             fromControlNombreActividad: true,
             fromControlNombreProfesor: true //['', Validators.required]
         });
+        if (this.editarActividad != null) {
+            this.actividadCreate = {
+                nombre: this.editarActividad.nombre,
+                profesor: this.editarActividad.profesor,
+                alumnos: this.editarActividad.alumnos,
+                estado: this.editarActividad.estado,
+            };
+        }
     }
     ngOnChanges() {
         this.dataSource = new _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatTableDataSource"](this.estudiantes);
@@ -1478,6 +1519,9 @@ tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])()
 ], CrearActividadComponent.prototype, "estudiantes", void 0);
 tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])()
+], CrearActividadComponent.prototype, "editarActividad", void 0);
+tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])()
 ], CrearActividadComponent.prototype, "actividadCreada", void 0);
 tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
@@ -1555,6 +1599,8 @@ let ProfesorComponent = class ProfesorComponent {
         };
         this.listaAlumnos = [];
         this.crearActividad = false;
+        this.editarActividad = false;
+        this.ActividadparaEditar = null;
         this.listaActividades = [];
         this.verActividad = false;
         this.gestionAlumnos = true;
@@ -1584,6 +1630,7 @@ let ProfesorComponent = class ProfesorComponent {
             this.socket.on('recepcionEmociones', function (datos) {
                 //console.log(datos);
                 $('#' + datos.id_item + '').css("background-color", datos.color);
+                console.log(datos.pulsaciones);
             });
             /*
             this.socket.on('partidaCreada',function(partida){
@@ -1787,6 +1834,10 @@ let ProfesorComponent = class ProfesorComponent {
             dataType: 'json'
         });
     }
+    editarA(act) {
+        this.editarActividad = true;
+        this.ActividadparaEditar = act;
+    }
     borrarA(act) {
         var ju = this;
         $.ajax({
@@ -1808,8 +1859,8 @@ let ProfesorComponent = class ProfesorComponent {
         this.actividadSelected = actividad;
         this.crearActividadLista(actividad);
     }
-    cerrarActividad() {
-        console.log(this.actividadSelected);
+    cerrarActividad(cerrar) {
+        //console.log(this.actividadSelected);
         this.borrarActividadLista(this.actividadSelected);
         this.verActividad = false;
         this.actividadSelected = null;
@@ -1892,7 +1943,7 @@ SidenavProfesorComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (".example-box {\n    width: 70px;\n    height: 70px;\n    border: solid 1px #ccc;\n    color: rgba(0, 0, 0, 0.87);\n    cursor: move;\n    display: -webkit-inline-box;\n    display: inline-flex;\n    -webkit-box-pack: center;\n            justify-content: center;\n    -webkit-box-align: center;\n            align-items: center;\n    text-align: center;\n    background: #fff;\n    border-radius: 4px;\n    margin-right: 0px;\n    position: relative;\n    z-index: 1;\n    box-sizing: border-box;\n    padding: 10px;\n    -webkit-transition: box-shadow 200ms cubic-bezier(0, 0, 0.2, 1);\n    transition: box-shadow 200ms cubic-bezier(0, 0, 0.2, 1);\n    box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);\n  }\n  \n  .example-box:active {\n    box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2), 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12);\n  }\n  \n  .example-boundary {\n    width: 400px;\n    height: 400px;\n    max-width: 100%;\n    border: dotted #ccc 2px;\n  }\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcHJvZmVzb3IvdmVyLWFjdGl2aWRhZC92ZXItYWN0aXZpZGFkLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7SUFDSSxXQUFXO0lBQ1gsWUFBWTtJQUNaLHNCQUFzQjtJQUN0QiwwQkFBMEI7SUFDMUIsWUFBWTtJQUNaLDJCQUFvQjtJQUFwQixvQkFBb0I7SUFDcEIsd0JBQXVCO1lBQXZCLHVCQUF1QjtJQUN2Qix5QkFBbUI7WUFBbkIsbUJBQW1CO0lBQ25CLGtCQUFrQjtJQUNsQixnQkFBZ0I7SUFDaEIsa0JBQWtCO0lBQ2xCLGlCQUFpQjtJQUNqQixrQkFBa0I7SUFDbEIsVUFBVTtJQUNWLHNCQUFzQjtJQUN0QixhQUFhO0lBQ2IsK0RBQXVEO0lBQXZELHVEQUF1RDtJQUN2RCwrR0FBK0c7RUFDakg7O0VBRUE7SUFDRSxxSEFBcUg7RUFDdkg7O0VBRUE7SUFDRSxZQUFZO0lBQ1osYUFBYTtJQUNiLGVBQWU7SUFDZix1QkFBdUI7RUFDekIiLCJmaWxlIjoic3JjL2FwcC9wcm9mZXNvci92ZXItYWN0aXZpZGFkL3Zlci1hY3RpdmlkYWQuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi5leGFtcGxlLWJveCB7XG4gICAgd2lkdGg6IDcwcHg7XG4gICAgaGVpZ2h0OiA3MHB4O1xuICAgIGJvcmRlcjogc29saWQgMXB4ICNjY2M7XG4gICAgY29sb3I6IHJnYmEoMCwgMCwgMCwgMC44Nyk7XG4gICAgY3Vyc29yOiBtb3ZlO1xuICAgIGRpc3BsYXk6IGlubGluZS1mbGV4O1xuICAgIGp1c3RpZnktY29udGVudDogY2VudGVyO1xuICAgIGFsaWduLWl0ZW1zOiBjZW50ZXI7XG4gICAgdGV4dC1hbGlnbjogY2VudGVyO1xuICAgIGJhY2tncm91bmQ6ICNmZmY7XG4gICAgYm9yZGVyLXJhZGl1czogNHB4O1xuICAgIG1hcmdpbi1yaWdodDogMHB4O1xuICAgIHBvc2l0aW9uOiByZWxhdGl2ZTtcbiAgICB6LWluZGV4OiAxO1xuICAgIGJveC1zaXppbmc6IGJvcmRlci1ib3g7XG4gICAgcGFkZGluZzogMTBweDtcbiAgICB0cmFuc2l0aW9uOiBib3gtc2hhZG93IDIwMG1zIGN1YmljLWJlemllcigwLCAwLCAwLjIsIDEpO1xuICAgIGJveC1zaGFkb3c6IDAgM3B4IDFweCAtMnB4IHJnYmEoMCwgMCwgMCwgMC4yKSwgMCAycHggMnB4IDAgcmdiYSgwLCAwLCAwLCAwLjE0KSwgMCAxcHggNXB4IDAgcmdiYSgwLCAwLCAwLCAwLjEyKTtcbiAgfVxuICBcbiAgLmV4YW1wbGUtYm94OmFjdGl2ZSB7XG4gICAgYm94LXNoYWRvdzogMCA1cHggNXB4IC0zcHggcmdiYSgwLCAwLCAwLCAwLjIpLCAwIDhweCAxMHB4IDFweCByZ2JhKDAsIDAsIDAsIDAuMTQpLCAwIDNweCAxNHB4IDJweCByZ2JhKDAsIDAsIDAsIDAuMTIpO1xuICB9XG4gIFxuICAuZXhhbXBsZS1ib3VuZGFyeSB7XG4gICAgd2lkdGg6IDQwMHB4O1xuICAgIGhlaWdodDogNDAwcHg7XG4gICAgbWF4LXdpZHRoOiAxMDAlO1xuICAgIGJvcmRlcjogZG90dGVkICNjY2MgMnB4O1xuICB9Il19 */");
+/* harmony default export */ __webpack_exports__["default"] = (".example-box {\n  width: 70px;\n  height: 70px;\n  border: solid 1px #ccc;\n  color: rgba(0, 0, 0, 0.87);\n  cursor: move;\n  display: -webkit-inline-box;\n  display: inline-flex;\n  -webkit-box-pack: center;\n          justify-content: center;\n  -webkit-box-align: center;\n          align-items: center;\n  text-align: center;\n  background: #fff;\n  border-radius: 4px;\n  margin-right: 0px;\n  position: relative;\n  z-index: 1;\n  box-sizing: border-box;\n  padding: 10px;\n  -webkit-transition: box-shadow 200ms cubic-bezier(0, 0, 0.2, 1);\n  transition: box-shadow 200ms cubic-bezier(0, 0, 0.2, 1);\n  box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);\n}\n\n.example-box:active {\n  box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2), 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12);\n}\n\n.example-boundary {\n  width: 400px;\n  height: 400px;\n  max-width: 100%;\n  border: dotted #ccc 2px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcHJvZmVzb3IvdmVyLWFjdGl2aWRhZC92ZXItYWN0aXZpZGFkLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxXQUFXO0VBQ1gsWUFBWTtFQUNaLHNCQUFzQjtFQUN0QiwwQkFBMEI7RUFDMUIsWUFBWTtFQUNaLDJCQUFvQjtFQUFwQixvQkFBb0I7RUFDcEIsd0JBQXVCO1VBQXZCLHVCQUF1QjtFQUN2Qix5QkFBbUI7VUFBbkIsbUJBQW1CO0VBQ25CLGtCQUFrQjtFQUNsQixnQkFBZ0I7RUFDaEIsa0JBQWtCO0VBQ2xCLGlCQUFpQjtFQUNqQixrQkFBa0I7RUFDbEIsVUFBVTtFQUNWLHNCQUFzQjtFQUN0QixhQUFhO0VBQ2IsK0RBQXVEO0VBQXZELHVEQUF1RDtFQUN2RCwrR0FBK0c7QUFDakg7O0FBRUE7RUFDRSxxSEFBcUg7QUFDdkg7O0FBRUE7RUFDRSxZQUFZO0VBQ1osYUFBYTtFQUNiLGVBQWU7RUFDZix1QkFBdUI7QUFDekIiLCJmaWxlIjoic3JjL2FwcC9wcm9mZXNvci92ZXItYWN0aXZpZGFkL3Zlci1hY3RpdmlkYWQuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi5leGFtcGxlLWJveCB7XG4gIHdpZHRoOiA3MHB4O1xuICBoZWlnaHQ6IDcwcHg7XG4gIGJvcmRlcjogc29saWQgMXB4ICNjY2M7XG4gIGNvbG9yOiByZ2JhKDAsIDAsIDAsIDAuODcpO1xuICBjdXJzb3I6IG1vdmU7XG4gIGRpc3BsYXk6IGlubGluZS1mbGV4O1xuICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjtcbiAgYWxpZ24taXRlbXM6IGNlbnRlcjtcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xuICBiYWNrZ3JvdW5kOiAjZmZmO1xuICBib3JkZXItcmFkaXVzOiA0cHg7XG4gIG1hcmdpbi1yaWdodDogMHB4O1xuICBwb3NpdGlvbjogcmVsYXRpdmU7XG4gIHotaW5kZXg6IDE7XG4gIGJveC1zaXppbmc6IGJvcmRlci1ib3g7XG4gIHBhZGRpbmc6IDEwcHg7XG4gIHRyYW5zaXRpb246IGJveC1zaGFkb3cgMjAwbXMgY3ViaWMtYmV6aWVyKDAsIDAsIDAuMiwgMSk7XG4gIGJveC1zaGFkb3c6IDAgM3B4IDFweCAtMnB4IHJnYmEoMCwgMCwgMCwgMC4yKSwgMCAycHggMnB4IDAgcmdiYSgwLCAwLCAwLCAwLjE0KSwgMCAxcHggNXB4IDAgcmdiYSgwLCAwLCAwLCAwLjEyKTtcbn1cblxuLmV4YW1wbGUtYm94OmFjdGl2ZSB7XG4gIGJveC1zaGFkb3c6IDAgNXB4IDVweCAtM3B4IHJnYmEoMCwgMCwgMCwgMC4yKSwgMCA4cHggMTBweCAxcHggcmdiYSgwLCAwLCAwLCAwLjE0KSwgMCAzcHggMTRweCAycHggcmdiYSgwLCAwLCAwLCAwLjEyKTtcbn1cblxuLmV4YW1wbGUtYm91bmRhcnkge1xuICB3aWR0aDogNDAwcHg7XG4gIGhlaWdodDogNDAwcHg7XG4gIG1heC13aWR0aDogMTAwJTtcbiAgYm9yZGVyOiBkb3R0ZWQgI2NjYyAycHg7XG59Il19 */");
 
 /***/ }),
 
@@ -1911,7 +1962,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let VerActividadComponent = class VerActividadComponent {
-    constructor() { }
+    constructor() {
+        this.actividadCreada = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+    }
     ngOnInit() {
         //this.actividad.estado="Comenzada";
         console.log(this.actividad);
@@ -1922,10 +1975,30 @@ let VerActividadComponent = class VerActividadComponent {
         console.log(item);
         //this.alumno.posicion=this.dragPosition;
     }
+    comenzar() {
+        let ju = this;
+        this.actividad.estado = "Comenzada";
+        $.ajax({
+            type: 'POST',
+            url: '/actualizarActividad',
+            data: JSON.stringify(this.actividad),
+            success: function (data) {
+                this.actividad = data;
+            },
+            contentType: 'application/json',
+            dataType: 'json'
+        });
+    }
+    cerrarActividad() {
+        this.actividadCreada.emit("cerrar");
+    }
 };
 tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])()
 ], VerActividadComponent.prototype, "actividad", void 0);
+tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])()
+], VerActividadComponent.prototype, "actividadCreada", void 0);
 VerActividadComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'app-ver-actividad',

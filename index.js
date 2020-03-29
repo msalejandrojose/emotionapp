@@ -83,6 +83,16 @@ app.post("/registrarActividad", function (request, response) {
   })
 });
 
+app.post("/actualizarActividad", function (request, response) {
+  var act = request.body;
+  centro.editarActividad(act,function(res){
+    if (res != '') {
+      console.log("Actividad actualizada");
+      response.send(res);
+    }
+  })
+});
+
 //actualizarActividad
 
 app.delete("/eliminarActividad", function (request, response) {

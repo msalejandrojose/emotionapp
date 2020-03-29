@@ -86,6 +86,8 @@ function Dao() {
     }*/
 
     function modificarColeccion(coleccion, id, usr, callback) {
+        //console.log(id);
+        //console.log(usr);
         coleccion.findOneAndReplace({ _id: ObjectID(id) }, usr, function (err, result) {
             if (err) {
                 console.log("No se pudo actualizar (método genérico)");

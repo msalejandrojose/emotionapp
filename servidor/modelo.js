@@ -111,21 +111,22 @@ function Centro() {
     }
     this.editarActividad = function (act, callback) {
         var ju = this;
-        if (this.actividades[act._id] != null) {
+        if (!this.actividades[act._id]) {
             let alumnos = {};
-            for (var email in estudiantes) {
+            /*for (var email in estudiantes) {
                 alumnos[email] = new Alumno(estudiantes[email]);
-            }
+            }*/
             let a = {
-                _id: act._id,
                 nombre: act.nombre,
                 profesor: act.profesor,
                 alumnos: act.alumnos,
                 estado: act.estado,
             }
             this.dao.connect(function (db) {
-                ju.dao.modificarActividad(a, function (u) {
-                    ju.actividades[u._id].editarActividad(u.nombre, u.profesor, u.alumnos, u.estado);
+                //console.log(a);
+                ju.dao.modificarActividad(act._id,a, function (u) {
+                    //ju.actividades[u._id].editarActividad(u.nombre, u.profesor, u.alumnos, u.estado);
+                    ju.actividades[u._id]=u;
                     callback(u);
                     db.close();
                 });
