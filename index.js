@@ -3,6 +3,7 @@ var config = JSON.parse(fs.readFileSync("config.json"));
 var host = config.host;
 var port = config.port;
 var exp = require("express");
+var secure = require('ssl-express-www');
 var app = exp();
 var server = require('http').Server(app);
 var io = require('socket.io').listen(server);
@@ -23,6 +24,7 @@ var bodyParser = require("body-parser");
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use(secure);
 
 app.get("/verEstudiantes", function (request, response) {
   centro.mostrarEstudiantes(function (res) {
