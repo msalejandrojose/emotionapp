@@ -87,6 +87,7 @@ app.post("/registrarActividad", function (request, response) {
 
 app.post("/actualizarActividad", function (request, response) {
   var act = request.body;
+  console.log(act);
   centro.editarActividad(act,function(res){
     if (res != '') {
       console.log("Actividad actualizada");

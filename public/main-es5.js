@@ -104,6 +104,26 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
   },
 
   /***/
+  "./node_modules/raw-loader/dist/cjs.js!./src/app/profesor/editar-actividad/editar-actividad.component.html":
+  /*!*****************************************************************************************************************!*\
+    !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/profesor/editar-actividad/editar-actividad.component.html ***!
+    \*****************************************************************************************************************/
+
+  /*! exports provided: default */
+
+  /***/
+  function node_modulesRawLoaderDistCjsJsSrcAppProfesorEditarActividadEditarActividadComponentHtml(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony default export */
+
+
+    __webpack_exports__["default"] = "<div class=\"card\">\n    <div class=\"card-body\">\n      <h5 class=\"card-title\">Editar Actividad</h5>\n      <mat-horizontal-stepper linear #stepper>\n        <mat-step label=\"Crear Actividad\" [stepControl]=\"datosPrimarios\">\n          <br>\n          <form [formGroup]=\"datosPrimarios\">\n            <div class=\"col-md-6\">\n              <label>Nombre de la Actividad</label>\n              <input formControlName=\"fromControlNombreActividad\" [(ngModel)]=\"editarActividad.nombre\" type=\"text\"\n                class=\"form-control\" id=\"nombreActividad\" placeholder=\"Nombre de la actividad\">\n              <br>\n              <label>Nombre del Profesor</label>\n              <input formControlName=\"fromControlNombreProfesor\" [(ngModel)]=\"editarActividad.profesor\" type=\"text\"\n                class=\"form-control\" id=\"nombreProfesor\" placeholder=\"Nombre del Profesor\">\n              <br>\n  \n            </div>\n            <div class=\"row justify-content-md-center\">\n              <button mat-button matStepperNext class=\"btn btn-success\">Siguiente Paso</button>\n            </div>\n  \n          </form>\n        </mat-step>\n        <mat-step label=\"Seleccionar Alumnos\">\n          <!--Tabla de alumnos-->\n          <br>\n  \n          <div class=\"example-header\">\n            <mat-form-field>\n              <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filtrar\">\n            </mat-form-field>\n          </div>\n  \n          <div class=\"example-container mat-elevation-z8\">\n  \n            <mat-table [dataSource]=\"dataSource\" matSort>\n  \n              <ng-container matColumnDef=\"select\">\n                <th mat-header-cell *matHeaderCellDef>\n                  <mat-checkbox (change)=\"$event ? masterToggle() : null\"\n                    [checked]=\"selection.hasValue() && isAllSelected()\"\n                    [indeterminate]=\"selection.hasValue() && !isAllSelected()\" [aria-label]=\"checkboxLabel()\">\n                  </mat-checkbox>\n                </th>\n                <td mat-cell *matCellDef=\"let row\">\n                  <mat-checkbox (click)=\"$event.stopPropagation()\" (change)=\"$event ? selection.toggle(row) : null\"\n                    [checked]=\"selection.isSelected(row)\" [aria-label]=\"checkboxLabel(row)\">\n                  </mat-checkbox>\n                </td>\n              </ng-container>\n  \n              <!-- ID Column -->\n              <ng-container matColumnDef=\"nombre\">\n                <mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </mat-header-cell>\n                <mat-cell *matCellDef=\"let row\"> {{row.nombre}} </mat-cell>\n              </ng-container>\n  \n              <!-- Progress Column -->\n              <ng-container matColumnDef=\"apellidos\">\n                <mat-header-cell *matHeaderCellDef mat-sort-header> Apellidos </mat-header-cell>\n                <mat-cell *matCellDef=\"let row\"> {{row.apellidos}} </mat-cell>\n              </ng-container>\n  \n              <!-- Name Column -->\n              <ng-container matColumnDef=\"clase\">\n                <mat-header-cell *matHeaderCellDef mat-sort-header> Clase </mat-header-cell>\n                <mat-cell *matCellDef=\"let row\"> {{row.clase}} </mat-cell>\n              </ng-container>\n  \n              <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\n              <mat-row *matRowDef=\"let row; columns: displayedColumns;\">\n              </mat-row>\n            </mat-table>\n  \n            <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\n          </div>\n          <br>\n          <div class=\"row justify-content-md-center\">\n            <button mat-button matStepperPrevious class=\"btn btn-info\">Volver atras</button>\n            <p> </p>\n            <button mat-button matStepperNext class=\"btn btn-success\" (click)=\"ponerAlumnos()\">Actualizar Alumnos</button>\n          </div>\n        </mat-step>\n        <mat-step label=\"Localizacion de los alumnos\">\n          <h4>Localizacion de Alumnos</h4>\n          <div id=\"clase\" class=\"example-boundary\">\n            <!--<app-alumno *ngFor=\"let item of alumnosSeleccionados\" [alumno]=\"item\"></app-alumno>-->\n            <div *ngFor=\"let item of alumnosSeleccionados\" class=\"example-box\" ondrop=\"myFunction(item)\"\n              [cdkDragFreeDragPosition]=\"item.estudiante.posicion\" cdkDragBoundary=\".example-boundary\" cdkDrag\n              (cdkDragEnded)=\"dragEnded($event,item)\">\n              {{item.estudiante.nombre}}\n            </div>\n          </div>\n          <br>\n          <div class=\"row justify-content-md-center\">\n            <button mat-button matStepperPrevious class=\"btn btn-info\">Volver atras</button>\n            <p> </p>\n            <button mat-button matStepperNext class=\"btn btn-success\" (click)=actualizar()>Actualizar</button>\n          </div>\n        </mat-step>\n      </mat-horizontal-stepper>\n    </div>\n  </div>";
+    /***/
+  },
+
+  /***/
   "./node_modules/raw-loader/dist/cjs.js!./src/app/profesor/profesor.component.html":
   /*!****************************************************************************************!*\
     !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/profesor/profesor.component.html ***!
@@ -119,7 +139,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"row\">\n    <div class=\"col-md-2\">\n        <!--<app-sidenav-profesor></app-sidenav-profesor>-->\n        <div class=\"sidenav list-group\">\n            <a href=\"#\" (click)=\"abrirAlumnos()\">Alumno</a>\n            <a href=\"#\" (click)=\"abrirActividades()\">Actividades</a>\n        </div>\n    </div>\n    <div *ngIf=\"gestionAlumnos\" class=\"col-md-10\">\n        <br>\n        <div class=\"row justify-content-md-center\">\n            <div class=\"col-md-10\">\n                <h4>Alumno</h4>\n            </div>\n            <div class=\"col-md-2\">\n                <button type=\"button\" (click)=\"abrirActividades()\" class=\"btn btn-outline-primary\">Crear\n                    Actividad</button>\n            </div>\n        </div>\n        <div class=\"row justify-content-md-center\">\n            <!--<div class=\"card-body card-body-cascade text-center wow fadeIn\">\n                <h4>Hola mundo</h4>\n                <p>asdalksdjlajsdklasjdkljlañksjfñdskladsfjñalksfj</p>\n            </div>-->\n            <div class=\"card col-md-6\">\n                <div *ngIf=\"!editarAlumno\" class=\"card-body\">\n                    <h4 class=\"card-title\">Crear Alumno</h4>\n                    <div>\n                        <label>Nombre del Alumn@</label>\n                        <input [(ngModel)]=\"alumnoCreate.nombre\" type=\"text\" class=\"form-control\" id=\"nombre\"\n                            placeholder=\"Nombre\">\n                        <br>\n                        <label>Apellidos</label>\n                        <input [(ngModel)]=\"alumnoCreate.apellidos\" type=\"text\" class=\"form-control\" id=\"apellidos\"\n                            ng-model=\"apellidos\" placeholder=\"Apellidos\">\n                        <br>\n                        <label>Clase</label>\n                        <input [(ngModel)]=\"alumnoCreate.clase\" type=\"text\" class=\"form-control\" id=\"clase\"\n                            ng-model=\"clase\" placeholder=\"Clase\">\n                        <br>\n                        <label>Email</label>\n                        <input [(ngModel)]=\"alumnoCreate.email\" type=\"email\" class=\"form-control\" id=\"email\"\n                            ng-model=\"email\" placeholder=\"Enter email\">\n                        <small id=\"emailHelp\" class=\"form-text text-muted\">El email tiene que ser unico</small>\n                        <br>\n                        <label>Contraseña</label>\n                        <input [(ngModel)]=\"alumnoCreate.contrasena\" type=\"password\" class=\"form-control\"\n                            id=\"contrasena\" ng-model=\"contrasena\" placeholder=\"Contraseña\">\n                        <small id=\"contrasenaHelp\" class=\"form-text text-muted\">El usuario podra entrar con esta\n                            contraseña</small>\n                        <button type=\"button\" (click)=\"limpiar()\" class=\"btn btn-raised btn-danger\">Limpiar</button>\n                        <button type=\"button\" (click)=\"anadirAlumno()\" class=\"btn btn-raised btn-success\">Guardar\n                            Alumn@</button>\n                    </div>\n                </div>\n                <div *ngIf=\"editarAlumno\" class=\"card-body\">\n                    <h4 class=\"card-title\">Editar Alumno</h4>\n                    <div>\n                        <label>Nombre del Alumn@</label>\n                        <input [(ngModel)]=\"onSelectedAlumno.nombre\" type=\"text\" class=\"form-control\" id=\"nombre\"\n                            placeholder=\"Nombre\">\n                        <br>\n                        <label>Apellidos</label>\n                        <input [(ngModel)]=\"onSelectedAlumno.apellidos\" type=\"text\" class=\"form-control\" id=\"apellidos\"\n                            ng-model=\"apellidos\" placeholder=\"Apellidos\">\n                        <br>\n                        <label>Clase</label>\n                        <input [(ngModel)]=\"onSelectedAlumno.clase\" type=\"text\" class=\"form-control\" id=\"clase\"\n                            ng-model=\"clase\" placeholder=\"Clase\">\n                        <br>\n                        <label>Email</label>\n                        <input [(ngModel)]=\"onSelectedAlumno.email\" type=\"email\" class=\"form-control\" id=\"email\"\n                            ng-model=\"email\" placeholder=\"Enter email\">\n                        <small id=\"emailHelp\" class=\"form-text text-muted\">El email tiene que ser unico</small>\n                        <br>\n                        <label>Contraseña</label>\n                        <input [(ngModel)]=\"onSelectedAlumno.contrasena\" type=\"password\" class=\"form-control\"\n                            id=\"contrasena\" ng-model=\"contrasena\" placeholder=\"Contraseña\">\n                        <small id=\"contrasenaHelp\" class=\"form-text text-muted\">El usuario podra entrar con esta\n                            contraseña</small>\n                        <button type=\"button\" (click)=\"limpiar()\" class=\"btn btn-raised btn-danger\">Limpiar</button>\n                        <button type=\"button\" (click)=\"actualizarAlumno()\" class=\"btn btn-raised btn-success\">Actualizar\n                            Alumn@</button>\n                    </div>\n                </div>\n            </div>\n            <div class=\"col-md-6\">\n                <h3>Lista de Alumnos</h3>\n                <table class=\"table table-striped\">\n                    <thead>\n                        <tr>\n                            <th scope=\"col\">Nombre</th>\n                            <th scope=\"col\">Apellidos</th>\n                            <th scope=\"col\">Clase</th>\n                            <th scope=\"col\"></th>\n                            <th scope=\"col\"></th>\n                        </tr>\n                    </thead>\n                    <tbody *ngFor=\"let alumno of listaAlumnos\">\n                        <tr>\n                            <td>{{alumno.nombre}}</td>\n                            <td>{{alumno.apellidos}}</td>\n                            <td>{{alumno.clase}}</td>\n                            <td><i (click)=\"editar(alumno)\" class=\"fa fa-edit\"></i></td>\n                            <td><i (click)=\"borrar(alumno)\" class=\"fa fa-trash-o\"></i></td>\n                        </tr>\n                    </tbody>\n                </table>\n            </div>\n        </div>\n    </div>\n    <div *ngIf=\"gestionActividades\" class=\"col-md-10\">\n        <br>\n        <div class=\"row justify-content-md-center\">\n            <div class=\"col-md-10\">\n                <h4>Actividades</h4>\n            </div>\n            <div class=\"col-md-2\">\n                <button type=\"button\" *ngIf=\"!crearActividad && !verActividad\" (click)=\"abrirCrearActividad()\" class=\"btn btn-outline-primary\">Crear\n                    Actividad</button>\n                <button type=\"button\" *ngIf=\"crearActividad && !verActividad\" (click)=\"cerrarCrearActividad()\" class=\"btn btn-outline-danger\">Cancelar</button>\n                <!--<button type=\"button\" *ngIf=\"!crearActividad && verActividad\" (click)=\"cerrarActividad()\" class=\"btn btn-outline-danger\">Cerrar Actividad</button>-->\n            </div>\n        </div>\n        <br>\n        <div class=\"col-md-11\">\n            <app-crear-actividad *ngIf=\"crearActividad\" [estudiantes]=\"listaAlumnos\" (actividadCreada)=\"guardarActividad($event)\" ></app-crear-actividad>\n            <app-crear-actividad *ngIf=\"editarActividad\" [estudiantes]=\"listaAlumnos\" [editarActividad]=\"ActividadparaEditar\" (actividadCreada)=\"guardarActividad($event)\" ></app-crear-actividad>\n        </div>\n        <br>\n        <div *ngIf=\"verActividad\">\n            <app-ver-actividad [actividad]=\"actividadSelected\" (actividadCreada)=\"cerrarActividad($event)\"></app-ver-actividad>\n        </div>\n        <div *ngIf=\"!verActividad\" class=\"row justify-content-md-center\">\n            <div class=\"col-md-10\">\n                <h3>Lista de Actividades</h3>\n                <table class=\"table table-striped\">\n                    <thead>\n                        <tr>\n                            <th scope=\"col\">Nombre</th>\n                            <th scope=\"col\">Profesor</th>\n                            <th scope=\"col\">Estado</th>\n                            <th scope=\"col\"></th>\n                            <th scope=\"col\"></th>\n                            <th scope=\"col\"></th>\n                        </tr>\n                    </thead>\n                    <tbody *ngFor=\"let actividad of listaActividades\">\n                        <tr *ngIf=\"actividad.estado=='Creada'\">\n                            <td>{{actividad.nombre}}</td>\n                            <td>{{actividad.profesor}}</td>\n                            <td>{{actividad.estado}}</td>\n                            <td><button type=\"button\" class=\"btn btn-outline-primary\" (click)=\"abrirActividad(actividad)\">Mostrar</button></td>\n                            <td><i (click)=\"editarA(actividad)\" class=\"fa fa-edit\"></i></td>\n                            <td><i (click)=\"borrarA(actividad)\" class=\"fa fa-trash-o\"></i></td>\n                        </tr>\n                        <tr *ngIf=\"actividad.estado=='Comenzada'\">\n                            <td>{{actividad.nombre}}</td>\n                            <td>{{actividad.profesor}}</td>\n                            <td>{{actividad.estado}}</td>\n                            <td><button type=\"button\" class=\"btn btn-outline-success\" (click)=\"abrirActividad(actividad)\">Ver</button></td>\n                            <td><i (click)=\"editarA(actividad)\" class=\"fa fa-edit\"></i></td>\n                            <td><i (click)=\"borrarA(actividad)\" class=\"fa fa-trash-o\"></i></td>\n                        </tr>\n                    </tbody>\n                </table>\n            </div>\n        </div>\n    </div>\n</div>";
+    __webpack_exports__["default"] = "<div class=\"row\">\n    <div class=\"col-md-2\">\n        <!--<app-sidenav-profesor></app-sidenav-profesor>-->\n        <div class=\"sidenav list-group\">\n            <a href=\"#\" (click)=\"abrirAlumnos()\">Alumno</a>\n            <a href=\"#\" (click)=\"abrirActividades()\">Actividades</a>\n        </div>\n    </div>\n    <div *ngIf=\"gestionAlumnos\" class=\"col-md-10\">\n        <br>\n        <div class=\"row justify-content-md-center\">\n            <div class=\"col-md-10\">\n                <h4>Alumno</h4>\n            </div>\n            <div class=\"col-md-2\">\n                <button type=\"button\" (click)=\"abrirActividades()\" class=\"btn btn-outline-primary\">Crear\n                    Actividad</button>\n            </div>\n        </div>\n        <div class=\"row justify-content-md-center\">\n            <!--<div class=\"card-body card-body-cascade text-center wow fadeIn\">\n                <h4>Hola mundo</h4>\n                <p>asdalksdjlajsdklasjdkljlañksjfñdskladsfjñalksfj</p>\n            </div>-->\n            <div class=\"card col-md-6\">\n                <div *ngIf=\"!editarAlumno\" class=\"card-body\">\n                    <h4 class=\"card-title\">Crear Alumno</h4>\n                    <div>\n                        <label>Nombre del Alumn@</label>\n                        <input [(ngModel)]=\"alumnoCreate.nombre\" type=\"text\" class=\"form-control\" id=\"nombre\"\n                            placeholder=\"Nombre\">\n                        <br>\n                        <label>Apellidos</label>\n                        <input [(ngModel)]=\"alumnoCreate.apellidos\" type=\"text\" class=\"form-control\" id=\"apellidos\"\n                            ng-model=\"apellidos\" placeholder=\"Apellidos\">\n                        <br>\n                        <label>Clase</label>\n                        <input [(ngModel)]=\"alumnoCreate.clase\" type=\"text\" class=\"form-control\" id=\"clase\"\n                            ng-model=\"clase\" placeholder=\"Clase\">\n                        <br>\n                        <label>Email</label>\n                        <input [(ngModel)]=\"alumnoCreate.email\" type=\"email\" class=\"form-control\" id=\"email\"\n                            ng-model=\"email\" placeholder=\"Enter email\">\n                        <small id=\"emailHelp\" class=\"form-text text-muted\">El email tiene que ser unico</small>\n                        <br>\n                        <label>Contraseña</label>\n                        <input [(ngModel)]=\"alumnoCreate.contrasena\" type=\"password\" class=\"form-control\"\n                            id=\"contrasena\" ng-model=\"contrasena\" placeholder=\"Contraseña\">\n                        <small id=\"contrasenaHelp\" class=\"form-text text-muted\">El usuario podra entrar con esta\n                            contraseña</small>\n                        <button type=\"button\" (click)=\"limpiar()\" class=\"btn btn-raised btn-danger\">Limpiar</button>\n                        <button type=\"button\" (click)=\"anadirAlumno()\" class=\"btn btn-raised btn-success\">Guardar\n                            Alumn@</button>\n                    </div>\n                </div>\n                <div *ngIf=\"editarAlumno\" class=\"card-body\">\n                    <h4 class=\"card-title\">Editar Alumno</h4>\n                    <div>\n                        <label>Nombre del Alumn@</label>\n                        <input [(ngModel)]=\"onSelectedAlumno.nombre\" type=\"text\" class=\"form-control\" id=\"nombre\"\n                            placeholder=\"Nombre\">\n                        <br>\n                        <label>Apellidos</label>\n                        <input [(ngModel)]=\"onSelectedAlumno.apellidos\" type=\"text\" class=\"form-control\" id=\"apellidos\"\n                            ng-model=\"apellidos\" placeholder=\"Apellidos\">\n                        <br>\n                        <label>Clase</label>\n                        <input [(ngModel)]=\"onSelectedAlumno.clase\" type=\"text\" class=\"form-control\" id=\"clase\"\n                            ng-model=\"clase\" placeholder=\"Clase\">\n                        <br>\n                        <label>Email</label>\n                        <input [(ngModel)]=\"onSelectedAlumno.email\" type=\"email\" class=\"form-control\" id=\"email\"\n                            ng-model=\"email\" placeholder=\"Enter email\">\n                        <small id=\"emailHelp\" class=\"form-text text-muted\">El email tiene que ser unico</small>\n                        <br>\n                        <label>Contraseña</label>\n                        <input [(ngModel)]=\"onSelectedAlumno.contrasena\" type=\"password\" class=\"form-control\"\n                            id=\"contrasena\" ng-model=\"contrasena\" placeholder=\"Contraseña\">\n                        <small id=\"contrasenaHelp\" class=\"form-text text-muted\">El usuario podra entrar con esta\n                            contraseña</small>\n                        <button type=\"button\" (click)=\"limpiar()\" class=\"btn btn-raised btn-danger\">Limpiar</button>\n                        <button type=\"button\" (click)=\"actualizarAlumno()\" class=\"btn btn-raised btn-success\">Actualizar\n                            Alumn@</button>\n                    </div>\n                </div>\n            </div>\n            <div class=\"col-md-6\">\n                <h3>Lista de Alumnos</h3>\n                <table class=\"table table-striped\">\n                    <thead>\n                        <tr>\n                            <th scope=\"col\">Nombre</th>\n                            <th scope=\"col\">Apellidos</th>\n                            <th scope=\"col\">Clase</th>\n                            <th scope=\"col\"></th>\n                            <th scope=\"col\"></th>\n                        </tr>\n                    </thead>\n                    <tbody *ngFor=\"let alumno of listaAlumnos\">\n                        <tr>\n                            <td>{{alumno.nombre}}</td>\n                            <td>{{alumno.apellidos}}</td>\n                            <td>{{alumno.clase}}</td>\n                            <td><i (click)=\"editar(alumno)\" class=\"fa fa-edit\"></i></td>\n                            <td><i (click)=\"borrar(alumno)\" class=\"fa fa-trash-o\"></i></td>\n                        </tr>\n                    </tbody>\n                </table>\n            </div>\n        </div>\n    </div>\n    <div *ngIf=\"gestionActividades\" class=\"col-md-10\">\n        <br>\n        <div class=\"row justify-content-md-center\">\n            <div class=\"col-md-10\">\n                <h4>Actividades</h4>\n            </div>\n            <div class=\"col-md-2\">\n                <button type=\"button\" *ngIf=\"(!crearActividad && !verActividad) && !editarActividad\" (click)=\"abrirCrearActividad()\" class=\"btn btn-outline-primary\">Crear\n                    Actividad</button>\n                <button type=\"button\" *ngIf=\"(crearActividad && !verActividad) || editarActividad\" (click)=\"cerrarModal()\" class=\"btn btn-outline-danger\">Cancelar</button>\n                <!--<button type=\"button\" *ngIf=\"!crearActividad && verActividad\" (click)=\"cerrarActividad()\" class=\"btn btn-outline-danger\">Cerrar Actividad</button>-->\n            </div>\n        </div>\n        <br>\n        <div class=\"col-md-11\">\n            <app-crear-actividad *ngIf=\"crearActividad\" [estudiantes]=\"listaAlumnos\" (actividadCreada)=\"guardarActividad($event)\" ></app-crear-actividad>\n            <app-editar-actividad *ngIf=\"editarActividad\" [estudiantes]=\"listaAlumnos\" [editarActividad]=\"ActividadparaEditar\" (actividadEditada)=\"actualizarActividad($event)\" ></app-editar-actividad>\n        </div>\n        <br>\n        <div *ngIf=\"verActividad\">\n            <app-ver-actividad [actividad]=\"actividadSelected\" (actividadCreada)=\"cerrarActividad($event)\"></app-ver-actividad>\n        </div>\n        <div *ngIf=\"!verActividad\" class=\"row justify-content-md-center\">\n            <div class=\"col-md-10\">\n                <h3>Lista de Actividades</h3>\n                <table class=\"table table-striped\">\n                    <thead>\n                        <tr>\n                            <th scope=\"col\">Nombre</th>\n                            <th scope=\"col\">Profesor</th>\n                            <th scope=\"col\">Estado</th>\n                            <th scope=\"col\"></th>\n                            <th scope=\"col\"></th>\n                            <th scope=\"col\"></th>\n                        </tr>\n                    </thead>\n                    <tbody *ngFor=\"let actividad of listaActividades\">\n                        <tr *ngIf=\"actividad.estado=='Creada'\">\n                            <td>{{actividad.nombre}}</td>\n                            <td>{{actividad.profesor}}</td>\n                            <td>{{actividad.estado}}</td>\n                            <td><button type=\"button\" class=\"btn btn-outline-primary\" (click)=\"abrirActividad(actividad)\">Mostrar</button></td>\n                            <td><i (click)=\"editarA(actividad)\" class=\"fa fa-edit\"></i></td>\n                            <td><i (click)=\"borrarA(actividad)\" class=\"fa fa-trash-o\"></i></td>\n                        </tr>\n                        <tr *ngIf=\"actividad.estado=='Comenzada'\">\n                            <td>{{actividad.nombre}}</td>\n                            <td>{{actividad.profesor}}</td>\n                            <td>{{actividad.estado}}</td>\n                            <td><button type=\"button\" class=\"btn btn-outline-success\" (click)=\"abrirActividad(actividad)\">Ver</button></td>\n                            <td><i (click)=\"editarA(actividad)\" class=\"fa fa-edit\"></i></td>\n                            <td><i (click)=\"borrarA(actividad)\" class=\"fa fa-trash-o\"></i></td>\n                        </tr>\n                    </tbody>\n                </table>\n            </div>\n        </div>\n    </div>\n</div>";
     /***/
   },
 
@@ -1331,6 +1351,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var _profesor_ver_actividad_ver_actividad_component__WEBPACK_IMPORTED_MODULE_55__ = __webpack_require__(
     /*! ./profesor/ver-actividad/ver-actividad.component */
     "./src/app/profesor/ver-actividad/ver-actividad.component.ts");
+    /* harmony import */
+
+
+    var _profesor_editar_actividad_editar_actividad_component__WEBPACK_IMPORTED_MODULE_56__ = __webpack_require__(
+    /*! ./profesor/editar-actividad/editar-actividad.component */
+    "./src/app/profesor/editar-actividad/editar-actividad.component.ts");
     /*
     import { NgModule } from '@angular/core';
     import {MatSidenavModule} from '@angular/material/sidenav';
@@ -1346,7 +1372,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     };
 
     AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-      declarations: [_app_component__WEBPACK_IMPORTED_MODULE_49__["AppComponent"], _profesor_profesor_component__WEBPACK_IMPORTED_MODULE_51__["ProfesorComponent"], _estudiante_estudiante_component__WEBPACK_IMPORTED_MODULE_52__["EstudianteComponent"], _profesor_sidenav_profesor_sidenav_profesor_component__WEBPACK_IMPORTED_MODULE_53__["SidenavProfesorComponent"], _profesor_crear_actividad_crear_actividad_component__WEBPACK_IMPORTED_MODULE_54__["CrearActividadComponent"], _profesor_ver_actividad_ver_actividad_component__WEBPACK_IMPORTED_MODULE_55__["VerActividadComponent"]],
+      declarations: [_app_component__WEBPACK_IMPORTED_MODULE_49__["AppComponent"], _profesor_profesor_component__WEBPACK_IMPORTED_MODULE_51__["ProfesorComponent"], _estudiante_estudiante_component__WEBPACK_IMPORTED_MODULE_52__["EstudianteComponent"], _profesor_sidenav_profesor_sidenav_profesor_component__WEBPACK_IMPORTED_MODULE_53__["SidenavProfesorComponent"], _profesor_crear_actividad_crear_actividad_component__WEBPACK_IMPORTED_MODULE_54__["CrearActividadComponent"], _profesor_ver_actividad_ver_actividad_component__WEBPACK_IMPORTED_MODULE_55__["VerActividadComponent"], _profesor_editar_actividad_editar_actividad_component__WEBPACK_IMPORTED_MODULE_56__["EditarActividadComponent"]],
       exports: [_angular_material_sidenav__WEBPACK_IMPORTED_MODULE_33__["MatSidenavModule"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_19__["MatDialogModule"], _angular_material_stepper__WEBPACK_IMPORTED_MODULE_17__["MatStepperModule"], _angular_cdk_a11y__WEBPACK_IMPORTED_MODULE_2__["A11yModule"], //ClipboardModule,
       _angular_cdk_stepper__WEBPACK_IMPORTED_MODULE_6__["CdkStepperModule"], _angular_cdk_table__WEBPACK_IMPORTED_MODULE_7__["CdkTableModule"], _angular_cdk_tree__WEBPACK_IMPORTED_MODULE_8__["CdkTreeModule"], _angular_cdk_drag_drop__WEBPACK_IMPORTED_MODULE_3__["DragDropModule"], _angular_material_autocomplete__WEBPACK_IMPORTED_MODULE_9__["MatAutocompleteModule"], _angular_material_badge__WEBPACK_IMPORTED_MODULE_10__["MatBadgeModule"], _angular_material_bottom_sheet__WEBPACK_IMPORTED_MODULE_11__["MatBottomSheetModule"], _angular_material_button__WEBPACK_IMPORTED_MODULE_12__["MatButtonModule"], _angular_material_button_toggle__WEBPACK_IMPORTED_MODULE_13__["MatButtonToggleModule"], _angular_material_card__WEBPACK_IMPORTED_MODULE_14__["MatCardModule"], _angular_material_checkbox__WEBPACK_IMPORTED_MODULE_15__["MatCheckboxModule"], _angular_material_chips__WEBPACK_IMPORTED_MODULE_16__["MatChipsModule"], _angular_material_stepper__WEBPACK_IMPORTED_MODULE_17__["MatStepperModule"], _angular_material_datepicker__WEBPACK_IMPORTED_MODULE_18__["MatDatepickerModule"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_19__["MatDialogModule"], _angular_material_divider__WEBPACK_IMPORTED_MODULE_20__["MatDividerModule"], _angular_material_expansion__WEBPACK_IMPORTED_MODULE_21__["MatExpansionModule"], _angular_material_grid_list__WEBPACK_IMPORTED_MODULE_22__["MatGridListModule"], _angular_material_icon__WEBPACK_IMPORTED_MODULE_23__["MatIconModule"], _angular_material_input__WEBPACK_IMPORTED_MODULE_24__["MatInputModule"], _angular_material_list__WEBPACK_IMPORTED_MODULE_25__["MatListModule"], _angular_material_menu__WEBPACK_IMPORTED_MODULE_26__["MatMenuModule"], _angular_material_core__WEBPACK_IMPORTED_MODULE_27__["MatNativeDateModule"], _angular_material_paginator__WEBPACK_IMPORTED_MODULE_28__["MatPaginatorModule"], _angular_material_progress_bar__WEBPACK_IMPORTED_MODULE_29__["MatProgressBarModule"], _angular_material_progress_spinner__WEBPACK_IMPORTED_MODULE_30__["MatProgressSpinnerModule"], _angular_material_radio__WEBPACK_IMPORTED_MODULE_31__["MatRadioModule"], _angular_material_core__WEBPACK_IMPORTED_MODULE_27__["MatRippleModule"], _angular_material_select__WEBPACK_IMPORTED_MODULE_32__["MatSelectModule"], _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_33__["MatSidenavModule"], _angular_material_slider__WEBPACK_IMPORTED_MODULE_34__["MatSliderModule"], _angular_material_slide_toggle__WEBPACK_IMPORTED_MODULE_35__["MatSlideToggleModule"], _angular_material_snack_bar__WEBPACK_IMPORTED_MODULE_36__["MatSnackBarModule"], _angular_material_sort__WEBPACK_IMPORTED_MODULE_37__["MatSortModule"], _angular_material_table__WEBPACK_IMPORTED_MODULE_38__["MatTableModule"], _angular_material_tabs__WEBPACK_IMPORTED_MODULE_39__["MatTabsModule"], _angular_material_toolbar__WEBPACK_IMPORTED_MODULE_40__["MatToolbarModule"], _angular_material_tooltip__WEBPACK_IMPORTED_MODULE_41__["MatTooltipModule"], _angular_material_tree__WEBPACK_IMPORTED_MODULE_42__["MatTreeModule"], _angular_cdk_portal__WEBPACK_IMPORTED_MODULE_4__["PortalModule"], _angular_cdk_scrolling__WEBPACK_IMPORTED_MODULE_5__["ScrollingModule"], _angular_material_button__WEBPACK_IMPORTED_MODULE_12__["MatButtonModule"], _angular_material_input__WEBPACK_IMPORTED_MODULE_24__["MatInputModule"], _angular_material_core__WEBPACK_IMPORTED_MODULE_27__["MatRippleModule"], _angular_material_toolbar__WEBPACK_IMPORTED_MODULE_40__["MatToolbarModule"], _angular_material_button__WEBPACK_IMPORTED_MODULE_12__["MatButtonModule"], _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_33__["MatSidenavModule"], _angular_material_icon__WEBPACK_IMPORTED_MODULE_23__["MatIconModule"], _angular_material_list__WEBPACK_IMPORTED_MODULE_25__["MatListModule"], _angular_material_stepper__WEBPACK_IMPORTED_MODULE_17__["MatStepperModule"], _angular_material_input__WEBPACK_IMPORTED_MODULE_24__["MatInputModule"]],
       imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_43__["BrowserModule"], _app_routing_module__WEBPACK_IMPORTED_MODULE_48__["AppRoutingModule"], _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_50__["BrowserAnimationsModule"], _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_33__["MatSidenavModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_44__["FormsModule"], _angular_material_button__WEBPACK_IMPORTED_MODULE_12__["MatButtonModule"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_19__["MatDialogModule"], _angular_material_stepper__WEBPACK_IMPORTED_MODULE_17__["MatStepperModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_44__["ReactiveFormsModule"], _angular_material_table__WEBPACK_IMPORTED_MODULE_38__["MatTableModule"], _angular_material_checkbox__WEBPACK_IMPORTED_MODULE_15__["MatCheckboxModule"], _angular_material_toolbar__WEBPACK_IMPORTED_MODULE_40__["MatToolbarModule"], _angular_material_button__WEBPACK_IMPORTED_MODULE_12__["MatButtonModule"], _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_33__["MatSidenavModule"], _angular_material_icon__WEBPACK_IMPORTED_MODULE_23__["MatIconModule"], _angular_material_list__WEBPACK_IMPORTED_MODULE_25__["MatListModule"], _angular_material_stepper__WEBPACK_IMPORTED_MODULE_17__["MatStepperModule"], _angular_material_input__WEBPACK_IMPORTED_MODULE_24__["MatInputModule"], _angular_material_paginator__WEBPACK_IMPORTED_MODULE_28__["MatPaginatorModule"], _angular_cdk_drag_drop__WEBPACK_IMPORTED_MODULE_3__["DragDropModule"], ngx_webcam__WEBPACK_IMPORTED_MODULE_45__["WebcamModule"], _angular_common_http__WEBPACK_IMPORTED_MODULE_46__["HttpClientModule"]],
@@ -2052,33 +2078,81 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "desconectarSensor",
         value: function desconectarSensor(sensor) {
-          if (sensor.nombre == "Led") {
-            //console.log(sensor);
-            sensor.data = null;
-            sensor.estado = "Desconectado";
-          }
+          return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
+          /*#__PURE__*/
+          regeneratorRuntime.mark(function _callee4() {
+            var constraints, stream, track;
+            return regeneratorRuntime.wrap(function _callee4$(_context4) {
+              while (1) {
+                switch (_context4.prev = _context4.next) {
+                  case 0:
+                    if (sensor.nombre == "Led") {
+                      //console.log(sensor);
+                      sensor.data = null;
+                      sensor.estado = "Desconectado";
+                    }
 
-          if (sensor.nombre == "Camara") {
-            navigator.getUserMedia({
-              audio: false,
-              video: true
-            }, function (stream) {
-              // can also use getAudioTracks() or getVideoTracks()
-              var track = stream.getTracks()[0]; // if only one media track
-              // ...
+                    if (!(sensor.nombre == "Camara")) {
+                      _context4.next = 17;
+                      break;
+                    }
 
-              track.stop();
-              sensor.data = null;
-              sensor.estado = "Desconectado";
-            }, function (error) {
-              console.log('getUserMedia() error', error);
-            });
-          }
+                    /*navigator.getUserMedia({ audio: false, video: true },
+                      function (stream) {
+                        // can also use getAudioTracks() or getVideoTracks()
+                        var track = stream.getTracks()[0];  // if only one media track
+                        // ...
+                        track.stop();
+                        sensor.data = null;
+                        sensor.estado = "Desconectado";
+                      },
+                      function (error) {
+                        console.log('getUserMedia() error', error);
+                      });*/
+                    ///
+                    //sensor.data = document.getElementById('video');
+                    constraints = {
+                      audio: false,
+                      video: {
+                        width: 720,
+                        height: 480
+                      }
+                    };
+                    _context4.prev = 3;
+                    _context4.next = 6;
+                    return navigator.mediaDevices.getUserMedia(constraints);
 
-          if (sensor.nombre == "Pulsera") {
-            sensor.data = null;
-            sensor.estado = "Desconectado";
-          }
+                  case 6:
+                    stream = _context4.sent;
+                    track = stream.getTracks()[0]; // if only one media track
+                    // ...
+
+                    track.stop();
+                    sensor.data = null;
+                    sensor.estado = "Desconectado";
+                    _context4.next = 17;
+                    break;
+
+                  case 13:
+                    _context4.prev = 13;
+                    _context4.t0 = _context4["catch"](3);
+                    //errorMsgElement.innerHTML = `navigator.getUserMedia error:${e.toString()}`;
+                    console.log(_context4.t0);
+                    console.log("Has tenido un error");
+
+                  case 17:
+                    if (sensor.nombre == "Pulsera") {
+                      sensor.data = null;
+                      sensor.estado = "Desconectado";
+                    }
+
+                  case 18:
+                  case "end":
+                    return _context4.stop();
+                }
+              }
+            }, _callee4, null, [[3, 13]]);
+          }));
         } //Implementacion del led
 
       }, {
@@ -2086,14 +2160,14 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function conectarLed(sensor) {
           return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
           /*#__PURE__*/
-          regeneratorRuntime.mark(function _callee4() {
-            return regeneratorRuntime.wrap(function _callee4$(_context4) {
+          regeneratorRuntime.mark(function _callee5() {
+            return regeneratorRuntime.wrap(function _callee5$(_context5) {
               while (1) {
-                switch (_context4.prev = _context4.next) {
+                switch (_context5.prev = _context5.next) {
                   case 0:
                     console.log("Conectandose...");
-                    _context4.prev = 1;
-                    _context4.next = 4;
+                    _context5.prev = 1;
+                    _context5.next = 4;
                     return navigator.hid.requestDevice({
                       filters: [{
                         vendorId: 0x20a0,
@@ -2102,20 +2176,20 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                     });
 
                   case 4:
-                    sensor.data = _context4.sent;
+                    sensor.data = _context5.sent;
                     //device.open();
                     //console.log(this.device);
                     this.led.estado = "Conectado";
-                    _context4.next = 8;
+                    _context5.next = 8;
                     return sensor.data.open();
 
                   case 8:
-                    _context4.next = 12;
+                    _context5.next = 12;
                     break;
 
                   case 10:
-                    _context4.prev = 10;
-                    _context4.t0 = _context4["catch"](1);
+                    _context5.prev = 10;
+                    _context5.t0 = _context5["catch"](1);
 
                   case 12:
                     console.log(this.listaSensores);
@@ -2125,36 +2199,15 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
                   case 14:
                   case "end":
-                    return _context4.stop();
+                    return _context5.stop();
                 }
               }
-            }, _callee4, this, [[1, 10]]);
+            }, _callee5, this, [[1, 10]]);
           }));
         }
       }, {
         key: "ponerHappy",
         value: function ponerHappy() {
-          return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
-          /*#__PURE__*/
-          regeneratorRuntime.mark(function _callee5() {
-            return regeneratorRuntime.wrap(function _callee5$(_context5) {
-              while (1) {
-                switch (_context5.prev = _context5.next) {
-                  case 0:
-                    _context5.next = 2;
-                    return this.fadeToColor(this.led.data, [255, 255, 0]);
-
-                  case 2:
-                  case "end":
-                    return _context5.stop();
-                }
-              }
-            }, _callee5, this);
-          }));
-        }
-      }, {
-        key: "ponerNeutral",
-        value: function ponerNeutral() {
           return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
           /*#__PURE__*/
           regeneratorRuntime.mark(function _callee6() {
@@ -2163,7 +2216,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                 switch (_context6.prev = _context6.next) {
                   case 0:
                     _context6.next = 2;
-                    return this.fadeToColor(this.led.data, [84, 255, 84]);
+                    return this.fadeToColor(this.led.data, [255, 255, 0]);
 
                   case 2:
                   case "end":
@@ -2174,8 +2227,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           }));
         }
       }, {
-        key: "ponerSad",
-        value: function ponerSad() {
+        key: "ponerNeutral",
+        value: function ponerNeutral() {
           return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
           /*#__PURE__*/
           regeneratorRuntime.mark(function _callee7() {
@@ -2184,7 +2237,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                 switch (_context7.prev = _context7.next) {
                   case 0:
                     _context7.next = 2;
-                    return this.fadeToColor(this.led.data, [81, 81, 255]);
+                    return this.fadeToColor(this.led.data, [84, 255, 84]);
 
                   case 2:
                   case "end":
@@ -2195,8 +2248,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           }));
         }
       }, {
-        key: "ponerAngry",
-        value: function ponerAngry() {
+        key: "ponerSad",
+        value: function ponerSad() {
           return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
           /*#__PURE__*/
           regeneratorRuntime.mark(function _callee8() {
@@ -2205,7 +2258,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                 switch (_context8.prev = _context8.next) {
                   case 0:
                     _context8.next = 2;
-                    return this.fadeToColor(this.led.data, [255, 0, 0]);
+                    return this.fadeToColor(this.led.data, [81, 81, 255]);
 
                   case 2:
                   case "end":
@@ -2216,8 +2269,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           }));
         }
       }, {
-        key: "ponerFearful",
-        value: function ponerFearful() {
+        key: "ponerAngry",
+        value: function ponerAngry() {
           return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
           /*#__PURE__*/
           regeneratorRuntime.mark(function _callee9() {
@@ -2226,7 +2279,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                 switch (_context9.prev = _context9.next) {
                   case 0:
                     _context9.next = 2;
-                    return this.fadeToColor(this.led.data, [0, 150, 0]);
+                    return this.fadeToColor(this.led.data, [255, 0, 0]);
 
                   case 2:
                   case "end":
@@ -2237,8 +2290,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           }));
         }
       }, {
-        key: "ponerDisgusted",
-        value: function ponerDisgusted() {
+        key: "ponerFearful",
+        value: function ponerFearful() {
           return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
           /*#__PURE__*/
           regeneratorRuntime.mark(function _callee10() {
@@ -2247,7 +2300,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                 switch (_context10.prev = _context10.next) {
                   case 0:
                     _context10.next = 2;
-                    return this.fadeToColor(this.led.data, [80, 80, 80]);
+                    return this.fadeToColor(this.led.data, [0, 150, 0]);
 
                   case 2:
                   case "end":
@@ -2258,8 +2311,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           }));
         }
       }, {
-        key: "ponerSurprised",
-        value: function ponerSurprised() {
+        key: "ponerDisgusted",
+        value: function ponerDisgusted() {
           return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
           /*#__PURE__*/
           regeneratorRuntime.mark(function _callee11() {
@@ -2268,7 +2321,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                 switch (_context11.prev = _context11.next) {
                   case 0:
                     _context11.next = 2;
-                    return this.fadeToColor(this.led.data, [89, 189, 255]);
+                    return this.fadeToColor(this.led.data, [80, 80, 80]);
 
                   case 2:
                   case "end":
@@ -2276,6 +2329,27 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                 }
               }
             }, _callee11, this);
+          }));
+        }
+      }, {
+        key: "ponerSurprised",
+        value: function ponerSurprised() {
+          return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
+          /*#__PURE__*/
+          regeneratorRuntime.mark(function _callee12() {
+            return regeneratorRuntime.wrap(function _callee12$(_context12) {
+              while (1) {
+                switch (_context12.prev = _context12.next) {
+                  case 0:
+                    _context12.next = 2;
+                    return this.fadeToColor(this.led.data, [89, 189, 255]);
+
+                  case 2:
+                  case "end":
+                    return _context12.stop();
+                }
+              }
+            }, _callee12, this);
           }));
         }
       }, {
@@ -2288,35 +2362,35 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
           return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
           /*#__PURE__*/
-          regeneratorRuntime.mark(function _callee12() {
+          regeneratorRuntime.mark(function _callee13() {
             var reportId, data;
-            return regeneratorRuntime.wrap(function _callee12$(_context12) {
+            return regeneratorRuntime.wrap(function _callee13$(_context13) {
               while (1) {
-                switch (_context12.prev = _context12.next) {
+                switch (_context13.prev = _context13.next) {
                   case 0:
                     reportId = 1;
                     data = Uint8Array.from([r, g, b]); //const negro = Uint8Array.from([0x63, 0, 0, 0, 0x00, 0x10, 0x00, 0x00]);
 
-                    _context12.prev = 2;
+                    _context13.prev = 2;
                     console.log(data);
-                    _context12.next = 6;
+                    _context13.next = 6;
                     return device.sendFeatureReport(1, data);
 
                   case 6:
-                    _context12.next = 11;
+                    _context13.next = 11;
                     break;
 
                   case 8:
-                    _context12.prev = 8;
-                    _context12.t0 = _context12["catch"](2);
-                    console.error('fadeToColor: failed:', _context12.t0);
+                    _context13.prev = 8;
+                    _context13.t0 = _context13["catch"](2);
+                    console.error('fadeToColor: failed:', _context13.t0);
 
                   case 11:
                   case "end":
-                    return _context12.stop();
+                    return _context13.stop();
                 }
               }
-            }, _callee12, null, [[2, 8]]);
+            }, _callee13, null, [[2, 8]]);
           }));
         } //Implementacion de los sockets
 
@@ -2466,15 +2540,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             fromControlNombreProfesor: true //['', Validators.required]
 
           });
-
-          if (this.editarActividad != null) {
-            this.actividadCreate = {
-              nombre: this.editarActividad.nombre,
-              profesor: this.editarActividad.profesor,
-              alumnos: this.editarActividad.alumnos,
-              estado: this.editarActividad.estado
-            };
-          }
         }
       }, {
         key: "ngOnChanges",
@@ -2634,6 +2699,307 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       /*! ./crear-actividad.component.css */
       "./src/app/profesor/crear-actividad/crear-actividad.component.css")).default]
     })], CrearActividadComponent);
+    /***/
+  },
+
+  /***/
+  "./src/app/profesor/editar-actividad/editar-actividad.component.css":
+  /*!**************************************************************************!*\
+    !*** ./src/app/profesor/editar-actividad/editar-actividad.component.css ***!
+    \**************************************************************************/
+
+  /*! exports provided: default */
+
+  /***/
+  function srcAppProfesorEditarActividadEditarActividadComponentCss(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony default export */
+
+
+    __webpack_exports__["default"] = "table {\n    width: 100%;\n  }\n  \n  .example-container {\n    display: -webkit-box;\n    display: flex;\n    -webkit-box-orient: vertical;\n    -webkit-box-direction: normal;\n            flex-direction: column;\n    min-width: 300px;\n  }\n  \n  .example-header {\n    min-height: 64px;\n    padding: 8px 24px 0;\n  }\n  \n  .mat-form-field {\n    font-size: 14px;\n    width: 100%;\n  }\n  \n  .mat-table {\n    overflow: auto;\n    max-height: 500px;\n  }\n  \n  .example-box {\n    width: 70px;\n    height: 70px;\n    border: solid 1px #ccc;\n    color: rgba(0, 0, 0, 0.87);\n    cursor: move;\n    display: -webkit-inline-box;\n    display: inline-flex;\n    -webkit-box-pack: center;\n            justify-content: center;\n    -webkit-box-align: center;\n            align-items: center;\n    text-align: center;\n    background: #fff;\n    border-radius: 4px;\n    margin-right: 0px;\n    position: relative;\n    z-index: 1;\n    box-sizing: border-box;\n    padding: 10px;\n    -webkit-transition: box-shadow 200ms cubic-bezier(0, 0, 0.2, 1);\n    transition: box-shadow 200ms cubic-bezier(0, 0, 0.2, 1);\n    box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);\n  }\n  \n  .example-box:active {\n    box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2), 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12);\n  }\n  \n  .example-boundary {\n    width: 400px;\n    height: 400px;\n    max-width: 100%;\n    border: dotted #ccc 2px;\n  }\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcHJvZmVzb3IvZWRpdGFyLWFjdGl2aWRhZC9lZGl0YXItYWN0aXZpZGFkLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7SUFDSSxXQUFXO0VBQ2I7O0VBRUE7SUFDRSxvQkFBYTtJQUFiLGFBQWE7SUFDYiw0QkFBc0I7SUFBdEIsNkJBQXNCO1lBQXRCLHNCQUFzQjtJQUN0QixnQkFBZ0I7RUFDbEI7O0VBRUE7SUFDRSxnQkFBZ0I7SUFDaEIsbUJBQW1CO0VBQ3JCOztFQUVBO0lBQ0UsZUFBZTtJQUNmLFdBQVc7RUFDYjs7RUFFQTtJQUNFLGNBQWM7SUFDZCxpQkFBaUI7RUFDbkI7O0VBRUE7SUFDRSxXQUFXO0lBQ1gsWUFBWTtJQUNaLHNCQUFzQjtJQUN0QiwwQkFBMEI7SUFDMUIsWUFBWTtJQUNaLDJCQUFvQjtJQUFwQixvQkFBb0I7SUFDcEIsd0JBQXVCO1lBQXZCLHVCQUF1QjtJQUN2Qix5QkFBbUI7WUFBbkIsbUJBQW1CO0lBQ25CLGtCQUFrQjtJQUNsQixnQkFBZ0I7SUFDaEIsa0JBQWtCO0lBQ2xCLGlCQUFpQjtJQUNqQixrQkFBa0I7SUFDbEIsVUFBVTtJQUNWLHNCQUFzQjtJQUN0QixhQUFhO0lBQ2IsK0RBQXVEO0lBQXZELHVEQUF1RDtJQUN2RCwrR0FBK0c7RUFDakg7O0VBRUE7SUFDRSxxSEFBcUg7RUFDdkg7O0VBRUE7SUFDRSxZQUFZO0lBQ1osYUFBYTtJQUNiLGVBQWU7SUFDZix1QkFBdUI7RUFDekIiLCJmaWxlIjoic3JjL2FwcC9wcm9mZXNvci9lZGl0YXItYWN0aXZpZGFkL2VkaXRhci1hY3RpdmlkYWQuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbInRhYmxlIHtcbiAgICB3aWR0aDogMTAwJTtcbiAgfVxuICBcbiAgLmV4YW1wbGUtY29udGFpbmVyIHtcbiAgICBkaXNwbGF5OiBmbGV4O1xuICAgIGZsZXgtZGlyZWN0aW9uOiBjb2x1bW47XG4gICAgbWluLXdpZHRoOiAzMDBweDtcbiAgfVxuICBcbiAgLmV4YW1wbGUtaGVhZGVyIHtcbiAgICBtaW4taGVpZ2h0OiA2NHB4O1xuICAgIHBhZGRpbmc6IDhweCAyNHB4IDA7XG4gIH1cbiAgXG4gIC5tYXQtZm9ybS1maWVsZCB7XG4gICAgZm9udC1zaXplOiAxNHB4O1xuICAgIHdpZHRoOiAxMDAlO1xuICB9XG4gIFxuICAubWF0LXRhYmxlIHtcbiAgICBvdmVyZmxvdzogYXV0bztcbiAgICBtYXgtaGVpZ2h0OiA1MDBweDtcbiAgfVxuICBcbiAgLmV4YW1wbGUtYm94IHtcbiAgICB3aWR0aDogNzBweDtcbiAgICBoZWlnaHQ6IDcwcHg7XG4gICAgYm9yZGVyOiBzb2xpZCAxcHggI2NjYztcbiAgICBjb2xvcjogcmdiYSgwLCAwLCAwLCAwLjg3KTtcbiAgICBjdXJzb3I6IG1vdmU7XG4gICAgZGlzcGxheTogaW5saW5lLWZsZXg7XG4gICAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XG4gICAgYWxpZ24taXRlbXM6IGNlbnRlcjtcbiAgICB0ZXh0LWFsaWduOiBjZW50ZXI7XG4gICAgYmFja2dyb3VuZDogI2ZmZjtcbiAgICBib3JkZXItcmFkaXVzOiA0cHg7XG4gICAgbWFyZ2luLXJpZ2h0OiAwcHg7XG4gICAgcG9zaXRpb246IHJlbGF0aXZlO1xuICAgIHotaW5kZXg6IDE7XG4gICAgYm94LXNpemluZzogYm9yZGVyLWJveDtcbiAgICBwYWRkaW5nOiAxMHB4O1xuICAgIHRyYW5zaXRpb246IGJveC1zaGFkb3cgMjAwbXMgY3ViaWMtYmV6aWVyKDAsIDAsIDAuMiwgMSk7XG4gICAgYm94LXNoYWRvdzogMCAzcHggMXB4IC0ycHggcmdiYSgwLCAwLCAwLCAwLjIpLCAwIDJweCAycHggMCByZ2JhKDAsIDAsIDAsIDAuMTQpLCAwIDFweCA1cHggMCByZ2JhKDAsIDAsIDAsIDAuMTIpO1xuICB9XG4gIFxuICAuZXhhbXBsZS1ib3g6YWN0aXZlIHtcbiAgICBib3gtc2hhZG93OiAwIDVweCA1cHggLTNweCByZ2JhKDAsIDAsIDAsIDAuMiksIDAgOHB4IDEwcHggMXB4IHJnYmEoMCwgMCwgMCwgMC4xNCksIDAgM3B4IDE0cHggMnB4IHJnYmEoMCwgMCwgMCwgMC4xMik7XG4gIH1cbiAgXG4gIC5leGFtcGxlLWJvdW5kYXJ5IHtcbiAgICB3aWR0aDogNDAwcHg7XG4gICAgaGVpZ2h0OiA0MDBweDtcbiAgICBtYXgtd2lkdGg6IDEwMCU7XG4gICAgYm9yZGVyOiBkb3R0ZWQgI2NjYyAycHg7XG4gIH0iXX0= */";
+    /***/
+  },
+
+  /***/
+  "./src/app/profesor/editar-actividad/editar-actividad.component.ts":
+  /*!*************************************************************************!*\
+    !*** ./src/app/profesor/editar-actividad/editar-actividad.component.ts ***!
+    \*************************************************************************/
+
+  /*! exports provided: EditarActividadComponent */
+
+  /***/
+  function srcAppProfesorEditarActividadEditarActividadComponentTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "EditarActividadComponent", function () {
+      return EditarActividadComponent;
+    });
+    /* harmony import */
+
+
+    var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! tslib */
+    "./node_modules/tslib/tslib.es6.js");
+    /* harmony import */
+
+
+    var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! @angular/core */
+    "./node_modules/@angular/core/fesm2015/core.js");
+    /* harmony import */
+
+
+    var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! @angular/forms */
+    "./node_modules/@angular/forms/fesm2015/forms.js");
+    /* harmony import */
+
+
+    var _Modelos_modelos__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! ../../Modelos/modelos */
+    "./src/app/Modelos/modelos.ts");
+    /* harmony import */
+
+
+    var _angular_cdk_collections__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! @angular/cdk/collections */
+    "./node_modules/@angular/cdk/esm2015/collections.js");
+    /* harmony import */
+
+
+    var _angular_material__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    /*! @angular/material */
+    "./node_modules/@angular/material/esm2015/material.js");
+
+    var EditarActividadComponent =
+    /*#__PURE__*/
+    function () {
+      function EditarActividadComponent(_formBuilder) {
+        _classCallCheck(this, EditarActividadComponent);
+
+        this._formBuilder = _formBuilder;
+        this.actividadEditada = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"](); //Prueba de una tabla con filtro y paginacion
+
+        this.displayedColumns = ['select', 'nombre', 'apellidos', 'clase'];
+        this.selection = new _angular_cdk_collections__WEBPACK_IMPORTED_MODULE_4__["SelectionModel"](true, []);
+        this.dragPosition = {
+          x: 0,
+          y: 0
+        };
+        this.alumnosSeleccionados = [];
+        this.arryaAlumnos = [];
+      }
+
+      _createClass(EditarActividadComponent, [{
+        key: "ngOnInit",
+        value: function ngOnInit() {
+          this.datosPrimarios = this._formBuilder.group({
+            fromControlNombreActividad: true,
+            fromControlNombreProfesor: true //['', Validators.required]
+
+          });
+
+          for (var i in this.editarActividad.alumnos) {
+            console.log(this.editarActividad.alumnos[i]);
+            this.selection.selected.push(this.editarActividad.alumnos[i].estudiante); //this.arryaAlumnos.push(new Alumnos(this.editarActividad.alumnos[i].estudiante, { x: 0, y: 0 }, this.editarActividad));
+          }
+          /*
+          console.log(this.selection);*/
+          //this.selection.selected=this.editarActividad.alumnos.
+
+        }
+      }, {
+        key: "ngOnChanges",
+        value: function ngOnChanges() {
+          var _this4 = this;
+
+          this.dataSource = new _angular_material__WEBPACK_IMPORTED_MODULE_5__["MatTableDataSource"](this.estudiantes);
+          /*console.log("Prueba");
+          console.log(this.dataSource);*/
+
+          this.dataSource.data.forEach(function (row) {
+            for (var i in _this4.editarActividad.alumnos) {
+              if (_this4.editarActividad.alumnos[i].estudiante._id == row._id) {
+                _this4.selection.select(row);
+
+                _this4.actualizarr(row);
+              }
+            } //this.actualizarr(row);
+
+
+            console.log(_this4.arryaAlumnos);
+          });
+        }
+      }, {
+        key: "actualizarr",
+        value: function actualizarr(item) {
+          return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
+          /*#__PURE__*/
+          regeneratorRuntime.mark(function _callee14() {
+            return regeneratorRuntime.wrap(function _callee14$(_context14) {
+              while (1) {
+                switch (_context14.prev = _context14.next) {
+                  case 0:
+                    this.arryaAlumnos.push(new _Modelos_modelos__WEBPACK_IMPORTED_MODULE_3__["Alumnos"](item, {
+                      x: 0,
+                      y: 0
+                    }, this.editarActividad));
+                    this.alumnosSeleccionados = this.arryaAlumnos;
+                    this.ponerAlumnos;
+
+                  case 3:
+                  case "end":
+                    return _context14.stop();
+                }
+              }
+            }, _callee14, this);
+          }));
+        }
+      }, {
+        key: "applyFilter",
+        value: function applyFilter(filterValue) {
+          filterValue = filterValue.trim(); // Remove whitespace
+
+          filterValue = filterValue.toLowerCase(); // Datasource defaults to lowercase matches
+
+          this.dataSource.filter = filterValue;
+        }
+      }, {
+        key: "ngAfterViewInit",
+        value: function ngAfterViewInit() {
+          this.dataSource.paginator = this.paginator;
+          this.dataSource.sort = this.sort;
+        }
+        /** Whether the number of selected elements matches the total number of rows. */
+
+      }, {
+        key: "isAllSelected",
+        value: function isAllSelected() {
+          var numSelected = this.selection.selected.length;
+          var numRows = this.dataSource.data.length;
+          return numSelected === numRows;
+        }
+        /** Selects all rows if they are not all selected; otherwise clear selection. */
+
+      }, {
+        key: "masterToggle",
+        value: function masterToggle() {
+          var _this5 = this;
+
+          this.isAllSelected() ? this.selection.clear() : this.dataSource.data.forEach(function (row) {
+            _this5.selection.select(row); //this.arryaAlumnos.push(new Alumnos(row, { x: 0, y: 0 }, this.editarActividad))
+            //this.alumnosSeleccionados = this.arryaAlumnos;
+
+
+            _this5.ponerAlumnos();
+          });
+        }
+      }, {
+        key: "checkboxLabel",
+        value: function checkboxLabel(row) {
+          if (!row) {
+            return "".concat(this.isAllSelected() ? 'select' : 'deselect', " all");
+          }
+
+          return "".concat(this.selection.isSelected(row) ? 'deselect' : 'select');
+        }
+      }, {
+        key: "dragEnded",
+        value: function dragEnded($event, item) {
+          var posicion = $event.source.getFreeDragPosition();
+          item.posicion = $event.source.getFreeDragPosition(); //console.log(item);
+          //this.alumno.posicion=this.dragPosition;
+        }
+      }, {
+        key: "comprobarSeleccionados",
+        value: function comprobarSeleccionados() {
+          return this.selection.selected.length > 0;
+        }
+      }, {
+        key: "ponerAlumnos",
+        value: function ponerAlumnos() {
+          this.arryaAlumnos = [];
+          console.log("AA");
+          var fila = 0;
+          var columna = 0; // = this.selection.selected;
+
+          for (var i = 0; i < this.selection.selected.length; i++) {
+            //MODIFICADO
+
+            /*if(columna<=5){
+              arryaAlumnos.push({
+                'nombre':this.selection.selected[i].nombre,
+                'apellidos':this.selection.selected[i].apellidos,
+                'clase':this.selection.selected[i].clase,
+                       posicion: {x:0,y:0},
+                posicionInicial:{x:columna*70,y:70*fila},
+                });
+              
+              
+              //arryaAlumnos[this.selection.selected[i].email]=this.selection.selected[i];
+                columna++;
+            }else{
+              fila++;
+              columna=0;
+              arryaAlumnos.push({
+                'nombre':this.selection.selected[i].nombre,
+                'apellidos':this.selection.selected[i].apellidos,
+                posicion: {x:0,y:0},
+                posicionInicial:{x:columna*70,y:70*fila},
+                });
+                columna++;
+            }*/
+            //MODIFICADO
+            this.arryaAlumnos.push(new _Modelos_modelos__WEBPACK_IMPORTED_MODULE_3__["Alumnos"](this.selection.selected[i], {
+              x: 0,
+              y: 0
+            }, this.editarActividad));
+          }
+
+          this.alumnosSeleccionados = this.arryaAlumnos;
+          /*this.actividadCreate.alumnos=arryaAlumnos;
+          this.alumnosSeleccionados=this.selection.selected;*/
+
+          console.log(this.alumnosSeleccionados);
+        }
+      }, {
+        key: "actualizar",
+        value: function actualizar() {
+          this.editarActividad.alumnos = this.alumnosSeleccionados;
+          this.actividadEditada.emit(this.editarActividad);
+        }
+      }]);
+
+      return EditarActividadComponent;
+    }();
+
+    EditarActividadComponent.ctorParameters = function () {
+      return [{
+        type: _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormBuilder"]
+      }];
+    };
+
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])()], EditarActividadComponent.prototype, "estudiantes", void 0);
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])()], EditarActividadComponent.prototype, "editarActividad", void 0);
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])()], EditarActividadComponent.prototype, "actividadEditada", void 0);
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])(_angular_material__WEBPACK_IMPORTED_MODULE_5__["MatPaginator"], null)], EditarActividadComponent.prototype, "paginator", void 0);
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])(_angular_material__WEBPACK_IMPORTED_MODULE_5__["MatSort"], null)], EditarActividadComponent.prototype, "sort", void 0);
+    EditarActividadComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+      selector: 'app-editar-actividad',
+      template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
+      /*! raw-loader!./editar-actividad.component.html */
+      "./node_modules/raw-loader/dist/cjs.js!./src/app/profesor/editar-actividad/editar-actividad.component.html")).default,
+      styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
+      /*! ./editar-actividad.component.css */
+      "./src/app/profesor/editar-actividad/editar-actividad.component.css")).default]
+    })], EditarActividadComponent);
     /***/
   },
 
@@ -2836,11 +3202,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function ngOnInit() {
           return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
           /*#__PURE__*/
-          regeneratorRuntime.mark(function _callee13() {
+          regeneratorRuntime.mark(function _callee15() {
             var ju;
-            return regeneratorRuntime.wrap(function _callee13$(_context13) {
+            return regeneratorRuntime.wrap(function _callee15$(_context15) {
               while (1) {
-                switch (_context13.prev = _context13.next) {
+                switch (_context15.prev = _context15.next) {
                   case 0:
                     //this.socket = new ClienteWS('profesor');
                     //this.socket.ini();
@@ -2848,14 +3214,14 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
                     ju = this; //this.listaAlumnos=this.estudiantes.getEstudiantes();
 
-                    _context13.next = 4;
+                    _context15.next = 4;
                     return $.getJSON("/verEstudiantes", function (data) {
                       //console.log(data);
                       ju.listaAlumnos = data;
                     });
 
                   case 4:
-                    _context13.next = 6;
+                    _context15.next = 6;
                     return $.getJSON("/verActividades", function (data) {
                       //console.log(data);
                       ju.listaActividades = data;
@@ -2863,10 +3229,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
                   case 6:
                   case "end":
-                    return _context13.stop();
+                    return _context15.stop();
                 }
               }
-            }, _callee13, this);
+            }, _callee15, this);
           }));
         } //anadirAlumno(nombre:string,apellidos:string,clase:string,email:string,contrasena:string) {
 
@@ -2983,9 +3349,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           this.crearActividad = true;
         }
       }, {
-        key: "cerrarCrearActividad",
-        value: function cerrarCrearActividad() {
+        key: "cerrarModal",
+        value: function cerrarModal() {
           this.crearActividad = false;
+          this.editarActividad = false;
         }
       }, {
         key: "guardarActividad",
@@ -3011,6 +3378,28 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                 ju.crearActividad = false;
                 console.log(ju.listaActividades);
               }); //ju.listaActividades.push(actividad);
+            },
+            contentType: 'application/json',
+            dataType: 'json'
+          });
+        }
+      }, {
+        key: "actualizarActividad",
+        value: function actualizarActividad(actividad) {
+          var ju = this;
+          console.log(actividad);
+          $.ajax({
+            type: 'POST',
+            url: '/actualizarActividad',
+            data: JSON.stringify(actividad),
+            success: function success(data) {
+              //this.actividad=data;
+              $.getJSON("/verActividades", function (data) {
+                //console.log(data);
+                ju.listaActividades = data;
+                ju.editarActividad = false;
+                console.log(ju.listaActividades);
+              });
             },
             contentType: 'application/json',
             dataType: 'json'

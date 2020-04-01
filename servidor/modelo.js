@@ -123,7 +123,7 @@ function Centro() {
                 estado: act.estado,
             }
             this.dao.connect(function (db) {
-                //console.log(a);
+                console.log(a);
                 ju.dao.modificarActividad(act._id,a, function (u) {
                     //ju.actividades[u._id].editarActividad(u.nombre, u.profesor, u.alumnos, u.estado);
                     ju.actividades[u._id]=u;
