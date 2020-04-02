@@ -28,7 +28,18 @@ function ServidorWS() {
                 socket.join("profesores");
                 console.log("Conexion asignada al profesor");
             })
-
+            socket.on('abrirActividad',function(actividad){
+                //console.log(actividad);
+                socket.join(actividad._id);
+                console.log("Conexion asignada a la actividad");
+            })
+            socket.on('meConectoActividad',function(actividad,estudiante){
+                //console.log(actividad);
+                cli.enviarATodos(io, actividad._id, 'seHaConectado',estudiante);
+            })
+            socket.on('meDesconectoActividad',function(actividad,estudiante){
+                cli.enviarATodos(io,actividad._id, 'seHaDesconectado',estudiante);
+            })
 
             socket.on('crearActividadLista', function (actividad) {
 
@@ -59,9 +70,16 @@ function ServidorWS() {
                 });
             })
 
-            socket.on('envioDeEmociones',function(datos){
+            socket.on('envioDeEmociones',function(datos,actividad){
                 //console.log(datos);
-                cli.enviarATodos(io, "profesores", "recepcionEmociones", datos);
+                if(actividad){
+                    cli.enviarATodos(io, actividad._id, "recepcionEmociones", datos);
+                }
+                
+            })
+
+            socket.on('disconect',function(actividad,estudiante){
+                cli.enviarATodos(io,actividad._id, 'seHaDesconectado',estudiante);
             })
 
             /*
