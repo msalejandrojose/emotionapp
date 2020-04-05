@@ -1900,6 +1900,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         this.emocionMiedo = 0;
         this.emocionAsco = 0;
         this.emocionSorpresa = 0;
+        this.emocionNeutra = 0;
         this.datosTotalesEmocionales = 0;
 
         this.soyEstudiante = function () {
@@ -1916,8 +1917,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           console.log("Actividad: " + actividad._id + " YA NO está lista.");
         };
 
-        this.enviarEmocionesWebCam = function (datos) {
-          this.socket.emit('envioDeEmociones', datos, this.actividadActual);
+        this.enviarDatos = function (datos) {
+          this.socket.emit('envioDeDatos', datos, this.actividadActual);
         };
 
         this.meConectoActividad = function (actividad) {
@@ -2069,7 +2070,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           this.meConectoActividad(this.actividadActual);
           this.empezar();
           setInterval(function (async) {
-            _this.enviarDatos();
+            _this.computacionDatos();
           }, 7000);
         }
       }, {
@@ -2268,7 +2269,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                               case 7:
                                 datosFisicos = _context3.sent;
                                 //console.log(datos);
-                                console.log(datosFisicos);
+                                //console.log(datosFisicos);
                                 datosNeutral = faceapi.resizeResults(detections, this.displaySize).expressions.neutral;
                                 datosHappy = faceapi.resizeResults(detections, this.displaySize).expressions.happy;
                                 datosSad = faceapi.resizeResults(detections, this.displaySize).expressions.sad;
@@ -2281,18 +2282,15 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                                 this.emocionIra += datosAngry;
                                 this.emocionMiedo += datosFearful;
                                 this.emocionSorpresa += datosSurprised;
-                                this.emocionTristeza += datosSad; //this.datosTotalesEmocionales=datosHappy+datosDisgusted+datosAngry+datosFearful+datosSurprised+datosSad;
+                                this.emocionTristeza += datosSad;
+                                this.emocionNeutra += datosNeutral; //this.datosTotalesEmocionales=datosHappy+datosDisgusted+datosAngry+datosFearful+datosSurprised+datosSad;
 
                                 maximo = Math.max(datosAngry, datosDisgusted, datosFearful, datosHappy, datosNeutral, datosSad, datosSurprised);
 
                                 if (datosNeutral == maximo) {
                                   //console.log("Neutro: "+maximo);
-                                  this.enviarEmocionesWebCam({
-                                    id_item: this.id_item,
-                                    color: this.ColorNeutral,
-                                    datos: datos,
-                                    pulsaciones: this.pulsaciones
-                                  });
+                                  //this.enviarEmocionesWebCam({ id_item: this.id_item, color: this.ColorNeutral, datos: datos, pulsaciones: this.pulsaciones })
+                                  this.colorPredominante = this.ColorNeutral;
                                   this.ponerNeutral();
                                   $('#estadoAlumno').css('background-color', this.ColorNeutral); //this.ContadorNeutro++
                                   //this.usuario.Neutro.valor = this.usuario.Neutro.valor + 1;
@@ -2300,12 +2298,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
                                 if (datosFearful == maximo) {
                                   //console.log("Miedo: "+maximo);
-                                  this.enviarEmocionesWebCam({
-                                    id_item: this.id_item,
-                                    color: this.ColorFearful,
-                                    datos: datos,
-                                    pulsaciones: this.pulsaciones
-                                  });
+                                  //this.enviarEmocionesWebCam({ id_item: this.id_item, color: this.ColorFearful, datos: datos, pulsaciones: this.pulsaciones })
+                                  this.colorPredominante = this.ColorFearful;
                                   this.ponerFearful();
                                   $('#estadoAlumno').css('background-color', this.ColorFearful); //this.ContadorMiedo++
                                   //this.usuario.Miedo.valor = this.usuario.Miedo.valor + 1;
@@ -2313,12 +2307,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
                                 if (datosAngry == maximo) {
                                   //console.log("Enfadado: "+maximo);
-                                  this.enviarEmocionesWebCam({
-                                    id_item: this.id_item,
-                                    color: this.ColorAngry,
-                                    datos: datos,
-                                    pulsaciones: this.pulsaciones
-                                  });
+                                  //this.enviarEmocionesWebCam({ id_item: this.id_item, color: this.ColorAngry, datos: datos, pulsaciones: this.pulsaciones })
+                                  this.colorPredominante = this.ColorAngry;
                                   this.ponerAngry();
                                   $('#estadoAlumno').css('background-color', this.ColorAngry); //this.ContadorEnfadado++
                                   //this.usuario.Enfadado.valor = this.usuario.Enfadado.valor + 1;
@@ -2326,12 +2316,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
                                 if (datosHappy == maximo) {
                                   //console.log("Feliz: "+maximo);
-                                  this.enviarEmocionesWebCam({
-                                    id_item: this.id_item,
-                                    color: this.ColorHappy,
-                                    datos: datos,
-                                    pulsaciones: this.pulsaciones
-                                  });
+                                  //this.enviarEmocionesWebCam({ id_item: this.id_item, color: this.ColorHappy, datos: datos, pulsaciones: this.pulsaciones })
+                                  this.colorPredominante = this.ColorHappy;
                                   this.ponerHappy();
                                   $('#estadoAlumno').css('background-color', this.ColorHappy); //this.ContadorFeliz++
                                   //this.usuario.Felicidad.valor = this.usuario.Felicidad.valor + 1;
@@ -2339,24 +2325,16 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
                                 if (datosSad == maximo) {
                                   //console.log("Triste: "+maximo);
-                                  this.enviarEmocionesWebCam({
-                                    id_item: this.id_item,
-                                    color: this.ColorSad,
-                                    datos: datos,
-                                    pulsaciones: this.pulsaciones
-                                  });
+                                  //this.enviarEmocionesWebCam({ id_item: this.id_item, color: this.ColorSad, datos: datos, pulsaciones: this.pulsaciones })
+                                  this.colorPredominante = this.ColorSad;
                                   this.ponerSad();
                                   $('#estadoAlumno').css('background-color', this.ColorSad); //this.ContadorTriste++
                                   //this.usuario.Triste.valor = this.usuario.Triste.valor + 1;
                                 }
 
                                 if (datosSurprised == maximo) {
-                                  this.enviarEmocionesWebCam({
-                                    id_item: this.id_item,
-                                    color: this.ColorSurprised,
-                                    datos: datos,
-                                    pulsaciones: this.pulsaciones
-                                  });
+                                  //this.enviarEmocionesWebCam({ id_item: this.id_item, color: this.ColorSurprised, datos: datos, pulsaciones: this.pulsaciones })
+                                  this.colorPredominante = this.ColorSurprised;
                                   this.ponerSurprised();
                                   $('#estadoAlumno').css('background-color', this.ColorSurprised); //this.ContadorSorprendido++
                                   //this.usuario.Sorpresa.valor = this.usuario.Sorpresa.valor + 1;
@@ -2364,12 +2342,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
                                 if (datosDisgusted == maximo) {
                                   //console.log("Disgustado: "+maximo);
-                                  this.enviarEmocionesWebCam({
-                                    id_item: this.id_item,
-                                    color: this.ColorDisgusted,
-                                    datos: datos,
-                                    pulsaciones: this.pulsaciones
-                                  });
+                                  //this.enviarEmocionesWebCam({ id_item: this.id_item, color: this.ColorDisgusted, datos: datos, pulsaciones: this.pulsaciones })
                                   this.ponerDisgusted();
                                   $('#estadoAlumno').css('background-color', this.ColorDisgusted); //this.ContadorDisgustado++
                                   //this.usuario.Disgustado.valor = this.usuario.Disgustado.valor + 1;
@@ -2400,8 +2373,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           }));
         }
       }, {
-        key: "enviarDatos",
-        value: function enviarDatos() {
+        key: "computacionDatos",
+        value: function computacionDatos() {
           return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
           /*#__PURE__*/
           regeneratorRuntime.mark(function _callee5() {
@@ -2412,19 +2385,23 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                   case 0:
                     datos = {}; //Estado Emocional
 
-                    this.datosTotalesEmocionales = this.emocionAlegria + this.emocionAsco + this.emocionIra + this.emocionMiedo + this.emocionSorpresa + this.emocionTristeza;
+                    this.datosTotalesEmocionales = this.emocionAlegria + this.emocionAsco + this.emocionIra + this.emocionMiedo + this.emocionSorpresa + this.emocionNeutra;
+                    datos['id_item'] = this.id_item;
                     datos['alegria'] = this.emocionAlegria / this.datosTotalesEmocionales;
                     datos['asco'] = this.emocionAsco / this.datosTotalesEmocionales;
                     datos['ira'] = this.emocionIra / this.datosTotalesEmocionales;
                     datos['miedo'] = this.emocionMiedo / this.datosTotalesEmocionales;
                     datos['sorpresa'] = this.emocionSorpresa / this.datosTotalesEmocionales;
                     datos['tristeza'] = this.emocionTristeza / this.datosTotalesEmocionales;
+                    datos['neutra'] = this.emocionNeutra / this.datosTotalesEmocionales;
+                    datos['color'] = this.colorPredominante;
                     this.emocionAlegria = 0;
                     this.emocionAsco = 0;
                     this.emocionIra = 0;
                     this.emocionMiedo = 0;
                     this.emocionSorpresa = 0;
                     this.emocionTristeza = 0;
+                    this.emocionNeutra = 0;
                     this.datosTotalesEmocionales = 0; //Estado de las Pulsaciones
 
                     mediaPulsaciones = 0;
@@ -2451,27 +2428,28 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                     datos['concentrado'] = 1 - datos['distraido'];
                     datos['frustrado'] = 0;
 
-                    if (datos['sopresa'] + datos['tristeza'] > 0.25) {
+                    if (datos['sopresa'] + datos['tristeza'] > 0.10) {
                       datos['frustrado'] += datos['sopresa'] + datos['tristeza'];
                     }
 
-                    if (datos['asco'] + datos['ira'] > 0.25) {
+                    if (datos['asco'] + datos['ira'] > 0.10) {
                       datos['frustrado'] += datos['asco'] + datos['ira'];
                     }
 
-                    if (datos['miedo'] + datos['tristeza'] > 0.25) {
+                    if (datos['miedo'] + datos['tristeza'] > 0.10) {
                       datos['frustrado'] += datos['miedo'] + datos['tristeza'];
                     }
 
-                    if (datos['sorpresa'] + datos['ira'] > 0.25) {
+                    if (datos['sorpresa'] + datos['ira'] > 0.10) {
                       datos['frustrado'] += datos['sorpresa'] + datos['ira'];
                     }
 
                     datos['motivado'] = 1 - datos['frustrado'];
                     console.log("Datos listos para enviar");
-                    console.log(datos); //this.enviarEmocionesWebCam(datos);
+                    console.log(datos);
+                    this.enviarDatos(datos); //this.enviarEmocionesWebCam(datos);
 
-                  case 32:
+                  case 37:
                   case "end":
                     return _context5.stop();
                 }
@@ -3615,7 +3593,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               cli.alumnosConectados.splice(cli.posicionDelAlumnoConectado, 1);
             }
           });
-          this.socket.on('recepcionEmociones', function (datos) {
+          this.socket.on('recepcionDatos', function (datos) {
             //console.log(datos);
             $('#' + datos.id_item + '').css("background-color", datos.color); //console.log(datos.pulsaciones);
           });
