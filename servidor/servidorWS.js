@@ -70,10 +70,10 @@ function ServidorWS() {
                 });
             })
 
-            socket.on('envioDeEmociones',function(datos,actividad){
+            socket.on('envioDeDatos',function(datos,actividad){
                 //console.log(datos);
                 if(actividad){
-                    cli.enviarATodos(io, actividad._id, "recepcionEmociones", datos);
+                    cli.enviarATodos(io, actividad._id, "recepcionDatos", datos);
                 }
                 
             })

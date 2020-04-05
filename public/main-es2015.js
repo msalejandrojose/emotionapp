@@ -1102,6 +1102,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _socketio_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../socketio.service */ "./src/app/socketio.service.ts");
 /* harmony import */ var socket_io_client__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! socket.io-client */ "./node_modules/socket.io-client/lib/index.js");
 /* harmony import */ var socket_io_client__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(socket_io_client__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_4__);
+
 
 
 
@@ -1145,10 +1148,19 @@ let EstudianteComponent = class EstudianteComponent {
         this.listaActividades = [];
         this.listaGestionActividades = {};
         this.listaSensores = [];
-        this.pulsacionesMax = 180;
-        this.pulsacionesMin = 30;
         this.id = '';
         this.intervaloDeEnvio = null;
+        this.pulsaciones = Math.round(Math.random() * (100 - 40) + 40);
+        this.pulsacionesTotales = [];
+        this.pulsacionesMax = 180;
+        this.pulsacionesMin = 30;
+        this.emocionAlegria = 0;
+        this.emocionTristeza = 0;
+        this.emocionIra = 0;
+        this.emocionMiedo = 0;
+        this.emocionAsco = 0;
+        this.emocionSorpresa = 0;
+        this.datosTotalesEmocionales = 0;
         this.soyEstudiante = function () {
             this.socket.emit('soyEstudiante', this.estudiante);
         };
@@ -1298,6 +1310,9 @@ let EstudianteComponent = class EstudianteComponent {
         //this.conectarLed();
         this.meConectoActividad(this.actividadActual);
         this.empezar();
+        setInterval(async => {
+            this.enviarDatos();
+        }, 7000);
     }
     desconectarse() {
         console.log("Me he desconectado de la actividad");
@@ -1408,98 +1423,166 @@ let EstudianteComponent = class EstudianteComponent {
         //this.empezar();
     }
     empezar() {
-        //console.log(this.video.srcObject);
-        Promise.all([
-            faceapi.nets.ageGenderNet.loadFromUri('assets/modelos'),
-            faceapi.nets.faceExpressionNet.loadFromUri('assets/modelos'),
-            faceapi.nets.faceLandmark68Net.loadFromUri('assets/modelos'),
-            faceapi.nets.faceLandmark68TinyNet.loadFromUri('assets/modelos'),
-            faceapi.nets.faceRecognitionNet.loadFromUri('assets/modelos'),
-            //faceapi.nets.ssdMobilenetv1.loadFromUri('/modelos'),
-            faceapi.nets.tinyFaceDetector.loadFromUri('assets/modelos')
-            //faceapi.nets.tinyYolov2.loadFromUri('/modelos')
-        ]);
-        //console.log(this.video.srcObject);
-        //console.log("hemos cargado los modelos");
-        //this.video.addEventListener('play', () => {
-        console.log(this.camara.data.srcObject);
-        const canvas = faceapi.createCanvasFromMedia(this.camara.data);
-        document.body.append(canvas);
-        this.displaySize = { width: this.camara.data.width, height: this.camara.data.height };
-        faceapi.matchDimensions(canvas, this.displaySize);
-        this.intervaloDeEnvio = setInterval(() => tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
-            try {
-                const detections = yield faceapi.detectSingleFace(this.camara.data, new faceapi.TinyFaceDetectorOptions()).withFaceLandmarks().withFaceExpressions();
-                var datos = faceapi.resizeResults(detections, this.displaySize).expressions;
-                //console.log(datos);
-                var datosNeutral = faceapi.resizeResults(detections, this.displaySize).expressions.neutral;
-                var datosHappy = faceapi.resizeResults(detections, this.displaySize).expressions.happy;
-                var datosSad = faceapi.resizeResults(detections, this.displaySize).expressions.sad;
-                var datosAngry = faceapi.resizeResults(detections, this.displaySize).expressions.angry;
-                var datosFearful = faceapi.resizeResults(detections, this.displaySize).expressions.fearful;
-                var datosSurprised = faceapi.resizeResults(detections, this.displaySize).expressions.surprised;
-                var datosDisgusted = faceapi.resizeResults(detections, this.displaySize).expressions.disgusted;
-                var maximo = Math.max(datosAngry, datosDisgusted, datosFearful, datosHappy, datosNeutral, datosSad, datosSurprised);
-                if (datosNeutral == maximo) {
-                    //console.log("Neutro: "+maximo);
-                    this.enviarEmocionesWebCam({ id_item: this.id_item, color: this.ColorNeutral, datos: datos, pulsaciones: this.pulsaciones });
-                    this.ponerNeutral();
-                    $('#estadoAlumno').css('background-color', this.ColorNeutral);
-                    //this.ContadorNeutro++
-                    //this.usuario.Neutro.valor = this.usuario.Neutro.valor + 1;
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
+            //console.log(this.video.srcObject);
+            Promise.all([
+                faceapi.nets.ageGenderNet.loadFromUri('assets/modelos'),
+                faceapi.nets.faceExpressionNet.loadFromUri('assets/modelos'),
+                faceapi.nets.faceLandmark68Net.loadFromUri('assets/modelos'),
+                faceapi.nets.faceLandmark68TinyNet.loadFromUri('assets/modelos'),
+                faceapi.nets.faceRecognitionNet.loadFromUri('assets/modelos'),
+                faceapi.nets.ssdMobilenetv1.loadFromUri('assets/modelos'),
+                faceapi.nets.tinyFaceDetector.loadFromUri('assets/modelos')
+                //faceapi.nets.tinyYolov2.loadFromUri('/modelos')
+            ]);
+            //console.log(this.video.srcObject);
+            //console.log("hemos cargado los modelos");
+            //this.video.addEventListener('play', () => {
+            console.log(this.camara.data.srcObject);
+            const canvas = faceapi.createCanvasFromMedia(this.camara.data);
+            document.body.append(canvas);
+            this.displaySize = { width: this.camara.data.width, height: this.camara.data.height };
+            faceapi.matchDimensions(canvas, this.displaySize);
+            yield setInterval(() => tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
+                try {
+                    const detections = yield faceapi.detectSingleFace(this.camara.data, new faceapi.TinyFaceDetectorOptions()).withFaceLandmarks().withFaceExpressions();
+                    var datos = faceapi.resizeResults(detections, this.displaySize).expressions;
+                    var datosFisicos = yield faceapi.detectSingleFace(this.camara.data).withFaceLandmarks().withAgeAndGender();
+                    //console.log(datos);
+                    console.log(datosFisicos);
+                    var datosNeutral = faceapi.resizeResults(detections, this.displaySize).expressions.neutral;
+                    var datosHappy = faceapi.resizeResults(detections, this.displaySize).expressions.happy;
+                    var datosSad = faceapi.resizeResults(detections, this.displaySize).expressions.sad;
+                    var datosAngry = faceapi.resizeResults(detections, this.displaySize).expressions.angry;
+                    var datosFearful = faceapi.resizeResults(detections, this.displaySize).expressions.fearful;
+                    var datosSurprised = faceapi.resizeResults(detections, this.displaySize).expressions.surprised;
+                    var datosDisgusted = faceapi.resizeResults(detections, this.displaySize).expressions.disgusted;
+                    this.emocionAlegria += datosHappy;
+                    this.emocionAsco += datosDisgusted;
+                    this.emocionIra += datosAngry;
+                    this.emocionMiedo += datosFearful;
+                    this.emocionSorpresa += datosSurprised;
+                    this.emocionTristeza += datosSad;
+                    //this.datosTotalesEmocionales=datosHappy+datosDisgusted+datosAngry+datosFearful+datosSurprised+datosSad;
+                    var maximo = Math.max(datosAngry, datosDisgusted, datosFearful, datosHappy, datosNeutral, datosSad, datosSurprised);
+                    if (datosNeutral == maximo) {
+                        //console.log("Neutro: "+maximo);
+                        this.enviarEmocionesWebCam({ id_item: this.id_item, color: this.ColorNeutral, datos: datos, pulsaciones: this.pulsaciones });
+                        this.ponerNeutral();
+                        $('#estadoAlumno').css('background-color', this.ColorNeutral);
+                        //this.ContadorNeutro++
+                        //this.usuario.Neutro.valor = this.usuario.Neutro.valor + 1;
+                    }
+                    if (datosFearful == maximo) {
+                        //console.log("Miedo: "+maximo);
+                        this.enviarEmocionesWebCam({ id_item: this.id_item, color: this.ColorFearful, datos: datos, pulsaciones: this.pulsaciones });
+                        this.ponerFearful();
+                        $('#estadoAlumno').css('background-color', this.ColorFearful);
+                        //this.ContadorMiedo++
+                        //this.usuario.Miedo.valor = this.usuario.Miedo.valor + 1;
+                    }
+                    if (datosAngry == maximo) {
+                        //console.log("Enfadado: "+maximo);
+                        this.enviarEmocionesWebCam({ id_item: this.id_item, color: this.ColorAngry, datos: datos, pulsaciones: this.pulsaciones });
+                        this.ponerAngry();
+                        $('#estadoAlumno').css('background-color', this.ColorAngry);
+                        //this.ContadorEnfadado++
+                        //this.usuario.Enfadado.valor = this.usuario.Enfadado.valor + 1;
+                    }
+                    if (datosHappy == maximo) {
+                        //console.log("Feliz: "+maximo);
+                        this.enviarEmocionesWebCam({ id_item: this.id_item, color: this.ColorHappy, datos: datos, pulsaciones: this.pulsaciones });
+                        this.ponerHappy();
+                        $('#estadoAlumno').css('background-color', this.ColorHappy);
+                        //this.ContadorFeliz++
+                        //this.usuario.Felicidad.valor = this.usuario.Felicidad.valor + 1;
+                    }
+                    if (datosSad == maximo) {
+                        //console.log("Triste: "+maximo);
+                        this.enviarEmocionesWebCam({ id_item: this.id_item, color: this.ColorSad, datos: datos, pulsaciones: this.pulsaciones });
+                        this.ponerSad();
+                        $('#estadoAlumno').css('background-color', this.ColorSad);
+                        //this.ContadorTriste++
+                        //this.usuario.Triste.valor = this.usuario.Triste.valor + 1;
+                    }
+                    if (datosSurprised == maximo) {
+                        this.enviarEmocionesWebCam({ id_item: this.id_item, color: this.ColorSurprised, datos: datos, pulsaciones: this.pulsaciones });
+                        this.ponerSurprised();
+                        $('#estadoAlumno').css('background-color', this.ColorSurprised);
+                        //this.ContadorSorprendido++
+                        //this.usuario.Sorpresa.valor = this.usuario.Sorpresa.valor + 1;
+                    }
+                    if (datosDisgusted == maximo) {
+                        //console.log("Disgustado: "+maximo);
+                        this.enviarEmocionesWebCam({ id_item: this.id_item, color: this.ColorDisgusted, datos: datos, pulsaciones: this.pulsaciones });
+                        this.ponerDisgusted();
+                        $('#estadoAlumno').css('background-color', this.ColorDisgusted);
+                        //this.ContadorDisgustado++
+                        //this.usuario.Disgustado.valor = this.usuario.Disgustado.valor + 1;
+                    }
                 }
-                if (datosFearful == maximo) {
-                    //console.log("Miedo: "+maximo);
-                    this.enviarEmocionesWebCam({ id_item: this.id_item, color: this.ColorFearful, datos: datos, pulsaciones: this.pulsaciones });
-                    this.ponerFearful();
-                    $('#estadoAlumno').css('background-color', this.ColorFearful);
-                    //this.ContadorMiedo++
-                    //this.usuario.Miedo.valor = this.usuario.Miedo.valor + 1;
+                catch (error) {
+                    //console.log("No hay datos que enviar");
                 }
-                if (datosAngry == maximo) {
-                    //console.log("Enfadado: "+maximo);
-                    this.enviarEmocionesWebCam({ id_item: this.id_item, color: this.ColorAngry, datos: datos, pulsaciones: this.pulsaciones });
-                    this.ponerAngry();
-                    $('#estadoAlumno').css('background-color', this.ColorAngry);
-                    //this.ContadorEnfadado++
-                    //this.usuario.Enfadado.valor = this.usuario.Enfadado.valor + 1;
-                }
-                if (datosHappy == maximo) {
-                    //console.log("Feliz: "+maximo);
-                    this.enviarEmocionesWebCam({ id_item: this.id_item, color: this.ColorHappy, datos: datos, pulsaciones: this.pulsaciones });
-                    this.ponerHappy();
-                    $('#estadoAlumno').css('background-color', this.ColorHappy);
-                    //this.ContadorFeliz++
-                    //this.usuario.Felicidad.valor = this.usuario.Felicidad.valor + 1;
-                }
-                if (datosSad == maximo) {
-                    //console.log("Triste: "+maximo);
-                    this.enviarEmocionesWebCam({ id_item: this.id_item, color: this.ColorSad, datos: datos, pulsaciones: this.pulsaciones });
-                    this.ponerSad();
-                    $('#estadoAlumno').css('background-color', this.ColorSad);
-                    //this.ContadorTriste++
-                    //this.usuario.Triste.valor = this.usuario.Triste.valor + 1;
-                }
-                if (datosSurprised == maximo) {
-                    this.enviarEmocionesWebCam({ id_item: this.id_item, color: this.ColorSurprised, datos: datos, pulsaciones: this.pulsaciones });
-                    this.ponerSurprised();
-                    $('#estadoAlumno').css('background-color', this.ColorSurprised);
-                    //this.ContadorSorprendido++
-                    //this.usuario.Sorpresa.valor = this.usuario.Sorpresa.valor + 1;
-                }
-                if (datosDisgusted == maximo) {
-                    //console.log("Disgustado: "+maximo);
-                    this.enviarEmocionesWebCam({ id_item: this.id_item, color: this.ColorDisgusted, datos: datos, pulsaciones: this.pulsaciones });
-                    this.ponerDisgusted();
-                    $('#estadoAlumno').css('background-color', this.ColorDisgusted);
-                    //this.ContadorDisgustado++
-                    //this.usuario.Disgustado.valor = this.usuario.Disgustado.valor + 1;
-                }
+            }), 1000);
+        });
+    }
+    enviarDatos() {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
+            let datos = {};
+            //Estado Emocional
+            this.datosTotalesEmocionales = this.emocionAlegria + this.emocionAsco + this.emocionIra + this.emocionMiedo + this.emocionSorpresa + this.emocionTristeza;
+            datos['alegria'] = this.emocionAlegria / this.datosTotalesEmocionales;
+            datos['asco'] = this.emocionAsco / this.datosTotalesEmocionales;
+            datos['ira'] = this.emocionIra / this.datosTotalesEmocionales;
+            datos['miedo'] = this.emocionMiedo / this.datosTotalesEmocionales;
+            datos['sorpresa'] = this.emocionSorpresa / this.datosTotalesEmocionales;
+            datos['tristeza'] = this.emocionTristeza / this.datosTotalesEmocionales;
+            this.emocionAlegria = 0;
+            this.emocionAsco = 0;
+            this.emocionIra = 0;
+            this.emocionMiedo = 0;
+            this.emocionSorpresa = 0;
+            this.emocionTristeza = 0;
+            this.datosTotalesEmocionales = 0;
+            //Estado de las Pulsaciones
+            let mediaPulsaciones = 0;
+            for (let i = 0; i < this.pulsacionesTotales.length; i++) {
+                mediaPulsaciones += this.pulsacionesTotales[i];
             }
-            catch (error) {
-                console.log("No hay datos que enviar");
+            datos['pulsaciones'] = (mediaPulsaciones / this.pulsacionesTotales.length);
+            this.pulsacionesTotales.length = 0;
+            //console.log(this.pulsacionesTotales);
+            //Estado temporal
+            let now = moment__WEBPACK_IMPORTED_MODULE_4__();
+            datos['tiempo'] = now.format();
+            //Estado Cognitivo
+            datos['distraido'] = 0;
+            if (datos['pulsaciones'] > 85) {
+                datos['distraido'] = datos['sorpresa'];
             }
-        }), 2000);
+            else if (datos['alegria'] == NaN) {
+                datos['distraido'] = 1;
+            }
+            datos['concentrado'] = 1 - datos['distraido'];
+            datos['frustrado'] = 0;
+            if (datos['sopresa'] + datos['tristeza'] > 0.25) {
+                datos['frustrado'] += datos['sopresa'] + datos['tristeza'];
+            }
+            if (datos['asco'] + datos['ira'] > 0.25) {
+                datos['frustrado'] += datos['asco'] + datos['ira'];
+            }
+            if (datos['miedo'] + datos['tristeza'] > 0.25) {
+                datos['frustrado'] += datos['miedo'] + datos['tristeza'];
+            }
+            if (datos['sorpresa'] + datos['ira'] > 0.25) {
+                datos['frustrado'] += datos['sorpresa'] + datos['ira'];
+            }
+            datos['motivado'] = 1 - datos['frustrado'];
+            console.log("Datos listos para enviar");
+            console.log(datos);
+            //this.enviarEmocionesWebCam(datos);
+        });
     }
     parar() {
         /*this.video.addEventListener('stop', function () {
@@ -1527,7 +1610,6 @@ let EstudianteComponent = class EstudianteComponent {
     }
     pulsometro(sensor) {
         if (sensor.estado == "Conectado") {
-            this.pulsaciones = Math.round(Math.random() * (130 - 40) + 40);
             if (Math.round(Math.random() * (1 - 0) + 0) == 1) {
                 this.pulsaciones = this.pulsaciones + Math.round(Math.random() * (5 - 0) + 0);
             }
@@ -1536,15 +1618,11 @@ let EstudianteComponent = class EstudianteComponent {
             }
             if (this.pulsaciones >= this.pulsacionesMax) {
                 this.pulsaciones = this.pulsacionesMax;
-                console.log(this.pulsaciones);
             }
             else if (this.pulsaciones <= this.pulsacionesMin) {
                 this.pulsaciones = this.pulsacionesMin;
-                console.log(this.pulsaciones);
             }
-            else {
-                console.log(this.pulsaciones);
-            }
+            this.pulsacionesTotales.push(this.pulsaciones);
         }
     }
     desconectarSensor(sensor) {
@@ -1661,12 +1739,11 @@ let EstudianteComponent = class EstudianteComponent {
             const data = Uint8Array.from([r, g, b]);
             //const negro = Uint8Array.from([0x63, 0, 0, 0, 0x00, 0x10, 0x00, 0x00]);
             try {
-                console.log(data);
+                //console.log(data);
                 yield device.sendFeatureReport(1, data);
                 //await device.sendFeatureReport(1,negro);
             }
             catch (error) {
-                console.error('fadeToColor: failed:', error);
             }
         });
     }
