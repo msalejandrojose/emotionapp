@@ -344,7 +344,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"card\">\n  <div class=\"card-body\">\n    <h5 class=\"card-title\">Crear Actividad</h5>\n    <mat-horizontal-stepper linear #stepper>\n      <mat-step label=\"Crear Actividad\" [stepControl]=\"datosPrimarios\">\n        <br>\n        <form [formGroup]=\"datosPrimarios\">\n          <div class=\"col-md-6\">\n            <label>Nombre de la Actividad</label>\n            <input formControlName=\"fromControlNombreActividad\" [(ngModel)]=\"actividadCreate.nombre\" type=\"text\"\n              class=\"form-control\" id=\"nombreActividad\" placeholder=\"Nombre de la actividad\">\n            <br>\n            <label>Nombre del Profesor</label>\n            <input formControlName=\"fromControlNombreProfesor\" [(ngModel)]=\"actividadCreate.profesor\" type=\"text\"\n              class=\"form-control\" id=\"nombreProfesor\" placeholder=\"Nombre del Profesor\">\n            <br>\n\n          </div>\n          <div class=\"row justify-content-md-center\">\n            <button mat-button matStepperNext class=\"btn btn-success\">Siguiente Paso</button>\n          </div>\n\n        </form>\n      </mat-step>\n      <mat-step label=\"Seleccionar Alumnos\">\n        <!--Tabla de alumnos-->\n        <br>\n\n        <div class=\"example-header\">\n          <mat-form-field>\n            <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filtrar\">\n          </mat-form-field>\n        </div>\n\n        <div class=\"example-container mat-elevation-z8\">\n\n          <mat-table [dataSource]=\"dataSource\" matSort>\n\n            <ng-container matColumnDef=\"select\">\n              <th mat-header-cell *matHeaderCellDef>\n                <mat-checkbox (change)=\"$event ? masterToggle() : null\"\n                  [checked]=\"selection.hasValue() && isAllSelected()\"\n                  [indeterminate]=\"selection.hasValue() && !isAllSelected()\" [aria-label]=\"checkboxLabel()\">\n                </mat-checkbox>\n              </th>\n              <td mat-cell *matCellDef=\"let row\">\n                <mat-checkbox (click)=\"$event.stopPropagation()\" (change)=\"$event ? selection.toggle(row) : null\"\n                  [checked]=\"selection.isSelected(row)\" [aria-label]=\"checkboxLabel(row)\">\n                </mat-checkbox>\n              </td>\n            </ng-container>\n\n            <!-- ID Column -->\n            <ng-container matColumnDef=\"nombre\">\n              <mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </mat-header-cell>\n              <mat-cell *matCellDef=\"let row\"> {{row.nombre}} </mat-cell>\n            </ng-container>\n\n            <!-- Progress Column -->\n            <ng-container matColumnDef=\"apellidos\">\n              <mat-header-cell *matHeaderCellDef mat-sort-header> Apellidos </mat-header-cell>\n              <mat-cell *matCellDef=\"let row\"> {{row.apellidos}} </mat-cell>\n            </ng-container>\n\n            <!-- Name Column -->\n            <ng-container matColumnDef=\"clase\">\n              <mat-header-cell *matHeaderCellDef mat-sort-header> Clase </mat-header-cell>\n              <mat-cell *matCellDef=\"let row\"> {{row.clase}} </mat-cell>\n            </ng-container>\n\n            <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\n            <mat-row *matRowDef=\"let row; columns: displayedColumns;\">\n            </mat-row>\n          </mat-table>\n\n          <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\n        </div>\n        <br>\n        <div class=\"row justify-content-md-center\">\n          <button mat-button matStepperPrevious class=\"btn btn-info\">Volver atras</button>\n          <p> </p>\n          <button mat-button matStepperNext class=\"btn btn-success\" (click)=\"ponerAlumnos()\">Siguiente Paso</button>\n        </div>\n      </mat-step>\n      <mat-step label=\"Localizacion de los alumnos\">\n        <h4>Localizacion de Alumnos</h4>\n        <div id=\"clase\" class=\"example-boundary\">\n          <!--<app-alumno *ngFor=\"let item of alumnosSeleccionados\" [alumno]=\"item\"></app-alumno>-->\n          <div *ngFor=\"let item of alumnosSeleccionados\" class=\"example-box\" ondrop=\"myFunction(item)\"\n            [cdkDragFreeDragPosition]=\"item.estudiante.posicion\" cdkDragBoundary=\".example-boundary\" cdkDrag\n            (cdkDragEnded)=\"dragEnded($event,item)\">\n            {{item.estudiante.nombre}}\n          </div>\n        </div>\n        <br>\n        <div class=\"row justify-content-md-center\">\n          <button mat-button matStepperPrevious class=\"btn btn-info\">Volver atras</button>\n          <p> </p>\n          <button mat-button matStepperNext class=\"btn btn-success\" (click)=guardarActividad()>Guardar</button>\n        </div>\n      </mat-step>\n    </mat-horizontal-stepper>\n  </div>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"card\">\n  <div class=\"card-body\">\n    <h5 class=\"card-title\">Crear Actividad</h5>\n    <mat-horizontal-stepper linear #stepper>\n      <mat-step label=\"Crear Actividad\" [stepControl]=\"datosPrimarios\">\n        <br>\n        <form [formGroup]=\"datosPrimarios\">\n          <div class=\"col-md-6\">\n            <label>Nombre de la Actividad</label>\n            <input formControlName=\"fromControlNombreActividad\" [(ngModel)]=\"actividadCreate.nombre\" type=\"text\"\n              class=\"form-control\" id=\"nombreActividad\" placeholder=\"Nombre de la actividad\">\n            <br>\n            <label>Nombre del Profesor</label>\n            <input formControlName=\"fromControlNombreProfesor\" [(ngModel)]=\"actividadCreate.profesor\" type=\"text\"\n              class=\"form-control\" id=\"nombreProfesor\" placeholder=\"Nombre del Profesor\">\n            <br>\n          </div>\n          <div class=\"row justify-content-md-center\">\n            <button mat-button matStepperNext class=\"btn btn-success\">Siguiente Paso</button>\n          </div>\n        </form>\n      </mat-step>\n      <mat-step label=\"Seleccionar Alumnos\">\n        <!--Tabla de alumnos-->\n        <br>\n\n        <div class=\"example-header\">\n          <mat-form-field>\n            <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filtrar\">\n          </mat-form-field>\n        </div>\n\n        <div class=\"example-container mat-elevation-z8\">\n\n          <mat-table [dataSource]=\"dataSource\" matSort>\n\n            <ng-container matColumnDef=\"select\">\n              <th mat-header-cell *matHeaderCellDef>\n                <mat-checkbox (change)=\"$event ? masterToggle() : null\"\n                  [checked]=\"selection.hasValue() && isAllSelected()\"\n                  [indeterminate]=\"selection.hasValue() && !isAllSelected()\" [aria-label]=\"checkboxLabel()\">\n                </mat-checkbox>\n              </th>\n              <td mat-cell *matCellDef=\"let row\">\n                <mat-checkbox (click)=\"$event.stopPropagation()\" (change)=\"$event ? selection.toggle(row) : null\"\n                  [checked]=\"selection.isSelected(row)\" [aria-label]=\"checkboxLabel(row)\">\n                </mat-checkbox>\n              </td>\n            </ng-container>\n\n            <!-- ID Column -->\n            <ng-container matColumnDef=\"nombre\">\n              <mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </mat-header-cell>\n              <mat-cell *matCellDef=\"let row\"> {{row.nombre}} </mat-cell>\n            </ng-container>\n\n            <!-- Progress Column -->\n            <ng-container matColumnDef=\"apellidos\">\n              <mat-header-cell *matHeaderCellDef mat-sort-header> Apellidos </mat-header-cell>\n              <mat-cell *matCellDef=\"let row\"> {{row.apellidos}} </mat-cell>\n            </ng-container>\n\n            <!-- Name Column -->\n            <ng-container matColumnDef=\"clase\">\n              <mat-header-cell *matHeaderCellDef mat-sort-header> Clase </mat-header-cell>\n              <mat-cell *matCellDef=\"let row\"> {{row.clase}} </mat-cell>\n            </ng-container>\n\n            <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\n            <mat-row *matRowDef=\"let row; columns: displayedColumns;\">\n            </mat-row>\n          </mat-table>\n\n          <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\n        </div>\n        <br>\n        <div class=\"row justify-content-md-center\">\n          <button mat-button matStepperPrevious class=\"btn btn-info\">Volver atras</button>\n          <p> </p>\n          <button mat-button matStepperNext class=\"btn btn-success\" (click)=\"ponerAlumnos()\">Siguiente Paso</button>\n        </div>\n      </mat-step>\n      <mat-step label=\"Localizacion de los alumnos\">\n        <h4>Localizacion de Alumnos</h4>\n        <div id=\"clase\" class=\"example-boundary\">\n          <!--<app-alumno *ngFor=\"let item of alumnosSeleccionados\" [alumno]=\"item\"></app-alumno>-->\n          <div *ngFor=\"let item of alumnosSeleccionados\" class=\"example-box\" ondrop=\"myFunction(item)\"\n            [cdkDragFreeDragPosition]=\"item.estudiante.posicion\" cdkDragBoundary=\".example-boundary\" cdkDrag\n            (cdkDragEnded)=\"dragEnded($event,item)\">\n            {{item.estudiante.nombre}}\n          </div>\n        </div>\n        <br>\n        <div class=\"row justify-content-md-center\">\n          <button mat-button matStepperPrevious class=\"btn btn-info\">Volver atras</button>\n          <p> </p>\n          <button mat-button matStepperNext class=\"btn btn-success\" (click)=guardarActividad()>Guardar</button>\n        </div>\n      </mat-step>\n    </mat-horizontal-stepper>\n  </div>\n</div>");
 
 /***/ }),
 
@@ -396,7 +396,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"row justify-content-md-center\">\n    <div class=\"col-12\">\n        <h5 class=\"text-center\" *ngIf=\"actividad.estado=='Creada'\">Actividad sin empezar</h5>\n        <h5 class=\"text-center\" *ngIf=\"actividad.estado=='Comenzada'\">Actividad empezada</h5>\n        <h5 class=\"text-center\" *ngIf=\"actividad.estado=='Finalizada'\">Actividad finalizada</h5>\n    </div>\n</div>\n<div class=\"row justify-content-md-center\">\n    <div class=\"col-2\">\n        <button type=\"button\" class=\"btn btn-outline-danger\" (click)=\"cerrarActividad()\">Cerrar Actividad</button>\n    </div>\n    <div class=\"col-8\">\n        <div *ngIf=\"actividad.estado=='Creada'\" class=\"progress\">\n            <div class=\"progress-bar bg-success\" role=\"progressbar\" style=\"width: 0%\" aria-valuenow=\"25\"\n                aria-valuemin=\"0\" aria-valuemax=\"100\"></div>\n        </div>\n        <div *ngIf=\"actividad.estado=='Comenzada'\" class=\"progress\">\n            <div class=\"progress-bar bg-success\" role=\"progressbar\" style=\"width: 50%\" aria-valuenow=\"50\"\n                aria-valuemin=\"0\" aria-valuemax=\"100\"></div>\n        </div>\n        <div *ngIf=\"actividad.estado=='Finalizada'\" class=\"progress\">\n            <div class=\"progress-bar bg-success\" role=\"progressbar\" style=\"width: 100%\" aria-valuenow=\"75\"\n                aria-valuemin=\"0\" aria-valuemax=\"100\"></div>\n        </div>\n    </div>\n    <div class=\"col-2\">\n        <button *ngIf=\"actividad.estado=='Creada'\" type=\"button\" class=\"btn btn-outline-dark disenable\"\n            (click)=\"comenzar()\">Comenzar</button>\n        <button *ngIf=\"actividad.estado=='Comenzada'\" type=\"button\" class=\"btn btn-outline-dark disenable\"\n            (click)=\"terminar()\">Terminar</button>\n    </div>\n</div>\n<br>\n<div class=\"row justify-content-center\">\n    <div class=\"col-12\">\n        <div class=\"card-body\">\n            <h5 class=\"card-title\">Usuarios Conectados</h5>\n            <div class=\"card-content\">\n                <canvas id=\"usersConectados\"></canvas>\n                <h6 >{{porUsuariosConectados}}% Usuarios conectados</h6>\n                <!--<h6 >{{((usuariosConectados.length()/usuariosTotales)*100)}}%</h6>-->\n            </div>\n        </div>\n    </div>\n</div>\n<div class=\"row justify-content-md-center\">\n    <div class=\"card col-md-11\">\n        <div class=\"card-body\">\n            <h5 class=\"card-title\">Distribucion de la clase</h5>\n            <div id=\"clase\" class=\"example-boundary\">\n                <div id=\"{{item.id_item}}\" *ngFor=\"let item of actividad.alumnos\" class=\"example-box\"\n                    ondrop=\"myFunction(item)\" [cdkDragFreeDragPosition]=\"item.posicion\"\n                    cdkDragBoundary=\".example-boundary\" cdkDrag (cdkDragEnded)=\"dragEnded($event,item)\">\n                    {{item.estudiante.nombre}}\n                </div>\n            </div>\n        </div>\n    </div>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"row justify-content-md-center\">\n    <div class=\"col-12\">\n        <h5 class=\"text-center\" *ngIf=\"actividad.estado=='Creada'\">Actividad sin empezar</h5>\n        <h5 class=\"text-center\" *ngIf=\"actividad.estado=='Comenzada'\">Actividad empezada</h5>\n        <h5 class=\"text-center\" *ngIf=\"actividad.estado=='Finalizada'\">Actividad finalizada</h5>\n    </div>\n</div>\n<div class=\"row justify-content-md-center\">\n    <div class=\"col-2\">\n        <button type=\"button\" class=\"btn btn-outline-danger\" (click)=\"cerrarActividad()\">Cerrar Actividad</button>\n    </div>\n    <div class=\"col-8\">\n        <div *ngIf=\"actividad.estado=='Creada'\" class=\"progress\">\n            <div class=\"progress-bar bg-success\" role=\"progressbar\" style=\"width: 0%\" aria-valuenow=\"25\"\n                aria-valuemin=\"0\" aria-valuemax=\"100\"></div>\n        </div>\n        <div *ngIf=\"actividad.estado=='Comenzada'\" class=\"progress\">\n            <div class=\"progress-bar bg-success\" role=\"progressbar\" style=\"width: 50%\" aria-valuenow=\"50\"\n                aria-valuemin=\"0\" aria-valuemax=\"100\"></div>\n        </div>\n        <div *ngIf=\"actividad.estado=='Finalizada'\" class=\"progress\">\n            <div class=\"progress-bar bg-success\" role=\"progressbar\" style=\"width: 100%\" aria-valuenow=\"75\"\n                aria-valuemin=\"0\" aria-valuemax=\"100\"></div>\n        </div>\n    </div>\n    <div class=\"col-2\">\n        <button *ngIf=\"actividad.estado=='Creada'\" type=\"button\" class=\"btn btn-outline-dark disenable\"\n            (click)=\"comenzar()\">Comenzar</button>\n        <button *ngIf=\"actividad.estado=='Comenzada'\" type=\"button\" class=\"btn btn-outline-dark disenable\"\n            (click)=\"terminar()\">Terminar</button>\n    </div>\n</div>\n<br>\n<div class=\"row justify-content-md-center\">\n    <div *ngIf class=\"btn-group btn-group-toggle\">\n\n        <label class=\"btn btn-outline-primary active\">\n            <input type=\"radio\" name=\"options\" id=\"general\" (click)=\"cambiarAGeneral\" checked> General\n        </label>\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAMapa\"> Mapa de la clase\n        </label>\n    </div>\n</div>\n<br>\n<div class=\"row justify-content-center\">\n    <div class=\"col-5\">\n        <div class=\"card-body\">\n            <h5 class=\"text-center card-title\">Usuarios Conectados</h5>\n            <div class=\"card-content\">\n                <canvas id=\"usersConectados\"></canvas>\n                <h6 class=\"text-center\">{{porUsuariosConectados}}% Usuarios conectados</h6>\n                <!--<h6 >{{((usuariosConectados.length()/usuariosTotales)*100)}}%</h6>-->\n            </div>\n        </div>\n    </div>\n    <div class=\"col-7\">\n        <div class=\"card-body\">\n            <div class=\"row\">\n                <h5 class=\"col-4 text-center card-title\">Grafica</h5>\n                <div class=\"col-4 btn-group\">\n                    <button type=\"button\" class=\"btn btn-sm btn-outline-info\">Estados</button>\n                    <button type=\"button\" class=\"btn btn-sm btn-outline-info dropdown-toggle dropdown-toggle-split\"\n                        data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">\n                        <span class=\"sr-only\">Toggle Dropdown</span>\n                    </button>\n                    <div class=\"dropdown-menu\">\n                        <a class=\"dropdown-item\">asad</a>\n                        <a class=\"dropdown-item\">Another action</a>\n                        <a class=\"dropdown-item\">Something else here</a>\n                        <div class=\"dropdown-divider\"></div>\n                        <a class=\"dropdown-item\">Separated link</a>\n                    </div>\n                </div>\n                <div class=\"col-4 btn-group\">\n                    <button type=\"button\" class=\"btn btn-sm btn-outline-info\">Media de alumnos</button>\n                    <button type=\"button\" class=\"btn btn-sm btn-outline-info dropdown-toggle dropdown-toggle-split\"\n                        data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">\n                        <span class=\"sr-only\">Toggle Dropdown</span>\n                    </button>\n                    <div class=\"dropdown-menu\">\n                        <a class=\"dropdown-item\" href=\"#\">Action</a>\n                        <a class=\"dropdown-item\" href=\"#\">Another action</a>\n                        <a class=\"dropdown-item\" href=\"#\">Something else here</a>\n                        <div class=\"dropdown-divider\"></div>\n                        <a class=\"dropdown-item\" href=\"#\">Separated link</a>\n                    </div>\n                </div>\n            </div>\n            <div class=\"card-content\">\n                <canvas id=\"graficaEstado\"></canvas>\n            </div>\n        </div>\n    </div>\n</div>\n<div class=\"row justify-content-md-center\">\n    <div class=\"card col-md-11\">\n        <div class=\"card-body\">\n            <h5 class=\"card-title\">Distribucion de la clase</h5>\n            <div id=\"clase\" class=\"example-boundary\">\n                <div id=\"{{item.id_item}}\" *ngFor=\"let item of actividad.alumnos\" class=\"example-box\"\n                    ondrop=\"myFunction(item)\" [cdkDragFreeDragPosition]=\"item.posicion\"\n                    cdkDragBoundary=\".example-boundary\" cdkDrag (cdkDragEnded)=\"dragEnded($event,item)\">\n                    {{item.estudiante.nombre}}\n                </div>\n            </div>\n        </div>\n    </div>\n</div>");
 
 /***/ }),
 
@@ -1120,6 +1120,13 @@ let EstudianteComponent = class EstudianteComponent {
         this.ColorFearful = 'rgba(0,150,0,1)'; //Color del miedo Correcto
         this.ColorDisgusted = 'rgba(0,0,0,0.5)'; //Color del disgusto Incorrecto
         this.ColorSurprised = 'rgba(89,189,255,1)'; //Color de la Sorpresa Correcto
+        this.ColorHappy2 = [255, 255, 0, 1];
+        this.ColorNeutral2 = [84, 255, 84, 1];
+        this.ColorSad2 = [81, 81, 255, 1];
+        this.ColorAngry2 = [255, 0, 0, 1];
+        this.ColorFearful2 = [0, 150, 0, 1];
+        this.ColorDisgusted2 = [80, 80, 80, 1];
+        this.ColorSurprised2 = [89, 189, 255, 1];
         this.estudiante = {
             _id: '',
             nombre: '',
@@ -1313,7 +1320,7 @@ let EstudianteComponent = class EstudianteComponent {
         this.empezar();
         setInterval(async => {
             this.computacionDatos();
-        }, 7000);
+        }, 3000);
     }
     desconectarse() {
         console.log("Me he desconectado de la actividad");
@@ -1464,70 +1471,71 @@ let EstudianteComponent = class EstudianteComponent {
                     this.emocionMiedo += datosFearful;
                     this.emocionSorpresa += datosSurprised;
                     this.emocionTristeza += datosSad;
-                    this.emocionNeutra += datosNeutral;
+                    //this.emocionNeutra+=datosNeutral;
                     //this.datosTotalesEmocionales=datosHappy+datosDisgusted+datosAngry+datosFearful+datosSurprised+datosSad;
-                    var maximo = Math.max(datosAngry, datosDisgusted, datosFearful, datosHappy, datosNeutral, datosSad, datosSurprised);
+                    /*var maximo = Math.max(datosAngry, datosDisgusted, datosFearful, datosHappy, datosNeutral, datosSad, datosSurprised);
                     if (datosNeutral == maximo) {
-                        //console.log("Neutro: "+maximo);
-                        //this.enviarEmocionesWebCam({ id_item: this.id_item, color: this.ColorNeutral, datos: datos, pulsaciones: this.pulsaciones })
-                        this.colorPredominante = this.ColorNeutral;
-                        this.ponerNeutral();
-                        $('#estadoAlumno').css('background-color', this.ColorNeutral);
-                        //this.ContadorNeutro++
-                        //this.usuario.Neutro.valor = this.usuario.Neutro.valor + 1;
+                      //console.log("Neutro: "+maximo);
+                      //this.enviarEmocionesWebCam({ id_item: this.id_item, color: this.ColorNeutral, datos: datos, pulsaciones: this.pulsaciones })
+                      this.colorPredominante=this.ColorNeutral
+                      this.ponerNeutral()
+                      $('#estadoAlumno').css('background-color', this.ColorNeutral);
+                      //this.ContadorNeutro++
+                      //this.usuario.Neutro.valor = this.usuario.Neutro.valor + 1;
                     }
                     if (datosFearful == maximo) {
-                        //console.log("Miedo: "+maximo);
-                        //this.enviarEmocionesWebCam({ id_item: this.id_item, color: this.ColorFearful, datos: datos, pulsaciones: this.pulsaciones })
-                        this.colorPredominante = this.ColorFearful;
-                        this.ponerFearful();
-                        $('#estadoAlumno').css('background-color', this.ColorFearful);
-                        //this.ContadorMiedo++
-                        //this.usuario.Miedo.valor = this.usuario.Miedo.valor + 1;
+                      //console.log("Miedo: "+maximo);
+                      //this.enviarEmocionesWebCam({ id_item: this.id_item, color: this.ColorFearful, datos: datos, pulsaciones: this.pulsaciones })
+                      this.colorPredominante=this.ColorFearful;
+                      this.ponerFearful();
+                      $('#estadoAlumno').css('background-color', this.ColorFearful);
+                      //this.ContadorMiedo++
+                      //this.usuario.Miedo.valor = this.usuario.Miedo.valor + 1;
                     }
                     if (datosAngry == maximo) {
-                        //console.log("Enfadado: "+maximo);
-                        //this.enviarEmocionesWebCam({ id_item: this.id_item, color: this.ColorAngry, datos: datos, pulsaciones: this.pulsaciones })
-                        this.colorPredominante = this.ColorAngry;
-                        this.ponerAngry();
-                        $('#estadoAlumno').css('background-color', this.ColorAngry);
-                        //this.ContadorEnfadado++
-                        //this.usuario.Enfadado.valor = this.usuario.Enfadado.valor + 1;
+                      //console.log("Enfadado: "+maximo);
+                      //this.enviarEmocionesWebCam({ id_item: this.id_item, color: this.ColorAngry, datos: datos, pulsaciones: this.pulsaciones })
+                      this.colorPredominante=this.ColorAngry;
+                      this.ponerAngry();
+                      $('#estadoAlumno').css('background-color', this.ColorAngry);
+                      //this.ContadorEnfadado++
+                      //this.usuario.Enfadado.valor = this.usuario.Enfadado.valor + 1;
                     }
                     if (datosHappy == maximo) {
-                        //console.log("Feliz: "+maximo);
-                        //this.enviarEmocionesWebCam({ id_item: this.id_item, color: this.ColorHappy, datos: datos, pulsaciones: this.pulsaciones })
-                        this.colorPredominante = this.ColorHappy;
-                        this.ponerHappy();
-                        $('#estadoAlumno').css('background-color', this.ColorHappy);
-                        //this.ContadorFeliz++
-                        //this.usuario.Felicidad.valor = this.usuario.Felicidad.valor + 1;
+                      //console.log("Feliz: "+maximo);
+                      //this.enviarEmocionesWebCam({ id_item: this.id_item, color: this.ColorHappy, datos: datos, pulsaciones: this.pulsaciones })
+                      this.colorPredominante=this.ColorHappy;
+                      this.ponerHappy();
+                      $('#estadoAlumno').css('background-color', this.ColorHappy);
+                      //this.ContadorFeliz++
+                      //this.usuario.Felicidad.valor = this.usuario.Felicidad.valor + 1;
                     }
                     if (datosSad == maximo) {
-                        //console.log("Triste: "+maximo);
-                        //this.enviarEmocionesWebCam({ id_item: this.id_item, color: this.ColorSad, datos: datos, pulsaciones: this.pulsaciones })
-                        this.colorPredominante = this.ColorSad;
-                        this.ponerSad();
-                        $('#estadoAlumno').css('background-color', this.ColorSad);
-                        //this.ContadorTriste++
-                        //this.usuario.Triste.valor = this.usuario.Triste.valor + 1;
+                      //console.log("Triste: "+maximo);
+                      //this.enviarEmocionesWebCam({ id_item: this.id_item, color: this.ColorSad, datos: datos, pulsaciones: this.pulsaciones })
+                      this.colorPredominante=this.ColorSad;
+                      this.ponerSad();
+                      $('#estadoAlumno').css('background-color', this.ColorSad);
+                      //this.ContadorTriste++
+                      //this.usuario.Triste.valor = this.usuario.Triste.valor + 1;
                     }
                     if (datosSurprised == maximo) {
-                        //this.enviarEmocionesWebCam({ id_item: this.id_item, color: this.ColorSurprised, datos: datos, pulsaciones: this.pulsaciones })
-                        this.colorPredominante = this.ColorSurprised;
-                        this.ponerSurprised();
-                        $('#estadoAlumno').css('background-color', this.ColorSurprised);
-                        //this.ContadorSorprendido++
-                        //this.usuario.Sorpresa.valor = this.usuario.Sorpresa.valor + 1;
+                      //this.enviarEmocionesWebCam({ id_item: this.id_item, color: this.ColorSurprised, datos: datos, pulsaciones: this.pulsaciones })
+                      this.colorPredominante=this.ColorSurprised;
+                      this.ponerSurprised();
+                      $('#estadoAlumno').css('background-color', this.ColorSurprised);
+                      //this.ContadorSorprendido++
+                      //this.usuario.Sorpresa.valor = this.usuario.Sorpresa.valor + 1;
                     }
                     if (datosDisgusted == maximo) {
-                        //console.log("Disgustado: "+maximo);
-                        //this.enviarEmocionesWebCam({ id_item: this.id_item, color: this.ColorDisgusted, datos: datos, pulsaciones: this.pulsaciones })
-                        this.ponerDisgusted();
-                        $('#estadoAlumno').css('background-color', this.ColorDisgusted);
-                        //this.ContadorDisgustado++
-                        //this.usuario.Disgustado.valor = this.usuario.Disgustado.valor + 1;
+                      //console.log("Disgustado: "+maximo);
+                      //this.enviarEmocionesWebCam({ id_item: this.id_item, color: this.ColorDisgusted, datos: datos, pulsaciones: this.pulsaciones })
+                      //this.ponerDisgusted();
+                      $('#estadoAlumno').css('background-color', this.ColorDisgusted);
+                      //this.ContadorDisgustado++
+                      //this.usuario.Disgustado.valor = this.usuario.Disgustado.valor + 1;
                     }
+                    */
                 }
                 catch (error) {
                     //console.log("No hay datos que enviar");
@@ -1538,17 +1546,45 @@ let EstudianteComponent = class EstudianteComponent {
     computacionDatos() {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
             let datos = {};
+            let predominante = 0;
             //Estado Emocional
-            this.datosTotalesEmocionales = this.emocionAlegria + this.emocionAsco + this.emocionIra + this.emocionMiedo + this.emocionSorpresa + this.emocionNeutra;
+            this.datosTotalesEmocionales = this.emocionAlegria + this.emocionAsco + this.emocionIra + this.emocionMiedo + this.emocionSorpresa + this.emocionTristeza; //+this.emocionNeutra;
             datos['id_item'] = this.id_item;
+            this.colorPredominante = this.ColorNeutral2;
             datos['alegria'] = this.emocionAlegria / this.datosTotalesEmocionales;
+            if (predominante < datos['alegria']) {
+                predominante = datos['alegria'];
+                this.colorPredominante = this.ColorHappy2;
+            }
             datos['asco'] = this.emocionAsco / this.datosTotalesEmocionales;
+            if (predominante < datos['asco']) {
+                this.colorPredominante = this.ColorDisgusted2;
+            }
             datos['ira'] = this.emocionIra / this.datosTotalesEmocionales;
+            if (predominante < datos['ira']) {
+                this.colorPredominante = this.ColorAngry2;
+            }
             datos['miedo'] = this.emocionMiedo / this.datosTotalesEmocionales;
+            if (predominante < datos['miedo']) {
+                this.colorPredominante = this.ColorFearful2;
+            }
             datos['sorpresa'] = this.emocionSorpresa / this.datosTotalesEmocionales;
+            if (predominante < datos['sorpresa']) {
+                this.colorPredominante = this.ColorSurprised2;
+            }
             datos['tristeza'] = this.emocionTristeza / this.datosTotalesEmocionales;
-            datos['neutra'] = this.emocionNeutra / this.datosTotalesEmocionales;
-            datos['color'] = this.colorPredominante;
+            if (predominante < datos['tristeza']) {
+                this.colorPredominante = this.ColorSad2;
+            }
+            predominante = 0;
+            /*datos['neutra']=this.emocionNeutra/this.datosTotalesEmocionales;
+            if(datos['tristeza']<datos['neutra']){
+              this.colorPredominante=this.ColorNeutral2;
+            }*/
+            datos['color'] = 'rgba(' + this.colorPredominante[0] + ',' + this.colorPredominante[1] + ',' + this.colorPredominante[2] + ',' + this.colorPredominante[3] + ')';
+            console.log('rgba(' + this.colorPredominante[0] + ',' + this.colorPredominante[1] + ',' + this.colorPredominante[2] + ',' + this.colorPredominante[3] + ')');
+            $('#estadoAlumno').css('background-color', 'rgba(' + this.colorPredominante[0] + ',' + this.colorPredominante[1] + ',' + this.colorPredominante[2] + ',' + this.colorPredominante[3] + ')');
+            this.ponerColor();
             this.emocionAlegria = 0;
             this.emocionAsco = 0;
             this.emocionIra = 0;
@@ -1573,7 +1609,7 @@ let EstudianteComponent = class EstudianteComponent {
             if (datos['pulsaciones'] > 85) {
                 datos['distraido'] = datos['sorpresa'];
             }
-            else if (datos['alegria'] == NaN) {
+            if (datos['alegria'] == NaN) {
                 datos['distraido'] = 1;
             }
             datos['concentrado'] = 1 - datos['distraido'];
@@ -1589,6 +1625,9 @@ let EstudianteComponent = class EstudianteComponent {
             }
             if (datos['sorpresa'] + datos['ira'] > 0.10) {
                 datos['frustrado'] += datos['sorpresa'] + datos['ira'];
+            }
+            if (datos['alegria'] == NaN) {
+                datos['frustrado'] = 1;
             }
             datos['motivado'] = 1 - datos['frustrado'];
             console.log("Datos listos para enviar");
@@ -1746,9 +1785,15 @@ let EstudianteComponent = class EstudianteComponent {
             yield this.fadeToColor(this.led.data, [89, 189, 255]);
         });
     }
+    ponerColor() {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
+            yield this.fadeToColor(this.led.data, [this.colorPredominante[0], this.colorPredominante[1], this.colorPredominante[2]]);
+        });
+    }
     fadeToColor(device, [r, g, b]) {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
             const reportId = 1;
+            console.log([r, g, b]);
             const data = Uint8Array.from([r, g, b]);
             //const negro = Uint8Array.from([0x63, 0, 0, 0, 0x00, 0x10, 0x00, 0x00]);
             try {
@@ -2283,7 +2328,7 @@ let ProfesorComponent = class ProfesorComponent {
                 }
             });
             this.socket.on('recepcionDatos', function (datos) {
-                //console.log(datos);
+                console.log(datos);
                 $('#' + datos.id_item + '').css("background-color", datos.color);
                 //console.log(datos.pulsaciones);
             });
@@ -2663,6 +2708,8 @@ let VerActividadComponent = class VerActividadComponent {
         this.numAlumnosConectados = 0;
         this.numAlumnosDesconectados = 0;
         this.numAlumnosTotales = 0;
+        this.vistaGeneral = 'checked';
+        this.vistaMapaDeLaClase = '';
         //alumnosConectados=0;
         this.alumnosDesconectados = 0;
         //console.log(this.usuariosConectados);
@@ -2772,6 +2819,16 @@ let VerActividadComponent = class VerActividadComponent {
     }
     cerrarActividad() {
         this.actividadCreada.emit("cerrar");
+    }
+    cambiarAGeneral() {
+        console.log("cambio2222");
+        this.vistaGeneral = 'checked';
+        this.vistaMapaDeLaClase = '';
+    }
+    cambiarAMapa() {
+        console.log("cambio");
+        this.vistaGeneral = '';
+        this.vistaMapaDeLaClase = 'checked';
     }
 };
 tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
