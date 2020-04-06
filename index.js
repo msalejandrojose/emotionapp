@@ -77,7 +77,7 @@ app.post("/verActividadesComenzadas", function (request, response) {
 
 app.post("/registrarActividad", function (request, response) {
   var act = request.body;
-  centro.agregarActividad(act.nombre,act.profesor,act.alumnos,function(res){
+  centro.agregarActividad(act.nombre,act.profesor,act.alumnos,act.resumen,function(res){
     if (res != '') {
       console.log("Actividad agregada");
       response.send(res);

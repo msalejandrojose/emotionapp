@@ -76,7 +76,7 @@ function Centro() {
     }
 
     //CRUD Actividades
-    this.agregarActividad = function (nombre, profesor, alumnos, callback) {
+    this.agregarActividad = function (nombre, profesor, alumnos, resumen, callback) {
         var ju = this;
         /*let alumnos = {};
         for (var email in estudiantes) {
@@ -87,6 +87,7 @@ function Centro() {
             profesor: profesor,
             alumnos: alumnos,
             estado: 'Creada',
+            resumen: resumen,
         }
 
         this.dao.connect(function (db) {
@@ -121,6 +122,7 @@ function Centro() {
                 profesor: act.profesor,
                 alumnos: act.alumnos,
                 estado: act.estado,
+                resumen: act.resumen,
             }
             this.dao.connect(function (db) {
                 console.log(a);
@@ -266,6 +268,7 @@ function Actividad(id, nombre, profesor, alumnos, estado) {
     this.profesor = profesor;
     this.alumnos = alumnos;
     this.estado = estado;
+    this.resumen = {};
 
     //Metodos
     this.anadirAlumno = function (estudiante, posicion) {
@@ -319,6 +322,7 @@ function Alumno(estudiante, posicion, actividad) {
     this.estudiante = estudiante;
     this.posicion = posicion;
     this.id_item = this.estudiante._id + actividad._id;
+    this.datos = {};
 
     this.setActividad = function (act) {
         this.id_item = this.estudiante._id + act._id;
