@@ -396,7 +396,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"row justify-content-md-center\">\n    <div class=\"col-12\">\n        <h5 class=\"text-center\" *ngIf=\"actividad.estado=='Creada'\">Actividad sin empezar</h5>\n        <h5 class=\"text-center\" *ngIf=\"actividad.estado=='Comenzada'\">Actividad empezada</h5>\n        <h5 class=\"text-center\" *ngIf=\"actividad.estado=='Finalizada'\">Actividad finalizada</h5>\n    </div>\n</div>\n<div class=\"row justify-content-md-center\">\n    <div class=\"col-2\">\n        <button type=\"button\" class=\"btn btn-outline-danger\" (click)=\"cerrarActividad()\">Cerrar Actividad</button>\n    </div>\n    <div class=\"col-8\">\n        <div *ngIf=\"actividad.estado=='Creada'\" class=\"progress\">\n            <div class=\"progress-bar bg-success\" role=\"progressbar\" style=\"width: 0%\" aria-valuenow=\"25\"\n                aria-valuemin=\"0\" aria-valuemax=\"100\"></div>\n        </div>\n        <div *ngIf=\"actividad.estado=='Comenzada'\" class=\"progress\">\n            <div class=\"progress-bar bg-success\" role=\"progressbar\" style=\"width: 50%\" aria-valuenow=\"50\"\n                aria-valuemin=\"0\" aria-valuemax=\"100\"></div>\n        </div>\n        <div *ngIf=\"actividad.estado=='Finalizada'\" class=\"progress\">\n            <div class=\"progress-bar bg-success\" role=\"progressbar\" style=\"width: 100%\" aria-valuenow=\"75\"\n                aria-valuemin=\"0\" aria-valuemax=\"100\"></div>\n        </div>\n    </div>\n    <div class=\"col-2\">\n        <button *ngIf=\"actividad.estado=='Creada'\" type=\"button\" class=\"btn btn-outline-dark disenable\"\n            (click)=\"comenzar()\">Comenzar</button>\n        <button *ngIf=\"actividad.estado=='Comenzada'\" type=\"button\" class=\"btn btn-outline-dark disenable\"\n            (click)=\"terminar()\">Terminar</button>\n    </div>\n</div>\n<br>\n<div class=\"row justify-content-md-center\">\n    <div *ngIf=\"vistaGeneral\" class=\"btn-group btn-group-toggle\">\n        <label class=\"btn btn-outline-primary active\">\n            <input type=\"radio\" name=\"options\" id=\"general\" (click)=\"cambiarAGeneral()\" checked> General\n        </label>\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAMapa()\"> Mapa de la clase\n        </label>\n    </div>\n    <div *ngIf=\"vistaMapaDeLaClase\" class=\"btn-group btn-group-toggle\">\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"general\" (click)=\"cambiarAGeneral()\" > General\n        </label>\n        <label class=\"btn btn-outline-primary active\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAMapa()\" checked> Mapa de la clase\n        </label>\n    </div>\n</div>\n<br>\n<div class=\"row justify-content-center\">\n    <div class=\"col-5\">\n        <div class=\"card-body\">\n            <h5 class=\"text-center card-title\">Usuarios Conectados</h5>\n            <div class=\"card-content\">\n                <canvas id=\"usersConectados\"></canvas>\n                <h6 class=\"text-center\">{{porUsuariosConectados}}% Usuarios conectados</h6>\n                <!--<h6 >{{((usuariosConectados.length()/usuariosTotales)*100)}}%</h6>-->\n            </div>\n        </div>\n    </div>\n    <div class=\"col-7\">\n        <div class=\"card-body\">\n            <div class=\"row\">\n                <h5 class=\"col-4 text-center card-title\">Grafica</h5>\n                <div class=\"col-4 btn-group\">\n                    <button type=\"button\" class=\"btn btn-sm btn-outline-info\">Estados</button>\n                    <button type=\"button\" class=\"btn btn-sm btn-outline-info dropdown-toggle dropdown-toggle-split\"\n                        data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">\n                        <span class=\"sr-only\">Toggle Dropdown</span>\n                    </button>\n                    <div class=\"dropdown-menu\">\n                        <a class=\"dropdown-item\">asad</a>\n                        <a class=\"dropdown-item\">Another action</a>\n                        <a class=\"dropdown-item\">Something else here</a>\n                        <div class=\"dropdown-divider\"></div>\n                        <a class=\"dropdown-item\">Separated link</a>\n                    </div>\n                </div>\n                <div class=\"col-4 btn-group\">\n                    <button type=\"button\" class=\"btn btn-sm btn-outline-info\">Media de alumnos</button>\n                    <button type=\"button\" class=\"btn btn-sm btn-outline-info dropdown-toggle dropdown-toggle-split\"\n                        data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">\n                        <span class=\"sr-only\">Toggle Dropdown</span>\n                    </button>\n                    <div class=\"dropdown-menu\">\n                        <a class=\"dropdown-item\" href=\"#\">Action</a>\n                        <a class=\"dropdown-item\" href=\"#\">Another action</a>\n                        <a class=\"dropdown-item\" href=\"#\">Something else here</a>\n                        <div class=\"dropdown-divider\"></div>\n                        <a class=\"dropdown-item\" href=\"#\">Separated link</a>\n                    </div>\n                </div>\n            </div>\n            <div class=\"card-content\">\n                <canvas id=\"graficaEstado\"></canvas>\n            </div>\n        </div>\n    </div>\n</div>\n<div *ngIf=\"vistaMapaDeLaClase\" class=\"row justify-content-md-center\">\n    <div class=\"card col-md-11\">\n        <div class=\"card-body\">\n            <h5 class=\"card-title\">Distribucion de la clase</h5>\n            <div id=\"clase\" class=\"example-boundary\">\n                <div id=\"{{item.id_item}}\" *ngFor=\"let item of actividad.alumnos\" class=\"example-box\"\n                    ondrop=\"myFunction(item)\" [cdkDragFreeDragPosition]=\"item.posicion\"\n                    cdkDragBoundary=\".example-boundary\" cdkDrag (cdkDragEnded)=\"dragEnded($event,item)\">\n                    {{item.estudiante.nombre}}\n                </div>\n            </div>\n        </div>\n    </div>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"row justify-content-md-center\">\n    <div class=\"col-12\">\n        <h5 class=\"text-center\" *ngIf=\"actividad.estado=='Creada'\">Actividad sin empezar</h5>\n        <h5 class=\"text-center\" *ngIf=\"actividad.estado=='Comenzada'\">Actividad empezada</h5>\n        <h5 class=\"text-center\" *ngIf=\"actividad.estado=='Finalizada'\">Actividad finalizada</h5>\n    </div>\n</div>\n<div class=\"row justify-content-md-center\">\n    <div class=\"col-2\">\n        <button type=\"button\" class=\"btn btn-outline-danger\" (click)=\"cerrarActividad()\">Cerrar Actividad</button>\n    </div>\n    <div class=\"col-8\">\n        <div *ngIf=\"actividad.estado=='Creada'\" class=\"progress\">\n            <div class=\"progress-bar bg-success\" role=\"progressbar\" style=\"width: 0%\" aria-valuenow=\"25\"\n                aria-valuemin=\"0\" aria-valuemax=\"100\"></div>\n        </div>\n        <div *ngIf=\"actividad.estado=='Comenzada'\" class=\"progress\">\n            <div class=\"progress-bar bg-success\" role=\"progressbar\" style=\"width: 50%\" aria-valuenow=\"50\"\n                aria-valuemin=\"0\" aria-valuemax=\"100\"></div>\n        </div>\n        <div *ngIf=\"actividad.estado=='Finalizada'\" class=\"progress\">\n            <div class=\"progress-bar bg-success\" role=\"progressbar\" style=\"width: 100%\" aria-valuenow=\"75\"\n                aria-valuemin=\"0\" aria-valuemax=\"100\"></div>\n        </div>\n    </div>\n    <div class=\"col-2\">\n        <button *ngIf=\"actividad.estado=='Creada'\" type=\"button\" class=\"btn btn-outline-dark disenable\"\n            (click)=\"comenzar()\">Comenzar</button>\n        <button *ngIf=\"actividad.estado=='Comenzada'\" type=\"button\" class=\"btn btn-outline-dark disenable\"\n            (click)=\"terminar()\">Terminar</button>\n    </div>\n</div>\n<br>\n<div class=\"row justify-content-md-center\">\n    <div *ngIf=\"vistaGeneral\" class=\"btn-group btn-group-toggle\">\n        <label class=\"btn btn-outline-primary active\">\n            <input type=\"radio\" name=\"options\" id=\"general\" (click)=\"cambiarAGeneral()\" checked> General\n        </label>\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAMapa()\"> Mapa de la clase\n        </label>\n    </div>\n    <div *ngIf=\"vistaMapaDeLaClase\" class=\"btn-group btn-group-toggle\">\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"general\" (click)=\"cambiarAGeneral()\"> General\n        </label>\n        <label class=\"btn btn-outline-primary active\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAMapa()\" checked> Mapa de la clase\n        </label>\n    </div>\n</div>\n<br>\n<div class=\"row justify-content-center\">\n    <div class=\"col-5\">\n        <div class=\"card-body\">\n            <h5 class=\"text-center card-title\">Usuarios Conectados</h5>\n            <div class=\"card-content\">\n                <canvas id=\"usersConectados\"></canvas>\n                <h6 class=\"text-center\">{{porUsuariosConectados}}% Usuarios conectados</h6>\n                <!--<h6 >{{((usuariosConectados.length()/usuariosTotales)*100)}}%</h6>-->\n            </div>\n        </div>\n    </div>\n    <div class=\"col-7\">\n        <div class=\"card-body\">\n            <div class=\"row\">\n                <h5 class=\"col-4 text-center card-title\">Grafica</h5>\n                <div class=\"col-4\">\n                    <div class=\"btn-group\">\n                        <button type=\"button\" class=\"btn btn-info dropdown-toggle\" data-toggle=\"dropdown\"\n                            aria-haspopup=\"true\" aria-expanded=\"false\">\n                            {{estadoSeleccionado}}\n                        </button>\n                        <div class=\"dropdown-menu\">\n                            <a class=\"dropdown-item\" *ngFor=\"let estado of estados\" (click)=\"seleccionarEstado(estado)\">{{estado}}</a>\n                        </div>\n                    </div>\n                </div>\n                <div class=\"col-4\">\n                    <div class=\"btn-group\">\n                        <button type=\"button\" class=\"btn btn-info dropdown-toggle\" data-toggle=\"dropdown\"\n                            aria-haspopup=\"true\" aria-expanded=\"false\">\n                            {{alumnoSeleccionado}}\n                        </button>\n                        <div class=\"dropdown-menu\">\n                            <a *ngIf=\"alumnoSeleccionadoAlumno\" class=\"dropdown-item\" (click)=\"seleccionarMediaAlumnos()\">Media de la clase</a>\n                            <a class=\"dropdown-item\" *ngFor=\"let alumno of alumnos\" (click)=\"seleccionarAlumno(alumno)\">{{alumno.estudiante.nombre}}</a>\n                        </div>\n                    </div>\n                </div>\n            </div>\n            \n\n            <div class=\"card-content\">\n                <canvas id=\"graficaEstado\"></canvas>\n            </div>\n        </div>\n    </div>\n</div>\n<div *ngIf=\"vistaMapaDeLaClase\" class=\"row justify-content-md-center\">\n    <div class=\"card col-md-11\">\n        <div class=\"card-body\">\n            <h5 class=\"card-title\">Distribucion de la clase</h5>\n            <div id=\"clase\" class=\"example-boundary\">\n                <div id=\"{{item.id_item}}\" *ngFor=\"let item of actividad.alumnos\" class=\"example-box\"\n                    ondrop=\"myFunction(item)\" [cdkDragFreeDragPosition]=\"item.posicion\"\n                    cdkDragBoundary=\".example-boundary\" cdkDrag (cdkDragEnded)=\"dragEnded($event,item)\">\n                    {{item.estudiante.nombre}}\n                </div>\n            </div>\n        </div>\n    </div>\n</div>");
 
 /***/ }),
 
@@ -656,11 +656,37 @@ class Alumnos {
     constructor(est, posicion, act) {
         this.id_item = '';
         this.posicion = {};
-        this.datos = {};
+        this.datos = {
+            alegria: [],
+            asco: [],
+            miedo: [],
+            sorpresa: [],
+            tristeza: [],
+            ira: [],
+            pulsaciones: [],
+            tiempo: [],
+            distraido: [],
+            concentrado: [],
+            frustrado: [],
+            motivado: [],
+        };
         this.estudiante = est;
         this.id_item = est._id + act._id;
         this.posicion = posicion;
-        this.datos = {};
+        this.datos = {
+            alegria: [],
+            asco: [],
+            miedo: [],
+            sorpresa: [],
+            tristeza: [],
+            ira: [],
+            pulsaciones: [],
+            tiempo: [],
+            distraido: [],
+            concentrado: [],
+            frustrado: [],
+            motivado: [],
+        };
     }
     setActividad(act) {
         this.id_item = this.estudiante._id + act._id;
@@ -1322,7 +1348,7 @@ let EstudianteComponent = class EstudianteComponent {
         this.empezar();
         setInterval(async => {
             this.computacionDatos();
-        }, 3000);
+        }, 10000);
     }
     desconectarse() {
         console.log("Me he desconectado de la actividad");
@@ -1808,7 +1834,7 @@ let EstudianteComponent = class EstudianteComponent {
         });
     }
     ngOnDestroy() {
-        if (!this.actividadActual) {
+        if (this.actividadActual) {
             this.socket.emit('meDesconectoActividad', this.actividadActual, this.estudiante);
         }
     }
@@ -2260,6 +2286,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _estudiante_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! .././estudiante.service */ "./src/app/estudiante.service.ts");
 /* harmony import */ var socket_io_client__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! socket.io-client */ "./node_modules/socket.io-client/lib/index.js");
 /* harmony import */ var socket_io_client__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(socket_io_client__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _ver_actividad_ver_actividad_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./ver-actividad/ver-actividad.component */ "./src/app/profesor/ver-actividad/ver-actividad.component.ts");
+
 
 
 
@@ -2332,8 +2360,9 @@ let ProfesorComponent = class ProfesorComponent {
                 }
             });
             this.socket.on('recepcionDatos', function (datos) {
-                console.log(datos);
+                //console.log(datos);
                 $('#' + datos.id_item + '').css("background-color", datos.color);
+                cli.agregarDatosActividad(datos);
                 //console.log(datos.pulsaciones);
             });
             /*
@@ -2563,6 +2592,10 @@ let ProfesorComponent = class ProfesorComponent {
         this.editarActividad = true;
         this.ActividadparaEditar = act;
     }
+    agregarDatosActividad(datos) {
+        this.verActividadComp.insertarDatos(datos);
+        this.actividadSelected.alumnos;
+    }
     borrarA(act) {
         var ju = this;
         $.ajax({
@@ -2613,6 +2646,9 @@ ProfesorComponent.ctorParameters = () => [
     { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"] },
     { type: _estudiante_service__WEBPACK_IMPORTED_MODULE_3__["EstudianteService"] }
 ];
+tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])(_ver_actividad_ver_actividad_component__WEBPACK_IMPORTED_MODULE_5__["VerActividadComponent"], { static: false })
+], ProfesorComponent.prototype, "verActividadComp", void 0);
 ProfesorComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'app-profesor',
@@ -2704,6 +2740,7 @@ __webpack_require__.r(__webpack_exports__);
 let VerActividadComponent = class VerActividadComponent {
     constructor() {
         this.actividadCreada = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+        this.alumnos = [];
         this.usuariosConectados = [];
         this.usuariosTotales = 0;
         this.porUsuariosConectados = 0;
@@ -2714,12 +2751,29 @@ let VerActividadComponent = class VerActividadComponent {
         this.numAlumnosTotales = 0;
         this.vistaGeneral = true;
         this.vistaMapaDeLaClase = false;
+        this.estados = [
+            'alegria',
+            'asco',
+            'miedo',
+            'sorpresa',
+            'tristeza',
+            'ira',
+            'distraido',
+            'concentrado',
+            'frustrado',
+            'motivado',
+        ];
+        this.estadoSeleccionado = 'Estado';
+        this.alumnoSeleccionado = 'Media de la clase';
+        this.alumnoSeleccionadoAlumno = false;
+        this.objAlumnoSeleccionado = null;
         //alumnosConectados=0;
         this.alumnosDesconectados = 0;
         //console.log(this.usuariosConectados);
         this.comprobarDatos();
     }
     ngOnInit() {
+        this.alumnos = this.actividad.alumnos;
         //this.actividad.estado="Comenzada";
         for (var i in this.actividad.alumnos) {
             //this.usuariosTotales++;
@@ -2831,6 +2885,33 @@ let VerActividadComponent = class VerActividadComponent {
     cambiarAMapa() {
         this.vistaGeneral = false;
         this.vistaMapaDeLaClase = true;
+    }
+    insertarDatos(datos) {
+        console.log(datos);
+        for (let i = 0; i < this.alumnos.length; i++) {
+            if (datos.id_item == this.alumnos[i].id_item) {
+                this.alumnos[i].datos.alegria.push(datos.alegria);
+                this.alumnos[i].datos.asco.push(datos.asco);
+                this.alumnos[i].datos.ira.push(datos.ira);
+                this.alumnos[i].datos.miedo.push(datos.miedo);
+                this.alumnos[i].datos.sorpresa.push(datos.sorpresa);
+                this.alumnos[i].datos.tristeza.push(datos.tristeza);
+                this.alumnos[i].datos.pulsaciones.push(datos.pulsaciones);
+                this.alumnos[i].datos.tiempo.push(datos.tiempo);
+            }
+        }
+        console.log(this.alumnos);
+    }
+    seleccionarEstado(estado) {
+        this.estadoSeleccionado = estado;
+    }
+    seleccionarAlumno(alumno) {
+        this.alumnoSeleccionado = alumno.estudiante.nombre;
+        this.alumnoSeleccionadoAlumno = true;
+    }
+    seleccionarMediaAlumnos() {
+        this.alumnoSeleccionado = 'Media de la clase';
+        this.alumnoSeleccionadoAlumno = false;
     }
 };
 tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
