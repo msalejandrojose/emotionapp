@@ -125,11 +125,14 @@ function Centro() {
                 resumen: act.resumen,
             }
             this.dao.connect(function (db) {
-                console.log(a);
+                //console.log(a);
                 ju.dao.modificarActividad(act._id,a, function (u) {
                     //ju.actividades[u._id].editarActividad(u.nombre, u.profesor, u.alumnos, u.estado);
-                    ju.actividades[u._id]=u;
-                    callback(u);
+                    //console.log(u);
+                    if(u!=null){
+                        ju.actividades[u._id]=act;
+                        callback(act);
+                    }
                     db.close();
                 });
             });

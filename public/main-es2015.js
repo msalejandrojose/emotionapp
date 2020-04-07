@@ -370,7 +370,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"row\">\n    <div class=\"col-md-2\">\n        <!--<app-sidenav-profesor></app-sidenav-profesor>-->\n        <div class=\"sidenav list-group\">\n            <a href=\"#\" (click)=\"abrirAlumnos()\">Alumno</a>\n            <a href=\"#\" (click)=\"abrirActividades()\">Actividades</a>\n        </div>\n    </div>\n    <div *ngIf=\"gestionAlumnos\" class=\"col-md-10\">\n        <br>\n        <div class=\"row justify-content-md-center\">\n            <div class=\"col-md-10\">\n                <h4>Alumno</h4>\n            </div>\n            <div class=\"col-md-2\">\n                <button type=\"button\" (click)=\"abrirActividades()\" class=\"btn btn-outline-primary\">Crear\n                    Actividad</button>\n            </div>\n        </div>\n        <div class=\"row justify-content-md-center\">\n            <!--<div class=\"card-body card-body-cascade text-center wow fadeIn\">\n                <h4>Hola mundo</h4>\n                <p>asdalksdjlajsdklasjdkljlañksjfñdskladsfjñalksfj</p>\n            </div>-->\n            <div class=\"card col-md-6\">\n                <div *ngIf=\"!editarAlumno\" class=\"card-body\">\n                    <h4 class=\"card-title\">Crear Alumno</h4>\n                    <div>\n                        <label>Nombre del Alumn@</label>\n                        <input [(ngModel)]=\"alumnoCreate.nombre\" type=\"text\" class=\"form-control\" id=\"nombre\"\n                            placeholder=\"Nombre\">\n                        <br>\n                        <label>Apellidos</label>\n                        <input [(ngModel)]=\"alumnoCreate.apellidos\" type=\"text\" class=\"form-control\" id=\"apellidos\"\n                            ng-model=\"apellidos\" placeholder=\"Apellidos\">\n                        <br>\n                        <label>Clase</label>\n                        <input [(ngModel)]=\"alumnoCreate.clase\" type=\"text\" class=\"form-control\" id=\"clase\"\n                            ng-model=\"clase\" placeholder=\"Clase\">\n                        <br>\n                        <label>Email</label>\n                        <input [(ngModel)]=\"alumnoCreate.email\" type=\"email\" class=\"form-control\" id=\"email\"\n                            ng-model=\"email\" placeholder=\"Enter email\">\n                        <small id=\"emailHelp\" class=\"form-text text-muted\">El email tiene que ser unico</small>\n                        <br>\n                        <label>Contraseña</label>\n                        <input [(ngModel)]=\"alumnoCreate.contrasena\" type=\"password\" class=\"form-control\"\n                            id=\"contrasena\" ng-model=\"contrasena\" placeholder=\"Contraseña\">\n                        <small id=\"contrasenaHelp\" class=\"form-text text-muted\">El usuario podra entrar con esta\n                            contraseña</small>\n                        <button type=\"button\" (click)=\"limpiar()\" class=\"btn btn-raised btn-danger\">Limpiar</button>\n                        <button type=\"button\" (click)=\"anadirAlumno()\" class=\"btn btn-raised btn-success\">Guardar\n                            Alumn@</button>\n                    </div>\n                </div>\n                <div *ngIf=\"editarAlumno\" class=\"card-body\">\n                    <h4 class=\"card-title\">Editar Alumno</h4>\n                    <div>\n                        <label>Nombre del Alumn@</label>\n                        <input [(ngModel)]=\"onSelectedAlumno.nombre\" type=\"text\" class=\"form-control\" id=\"nombre\"\n                            placeholder=\"Nombre\">\n                        <br>\n                        <label>Apellidos</label>\n                        <input [(ngModel)]=\"onSelectedAlumno.apellidos\" type=\"text\" class=\"form-control\" id=\"apellidos\"\n                            ng-model=\"apellidos\" placeholder=\"Apellidos\">\n                        <br>\n                        <label>Clase</label>\n                        <input [(ngModel)]=\"onSelectedAlumno.clase\" type=\"text\" class=\"form-control\" id=\"clase\"\n                            ng-model=\"clase\" placeholder=\"Clase\">\n                        <br>\n                        <label>Email</label>\n                        <input [(ngModel)]=\"onSelectedAlumno.email\" type=\"email\" class=\"form-control\" id=\"email\"\n                            ng-model=\"email\" placeholder=\"Enter email\">\n                        <small id=\"emailHelp\" class=\"form-text text-muted\">El email tiene que ser unico</small>\n                        <br>\n                        <label>Contraseña</label>\n                        <input [(ngModel)]=\"onSelectedAlumno.contrasena\" type=\"password\" class=\"form-control\"\n                            id=\"contrasena\" ng-model=\"contrasena\" placeholder=\"Contraseña\">\n                        <small id=\"contrasenaHelp\" class=\"form-text text-muted\">El usuario podra entrar con esta\n                            contraseña</small>\n                        <button type=\"button\" (click)=\"limpiar()\" class=\"btn btn-raised btn-danger\">Limpiar</button>\n                        <button type=\"button\" (click)=\"actualizarAlumno()\" class=\"btn btn-raised btn-success\">Actualizar\n                            Alumn@</button>\n                    </div>\n                </div>\n            </div>\n            <div class=\"col-md-6\">\n                <h3>Lista de Alumnos</h3>\n                <table class=\"table table-striped\">\n                    <thead>\n                        <tr>\n                            <th scope=\"col\">Nombre</th>\n                            <th scope=\"col\">Apellidos</th>\n                            <th scope=\"col\">Clase</th>\n                            <th scope=\"col\"></th>\n                            <th scope=\"col\"></th>\n                        </tr>\n                    </thead>\n                    <tbody *ngFor=\"let alumno of listaAlumnos\">\n                        <tr>\n                            <td>{{alumno.nombre}}</td>\n                            <td>{{alumno.apellidos}}</td>\n                            <td>{{alumno.clase}}</td>\n                            <td><i (click)=\"editar(alumno)\" class=\"fa fa-edit\"></i></td>\n                            <td><i (click)=\"borrar(alumno)\" class=\"fa fa-trash-o\"></i></td>\n                        </tr>\n                    </tbody>\n                </table>\n            </div>\n        </div>\n    </div>\n    <div *ngIf=\"gestionActividades\" class=\"col-md-10\">\n        <br>\n        <div class=\"row justify-content-md-center\">\n            <div class=\"col-md-10\">\n                <h4>Actividades</h4>\n            </div>\n            <div class=\"col-md-2\">\n                <button type=\"button\" *ngIf=\"(!crearActividad && !verActividad) && !editarActividad\" (click)=\"abrirCrearActividad()\" class=\"btn btn-outline-primary\">Crear\n                    Actividad</button>\n                <button type=\"button\" *ngIf=\"(crearActividad && !verActividad) || editarActividad\" (click)=\"cerrarModal()\" class=\"btn btn-outline-danger\">Cancelar</button>\n                <!--<button type=\"button\" *ngIf=\"!crearActividad && verActividad\" (click)=\"cerrarActividad()\" class=\"btn btn-outline-danger\">Cerrar Actividad</button>-->\n            </div>\n        </div>\n        <br>\n        <div class=\"col-md-11\">\n            <app-crear-actividad *ngIf=\"crearActividad\" [estudiantes]=\"listaAlumnos\" (actividadCreada)=\"guardarActividad($event)\" ></app-crear-actividad>\n            <app-editar-actividad *ngIf=\"editarActividad\" [estudiantes]=\"listaAlumnos\" [editarActividad]=\"ActividadparaEditar\" (actividadEditada)=\"actualizarActividad($event)\" ></app-editar-actividad>\n        </div>\n        <br>\n        <div *ngIf=\"verActividad\">\n            <app-ver-actividad [actividad]=\"actividadSelected\" [aluConectados]=\"alumnosConectados\" (actividadCreada)=\"cerrarActividad($event)\"></app-ver-actividad>\n        </div>\n        <div *ngIf=\"!verActividad\" class=\"row justify-content-md-center\">\n            <div class=\"col-md-10\">\n                <h3>Lista de Actividades</h3>\n                <table class=\"table table-striped\">\n                    <thead>\n                        <tr>\n                            <th scope=\"col\">Nombre</th>\n                            <th scope=\"col\">Profesor</th>\n                            <th scope=\"col\">Estado</th>\n                            <th scope=\"col\"></th>\n                            <th scope=\"col\"></th>\n                            <th scope=\"col\"></th>\n                        </tr>\n                    </thead>\n                    <tbody *ngFor=\"let actividad of listaActividades\">\n                        <tr *ngIf=\"actividad.estado=='Creada'\">\n                            <td>{{actividad.nombre}}</td>\n                            <td>{{actividad.profesor}}</td>\n                            <td>{{actividad.estado}}</td>\n                            <td><button type=\"button\" class=\"btn btn-outline-primary\" (click)=\"abrirActividad(actividad)\">Mostrar</button></td>\n                            <td><i (click)=\"editarA(actividad)\" class=\"fa fa-edit\"></i></td>\n                            <td><i (click)=\"borrarA(actividad)\" class=\"fa fa-trash-o\"></i></td>\n                        </tr>\n                        <tr *ngIf=\"actividad.estado=='Comenzada'\">\n                            <td>{{actividad.nombre}}</td>\n                            <td>{{actividad.profesor}}</td>\n                            <td>{{actividad.estado}}</td>\n                            <td><button type=\"button\" class=\"btn btn-outline-success\" (click)=\"abrirActividad(actividad)\">Ver</button></td>\n                            <td><i (click)=\"editarA(actividad)\" class=\"fa fa-edit\"></i></td>\n                            <td><i (click)=\"borrarA(actividad)\" class=\"fa fa-trash-o\"></i></td>\n                        </tr>\n                    </tbody>\n                </table>\n            </div>\n        </div>\n    </div>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"row\">\n    <div class=\"col-md-2\">\n        <!--<app-sidenav-profesor></app-sidenav-profesor>-->\n        <div class=\"sidenav list-group\">\n            <a href=\"#\" (click)=\"abrirAlumnos()\">Alumno</a>\n            <a href=\"#\" (click)=\"abrirActividades()\">Actividades</a>\n        </div>\n    </div>\n    <div *ngIf=\"gestionAlumnos\" class=\"col-md-10\">\n        <br>\n        <div class=\"row justify-content-md-center\">\n            <div class=\"col-md-10\">\n                <h4>Alumno</h4>\n            </div>\n            <div class=\"col-md-2\">\n                <button type=\"button\" (click)=\"abrirActividades()\" class=\"btn btn-outline-primary\">Crear\n                    Actividad</button>\n            </div>\n        </div>\n        <div class=\"row justify-content-md-center\">\n            <!--<div class=\"card-body card-body-cascade text-center wow fadeIn\">\n                <h4>Hola mundo</h4>\n                <p>asdalksdjlajsdklasjdkljlañksjfñdskladsfjñalksfj</p>\n            </div>-->\n            <div class=\"card col-md-6\">\n                <div *ngIf=\"!editarAlumno\" class=\"card-body\">\n                    <h4 class=\"card-title\">Crear Alumno</h4>\n                    <div>\n                        <label>Nombre del Alumn@</label>\n                        <input [(ngModel)]=\"alumnoCreate.nombre\" type=\"text\" class=\"form-control\" id=\"nombre\"\n                            placeholder=\"Nombre\">\n                        <br>\n                        <label>Apellidos</label>\n                        <input [(ngModel)]=\"alumnoCreate.apellidos\" type=\"text\" class=\"form-control\" id=\"apellidos\"\n                            ng-model=\"apellidos\" placeholder=\"Apellidos\">\n                        <br>\n                        <label>Clase</label>\n                        <input [(ngModel)]=\"alumnoCreate.clase\" type=\"text\" class=\"form-control\" id=\"clase\"\n                            ng-model=\"clase\" placeholder=\"Clase\">\n                        <br>\n                        <label>Email</label>\n                        <input [(ngModel)]=\"alumnoCreate.email\" type=\"email\" class=\"form-control\" id=\"email\"\n                            ng-model=\"email\" placeholder=\"Enter email\">\n                        <small id=\"emailHelp\" class=\"form-text text-muted\">El email tiene que ser unico</small>\n                        <br>\n                        <label>Contraseña</label>\n                        <input [(ngModel)]=\"alumnoCreate.contrasena\" type=\"password\" class=\"form-control\"\n                            id=\"contrasena\" ng-model=\"contrasena\" placeholder=\"Contraseña\">\n                        <small id=\"contrasenaHelp\" class=\"form-text text-muted\">El usuario podra entrar con esta\n                            contraseña</small>\n                        <button type=\"button\" (click)=\"limpiar()\" class=\"btn btn-raised btn-danger\">Limpiar</button>\n                        <button type=\"button\" (click)=\"anadirAlumno()\" class=\"btn btn-raised btn-success\">Guardar\n                            Alumn@</button>\n                    </div>\n                </div>\n                <div *ngIf=\"editarAlumno\" class=\"card-body\">\n                    <h4 class=\"card-title\">Editar Alumno</h4>\n                    <div>\n                        <label>Nombre del Alumn@</label>\n                        <input [(ngModel)]=\"onSelectedAlumno.nombre\" type=\"text\" class=\"form-control\" id=\"nombre\"\n                            placeholder=\"Nombre\">\n                        <br>\n                        <label>Apellidos</label>\n                        <input [(ngModel)]=\"onSelectedAlumno.apellidos\" type=\"text\" class=\"form-control\" id=\"apellidos\"\n                            ng-model=\"apellidos\" placeholder=\"Apellidos\">\n                        <br>\n                        <label>Clase</label>\n                        <input [(ngModel)]=\"onSelectedAlumno.clase\" type=\"text\" class=\"form-control\" id=\"clase\"\n                            ng-model=\"clase\" placeholder=\"Clase\">\n                        <br>\n                        <label>Email</label>\n                        <input [(ngModel)]=\"onSelectedAlumno.email\" type=\"email\" class=\"form-control\" id=\"email\"\n                            ng-model=\"email\" placeholder=\"Enter email\">\n                        <small id=\"emailHelp\" class=\"form-text text-muted\">El email tiene que ser unico</small>\n                        <br>\n                        <label>Contraseña</label>\n                        <input [(ngModel)]=\"onSelectedAlumno.contrasena\" type=\"password\" class=\"form-control\"\n                            id=\"contrasena\" ng-model=\"contrasena\" placeholder=\"Contraseña\">\n                        <small id=\"contrasenaHelp\" class=\"form-text text-muted\">El usuario podra entrar con esta\n                            contraseña</small>\n                        <button type=\"button\" (click)=\"limpiar()\" class=\"btn btn-raised btn-danger\">Limpiar</button>\n                        <button type=\"button\" (click)=\"actualizarAlumno()\" class=\"btn btn-raised btn-success\">Actualizar\n                            Alumn@</button>\n                    </div>\n                </div>\n            </div>\n            <div class=\"col-md-6\">\n                <h3>Lista de Alumnos</h3>\n                <table class=\"table table-striped\">\n                    <thead>\n                        <tr>\n                            <th scope=\"col\">Nombre</th>\n                            <th scope=\"col\">Apellidos</th>\n                            <th scope=\"col\">Clase</th>\n                            <th scope=\"col\"></th>\n                            <th scope=\"col\"></th>\n                        </tr>\n                    </thead>\n                    <tbody *ngFor=\"let alumno of listaAlumnos\">\n                        <tr>\n                            <td>{{alumno.nombre}}</td>\n                            <td>{{alumno.apellidos}}</td>\n                            <td>{{alumno.clase}}</td>\n                            <td><i (click)=\"editar(alumno)\" class=\"fa fa-edit\"></i></td>\n                            <td><i (click)=\"borrar(alumno)\" class=\"fa fa-trash-o\"></i></td>\n                        </tr>\n                    </tbody>\n                </table>\n            </div>\n        </div>\n    </div>\n    <div *ngIf=\"gestionActividades\" class=\"col-md-10\">\n        <br>\n        <div class=\"row justify-content-md-center\">\n            <div class=\"col-md-10\">\n                <h4>Actividades</h4>\n            </div>\n            <div class=\"col-md-2\">\n                <button type=\"button\" *ngIf=\"(!crearActividad && !verActividad) && !editarActividad\" (click)=\"abrirCrearActividad()\" class=\"btn btn-outline-primary\">Crear\n                    Actividad</button>\n                <button type=\"button\" *ngIf=\"(crearActividad && !verActividad) || editarActividad\" (click)=\"cerrarModal()\" class=\"btn btn-outline-danger\">Cancelar</button>\n                <!--<button type=\"button\" *ngIf=\"!crearActividad && verActividad\" (click)=\"cerrarActividad()\" class=\"btn btn-outline-danger\">Cerrar Actividad</button>-->\n            </div>\n        </div>\n        <br>\n        <div class=\"col-md-11\">\n            <app-crear-actividad *ngIf=\"crearActividad\" [estudiantes]=\"listaAlumnos\" (actividadCreada)=\"guardarActividad($event)\" ></app-crear-actividad>\n            <app-editar-actividad *ngIf=\"editarActividad\" [estudiantes]=\"listaAlumnos\" [editarActividad]=\"ActividadparaEditar\" (actividadEditada)=\"actualizarActividad($event)\" ></app-editar-actividad>\n        </div>\n        <br>\n        <div *ngIf=\"verActividad\">\n            <app-ver-actividad [actividad]=\"actividadSelected\" [aluConectados]=\"alumnosConectados\" (actividadCreada)=\"cerrarActividad($event)\"></app-ver-actividad>\n        </div>\n        <div *ngIf=\"!verActividad\" class=\"row justify-content-md-center\">\n            <div class=\"col-md-10\">\n                <h3>Lista de Actividades</h3>\n                <table class=\"table table-striped\">\n                    <thead>\n                        <tr>\n                            <th scope=\"col\">Nombre</th>\n                            <th scope=\"col\">Profesor</th>\n                            <th scope=\"col\">Estado</th>\n                            <th scope=\"col\"></th>\n                            <th scope=\"col\"></th>\n                            <th scope=\"col\"></th>\n                        </tr>\n                    </thead>\n                    <tbody *ngFor=\"let actividad of listaActividades\">\n                        <tr *ngIf=\"actividad.estado=='Creada'\">\n                            <td>{{actividad.nombre}}</td>\n                            <td>{{actividad.profesor}}</td>\n                            <td>{{actividad.estado}}</td>\n                            <td><button type=\"button\" class=\"btn btn-outline-primary\" (click)=\"abrirActividad(actividad)\">Acceder</button></td>\n                            <td><i (click)=\"editarA(actividad)\" class=\"fa fa-edit\"></i></td>\n                            <td><i (click)=\"borrarA(actividad)\" class=\"fa fa-trash-o\"></i></td>\n                        </tr>\n                        <tr *ngIf=\"actividad.estado=='Comenzada'\">\n                            <td>{{actividad.nombre}}</td>\n                            <td>{{actividad.profesor}}</td>\n                            <td>{{actividad.estado}}</td>\n                            <td><button type=\"button\" class=\"btn btn-outline-success\" (click)=\"abrirActividad(actividad)\">Ver</button></td>\n                            <td><i (click)=\"editarA(actividad)\" class=\"fa fa-edit\"></i></td>\n                            <td><i (click)=\"borrarA(actividad)\" class=\"fa fa-trash-o\"></i></td>\n                        </tr>\n                        <tr *ngIf=\"actividad.estado=='Finalizada'\">\n                            <td>{{actividad.nombre}}</td>\n                            <td>{{actividad.profesor}}</td>\n                            <td>{{actividad.estado}}</td>\n                            <td><button type=\"button\" class=\"btn btn-outline-success\" (click)=\"abrirActividad(actividad)\">Resumen</button></td>\n                            <td><i (click)=\"editarA(actividad)\" class=\"fa fa-edit\"></i></td>\n                            <td><i (click)=\"borrarA(actividad)\" class=\"fa fa-trash-o\"></i></td>\n                        </tr>\n                    </tbody>\n                </table>\n            </div>\n        </div>\n    </div>\n</div>");
 
 /***/ }),
 
@@ -1197,6 +1197,9 @@ let EstudianteComponent = class EstudianteComponent {
         this.emocionSorpresa = 0;
         this.emocionNeutra = 0;
         this.datosTotalesEmocionales = 0;
+        this.contador = 0;
+        this.canvas = null;
+        this.intervaloGenerarDatos = null;
         this.soyEstudiante = function () {
             this.socket.emit('soyEstudiante', this.estudiante);
         };
@@ -1261,6 +1264,11 @@ let EstudianteComponent = class EstudianteComponent {
                     //cli.listaActividades.push(cli.listaGestionActividades[key]);
                 }
                 //callback(res);
+            });
+            this.socket.on('enviaDatos', function (actividad) {
+                console.log("Listo! voy a enviar datos");
+                cli.actividad = actividad;
+                cli.empezar();
             });
             this.socket.on('recepcionEmociones', function (datos) {
                 console.log(datos);
@@ -1345,31 +1353,37 @@ let EstudianteComponent = class EstudianteComponent {
         //console.log("asd");
         //this.conectarLed();
         this.meConectoActividad(this.actividadActual);
-        this.empezar();
-        setInterval(async => {
-            this.computacionDatos();
-        }, 10000);
+        console.log(actividad);
+        if (actividad.estado == "Comenzada") {
+            this.empezar();
+        }
+        //this.empezar();
     }
     desconectarse() {
-        console.log("Me he desconectado de la actividad");
-        //console.log(this.actividadActual.alumnos);
-        /*for (var key in this.actividadActual.alumnos) {
-          if(this.actividadActual.alumnos[key].estudiante._id=this.estudiante._id){
-            console.log("Estudiate id: "+this.estudiante._id)
-            this.id_item=this.actividadActual.alumnos[key].id_item;
-            //console.log(this.id_item);
-          }
-        }*/
-        this.id_item = null;
-        //this.soyEstudiante();
-        //this.conectarActividad();
-        //console.log("asd");
-        //this.conectarLed();
-        this.meDesconectoActividad(this.actividadActual);
-        clearInterval(this.intervaloDeEnvio);
-        this.conectadoaActividad = false;
-        this.actividadActual = null;
-        //this.empezar();
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
+            console.log("Me he desconectado de la actividad");
+            //console.log(this.actividadActual.alumnos);
+            /*for (var key in this.actividadActual.alumnos) {
+              if(this.actividadActual.alumnos[key].estudiante._id=this.estudiante._id){
+                console.log("Estudiate id: "+this.estudiante._id)
+                this.id_item=this.actividadActual.alumnos[key].id_item;
+                //console.log(this.id_item);
+              }
+            }*/
+            this.id_item = null;
+            //this.soyEstudiante();
+            //this.conectarActividad();
+            //console.log("asd");
+            //this.conectarLed();
+            this.meDesconectoActividad(this.actividadActual);
+            clearInterval(this.intervaloDeEnvio);
+            this.conectadoaActividad = false;
+            this.actividadActual = null;
+            clearInterval(this.intervaloGenerarDatos);
+            this.listaActividades.length = yield 0;
+            yield this.obtenerActividadesComenzadas();
+            //this.empezar();
+        });
     }
     limpiar() {
         this.estudiante = {
@@ -1468,24 +1482,22 @@ let EstudianteComponent = class EstudianteComponent {
                 faceapi.nets.faceLandmark68TinyNet.loadFromUri('assets/modelos'),
                 faceapi.nets.faceRecognitionNet.loadFromUri('assets/modelos'),
                 faceapi.nets.ssdMobilenetv1.loadFromUri('assets/modelos'),
-                faceapi.nets.tinyFaceDetector.loadFromUri('assets/modelos')
-                //faceapi.nets.tinyYolov2.loadFromUri('/modelos')
+                faceapi.nets.tinyFaceDetector.loadFromUri('assets/modelos'),
+                faceapi.nets.tinyYolov2.loadFromUri('assets/modelos'),
             ]);
             //console.log(this.video.srcObject);
             //console.log("hemos cargado los modelos");
             //this.video.addEventListener('play', () => {
-            console.log(this.camara.data.srcObject);
-            const canvas = faceapi.createCanvasFromMedia(this.camara.data);
-            document.body.append(canvas);
+            //console.log(this.camara.data.srcObject);
+            this.canvas = faceapi.createCanvasFromMedia(this.camara.data);
+            document.body.append(this.canvas);
             this.displaySize = { width: this.camara.data.width, height: this.camara.data.height };
-            faceapi.matchDimensions(canvas, this.displaySize);
-            yield setInterval(() => tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
+            faceapi.matchDimensions(this.canvas, this.displaySize);
+            this.intervaloGenerarDatos = setInterval(() => tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
                 try {
                     const detections = yield faceapi.detectSingleFace(this.camara.data, new faceapi.TinyFaceDetectorOptions()).withFaceLandmarks().withFaceExpressions();
                     var datos = faceapi.resizeResults(detections, this.displaySize).expressions;
                     var datosFisicos = yield faceapi.detectSingleFace(this.camara.data).withFaceLandmarks().withAgeAndGender();
-                    //console.log(datos);
-                    //console.log(datosFisicos);
                     var datosNeutral = faceapi.resizeResults(detections, this.displaySize).expressions.neutral;
                     var datosHappy = faceapi.resizeResults(detections, this.displaySize).expressions.happy;
                     var datosSad = faceapi.resizeResults(detections, this.displaySize).expressions.sad;
@@ -1499,71 +1511,11 @@ let EstudianteComponent = class EstudianteComponent {
                     this.emocionMiedo += datosFearful;
                     this.emocionSorpresa += datosSurprised;
                     this.emocionTristeza += datosSad;
-                    //this.emocionNeutra+=datosNeutral;
-                    //this.datosTotalesEmocionales=datosHappy+datosDisgusted+datosAngry+datosFearful+datosSurprised+datosSad;
-                    /*var maximo = Math.max(datosAngry, datosDisgusted, datosFearful, datosHappy, datosNeutral, datosSad, datosSurprised);
-                    if (datosNeutral == maximo) {
-                      //console.log("Neutro: "+maximo);
-                      //this.enviarEmocionesWebCam({ id_item: this.id_item, color: this.ColorNeutral, datos: datos, pulsaciones: this.pulsaciones })
-                      this.colorPredominante=this.ColorNeutral
-                      this.ponerNeutral()
-                      $('#estadoAlumno').css('background-color', this.ColorNeutral);
-                      //this.ContadorNeutro++
-                      //this.usuario.Neutro.valor = this.usuario.Neutro.valor + 1;
+                    yield this.contador++;
+                    if (this.contador == 5) {
+                        this.contador = 0;
+                        yield this.computacionDatos();
                     }
-                    if (datosFearful == maximo) {
-                      //console.log("Miedo: "+maximo);
-                      //this.enviarEmocionesWebCam({ id_item: this.id_item, color: this.ColorFearful, datos: datos, pulsaciones: this.pulsaciones })
-                      this.colorPredominante=this.ColorFearful;
-                      this.ponerFearful();
-                      $('#estadoAlumno').css('background-color', this.ColorFearful);
-                      //this.ContadorMiedo++
-                      //this.usuario.Miedo.valor = this.usuario.Miedo.valor + 1;
-                    }
-                    if (datosAngry == maximo) {
-                      //console.log("Enfadado: "+maximo);
-                      //this.enviarEmocionesWebCam({ id_item: this.id_item, color: this.ColorAngry, datos: datos, pulsaciones: this.pulsaciones })
-                      this.colorPredominante=this.ColorAngry;
-                      this.ponerAngry();
-                      $('#estadoAlumno').css('background-color', this.ColorAngry);
-                      //this.ContadorEnfadado++
-                      //this.usuario.Enfadado.valor = this.usuario.Enfadado.valor + 1;
-                    }
-                    if (datosHappy == maximo) {
-                      //console.log("Feliz: "+maximo);
-                      //this.enviarEmocionesWebCam({ id_item: this.id_item, color: this.ColorHappy, datos: datos, pulsaciones: this.pulsaciones })
-                      this.colorPredominante=this.ColorHappy;
-                      this.ponerHappy();
-                      $('#estadoAlumno').css('background-color', this.ColorHappy);
-                      //this.ContadorFeliz++
-                      //this.usuario.Felicidad.valor = this.usuario.Felicidad.valor + 1;
-                    }
-                    if (datosSad == maximo) {
-                      //console.log("Triste: "+maximo);
-                      //this.enviarEmocionesWebCam({ id_item: this.id_item, color: this.ColorSad, datos: datos, pulsaciones: this.pulsaciones })
-                      this.colorPredominante=this.ColorSad;
-                      this.ponerSad();
-                      $('#estadoAlumno').css('background-color', this.ColorSad);
-                      //this.ContadorTriste++
-                      //this.usuario.Triste.valor = this.usuario.Triste.valor + 1;
-                    }
-                    if (datosSurprised == maximo) {
-                      //this.enviarEmocionesWebCam({ id_item: this.id_item, color: this.ColorSurprised, datos: datos, pulsaciones: this.pulsaciones })
-                      this.colorPredominante=this.ColorSurprised;
-                      this.ponerSurprised();
-                      $('#estadoAlumno').css('background-color', this.ColorSurprised);
-                      //this.ContadorSorprendido++
-                      //this.usuario.Sorpresa.valor = this.usuario.Sorpresa.valor + 1;
-                    }
-                    if (datosDisgusted == maximo) {
-                      //console.log("Disgustado: "+maximo);
-                      //this.enviarEmocionesWebCam({ id_item: this.id_item, color: this.ColorDisgusted, datos: datos, pulsaciones: this.pulsaciones })
-                      //this.ponerDisgusted();
-                      $('#estadoAlumno').css('background-color', this.ColorDisgusted);
-                      //this.ContadorDisgustado++
-                      //this.usuario.Disgustado.valor = this.usuario.Disgustado.valor + 1;
-                    }
-                    */
                 }
                 catch (error) {
                     //console.log("No hay datos que enviar");
@@ -1579,32 +1531,32 @@ let EstudianteComponent = class EstudianteComponent {
             this.datosTotalesEmocionales = this.emocionAlegria + this.emocionAsco + this.emocionIra + this.emocionMiedo + this.emocionSorpresa + this.emocionTristeza; //+this.emocionNeutra;
             datos['id_item'] = this.id_item;
             this.colorPredominante = this.ColorNeutral2;
-            datos['alegria'] = this.emocionAlegria / this.datosTotalesEmocionales;
+            datos['alegria'] = (yield this.emocionAlegria) / this.datosTotalesEmocionales;
             if (predominante < datos['alegria']) {
                 predominante = datos['alegria'];
                 this.colorPredominante = this.ColorHappy2;
             }
-            datos['asco'] = this.emocionAsco / this.datosTotalesEmocionales;
+            datos['asco'] = (yield this.emocionAsco) / this.datosTotalesEmocionales;
             if (predominante < datos['asco']) {
                 this.colorPredominante = this.ColorDisgusted2;
             }
-            datos['ira'] = this.emocionIra / this.datosTotalesEmocionales;
+            datos['ira'] = (yield this.emocionIra) / this.datosTotalesEmocionales;
             if (predominante < datos['ira']) {
                 this.colorPredominante = this.ColorAngry2;
             }
-            datos['miedo'] = this.emocionMiedo / this.datosTotalesEmocionales;
+            datos['miedo'] = (yield this.emocionMiedo) / this.datosTotalesEmocionales;
             if (predominante < datos['miedo']) {
                 this.colorPredominante = this.ColorFearful2;
             }
-            datos['sorpresa'] = this.emocionSorpresa / this.datosTotalesEmocionales;
+            datos['sorpresa'] = (yield this.emocionSorpresa) / this.datosTotalesEmocionales;
             if (predominante < datos['sorpresa']) {
                 this.colorPredominante = this.ColorSurprised2;
             }
-            datos['tristeza'] = this.emocionTristeza / this.datosTotalesEmocionales;
+            datos['tristeza'] = (yield this.emocionTristeza) / this.datosTotalesEmocionales;
             if (predominante < datos['tristeza']) {
                 this.colorPredominante = this.ColorSad2;
             }
-            predominante = 0;
+            predominante = yield 0;
             /*datos['neutra']=this.emocionNeutra/this.datosTotalesEmocionales;
             if(datos['tristeza']<datos['neutra']){
               this.colorPredominante=this.ColorNeutral2;
@@ -1637,24 +1589,24 @@ let EstudianteComponent = class EstudianteComponent {
             if (datos['pulsaciones'] > 85) {
                 datos['distraido'] = datos['sorpresa'];
             }
-            if (datos['alegria'] == NaN) {
+            if (datos['alegria'] == NaN || datos['alegria'] == null) {
                 datos['distraido'] = 1;
             }
             datos['concentrado'] = 1 - datos['distraido'];
             datos['frustrado'] = 0;
-            if (datos['sopresa'] + datos['tristeza'] > 0.10) {
-                datos['frustrado'] += datos['sopresa'] + datos['tristeza'];
+            if (datos['sopresa'] + datos['tristeza'] > 0.25) {
+                datos['frustrado'] += 0.25;
             }
-            if (datos['asco'] + datos['ira'] > 0.10) {
-                datos['frustrado'] += datos['asco'] + datos['ira'];
+            if (datos['asco'] + datos['ira'] > 0.25) {
+                datos['frustrado'] += 0.25;
             }
-            if (datos['miedo'] + datos['tristeza'] > 0.10) {
-                datos['frustrado'] += datos['miedo'] + datos['tristeza'];
+            if (datos['miedo'] + datos['tristeza'] > 0.25) {
+                datos['frustrado'] += 0.25;
             }
-            if (datos['sorpresa'] + datos['ira'] > 0.10) {
-                datos['frustrado'] += datos['sorpresa'] + datos['ira'];
+            if (datos['sorpresa'] + datos['ira'] > 0.25) {
+                datos['frustrado'] += 0.25;
             }
-            if (datos['alegria'] == NaN) {
+            if (datos['alegria'] == NaN || datos['alegria'] == null) {
                 datos['frustrado'] = 1;
             }
             datos['motivado'] = 1 - datos['frustrado'];
@@ -1772,7 +1724,7 @@ let EstudianteComponent = class EstudianteComponent {
             catch (err) {
                 // No device was selected.
             }
-            console.log(this.listaSensores);
+            //console.log(this.listaSensores)
             if (this.device !== undefined) {
                 // Add |device| to the UI.
             }
@@ -1837,6 +1789,7 @@ let EstudianteComponent = class EstudianteComponent {
         if (this.actividadActual) {
             this.socket.emit('meDesconectoActividad', this.actividadActual, this.estudiante);
         }
+        clearInterval(this.intervaloGenerarDatos);
     }
     //Implementacion de los sockets
     ini() {
@@ -1911,7 +1864,20 @@ let CrearActividadComponent = class CrearActividadComponent {
             profesor: '',
             alumnos: {},
             estado: 'Creada',
-            resumen: {},
+            resumen: {
+                alegria: [],
+                asco: [],
+                miedo: [],
+                sorpresa: [],
+                tristeza: [],
+                ira: [],
+                pulsaciones: [],
+                tiempo: [],
+                distraido: [],
+                concentrado: [],
+                frustrado: [],
+                motivado: [],
+            }
         };
         this.alumnosSeleccionados = [];
         this.estudiante = {
@@ -2026,7 +1992,20 @@ let CrearActividadComponent = class CrearActividadComponent {
             profesor: '',
             alumnos: {},
             estado: '',
-            resumen: {},
+            resumen: {
+                alegria: [],
+                asco: [],
+                miedo: [],
+                sorpresa: [],
+                tristeza: [],
+                ira: [],
+                pulsaciones: [],
+                tiempo: [],
+                distraido: [],
+                concentrado: [],
+                frustrado: [],
+                motivado: [],
+            }
         };
     }
 };
@@ -2337,6 +2316,9 @@ let ProfesorComponent = class ProfesorComponent {
         this.borrarActividadLista = function (actividad) {
             this.socket.emit('borrarActividadLista', actividad);
             console.log("Actividad: " + actividad._id + " YA NO está lista.");
+        };
+        this.listoParaRecibirDatos = function (actividad) {
+            this.socket.emit('listoParaRecibirDatos', actividad);
         };
         this.lanzarSocketSrv = function () {
             var cli = this;
@@ -2734,11 +2716,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var chart_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! chart.js */ "./node_modules/chart.js/dist/Chart.js");
 /* harmony import */ var chart_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(chart_js__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _profesor_profesor_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../profesor/profesor.component */ "./src/app/profesor/profesor.component.ts");
+
+
 
 
 
 let VerActividadComponent = class VerActividadComponent {
-    constructor() {
+    //@ViewChild(ProfesorComponent,{static: false}) profesor:ProfesorComponent;
+    constructor(profesor) {
+        this.profesor = profesor;
         this.actividadCreada = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
         this.alumnos = [];
         this.usuariosConectados = [];
@@ -2763,10 +2752,25 @@ let VerActividadComponent = class VerActividadComponent {
             'frustrado',
             'motivado',
         ];
+        this.resumen = {
+            alegria: 0,
+            asco: 0,
+            miedo: 0,
+            sorpresa: 0,
+            tristeza: 0,
+            ira: 0,
+            distraido: 0,
+            concentrado: 0,
+            frustrado: 0,
+            motivado: 0,
+            pulsaciones: 0,
+        };
+        this.numPulsaciones = 0;
         this.estadoSeleccionado = 'Estado';
         this.alumnoSeleccionado = 'Media de la clase';
         this.alumnoSeleccionadoAlumno = false;
         this.objAlumnoSeleccionado = null;
+        this.intervaloResumen = null;
         //alumnosConectados=0;
         this.alumnosDesconectados = 0;
         //console.log(this.usuariosConectados);
@@ -2866,7 +2870,12 @@ let VerActividadComponent = class VerActividadComponent {
             url: '/actualizarActividad',
             data: JSON.stringify(this.actividad),
             success: function (data) {
-                this.actividad = data;
+                ju.actividad = data;
+                //console.log(ju.actividad);
+                ju.profesor.listoParaRecibirDatos(ju.actividad);
+                ju.intervaloResumen = setInterval(async => {
+                    ju.insertarResumen();
+                }, 2000);
             },
             contentType: 'application/json',
             dataType: 'json'
@@ -2874,9 +2883,23 @@ let VerActividadComponent = class VerActividadComponent {
     }
     terminar() {
         //console.log(this.usuariosConectadoss);
+        let ju = this;
+        this.actividad.estado = "Finalizada";
+        $.ajax({
+            type: 'POST',
+            url: '/actualizarActividad',
+            data: JSON.stringify(this.actividad),
+            success: function (data) {
+                ju.actividad = data;
+                clearInterval(ju.intervaloResumen);
+            },
+            contentType: 'application/json',
+            dataType: 'json'
+        });
     }
     cerrarActividad() {
         this.actividadCreada.emit("cerrar");
+        clearInterval(this.intervaloResumen);
     }
     cambiarAGeneral() {
         this.vistaGeneral = true;
@@ -2887,20 +2910,79 @@ let VerActividadComponent = class VerActividadComponent {
         this.vistaMapaDeLaClase = true;
     }
     insertarDatos(datos) {
-        console.log(datos);
-        for (let i = 0; i < this.alumnos.length; i++) {
+        //console.log(datos);
+        for (let i = 0; i < this.actividad.alumnos.length; i++) {
             if (datos.id_item == this.alumnos[i].id_item) {
-                this.alumnos[i].datos.alegria.push(datos.alegria);
-                this.alumnos[i].datos.asco.push(datos.asco);
-                this.alumnos[i].datos.ira.push(datos.ira);
-                this.alumnos[i].datos.miedo.push(datos.miedo);
-                this.alumnos[i].datos.sorpresa.push(datos.sorpresa);
-                this.alumnos[i].datos.tristeza.push(datos.tristeza);
-                this.alumnos[i].datos.pulsaciones.push(datos.pulsaciones);
-                this.alumnos[i].datos.tiempo.push(datos.tiempo);
+                this.resumen.alegria += datos.alegria;
+                this.resumen.asco += datos.asco;
+                this.resumen.concentrado += datos.concentrado;
+                this.resumen.distraido += datos.distraido;
+                this.resumen.frustrado += datos.frustrado;
+                this.resumen.ira += datos.ira;
+                this.resumen.miedo += datos.miedo;
+                this.resumen.motivado += datos.motivado;
+                this.resumen.sorpresa += datos.sorpresa;
+                this.resumen.tristeza += datos.tristeza;
+                this.resumen.pulsaciones += datos.pulsaciones;
+                this.numPulsaciones++;
+                this.actividad.alumnos[i].datos.alegria.push(datos.alegria);
+                this.actividad.alumnos[i].datos.asco.push(datos.asco);
+                this.actividad.alumnos[i].datos.ira.push(datos.ira);
+                this.actividad.alumnos[i].datos.miedo.push(datos.miedo);
+                this.actividad.alumnos[i].datos.sorpresa.push(datos.sorpresa);
+                this.actividad.alumnos[i].datos.tristeza.push(datos.tristeza);
+                this.actividad.alumnos[i].datos.pulsaciones.push(datos.pulsaciones);
+                this.actividad.alumnos[i].datos.tiempo.push(datos.tiempo);
+                this.actividad.alumnos[i].datos.distraido.push(datos.distraido);
+                this.actividad.alumnos[i].datos.concentrado.push(datos.concentrado);
+                this.actividad.alumnos[i].datos.frustrado.push(datos.frustrado);
+                this.actividad.alumnos[i].datos.motivado.push(datos.motivado);
             }
         }
-        console.log(this.alumnos);
+    }
+    insertarResumen() {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
+            //Datos Emocionales
+            let sumaTotalEmociones = 0;
+            console.log(this.resumen);
+            sumaTotalEmociones = this.resumen.alegria + this.resumen.asco + this.resumen.ira + this.resumen.miedo + this.resumen.sorpresa + this.resumen.tristeza;
+            this.actividad.resumen.alegria.push(this.resumen.alegria / sumaTotalEmociones);
+            this.actividad.resumen.asco.push(this.resumen.asco / sumaTotalEmociones);
+            this.actividad.resumen.ira.push(this.resumen.ira / sumaTotalEmociones);
+            this.actividad.resumen.miedo.push(this.resumen.miedo / sumaTotalEmociones);
+            this.actividad.resumen.sorpresa.push(this.resumen.sorpresa / sumaTotalEmociones);
+            this.actividad.resumen.tristeza.push(this.resumen.tristeza / sumaTotalEmociones);
+            //Datos de las pulsaciones
+            this.actividad.resumen.pulsaciones.push(this.resumen.pulsaciones / this.numPulsaciones);
+            //Datos cognitivos
+            let sumaTotalEstadoDisConc = 0;
+            sumaTotalEstadoDisConc = this.resumen.distraido + this.resumen.concentrado;
+            this.actividad.resumen.distraido.push(this.resumen.distraido / sumaTotalEstadoDisConc);
+            this.actividad.resumen.concentrado.push(this.resumen.concentrado / sumaTotalEstadoDisConc);
+            let sumaTotalEstadoFrusMotiv = 0;
+            sumaTotalEstadoFrusMotiv = this.resumen.frustrado + this.resumen.motivado;
+            this.actividad.resumen.frustrado.push(this.resumen.frustrado / sumaTotalEstadoFrusMotiv);
+            this.actividad.resumen.motivado.push(this.resumen.motivado / sumaTotalEstadoFrusMotiv);
+            //Datos del tiempo
+            let now = moment__WEBPACK_IMPORTED_MODULE_3__();
+            this.actividad.resumen.tiempo.push(now.format());
+            //Reseteo de datos
+            this.resumen = {
+                alegria: 0,
+                asco: 0,
+                miedo: 0,
+                sorpresa: 0,
+                tristeza: 0,
+                ira: 0,
+                distraido: 0,
+                concentrado: 0,
+                frustrado: 0,
+                motivado: 0,
+                pulsaciones: 0,
+            };
+            this.numPulsaciones = 0;
+            console.log(this.actividad);
+        });
     }
     seleccionarEstado(estado) {
         this.estadoSeleccionado = estado;
@@ -2913,7 +2995,13 @@ let VerActividadComponent = class VerActividadComponent {
         this.alumnoSeleccionado = 'Media de la clase';
         this.alumnoSeleccionadoAlumno = false;
     }
+    ngOnDestroy() {
+        clearInterval(this.intervaloResumen);
+    }
 };
+VerActividadComponent.ctorParameters = () => [
+    { type: _profesor_profesor_component__WEBPACK_IMPORTED_MODULE_4__["ProfesorComponent"] }
+];
 tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])()
 ], VerActividadComponent.prototype, "actividad", void 0);

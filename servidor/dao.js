@@ -96,6 +96,7 @@ function Dao() {
             else {
                 console.log("Elemento actualizado");
             }
+            //console.log(result);
             callback(result);
         });
     }

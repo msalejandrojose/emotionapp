@@ -431,7 +431,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"row\">\n    <div class=\"col-md-2\">\n        <!--<app-sidenav-profesor></app-sidenav-profesor>-->\n        <div class=\"sidenav list-group\">\n            <a href=\"#\" (click)=\"abrirAlumnos()\">Alumno</a>\n            <a href=\"#\" (click)=\"abrirActividades()\">Actividades</a>\n        </div>\n    </div>\n    <div *ngIf=\"gestionAlumnos\" class=\"col-md-10\">\n        <br>\n        <div class=\"row justify-content-md-center\">\n            <div class=\"col-md-10\">\n                <h4>Alumno</h4>\n            </div>\n            <div class=\"col-md-2\">\n                <button type=\"button\" (click)=\"abrirActividades()\" class=\"btn btn-outline-primary\">Crear\n                    Actividad</button>\n            </div>\n        </div>\n        <div class=\"row justify-content-md-center\">\n            <!--<div class=\"card-body card-body-cascade text-center wow fadeIn\">\n                <h4>Hola mundo</h4>\n                <p>asdalksdjlajsdklasjdkljlañksjfñdskladsfjñalksfj</p>\n            </div>-->\n            <div class=\"card col-md-6\">\n                <div *ngIf=\"!editarAlumno\" class=\"card-body\">\n                    <h4 class=\"card-title\">Crear Alumno</h4>\n                    <div>\n                        <label>Nombre del Alumn@</label>\n                        <input [(ngModel)]=\"alumnoCreate.nombre\" type=\"text\" class=\"form-control\" id=\"nombre\"\n                            placeholder=\"Nombre\">\n                        <br>\n                        <label>Apellidos</label>\n                        <input [(ngModel)]=\"alumnoCreate.apellidos\" type=\"text\" class=\"form-control\" id=\"apellidos\"\n                            ng-model=\"apellidos\" placeholder=\"Apellidos\">\n                        <br>\n                        <label>Clase</label>\n                        <input [(ngModel)]=\"alumnoCreate.clase\" type=\"text\" class=\"form-control\" id=\"clase\"\n                            ng-model=\"clase\" placeholder=\"Clase\">\n                        <br>\n                        <label>Email</label>\n                        <input [(ngModel)]=\"alumnoCreate.email\" type=\"email\" class=\"form-control\" id=\"email\"\n                            ng-model=\"email\" placeholder=\"Enter email\">\n                        <small id=\"emailHelp\" class=\"form-text text-muted\">El email tiene que ser unico</small>\n                        <br>\n                        <label>Contraseña</label>\n                        <input [(ngModel)]=\"alumnoCreate.contrasena\" type=\"password\" class=\"form-control\"\n                            id=\"contrasena\" ng-model=\"contrasena\" placeholder=\"Contraseña\">\n                        <small id=\"contrasenaHelp\" class=\"form-text text-muted\">El usuario podra entrar con esta\n                            contraseña</small>\n                        <button type=\"button\" (click)=\"limpiar()\" class=\"btn btn-raised btn-danger\">Limpiar</button>\n                        <button type=\"button\" (click)=\"anadirAlumno()\" class=\"btn btn-raised btn-success\">Guardar\n                            Alumn@</button>\n                    </div>\n                </div>\n                <div *ngIf=\"editarAlumno\" class=\"card-body\">\n                    <h4 class=\"card-title\">Editar Alumno</h4>\n                    <div>\n                        <label>Nombre del Alumn@</label>\n                        <input [(ngModel)]=\"onSelectedAlumno.nombre\" type=\"text\" class=\"form-control\" id=\"nombre\"\n                            placeholder=\"Nombre\">\n                        <br>\n                        <label>Apellidos</label>\n                        <input [(ngModel)]=\"onSelectedAlumno.apellidos\" type=\"text\" class=\"form-control\" id=\"apellidos\"\n                            ng-model=\"apellidos\" placeholder=\"Apellidos\">\n                        <br>\n                        <label>Clase</label>\n                        <input [(ngModel)]=\"onSelectedAlumno.clase\" type=\"text\" class=\"form-control\" id=\"clase\"\n                            ng-model=\"clase\" placeholder=\"Clase\">\n                        <br>\n                        <label>Email</label>\n                        <input [(ngModel)]=\"onSelectedAlumno.email\" type=\"email\" class=\"form-control\" id=\"email\"\n                            ng-model=\"email\" placeholder=\"Enter email\">\n                        <small id=\"emailHelp\" class=\"form-text text-muted\">El email tiene que ser unico</small>\n                        <br>\n                        <label>Contraseña</label>\n                        <input [(ngModel)]=\"onSelectedAlumno.contrasena\" type=\"password\" class=\"form-control\"\n                            id=\"contrasena\" ng-model=\"contrasena\" placeholder=\"Contraseña\">\n                        <small id=\"contrasenaHelp\" class=\"form-text text-muted\">El usuario podra entrar con esta\n                            contraseña</small>\n                        <button type=\"button\" (click)=\"limpiar()\" class=\"btn btn-raised btn-danger\">Limpiar</button>\n                        <button type=\"button\" (click)=\"actualizarAlumno()\" class=\"btn btn-raised btn-success\">Actualizar\n                            Alumn@</button>\n                    </div>\n                </div>\n            </div>\n            <div class=\"col-md-6\">\n                <h3>Lista de Alumnos</h3>\n                <table class=\"table table-striped\">\n                    <thead>\n                        <tr>\n                            <th scope=\"col\">Nombre</th>\n                            <th scope=\"col\">Apellidos</th>\n                            <th scope=\"col\">Clase</th>\n                            <th scope=\"col\"></th>\n                            <th scope=\"col\"></th>\n                        </tr>\n                    </thead>\n                    <tbody *ngFor=\"let alumno of listaAlumnos\">\n                        <tr>\n                            <td>{{alumno.nombre}}</td>\n                            <td>{{alumno.apellidos}}</td>\n                            <td>{{alumno.clase}}</td>\n                            <td><i (click)=\"editar(alumno)\" class=\"fa fa-edit\"></i></td>\n                            <td><i (click)=\"borrar(alumno)\" class=\"fa fa-trash-o\"></i></td>\n                        </tr>\n                    </tbody>\n                </table>\n            </div>\n        </div>\n    </div>\n    <div *ngIf=\"gestionActividades\" class=\"col-md-10\">\n        <br>\n        <div class=\"row justify-content-md-center\">\n            <div class=\"col-md-10\">\n                <h4>Actividades</h4>\n            </div>\n            <div class=\"col-md-2\">\n                <button type=\"button\" *ngIf=\"(!crearActividad && !verActividad) && !editarActividad\" (click)=\"abrirCrearActividad()\" class=\"btn btn-outline-primary\">Crear\n                    Actividad</button>\n                <button type=\"button\" *ngIf=\"(crearActividad && !verActividad) || editarActividad\" (click)=\"cerrarModal()\" class=\"btn btn-outline-danger\">Cancelar</button>\n                <!--<button type=\"button\" *ngIf=\"!crearActividad && verActividad\" (click)=\"cerrarActividad()\" class=\"btn btn-outline-danger\">Cerrar Actividad</button>-->\n            </div>\n        </div>\n        <br>\n        <div class=\"col-md-11\">\n            <app-crear-actividad *ngIf=\"crearActividad\" [estudiantes]=\"listaAlumnos\" (actividadCreada)=\"guardarActividad($event)\" ></app-crear-actividad>\n            <app-editar-actividad *ngIf=\"editarActividad\" [estudiantes]=\"listaAlumnos\" [editarActividad]=\"ActividadparaEditar\" (actividadEditada)=\"actualizarActividad($event)\" ></app-editar-actividad>\n        </div>\n        <br>\n        <div *ngIf=\"verActividad\">\n            <app-ver-actividad [actividad]=\"actividadSelected\" [aluConectados]=\"alumnosConectados\" (actividadCreada)=\"cerrarActividad($event)\"></app-ver-actividad>\n        </div>\n        <div *ngIf=\"!verActividad\" class=\"row justify-content-md-center\">\n            <div class=\"col-md-10\">\n                <h3>Lista de Actividades</h3>\n                <table class=\"table table-striped\">\n                    <thead>\n                        <tr>\n                            <th scope=\"col\">Nombre</th>\n                            <th scope=\"col\">Profesor</th>\n                            <th scope=\"col\">Estado</th>\n                            <th scope=\"col\"></th>\n                            <th scope=\"col\"></th>\n                            <th scope=\"col\"></th>\n                        </tr>\n                    </thead>\n                    <tbody *ngFor=\"let actividad of listaActividades\">\n                        <tr *ngIf=\"actividad.estado=='Creada'\">\n                            <td>{{actividad.nombre}}</td>\n                            <td>{{actividad.profesor}}</td>\n                            <td>{{actividad.estado}}</td>\n                            <td><button type=\"button\" class=\"btn btn-outline-primary\" (click)=\"abrirActividad(actividad)\">Mostrar</button></td>\n                            <td><i (click)=\"editarA(actividad)\" class=\"fa fa-edit\"></i></td>\n                            <td><i (click)=\"borrarA(actividad)\" class=\"fa fa-trash-o\"></i></td>\n                        </tr>\n                        <tr *ngIf=\"actividad.estado=='Comenzada'\">\n                            <td>{{actividad.nombre}}</td>\n                            <td>{{actividad.profesor}}</td>\n                            <td>{{actividad.estado}}</td>\n                            <td><button type=\"button\" class=\"btn btn-outline-success\" (click)=\"abrirActividad(actividad)\">Ver</button></td>\n                            <td><i (click)=\"editarA(actividad)\" class=\"fa fa-edit\"></i></td>\n                            <td><i (click)=\"borrarA(actividad)\" class=\"fa fa-trash-o\"></i></td>\n                        </tr>\n                    </tbody>\n                </table>\n            </div>\n        </div>\n    </div>\n</div>";
+    __webpack_exports__["default"] = "<div class=\"row\">\n    <div class=\"col-md-2\">\n        <!--<app-sidenav-profesor></app-sidenav-profesor>-->\n        <div class=\"sidenav list-group\">\n            <a href=\"#\" (click)=\"abrirAlumnos()\">Alumno</a>\n            <a href=\"#\" (click)=\"abrirActividades()\">Actividades</a>\n        </div>\n    </div>\n    <div *ngIf=\"gestionAlumnos\" class=\"col-md-10\">\n        <br>\n        <div class=\"row justify-content-md-center\">\n            <div class=\"col-md-10\">\n                <h4>Alumno</h4>\n            </div>\n            <div class=\"col-md-2\">\n                <button type=\"button\" (click)=\"abrirActividades()\" class=\"btn btn-outline-primary\">Crear\n                    Actividad</button>\n            </div>\n        </div>\n        <div class=\"row justify-content-md-center\">\n            <!--<div class=\"card-body card-body-cascade text-center wow fadeIn\">\n                <h4>Hola mundo</h4>\n                <p>asdalksdjlajsdklasjdkljlañksjfñdskladsfjñalksfj</p>\n            </div>-->\n            <div class=\"card col-md-6\">\n                <div *ngIf=\"!editarAlumno\" class=\"card-body\">\n                    <h4 class=\"card-title\">Crear Alumno</h4>\n                    <div>\n                        <label>Nombre del Alumn@</label>\n                        <input [(ngModel)]=\"alumnoCreate.nombre\" type=\"text\" class=\"form-control\" id=\"nombre\"\n                            placeholder=\"Nombre\">\n                        <br>\n                        <label>Apellidos</label>\n                        <input [(ngModel)]=\"alumnoCreate.apellidos\" type=\"text\" class=\"form-control\" id=\"apellidos\"\n                            ng-model=\"apellidos\" placeholder=\"Apellidos\">\n                        <br>\n                        <label>Clase</label>\n                        <input [(ngModel)]=\"alumnoCreate.clase\" type=\"text\" class=\"form-control\" id=\"clase\"\n                            ng-model=\"clase\" placeholder=\"Clase\">\n                        <br>\n                        <label>Email</label>\n                        <input [(ngModel)]=\"alumnoCreate.email\" type=\"email\" class=\"form-control\" id=\"email\"\n                            ng-model=\"email\" placeholder=\"Enter email\">\n                        <small id=\"emailHelp\" class=\"form-text text-muted\">El email tiene que ser unico</small>\n                        <br>\n                        <label>Contraseña</label>\n                        <input [(ngModel)]=\"alumnoCreate.contrasena\" type=\"password\" class=\"form-control\"\n                            id=\"contrasena\" ng-model=\"contrasena\" placeholder=\"Contraseña\">\n                        <small id=\"contrasenaHelp\" class=\"form-text text-muted\">El usuario podra entrar con esta\n                            contraseña</small>\n                        <button type=\"button\" (click)=\"limpiar()\" class=\"btn btn-raised btn-danger\">Limpiar</button>\n                        <button type=\"button\" (click)=\"anadirAlumno()\" class=\"btn btn-raised btn-success\">Guardar\n                            Alumn@</button>\n                    </div>\n                </div>\n                <div *ngIf=\"editarAlumno\" class=\"card-body\">\n                    <h4 class=\"card-title\">Editar Alumno</h4>\n                    <div>\n                        <label>Nombre del Alumn@</label>\n                        <input [(ngModel)]=\"onSelectedAlumno.nombre\" type=\"text\" class=\"form-control\" id=\"nombre\"\n                            placeholder=\"Nombre\">\n                        <br>\n                        <label>Apellidos</label>\n                        <input [(ngModel)]=\"onSelectedAlumno.apellidos\" type=\"text\" class=\"form-control\" id=\"apellidos\"\n                            ng-model=\"apellidos\" placeholder=\"Apellidos\">\n                        <br>\n                        <label>Clase</label>\n                        <input [(ngModel)]=\"onSelectedAlumno.clase\" type=\"text\" class=\"form-control\" id=\"clase\"\n                            ng-model=\"clase\" placeholder=\"Clase\">\n                        <br>\n                        <label>Email</label>\n                        <input [(ngModel)]=\"onSelectedAlumno.email\" type=\"email\" class=\"form-control\" id=\"email\"\n                            ng-model=\"email\" placeholder=\"Enter email\">\n                        <small id=\"emailHelp\" class=\"form-text text-muted\">El email tiene que ser unico</small>\n                        <br>\n                        <label>Contraseña</label>\n                        <input [(ngModel)]=\"onSelectedAlumno.contrasena\" type=\"password\" class=\"form-control\"\n                            id=\"contrasena\" ng-model=\"contrasena\" placeholder=\"Contraseña\">\n                        <small id=\"contrasenaHelp\" class=\"form-text text-muted\">El usuario podra entrar con esta\n                            contraseña</small>\n                        <button type=\"button\" (click)=\"limpiar()\" class=\"btn btn-raised btn-danger\">Limpiar</button>\n                        <button type=\"button\" (click)=\"actualizarAlumno()\" class=\"btn btn-raised btn-success\">Actualizar\n                            Alumn@</button>\n                    </div>\n                </div>\n            </div>\n            <div class=\"col-md-6\">\n                <h3>Lista de Alumnos</h3>\n                <table class=\"table table-striped\">\n                    <thead>\n                        <tr>\n                            <th scope=\"col\">Nombre</th>\n                            <th scope=\"col\">Apellidos</th>\n                            <th scope=\"col\">Clase</th>\n                            <th scope=\"col\"></th>\n                            <th scope=\"col\"></th>\n                        </tr>\n                    </thead>\n                    <tbody *ngFor=\"let alumno of listaAlumnos\">\n                        <tr>\n                            <td>{{alumno.nombre}}</td>\n                            <td>{{alumno.apellidos}}</td>\n                            <td>{{alumno.clase}}</td>\n                            <td><i (click)=\"editar(alumno)\" class=\"fa fa-edit\"></i></td>\n                            <td><i (click)=\"borrar(alumno)\" class=\"fa fa-trash-o\"></i></td>\n                        </tr>\n                    </tbody>\n                </table>\n            </div>\n        </div>\n    </div>\n    <div *ngIf=\"gestionActividades\" class=\"col-md-10\">\n        <br>\n        <div class=\"row justify-content-md-center\">\n            <div class=\"col-md-10\">\n                <h4>Actividades</h4>\n            </div>\n            <div class=\"col-md-2\">\n                <button type=\"button\" *ngIf=\"(!crearActividad && !verActividad) && !editarActividad\" (click)=\"abrirCrearActividad()\" class=\"btn btn-outline-primary\">Crear\n                    Actividad</button>\n                <button type=\"button\" *ngIf=\"(crearActividad && !verActividad) || editarActividad\" (click)=\"cerrarModal()\" class=\"btn btn-outline-danger\">Cancelar</button>\n                <!--<button type=\"button\" *ngIf=\"!crearActividad && verActividad\" (click)=\"cerrarActividad()\" class=\"btn btn-outline-danger\">Cerrar Actividad</button>-->\n            </div>\n        </div>\n        <br>\n        <div class=\"col-md-11\">\n            <app-crear-actividad *ngIf=\"crearActividad\" [estudiantes]=\"listaAlumnos\" (actividadCreada)=\"guardarActividad($event)\" ></app-crear-actividad>\n            <app-editar-actividad *ngIf=\"editarActividad\" [estudiantes]=\"listaAlumnos\" [editarActividad]=\"ActividadparaEditar\" (actividadEditada)=\"actualizarActividad($event)\" ></app-editar-actividad>\n        </div>\n        <br>\n        <div *ngIf=\"verActividad\">\n            <app-ver-actividad [actividad]=\"actividadSelected\" [aluConectados]=\"alumnosConectados\" (actividadCreada)=\"cerrarActividad($event)\"></app-ver-actividad>\n        </div>\n        <div *ngIf=\"!verActividad\" class=\"row justify-content-md-center\">\n            <div class=\"col-md-10\">\n                <h3>Lista de Actividades</h3>\n                <table class=\"table table-striped\">\n                    <thead>\n                        <tr>\n                            <th scope=\"col\">Nombre</th>\n                            <th scope=\"col\">Profesor</th>\n                            <th scope=\"col\">Estado</th>\n                            <th scope=\"col\"></th>\n                            <th scope=\"col\"></th>\n                            <th scope=\"col\"></th>\n                        </tr>\n                    </thead>\n                    <tbody *ngFor=\"let actividad of listaActividades\">\n                        <tr *ngIf=\"actividad.estado=='Creada'\">\n                            <td>{{actividad.nombre}}</td>\n                            <td>{{actividad.profesor}}</td>\n                            <td>{{actividad.estado}}</td>\n                            <td><button type=\"button\" class=\"btn btn-outline-primary\" (click)=\"abrirActividad(actividad)\">Acceder</button></td>\n                            <td><i (click)=\"editarA(actividad)\" class=\"fa fa-edit\"></i></td>\n                            <td><i (click)=\"borrarA(actividad)\" class=\"fa fa-trash-o\"></i></td>\n                        </tr>\n                        <tr *ngIf=\"actividad.estado=='Comenzada'\">\n                            <td>{{actividad.nombre}}</td>\n                            <td>{{actividad.profesor}}</td>\n                            <td>{{actividad.estado}}</td>\n                            <td><button type=\"button\" class=\"btn btn-outline-success\" (click)=\"abrirActividad(actividad)\">Ver</button></td>\n                            <td><i (click)=\"editarA(actividad)\" class=\"fa fa-edit\"></i></td>\n                            <td><i (click)=\"borrarA(actividad)\" class=\"fa fa-trash-o\"></i></td>\n                        </tr>\n                        <tr *ngIf=\"actividad.estado=='Finalizada'\">\n                            <td>{{actividad.nombre}}</td>\n                            <td>{{actividad.profesor}}</td>\n                            <td>{{actividad.estado}}</td>\n                            <td><button type=\"button\" class=\"btn btn-outline-success\" (click)=\"abrirActividad(actividad)\">Resumen</button></td>\n                            <td><i (click)=\"editarA(actividad)\" class=\"fa fa-edit\"></i></td>\n                            <td><i (click)=\"borrarA(actividad)\" class=\"fa fa-trash-o\"></i></td>\n                        </tr>\n                    </tbody>\n                </table>\n            </div>\n        </div>\n    </div>\n</div>";
     /***/
   },
 
@@ -1937,6 +1937,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         this.emocionSorpresa = 0;
         this.emocionNeutra = 0;
         this.datosTotalesEmocionales = 0;
+        this.contador = 0;
+        this.canvas = null;
+        this.intervaloGenerarDatos = null;
 
         this.soyEstudiante = function () {
           this.socket.emit('soyEstudiante', this.estudiante);
@@ -2009,6 +2012,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             for (var key in cli.listaGestionActividades) {} //cli.listaActividades.push(cli.listaGestionActividades[key]);
             //callback(res);
 
+          });
+          this.socket.on('enviaDatos', function (actividad) {
+            console.log("Listo! voy a enviar datos");
+            cli.actividad = actividad;
+            cli.empezar();
           });
           this.socket.on('recepcionEmociones', function (datos) {
             console.log(datos);
@@ -2083,8 +2091,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "conectarse",
         value: function conectarse(actividad) {
-          var _this = this;
-
           console.log("Me he conectado a la actividad");
           this.conectadoaActividad = true;
           this.actividadActual = actividad; //console.log(this.actividadActual.alumnos);
@@ -2103,33 +2109,58 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           //this.conectarLed();
 
           this.meConectoActividad(this.actividadActual);
-          this.empezar();
-          setInterval(function (async) {
-            _this.computacionDatos();
-          }, 10000);
+          console.log(actividad);
+
+          if (actividad.estado == "Comenzada") {
+            this.empezar();
+          } //this.empezar();
+
         }
       }, {
         key: "desconectarse",
         value: function desconectarse() {
-          console.log("Me he desconectado de la actividad"); //console.log(this.actividadActual.alumnos);
+          return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
+          /*#__PURE__*/
+          regeneratorRuntime.mark(function _callee2() {
+            return regeneratorRuntime.wrap(function _callee2$(_context2) {
+              while (1) {
+                switch (_context2.prev = _context2.next) {
+                  case 0:
+                    console.log("Me he desconectado de la actividad"); //console.log(this.actividadActual.alumnos);
 
-          /*for (var key in this.actividadActual.alumnos) {
-            if(this.actividadActual.alumnos[key].estudiante._id=this.estudiante._id){
-              console.log("Estudiate id: "+this.estudiante._id)
-              this.id_item=this.actividadActual.alumnos[key].id_item;
-              //console.log(this.id_item);
-            }
-          }*/
+                    /*for (var key in this.actividadActual.alumnos) {
+                      if(this.actividadActual.alumnos[key].estudiante._id=this.estudiante._id){
+                        console.log("Estudiate id: "+this.estudiante._id)
+                        this.id_item=this.actividadActual.alumnos[key].id_item;
+                        //console.log(this.id_item);
+                      }
+                    }*/
 
-          this.id_item = null; //this.soyEstudiante();
-          //this.conectarActividad();
-          //console.log("asd");
-          //this.conectarLed();
+                    this.id_item = null; //this.soyEstudiante();
+                    //this.conectarActividad();
+                    //console.log("asd");
+                    //this.conectarLed();
 
-          this.meDesconectoActividad(this.actividadActual);
-          clearInterval(this.intervaloDeEnvio);
-          this.conectadoaActividad = false;
-          this.actividadActual = null; //this.empezar();
+                    this.meDesconectoActividad(this.actividadActual);
+                    clearInterval(this.intervaloDeEnvio);
+                    this.conectadoaActividad = false;
+                    this.actividadActual = null;
+                    clearInterval(this.intervaloGenerarDatos);
+                    _context2.next = 9;
+                    return 0;
+
+                  case 9:
+                    this.listaActividades.length = _context2.sent;
+                    _context2.next = 12;
+                    return this.obtenerActividadesComenzadas();
+
+                  case 12:
+                  case "end":
+                    return _context2.stop();
+                }
+              }
+            }, _callee2, this);
+          }));
         }
       }, {
         key: "limpiar",
@@ -2188,11 +2219,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function conectarWebCam(sensor) {
           return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
           /*#__PURE__*/
-          regeneratorRuntime.mark(function _callee2() {
+          regeneratorRuntime.mark(function _callee3() {
             var constraints, stream;
-            return regeneratorRuntime.wrap(function _callee2$(_context2) {
+            return regeneratorRuntime.wrap(function _callee3$(_context3) {
               while (1) {
-                switch (_context2.prev = _context2.next) {
+                switch (_context3.prev = _context3.next) {
                   case 0:
                     sensor.data = document.getElementById('video');
                     constraints = {
@@ -2202,29 +2233,29 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                         height: 480
                       }
                     };
-                    _context2.prev = 2;
-                    _context2.next = 5;
+                    _context3.prev = 2;
+                    _context3.next = 5;
                     return navigator.mediaDevices.getUserMedia(constraints);
 
                   case 5:
-                    stream = _context2.sent;
+                    stream = _context3.sent;
                     this.camara.data.srcObject = stream;
                     sensor.estado = "Conectado";
-                    _context2.next = 13;
+                    _context3.next = 13;
                     break;
 
                   case 10:
-                    _context2.prev = 10;
-                    _context2.t0 = _context2["catch"](2);
+                    _context3.prev = 10;
+                    _context3.t0 = _context3["catch"](2);
                     //errorMsgElement.innerHTML = `navigator.getUserMedia error:${e.toString()}`;
-                    console.log(_context2.t0);
+                    console.log(_context3.t0);
 
                   case 13:
                   case "end":
-                    return _context2.stop();
+                    return _context3.stop();
                 }
               }
-            }, _callee2, this, [[2, 10]]);
+            }, _callee3, this, [[2, 10]]);
           }));
         }
       }, {
@@ -2259,52 +2290,47 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function empezar() {
           return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
           /*#__PURE__*/
-          regeneratorRuntime.mark(function _callee4() {
-            var _this2 = this;
+          regeneratorRuntime.mark(function _callee5() {
+            var _this = this;
 
-            var canvas;
-            return regeneratorRuntime.wrap(function _callee4$(_context4) {
+            return regeneratorRuntime.wrap(function _callee5$(_context5) {
               while (1) {
-                switch (_context4.prev = _context4.next) {
+                switch (_context5.prev = _context5.next) {
                   case 0:
                     //console.log(this.video.srcObject);
-                    Promise.all([faceapi.nets.ageGenderNet.loadFromUri('assets/modelos'), faceapi.nets.faceExpressionNet.loadFromUri('assets/modelos'), faceapi.nets.faceLandmark68Net.loadFromUri('assets/modelos'), faceapi.nets.faceLandmark68TinyNet.loadFromUri('assets/modelos'), faceapi.nets.faceRecognitionNet.loadFromUri('assets/modelos'), faceapi.nets.ssdMobilenetv1.loadFromUri('assets/modelos'), faceapi.nets.tinyFaceDetector.loadFromUri('assets/modelos') //faceapi.nets.tinyYolov2.loadFromUri('/modelos')
-                    ]); //console.log(this.video.srcObject);
+                    Promise.all([faceapi.nets.ageGenderNet.loadFromUri('assets/modelos'), faceapi.nets.faceExpressionNet.loadFromUri('assets/modelos'), faceapi.nets.faceLandmark68Net.loadFromUri('assets/modelos'), faceapi.nets.faceLandmark68TinyNet.loadFromUri('assets/modelos'), faceapi.nets.faceRecognitionNet.loadFromUri('assets/modelos'), faceapi.nets.ssdMobilenetv1.loadFromUri('assets/modelos'), faceapi.nets.tinyFaceDetector.loadFromUri('assets/modelos'), faceapi.nets.tinyYolov2.loadFromUri('assets/modelos')]); //console.log(this.video.srcObject);
                     //console.log("hemos cargado los modelos");
                     //this.video.addEventListener('play', () => {
+                    //console.log(this.camara.data.srcObject);
 
-                    console.log(this.camara.data.srcObject);
-                    canvas = faceapi.createCanvasFromMedia(this.camara.data);
-                    document.body.append(canvas);
+                    this.canvas = faceapi.createCanvasFromMedia(this.camara.data);
+                    document.body.append(this.canvas);
                     this.displaySize = {
                       width: this.camara.data.width,
                       height: this.camara.data.height
                     };
-                    faceapi.matchDimensions(canvas, this.displaySize);
-                    _context4.next = 8;
-                    return setInterval(function () {
-                      return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](_this2, void 0, void 0,
+                    faceapi.matchDimensions(this.canvas, this.displaySize);
+                    this.intervaloGenerarDatos = setInterval(function () {
+                      return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](_this, void 0, void 0,
                       /*#__PURE__*/
-                      regeneratorRuntime.mark(function _callee3() {
+                      regeneratorRuntime.mark(function _callee4() {
                         var detections, datos, datosFisicos, datosNeutral, datosHappy, datosSad, datosAngry, datosFearful, datosSurprised, datosDisgusted;
-                        return regeneratorRuntime.wrap(function _callee3$(_context3) {
+                        return regeneratorRuntime.wrap(function _callee4$(_context4) {
                           while (1) {
-                            switch (_context3.prev = _context3.next) {
+                            switch (_context4.prev = _context4.next) {
                               case 0:
-                                _context3.prev = 0;
-                                _context3.next = 3;
+                                _context4.prev = 0;
+                                _context4.next = 3;
                                 return faceapi.detectSingleFace(this.camara.data, new faceapi.TinyFaceDetectorOptions()).withFaceLandmarks().withFaceExpressions();
 
                               case 3:
-                                detections = _context3.sent;
+                                detections = _context4.sent;
                                 datos = faceapi.resizeResults(detections, this.displaySize).expressions;
-                                _context3.next = 7;
+                                _context4.next = 7;
                                 return faceapi.detectSingleFace(this.camara.data).withFaceLandmarks().withAgeAndGender();
 
                               case 7:
-                                datosFisicos = _context3.sent;
-                                //console.log(datos);
-                                //console.log(datosFisicos);
+                                datosFisicos = _context4.sent;
                                 datosNeutral = faceapi.resizeResults(detections, this.displaySize).expressions.neutral;
                                 datosHappy = faceapi.resizeResults(detections, this.displaySize).expressions.happy;
                                 datosSad = faceapi.resizeResults(detections, this.displaySize).expressions.sad;
@@ -2317,95 +2343,43 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                                 this.emocionIra += datosAngry;
                                 this.emocionMiedo += datosFearful;
                                 this.emocionSorpresa += datosSurprised;
-                                this.emocionTristeza += datosSad; //this.emocionNeutra+=datosNeutral;
-                                //this.datosTotalesEmocionales=datosHappy+datosDisgusted+datosAngry+datosFearful+datosSurprised+datosSad;
-
-                                /*var maximo = Math.max(datosAngry, datosDisgusted, datosFearful, datosHappy, datosNeutral, datosSad, datosSurprised);
-                                if (datosNeutral == maximo) {
-                                  //console.log("Neutro: "+maximo);
-                                  //this.enviarEmocionesWebCam({ id_item: this.id_item, color: this.ColorNeutral, datos: datos, pulsaciones: this.pulsaciones })
-                                  this.colorPredominante=this.ColorNeutral
-                                  this.ponerNeutral()
-                                  $('#estadoAlumno').css('background-color', this.ColorNeutral);
-                                  //this.ContadorNeutro++
-                                  //this.usuario.Neutro.valor = this.usuario.Neutro.valor + 1;
-                                }
-                                if (datosFearful == maximo) {
-                                  //console.log("Miedo: "+maximo);
-                                  //this.enviarEmocionesWebCam({ id_item: this.id_item, color: this.ColorFearful, datos: datos, pulsaciones: this.pulsaciones })
-                                  this.colorPredominante=this.ColorFearful;
-                                  this.ponerFearful();
-                                  $('#estadoAlumno').css('background-color', this.ColorFearful);
-                                  //this.ContadorMiedo++
-                                  //this.usuario.Miedo.valor = this.usuario.Miedo.valor + 1;
-                                }
-                                if (datosAngry == maximo) {
-                                  //console.log("Enfadado: "+maximo);
-                                  //this.enviarEmocionesWebCam({ id_item: this.id_item, color: this.ColorAngry, datos: datos, pulsaciones: this.pulsaciones })
-                                  this.colorPredominante=this.ColorAngry;
-                                  this.ponerAngry();
-                                  $('#estadoAlumno').css('background-color', this.ColorAngry);
-                                  //this.ContadorEnfadado++
-                                  //this.usuario.Enfadado.valor = this.usuario.Enfadado.valor + 1;
-                                }
-                                if (datosHappy == maximo) {
-                                  //console.log("Feliz: "+maximo);
-                                  //this.enviarEmocionesWebCam({ id_item: this.id_item, color: this.ColorHappy, datos: datos, pulsaciones: this.pulsaciones })
-                                  this.colorPredominante=this.ColorHappy;
-                                  this.ponerHappy();
-                                  $('#estadoAlumno').css('background-color', this.ColorHappy);
-                                  //this.ContadorFeliz++
-                                  //this.usuario.Felicidad.valor = this.usuario.Felicidad.valor + 1;
-                                }
-                                if (datosSad == maximo) {
-                                  //console.log("Triste: "+maximo);
-                                  //this.enviarEmocionesWebCam({ id_item: this.id_item, color: this.ColorSad, datos: datos, pulsaciones: this.pulsaciones })
-                                  this.colorPredominante=this.ColorSad;
-                                  this.ponerSad();
-                                  $('#estadoAlumno').css('background-color', this.ColorSad);
-                                  //this.ContadorTriste++
-                                  //this.usuario.Triste.valor = this.usuario.Triste.valor + 1;
-                                }
-                                if (datosSurprised == maximo) {
-                                  //this.enviarEmocionesWebCam({ id_item: this.id_item, color: this.ColorSurprised, datos: datos, pulsaciones: this.pulsaciones })
-                                  this.colorPredominante=this.ColorSurprised;
-                                  this.ponerSurprised();
-                                  $('#estadoAlumno').css('background-color', this.ColorSurprised);
-                                  //this.ContadorSorprendido++
-                                  //this.usuario.Sorpresa.valor = this.usuario.Sorpresa.valor + 1;
-                                }
-                                if (datosDisgusted == maximo) {
-                                  //console.log("Disgustado: "+maximo);
-                                  //this.enviarEmocionesWebCam({ id_item: this.id_item, color: this.ColorDisgusted, datos: datos, pulsaciones: this.pulsaciones })
-                                  //this.ponerDisgusted();
-                                  $('#estadoAlumno').css('background-color', this.ColorDisgusted);
-                                  //this.ContadorDisgustado++
-                                  //this.usuario.Disgustado.valor = this.usuario.Disgustado.valor + 1;
-                                }
-                                */
-
-                                _context3.next = 25;
-                                break;
+                                this.emocionTristeza += datosSad;
+                                _context4.next = 23;
+                                return this.contador++;
 
                               case 23:
-                                _context3.prev = 23;
-                                _context3.t0 = _context3["catch"](0);
+                                if (!(this.contador == 5)) {
+                                  _context4.next = 27;
+                                  break;
+                                }
 
-                              case 25:
+                                this.contador = 0;
+                                _context4.next = 27;
+                                return this.computacionDatos();
+
+                              case 27:
+                                _context4.next = 31;
+                                break;
+
+                              case 29:
+                                _context4.prev = 29;
+                                _context4.t0 = _context4["catch"](0);
+
+                              case 31:
                               case "end":
-                                return _context3.stop();
+                                return _context4.stop();
                             }
                           }
-                        }, _callee3, this, [[0, 23]]);
+                        }, _callee4, this, [[0, 29]]);
                       }));
                     }, 1000);
 
-                  case 8:
+                  case 6:
                   case "end":
-                    return _context4.stop();
+                    return _context5.stop();
                 }
               }
-            }, _callee4, this);
+            }, _callee5, this);
           }));
         }
       }, {
@@ -2413,11 +2387,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function computacionDatos() {
           return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
           /*#__PURE__*/
-          regeneratorRuntime.mark(function _callee5() {
+          regeneratorRuntime.mark(function _callee6() {
             var datos, predominante, mediaPulsaciones, i, now;
-            return regeneratorRuntime.wrap(function _callee5$(_context5) {
+            return regeneratorRuntime.wrap(function _callee6$(_context6) {
               while (1) {
-                switch (_context5.prev = _context5.next) {
+                switch (_context6.prev = _context6.next) {
                   case 0:
                     datos = {};
                     predominante = 0; //Estado Emocional
@@ -2426,49 +2400,89 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
                     datos['id_item'] = this.id_item;
                     this.colorPredominante = this.ColorNeutral2;
-                    datos['alegria'] = this.emocionAlegria / this.datosTotalesEmocionales;
+                    _context6.next = 7;
+                    return this.emocionAlegria;
+
+                  case 7:
+                    _context6.t0 = _context6.sent;
+                    _context6.t1 = this.datosTotalesEmocionales;
+                    datos['alegria'] = _context6.t0 / _context6.t1;
 
                     if (predominante < datos['alegria']) {
                       predominante = datos['alegria'];
                       this.colorPredominante = this.ColorHappy2;
                     }
 
-                    datos['asco'] = this.emocionAsco / this.datosTotalesEmocionales;
+                    _context6.next = 13;
+                    return this.emocionAsco;
+
+                  case 13:
+                    _context6.t2 = _context6.sent;
+                    _context6.t3 = this.datosTotalesEmocionales;
+                    datos['asco'] = _context6.t2 / _context6.t3;
 
                     if (predominante < datos['asco']) {
                       this.colorPredominante = this.ColorDisgusted2;
                     }
 
-                    datos['ira'] = this.emocionIra / this.datosTotalesEmocionales;
+                    _context6.next = 19;
+                    return this.emocionIra;
+
+                  case 19:
+                    _context6.t4 = _context6.sent;
+                    _context6.t5 = this.datosTotalesEmocionales;
+                    datos['ira'] = _context6.t4 / _context6.t5;
 
                     if (predominante < datos['ira']) {
                       this.colorPredominante = this.ColorAngry2;
                     }
 
-                    datos['miedo'] = this.emocionMiedo / this.datosTotalesEmocionales;
+                    _context6.next = 25;
+                    return this.emocionMiedo;
+
+                  case 25:
+                    _context6.t6 = _context6.sent;
+                    _context6.t7 = this.datosTotalesEmocionales;
+                    datos['miedo'] = _context6.t6 / _context6.t7;
 
                     if (predominante < datos['miedo']) {
                       this.colorPredominante = this.ColorFearful2;
                     }
 
-                    datos['sorpresa'] = this.emocionSorpresa / this.datosTotalesEmocionales;
+                    _context6.next = 31;
+                    return this.emocionSorpresa;
+
+                  case 31:
+                    _context6.t8 = _context6.sent;
+                    _context6.t9 = this.datosTotalesEmocionales;
+                    datos['sorpresa'] = _context6.t8 / _context6.t9;
 
                     if (predominante < datos['sorpresa']) {
                       this.colorPredominante = this.ColorSurprised2;
                     }
 
-                    datos['tristeza'] = this.emocionTristeza / this.datosTotalesEmocionales;
+                    _context6.next = 37;
+                    return this.emocionTristeza;
+
+                  case 37:
+                    _context6.t10 = _context6.sent;
+                    _context6.t11 = this.datosTotalesEmocionales;
+                    datos['tristeza'] = _context6.t10 / _context6.t11;
 
                     if (predominante < datos['tristeza']) {
                       this.colorPredominante = this.ColorSad2;
                     }
 
-                    predominante = 0;
+                    _context6.next = 43;
+                    return 0;
+
+                  case 43:
+                    predominante = _context6.sent;
+
                     /*datos['neutra']=this.emocionNeutra/this.datosTotalesEmocionales;
                     if(datos['tristeza']<datos['neutra']){
                       this.colorPredominante=this.ColorNeutral2;
                     }*/
-
                     datos['color'] = 'rgba(' + this.colorPredominante[0] + ',' + this.colorPredominante[1] + ',' + this.colorPredominante[2] + ',' + this.colorPredominante[3] + ')';
                     console.log('rgba(' + this.colorPredominante[0] + ',' + this.colorPredominante[1] + ',' + this.colorPredominante[2] + ',' + this.colorPredominante[3] + ')');
                     $('#estadoAlumno').css('background-color', 'rgba(' + this.colorPredominante[0] + ',' + this.colorPredominante[1] + ',' + this.colorPredominante[2] + ',' + this.colorPredominante[3] + ')');
@@ -2501,30 +2515,30 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                       datos['distraido'] = datos['sorpresa'];
                     }
 
-                    if (datos['alegria'] == NaN) {
+                    if (datos['alegria'] == NaN || datos['alegria'] == null) {
                       datos['distraido'] = 1;
                     }
 
                     datos['concentrado'] = 1 - datos['distraido'];
                     datos['frustrado'] = 0;
 
-                    if (datos['sopresa'] + datos['tristeza'] > 0.10) {
-                      datos['frustrado'] += datos['sopresa'] + datos['tristeza'];
+                    if (datos['sopresa'] + datos['tristeza'] > 0.25) {
+                      datos['frustrado'] += 0.25;
                     }
 
-                    if (datos['asco'] + datos['ira'] > 0.10) {
-                      datos['frustrado'] += datos['asco'] + datos['ira'];
+                    if (datos['asco'] + datos['ira'] > 0.25) {
+                      datos['frustrado'] += 0.25;
                     }
 
-                    if (datos['miedo'] + datos['tristeza'] > 0.10) {
-                      datos['frustrado'] += datos['miedo'] + datos['tristeza'];
+                    if (datos['miedo'] + datos['tristeza'] > 0.25) {
+                      datos['frustrado'] += 0.25;
                     }
 
-                    if (datos['sorpresa'] + datos['ira'] > 0.10) {
-                      datos['frustrado'] += datos['sorpresa'] + datos['ira'];
+                    if (datos['sorpresa'] + datos['ira'] > 0.25) {
+                      datos['frustrado'] += 0.25;
                     }
 
-                    if (datos['alegria'] == NaN) {
+                    if (datos['alegria'] == NaN || datos['alegria'] == null) {
                       datos['frustrado'] = 1;
                     }
 
@@ -2533,12 +2547,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                     console.log(datos);
                     this.enviarDatos(datos); //this.enviarEmocionesWebCam(datos);
 
-                  case 50:
+                  case 76:
                   case "end":
-                    return _context5.stop();
+                    return _context6.stop();
                 }
               }
-            }, _callee5, this);
+            }, _callee6, this);
           }));
         }
       }, {
@@ -2567,11 +2581,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "conectarPulsera",
         value: function conectarPulsera(sensor) {
-          var _this3 = this;
+          var _this2 = this;
 
           sensor.estado = "Conectado";
           setInterval(function (async) {
-            _this3.pulsometro(sensor);
+            _this2.pulsometro(sensor);
           }, 1000);
         }
       }, {
@@ -2598,11 +2612,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function desconectarSensor(sensor) {
           return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
           /*#__PURE__*/
-          regeneratorRuntime.mark(function _callee6() {
+          regeneratorRuntime.mark(function _callee7() {
             var constraints, stream, track;
-            return regeneratorRuntime.wrap(function _callee6$(_context6) {
+            return regeneratorRuntime.wrap(function _callee7$(_context7) {
               while (1) {
-                switch (_context6.prev = _context6.next) {
+                switch (_context7.prev = _context7.next) {
                   case 0:
                     if (sensor.nombre == "Led") {
                       //console.log(sensor);
@@ -2611,7 +2625,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                     }
 
                     if (!(sensor.nombre == "Camara")) {
-                      _context6.next = 17;
+                      _context7.next = 17;
                       break;
                     }
 
@@ -2636,26 +2650,26 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                         height: 480
                       }
                     };
-                    _context6.prev = 3;
-                    _context6.next = 6;
+                    _context7.prev = 3;
+                    _context7.next = 6;
                     return navigator.mediaDevices.getUserMedia(constraints);
 
                   case 6:
-                    stream = _context6.sent;
+                    stream = _context7.sent;
                     track = stream.getTracks()[0]; // if only one media track
                     // ...
 
                     track.stop();
                     sensor.data = null;
                     sensor.estado = "Desconectado";
-                    _context6.next = 17;
+                    _context7.next = 17;
                     break;
 
                   case 13:
-                    _context6.prev = 13;
-                    _context6.t0 = _context6["catch"](3);
+                    _context7.prev = 13;
+                    _context7.t0 = _context7["catch"](3);
                     //errorMsgElement.innerHTML = `navigator.getUserMedia error:${e.toString()}`;
-                    console.log(_context6.t0);
+                    console.log(_context7.t0);
                     console.log("Has tenido un error");
 
                   case 17:
@@ -2666,10 +2680,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
                   case 18:
                   case "end":
-                    return _context6.stop();
+                    return _context7.stop();
                 }
               }
-            }, _callee6, null, [[3, 13]]);
+            }, _callee7, null, [[3, 13]]);
           }));
         } //Implementacion del led
 
@@ -2678,14 +2692,14 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function conectarLed(sensor) {
           return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
           /*#__PURE__*/
-          regeneratorRuntime.mark(function _callee7() {
-            return regeneratorRuntime.wrap(function _callee7$(_context7) {
+          regeneratorRuntime.mark(function _callee8() {
+            return regeneratorRuntime.wrap(function _callee8$(_context8) {
               while (1) {
-                switch (_context7.prev = _context7.next) {
+                switch (_context8.prev = _context8.next) {
                   case 0:
                     console.log("Conectandose...");
-                    _context7.prev = 1;
-                    _context7.next = 4;
+                    _context8.prev = 1;
+                    _context8.next = 4;
                     return navigator.hid.requestDevice({
                       filters: [{
                         vendorId: 0x20a0,
@@ -2694,59 +2708,37 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                     });
 
                   case 4:
-                    sensor.data = _context7.sent;
+                    sensor.data = _context8.sent;
                     //device.open();
                     //console.log(this.device);
                     this.led.estado = "Conectado";
-                    _context7.next = 8;
+                    _context8.next = 8;
                     return sensor.data.open();
 
                   case 8:
-                    _context7.next = 12;
+                    _context8.next = 12;
                     break;
 
                   case 10:
-                    _context7.prev = 10;
-                    _context7.t0 = _context7["catch"](1);
+                    _context8.prev = 10;
+                    _context8.t0 = _context8["catch"](1);
 
                   case 12:
-                    console.log(this.listaSensores);
-
+                    //console.log(this.listaSensores)
                     if (this.device !== undefined) {// Add |device| to the UI.
                     }
 
-                  case 14:
+                  case 13:
                   case "end":
-                    return _context7.stop();
+                    return _context8.stop();
                 }
               }
-            }, _callee7, this, [[1, 10]]);
+            }, _callee8, this, [[1, 10]]);
           }));
         }
       }, {
         key: "ponerHappy",
         value: function ponerHappy() {
-          return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
-          /*#__PURE__*/
-          regeneratorRuntime.mark(function _callee8() {
-            return regeneratorRuntime.wrap(function _callee8$(_context8) {
-              while (1) {
-                switch (_context8.prev = _context8.next) {
-                  case 0:
-                    _context8.next = 2;
-                    return this.fadeToColor(this.led.data, [255, 255, 0]);
-
-                  case 2:
-                  case "end":
-                    return _context8.stop();
-                }
-              }
-            }, _callee8, this);
-          }));
-        }
-      }, {
-        key: "ponerNeutral",
-        value: function ponerNeutral() {
           return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
           /*#__PURE__*/
           regeneratorRuntime.mark(function _callee9() {
@@ -2755,7 +2747,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                 switch (_context9.prev = _context9.next) {
                   case 0:
                     _context9.next = 2;
-                    return this.fadeToColor(this.led.data, [84, 255, 84]);
+                    return this.fadeToColor(this.led.data, [255, 255, 0]);
 
                   case 2:
                   case "end":
@@ -2766,8 +2758,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           }));
         }
       }, {
-        key: "ponerSad",
-        value: function ponerSad() {
+        key: "ponerNeutral",
+        value: function ponerNeutral() {
           return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
           /*#__PURE__*/
           regeneratorRuntime.mark(function _callee10() {
@@ -2776,7 +2768,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                 switch (_context10.prev = _context10.next) {
                   case 0:
                     _context10.next = 2;
-                    return this.fadeToColor(this.led.data, [81, 81, 255]);
+                    return this.fadeToColor(this.led.data, [84, 255, 84]);
 
                   case 2:
                   case "end":
@@ -2787,8 +2779,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           }));
         }
       }, {
-        key: "ponerAngry",
-        value: function ponerAngry() {
+        key: "ponerSad",
+        value: function ponerSad() {
           return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
           /*#__PURE__*/
           regeneratorRuntime.mark(function _callee11() {
@@ -2797,7 +2789,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                 switch (_context11.prev = _context11.next) {
                   case 0:
                     _context11.next = 2;
-                    return this.fadeToColor(this.led.data, [255, 0, 0]);
+                    return this.fadeToColor(this.led.data, [81, 81, 255]);
 
                   case 2:
                   case "end":
@@ -2808,8 +2800,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           }));
         }
       }, {
-        key: "ponerFearful",
-        value: function ponerFearful() {
+        key: "ponerAngry",
+        value: function ponerAngry() {
           return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
           /*#__PURE__*/
           regeneratorRuntime.mark(function _callee12() {
@@ -2818,7 +2810,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                 switch (_context12.prev = _context12.next) {
                   case 0:
                     _context12.next = 2;
-                    return this.fadeToColor(this.led.data, [0, 150, 0]);
+                    return this.fadeToColor(this.led.data, [255, 0, 0]);
 
                   case 2:
                   case "end":
@@ -2829,8 +2821,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           }));
         }
       }, {
-        key: "ponerDisgusted",
-        value: function ponerDisgusted() {
+        key: "ponerFearful",
+        value: function ponerFearful() {
           return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
           /*#__PURE__*/
           regeneratorRuntime.mark(function _callee13() {
@@ -2839,7 +2831,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                 switch (_context13.prev = _context13.next) {
                   case 0:
                     _context13.next = 2;
-                    return this.fadeToColor(this.led.data, [80, 80, 80]);
+                    return this.fadeToColor(this.led.data, [0, 150, 0]);
 
                   case 2:
                   case "end":
@@ -2850,8 +2842,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           }));
         }
       }, {
-        key: "ponerSurprised",
-        value: function ponerSurprised() {
+        key: "ponerDisgusted",
+        value: function ponerDisgusted() {
           return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
           /*#__PURE__*/
           regeneratorRuntime.mark(function _callee14() {
@@ -2860,7 +2852,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                 switch (_context14.prev = _context14.next) {
                   case 0:
                     _context14.next = 2;
-                    return this.fadeToColor(this.led.data, [89, 189, 255]);
+                    return this.fadeToColor(this.led.data, [80, 80, 80]);
 
                   case 2:
                   case "end":
@@ -2871,8 +2863,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           }));
         }
       }, {
-        key: "ponerColor",
-        value: function ponerColor() {
+        key: "ponerSurprised",
+        value: function ponerSurprised() {
           return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
           /*#__PURE__*/
           regeneratorRuntime.mark(function _callee15() {
@@ -2881,7 +2873,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                 switch (_context15.prev = _context15.next) {
                   case 0:
                     _context15.next = 2;
-                    return this.fadeToColor(this.led.data, [this.colorPredominante[0], this.colorPredominante[1], this.colorPredominante[2]]);
+                    return this.fadeToColor(this.led.data, [89, 189, 255]);
 
                   case 2:
                   case "end":
@@ -2889,6 +2881,27 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                 }
               }
             }, _callee15, this);
+          }));
+        }
+      }, {
+        key: "ponerColor",
+        value: function ponerColor() {
+          return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
+          /*#__PURE__*/
+          regeneratorRuntime.mark(function _callee16() {
+            return regeneratorRuntime.wrap(function _callee16$(_context16) {
+              while (1) {
+                switch (_context16.prev = _context16.next) {
+                  case 0:
+                    _context16.next = 2;
+                    return this.fadeToColor(this.led.data, [this.colorPredominante[0], this.colorPredominante[1], this.colorPredominante[2]]);
+
+                  case 2:
+                  case "end":
+                    return _context16.stop();
+                }
+              }
+            }, _callee16, this);
           }));
         }
       }, {
@@ -2901,34 +2914,34 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
           return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
           /*#__PURE__*/
-          regeneratorRuntime.mark(function _callee16() {
+          regeneratorRuntime.mark(function _callee17() {
             var reportId, data;
-            return regeneratorRuntime.wrap(function _callee16$(_context16) {
+            return regeneratorRuntime.wrap(function _callee17$(_context17) {
               while (1) {
-                switch (_context16.prev = _context16.next) {
+                switch (_context17.prev = _context17.next) {
                   case 0:
                     reportId = 1;
                     console.log([r, g, b]);
                     data = Uint8Array.from([r, g, b]); //const negro = Uint8Array.from([0x63, 0, 0, 0, 0x00, 0x10, 0x00, 0x00]);
 
-                    _context16.prev = 3;
-                    _context16.next = 6;
+                    _context17.prev = 3;
+                    _context17.next = 6;
                     return device.sendFeatureReport(1, data);
 
                   case 6:
-                    _context16.next = 10;
+                    _context17.next = 10;
                     break;
 
                   case 8:
-                    _context16.prev = 8;
-                    _context16.t0 = _context16["catch"](3);
+                    _context17.prev = 8;
+                    _context17.t0 = _context17["catch"](3);
 
                   case 10:
                   case "end":
-                    return _context16.stop();
+                    return _context17.stop();
                 }
               }
-            }, _callee16, null, [[3, 8]]);
+            }, _callee17, null, [[3, 8]]);
           }));
         }
       }, {
@@ -2937,6 +2950,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           if (this.actividadActual) {
             this.socket.emit('meDesconectoActividad', this.actividadActual, this.estudiante);
           }
+
+          clearInterval(this.intervaloGenerarDatos);
         } //Implementacion de los sockets
 
       }, {
@@ -3066,7 +3081,20 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           profesor: '',
           alumnos: {},
           estado: 'Creada',
-          resumen: {}
+          resumen: {
+            alegria: [],
+            asco: [],
+            miedo: [],
+            sorpresa: [],
+            tristeza: [],
+            ira: [],
+            pulsaciones: [],
+            tiempo: [],
+            distraido: [],
+            concentrado: [],
+            frustrado: [],
+            motivado: []
+          }
         };
         this.alumnosSeleccionados = [];
         this.estudiante = {
@@ -3121,10 +3149,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "masterToggle",
         value: function masterToggle() {
-          var _this4 = this;
+          var _this3 = this;
 
           this.isAllSelected() ? this.selection.clear() : this.dataSource.data.forEach(function (row) {
-            return _this4.selection.select(row);
+            return _this3.selection.select(row);
           });
         }
       }, {
@@ -3218,7 +3246,20 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             profesor: '',
             alumnos: {},
             estado: '',
-            resumen: {}
+            resumen: {
+              alegria: [],
+              asco: [],
+              miedo: [],
+              sorpresa: [],
+              tristeza: [],
+              ira: [],
+              pulsaciones: [],
+              tiempo: [],
+              distraido: [],
+              concentrado: [],
+              frustrado: [],
+              motivado: []
+            }
           };
         }
       }]);
@@ -3365,23 +3406,23 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "ngOnChanges",
         value: function ngOnChanges() {
-          var _this5 = this;
+          var _this4 = this;
 
           this.dataSource = new _angular_material__WEBPACK_IMPORTED_MODULE_5__["MatTableDataSource"](this.estudiantes);
           /*console.log("Prueba");
           console.log(this.dataSource);*/
 
           this.dataSource.data.forEach(function (row) {
-            for (var i in _this5.editarActividad.alumnos) {
-              if (_this5.editarActividad.alumnos[i].estudiante._id == row._id) {
-                _this5.selection.select(row);
+            for (var i in _this4.editarActividad.alumnos) {
+              if (_this4.editarActividad.alumnos[i].estudiante._id == row._id) {
+                _this4.selection.select(row);
 
-                _this5.actualizarr(row);
+                _this4.actualizarr(row);
               }
             } //this.actualizarr(row);
 
 
-            console.log(_this5.arryaAlumnos);
+            console.log(_this4.arryaAlumnos);
           });
         }
       }, {
@@ -3389,10 +3430,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function actualizarr(item) {
           return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
           /*#__PURE__*/
-          regeneratorRuntime.mark(function _callee17() {
-            return regeneratorRuntime.wrap(function _callee17$(_context17) {
+          regeneratorRuntime.mark(function _callee18() {
+            return regeneratorRuntime.wrap(function _callee18$(_context18) {
               while (1) {
-                switch (_context17.prev = _context17.next) {
+                switch (_context18.prev = _context18.next) {
                   case 0:
                     this.arryaAlumnos.push(new _Modelos_modelos__WEBPACK_IMPORTED_MODULE_3__["Alumnos"](item, {
                       x: 0,
@@ -3403,10 +3444,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
                   case 3:
                   case "end":
-                    return _context17.stop();
+                    return _context18.stop();
                 }
               }
-            }, _callee17, this);
+            }, _callee18, this);
           }));
         }
       }, {
@@ -3438,14 +3479,14 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "masterToggle",
         value: function masterToggle() {
-          var _this6 = this;
+          var _this5 = this;
 
           this.isAllSelected() ? this.selection.clear() : this.dataSource.data.forEach(function (row) {
-            _this6.selection.select(row); //this.arryaAlumnos.push(new Alumnos(row, { x: 0, y: 0 }, this.editarActividad))
+            _this5.selection.select(row); //this.arryaAlumnos.push(new Alumnos(row, { x: 0, y: 0 }, this.editarActividad))
             //this.alumnosSeleccionados = this.arryaAlumnos;
 
 
-            _this6.ponerAlumnos();
+            _this5.ponerAlumnos();
           });
         }
       }, {
@@ -3686,6 +3727,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           console.log("Actividad: " + actividad._id + " YA NO está lista.");
         };
 
+        this.listoParaRecibirDatos = function (actividad) {
+          this.socket.emit('listoParaRecibirDatos', actividad);
+        };
+
         this.lanzarSocketSrv = function () {
           var cli = this;
           this.socket.on('connect', function () {
@@ -3771,11 +3816,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function ngOnInit() {
           return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
           /*#__PURE__*/
-          regeneratorRuntime.mark(function _callee18() {
+          regeneratorRuntime.mark(function _callee19() {
             var ju;
-            return regeneratorRuntime.wrap(function _callee18$(_context18) {
+            return regeneratorRuntime.wrap(function _callee19$(_context19) {
               while (1) {
-                switch (_context18.prev = _context18.next) {
+                switch (_context19.prev = _context19.next) {
                   case 0:
                     //this.socket = new ClienteWS('profesor');
                     //this.socket.ini();
@@ -3783,14 +3828,14 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
                     ju = this; //this.listaAlumnos=this.estudiantes.getEstudiantes();
 
-                    _context18.next = 4;
+                    _context19.next = 4;
                     return $.getJSON("/verEstudiantes", function (data) {
                       //console.log(data);
                       ju.listaAlumnos = data;
                     });
 
                   case 4:
-                    _context18.next = 6;
+                    _context19.next = 6;
                     return $.getJSON("/verActividades", function (data) {
                       //console.log(data);
                       ju.listaActividades = data;
@@ -3798,10 +3843,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
                   case 6:
                   case "end":
-                    return _context18.stop();
+                    return _context19.stop();
                 }
               }
-            }, _callee18, this);
+            }, _callee19, this);
           }));
         } //anadirAlumno(nombre:string,apellidos:string,clase:string,email:string,contrasena:string) {
 
@@ -4215,13 +4260,33 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var chart_js__WEBPACK_IMPORTED_MODULE_2___default =
     /*#__PURE__*/
     __webpack_require__.n(chart_js__WEBPACK_IMPORTED_MODULE_2__);
+    /* harmony import */
+
+
+    var moment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! moment */
+    "./node_modules/moment/moment.js");
+    /* harmony import */
+
+
+    var moment__WEBPACK_IMPORTED_MODULE_3___default =
+    /*#__PURE__*/
+    __webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_3__);
+    /* harmony import */
+
+
+    var _profesor_profesor_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! ../../profesor/profesor.component */
+    "./src/app/profesor/profesor.component.ts");
 
     var VerActividadComponent =
     /*#__PURE__*/
     function () {
-      function VerActividadComponent() {
+      //@ViewChild(ProfesorComponent,{static: false}) profesor:ProfesorComponent;
+      function VerActividadComponent(profesor) {
         _classCallCheck(this, VerActividadComponent);
 
+        this.profesor = profesor;
         this.actividadCreada = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
         this.alumnos = [];
         this.usuariosConectados = [];
@@ -4235,10 +4300,25 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         this.vistaGeneral = true;
         this.vistaMapaDeLaClase = false;
         this.estados = ['alegria', 'asco', 'miedo', 'sorpresa', 'tristeza', 'ira', 'distraido', 'concentrado', 'frustrado', 'motivado'];
+        this.resumen = {
+          alegria: 0,
+          asco: 0,
+          miedo: 0,
+          sorpresa: 0,
+          tristeza: 0,
+          ira: 0,
+          distraido: 0,
+          concentrado: 0,
+          frustrado: 0,
+          motivado: 0,
+          pulsaciones: 0
+        };
+        this.numPulsaciones = 0;
         this.estadoSeleccionado = 'Estado';
         this.alumnoSeleccionado = 'Media de la clase';
         this.alumnoSeleccionadoAlumno = false;
-        this.objAlumnoSeleccionado = null; //alumnosConectados=0;
+        this.objAlumnoSeleccionado = null;
+        this.intervaloResumen = null; //alumnosConectados=0;
 
         this.alumnosDesconectados = 0; //console.log(this.usuariosConectados);
 
@@ -4284,15 +4364,15 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "comprobarDatos",
         value: function comprobarDatos() {
-          var _this7 = this;
+          var _this6 = this;
 
           setInterval(function () {
-            return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](_this7, void 0, void 0,
+            return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](_this6, void 0, void 0,
             /*#__PURE__*/
-            regeneratorRuntime.mark(function _callee19() {
-              return regeneratorRuntime.wrap(function _callee19$(_context19) {
+            regeneratorRuntime.mark(function _callee20() {
+              return regeneratorRuntime.wrap(function _callee20$(_context20) {
                 while (1) {
-                  switch (_context19.prev = _context19.next) {
+                  switch (_context20.prev = _context20.next) {
                     case 0:
                       //console.log(this.aluConectados);
                       if (this.numAlumnosConectados != this.aluConectados.length) {
@@ -4328,10 +4408,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
                     case 1:
                     case "end":
-                      return _context19.stop();
+                      return _context20.stop();
                   }
                 }
-              }, _callee19, this);
+              }, _callee20, this);
             }));
           }, 1000);
         }
@@ -4352,7 +4432,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             url: '/actualizarActividad',
             data: JSON.stringify(this.actividad),
             success: function success(data) {
-              this.actividad = data;
+              ju.actividad = data; //console.log(ju.actividad);
+
+              ju.profesor.listoParaRecibirDatos(ju.actividad);
+              ju.intervaloResumen = setInterval(function (async) {
+                ju.insertarResumen();
+              }, 2000);
             },
             contentType: 'application/json',
             dataType: 'json'
@@ -4360,12 +4445,27 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         }
       }, {
         key: "terminar",
-        value: function terminar() {//console.log(this.usuariosConectadoss);
+        value: function terminar() {
+          //console.log(this.usuariosConectadoss);
+          var ju = this;
+          this.actividad.estado = "Finalizada";
+          $.ajax({
+            type: 'POST',
+            url: '/actualizarActividad',
+            data: JSON.stringify(this.actividad),
+            success: function success(data) {
+              ju.actividad = data;
+              clearInterval(ju.intervaloResumen);
+            },
+            contentType: 'application/json',
+            dataType: 'json'
+          });
         }
       }, {
         key: "cerrarActividad",
         value: function cerrarActividad() {
           this.actividadCreada.emit("cerrar");
+          clearInterval(this.intervaloResumen);
         }
       }, {
         key: "cambiarAGeneral",
@@ -4382,22 +4482,95 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "insertarDatos",
         value: function insertarDatos(datos) {
-          console.log(datos);
-
-          for (var i = 0; i < this.alumnos.length; i++) {
+          //console.log(datos);
+          for (var i = 0; i < this.actividad.alumnos.length; i++) {
             if (datos.id_item == this.alumnos[i].id_item) {
-              this.alumnos[i].datos.alegria.push(datos.alegria);
-              this.alumnos[i].datos.asco.push(datos.asco);
-              this.alumnos[i].datos.ira.push(datos.ira);
-              this.alumnos[i].datos.miedo.push(datos.miedo);
-              this.alumnos[i].datos.sorpresa.push(datos.sorpresa);
-              this.alumnos[i].datos.tristeza.push(datos.tristeza);
-              this.alumnos[i].datos.pulsaciones.push(datos.pulsaciones);
-              this.alumnos[i].datos.tiempo.push(datos.tiempo);
+              this.resumen.alegria += datos.alegria;
+              this.resumen.asco += datos.asco;
+              this.resumen.concentrado += datos.concentrado;
+              this.resumen.distraido += datos.distraido;
+              this.resumen.frustrado += datos.frustrado;
+              this.resumen.ira += datos.ira;
+              this.resumen.miedo += datos.miedo;
+              this.resumen.motivado += datos.motivado;
+              this.resumen.sorpresa += datos.sorpresa;
+              this.resumen.tristeza += datos.tristeza;
+              this.resumen.pulsaciones += datos.pulsaciones;
+              this.numPulsaciones++;
+              this.actividad.alumnos[i].datos.alegria.push(datos.alegria);
+              this.actividad.alumnos[i].datos.asco.push(datos.asco);
+              this.actividad.alumnos[i].datos.ira.push(datos.ira);
+              this.actividad.alumnos[i].datos.miedo.push(datos.miedo);
+              this.actividad.alumnos[i].datos.sorpresa.push(datos.sorpresa);
+              this.actividad.alumnos[i].datos.tristeza.push(datos.tristeza);
+              this.actividad.alumnos[i].datos.pulsaciones.push(datos.pulsaciones);
+              this.actividad.alumnos[i].datos.tiempo.push(datos.tiempo);
+              this.actividad.alumnos[i].datos.distraido.push(datos.distraido);
+              this.actividad.alumnos[i].datos.concentrado.push(datos.concentrado);
+              this.actividad.alumnos[i].datos.frustrado.push(datos.frustrado);
+              this.actividad.alumnos[i].datos.motivado.push(datos.motivado);
             }
           }
+        }
+      }, {
+        key: "insertarResumen",
+        value: function insertarResumen() {
+          return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
+          /*#__PURE__*/
+          regeneratorRuntime.mark(function _callee21() {
+            var sumaTotalEmociones, sumaTotalEstadoDisConc, sumaTotalEstadoFrusMotiv, now;
+            return regeneratorRuntime.wrap(function _callee21$(_context21) {
+              while (1) {
+                switch (_context21.prev = _context21.next) {
+                  case 0:
+                    //Datos Emocionales
+                    sumaTotalEmociones = 0;
+                    console.log(this.resumen);
+                    sumaTotalEmociones = this.resumen.alegria + this.resumen.asco + this.resumen.ira + this.resumen.miedo + this.resumen.sorpresa + this.resumen.tristeza;
+                    this.actividad.resumen.alegria.push(this.resumen.alegria / sumaTotalEmociones);
+                    this.actividad.resumen.asco.push(this.resumen.asco / sumaTotalEmociones);
+                    this.actividad.resumen.ira.push(this.resumen.ira / sumaTotalEmociones);
+                    this.actividad.resumen.miedo.push(this.resumen.miedo / sumaTotalEmociones);
+                    this.actividad.resumen.sorpresa.push(this.resumen.sorpresa / sumaTotalEmociones);
+                    this.actividad.resumen.tristeza.push(this.resumen.tristeza / sumaTotalEmociones); //Datos de las pulsaciones
 
-          console.log(this.alumnos);
+                    this.actividad.resumen.pulsaciones.push(this.resumen.pulsaciones / this.numPulsaciones); //Datos cognitivos
+
+                    sumaTotalEstadoDisConc = 0;
+                    sumaTotalEstadoDisConc = this.resumen.distraido + this.resumen.concentrado;
+                    this.actividad.resumen.distraido.push(this.resumen.distraido / sumaTotalEstadoDisConc);
+                    this.actividad.resumen.concentrado.push(this.resumen.concentrado / sumaTotalEstadoDisConc);
+                    sumaTotalEstadoFrusMotiv = 0;
+                    sumaTotalEstadoFrusMotiv = this.resumen.frustrado + this.resumen.motivado;
+                    this.actividad.resumen.frustrado.push(this.resumen.frustrado / sumaTotalEstadoFrusMotiv);
+                    this.actividad.resumen.motivado.push(this.resumen.motivado / sumaTotalEstadoFrusMotiv); //Datos del tiempo
+
+                    now = moment__WEBPACK_IMPORTED_MODULE_3__();
+                    this.actividad.resumen.tiempo.push(now.format()); //Reseteo de datos
+
+                    this.resumen = {
+                      alegria: 0,
+                      asco: 0,
+                      miedo: 0,
+                      sorpresa: 0,
+                      tristeza: 0,
+                      ira: 0,
+                      distraido: 0,
+                      concentrado: 0,
+                      frustrado: 0,
+                      motivado: 0,
+                      pulsaciones: 0
+                    };
+                    this.numPulsaciones = 0;
+                    console.log(this.actividad);
+
+                  case 23:
+                  case "end":
+                    return _context21.stop();
+                }
+              }
+            }, _callee21, this);
+          }));
         }
       }, {
         key: "seleccionarEstado",
@@ -4416,10 +4589,21 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           this.alumnoSeleccionado = 'Media de la clase';
           this.alumnoSeleccionadoAlumno = false;
         }
+      }, {
+        key: "ngOnDestroy",
+        value: function ngOnDestroy() {
+          clearInterval(this.intervaloResumen);
+        }
       }]);
 
       return VerActividadComponent;
     }();
+
+    VerActividadComponent.ctorParameters = function () {
+      return [{
+        type: _profesor_profesor_component__WEBPACK_IMPORTED_MODULE_4__["ProfesorComponent"]
+      }];
+    };
 
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])()], VerActividadComponent.prototype, "actividad", void 0);
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])()], VerActividadComponent.prototype, "aluConectados", void 0);
