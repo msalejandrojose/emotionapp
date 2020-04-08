@@ -396,7 +396,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"row justify-content-md-center\">\n    <div class=\"col-12\">\n        <h5 class=\"text-center\" *ngIf=\"actividad.estado=='Creada'\">Actividad sin empezar</h5>\n        <h5 class=\"text-center\" *ngIf=\"actividad.estado=='Comenzada'\">Actividad empezada</h5>\n        <h5 class=\"text-center\" *ngIf=\"actividad.estado=='Finalizada'\">Actividad finalizada</h5>\n    </div>\n</div>\n<div class=\"row justify-content-md-center\">\n    <div class=\"col-2\">\n        <button type=\"button\" class=\"btn btn-outline-danger\" (click)=\"cerrarActividad()\">Cerrar Actividad</button>\n    </div>\n    <div class=\"col-8\">\n        <div *ngIf=\"actividad.estado=='Creada'\" class=\"progress\">\n            <div class=\"progress-bar bg-success\" role=\"progressbar\" style=\"width: 0%\" aria-valuenow=\"25\"\n                aria-valuemin=\"0\" aria-valuemax=\"100\"></div>\n        </div>\n        <div *ngIf=\"actividad.estado=='Comenzada'\" class=\"progress\">\n            <div class=\"progress-bar bg-success\" role=\"progressbar\" style=\"width: 50%\" aria-valuenow=\"50\"\n                aria-valuemin=\"0\" aria-valuemax=\"100\"></div>\n        </div>\n        <div *ngIf=\"actividad.estado=='Finalizada'\" class=\"progress\">\n            <div class=\"progress-bar bg-success\" role=\"progressbar\" style=\"width: 100%\" aria-valuenow=\"75\"\n                aria-valuemin=\"0\" aria-valuemax=\"100\"></div>\n        </div>\n    </div>\n    <div class=\"col-2\">\n        <button *ngIf=\"actividad.estado=='Creada'\" type=\"button\" class=\"btn btn-outline-dark disenable\"\n            (click)=\"comenzar()\">Comenzar</button>\n        <button *ngIf=\"actividad.estado=='Comenzada'\" type=\"button\" class=\"btn btn-outline-dark disenable\"\n            (click)=\"terminar()\">Terminar</button>\n    </div>\n</div>\n<br>\n<div class=\"row justify-content-md-center\">\n    <div *ngIf=\"vistaGeneral\" class=\"btn-group btn-group-toggle\">\n        <label class=\"btn btn-outline-primary active\">\n            <input type=\"radio\" name=\"options\" id=\"general\" (click)=\"cambiarAGeneral()\" checked> General\n        </label>\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAMapa()\"> Mapa de la clase\n        </label>\n    </div>\n    <div *ngIf=\"vistaMapaDeLaClase\" class=\"btn-group btn-group-toggle\">\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"general\" (click)=\"cambiarAGeneral()\"> General\n        </label>\n        <label class=\"btn btn-outline-primary active\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAMapa()\" checked> Mapa de la clase\n        </label>\n    </div>\n</div>\n<br>\n<div class=\"row justify-content-center\">\n    <div class=\"col-5\">\n        <div class=\"card-body\">\n            <h5 class=\"text-center card-title\">Usuarios Conectados</h5>\n            <div class=\"card-content\">\n                <canvas id=\"usersConectados\"></canvas>\n                <h6 class=\"text-center\">{{porUsuariosConectados}}% Usuarios conectados</h6>\n                <!--<h6 >{{((usuariosConectados.length()/usuariosTotales)*100)}}%</h6>-->\n            </div>\n        </div>\n    </div>\n    <div class=\"col-7\">\n        <div class=\"card-body\">\n            <div class=\"row\">\n                <h5 class=\"col-4 text-center card-title\">Grafica</h5>\n                <div class=\"col-4\">\n                    <div class=\"btn-group\">\n                        <button type=\"button\" class=\"btn btn-info dropdown-toggle\" data-toggle=\"dropdown\"\n                            aria-haspopup=\"true\" aria-expanded=\"false\">\n                            {{estadoSeleccionado}}\n                        </button>\n                        <div class=\"dropdown-menu\">\n                            <a class=\"dropdown-item\" *ngFor=\"let estado of estados\" (click)=\"seleccionarEstado(estado)\">{{estado}}</a>\n                        </div>\n                    </div>\n                </div>\n                <div class=\"col-4\">\n                    <div class=\"btn-group\">\n                        <button type=\"button\" class=\"btn btn-info dropdown-toggle\" data-toggle=\"dropdown\"\n                            aria-haspopup=\"true\" aria-expanded=\"false\">\n                            {{alumnoSeleccionado}}\n                        </button>\n                        <div class=\"dropdown-menu\">\n                            <a *ngIf=\"alumnoSeleccionadoAlumno\" class=\"dropdown-item\" (click)=\"seleccionarMediaAlumnos()\">Media de la clase</a>\n                            <a class=\"dropdown-item\" *ngFor=\"let alumno of alumnos\" (click)=\"seleccionarAlumno(alumno)\">{{alumno.estudiante.nombre}}</a>\n                        </div>\n                    </div>\n                </div>\n            </div>\n            \n\n            <div class=\"card-content\">\n                <canvas id=\"graficaEstado\"></canvas>\n            </div>\n        </div>\n    </div>\n</div>\n<div *ngIf=\"vistaMapaDeLaClase\" class=\"row justify-content-md-center\">\n    <div class=\"card col-md-11\">\n        <div class=\"card-body\">\n            <h5 class=\"card-title\">Distribucion de la clase</h5>\n            <div id=\"clase\" class=\"example-boundary\">\n                <div id=\"{{item.id_item}}\" *ngFor=\"let item of actividad.alumnos\" class=\"example-box\"\n                    ondrop=\"myFunction(item)\" [cdkDragFreeDragPosition]=\"item.posicion\"\n                    cdkDragBoundary=\".example-boundary\" cdkDrag (cdkDragEnded)=\"dragEnded($event,item)\">\n                    {{item.estudiante.nombre}}\n                </div>\n            </div>\n        </div>\n    </div>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"row justify-content-md-center\">\n    <div class=\"col-12\">\n        <h5 class=\"text-center\" *ngIf=\"actividad.estado=='Creada'\">Actividad sin empezar</h5>\n        <h5 class=\"text-center\" *ngIf=\"actividad.estado=='Comenzada'\">Actividad empezada</h5>\n        <h5 class=\"text-center\" *ngIf=\"actividad.estado=='Finalizada'\">Actividad finalizada</h5>\n    </div>\n</div>\n<div class=\"row justify-content-md-center\">\n    <div class=\"col-2\">\n        <button type=\"button\" class=\"btn btn-outline-danger\" (click)=\"cerrarActividad()\">Cerrar Actividad</button>\n    </div>\n    <div class=\"col-8\">\n        <div *ngIf=\"actividad.estado=='Creada'\" class=\"progress\">\n            <div class=\"progress-bar bg-success\" role=\"progressbar\" style=\"width: 0%\" aria-valuenow=\"25\"\n                aria-valuemin=\"0\" aria-valuemax=\"100\"></div>\n        </div>\n        <div *ngIf=\"actividad.estado=='Comenzada'\" class=\"progress\">\n            <div class=\"progress-bar bg-success\" role=\"progressbar\" style=\"width: 50%\" aria-valuenow=\"50\"\n                aria-valuemin=\"0\" aria-valuemax=\"100\"></div>\n        </div>\n        <div *ngIf=\"actividad.estado=='Finalizada'\" class=\"progress\">\n            <div class=\"progress-bar bg-success\" role=\"progressbar\" style=\"width: 100%\" aria-valuenow=\"75\"\n                aria-valuemin=\"0\" aria-valuemax=\"100\"></div>\n        </div>\n    </div>\n    <div class=\"col-2\">\n        <button *ngIf=\"actividad.estado=='Creada'\" type=\"button\" class=\"btn btn-outline-dark disenable\"\n            (click)=\"comenzar()\">Comenzar</button>\n        <button *ngIf=\"actividad.estado=='Comenzada'\" type=\"button\" class=\"btn btn-outline-dark disenable\"\n            (click)=\"terminar()\">Terminar</button>\n    </div>\n</div>\n<br>\n<div class=\"row justify-content-md-center\">\n    <div *ngIf=\"vistaGeneral\" class=\"btn-group btn-group-toggle\">\n        <label class=\"btn btn-outline-primary active\">\n            <input type=\"radio\" name=\"options\" id=\"general\" (click)=\"cambiarAGeneral()\" checked> General\n        </label>\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAMapa()\"> Mapa de la clase\n        </label>\n    </div>\n    <div *ngIf=\"vistaMapaDeLaClase\" class=\"btn-group btn-group-toggle\">\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"general\" (click)=\"cambiarAGeneral()\"> General\n        </label>\n        <label class=\"btn btn-outline-primary active\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAMapa()\" checked> Mapa de la clase\n        </label>\n    </div>\n</div>\n<br>\n<div class=\"row justify-content-center\">\n    <div class=\"col-5\">\n        <div class=\"card-body\">\n            <h5 class=\"text-center card-title\">Usuarios Conectados</h5>\n            <div class=\"card-content\">\n                <canvas id=\"usersConectados\"></canvas>\n                <h6 class=\"text-center\">{{porUsuariosConectados}}% Usuarios conectados</h6>\n                <!--<h6 >{{((usuariosConectados.length()/usuariosTotales)*100)}}%</h6>-->\n            </div>\n        </div>\n    </div>\n    <div class=\"col-7\">\n\n    </div>\n\n    \n</div>\n<div class=\"row\">\n    <div class=\"card-body\">\n        <div class=\"row\">\n            <h5 class=\"col-4 text-center card-title\">Grafica</h5>\n            <div class=\"col-4\">\n                <div class=\"btn-group\">\n                    <button type=\"button\" class=\"btn btn-info dropdown-toggle\" data-toggle=\"dropdown\"\n                        aria-haspopup=\"true\" aria-expanded=\"false\">\n                        {{estadoSeleccionado}}\n                    </button>\n                    <div class=\"dropdown-menu\">\n                        <a class=\"dropdown-item\" *ngFor=\"let estado of estados\"\n                            (click)=\"seleccionarEstado(estado)\">{{estado}}</a>\n                    </div>\n                </div>\n            </div>\n            <div class=\"col-4\">\n                <div class=\"btn-group\">\n                    <button type=\"button\" class=\"btn btn-info dropdown-toggle\" data-toggle=\"dropdown\"\n                        aria-haspopup=\"true\" aria-expanded=\"false\">\n                        {{alumnoSeleccionado}}\n                    </button>\n                    <div class=\"dropdown-menu\">\n                        <a *ngIf=\"alumnoSeleccionadoAlumno\" class=\"dropdown-item\"\n                            (click)=\"seleccionarMediaAlumnos()\">Media de la clase</a>\n                        <a class=\"dropdown-item\" *ngFor=\"let alumno of alumnos\"\n                            (click)=\"seleccionarAlumno(alumno)\">{{alumno.estudiante.nombre}}</a>\n                    </div>\n                </div>\n            </div>\n        </div>\n\n    </div>\n</div>\n<div class=\"row\">\n    <div class=\"col-12\">\n        <div class=\"card-content\">\n            <canvas id=\"graficaLineal\"></canvas>\n        </div>\n    </div>\n</div>\n<div *ngIf=\"vistaMapaDeLaClase\" class=\"row justify-content-md-center\">\n    <div class=\"card col-md-11\">\n        <div class=\"card-body\">\n            <h5 class=\"card-title\">Distribucion de la clase</h5>\n            <div id=\"clase\" class=\"example-boundary\">\n                <div id=\"{{item.id_item}}\" *ngFor=\"let item of actividad.alumnos\" class=\"example-box\"\n                    ondrop=\"myFunction(item)\" [cdkDragFreeDragPosition]=\"item.posicion\"\n                    cdkDragBoundary=\".example-boundary\" cdkDrag (cdkDragEnded)=\"dragEnded($event,item)\">\n                    {{item.estudiante.nombre}}\n                </div>\n            </div>\n        </div>\n    </div>\n</div>");
 
 /***/ }),
 
@@ -1270,6 +1270,10 @@ let EstudianteComponent = class EstudianteComponent {
                 cli.actividad = actividad;
                 cli.empezar();
             });
+            this.socket.on('noEnviaDatos', function (actividad) {
+                console.log('Ya no voy a enviar datos');
+                cli.desconectarse();
+            });
             this.socket.on('recepcionEmociones', function (datos) {
                 console.log(datos);
             });
@@ -1483,7 +1487,6 @@ let EstudianteComponent = class EstudianteComponent {
                 faceapi.nets.faceRecognitionNet.loadFromUri('assets/modelos'),
                 faceapi.nets.ssdMobilenetv1.loadFromUri('assets/modelos'),
                 faceapi.nets.tinyFaceDetector.loadFromUri('assets/modelos'),
-                faceapi.nets.tinyYolov2.loadFromUri('assets/modelos'),
             ]);
             //console.log(this.video.srcObject);
             //console.log("hemos cargado los modelos");
@@ -1511,7 +1514,7 @@ let EstudianteComponent = class EstudianteComponent {
                     this.emocionMiedo += datosFearful;
                     this.emocionSorpresa += datosSurprised;
                     this.emocionTristeza += datosSad;
-                    yield this.contador++;
+                    this.contador += 1;
                     if (this.contador == 5) {
                         this.contador = 0;
                         yield this.computacionDatos();
@@ -1525,35 +1528,71 @@ let EstudianteComponent = class EstudianteComponent {
     }
     computacionDatos() {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
+            /*
+            push({
+                x: moment().format(),
+                y: -30
+              });
+            */
             let datos = {};
+            let x = moment__WEBPACK_IMPORTED_MODULE_4__().format();
             let predominante = 0;
             //Estado Emocional
             this.datosTotalesEmocionales = this.emocionAlegria + this.emocionAsco + this.emocionIra + this.emocionMiedo + this.emocionSorpresa + this.emocionTristeza; //+this.emocionNeutra;
             datos['id_item'] = this.id_item;
             this.colorPredominante = this.ColorNeutral2;
-            datos['alegria'] = (yield this.emocionAlegria) / this.datosTotalesEmocionales;
-            if (predominante < datos['alegria']) {
-                predominante = datos['alegria'];
+            //Alegria
+            datos['alegria'] = yield {
+                x: x,
+                y: (this.emocionAlegria / this.datosTotalesEmocionales),
+            };
+            if (predominante < datos['alegria'].y) {
+                predominante = datos['alegria'].y;
                 this.colorPredominante = this.ColorHappy2;
             }
-            datos['asco'] = (yield this.emocionAsco) / this.datosTotalesEmocionales;
-            if (predominante < datos['asco']) {
+            //Asco
+            datos['asco'] = yield {
+                x: x,
+                y: (this.emocionAsco / this.datosTotalesEmocionales),
+            };
+            if (predominante < datos['asco'].y) {
+                predominante = datos['asco'].y;
                 this.colorPredominante = this.ColorDisgusted2;
             }
-            datos['ira'] = (yield this.emocionIra) / this.datosTotalesEmocionales;
-            if (predominante < datos['ira']) {
+            //Ira
+            datos['ira'] = yield {
+                x: x,
+                y: (this.emocionIra / this.datosTotalesEmocionales),
+            };
+            if (predominante < datos['ira'].y) {
+                predominante = datos['ira'].y;
                 this.colorPredominante = this.ColorAngry2;
             }
-            datos['miedo'] = (yield this.emocionMiedo) / this.datosTotalesEmocionales;
+            //Miedo
+            datos['miedo'] = yield {
+                x: x,
+                y: (this.emocionMiedo / this.datosTotalesEmocionales),
+            };
             if (predominante < datos['miedo']) {
+                predominante = datos['miedo'].y;
                 this.colorPredominante = this.ColorFearful2;
             }
-            datos['sorpresa'] = (yield this.emocionSorpresa) / this.datosTotalesEmocionales;
+            //Sorpresa
+            datos['sorpresa'] = yield {
+                x: x,
+                y: (this.emocionSorpresa / this.datosTotalesEmocionales),
+            };
             if (predominante < datos['sorpresa']) {
+                predominante = datos['sorpresa'].y;
                 this.colorPredominante = this.ColorSurprised2;
             }
-            datos['tristeza'] = (yield this.emocionTristeza) / this.datosTotalesEmocionales;
-            if (predominante < datos['tristeza']) {
+            //Triteza
+            datos['tristeza'] = yield {
+                x: x,
+                y: (this.emocionTristeza / this.datosTotalesEmocionales),
+            };
+            if (predominante < datos['tristeza'].y) {
+                predominante = datos['tristeza'].y;
                 this.colorPredominante = this.ColorSad2;
             }
             predominante = yield 0;
@@ -1562,7 +1601,7 @@ let EstudianteComponent = class EstudianteComponent {
               this.colorPredominante=this.ColorNeutral2;
             }*/
             datos['color'] = 'rgba(' + this.colorPredominante[0] + ',' + this.colorPredominante[1] + ',' + this.colorPredominante[2] + ',' + this.colorPredominante[3] + ')';
-            console.log('rgba(' + this.colorPredominante[0] + ',' + this.colorPredominante[1] + ',' + this.colorPredominante[2] + ',' + this.colorPredominante[3] + ')');
+            //console.log('rgba('+this.colorPredominante[0]+','+this.colorPredominante[1]+','+this.colorPredominante[2]+','+this.colorPredominante[3]+')');
             $('#estadoAlumno').css('background-color', 'rgba(' + this.colorPredominante[0] + ',' + this.colorPredominante[1] + ',' + this.colorPredominante[2] + ',' + this.colorPredominante[3] + ')');
             this.ponerColor();
             this.emocionAlegria = 0;
@@ -1578,38 +1617,80 @@ let EstudianteComponent = class EstudianteComponent {
             for (let i = 0; i < this.pulsacionesTotales.length; i++) {
                 mediaPulsaciones += this.pulsacionesTotales[i];
             }
-            datos['pulsaciones'] = (mediaPulsaciones / this.pulsacionesTotales.length);
+            datos['pulsaciones'] = yield {
+                x: x,
+                y: (mediaPulsaciones / this.pulsacionesTotales.length),
+            };
             this.pulsacionesTotales.length = 0;
             //console.log(this.pulsacionesTotales);
             //Estado temporal
-            let now = moment__WEBPACK_IMPORTED_MODULE_4__();
-            datos['tiempo'] = now.format();
+            datos['tiempo'] = x;
             //Estado Cognitivo
-            datos['distraido'] = 0;
-            if (datos['pulsaciones'] > 85) {
-                datos['distraido'] = datos['sorpresa'];
+            datos['distraido'] = yield {
+                x: x,
+                y: 0,
+            };
+            if (datos['pulsaciones'].y > 85) {
+                datos['distraido'] = yield {
+                    x: x,
+                    y: datos['sorpresa'].y,
+                };
             }
-            if (datos['alegria'] == NaN || datos['alegria'] == null) {
-                datos['distraido'] = 1;
+            if (datos['alegria'].y == NaN || datos['alegria'].y == null) {
+                datos['distraido'] = yield {
+                    x: x,
+                    y: 1,
+                };
             }
-            datos['concentrado'] = 1 - datos['distraido'];
-            datos['frustrado'] = 0;
-            if (datos['sopresa'] + datos['tristeza'] > 0.25) {
-                datos['frustrado'] += 0.25;
+            datos['concentrado'] = yield {
+                x: x,
+                y: 1 - datos['distraido'].y,
+            };
+            console.log('1');
+            datos['frustrado'] = {
+                x: x,
+                y: 0,
+            };
+            console.log('2');
+            if ((datos['sorpresa'].y + datos['tristeza'].y) > 0.25) {
+                datos['frustrado'] += {
+                    x: x,
+                    y: datos['frustrado'].y + 0.25,
+                };
             }
-            if (datos['asco'] + datos['ira'] > 0.25) {
-                datos['frustrado'] += 0.25;
+            console.log('3');
+            if ((datos['asco'].y + datos['ira'].y) > 0.25) {
+                datos['frustrado'] += {
+                    x: x,
+                    y: datos['frustrado'].y + 0.25,
+                };
             }
-            if (datos['miedo'] + datos['tristeza'] > 0.25) {
-                datos['frustrado'] += 0.25;
+            console.log('4');
+            if ((datos['miedo'].y + datos['tristeza'].y) > 0.25) {
+                datos['frustrado'] += {
+                    x: x,
+                    y: datos['frustrado'].y + 0.25,
+                };
             }
-            if (datos['sorpresa'] + datos['ira'] > 0.25) {
-                datos['frustrado'] += 0.25;
+            console.log('5');
+            if ((datos['sorpresa'].y + datos['ira'].y) > 0.25) {
+                datos['frustrado'] += {
+                    x: x,
+                    y: datos['frustrado'].y + 0.25,
+                };
             }
-            if (datos['alegria'] == NaN || datos['alegria'] == null) {
-                datos['frustrado'] = 1;
+            console.log('6');
+            if (datos['alegria'].y == NaN || datos['alegria'].y == null) {
+                datos['frustrado'] = {
+                    x: x,
+                    y: 1,
+                };
             }
-            datos['motivado'] = 1 - datos['frustrado'];
+            console.log('7');
+            datos['motivado'] = {
+                x: x,
+                y: 1 - datos['frustrado'].y
+            };
             console.log("Datos listos para enviar");
             console.log(datos);
             this.enviarDatos(datos);
@@ -1773,7 +1854,7 @@ let EstudianteComponent = class EstudianteComponent {
     fadeToColor(device, [r, g, b]) {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
             const reportId = 1;
-            console.log([r, g, b]);
+            //console.log([r, g, b]);
             const data = Uint8Array.from([r, g, b]);
             //const negro = Uint8Array.from([0x63, 0, 0, 0, 0x00, 0x10, 0x00, 0x00]);
             try {
@@ -2320,6 +2401,9 @@ let ProfesorComponent = class ProfesorComponent {
         this.listoParaRecibirDatos = function (actividad) {
             this.socket.emit('listoParaRecibirDatos', actividad);
         };
+        this.listoParaNoRecibirDatos = function (actividad) {
+            this.socket.emit('listoParaNoRecibirDatos', actividad);
+        };
         this.lanzarSocketSrv = function () {
             var cli = this;
             this.socket.on('connect', function () {
@@ -2729,6 +2813,7 @@ let VerActividadComponent = class VerActividadComponent {
     constructor(profesor) {
         this.profesor = profesor;
         this.actividadCreada = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+        this.ColorSad = 'rgba(81,81,255,0.4)'; //Color de la tristeza Correcto
         this.alumnos = [];
         this.usuariosConectados = [];
         this.usuariosTotales = 0;
@@ -2773,6 +2858,56 @@ let VerActividadComponent = class VerActividadComponent {
         this.intervaloResumen = null;
         //alumnosConectados=0;
         this.alumnosDesconectados = 0;
+        //Datos de las Graficas 
+        this.graficaLineal = null;
+        this.dataLinealesSeleccionados = null;
+        this.configuracionGraficaLineal = {
+            type: 'line',
+            data: {
+                datasets: [
+                    {
+                        label: this.estadoSeleccionado,
+                        backgroundColor: this.ColorSad,
+                        borderColor: this.ColorSad,
+                        fill: false,
+                        data: this.dataLinealesSeleccionados,
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                title: {
+                    display: true,
+                    text: this.estadoSeleccionado,
+                },
+                scales: {
+                    xAxes: [{
+                            type: 'time',
+                            display: true,
+                            scaleLabel: {
+                                display: true,
+                                labelString: 'Tiempo'
+                            },
+                            ticks: {
+                                major: {
+                                    fontStyle: 'bold',
+                                    fontColor: '#FF0000'
+                                }
+                            }
+                        }],
+                    yAxes: [{
+                            display: true,
+                            scaleLabel: {
+                                display: true,
+                                labelString: 'Porcentaje'
+                            }
+                        }]
+                }
+            }
+        };
+        this.graficaResumen = null;
+        this.datosResumenSeleccionados = [1, 1, 1, 1, 1, 1];
+        this.configuracionGraficaResumen = {};
         //console.log(this.usuariosConectados);
         this.comprobarDatos();
     }
@@ -2814,6 +2949,57 @@ let VerActividadComponent = class VerActividadComponent {
         //console.log(this.numAlumnosConectados);
         //console.log(this.usuariosTotales);
         this.usersConectadosGraf = new chart_js__WEBPACK_IMPORTED_MODULE_2__["Chart"]('usersConectados', this.configUsersConectados);
+        if (this.actividad.estado == 'Comenzada') {
+            this.intervaloResumen = setInterval(async => {
+                this.insertarResumen();
+            }, 20000);
+        }
+        //Grafica Lineal 
+        this.configuracionGraficaLineal = {
+            type: 'line',
+            data: {
+                datasets: [
+                    {
+                        label: this.estadoSeleccionado,
+                        backgroundColor: this.ColorSad,
+                        borderColor: this.ColorSad,
+                        fill: false,
+                        data: this.actividad.resumen['' + this.estadoSeleccionado + ''],
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                title: {
+                    display: true,
+                    text: this.estadoSeleccionado,
+                },
+                scales: {
+                    xAxes: [{
+                            type: 'time',
+                            display: true,
+                            scaleLabel: {
+                                display: true,
+                                labelString: 'Tiempo'
+                            },
+                            ticks: {
+                                major: {
+                                    fontStyle: 'bold',
+                                    fontColor: '#FF0000'
+                                }
+                            }
+                        }],
+                    yAxes: [{
+                            display: true,
+                            scaleLabel: {
+                                display: true,
+                                labelString: 'Porcentaje'
+                            }
+                        }]
+                }
+            }
+        };
+        this.graficaLineal = new chart_js__WEBPACK_IMPORTED_MODULE_2__["Chart"]('graficaLineal', this.configuracionGraficaLineal);
     }
     comprobarDatos() {
         setInterval(() => tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
@@ -2875,7 +3061,7 @@ let VerActividadComponent = class VerActividadComponent {
                 ju.profesor.listoParaRecibirDatos(ju.actividad);
                 ju.intervaloResumen = setInterval(async => {
                     ju.insertarResumen();
-                }, 2000);
+                }, 20000);
             },
             contentType: 'application/json',
             dataType: 'json'
@@ -2891,6 +3077,7 @@ let VerActividadComponent = class VerActividadComponent {
             data: JSON.stringify(this.actividad),
             success: function (data) {
                 ju.actividad = data;
+                ju.profesor.listoParaNoRecibirDatos(ju.actividad);
                 clearInterval(ju.intervaloResumen);
             },
             contentType: 'application/json',
@@ -2925,18 +3112,18 @@ let VerActividadComponent = class VerActividadComponent {
                 this.resumen.tristeza += datos.tristeza;
                 this.resumen.pulsaciones += datos.pulsaciones;
                 this.numPulsaciones++;
-                this.actividad.alumnos[i].datos.alegria.push(datos.alegria);
-                this.actividad.alumnos[i].datos.asco.push(datos.asco);
-                this.actividad.alumnos[i].datos.ira.push(datos.ira);
-                this.actividad.alumnos[i].datos.miedo.push(datos.miedo);
-                this.actividad.alumnos[i].datos.sorpresa.push(datos.sorpresa);
-                this.actividad.alumnos[i].datos.tristeza.push(datos.tristeza);
-                this.actividad.alumnos[i].datos.pulsaciones.push(datos.pulsaciones);
-                this.actividad.alumnos[i].datos.tiempo.push(datos.tiempo);
-                this.actividad.alumnos[i].datos.distraido.push(datos.distraido);
-                this.actividad.alumnos[i].datos.concentrado.push(datos.concentrado);
-                this.actividad.alumnos[i].datos.frustrado.push(datos.frustrado);
-                this.actividad.alumnos[i].datos.motivado.push(datos.motivado);
+                this.actividad.alumnos[i].datos.alegria.push({ x: datos.alegria.x, y: datos.alegria.y });
+                this.actividad.alumnos[i].datos.asco.push({ x: datos.asco.x, y: datos.asco.y });
+                this.actividad.alumnos[i].datos.ira.push({ x: datos.ira.x, y: datos.ira.y });
+                this.actividad.alumnos[i].datos.miedo.push({ x: datos.miedo.x, y: datos.miedo.y });
+                this.actividad.alumnos[i].datos.sorpresa.push({ x: datos.sorpresa.x, y: datos.sorpresa.y });
+                this.actividad.alumnos[i].datos.tristeza.push({ x: datos.tristeza.x, y: datos.tristeza.y });
+                this.actividad.alumnos[i].datos.pulsaciones.push({ x: datos.pulsaciones.x, y: datos.pulsaciones.y });
+                this.actividad.alumnos[i].datos.tiempo.push({ x: datos.tiempo.x, y: datos.tiempo.y });
+                this.actividad.alumnos[i].datos.distraido.push({ x: datos.distraido.x, y: datos.distraido.y });
+                this.actividad.alumnos[i].datos.concentrado.push({ x: datos.concentrado.x, y: datos.concentrado.y });
+                this.actividad.alumnos[i].datos.frustrado.push({ x: datos.frustrado.x, y: datos.frustrado.y });
+                this.actividad.alumnos[i].datos.motivado.push({ x: datos.motivado.x, y: datos.motivado.y });
             }
         }
     }
@@ -2944,28 +3131,28 @@ let VerActividadComponent = class VerActividadComponent {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
             //Datos Emocionales
             let sumaTotalEmociones = 0;
-            console.log(this.resumen);
+            //console.log(this.resumen);
+            let x = moment__WEBPACK_IMPORTED_MODULE_3__().format();
             sumaTotalEmociones = this.resumen.alegria + this.resumen.asco + this.resumen.ira + this.resumen.miedo + this.resumen.sorpresa + this.resumen.tristeza;
-            this.actividad.resumen.alegria.push(this.resumen.alegria / sumaTotalEmociones);
-            this.actividad.resumen.asco.push(this.resumen.asco / sumaTotalEmociones);
-            this.actividad.resumen.ira.push(this.resumen.ira / sumaTotalEmociones);
-            this.actividad.resumen.miedo.push(this.resumen.miedo / sumaTotalEmociones);
-            this.actividad.resumen.sorpresa.push(this.resumen.sorpresa / sumaTotalEmociones);
-            this.actividad.resumen.tristeza.push(this.resumen.tristeza / sumaTotalEmociones);
+            this.actividad.resumen.alegria.push({ x: x, y: (this.resumen.alegria / sumaTotalEmociones) });
+            this.actividad.resumen.asco.push({ x: x, y: (this.resumen.asco / sumaTotalEmociones) });
+            this.actividad.resumen.ira.push({ x: x, y: (this.resumen.ira / sumaTotalEmociones) });
+            this.actividad.resumen.miedo.push({ x: x, y: (this.resumen.miedo / sumaTotalEmociones) });
+            this.actividad.resumen.sorpresa.push({ x: x, y: (this.resumen.sorpresa / sumaTotalEmociones) });
+            this.actividad.resumen.tristeza.push({ x: x, y: (this.resumen.tristeza / sumaTotalEmociones) });
             //Datos de las pulsaciones
-            this.actividad.resumen.pulsaciones.push(this.resumen.pulsaciones / this.numPulsaciones);
+            this.actividad.resumen.pulsaciones.push({ x: x, y: (this.resumen.pulsaciones / this.numPulsaciones) });
             //Datos cognitivos
             let sumaTotalEstadoDisConc = 0;
             sumaTotalEstadoDisConc = this.resumen.distraido + this.resumen.concentrado;
-            this.actividad.resumen.distraido.push(this.resumen.distraido / sumaTotalEstadoDisConc);
-            this.actividad.resumen.concentrado.push(this.resumen.concentrado / sumaTotalEstadoDisConc);
+            this.actividad.resumen.distraido.push({ x: x, y: (this.resumen.distraido / sumaTotalEstadoDisConc) });
+            this.actividad.resumen.concentrado.push({ x: x, y: (this.resumen.concentrado / sumaTotalEstadoDisConc) });
             let sumaTotalEstadoFrusMotiv = 0;
             sumaTotalEstadoFrusMotiv = this.resumen.frustrado + this.resumen.motivado;
-            this.actividad.resumen.frustrado.push(this.resumen.frustrado / sumaTotalEstadoFrusMotiv);
-            this.actividad.resumen.motivado.push(this.resumen.motivado / sumaTotalEstadoFrusMotiv);
+            this.actividad.resumen.frustrado.push({ x: x, y: (this.resumen.frustrado / sumaTotalEstadoFrusMotiv) });
+            this.actividad.resumen.motivado.push({ x: x, y: (this.resumen.motivado / sumaTotalEstadoFrusMotiv) });
             //Datos del tiempo
-            let now = moment__WEBPACK_IMPORTED_MODULE_3__();
-            this.actividad.resumen.tiempo.push(now.format());
+            this.actividad.resumen.tiempo.push(x);
             //Reseteo de datos
             this.resumen = {
                 alegria: 0,
@@ -2986,14 +3173,159 @@ let VerActividadComponent = class VerActividadComponent {
     }
     seleccionarEstado(estado) {
         this.estadoSeleccionado = estado;
+        for (let i = 0; i < this.actividad.alumnos.length; i++) {
+            if (this.actividad.alumnos[i].id_item == this.objAlumnoSeleccionado.id_item) {
+                this.configuracionGraficaLineal = {
+                    type: 'line',
+                    data: {
+                        datasets: [
+                            {
+                                label: this.estadoSeleccionado,
+                                backgroundColor: this.ColorSad,
+                                borderColor: this.ColorSad,
+                                fill: false,
+                                data: this.actividad.alumnos[i].datos['' + this.estadoSeleccionado + ''],
+                            }
+                        ]
+                    },
+                    options: {
+                        responsive: true,
+                        title: {
+                            display: true,
+                            text: this.estadoSeleccionado,
+                        },
+                        scales: {
+                            xAxes: [{
+                                    type: 'time',
+                                    display: true,
+                                    scaleLabel: {
+                                        display: true,
+                                        labelString: 'Tiempo'
+                                    },
+                                    ticks: {
+                                        major: {
+                                            fontStyle: 'bold',
+                                            fontColor: '#FF0000'
+                                        }
+                                    }
+                                }],
+                            yAxes: [{
+                                    display: true,
+                                    scaleLabel: {
+                                        display: true,
+                                        labelString: 'Porcentaje'
+                                    }
+                                }]
+                        }
+                    }
+                };
+                this.graficaLineal = new chart_js__WEBPACK_IMPORTED_MODULE_2__["Chart"]('graficaLineal', this.configuracionGraficaLineal);
+            }
+        }
     }
     seleccionarAlumno(alumno) {
         this.alumnoSeleccionado = alumno.estudiante.nombre;
+        this.objAlumnoSeleccionado = alumno;
         this.alumnoSeleccionadoAlumno = true;
+        for (let i = 0; i < this.actividad.alumnos.length; i++) {
+            if (this.actividad.alumnos[i].id_item == this.objAlumnoSeleccionado.id_item) {
+                this.configuracionGraficaLineal = {
+                    type: 'line',
+                    data: {
+                        datasets: [
+                            {
+                                label: this.estadoSeleccionado,
+                                backgroundColor: this.ColorSad,
+                                borderColor: this.ColorSad,
+                                fill: false,
+                                data: this.actividad.alumnos[i].datos['' + this.estadoSeleccionado + ''],
+                            }
+                        ]
+                    },
+                    options: {
+                        responsive: true,
+                        title: {
+                            display: true,
+                            text: this.estadoSeleccionado,
+                        },
+                        scales: {
+                            xAxes: [{
+                                    type: 'time',
+                                    display: true,
+                                    scaleLabel: {
+                                        display: true,
+                                        labelString: 'Tiempo'
+                                    },
+                                    ticks: {
+                                        major: {
+                                            fontStyle: 'bold',
+                                            fontColor: '#FF0000'
+                                        }
+                                    }
+                                }],
+                            yAxes: [{
+                                    display: true,
+                                    scaleLabel: {
+                                        display: true,
+                                        labelString: 'Porcentaje'
+                                    }
+                                }]
+                        }
+                    }
+                };
+                this.graficaLineal = new chart_js__WEBPACK_IMPORTED_MODULE_2__["Chart"]('graficaLineal', this.configuracionGraficaLineal);
+            }
+        }
     }
     seleccionarMediaAlumnos() {
         this.alumnoSeleccionado = 'Media de la clase';
         this.alumnoSeleccionadoAlumno = false;
+        //this.actividad.resumen.alegria
+        this.configuracionGraficaLineal = {
+            type: 'line',
+            data: {
+                datasets: [
+                    {
+                        label: this.estadoSeleccionado,
+                        backgroundColor: this.ColorSad,
+                        borderColor: this.ColorSad,
+                        fill: false,
+                        data: this.actividad.resumen['' + this.estadoSeleccionado + ''],
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                title: {
+                    display: true,
+                    text: this.estadoSeleccionado,
+                },
+                scales: {
+                    xAxes: [{
+                            type: 'time',
+                            display: true,
+                            scaleLabel: {
+                                display: true,
+                                labelString: 'Tiempo'
+                            },
+                            ticks: {
+                                major: {
+                                    fontStyle: 'bold',
+                                    fontColor: '#FF0000'
+                                }
+                            }
+                        }],
+                    yAxes: [{
+                            display: true,
+                            scaleLabel: {
+                                display: true,
+                                labelString: 'Porcentaje'
+                            }
+                        }]
+                }
+            }
+        };
+        this.graficaLineal = new chart_js__WEBPACK_IMPORTED_MODULE_2__["Chart"]('graficaLineal', this.configuracionGraficaLineal);
     }
     ngOnDestroy() {
         clearInterval(this.intervaloResumen);

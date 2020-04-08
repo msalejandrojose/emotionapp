@@ -129,6 +129,9 @@ function Centro() {
                 ju.dao.modificarActividad(act._id,a, function (u) {
                     //ju.actividades[u._id].editarActividad(u.nombre, u.profesor, u.alumnos, u.estado);
                     //console.log(u);
+                    if(act.estado=="Comenzada"){
+                        ju.actividadesListas[act._id]=act;
+                    }
                     if(u!=null){
                         ju.actividades[u._id]=act;
                         callback(act);

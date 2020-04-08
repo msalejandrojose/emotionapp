@@ -471,7 +471,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"row justify-content-md-center\">\n    <div class=\"col-12\">\n        <h5 class=\"text-center\" *ngIf=\"actividad.estado=='Creada'\">Actividad sin empezar</h5>\n        <h5 class=\"text-center\" *ngIf=\"actividad.estado=='Comenzada'\">Actividad empezada</h5>\n        <h5 class=\"text-center\" *ngIf=\"actividad.estado=='Finalizada'\">Actividad finalizada</h5>\n    </div>\n</div>\n<div class=\"row justify-content-md-center\">\n    <div class=\"col-2\">\n        <button type=\"button\" class=\"btn btn-outline-danger\" (click)=\"cerrarActividad()\">Cerrar Actividad</button>\n    </div>\n    <div class=\"col-8\">\n        <div *ngIf=\"actividad.estado=='Creada'\" class=\"progress\">\n            <div class=\"progress-bar bg-success\" role=\"progressbar\" style=\"width: 0%\" aria-valuenow=\"25\"\n                aria-valuemin=\"0\" aria-valuemax=\"100\"></div>\n        </div>\n        <div *ngIf=\"actividad.estado=='Comenzada'\" class=\"progress\">\n            <div class=\"progress-bar bg-success\" role=\"progressbar\" style=\"width: 50%\" aria-valuenow=\"50\"\n                aria-valuemin=\"0\" aria-valuemax=\"100\"></div>\n        </div>\n        <div *ngIf=\"actividad.estado=='Finalizada'\" class=\"progress\">\n            <div class=\"progress-bar bg-success\" role=\"progressbar\" style=\"width: 100%\" aria-valuenow=\"75\"\n                aria-valuemin=\"0\" aria-valuemax=\"100\"></div>\n        </div>\n    </div>\n    <div class=\"col-2\">\n        <button *ngIf=\"actividad.estado=='Creada'\" type=\"button\" class=\"btn btn-outline-dark disenable\"\n            (click)=\"comenzar()\">Comenzar</button>\n        <button *ngIf=\"actividad.estado=='Comenzada'\" type=\"button\" class=\"btn btn-outline-dark disenable\"\n            (click)=\"terminar()\">Terminar</button>\n    </div>\n</div>\n<br>\n<div class=\"row justify-content-md-center\">\n    <div *ngIf=\"vistaGeneral\" class=\"btn-group btn-group-toggle\">\n        <label class=\"btn btn-outline-primary active\">\n            <input type=\"radio\" name=\"options\" id=\"general\" (click)=\"cambiarAGeneral()\" checked> General\n        </label>\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAMapa()\"> Mapa de la clase\n        </label>\n    </div>\n    <div *ngIf=\"vistaMapaDeLaClase\" class=\"btn-group btn-group-toggle\">\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"general\" (click)=\"cambiarAGeneral()\"> General\n        </label>\n        <label class=\"btn btn-outline-primary active\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAMapa()\" checked> Mapa de la clase\n        </label>\n    </div>\n</div>\n<br>\n<div class=\"row justify-content-center\">\n    <div class=\"col-5\">\n        <div class=\"card-body\">\n            <h5 class=\"text-center card-title\">Usuarios Conectados</h5>\n            <div class=\"card-content\">\n                <canvas id=\"usersConectados\"></canvas>\n                <h6 class=\"text-center\">{{porUsuariosConectados}}% Usuarios conectados</h6>\n                <!--<h6 >{{((usuariosConectados.length()/usuariosTotales)*100)}}%</h6>-->\n            </div>\n        </div>\n    </div>\n    <div class=\"col-7\">\n        <div class=\"card-body\">\n            <div class=\"row\">\n                <h5 class=\"col-4 text-center card-title\">Grafica</h5>\n                <div class=\"col-4\">\n                    <div class=\"btn-group\">\n                        <button type=\"button\" class=\"btn btn-info dropdown-toggle\" data-toggle=\"dropdown\"\n                            aria-haspopup=\"true\" aria-expanded=\"false\">\n                            {{estadoSeleccionado}}\n                        </button>\n                        <div class=\"dropdown-menu\">\n                            <a class=\"dropdown-item\" *ngFor=\"let estado of estados\" (click)=\"seleccionarEstado(estado)\">{{estado}}</a>\n                        </div>\n                    </div>\n                </div>\n                <div class=\"col-4\">\n                    <div class=\"btn-group\">\n                        <button type=\"button\" class=\"btn btn-info dropdown-toggle\" data-toggle=\"dropdown\"\n                            aria-haspopup=\"true\" aria-expanded=\"false\">\n                            {{alumnoSeleccionado}}\n                        </button>\n                        <div class=\"dropdown-menu\">\n                            <a *ngIf=\"alumnoSeleccionadoAlumno\" class=\"dropdown-item\" (click)=\"seleccionarMediaAlumnos()\">Media de la clase</a>\n                            <a class=\"dropdown-item\" *ngFor=\"let alumno of alumnos\" (click)=\"seleccionarAlumno(alumno)\">{{alumno.estudiante.nombre}}</a>\n                        </div>\n                    </div>\n                </div>\n            </div>\n            \n\n            <div class=\"card-content\">\n                <canvas id=\"graficaEstado\"></canvas>\n            </div>\n        </div>\n    </div>\n</div>\n<div *ngIf=\"vistaMapaDeLaClase\" class=\"row justify-content-md-center\">\n    <div class=\"card col-md-11\">\n        <div class=\"card-body\">\n            <h5 class=\"card-title\">Distribucion de la clase</h5>\n            <div id=\"clase\" class=\"example-boundary\">\n                <div id=\"{{item.id_item}}\" *ngFor=\"let item of actividad.alumnos\" class=\"example-box\"\n                    ondrop=\"myFunction(item)\" [cdkDragFreeDragPosition]=\"item.posicion\"\n                    cdkDragBoundary=\".example-boundary\" cdkDrag (cdkDragEnded)=\"dragEnded($event,item)\">\n                    {{item.estudiante.nombre}}\n                </div>\n            </div>\n        </div>\n    </div>\n</div>";
+    __webpack_exports__["default"] = "<div class=\"row justify-content-md-center\">\n    <div class=\"col-12\">\n        <h5 class=\"text-center\" *ngIf=\"actividad.estado=='Creada'\">Actividad sin empezar</h5>\n        <h5 class=\"text-center\" *ngIf=\"actividad.estado=='Comenzada'\">Actividad empezada</h5>\n        <h5 class=\"text-center\" *ngIf=\"actividad.estado=='Finalizada'\">Actividad finalizada</h5>\n    </div>\n</div>\n<div class=\"row justify-content-md-center\">\n    <div class=\"col-2\">\n        <button type=\"button\" class=\"btn btn-outline-danger\" (click)=\"cerrarActividad()\">Cerrar Actividad</button>\n    </div>\n    <div class=\"col-8\">\n        <div *ngIf=\"actividad.estado=='Creada'\" class=\"progress\">\n            <div class=\"progress-bar bg-success\" role=\"progressbar\" style=\"width: 0%\" aria-valuenow=\"25\"\n                aria-valuemin=\"0\" aria-valuemax=\"100\"></div>\n        </div>\n        <div *ngIf=\"actividad.estado=='Comenzada'\" class=\"progress\">\n            <div class=\"progress-bar bg-success\" role=\"progressbar\" style=\"width: 50%\" aria-valuenow=\"50\"\n                aria-valuemin=\"0\" aria-valuemax=\"100\"></div>\n        </div>\n        <div *ngIf=\"actividad.estado=='Finalizada'\" class=\"progress\">\n            <div class=\"progress-bar bg-success\" role=\"progressbar\" style=\"width: 100%\" aria-valuenow=\"75\"\n                aria-valuemin=\"0\" aria-valuemax=\"100\"></div>\n        </div>\n    </div>\n    <div class=\"col-2\">\n        <button *ngIf=\"actividad.estado=='Creada'\" type=\"button\" class=\"btn btn-outline-dark disenable\"\n            (click)=\"comenzar()\">Comenzar</button>\n        <button *ngIf=\"actividad.estado=='Comenzada'\" type=\"button\" class=\"btn btn-outline-dark disenable\"\n            (click)=\"terminar()\">Terminar</button>\n    </div>\n</div>\n<br>\n<div class=\"row justify-content-md-center\">\n    <div *ngIf=\"vistaGeneral\" class=\"btn-group btn-group-toggle\">\n        <label class=\"btn btn-outline-primary active\">\n            <input type=\"radio\" name=\"options\" id=\"general\" (click)=\"cambiarAGeneral()\" checked> General\n        </label>\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAMapa()\"> Mapa de la clase\n        </label>\n    </div>\n    <div *ngIf=\"vistaMapaDeLaClase\" class=\"btn-group btn-group-toggle\">\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"general\" (click)=\"cambiarAGeneral()\"> General\n        </label>\n        <label class=\"btn btn-outline-primary active\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAMapa()\" checked> Mapa de la clase\n        </label>\n    </div>\n</div>\n<br>\n<div class=\"row justify-content-center\">\n    <div class=\"col-5\">\n        <div class=\"card-body\">\n            <h5 class=\"text-center card-title\">Usuarios Conectados</h5>\n            <div class=\"card-content\">\n                <canvas id=\"usersConectados\"></canvas>\n                <h6 class=\"text-center\">{{porUsuariosConectados}}% Usuarios conectados</h6>\n                <!--<h6 >{{((usuariosConectados.length()/usuariosTotales)*100)}}%</h6>-->\n            </div>\n        </div>\n    </div>\n    <div class=\"col-7\">\n\n    </div>\n\n    \n</div>\n<div class=\"row\">\n    <div class=\"card-body\">\n        <div class=\"row\">\n            <h5 class=\"col-4 text-center card-title\">Grafica</h5>\n            <div class=\"col-4\">\n                <div class=\"btn-group\">\n                    <button type=\"button\" class=\"btn btn-info dropdown-toggle\" data-toggle=\"dropdown\"\n                        aria-haspopup=\"true\" aria-expanded=\"false\">\n                        {{estadoSeleccionado}}\n                    </button>\n                    <div class=\"dropdown-menu\">\n                        <a class=\"dropdown-item\" *ngFor=\"let estado of estados\"\n                            (click)=\"seleccionarEstado(estado)\">{{estado}}</a>\n                    </div>\n                </div>\n            </div>\n            <div class=\"col-4\">\n                <div class=\"btn-group\">\n                    <button type=\"button\" class=\"btn btn-info dropdown-toggle\" data-toggle=\"dropdown\"\n                        aria-haspopup=\"true\" aria-expanded=\"false\">\n                        {{alumnoSeleccionado}}\n                    </button>\n                    <div class=\"dropdown-menu\">\n                        <a *ngIf=\"alumnoSeleccionadoAlumno\" class=\"dropdown-item\"\n                            (click)=\"seleccionarMediaAlumnos()\">Media de la clase</a>\n                        <a class=\"dropdown-item\" *ngFor=\"let alumno of alumnos\"\n                            (click)=\"seleccionarAlumno(alumno)\">{{alumno.estudiante.nombre}}</a>\n                    </div>\n                </div>\n            </div>\n        </div>\n\n    </div>\n</div>\n<div class=\"row\">\n    <div class=\"col-12\">\n        <div class=\"card-content\">\n            <canvas id=\"graficaLineal\"></canvas>\n        </div>\n    </div>\n</div>\n<div *ngIf=\"vistaMapaDeLaClase\" class=\"row justify-content-md-center\">\n    <div class=\"card col-md-11\">\n        <div class=\"card-body\">\n            <h5 class=\"card-title\">Distribucion de la clase</h5>\n            <div id=\"clase\" class=\"example-boundary\">\n                <div id=\"{{item.id_item}}\" *ngFor=\"let item of actividad.alumnos\" class=\"example-box\"\n                    ondrop=\"myFunction(item)\" [cdkDragFreeDragPosition]=\"item.posicion\"\n                    cdkDragBoundary=\".example-boundary\" cdkDrag (cdkDragEnded)=\"dragEnded($event,item)\">\n                    {{item.estudiante.nombre}}\n                </div>\n            </div>\n        </div>\n    </div>\n</div>";
     /***/
   },
 
@@ -2018,6 +2018,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             cli.actividad = actividad;
             cli.empezar();
           });
+          this.socket.on('noEnviaDatos', function (actividad) {
+            console.log('Ya no voy a enviar datos');
+            cli.desconectarse();
+          });
           this.socket.on('recepcionEmociones', function (datos) {
             console.log(datos);
           });
@@ -2298,7 +2302,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                 switch (_context5.prev = _context5.next) {
                   case 0:
                     //console.log(this.video.srcObject);
-                    Promise.all([faceapi.nets.ageGenderNet.loadFromUri('assets/modelos'), faceapi.nets.faceExpressionNet.loadFromUri('assets/modelos'), faceapi.nets.faceLandmark68Net.loadFromUri('assets/modelos'), faceapi.nets.faceLandmark68TinyNet.loadFromUri('assets/modelos'), faceapi.nets.faceRecognitionNet.loadFromUri('assets/modelos'), faceapi.nets.ssdMobilenetv1.loadFromUri('assets/modelos'), faceapi.nets.tinyFaceDetector.loadFromUri('assets/modelos'), faceapi.nets.tinyYolov2.loadFromUri('assets/modelos')]); //console.log(this.video.srcObject);
+                    Promise.all([faceapi.nets.ageGenderNet.loadFromUri('assets/modelos'), faceapi.nets.faceExpressionNet.loadFromUri('assets/modelos'), faceapi.nets.faceLandmark68Net.loadFromUri('assets/modelos'), faceapi.nets.faceLandmark68TinyNet.loadFromUri('assets/modelos'), faceapi.nets.faceRecognitionNet.loadFromUri('assets/modelos'), faceapi.nets.ssdMobilenetv1.loadFromUri('assets/modelos'), faceapi.nets.tinyFaceDetector.loadFromUri('assets/modelos')]); //console.log(this.video.srcObject);
                     //console.log("hemos cargado los modelos");
                     //this.video.addEventListener('play', () => {
                     //console.log(this.camara.data.srcObject);
@@ -2344,33 +2348,31 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                                 this.emocionMiedo += datosFearful;
                                 this.emocionSorpresa += datosSurprised;
                                 this.emocionTristeza += datosSad;
-                                _context4.next = 23;
-                                return this.contador++;
+                                this.contador += 1;
 
-                              case 23:
                                 if (!(this.contador == 5)) {
-                                  _context4.next = 27;
+                                  _context4.next = 26;
                                   break;
                                 }
 
                                 this.contador = 0;
-                                _context4.next = 27;
+                                _context4.next = 26;
                                 return this.computacionDatos();
 
-                              case 27:
-                                _context4.next = 31;
+                              case 26:
+                                _context4.next = 30;
                                 break;
 
-                              case 29:
-                                _context4.prev = 29;
+                              case 28:
+                                _context4.prev = 28;
                                 _context4.t0 = _context4["catch"](0);
 
-                              case 31:
+                              case 30:
                               case "end":
                                 return _context4.stop();
                             }
                           }
-                        }, _callee4, this, [[0, 29]]);
+                        }, _callee4, this, [[0, 28]]);
                       }));
                     }, 1000);
 
@@ -2388,103 +2390,127 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
           /*#__PURE__*/
           regeneratorRuntime.mark(function _callee6() {
-            var datos, predominante, mediaPulsaciones, i, now;
+            var datos, x, predominante, mediaPulsaciones, i;
             return regeneratorRuntime.wrap(function _callee6$(_context6) {
               while (1) {
                 switch (_context6.prev = _context6.next) {
                   case 0:
+                    /*
+                    push({
+                        x: moment().format(),
+                        y: -30
+                      });
+                    */
                     datos = {};
+                    x = moment__WEBPACK_IMPORTED_MODULE_4__().format();
                     predominante = 0; //Estado Emocional
 
                     this.datosTotalesEmocionales = this.emocionAlegria + this.emocionAsco + this.emocionIra + this.emocionMiedo + this.emocionSorpresa + this.emocionTristeza; //+this.emocionNeutra;
 
                     datos['id_item'] = this.id_item;
-                    this.colorPredominante = this.ColorNeutral2;
-                    _context6.next = 7;
-                    return this.emocionAlegria;
+                    this.colorPredominante = this.ColorNeutral2; //Alegria
 
-                  case 7:
-                    _context6.t0 = _context6.sent;
-                    _context6.t1 = this.datosTotalesEmocionales;
-                    datos['alegria'] = _context6.t0 / _context6.t1;
+                    _context6.next = 8;
+                    return {
+                      x: x,
+                      y: this.emocionAlegria / this.datosTotalesEmocionales
+                    };
 
-                    if (predominante < datos['alegria']) {
-                      predominante = datos['alegria'];
+                  case 8:
+                    datos['alegria'] = _context6.sent;
+
+                    if (predominante < datos['alegria'].y) {
+                      predominante = datos['alegria'].y;
                       this.colorPredominante = this.ColorHappy2;
-                    }
+                    } //Asco
 
-                    _context6.next = 13;
-                    return this.emocionAsco;
 
-                  case 13:
-                    _context6.t2 = _context6.sent;
-                    _context6.t3 = this.datosTotalesEmocionales;
-                    datos['asco'] = _context6.t2 / _context6.t3;
+                    _context6.next = 12;
+                    return {
+                      x: x,
+                      y: this.emocionAsco / this.datosTotalesEmocionales
+                    };
 
-                    if (predominante < datos['asco']) {
+                  case 12:
+                    datos['asco'] = _context6.sent;
+
+                    if (predominante < datos['asco'].y) {
+                      predominante = datos['asco'].y;
                       this.colorPredominante = this.ColorDisgusted2;
-                    }
+                    } //Ira
 
-                    _context6.next = 19;
-                    return this.emocionIra;
 
-                  case 19:
-                    _context6.t4 = _context6.sent;
-                    _context6.t5 = this.datosTotalesEmocionales;
-                    datos['ira'] = _context6.t4 / _context6.t5;
+                    _context6.next = 16;
+                    return {
+                      x: x,
+                      y: this.emocionIra / this.datosTotalesEmocionales
+                    };
 
-                    if (predominante < datos['ira']) {
+                  case 16:
+                    datos['ira'] = _context6.sent;
+
+                    if (predominante < datos['ira'].y) {
+                      predominante = datos['ira'].y;
                       this.colorPredominante = this.ColorAngry2;
-                    }
+                    } //Miedo
 
-                    _context6.next = 25;
-                    return this.emocionMiedo;
 
-                  case 25:
-                    _context6.t6 = _context6.sent;
-                    _context6.t7 = this.datosTotalesEmocionales;
-                    datos['miedo'] = _context6.t6 / _context6.t7;
+                    _context6.next = 20;
+                    return {
+                      x: x,
+                      y: this.emocionMiedo / this.datosTotalesEmocionales
+                    };
+
+                  case 20:
+                    datos['miedo'] = _context6.sent;
 
                     if (predominante < datos['miedo']) {
+                      predominante = datos['miedo'].y;
                       this.colorPredominante = this.ColorFearful2;
-                    }
+                    } //Sorpresa
 
-                    _context6.next = 31;
-                    return this.emocionSorpresa;
 
-                  case 31:
-                    _context6.t8 = _context6.sent;
-                    _context6.t9 = this.datosTotalesEmocionales;
-                    datos['sorpresa'] = _context6.t8 / _context6.t9;
+                    _context6.next = 24;
+                    return {
+                      x: x,
+                      y: this.emocionSorpresa / this.datosTotalesEmocionales
+                    };
+
+                  case 24:
+                    datos['sorpresa'] = _context6.sent;
 
                     if (predominante < datos['sorpresa']) {
+                      predominante = datos['sorpresa'].y;
                       this.colorPredominante = this.ColorSurprised2;
-                    }
+                    } //Triteza
 
-                    _context6.next = 37;
-                    return this.emocionTristeza;
 
-                  case 37:
-                    _context6.t10 = _context6.sent;
-                    _context6.t11 = this.datosTotalesEmocionales;
-                    datos['tristeza'] = _context6.t10 / _context6.t11;
+                    _context6.next = 28;
+                    return {
+                      x: x,
+                      y: this.emocionTristeza / this.datosTotalesEmocionales
+                    };
 
-                    if (predominante < datos['tristeza']) {
+                  case 28:
+                    datos['tristeza'] = _context6.sent;
+
+                    if (predominante < datos['tristeza'].y) {
+                      predominante = datos['tristeza'].y;
                       this.colorPredominante = this.ColorSad2;
                     }
 
-                    _context6.next = 43;
+                    _context6.next = 32;
                     return 0;
 
-                  case 43:
+                  case 32:
                     predominante = _context6.sent;
 
                     /*datos['neutra']=this.emocionNeutra/this.datosTotalesEmocionales;
                     if(datos['tristeza']<datos['neutra']){
                       this.colorPredominante=this.ColorNeutral2;
                     }*/
-                    datos['color'] = 'rgba(' + this.colorPredominante[0] + ',' + this.colorPredominante[1] + ',' + this.colorPredominante[2] + ',' + this.colorPredominante[3] + ')';
-                    console.log('rgba(' + this.colorPredominante[0] + ',' + this.colorPredominante[1] + ',' + this.colorPredominante[2] + ',' + this.colorPredominante[3] + ')');
+                    datos['color'] = 'rgba(' + this.colorPredominante[0] + ',' + this.colorPredominante[1] + ',' + this.colorPredominante[2] + ',' + this.colorPredominante[3] + ')'; //console.log('rgba('+this.colorPredominante[0]+','+this.colorPredominante[1]+','+this.colorPredominante[2]+','+this.colorPredominante[3]+')');
+
                     $('#estadoAlumno').css('background-color', 'rgba(' + this.colorPredominante[0] + ',' + this.colorPredominante[1] + ',' + this.colorPredominante[2] + ',' + this.colorPredominante[3] + ')');
                     this.ponerColor();
                     this.emocionAlegria = 0;
@@ -2502,52 +2528,126 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                       mediaPulsaciones += this.pulsacionesTotales[i];
                     }
 
-                    datos['pulsaciones'] = mediaPulsaciones / this.pulsacionesTotales.length;
+                    _context6.next = 48;
+                    return {
+                      x: x,
+                      y: mediaPulsaciones / this.pulsacionesTotales.length
+                    };
+
+                  case 48:
+                    datos['pulsaciones'] = _context6.sent;
                     this.pulsacionesTotales.length = 0; //console.log(this.pulsacionesTotales);
                     //Estado temporal
 
-                    now = moment__WEBPACK_IMPORTED_MODULE_4__();
-                    datos['tiempo'] = now.format(); //Estado Cognitivo
+                    datos['tiempo'] = x; //Estado Cognitivo
 
-                    datos['distraido'] = 0;
+                    _context6.next = 53;
+                    return {
+                      x: x,
+                      y: 0
+                    };
 
-                    if (datos['pulsaciones'] > 85) {
-                      datos['distraido'] = datos['sorpresa'];
+                  case 53:
+                    datos['distraido'] = _context6.sent;
+
+                    if (!(datos['pulsaciones'].y > 85)) {
+                      _context6.next = 58;
+                      break;
                     }
 
-                    if (datos['alegria'] == NaN || datos['alegria'] == null) {
-                      datos['distraido'] = 1;
+                    _context6.next = 57;
+                    return {
+                      x: x,
+                      y: datos['sorpresa'].y
+                    };
+
+                  case 57:
+                    datos['distraido'] = _context6.sent;
+
+                  case 58:
+                    if (!(datos['alegria'].y == NaN || datos['alegria'].y == null)) {
+                      _context6.next = 62;
+                      break;
                     }
 
-                    datos['concentrado'] = 1 - datos['distraido'];
-                    datos['frustrado'] = 0;
+                    _context6.next = 61;
+                    return {
+                      x: x,
+                      y: 1
+                    };
 
-                    if (datos['sopresa'] + datos['tristeza'] > 0.25) {
-                      datos['frustrado'] += 0.25;
+                  case 61:
+                    datos['distraido'] = _context6.sent;
+
+                  case 62:
+                    _context6.next = 64;
+                    return {
+                      x: x,
+                      y: 1 - datos['distraido'].y
+                    };
+
+                  case 64:
+                    datos['concentrado'] = _context6.sent;
+                    console.log('1');
+                    datos['frustrado'] = {
+                      x: x,
+                      y: 0
+                    };
+                    console.log('2');
+
+                    if (datos['sorpresa'].y + datos['tristeza'].y > 0.25) {
+                      datos['frustrado'] += {
+                        x: x,
+                        y: datos['frustrado'].y + 0.25
+                      };
                     }
 
-                    if (datos['asco'] + datos['ira'] > 0.25) {
-                      datos['frustrado'] += 0.25;
+                    console.log('3');
+
+                    if (datos['asco'].y + datos['ira'].y > 0.25) {
+                      datos['frustrado'] += {
+                        x: x,
+                        y: datos['frustrado'].y + 0.25
+                      };
                     }
 
-                    if (datos['miedo'] + datos['tristeza'] > 0.25) {
-                      datos['frustrado'] += 0.25;
+                    console.log('4');
+
+                    if (datos['miedo'].y + datos['tristeza'].y > 0.25) {
+                      datos['frustrado'] += {
+                        x: x,
+                        y: datos['frustrado'].y + 0.25
+                      };
                     }
 
-                    if (datos['sorpresa'] + datos['ira'] > 0.25) {
-                      datos['frustrado'] += 0.25;
+                    console.log('5');
+
+                    if (datos['sorpresa'].y + datos['ira'].y > 0.25) {
+                      datos['frustrado'] += {
+                        x: x,
+                        y: datos['frustrado'].y + 0.25
+                      };
                     }
 
-                    if (datos['alegria'] == NaN || datos['alegria'] == null) {
-                      datos['frustrado'] = 1;
+                    console.log('6');
+
+                    if (datos['alegria'].y == NaN || datos['alegria'].y == null) {
+                      datos['frustrado'] = {
+                        x: x,
+                        y: 1
+                      };
                     }
 
-                    datos['motivado'] = 1 - datos['frustrado'];
+                    console.log('7');
+                    datos['motivado'] = {
+                      x: x,
+                      y: 1 - datos['frustrado'].y
+                    };
                     console.log("Datos listos para enviar");
                     console.log(datos);
                     this.enviarDatos(datos); //this.enviarEmocionesWebCam(datos);
 
-                  case 76:
+                  case 82:
                   case "end":
                     return _context6.stop();
                 }
@@ -2920,28 +3020,28 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               while (1) {
                 switch (_context17.prev = _context17.next) {
                   case 0:
-                    reportId = 1;
-                    console.log([r, g, b]);
+                    reportId = 1; //console.log([r, g, b]);
+
                     data = Uint8Array.from([r, g, b]); //const negro = Uint8Array.from([0x63, 0, 0, 0, 0x00, 0x10, 0x00, 0x00]);
 
-                    _context17.prev = 3;
-                    _context17.next = 6;
+                    _context17.prev = 2;
+                    _context17.next = 5;
                     return device.sendFeatureReport(1, data);
 
-                  case 6:
-                    _context17.next = 10;
+                  case 5:
+                    _context17.next = 9;
                     break;
 
-                  case 8:
-                    _context17.prev = 8;
-                    _context17.t0 = _context17["catch"](3);
+                  case 7:
+                    _context17.prev = 7;
+                    _context17.t0 = _context17["catch"](2);
 
-                  case 10:
+                  case 9:
                   case "end":
                     return _context17.stop();
                 }
               }
-            }, _callee17, null, [[3, 8]]);
+            }, _callee17, null, [[2, 7]]);
           }));
         }
       }, {
@@ -3731,6 +3831,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           this.socket.emit('listoParaRecibirDatos', actividad);
         };
 
+        this.listoParaNoRecibirDatos = function (actividad) {
+          this.socket.emit('listoParaNoRecibirDatos', actividad);
+        };
+
         this.lanzarSocketSrv = function () {
           var cli = this;
           this.socket.on('connect', function () {
@@ -4288,6 +4392,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
         this.profesor = profesor;
         this.actividadCreada = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+        this.ColorSad = 'rgba(81,81,255,0.4)'; //Color de la tristeza Correcto
+
         this.alumnos = [];
         this.usuariosConectados = [];
         this.usuariosTotales = 0;
@@ -4320,7 +4426,55 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         this.objAlumnoSeleccionado = null;
         this.intervaloResumen = null; //alumnosConectados=0;
 
-        this.alumnosDesconectados = 0; //console.log(this.usuariosConectados);
+        this.alumnosDesconectados = 0; //Datos de las Graficas 
+
+        this.graficaLineal = null;
+        this.dataLinealesSeleccionados = null;
+        this.configuracionGraficaLineal = {
+          type: 'line',
+          data: {
+            datasets: [{
+              label: this.estadoSeleccionado,
+              backgroundColor: this.ColorSad,
+              borderColor: this.ColorSad,
+              fill: false,
+              data: this.dataLinealesSeleccionados
+            }]
+          },
+          options: {
+            responsive: true,
+            title: {
+              display: true,
+              text: this.estadoSeleccionado
+            },
+            scales: {
+              xAxes: [{
+                type: 'time',
+                display: true,
+                scaleLabel: {
+                  display: true,
+                  labelString: 'Tiempo'
+                },
+                ticks: {
+                  major: {
+                    fontStyle: 'bold',
+                    fontColor: '#FF0000'
+                  }
+                }
+              }],
+              yAxes: [{
+                display: true,
+                scaleLabel: {
+                  display: true,
+                  labelString: 'Porcentaje'
+                }
+              }]
+            }
+          }
+        };
+        this.graficaResumen = null;
+        this.datosResumenSeleccionados = [1, 1, 1, 1, 1, 1];
+        this.configuracionGraficaResumen = {}; //console.log(this.usuariosConectados);
 
         this.comprobarDatos();
       }
@@ -4328,6 +4482,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       _createClass(VerActividadComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
+          var _this6 = this;
+
           this.alumnos = this.actividad.alumnos; //this.actividad.estado="Comenzada";
 
           for (var i in this.actividad.alumnos) {
@@ -4360,14 +4516,65 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           //console.log(this.usuariosTotales);
 
           this.usersConectadosGraf = new chart_js__WEBPACK_IMPORTED_MODULE_2__["Chart"]('usersConectados', this.configUsersConectados);
+
+          if (this.actividad.estado == 'Comenzada') {
+            this.intervaloResumen = setInterval(function (async) {
+              _this6.insertarResumen();
+            }, 20000);
+          } //Grafica Lineal 
+
+
+          this.configuracionGraficaLineal = {
+            type: 'line',
+            data: {
+              datasets: [{
+                label: this.estadoSeleccionado,
+                backgroundColor: this.ColorSad,
+                borderColor: this.ColorSad,
+                fill: false,
+                data: this.actividad.resumen['' + this.estadoSeleccionado + '']
+              }]
+            },
+            options: {
+              responsive: true,
+              title: {
+                display: true,
+                text: this.estadoSeleccionado
+              },
+              scales: {
+                xAxes: [{
+                  type: 'time',
+                  display: true,
+                  scaleLabel: {
+                    display: true,
+                    labelString: 'Tiempo'
+                  },
+                  ticks: {
+                    major: {
+                      fontStyle: 'bold',
+                      fontColor: '#FF0000'
+                    }
+                  }
+                }],
+                yAxes: [{
+                  display: true,
+                  scaleLabel: {
+                    display: true,
+                    labelString: 'Porcentaje'
+                  }
+                }]
+              }
+            }
+          };
+          this.graficaLineal = new chart_js__WEBPACK_IMPORTED_MODULE_2__["Chart"]('graficaLineal', this.configuracionGraficaLineal);
         }
       }, {
         key: "comprobarDatos",
         value: function comprobarDatos() {
-          var _this6 = this;
+          var _this7 = this;
 
           setInterval(function () {
-            return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](_this6, void 0, void 0,
+            return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](_this7, void 0, void 0,
             /*#__PURE__*/
             regeneratorRuntime.mark(function _callee20() {
               return regeneratorRuntime.wrap(function _callee20$(_context20) {
@@ -4437,7 +4644,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               ju.profesor.listoParaRecibirDatos(ju.actividad);
               ju.intervaloResumen = setInterval(function (async) {
                 ju.insertarResumen();
-              }, 2000);
+              }, 20000);
             },
             contentType: 'application/json',
             dataType: 'json'
@@ -4455,6 +4662,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             data: JSON.stringify(this.actividad),
             success: function success(data) {
               ju.actividad = data;
+              ju.profesor.listoParaNoRecibirDatos(ju.actividad);
               clearInterval(ju.intervaloResumen);
             },
             contentType: 'application/json',
@@ -4497,18 +4705,54 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               this.resumen.tristeza += datos.tristeza;
               this.resumen.pulsaciones += datos.pulsaciones;
               this.numPulsaciones++;
-              this.actividad.alumnos[i].datos.alegria.push(datos.alegria);
-              this.actividad.alumnos[i].datos.asco.push(datos.asco);
-              this.actividad.alumnos[i].datos.ira.push(datos.ira);
-              this.actividad.alumnos[i].datos.miedo.push(datos.miedo);
-              this.actividad.alumnos[i].datos.sorpresa.push(datos.sorpresa);
-              this.actividad.alumnos[i].datos.tristeza.push(datos.tristeza);
-              this.actividad.alumnos[i].datos.pulsaciones.push(datos.pulsaciones);
-              this.actividad.alumnos[i].datos.tiempo.push(datos.tiempo);
-              this.actividad.alumnos[i].datos.distraido.push(datos.distraido);
-              this.actividad.alumnos[i].datos.concentrado.push(datos.concentrado);
-              this.actividad.alumnos[i].datos.frustrado.push(datos.frustrado);
-              this.actividad.alumnos[i].datos.motivado.push(datos.motivado);
+              this.actividad.alumnos[i].datos.alegria.push({
+                x: datos.alegria.x,
+                y: datos.alegria.y
+              });
+              this.actividad.alumnos[i].datos.asco.push({
+                x: datos.asco.x,
+                y: datos.asco.y
+              });
+              this.actividad.alumnos[i].datos.ira.push({
+                x: datos.ira.x,
+                y: datos.ira.y
+              });
+              this.actividad.alumnos[i].datos.miedo.push({
+                x: datos.miedo.x,
+                y: datos.miedo.y
+              });
+              this.actividad.alumnos[i].datos.sorpresa.push({
+                x: datos.sorpresa.x,
+                y: datos.sorpresa.y
+              });
+              this.actividad.alumnos[i].datos.tristeza.push({
+                x: datos.tristeza.x,
+                y: datos.tristeza.y
+              });
+              this.actividad.alumnos[i].datos.pulsaciones.push({
+                x: datos.pulsaciones.x,
+                y: datos.pulsaciones.y
+              });
+              this.actividad.alumnos[i].datos.tiempo.push({
+                x: datos.tiempo.x,
+                y: datos.tiempo.y
+              });
+              this.actividad.alumnos[i].datos.distraido.push({
+                x: datos.distraido.x,
+                y: datos.distraido.y
+              });
+              this.actividad.alumnos[i].datos.concentrado.push({
+                x: datos.concentrado.x,
+                y: datos.concentrado.y
+              });
+              this.actividad.alumnos[i].datos.frustrado.push({
+                x: datos.frustrado.x,
+                y: datos.frustrado.y
+              });
+              this.actividad.alumnos[i].datos.motivado.push({
+                x: datos.motivado.x,
+                y: datos.motivado.y
+              });
             }
           }
         }
@@ -4518,35 +4762,68 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
           /*#__PURE__*/
           regeneratorRuntime.mark(function _callee21() {
-            var sumaTotalEmociones, sumaTotalEstadoDisConc, sumaTotalEstadoFrusMotiv, now;
+            var sumaTotalEmociones, x, sumaTotalEstadoDisConc, sumaTotalEstadoFrusMotiv;
             return regeneratorRuntime.wrap(function _callee21$(_context21) {
               while (1) {
                 switch (_context21.prev = _context21.next) {
                   case 0:
                     //Datos Emocionales
-                    sumaTotalEmociones = 0;
-                    console.log(this.resumen);
-                    sumaTotalEmociones = this.resumen.alegria + this.resumen.asco + this.resumen.ira + this.resumen.miedo + this.resumen.sorpresa + this.resumen.tristeza;
-                    this.actividad.resumen.alegria.push(this.resumen.alegria / sumaTotalEmociones);
-                    this.actividad.resumen.asco.push(this.resumen.asco / sumaTotalEmociones);
-                    this.actividad.resumen.ira.push(this.resumen.ira / sumaTotalEmociones);
-                    this.actividad.resumen.miedo.push(this.resumen.miedo / sumaTotalEmociones);
-                    this.actividad.resumen.sorpresa.push(this.resumen.sorpresa / sumaTotalEmociones);
-                    this.actividad.resumen.tristeza.push(this.resumen.tristeza / sumaTotalEmociones); //Datos de las pulsaciones
+                    sumaTotalEmociones = 0; //console.log(this.resumen);
 
-                    this.actividad.resumen.pulsaciones.push(this.resumen.pulsaciones / this.numPulsaciones); //Datos cognitivos
+                    x = moment__WEBPACK_IMPORTED_MODULE_3__().format();
+                    sumaTotalEmociones = this.resumen.alegria + this.resumen.asco + this.resumen.ira + this.resumen.miedo + this.resumen.sorpresa + this.resumen.tristeza;
+                    this.actividad.resumen.alegria.push({
+                      x: x,
+                      y: this.resumen.alegria / sumaTotalEmociones
+                    });
+                    this.actividad.resumen.asco.push({
+                      x: x,
+                      y: this.resumen.asco / sumaTotalEmociones
+                    });
+                    this.actividad.resumen.ira.push({
+                      x: x,
+                      y: this.resumen.ira / sumaTotalEmociones
+                    });
+                    this.actividad.resumen.miedo.push({
+                      x: x,
+                      y: this.resumen.miedo / sumaTotalEmociones
+                    });
+                    this.actividad.resumen.sorpresa.push({
+                      x: x,
+                      y: this.resumen.sorpresa / sumaTotalEmociones
+                    });
+                    this.actividad.resumen.tristeza.push({
+                      x: x,
+                      y: this.resumen.tristeza / sumaTotalEmociones
+                    }); //Datos de las pulsaciones
+
+                    this.actividad.resumen.pulsaciones.push({
+                      x: x,
+                      y: this.resumen.pulsaciones / this.numPulsaciones
+                    }); //Datos cognitivos
 
                     sumaTotalEstadoDisConc = 0;
                     sumaTotalEstadoDisConc = this.resumen.distraido + this.resumen.concentrado;
-                    this.actividad.resumen.distraido.push(this.resumen.distraido / sumaTotalEstadoDisConc);
-                    this.actividad.resumen.concentrado.push(this.resumen.concentrado / sumaTotalEstadoDisConc);
+                    this.actividad.resumen.distraido.push({
+                      x: x,
+                      y: this.resumen.distraido / sumaTotalEstadoDisConc
+                    });
+                    this.actividad.resumen.concentrado.push({
+                      x: x,
+                      y: this.resumen.concentrado / sumaTotalEstadoDisConc
+                    });
                     sumaTotalEstadoFrusMotiv = 0;
                     sumaTotalEstadoFrusMotiv = this.resumen.frustrado + this.resumen.motivado;
-                    this.actividad.resumen.frustrado.push(this.resumen.frustrado / sumaTotalEstadoFrusMotiv);
-                    this.actividad.resumen.motivado.push(this.resumen.motivado / sumaTotalEstadoFrusMotiv); //Datos del tiempo
+                    this.actividad.resumen.frustrado.push({
+                      x: x,
+                      y: this.resumen.frustrado / sumaTotalEstadoFrusMotiv
+                    });
+                    this.actividad.resumen.motivado.push({
+                      x: x,
+                      y: this.resumen.motivado / sumaTotalEstadoFrusMotiv
+                    }); //Datos del tiempo
 
-                    now = moment__WEBPACK_IMPORTED_MODULE_3__();
-                    this.actividad.resumen.tiempo.push(now.format()); //Reseteo de datos
+                    this.actividad.resumen.tiempo.push(x); //Reseteo de datos
 
                     this.resumen = {
                       alegria: 0,
@@ -4564,7 +4841,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                     this.numPulsaciones = 0;
                     console.log(this.actividad);
 
-                  case 23:
+                  case 22:
                   case "end":
                     return _context21.stop();
                 }
@@ -4576,18 +4853,159 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         key: "seleccionarEstado",
         value: function seleccionarEstado(estado) {
           this.estadoSeleccionado = estado;
+
+          for (var i = 0; i < this.actividad.alumnos.length; i++) {
+            if (this.actividad.alumnos[i].id_item == this.objAlumnoSeleccionado.id_item) {
+              this.configuracionGraficaLineal = {
+                type: 'line',
+                data: {
+                  datasets: [{
+                    label: this.estadoSeleccionado,
+                    backgroundColor: this.ColorSad,
+                    borderColor: this.ColorSad,
+                    fill: false,
+                    data: this.actividad.alumnos[i].datos['' + this.estadoSeleccionado + '']
+                  }]
+                },
+                options: {
+                  responsive: true,
+                  title: {
+                    display: true,
+                    text: this.estadoSeleccionado
+                  },
+                  scales: {
+                    xAxes: [{
+                      type: 'time',
+                      display: true,
+                      scaleLabel: {
+                        display: true,
+                        labelString: 'Tiempo'
+                      },
+                      ticks: {
+                        major: {
+                          fontStyle: 'bold',
+                          fontColor: '#FF0000'
+                        }
+                      }
+                    }],
+                    yAxes: [{
+                      display: true,
+                      scaleLabel: {
+                        display: true,
+                        labelString: 'Porcentaje'
+                      }
+                    }]
+                  }
+                }
+              };
+              this.graficaLineal = new chart_js__WEBPACK_IMPORTED_MODULE_2__["Chart"]('graficaLineal', this.configuracionGraficaLineal);
+            }
+          }
         }
       }, {
         key: "seleccionarAlumno",
         value: function seleccionarAlumno(alumno) {
           this.alumnoSeleccionado = alumno.estudiante.nombre;
+          this.objAlumnoSeleccionado = alumno;
           this.alumnoSeleccionadoAlumno = true;
+
+          for (var i = 0; i < this.actividad.alumnos.length; i++) {
+            if (this.actividad.alumnos[i].id_item == this.objAlumnoSeleccionado.id_item) {
+              this.configuracionGraficaLineal = {
+                type: 'line',
+                data: {
+                  datasets: [{
+                    label: this.estadoSeleccionado,
+                    backgroundColor: this.ColorSad,
+                    borderColor: this.ColorSad,
+                    fill: false,
+                    data: this.actividad.alumnos[i].datos['' + this.estadoSeleccionado + '']
+                  }]
+                },
+                options: {
+                  responsive: true,
+                  title: {
+                    display: true,
+                    text: this.estadoSeleccionado
+                  },
+                  scales: {
+                    xAxes: [{
+                      type: 'time',
+                      display: true,
+                      scaleLabel: {
+                        display: true,
+                        labelString: 'Tiempo'
+                      },
+                      ticks: {
+                        major: {
+                          fontStyle: 'bold',
+                          fontColor: '#FF0000'
+                        }
+                      }
+                    }],
+                    yAxes: [{
+                      display: true,
+                      scaleLabel: {
+                        display: true,
+                        labelString: 'Porcentaje'
+                      }
+                    }]
+                  }
+                }
+              };
+              this.graficaLineal = new chart_js__WEBPACK_IMPORTED_MODULE_2__["Chart"]('graficaLineal', this.configuracionGraficaLineal);
+            }
+          }
         }
       }, {
         key: "seleccionarMediaAlumnos",
         value: function seleccionarMediaAlumnos() {
           this.alumnoSeleccionado = 'Media de la clase';
-          this.alumnoSeleccionadoAlumno = false;
+          this.alumnoSeleccionadoAlumno = false; //this.actividad.resumen.alegria
+
+          this.configuracionGraficaLineal = {
+            type: 'line',
+            data: {
+              datasets: [{
+                label: this.estadoSeleccionado,
+                backgroundColor: this.ColorSad,
+                borderColor: this.ColorSad,
+                fill: false,
+                data: this.actividad.resumen['' + this.estadoSeleccionado + '']
+              }]
+            },
+            options: {
+              responsive: true,
+              title: {
+                display: true,
+                text: this.estadoSeleccionado
+              },
+              scales: {
+                xAxes: [{
+                  type: 'time',
+                  display: true,
+                  scaleLabel: {
+                    display: true,
+                    labelString: 'Tiempo'
+                  },
+                  ticks: {
+                    major: {
+                      fontStyle: 'bold',
+                      fontColor: '#FF0000'
+                    }
+                  }
+                }],
+                yAxes: [{
+                  display: true,
+                  scaleLabel: {
+                    display: true,
+                    labelString: 'Porcentaje'
+                  }
+                }]
+              }
+            }
+          };
+          this.graficaLineal = new chart_js__WEBPACK_IMPORTED_MODULE_2__["Chart"]('graficaLineal', this.configuracionGraficaLineal);
         }
       }, {
         key: "ngOnDestroy",

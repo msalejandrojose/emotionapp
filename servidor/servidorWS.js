@@ -42,6 +42,12 @@ function ServidorWS() {
                     cli.enviarATodos(io, actividad.alumnos[i].estudiante._id, "enviaDatos", actividad);
                 }
             })
+            
+            socket.on('listoParaNoRecibirDatos',function(actividad){
+                for(let i =0;i<actividad.alumnos.length;i++){
+                    cli.enviarATodos(io, actividad.alumnos[i].estudiante._id, "noEnviaDatos", actividad);
+                }
+            })
             socket.on('meDesconectoActividad',function(actividad,estudiante){
                 cli.enviarATodos(io,actividad._id, 'seHaDesconectado',estudiante);
             })
