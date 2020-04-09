@@ -3279,6 +3279,7 @@ let VerActividadComponent = class VerActividadComponent {
     }
     seleccionarMediaAlumnos() {
         this.alumnoSeleccionado = 'Media de la clase';
+        this.objAlumnoSeleccionado = null;
         this.alumnoSeleccionadoAlumno = false;
         //this.actividad.resumen.alegria
         this.configuracionGraficaLineal = {

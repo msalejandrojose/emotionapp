@@ -4961,6 +4961,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         key: "seleccionarMediaAlumnos",
         value: function seleccionarMediaAlumnos() {
           this.alumnoSeleccionado = 'Media de la clase';
+          this.objAlumnoSeleccionado = null;
           this.alumnoSeleccionadoAlumno = false; //this.actividad.resumen.alegria
 
           this.configuracionGraficaLineal = {
