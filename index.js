@@ -77,10 +77,11 @@ app.post("/verActividadesComenzadas", function (request, response) {
 
 app.post("/registrarActividad", function (request, response) {
   var act = request.body;
-  centro.agregarActividad(act.nombre,act.profesor,act.alumnos,act.resumen,function(res){
+  centro.agregarActividad(act.nombre,act.profesor,act.fecha,act.alumnos,act.resumen,function(res){
     if (res != '') {
       console.log("Actividad agregada");
-      response.send(res);
+      console.log(res);
+      response.send(res.value);
     }
   })
 });
@@ -91,12 +92,12 @@ app.post("/actualizarActividad", function (request, response) {
   centro.editarActividad(act,function(res){
     if (res != '') {
       console.log("Actividad actualizada");
+      console.log(res);
       response.send(res);
     }
   })
 });
 
-//actualizarActividad
 
 app.delete("/eliminarActividad", function (request, response) {
   var act = request.body;
@@ -105,6 +106,50 @@ app.delete("/eliminarActividad", function (request, response) {
     response.send(res);
   });
 });
+
+//CRUD Clases
+
+app.get("/verClases", function (request, response) {
+  centro.mostrarClases(function (res) {
+    response.send(res);
+    return res;
+  })
+});
+
+app.post("/registrarClase", function (request, response) {
+  var clase = request.body;
+  console.log(clase);
+  centro.agregarClase(clase,function(res){
+    if (res != '') {
+      console.log("Clase creada");
+      response.send(res);
+    }
+  })
+});
+
+app.post("/actualizarClase", function (request, response) {
+  var clase = request.body;
+  console.log(clase);
+  centro.editarClase(clase,function(res){
+    if (res != '') {
+      console.log("Clase actualizada");
+      response.send(res);
+    }
+  })
+});
+
+app.delete("/eliminarClase", function (request, response) {
+  var clase = request.body;
+  console.log(clase);
+  centro.borrarClase(clase,function(res){
+    if (res != '') {
+      console.log("Clase borrada");
+      response.send(res);
+    }
+  })
+});
+
+
 
 app.post("/estudianteIniciarSesion", function (request, response) {
   var est = request.body;

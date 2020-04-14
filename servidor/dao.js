@@ -5,6 +5,7 @@ function Dao() {
     this.Actividad = undefined;
     this.Estudiante = undefined;
     this.Profesor = undefined;
+    this.Clase = undefined;
 
     /*this.insertarResultado = function (resu, callback) {
         insertar(this.resultados, resu, callback);
@@ -51,6 +52,22 @@ function Dao() {
 
     this.mostrarEstudiantes = function (callback) {
         obtenerTodos(this.Estudiante, callback);
+    }
+
+    this.insertarClase = function (act, callback) {
+        insertar(this.Clase, act, callback);
+    }
+
+    this.modificarClase = function (id,act, callback) {
+        modificarColeccion(this.Clase, id, act, callback);
+    }
+
+    this.eliminarClase = function (act, callback) {
+        eliminar(this.Clase, { _id: ObjectID(act._id) }, callback);
+    }
+
+    this.mostrarClases = function (callback) {
+        obtenerTodos(this.Clase, callback);
     }
 
     this.insertarActividad = function (act, callback) {
@@ -162,6 +179,15 @@ function Dao() {
                     else {
                         //console.log("tenemos la colección Profesor");
                         dao.Profesor = col;
+                    }
+                });
+                database.db("emotionappaj").collection("Clase", function (err, col) {
+                    if (err) {
+                        console.log("No pude obtener la coleccion Clase")
+                    }
+                    else {
+                        //console.log("tenemos la colección Profesor");
+                        dao.Clase = col;
                     }
                 });
                 callback(database);

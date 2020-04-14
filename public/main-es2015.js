@@ -348,6 +348,19 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/profesor/crear-clase/crear-clase.component.html":
+/*!*******************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/profesor/crear-clase/crear-clase.component.html ***!
+  \*******************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"card\">\n    <div class=\"card-body\">\n      <h5 class=\"card-title\">Crear Clase</h5>\n      <mat-horizontal-stepper linear #stepper>\n        <mat-step label=\"Crear Clase\" [stepControl]=\"datosPrimarios\">\n          <br>\n          <form [formGroup]=\"datosPrimarios\">\n            <div class=\"col-md-6\">\n              <label>Nombre de la clase</label>\n              <input formControlName=\"fromControlNombreActividad\" [(ngModel)]=\"claseCreate.nombre\" type=\"text\"\n                class=\"form-control\" id=\"nombreActividad\" placeholder=\"Nombre de la actividad\">\n              <br>\n              <label>Nombre del Profesor Habitual</label>\n              <input formControlName=\"fromControlNombreProfesor\" [(ngModel)]=\"claseCreate.profesor\" type=\"text\"\n                class=\"form-control\" id=\"nombreProfesor\" placeholder=\"Nombre del Profesor\">\n              <br>\n            </div>\n            <div class=\"row justify-content-md-center\">\n              <button mat-button matStepperNext class=\"btn btn-success\">Siguiente Paso</button>\n            </div>\n          </form>\n        </mat-step>\n        <mat-step label=\"Seleccionar Alumnos\">\n          <!--Tabla de alumnos-->\n          <br>\n  \n          <div class=\"example-header\">\n            <mat-form-field>\n              <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filtrar\">\n            </mat-form-field>\n          </div>\n  \n          <div class=\"example-container mat-elevation-z8\">\n  \n            <mat-table [dataSource]=\"dataSource\" matSort>\n  \n              <ng-container matColumnDef=\"select\">\n                <th mat-header-cell *matHeaderCellDef>\n                  <mat-checkbox (change)=\"$event ? masterToggle() : null\"\n                    [checked]=\"selection.hasValue() && isAllSelected()\"\n                    [indeterminate]=\"selection.hasValue() && !isAllSelected()\" [aria-label]=\"checkboxLabel()\">\n                  </mat-checkbox>\n                </th>\n                <td mat-cell *matCellDef=\"let row\">\n                  <mat-checkbox (click)=\"$event.stopPropagation()\" (change)=\"$event ? selection.toggle(row) : null\"\n                    [checked]=\"selection.isSelected(row)\" [aria-label]=\"checkboxLabel(row)\">\n                  </mat-checkbox>\n                </td>\n              </ng-container>\n  \n              <!-- ID Column -->\n              <ng-container matColumnDef=\"nombre\">\n                <mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </mat-header-cell>\n                <mat-cell *matCellDef=\"let row\"> {{row.nombre}} </mat-cell>\n              </ng-container>\n  \n              <!-- Progress Column -->\n              <ng-container matColumnDef=\"apellidos\">\n                <mat-header-cell *matHeaderCellDef mat-sort-header> Apellidos </mat-header-cell>\n                <mat-cell *matCellDef=\"let row\"> {{row.apellidos}} </mat-cell>\n              </ng-container>\n  \n              <!-- Name Column -->\n              <ng-container matColumnDef=\"clase\">\n                <mat-header-cell *matHeaderCellDef mat-sort-header> Clase </mat-header-cell>\n                <mat-cell *matCellDef=\"let row\"> {{row.clase}} </mat-cell>\n              </ng-container>\n  \n              <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\n              <mat-row *matRowDef=\"let row; columns: displayedColumns;\">\n              </mat-row>\n            </mat-table>\n  \n            <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\n          </div>\n          <br>\n          <div class=\"row justify-content-md-center\">\n            <button mat-button matStepperPrevious class=\"btn btn-info\">Volver atras</button>\n            <p> </p>\n            <button mat-button matStepperNext class=\"btn btn-success\" (click)=\"ponerAlumnos()\">Siguiente Paso</button>\n          </div>\n        </mat-step>\n        <mat-step label=\"Localizacion de los alumnos\">\n          <h4>Localizacion de Alumnos</h4>\n          <div id=\"clase\" class=\"example-boundary\">\n            <!--<app-alumno *ngFor=\"let item of alumnosSeleccionados\" [alumno]=\"item\"></app-alumno>-->\n            <div *ngFor=\"let item of alumnosSeleccionados\" class=\"example-box\" ondrop=\"myFunction(item)\"\n              [cdkDragFreeDragPosition]=\"item.estudiante.posicion\" cdkDragBoundary=\".example-boundary\" cdkDrag\n              (cdkDragEnded)=\"dragEnded($event,item)\">\n              {{item.estudiante.nombre}}\n            </div>\n          </div>\n          <br>\n          <div class=\"row justify-content-md-center\">\n            <button mat-button matStepperPrevious class=\"btn btn-info\">Volver atras</button>\n            <p> </p>\n            <button mat-button matStepperNext class=\"btn btn-success\" (click)=guardarActividad()>Guardar</button>\n          </div>\n        </mat-step>\n      </mat-horizontal-stepper>\n    </div>\n  </div>");
+
+/***/ }),
+
 /***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/profesor/editar-actividad/editar-actividad.component.html":
 /*!*****************************************************************************************************************!*\
   !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/profesor/editar-actividad/editar-actividad.component.html ***!
@@ -361,6 +374,32 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/profesor/editar-clase/editar-clase.component.html":
+/*!*********************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/profesor/editar-clase/editar-clase.component.html ***!
+  \*********************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"card\">\n    <div class=\"card-body\">\n      <h5 class=\"card-title\">Editar Actividad</h5>\n      <mat-horizontal-stepper linear #stepper>\n        <mat-step label=\"Crear Actividad\" [stepControl]=\"datosPrimarios\">\n          <br>\n          <form [formGroup]=\"datosPrimarios\">\n            <div class=\"col-md-6\">\n              <label>Nombre de la Actividad</label>\n              <input formControlName=\"fromControlNombreActividad\" [(ngModel)]=\"editarActividad.nombre\" type=\"text\"\n                class=\"form-control\" id=\"nombreActividad\" placeholder=\"Nombre de la actividad\">\n              <br>\n              <label>Nombre del Profesor</label>\n              <input formControlName=\"fromControlNombreProfesor\" [(ngModel)]=\"editarActividad.profesor\" type=\"text\"\n                class=\"form-control\" id=\"nombreProfesor\" placeholder=\"Nombre del Profesor\">\n              <br>\n  \n            </div>\n            <div class=\"row justify-content-md-center\">\n              <button mat-button matStepperNext class=\"btn btn-success\">Siguiente Paso</button>\n            </div>\n  \n          </form>\n        </mat-step>\n        <mat-step label=\"Seleccionar Alumnos\">\n          <!--Tabla de alumnos-->\n          <br>\n  \n          <div class=\"example-header\">\n            <mat-form-field>\n              <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filtrar\">\n            </mat-form-field>\n          </div>\n  \n          <div class=\"example-container mat-elevation-z8\">\n  \n            <mat-table [dataSource]=\"dataSource\" matSort>\n  \n              <ng-container matColumnDef=\"select\">\n                <th mat-header-cell *matHeaderCellDef>\n                  <mat-checkbox (change)=\"$event ? masterToggle() : null\"\n                    [checked]=\"selection.hasValue() && isAllSelected()\"\n                    [indeterminate]=\"selection.hasValue() && !isAllSelected()\" [aria-label]=\"checkboxLabel()\">\n                  </mat-checkbox>\n                </th>\n                <td mat-cell *matCellDef=\"let row\">\n                  <mat-checkbox (click)=\"$event.stopPropagation()\" (change)=\"$event ? selection.toggle(row) : null\"\n                    [checked]=\"selection.isSelected(row)\" [aria-label]=\"checkboxLabel(row)\">\n                  </mat-checkbox>\n                </td>\n              </ng-container>\n  \n              <!-- ID Column -->\n              <ng-container matColumnDef=\"nombre\">\n                <mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </mat-header-cell>\n                <mat-cell *matCellDef=\"let row\"> {{row.nombre}} </mat-cell>\n              </ng-container>\n  \n              <!-- Progress Column -->\n              <ng-container matColumnDef=\"apellidos\">\n                <mat-header-cell *matHeaderCellDef mat-sort-header> Apellidos </mat-header-cell>\n                <mat-cell *matCellDef=\"let row\"> {{row.apellidos}} </mat-cell>\n              </ng-container>\n  \n              <!-- Name Column -->\n              <ng-container matColumnDef=\"clase\">\n                <mat-header-cell *matHeaderCellDef mat-sort-header> Clase </mat-header-cell>\n                <mat-cell *matCellDef=\"let row\"> {{row.clase}} </mat-cell>\n              </ng-container>\n  \n              <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\n              <mat-row *matRowDef=\"let row; columns: displayedColumns;\">\n              </mat-row>\n            </mat-table>\n  \n            <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\n          </div>\n          <br>\n          <div class=\"row justify-content-md-center\">\n            <button mat-button matStepperPrevious class=\"btn btn-info\">Volver atras</button>\n            <p> </p>\n            <button mat-button matStepperNext class=\"btn btn-success\" (click)=\"ponerAlumnos()\">Actualizar Alumnos</button>\n          </div>\n        </mat-step>\n        <mat-step label=\"Localizacion de los alumnos\">\n          <h4>Localizacion de Alumnos</h4>\n          <div id=\"clase\" class=\"example-boundary\">\n            <!--<app-alumno *ngFor=\"let item of alumnosSeleccionados\" [alumno]=\"item\"></app-alumno>-->\n            <div *ngFor=\"let item of alumnosSeleccionados\" class=\"example-box\" ondrop=\"myFunction(item)\"\n              [cdkDragFreeDragPosition]=\"item.estudiante.posicion\" cdkDragBoundary=\".example-boundary\" cdkDrag\n              (cdkDragEnded)=\"dragEnded($event,item)\">\n              {{item.estudiante.nombre}}\n            </div>\n          </div>\n          <br>\n          <div class=\"row justify-content-md-center\">\n            <button mat-button matStepperPrevious class=\"btn btn-info\">Volver atras</button>\n            <p> </p>\n            <button mat-button matStepperNext class=\"btn btn-success\" (click)=actualizar()>Actualizar</button>\n          </div>\n        </mat-step>\n      </mat-horizontal-stepper>\n    </div>\n  </div>");
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/profesor/mensaje/mensaje.component.html":
+/*!***********************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/profesor/mensaje/mensaje.component.html ***!
+  \***********************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<span class=\"example-pizza-party\">\n    Pizza party!!! 🍕\n    <button type=\"button\" class=\"btn btn-outline-success\" (click)=\"abrirActividad()\">Abrir Actividad</button>\n  </span>");
+
+/***/ }),
+
 /***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/profesor/profesor.component.html":
 /*!****************************************************************************************!*\
   !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/profesor/profesor.component.html ***!
@@ -370,7 +409,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"row\">\n    <div class=\"col-md-2\">\n        <!--<app-sidenav-profesor></app-sidenav-profesor>-->\n        <div class=\"sidenav list-group\">\n            <a href=\"#\" (click)=\"abrirAlumnos()\">Alumno</a>\n            <a href=\"#\" (click)=\"abrirActividades()\">Actividades</a>\n        </div>\n    </div>\n    <div *ngIf=\"gestionAlumnos\" class=\"col-md-10\">\n        <br>\n        <div class=\"row justify-content-md-center\">\n            <div class=\"col-md-10\">\n                <h4>Alumno</h4>\n            </div>\n            <div class=\"col-md-2\">\n                <button type=\"button\" (click)=\"abrirActividades()\" class=\"btn btn-outline-primary\">Crear\n                    Actividad</button>\n            </div>\n        </div>\n        <div class=\"row justify-content-md-center\">\n            <!--<div class=\"card-body card-body-cascade text-center wow fadeIn\">\n                <h4>Hola mundo</h4>\n                <p>asdalksdjlajsdklasjdkljlañksjfñdskladsfjñalksfj</p>\n            </div>-->\n            <div class=\"card col-md-6\">\n                <div *ngIf=\"!editarAlumno\" class=\"card-body\">\n                    <h4 class=\"card-title\">Crear Alumno</h4>\n                    <div>\n                        <label>Nombre del Alumn@</label>\n                        <input [(ngModel)]=\"alumnoCreate.nombre\" type=\"text\" class=\"form-control\" id=\"nombre\"\n                            placeholder=\"Nombre\">\n                        <br>\n                        <label>Apellidos</label>\n                        <input [(ngModel)]=\"alumnoCreate.apellidos\" type=\"text\" class=\"form-control\" id=\"apellidos\"\n                            ng-model=\"apellidos\" placeholder=\"Apellidos\">\n                        <br>\n                        <label>Clase</label>\n                        <input [(ngModel)]=\"alumnoCreate.clase\" type=\"text\" class=\"form-control\" id=\"clase\"\n                            ng-model=\"clase\" placeholder=\"Clase\">\n                        <br>\n                        <label>Email</label>\n                        <input [(ngModel)]=\"alumnoCreate.email\" type=\"email\" class=\"form-control\" id=\"email\"\n                            ng-model=\"email\" placeholder=\"Enter email\">\n                        <small id=\"emailHelp\" class=\"form-text text-muted\">El email tiene que ser unico</small>\n                        <br>\n                        <label>Contraseña</label>\n                        <input [(ngModel)]=\"alumnoCreate.contrasena\" type=\"password\" class=\"form-control\"\n                            id=\"contrasena\" ng-model=\"contrasena\" placeholder=\"Contraseña\">\n                        <small id=\"contrasenaHelp\" class=\"form-text text-muted\">El usuario podra entrar con esta\n                            contraseña</small>\n                        <button type=\"button\" (click)=\"limpiar()\" class=\"btn btn-raised btn-danger\">Limpiar</button>\n                        <button type=\"button\" (click)=\"anadirAlumno()\" class=\"btn btn-raised btn-success\">Guardar\n                            Alumn@</button>\n                    </div>\n                </div>\n                <div *ngIf=\"editarAlumno\" class=\"card-body\">\n                    <h4 class=\"card-title\">Editar Alumno</h4>\n                    <div>\n                        <label>Nombre del Alumn@</label>\n                        <input [(ngModel)]=\"onSelectedAlumno.nombre\" type=\"text\" class=\"form-control\" id=\"nombre\"\n                            placeholder=\"Nombre\">\n                        <br>\n                        <label>Apellidos</label>\n                        <input [(ngModel)]=\"onSelectedAlumno.apellidos\" type=\"text\" class=\"form-control\" id=\"apellidos\"\n                            ng-model=\"apellidos\" placeholder=\"Apellidos\">\n                        <br>\n                        <label>Clase</label>\n                        <input [(ngModel)]=\"onSelectedAlumno.clase\" type=\"text\" class=\"form-control\" id=\"clase\"\n                            ng-model=\"clase\" placeholder=\"Clase\">\n                        <br>\n                        <label>Email</label>\n                        <input [(ngModel)]=\"onSelectedAlumno.email\" type=\"email\" class=\"form-control\" id=\"email\"\n                            ng-model=\"email\" placeholder=\"Enter email\">\n                        <small id=\"emailHelp\" class=\"form-text text-muted\">El email tiene que ser unico</small>\n                        <br>\n                        <label>Contraseña</label>\n                        <input [(ngModel)]=\"onSelectedAlumno.contrasena\" type=\"password\" class=\"form-control\"\n                            id=\"contrasena\" ng-model=\"contrasena\" placeholder=\"Contraseña\">\n                        <small id=\"contrasenaHelp\" class=\"form-text text-muted\">El usuario podra entrar con esta\n                            contraseña</small>\n                        <button type=\"button\" (click)=\"limpiar()\" class=\"btn btn-raised btn-danger\">Limpiar</button>\n                        <button type=\"button\" (click)=\"actualizarAlumno()\" class=\"btn btn-raised btn-success\">Actualizar\n                            Alumn@</button>\n                    </div>\n                </div>\n            </div>\n            <div class=\"col-md-6\">\n                <h3>Lista de Alumnos</h3>\n                <table class=\"table table-striped\">\n                    <thead>\n                        <tr>\n                            <th scope=\"col\">Nombre</th>\n                            <th scope=\"col\">Apellidos</th>\n                            <th scope=\"col\">Clase</th>\n                            <th scope=\"col\"></th>\n                            <th scope=\"col\"></th>\n                        </tr>\n                    </thead>\n                    <tbody *ngFor=\"let alumno of listaAlumnos\">\n                        <tr>\n                            <td>{{alumno.nombre}}</td>\n                            <td>{{alumno.apellidos}}</td>\n                            <td>{{alumno.clase}}</td>\n                            <td><i (click)=\"editar(alumno)\" class=\"fa fa-edit\"></i></td>\n                            <td><i (click)=\"borrar(alumno)\" class=\"fa fa-trash-o\"></i></td>\n                        </tr>\n                    </tbody>\n                </table>\n            </div>\n        </div>\n    </div>\n    <div *ngIf=\"gestionActividades\" class=\"col-md-10\">\n        <br>\n        <div class=\"row justify-content-md-center\">\n            <div class=\"col-md-10\">\n                <h4>Actividades</h4>\n            </div>\n            <div class=\"col-md-2\">\n                <button type=\"button\" *ngIf=\"(!crearActividad && !verActividad) && !editarActividad\" (click)=\"abrirCrearActividad()\" class=\"btn btn-outline-primary\">Crear\n                    Actividad</button>\n                <button type=\"button\" *ngIf=\"(crearActividad && !verActividad) || editarActividad\" (click)=\"cerrarModal()\" class=\"btn btn-outline-danger\">Cancelar</button>\n                <!--<button type=\"button\" *ngIf=\"!crearActividad && verActividad\" (click)=\"cerrarActividad()\" class=\"btn btn-outline-danger\">Cerrar Actividad</button>-->\n            </div>\n        </div>\n        <br>\n        <div class=\"col-md-11\">\n            <app-crear-actividad *ngIf=\"crearActividad\" [estudiantes]=\"listaAlumnos\" (actividadCreada)=\"guardarActividad($event)\" ></app-crear-actividad>\n            <app-editar-actividad *ngIf=\"editarActividad\" [estudiantes]=\"listaAlumnos\" [editarActividad]=\"ActividadparaEditar\" (actividadEditada)=\"actualizarActividad($event)\" ></app-editar-actividad>\n        </div>\n        <br>\n        <div *ngIf=\"verActividad\">\n            <app-ver-actividad [actividad]=\"actividadSelected\" [aluConectados]=\"alumnosConectados\" (actividadCreada)=\"cerrarActividad($event)\"></app-ver-actividad>\n        </div>\n        <div *ngIf=\"!verActividad\" class=\"row justify-content-md-center\">\n            <div class=\"col-md-10\">\n                <h3>Lista de Actividades</h3>\n                <table class=\"table table-striped\">\n                    <thead>\n                        <tr>\n                            <th scope=\"col\">Nombre</th>\n                            <th scope=\"col\">Profesor</th>\n                            <th scope=\"col\">Estado</th>\n                            <th scope=\"col\"></th>\n                            <th scope=\"col\"></th>\n                            <th scope=\"col\"></th>\n                        </tr>\n                    </thead>\n                    <tbody *ngFor=\"let actividad of listaActividades\">\n                        <tr *ngIf=\"actividad.estado=='Creada'\">\n                            <td>{{actividad.nombre}}</td>\n                            <td>{{actividad.profesor}}</td>\n                            <td>{{actividad.estado}}</td>\n                            <td><button type=\"button\" class=\"btn btn-outline-primary\" (click)=\"abrirActividad(actividad)\">Acceder</button></td>\n                            <td><i (click)=\"editarA(actividad)\" class=\"fa fa-edit\"></i></td>\n                            <td><i (click)=\"borrarA(actividad)\" class=\"fa fa-trash-o\"></i></td>\n                        </tr>\n                        <tr *ngIf=\"actividad.estado=='Comenzada'\">\n                            <td>{{actividad.nombre}}</td>\n                            <td>{{actividad.profesor}}</td>\n                            <td>{{actividad.estado}}</td>\n                            <td><button type=\"button\" class=\"btn btn-outline-success\" (click)=\"abrirActividad(actividad)\">Ver</button></td>\n                            <td><i (click)=\"editarA(actividad)\" class=\"fa fa-edit\"></i></td>\n                            <td><i (click)=\"borrarA(actividad)\" class=\"fa fa-trash-o\"></i></td>\n                        </tr>\n                        <tr *ngIf=\"actividad.estado=='Finalizada'\">\n                            <td>{{actividad.nombre}}</td>\n                            <td>{{actividad.profesor}}</td>\n                            <td>{{actividad.estado}}</td>\n                            <td><button type=\"button\" class=\"btn btn-outline-success\" (click)=\"abrirActividad(actividad)\">Resumen</button></td>\n                            <td><i (click)=\"editarA(actividad)\" class=\"fa fa-edit\"></i></td>\n                            <td><i (click)=\"borrarA(actividad)\" class=\"fa fa-trash-o\"></i></td>\n                        </tr>\n                    </tbody>\n                </table>\n            </div>\n        </div>\n    </div>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"row\">\n    <div class=\"col-md-2\">\n        <!--<app-sidenav-profesor></app-sidenav-profesor>-->\n        <div class=\"sidenav list-group\">\n            <a href=\"#\" (click)=\"abrirAlumnos()\">Alumno</a>\n            <a href=\"#\" (click)=\"abrirActividades()\">Actividades</a>\n            <a href=\"#\" (click)=\"abrirClases()\">Clases</a>\n        </div>\n    </div>\n    <div *ngIf=\"gestionAlumnos\" class=\"col-md-10\">\n        <br>\n        <div class=\"row justify-content-md-center\">\n            <div class=\"col-md-10\">\n                <h4>Alumno</h4>\n            </div>\n            <div class=\"col-md-2\">\n                <button type=\"button\" (click)=\"abrirActividades()\" class=\"btn btn-outline-primary\">Crear\n                    Actividad</button>\n            </div>\n        </div>\n        <div class=\"row justify-content-md-center\">\n            <!--<div class=\"card-body card-body-cascade text-center wow fadeIn\">\n                <h4>Hola mundo</h4>\n                <p>asdalksdjlajsdklasjdkljlañksjfñdskladsfjñalksfj</p>\n            </div>-->\n            <div class=\"card col-md-6\">\n                <div *ngIf=\"!editarAlumno\" class=\"card-body\">\n                    <h4 class=\"card-title\">Crear Alumno</h4>\n                    <div>\n                        <label>Nombre del Alumn@</label>\n                        <input [(ngModel)]=\"alumnoCreate.nombre\" type=\"text\" class=\"form-control\" id=\"nombre\"\n                            placeholder=\"Nombre\">\n                        <br>\n                        <label>Apellidos</label>\n                        <input [(ngModel)]=\"alumnoCreate.apellidos\" type=\"text\" class=\"form-control\" id=\"apellidos\"\n                            ng-model=\"apellidos\" placeholder=\"Apellidos\">\n                        <br>\n                        <label>Clase</label>\n                        <input [(ngModel)]=\"alumnoCreate.clase\" type=\"text\" class=\"form-control\" id=\"clase\"\n                            ng-model=\"clase\" placeholder=\"Clase\">\n                        <br>\n                        <label>Email</label>\n                        <input [(ngModel)]=\"alumnoCreate.email\" type=\"email\" class=\"form-control\" id=\"email\"\n                            ng-model=\"email\" placeholder=\"Enter email\">\n                        <small id=\"emailHelp\" class=\"form-text text-muted\">El email tiene que ser unico</small>\n                        <br>\n                        <label>Contraseña</label>\n                        <input [(ngModel)]=\"alumnoCreate.contrasena\" type=\"password\" class=\"form-control\"\n                            id=\"contrasena\" ng-model=\"contrasena\" placeholder=\"Contraseña\">\n                        <small id=\"contrasenaHelp\" class=\"form-text text-muted\">El usuario podra entrar con esta\n                            contraseña</small>\n                        <button type=\"button\" (click)=\"limpiar()\" class=\"btn btn-raised btn-danger\">Limpiar</button>\n                        <button type=\"button\" (click)=\"anadirAlumno()\" class=\"btn btn-raised btn-success\">Guardar\n                            Alumn@</button>\n                    </div>\n                </div>\n                <div *ngIf=\"editarAlumno\" class=\"card-body\">\n                    <h4 class=\"card-title\">Editar Alumno</h4>\n                    <div>\n                        <label>Nombre del Alumn@</label>\n                        <input [(ngModel)]=\"onSelectedAlumno.nombre\" type=\"text\" class=\"form-control\" id=\"nombre\"\n                            placeholder=\"Nombre\">\n                        <br>\n                        <label>Apellidos</label>\n                        <input [(ngModel)]=\"onSelectedAlumno.apellidos\" type=\"text\" class=\"form-control\" id=\"apellidos\"\n                            ng-model=\"apellidos\" placeholder=\"Apellidos\">\n                        <br>\n                        <label>Clase</label>\n                        <input [(ngModel)]=\"onSelectedAlumno.clase\" type=\"text\" class=\"form-control\" id=\"clase\"\n                            ng-model=\"clase\" placeholder=\"Clase\">\n                        <br>\n                        <label>Email</label>\n                        <input [(ngModel)]=\"onSelectedAlumno.email\" type=\"email\" class=\"form-control\" id=\"email\"\n                            ng-model=\"email\" placeholder=\"Enter email\">\n                        <small id=\"emailHelp\" class=\"form-text text-muted\">El email tiene que ser unico</small>\n                        <br>\n                        <label>Contraseña</label>\n                        <input [(ngModel)]=\"onSelectedAlumno.contrasena\" type=\"password\" class=\"form-control\"\n                            id=\"contrasena\" ng-model=\"contrasena\" placeholder=\"Contraseña\">\n                        <small id=\"contrasenaHelp\" class=\"form-text text-muted\">El usuario podra entrar con esta\n                            contraseña</small>\n                        <button type=\"button\" (click)=\"limpiar()\" class=\"btn btn-raised btn-danger\">Limpiar</button>\n                        <button type=\"button\" (click)=\"actualizarAlumno()\" class=\"btn btn-raised btn-success\">Actualizar\n                            Alumn@</button>\n                    </div>\n                </div>\n            </div>\n            <div class=\"col-md-6\">\n                <h3>Lista de Alumnos</h3>\n                <table class=\"table table-striped\">\n                    <thead>\n                        <tr>\n                            <th scope=\"col\">Nombre</th>\n                            <th scope=\"col\">Apellidos</th>\n                            <th scope=\"col\">Clase</th>\n                            <th scope=\"col\"></th>\n                            <th scope=\"col\"></th>\n                        </tr>\n                    </thead>\n                    <tbody *ngFor=\"let alumno of listaAlumnos\">\n                        <tr>\n                            <td>{{alumno.nombre}}</td>\n                            <td>{{alumno.apellidos}}</td>\n                            <td>{{alumno.clase}}</td>\n                            <td><i (click)=\"editar(alumno)\" class=\"fa fa-edit\"></i></td>\n                            <td><i (click)=\"borrar(alumno)\" class=\"fa fa-trash-o\"></i></td>\n                        </tr>\n                    </tbody>\n                </table>\n            </div>\n        </div>\n    </div>\n    <div *ngIf=\"gestionActividades\" class=\"col-md-10\">\n        <br>\n        <div class=\"row justify-content-md-center\">\n            <div class=\"col-md-9\">\n                <h4>Actividades</h4>\n            </div>\n            <div class=\"col-md-3\">\n                <button type=\"button\" *ngIf=\"(!crearActividad && !verActividad) && !editarActividad\"\n                    (click)=\"abrirCrearActividad()\" class=\"btn btn-outline-primary\">Crear\n                    Actividad Individual</button>\n                <button type=\"button\" *ngIf=\"(crearActividad && !verActividad) || editarActividad\"\n                    (click)=\"cerrarModal()\" class=\"btn btn-outline-danger\">Cancelar</button>\n                <!--<button type=\"button\" *ngIf=\"!crearActividad && verActividad\" (click)=\"cerrarActividad()\" class=\"btn btn-outline-danger\">Cerrar Actividad</button>-->\n            </div>\n        </div>\n        <br>\n        <div class=\"col-md-11\">\n            <app-crear-actividad *ngIf=\"crearActividad\" [estudiantes]=\"listaAlumnos\"\n                (actividadCreada)=\"guardarActividad($event)\"></app-crear-actividad>\n            <app-editar-actividad *ngIf=\"editarActividad\" [estudiantes]=\"listaAlumnos\"\n                [editarActividad]=\"ActividadparaEditar\" (actividadEditada)=\"actualizarActividad($event)\">\n            </app-editar-actividad>\n        </div>\n        <br>\n        <div *ngIf=\"verActividad\">\n            <app-ver-actividad [actividad]=\"actividadSelected\" [aluConectados]=\"alumnosConectados\"\n                (actividadCreada)=\"cerrarActividad($event)\"></app-ver-actividad>\n        </div>\n        <div *ngIf=\"!verActividad\" class=\"row justify-content-md-center\">\n            <div class=\"col-md-10\">\n                <h3>Lista de Actividades</h3>\n                <table class=\"table table-striped\">\n                    <thead>\n                        <tr>\n                            <th scope=\"col\">Nombre</th>\n                            <th scope=\"col\">Profesor</th>\n                            <th scope=\"col\">Estado</th>\n                            <th scope=\"col\"></th>\n                            <th scope=\"col\"></th>\n                            <th scope=\"col\"></th>\n                        </tr>\n                    </thead>\n                    <tbody *ngFor=\"let actividad of listaActividades\">\n                        <tr *ngIf=\"actividad.estado=='Creada'\">\n                            <td>{{actividad.nombre}}</td>\n                            <td>{{actividad.profesor}}</td>\n                            <td>{{actividad.estado}}</td>\n                            <td><button type=\"button\" class=\"btn btn-outline-primary\"\n                                    (click)=\"abrirActividad(actividad)\">Acceder</button></td>\n                            <td><i (click)=\"editarA(actividad)\" class=\"fa fa-edit\"></i></td>\n                            <td><i (click)=\"borrarA(actividad)\" class=\"fa fa-trash-o\"></i></td>\n                        </tr>\n                        <tr *ngIf=\"actividad.estado=='Comenzada'\">\n                            <td>{{actividad.nombre}}</td>\n                            <td>{{actividad.profesor}}</td>\n                            <td>{{actividad.estado}}</td>\n                            <td><button type=\"button\" class=\"btn btn-outline-success\"\n                                    (click)=\"abrirActividad(actividad)\">Ver</button></td>\n                            <td><i (click)=\"editarA(actividad)\" class=\"fa fa-edit\"></i></td>\n                            <td><i (click)=\"borrarA(actividad)\" class=\"fa fa-trash-o\"></i></td>\n                        </tr>\n                        <tr *ngIf=\"actividad.estado=='Finalizada'\">\n                            <td>{{actividad.nombre}}</td>\n                            <td>{{actividad.profesor}}</td>\n                            <td>{{actividad.estado}}</td>\n                            <td><button type=\"button\" class=\"btn btn-outline-success\"\n                                    (click)=\"abrirActividad(actividad)\">Resumen</button></td>\n                            <td><i (click)=\"editarA(actividad)\" class=\"fa fa-edit\"></i></td>\n                            <td><i (click)=\"borrarA(actividad)\" class=\"fa fa-trash-o\"></i></td>\n                        </tr>\n                    </tbody>\n                </table>\n            </div>\n        </div>\n    </div>\n    <div *ngIf=\"gestionClases\" class=\"col-md-10\">\n        <br>\n        <div class=\"row justify-content-md-center\">\n            <div class=\"col-md-9\">\n                <h4>Clases</h4>\n            </div>\n            <div class=\"col-md-3\">\n                <button type=\"button\" *ngIf=\"!crearClase\" (click)=\"abrirCrearClase()\"\n                    class=\"btn btn-outline-primary\">Crear\n                    Clase</button>\n                <button type=\"button\" *ngIf=\"crearClase\" (click)=\"cerrarModal()\"\n                    class=\"btn btn-outline-danger\">Cancelar</button>\n            </div>\n        </div>\n        <br>\n        <div class=\"col-md-11\">\n            <app-crear-clase *ngIf=\"crearClase\" [estudiantes]=\"listaAlumnos\"></app-crear-clase>\n            <app-editar-clase *ngIf=\"editarClase\" [estudiantes]=\"listaAlumnos\" [editarActividad]=\"ClaseparaEditar\">\n            </app-editar-clase>\n        </div>\n        <br>\n        <div *ngIf=\"verClase\">\n            <!--<app-ver-clase [actividad]=\"actividadSelected\" [aluConectados]=\"alumnosConectados\"\n                ></app-ver-clase>-->\n        </div>\n        <div *ngIf=\"!verActividad\" class=\"row justify-content-md-center\">\n            <div class=\"col-md-10\">\n                <h3>Lista de Clases</h3>\n                <table class=\"table table-striped\">\n                    <thead>\n                        <tr>\n                            <th scope=\"col\">Nombre</th>\n                            <th scope=\"col\">Profesor</th>\n                            <th scope=\"col\"></th>\n                            <th scope=\"col\"></th>\n                            <th scope=\"col\"></th>\n                        </tr>\n                    </thead>\n                    <tbody *ngFor=\"let clase of listaClases\">\n                        <tr>\n                            <td>{{clase.nombre}}</td>\n                            <td>{{clase.profesor}}</td>\n                            <td><button type=\"button\" class=\"btn btn-outline-primary\"\n                                    (click)=\"crearActividadAsociada(clase)\">Crear Actividad</button></td>\n                            <td><i (click)=\"editarC(clase)\" class=\"fa fa-edit\"></i></td>\n                            <td><i (click)=\"borrarC(clase)\" class=\"fa fa-trash-o\"></i></td>\n                        </tr>\n                    </tbody>\n                </table>\n            </div>\n        </div>\n    </div>\n</div>");
 
 /***/ }),
 
@@ -396,7 +435,20 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"row justify-content-md-center\">\n    <div class=\"col-12\">\n        <h5 class=\"text-center\" *ngIf=\"actividad.estado=='Creada'\">Actividad sin empezar</h5>\n        <h5 class=\"text-center\" *ngIf=\"actividad.estado=='Comenzada'\">Actividad empezada</h5>\n        <h5 class=\"text-center\" *ngIf=\"actividad.estado=='Finalizada'\">Actividad finalizada</h5>\n    </div>\n</div>\n<div class=\"row justify-content-md-center\">\n    <div class=\"col-2\">\n        <button type=\"button\" class=\"btn btn-outline-danger\" (click)=\"cerrarActividad()\">Cerrar Actividad</button>\n    </div>\n    <div class=\"col-8\">\n        <div *ngIf=\"actividad.estado=='Creada'\" class=\"progress\">\n            <div class=\"progress-bar bg-success\" role=\"progressbar\" style=\"width: 0%\" aria-valuenow=\"25\"\n                aria-valuemin=\"0\" aria-valuemax=\"100\"></div>\n        </div>\n        <div *ngIf=\"actividad.estado=='Comenzada'\" class=\"progress\">\n            <div class=\"progress-bar bg-success\" role=\"progressbar\" style=\"width: 50%\" aria-valuenow=\"50\"\n                aria-valuemin=\"0\" aria-valuemax=\"100\"></div>\n        </div>\n        <div *ngIf=\"actividad.estado=='Finalizada'\" class=\"progress\">\n            <div class=\"progress-bar bg-success\" role=\"progressbar\" style=\"width: 100%\" aria-valuenow=\"75\"\n                aria-valuemin=\"0\" aria-valuemax=\"100\"></div>\n        </div>\n    </div>\n    <div class=\"col-2\">\n        <button *ngIf=\"actividad.estado=='Creada'\" type=\"button\" class=\"btn btn-outline-dark disenable\"\n            (click)=\"comenzar()\">Comenzar</button>\n        <button *ngIf=\"actividad.estado=='Comenzada'\" type=\"button\" class=\"btn btn-outline-dark disenable\"\n            (click)=\"terminar()\">Terminar</button>\n    </div>\n</div>\n<br>\n<div class=\"row justify-content-md-center\">\n    <div *ngIf=\"vistaGeneral\" class=\"btn-group btn-group-toggle\">\n        <label class=\"btn btn-outline-primary active\">\n            <input type=\"radio\" name=\"options\" id=\"general\" (click)=\"cambiarAGeneral()\" checked> General\n        </label>\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAMapa()\"> Mapa de la clase\n        </label>\n    </div>\n    <div *ngIf=\"vistaMapaDeLaClase\" class=\"btn-group btn-group-toggle\">\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"general\" (click)=\"cambiarAGeneral()\"> General\n        </label>\n        <label class=\"btn btn-outline-primary active\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAMapa()\" checked> Mapa de la clase\n        </label>\n    </div>\n</div>\n<br>\n<div class=\"row justify-content-center\">\n    <div class=\"col-5\">\n        <div class=\"card-body\">\n            <h5 class=\"text-center card-title\">Usuarios Conectados</h5>\n            <div class=\"card-content\">\n                <canvas id=\"usersConectados\"></canvas>\n                <h6 class=\"text-center\">{{porUsuariosConectados}}% Usuarios conectados</h6>\n                <!--<h6 >{{((usuariosConectados.length()/usuariosTotales)*100)}}%</h6>-->\n            </div>\n        </div>\n    </div>\n    <div class=\"col-7\">\n\n    </div>\n\n    \n</div>\n<div class=\"row\">\n    <div class=\"card-body\">\n        <div class=\"row\">\n            <h5 class=\"col-4 text-center card-title\">Grafica</h5>\n            <div class=\"col-4\">\n                <div class=\"btn-group\">\n                    <button type=\"button\" class=\"btn btn-info dropdown-toggle\" data-toggle=\"dropdown\"\n                        aria-haspopup=\"true\" aria-expanded=\"false\">\n                        {{estadoSeleccionado}}\n                    </button>\n                    <div class=\"dropdown-menu\">\n                        <a class=\"dropdown-item\" *ngFor=\"let estado of estados\"\n                            (click)=\"seleccionarEstado(estado)\">{{estado}}</a>\n                    </div>\n                </div>\n            </div>\n            <div class=\"col-4\">\n                <div class=\"btn-group\">\n                    <button type=\"button\" class=\"btn btn-info dropdown-toggle\" data-toggle=\"dropdown\"\n                        aria-haspopup=\"true\" aria-expanded=\"false\">\n                        {{alumnoSeleccionado}}\n                    </button>\n                    <div class=\"dropdown-menu\">\n                        <a *ngIf=\"alumnoSeleccionadoAlumno\" class=\"dropdown-item\"\n                            (click)=\"seleccionarMediaAlumnos()\">Media de la clase</a>\n                        <a class=\"dropdown-item\" *ngFor=\"let alumno of alumnos\"\n                            (click)=\"seleccionarAlumno(alumno)\">{{alumno.estudiante.nombre}}</a>\n                    </div>\n                </div>\n            </div>\n        </div>\n\n    </div>\n</div>\n<div class=\"row\">\n    <div class=\"col-12\">\n        <div class=\"card-content\">\n            <canvas id=\"graficaLineal\"></canvas>\n        </div>\n    </div>\n</div>\n<div *ngIf=\"vistaMapaDeLaClase\" class=\"row justify-content-md-center\">\n    <div class=\"card col-md-11\">\n        <div class=\"card-body\">\n            <h5 class=\"card-title\">Distribucion de la clase</h5>\n            <div id=\"clase\" class=\"example-boundary\">\n                <div id=\"{{item.id_item}}\" *ngFor=\"let item of actividad.alumnos\" class=\"example-box\"\n                    ondrop=\"myFunction(item)\" [cdkDragFreeDragPosition]=\"item.posicion\"\n                    cdkDragBoundary=\".example-boundary\" cdkDrag (cdkDragEnded)=\"dragEnded($event,item)\">\n                    {{item.estudiante.nombre}}\n                </div>\n            </div>\n        </div>\n    </div>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"row\">\n    <div class=\"col-12\">\n        <h3 class=\"text-center\">{{actividad.nombre}}</h3>\n    </div>\n</div>\n<div class=\"row justify-content-md-center\">\n    <div class=\"col-12\">\n        <h5 class=\"text-center\" *ngIf=\"actividad.estado=='Creada'\">Actividad sin empezar</h5>\n        <h5 class=\"text-center\" *ngIf=\"actividad.estado=='Comenzada'\">Actividad empezada</h5>\n        <h5 class=\"text-center\" *ngIf=\"actividad.estado=='Finalizada'\">Actividad finalizada</h5>\n    </div>\n</div>\n<div class=\"row justify-content-md-center\">\n    <div class=\"col-2\">\n        <button type=\"button\" class=\"btn btn-outline-danger\" (click)=\"cerrarActividad()\">Cerrar Actividad</button>\n    </div>\n    <div class=\"col-8\">\n        <div *ngIf=\"actividad.estado=='Creada'\" class=\"progress\">\n            <div class=\"progress-bar bg-success\" role=\"progressbar\" style=\"width: 0%\" aria-valuenow=\"25\"\n                aria-valuemin=\"0\" aria-valuemax=\"100\"></div>\n        </div>\n        <div *ngIf=\"actividad.estado=='Comenzada'\" class=\"progress\">\n            <div class=\"progress-bar bg-success\" role=\"progressbar\" style=\"width: 50%\" aria-valuenow=\"50\"\n                aria-valuemin=\"0\" aria-valuemax=\"100\"></div>\n        </div>\n        <div *ngIf=\"actividad.estado=='Finalizada'\" class=\"progress\">\n            <div class=\"progress-bar bg-success\" role=\"progressbar\" style=\"width: 100%\" aria-valuenow=\"75\"\n                aria-valuemin=\"0\" aria-valuemax=\"100\"></div>\n        </div>\n    </div>\n    <div class=\"col-2\">\n        <button *ngIf=\"actividad.estado=='Creada'\" type=\"button\" class=\"btn btn-outline-dark disenable\"\n            (click)=\"comenzar()\">Comenzar</button>\n        <button *ngIf=\"actividad.estado=='Comenzada'\" type=\"button\" class=\"btn btn-outline-dark disenable\"\n            (click)=\"terminar()\">Terminar</button>\n    </div>\n</div>\n<br>\n<div class=\"row justify-content-md-center\">\n    <div *ngIf=\"vistaGeneral\" class=\"btn-group btn-group-toggle\">\n        <label class=\"btn btn-outline-primary active\">\n            <input type=\"radio\" name=\"options\" id=\"general\" (click)=\"cambiarAGeneral()\" checked> General\n        </label>\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAMapa()\"> Mapa de la clase\n        </label>\n    </div>\n    <div *ngIf=\"vistaMapaDeLaClase\" class=\"btn-group btn-group-toggle\">\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"general\" (click)=\"cambiarAGeneral()\"> General\n        </label>\n        <label class=\"btn btn-outline-primary active\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAMapa()\" checked> Mapa de la clase\n        </label>\n    </div>\n</div>\n<br>\n<div class=\"row justify-content-center\">\n    <div class=\"col-5\">\n        <div class=\"card-body\">\n            <h5 class=\"text-center card-title\">Usuarios Conectados</h5>\n            <div class=\"card-content\">\n                <canvas id=\"usersConectados\"></canvas>\n                <h6 class=\"text-center\">{{porUsuariosConectados}}% Usuarios conectados</h6>\n                <!--<h6 >{{((usuariosConectados.length()/usuariosTotales)*100)}}%</h6>-->\n            </div>\n        </div>\n    </div>\n    <div class=\"col-7\">\n\n    </div>\n\n\n</div>\n<div class=\"row\">\n    <div class=\"card-body\">\n        <div class=\"row\">\n            <h5 class=\"col-4 text-center card-title\">Grafica</h5>\n            <div class=\"col-4\">\n                <div class=\"btn-group\">\n                    <button type=\"button\" class=\"btn btn-info dropdown-toggle\" data-toggle=\"dropdown\"\n                        aria-haspopup=\"true\" aria-expanded=\"false\">\n                        {{estadoSeleccionado}}\n                    </button>\n                    <div class=\"dropdown-menu\">\n                        <a class=\"dropdown-item\" *ngFor=\"let estado of estados\"\n                            (click)=\"seleccionarEstado(estado)\">{{estado}}</a>\n                    </div>\n                </div>\n            </div>\n            <div class=\"col-4\">\n                <div class=\"btn-group\">\n                    <button type=\"button\" class=\"btn btn-info dropdown-toggle\" data-toggle=\"dropdown\"\n                        aria-haspopup=\"true\" aria-expanded=\"false\">\n                        {{alumnoSeleccionado}}\n                    </button>\n                    <div class=\"dropdown-menu\">\n                        <a *ngIf=\"alumnoSeleccionadoAlumno\" class=\"dropdown-item\"\n                            (click)=\"seleccionarMediaAlumnos()\">Media de la clase</a>\n                        <a class=\"dropdown-item\" *ngFor=\"let alumno of alumnos\"\n                            (click)=\"seleccionarAlumno(alumno)\">{{alumno.estudiante.nombre}}</a>\n                    </div>\n                </div>\n            </div>\n        </div>\n\n    </div>\n</div>\n<div class=\"row\">\n    <div class=\"col-12\">\n        <div class=\"card-content\">\n            <canvas id=\"graficaLineal\"></canvas>\n        </div>\n    </div>\n</div>\n<div *ngIf=\"vistaMapaDeLaClase\" class=\"row justify-content-md-center\">\n    <div class=\"card col-md-11\">\n        <div class=\"card-body\">\n            <h5 class=\"card-title\">Distribucion de la clase</h5>\n            <div id=\"clase\" class=\"example-boundary\">\n                <div id=\"{{item.id_item}}\" *ngFor=\"let item of actividad.alumnos\" class=\"example-box\"\n                    ondrop=\"myFunction(item)\" [cdkDragFreeDragPosition]=\"item.posicion\"\n                    cdkDragBoundary=\".example-boundary\" cdkDrag (cdkDragEnded)=\"dragEnded($event,item)\">\n                    {{item.estudiante.nombre}}\n                </div>\n            </div>\n        </div>\n    </div>\n</div>");
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/profesor/ver-clase/ver-clase.component.html":
+/*!***************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/profesor/ver-clase/ver-clase.component.html ***!
+  \***************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<p>ver-clase works!</p>\n");
 
 /***/ }),
 
@@ -633,13 +685,14 @@ function __importDefault(mod) {
 /*!************************************!*\
   !*** ./src/app/Modelos/modelos.ts ***!
   \************************************/
-/*! exports provided: Estudiante, Alumnos */
+/*! exports provided: Estudiante, Alumnos, AlumnosClase */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Estudiante", function() { return Estudiante; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Alumnos", function() { return Alumnos; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AlumnosClase", function() { return AlumnosClase; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 
 class Estudiante {
@@ -690,6 +743,13 @@ class Alumnos {
     }
     setActividad(act) {
         this.id_item = this.estudiante._id + act._id;
+    }
+}
+class AlumnosClase {
+    constructor(est, posicion, act) {
+        this.posicion = {};
+        this.estudiante = est;
+        this.posicion = posicion;
     }
 }
 
@@ -881,6 +941,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _profesor_crear_actividad_crear_actividad_component__WEBPACK_IMPORTED_MODULE_54__ = __webpack_require__(/*! ./profesor/crear-actividad/crear-actividad.component */ "./src/app/profesor/crear-actividad/crear-actividad.component.ts");
 /* harmony import */ var _profesor_ver_actividad_ver_actividad_component__WEBPACK_IMPORTED_MODULE_55__ = __webpack_require__(/*! ./profesor/ver-actividad/ver-actividad.component */ "./src/app/profesor/ver-actividad/ver-actividad.component.ts");
 /* harmony import */ var _profesor_editar_actividad_editar_actividad_component__WEBPACK_IMPORTED_MODULE_56__ = __webpack_require__(/*! ./profesor/editar-actividad/editar-actividad.component */ "./src/app/profesor/editar-actividad/editar-actividad.component.ts");
+/* harmony import */ var _profesor_crear_clase_crear_clase_component__WEBPACK_IMPORTED_MODULE_57__ = __webpack_require__(/*! ./profesor/crear-clase/crear-clase.component */ "./src/app/profesor/crear-clase/crear-clase.component.ts");
+/* harmony import */ var _profesor_editar_clase_editar_clase_component__WEBPACK_IMPORTED_MODULE_58__ = __webpack_require__(/*! ./profesor/editar-clase/editar-clase.component */ "./src/app/profesor/editar-clase/editar-clase.component.ts");
+/* harmony import */ var _profesor_ver_clase_ver_clase_component__WEBPACK_IMPORTED_MODULE_59__ = __webpack_require__(/*! ./profesor/ver-clase/ver-clase.component */ "./src/app/profesor/ver-clase/ver-clase.component.ts");
+/* harmony import */ var _profesor_mensaje_mensaje_component__WEBPACK_IMPORTED_MODULE_60__ = __webpack_require__(/*! ./profesor/mensaje/mensaje.component */ "./src/app/profesor/mensaje/mensaje.component.ts");
 
 /*
 import { NgModule } from '@angular/core';
@@ -892,6 +956,10 @@ import {MatStepperModule} from '@angular/material/stepper';*/
 
 
 //import {ClipboardModule} from '@angular/cdk/clipboard';
+
+
+
+
 
 
 
@@ -958,6 +1026,10 @@ AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
             _profesor_crear_actividad_crear_actividad_component__WEBPACK_IMPORTED_MODULE_54__["CrearActividadComponent"],
             _profesor_ver_actividad_ver_actividad_component__WEBPACK_IMPORTED_MODULE_55__["VerActividadComponent"],
             _profesor_editar_actividad_editar_actividad_component__WEBPACK_IMPORTED_MODULE_56__["EditarActividadComponent"],
+            _profesor_crear_clase_crear_clase_component__WEBPACK_IMPORTED_MODULE_57__["CrearClaseComponent"],
+            _profesor_editar_clase_editar_clase_component__WEBPACK_IMPORTED_MODULE_58__["EditarClaseComponent"],
+            _profesor_ver_clase_ver_clase_component__WEBPACK_IMPORTED_MODULE_59__["VerClaseComponent"],
+            _profesor_mensaje_mensaje_component__WEBPACK_IMPORTED_MODULE_60__["MensajeComponent"],
         ],
         exports: [
             _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_33__["MatSidenavModule"],
@@ -1015,7 +1087,8 @@ AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
             _angular_material_icon__WEBPACK_IMPORTED_MODULE_23__["MatIconModule"],
             _angular_material_list__WEBPACK_IMPORTED_MODULE_25__["MatListModule"],
             _angular_material_stepper__WEBPACK_IMPORTED_MODULE_17__["MatStepperModule"],
-            _angular_material_input__WEBPACK_IMPORTED_MODULE_24__["MatInputModule"]
+            _angular_material_input__WEBPACK_IMPORTED_MODULE_24__["MatInputModule"],
+            _profesor_mensaje_mensaje_component__WEBPACK_IMPORTED_MODULE_60__["MensajeComponent"],
         ],
         imports: [
             _angular_platform_browser__WEBPACK_IMPORTED_MODULE_43__["BrowserModule"],
@@ -1045,6 +1118,7 @@ AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
             _angular_material_stepper__WEBPACK_IMPORTED_MODULE_17__["MatStepperModule"],
             _socketio_service__WEBPACK_IMPORTED_MODULE_47__["SocketioService"],
         ],
+        entryComponents: [_profesor_mensaje_mensaje_component__WEBPACK_IMPORTED_MODULE_60__["MensajeComponent"]],
         bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_49__["AppComponent"]]
     })
 ], AppModule);
@@ -1926,6 +2000,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_cdk_collections__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/cdk/collections */ "./node_modules/@angular/cdk/esm2015/collections.js");
 /* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm2015/material.js");
 /* harmony import */ var _Modelos_modelos__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../Modelos/modelos */ "./src/app/Modelos/modelos.ts");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var moment_locale_es__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! moment/locale/es */ "./node_modules/moment/locale/es.js");
+/* harmony import */ var moment_locale_es__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(moment_locale_es__WEBPACK_IMPORTED_MODULE_7__);
+
+
 
 
 
@@ -1943,6 +2023,7 @@ let CrearActividadComponent = class CrearActividadComponent {
         this.actividadCreate = {
             nombre: '',
             profesor: '',
+            fecha: '',
             alumnos: {},
             estado: 'Creada',
             resumen: {
@@ -2065,12 +2146,14 @@ let CrearActividadComponent = class CrearActividadComponent {
         this.actividadCreate.alumnos=alumnos;
         */
         //MODIFICADO
+        this.actividadCreate.fecha = moment__WEBPACK_IMPORTED_MODULE_6__().format('LLLL');
         this.actividadCreate.alumnos = this.alumnosSeleccionados;
         console.log(this.actividadCreate);
         this.actividadCreada.emit(this.actividadCreate);
         this.actividadCreate = {
             nombre: '',
             profesor: '',
+            fecha: '',
             alumnos: {},
             estado: '',
             resumen: {
@@ -2120,6 +2203,229 @@ CrearActividadComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 /***/ }),
 
+/***/ "./src/app/profesor/crear-clase/crear-clase.component.css":
+/*!****************************************************************!*\
+  !*** ./src/app/profesor/crear-clase/crear-clase.component.css ***!
+  \****************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("table {\n    width: 100%;\n  }\n  \n  .example-container {\n    display: -webkit-box;\n    display: flex;\n    -webkit-box-orient: vertical;\n    -webkit-box-direction: normal;\n            flex-direction: column;\n    min-width: 300px;\n  }\n  \n  .example-header {\n    min-height: 64px;\n    padding: 8px 24px 0;\n  }\n  \n  .mat-form-field {\n    font-size: 14px;\n    width: 100%;\n  }\n  \n  .mat-table {\n    overflow: auto;\n    max-height: 500px;\n  }\n  \n  .example-box {\n    width: 70px;\n    height: 70px;\n    border: solid 1px #ccc;\n    color: rgba(0, 0, 0, 0.87);\n    cursor: move;\n    display: -webkit-inline-box;\n    display: inline-flex;\n    -webkit-box-pack: center;\n            justify-content: center;\n    -webkit-box-align: center;\n            align-items: center;\n    text-align: center;\n    background: #fff;\n    border-radius: 4px;\n    margin-right: 0px;\n    position: relative;\n    z-index: 1;\n    box-sizing: border-box;\n    padding: 10px;\n    -webkit-transition: box-shadow 200ms cubic-bezier(0, 0, 0.2, 1);\n    transition: box-shadow 200ms cubic-bezier(0, 0, 0.2, 1);\n    box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);\n  }\n  \n  .example-box:active {\n    box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2), 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12);\n  }\n  \n  .example-boundary {\n    width: 400px;\n    height: 400px;\n    max-width: 100%;\n    border: dotted #ccc 2px;\n  }\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcHJvZmVzb3IvY3JlYXItY2xhc2UvY3JlYXItY2xhc2UuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtJQUNJLFdBQVc7RUFDYjs7RUFFQTtJQUNFLG9CQUFhO0lBQWIsYUFBYTtJQUNiLDRCQUFzQjtJQUF0Qiw2QkFBc0I7WUFBdEIsc0JBQXNCO0lBQ3RCLGdCQUFnQjtFQUNsQjs7RUFFQTtJQUNFLGdCQUFnQjtJQUNoQixtQkFBbUI7RUFDckI7O0VBRUE7SUFDRSxlQUFlO0lBQ2YsV0FBVztFQUNiOztFQUVBO0lBQ0UsY0FBYztJQUNkLGlCQUFpQjtFQUNuQjs7RUFFQTtJQUNFLFdBQVc7SUFDWCxZQUFZO0lBQ1osc0JBQXNCO0lBQ3RCLDBCQUEwQjtJQUMxQixZQUFZO0lBQ1osMkJBQW9CO0lBQXBCLG9CQUFvQjtJQUNwQix3QkFBdUI7WUFBdkIsdUJBQXVCO0lBQ3ZCLHlCQUFtQjtZQUFuQixtQkFBbUI7SUFDbkIsa0JBQWtCO0lBQ2xCLGdCQUFnQjtJQUNoQixrQkFBa0I7SUFDbEIsaUJBQWlCO0lBQ2pCLGtCQUFrQjtJQUNsQixVQUFVO0lBQ1Ysc0JBQXNCO0lBQ3RCLGFBQWE7SUFDYiwrREFBdUQ7SUFBdkQsdURBQXVEO0lBQ3ZELCtHQUErRztFQUNqSDs7RUFFQTtJQUNFLHFIQUFxSDtFQUN2SDs7RUFFQTtJQUNFLFlBQVk7SUFDWixhQUFhO0lBQ2IsZUFBZTtJQUNmLHVCQUF1QjtFQUN6QiIsImZpbGUiOiJzcmMvYXBwL3Byb2Zlc29yL2NyZWFyLWNsYXNlL2NyZWFyLWNsYXNlLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyJ0YWJsZSB7XG4gICAgd2lkdGg6IDEwMCU7XG4gIH1cbiAgXG4gIC5leGFtcGxlLWNvbnRhaW5lciB7XG4gICAgZGlzcGxheTogZmxleDtcbiAgICBmbGV4LWRpcmVjdGlvbjogY29sdW1uO1xuICAgIG1pbi13aWR0aDogMzAwcHg7XG4gIH1cbiAgXG4gIC5leGFtcGxlLWhlYWRlciB7XG4gICAgbWluLWhlaWdodDogNjRweDtcbiAgICBwYWRkaW5nOiA4cHggMjRweCAwO1xuICB9XG4gIFxuICAubWF0LWZvcm0tZmllbGQge1xuICAgIGZvbnQtc2l6ZTogMTRweDtcbiAgICB3aWR0aDogMTAwJTtcbiAgfVxuICBcbiAgLm1hdC10YWJsZSB7XG4gICAgb3ZlcmZsb3c6IGF1dG87XG4gICAgbWF4LWhlaWdodDogNTAwcHg7XG4gIH1cbiAgXG4gIC5leGFtcGxlLWJveCB7XG4gICAgd2lkdGg6IDcwcHg7XG4gICAgaGVpZ2h0OiA3MHB4O1xuICAgIGJvcmRlcjogc29saWQgMXB4ICNjY2M7XG4gICAgY29sb3I6IHJnYmEoMCwgMCwgMCwgMC44Nyk7XG4gICAgY3Vyc29yOiBtb3ZlO1xuICAgIGRpc3BsYXk6IGlubGluZS1mbGV4O1xuICAgIGp1c3RpZnktY29udGVudDogY2VudGVyO1xuICAgIGFsaWduLWl0ZW1zOiBjZW50ZXI7XG4gICAgdGV4dC1hbGlnbjogY2VudGVyO1xuICAgIGJhY2tncm91bmQ6ICNmZmY7XG4gICAgYm9yZGVyLXJhZGl1czogNHB4O1xuICAgIG1hcmdpbi1yaWdodDogMHB4O1xuICAgIHBvc2l0aW9uOiByZWxhdGl2ZTtcbiAgICB6LWluZGV4OiAxO1xuICAgIGJveC1zaXppbmc6IGJvcmRlci1ib3g7XG4gICAgcGFkZGluZzogMTBweDtcbiAgICB0cmFuc2l0aW9uOiBib3gtc2hhZG93IDIwMG1zIGN1YmljLWJlemllcigwLCAwLCAwLjIsIDEpO1xuICAgIGJveC1zaGFkb3c6IDAgM3B4IDFweCAtMnB4IHJnYmEoMCwgMCwgMCwgMC4yKSwgMCAycHggMnB4IDAgcmdiYSgwLCAwLCAwLCAwLjE0KSwgMCAxcHggNXB4IDAgcmdiYSgwLCAwLCAwLCAwLjEyKTtcbiAgfVxuICBcbiAgLmV4YW1wbGUtYm94OmFjdGl2ZSB7XG4gICAgYm94LXNoYWRvdzogMCA1cHggNXB4IC0zcHggcmdiYSgwLCAwLCAwLCAwLjIpLCAwIDhweCAxMHB4IDFweCByZ2JhKDAsIDAsIDAsIDAuMTQpLCAwIDNweCAxNHB4IDJweCByZ2JhKDAsIDAsIDAsIDAuMTIpO1xuICB9XG4gIFxuICAuZXhhbXBsZS1ib3VuZGFyeSB7XG4gICAgd2lkdGg6IDQwMHB4O1xuICAgIGhlaWdodDogNDAwcHg7XG4gICAgbWF4LXdpZHRoOiAxMDAlO1xuICAgIGJvcmRlcjogZG90dGVkICNjY2MgMnB4O1xuICB9Il19 */");
+
+/***/ }),
+
+/***/ "./src/app/profesor/crear-clase/crear-clase.component.ts":
+/*!***************************************************************!*\
+  !*** ./src/app/profesor/crear-clase/crear-clase.component.ts ***!
+  \***************************************************************/
+/*! exports provided: CrearClaseComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CrearClaseComponent", function() { return CrearClaseComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
+/* harmony import */ var _angular_cdk_collections__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/cdk/collections */ "./node_modules/@angular/cdk/esm2015/collections.js");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm2015/material.js");
+/* harmony import */ var _Modelos_modelos__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../Modelos/modelos */ "./src/app/Modelos/modelos.ts");
+/* harmony import */ var _profesor_profesor_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../profesor/profesor.component */ "./src/app/profesor/profesor.component.ts");
+
+
+
+
+
+
+
+let CrearClaseComponent = class CrearClaseComponent {
+    constructor(_formBuilder, profesor) {
+        this._formBuilder = _formBuilder;
+        this.profesor = profesor;
+        //@Input() editarActividad: Actividad;
+        //@Output() actividadCreada = new EventEmitter<Object>();
+        //Prueba de una tabla con filtro y paginacion
+        this.displayedColumns = ['select', 'nombre', 'apellidos', 'clase'];
+        this.selection = new _angular_cdk_collections__WEBPACK_IMPORTED_MODULE_3__["SelectionModel"](true, []);
+        this.dragPosition = { x: 0, y: 0 };
+        this.claseCreate = {
+            nombre: '',
+            profesor: '',
+            alumnos: {},
+            actividades: [],
+            resumen: {
+                alegria: [],
+                asco: [],
+                miedo: [],
+                sorpresa: [],
+                tristeza: [],
+                ira: [],
+                pulsaciones: [],
+                tiempo: [],
+                distraido: [],
+                concentrado: [],
+                frustrado: [],
+                motivado: [],
+            },
+        };
+        this.alumnosSeleccionados = [];
+        this.estudiante = {
+            nombre: '',
+            apellidos: '',
+            clase: '',
+            posicionX: 0,
+            posicionY: 0,
+        };
+    }
+    ngOnInit() {
+        this.datosPrimarios = this._formBuilder.group({
+            fromControlNombreActividad: true,
+            fromControlNombreProfesor: true //['', Validators.required]
+        });
+    }
+    ngOnChanges() {
+        this.dataSource = new _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatTableDataSource"](this.estudiantes);
+    }
+    ngAfterViewInit() {
+        this.dataSource.paginator = this.paginator;
+        this.dataSource.sort = this.sort;
+    }
+    applyFilter(filterValue) {
+        filterValue = filterValue.trim(); // Remove whitespace
+        filterValue = filterValue.toLowerCase(); // Datasource defaults to lowercase matches
+        this.dataSource.filter = filterValue;
+    }
+    /** Whether the number of selected elements matches the total number of rows. */
+    isAllSelected() {
+        const numSelected = this.selection.selected.length;
+        const numRows = this.dataSource.data.length;
+        return numSelected === numRows;
+    }
+    /** Selects all rows if they are not all selected; otherwise clear selection. */
+    masterToggle() {
+        this.isAllSelected() ?
+            this.selection.clear() :
+            this.dataSource.data.forEach(row => this.selection.select(row));
+    }
+    checkboxLabel(row) {
+        if (!row) {
+            return `${this.isAllSelected() ? 'select' : 'deselect'} all`;
+        }
+        return `${this.selection.isSelected(row) ? 'deselect' : 'select'}`;
+    }
+    comprobarSeleccionados() {
+        return (this.selection.selected.length > 0);
+    }
+    ponerAlumnos() {
+        let fila = 0;
+        let columna = 0;
+        let arryaAlumnos = []; // = this.selection.selected;
+        for (let i = 0; i < this.selection.selected.length; i++) {
+            //MODIFICADO
+            /*if(columna<=5){
+              arryaAlumnos.push({
+                'nombre':this.selection.selected[i].nombre,
+                'apellidos':this.selection.selected[i].apellidos,
+                'clase':this.selection.selected[i].clase,
+      
+                posicion: {x:0,y:0},
+                posicionInicial:{x:columna*70,y:70*fila},
+                });
+              
+              
+              //arryaAlumnos[this.selection.selected[i].email]=this.selection.selected[i];
+                columna++;
+            }else{
+              fila++;
+              columna=0;
+              arryaAlumnos.push({
+                'nombre':this.selection.selected[i].nombre,
+                'apellidos':this.selection.selected[i].apellidos,
+                posicion: {x:0,y:0},
+                posicionInicial:{x:columna*70,y:70*fila},
+                });
+                columna++;
+            }*/
+            //MODIFICADO
+            arryaAlumnos.push(new _Modelos_modelos__WEBPACK_IMPORTED_MODULE_5__["AlumnosClase"](this.selection.selected[i], { x: 0, y: 0 }, this.claseCreate));
+        }
+        this.alumnosSeleccionados = arryaAlumnos;
+        /*this.claseCreate.alumnos=arryaAlumnos;
+        this.alumnosSeleccionados=this.selection.selected;*/
+        console.log(this.alumnosSeleccionados);
+    }
+    dragEnded($event, item) {
+        let posicion = $event.source.getFreeDragPosition();
+        item.posicion = $event.source.getFreeDragPosition();
+        console.log(item);
+        //this.alumno.posicion=this.dragPosition;
+    }
+    guardarActividad() {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
+            var ju = this;
+            this.claseCreate.alumnos = this.alumnosSeleccionados;
+            console.log(this.claseCreate);
+            //this.actividadCreada.emit(this.claseCreate);
+            $.ajax({
+                type: 'POST',
+                url: '/registrarClase',
+                data: JSON.stringify(ju.claseCreate),
+                success: function (data) {
+                    ju.profesor.actualizarClases();
+                },
+                contentType: 'application/json',
+                dataType: 'json'
+            });
+            this.claseCreate = {
+                nombre: '',
+                profesor: '',
+                alumnos: {},
+                actividades: [],
+                resumen: {
+                    alegria: [],
+                    asco: [],
+                    miedo: [],
+                    sorpresa: [],
+                    tristeza: [],
+                    ira: [],
+                    pulsaciones: [],
+                    tiempo: [],
+                    distraido: [],
+                    concentrado: [],
+                    frustrado: [],
+                    motivado: [],
+                },
+            };
+        });
+    }
+};
+CrearClaseComponent.ctorParameters = () => [
+    { type: _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormBuilder"] },
+    { type: _profesor_profesor_component__WEBPACK_IMPORTED_MODULE_6__["ProfesorComponent"] }
+];
+tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])()
+], CrearClaseComponent.prototype, "estudiantes", void 0);
+tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])(_angular_material__WEBPACK_IMPORTED_MODULE_4__["MatPaginator"], null)
+], CrearClaseComponent.prototype, "paginator", void 0);
+tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])(_angular_material__WEBPACK_IMPORTED_MODULE_4__["MatSort"], null)
+], CrearClaseComponent.prototype, "sort", void 0);
+CrearClaseComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-crear-clase',
+        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./crear-clase.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/profesor/crear-clase/crear-clase.component.html")).default,
+        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./crear-clase.component.css */ "./src/app/profesor/crear-clase/crear-clase.component.css")).default]
+    })
+], CrearClaseComponent);
+
+
+
+/***/ }),
+
 /***/ "./src/app/profesor/editar-actividad/editar-actividad.component.css":
 /*!**************************************************************************!*\
   !*** ./src/app/profesor/editar-actividad/editar-actividad.component.css ***!
@@ -2149,6 +2455,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Modelos_modelos__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../Modelos/modelos */ "./src/app/Modelos/modelos.ts");
 /* harmony import */ var _angular_cdk_collections__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/cdk/collections */ "./node_modules/@angular/cdk/esm2015/collections.js");
 /* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm2015/material.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_6__);
+
 
 
 
@@ -2159,6 +2468,209 @@ let EditarActividadComponent = class EditarActividadComponent {
     constructor(_formBuilder) {
         this._formBuilder = _formBuilder;
         this.actividadEditada = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+        //Prueba de una tabla con filtro y paginacion
+        this.displayedColumns = ['select', 'nombre', 'apellidos', 'clase'];
+        this.selection = new _angular_cdk_collections__WEBPACK_IMPORTED_MODULE_4__["SelectionModel"](true, []);
+        this.dragPosition = { x: 0, y: 0 };
+        this.alumnosSeleccionados = [];
+        this.arryaAlumnos = [];
+    }
+    ngOnInit() {
+        this.datosPrimarios = this._formBuilder.group({
+            fromControlNombreActividad: true,
+            fromControlNombreProfesor: true //['', Validators.required]
+        });
+        for (var i in this.editarActividad.alumnos) {
+            console.log(this.editarActividad.alumnos[i]);
+            //this.selection.selected.push(this.editarActividad.alumnos[i].estudiante);
+            //this.arryaAlumnos.push(new Alumnos(this.editarActividad.alumnos[i].estudiante, { x: 0, y: 0 }, this.editarActividad));
+        } /*
+        console.log(this.selection);*/
+        //this.selection.selected=this.editarActividad.alumnos.
+    }
+    ngOnChanges() {
+        this.dataSource = new _angular_material__WEBPACK_IMPORTED_MODULE_5__["MatTableDataSource"](this.estudiantes);
+        /*console.log("Prueba");
+        console.log(this.dataSource);*/
+        this.dataSource.data.forEach(row => {
+            for (var i in this.editarActividad.alumnos) {
+                if (this.editarActividad.alumnos[i].estudiante._id == row._id) {
+                    this.selection.select(row);
+                    this.actualizarr(row);
+                }
+            }
+            //this.actualizarr(row);
+            console.log(this.arryaAlumnos);
+        });
+    }
+    actualizarr(item) {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
+            this.arryaAlumnos.push(new _Modelos_modelos__WEBPACK_IMPORTED_MODULE_3__["Alumnos"](item, { x: 0, y: 0 }, this.editarActividad));
+            this.alumnosSeleccionados = this.arryaAlumnos;
+            this.ponerAlumnos;
+        });
+    }
+    applyFilter(filterValue) {
+        filterValue = filterValue.trim(); // Remove whitespace
+        filterValue = filterValue.toLowerCase(); // Datasource defaults to lowercase matches
+        this.dataSource.filter = filterValue;
+    }
+    ngAfterViewInit() {
+        this.dataSource.paginator = this.paginator;
+        this.dataSource.sort = this.sort;
+    }
+    /** Whether the number of selected elements matches the total number of rows. */
+    isAllSelected() {
+        const numSelected = this.selection.selected.length;
+        const numRows = this.dataSource.data.length;
+        return numSelected === numRows;
+    }
+    /** Selects all rows if they are not all selected; otherwise clear selection. */
+    masterToggle() {
+        this.isAllSelected() ?
+            this.selection.clear() :
+            this.dataSource.data.forEach(row => {
+                this.selection.select(row);
+                //this.arryaAlumnos.push(new Alumnos(row, { x: 0, y: 0 }, this.editarActividad))
+                //this.alumnosSeleccionados = this.arryaAlumnos;
+                this.ponerAlumnos();
+            });
+    }
+    checkboxLabel(row) {
+        if (!row) {
+            return `${this.isAllSelected() ? 'select' : 'deselect'} all`;
+        }
+        return `${this.selection.isSelected(row) ? 'deselect' : 'select'}`;
+    }
+    dragEnded($event, item) {
+        let posicion = $event.source.getFreeDragPosition();
+        item.posicion = $event.source.getFreeDragPosition();
+        //console.log(item);
+        //this.alumno.posicion=this.dragPosition;
+    }
+    comprobarSeleccionados() {
+        return (this.selection.selected.length > 0);
+    }
+    ponerAlumnos() {
+        this.arryaAlumnos = [];
+        this.arryaAlumnos.length = 0;
+        this.alumnosSeleccionados.length = 0;
+        this.alumnosSeleccionados = [];
+        console.log(this.alumnosSeleccionados);
+        let fila = 0;
+        let columna = 0;
+        // = this.selection.selected;
+        for (let i = 0; i < this.selection.selected.length; i++) {
+            //MODIFICADO
+            /*if(columna<=5){
+              arryaAlumnos.push({
+                'nombre':this.selection.selected[i].nombre,
+                'apellidos':this.selection.selected[i].apellidos,
+                'clase':this.selection.selected[i].clase,
+      
+                posicion: {x:0,y:0},
+                posicionInicial:{x:columna*70,y:70*fila},
+                });
+              
+              
+              //arryaAlumnos[this.selection.selected[i].email]=this.selection.selected[i];
+                columna++;
+            }else{
+              fila++;
+              columna=0;
+              arryaAlumnos.push({
+                'nombre':this.selection.selected[i].nombre,
+                'apellidos':this.selection.selected[i].apellidos,
+                posicion: {x:0,y:0},
+                posicionInicial:{x:columna*70,y:70*fila},
+                });
+                columna++;
+            }*/
+            //MODIFICADO
+            this.arryaAlumnos.push(new _Modelos_modelos__WEBPACK_IMPORTED_MODULE_3__["Alumnos"](this.selection.selected[i], { x: 0, y: 0 }, this.editarActividad));
+        }
+        this.alumnosSeleccionados = this.arryaAlumnos;
+        /*this.actividadCreate.alumnos=arryaAlumnos;
+        this.alumnosSeleccionados=this.selection.selected;*/
+        console.log(this.alumnosSeleccionados);
+    }
+    actualizar() {
+        this.editarActividad.fecha = moment__WEBPACK_IMPORTED_MODULE_6__().format('LLLL');
+        this.editarActividad.alumnos = this.alumnosSeleccionados;
+        this.actividadEditada.emit(this.editarActividad);
+    }
+};
+EditarActividadComponent.ctorParameters = () => [
+    { type: _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormBuilder"] }
+];
+tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])()
+], EditarActividadComponent.prototype, "estudiantes", void 0);
+tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])()
+], EditarActividadComponent.prototype, "editarActividad", void 0);
+tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])()
+], EditarActividadComponent.prototype, "actividadEditada", void 0);
+tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])(_angular_material__WEBPACK_IMPORTED_MODULE_5__["MatPaginator"], null)
+], EditarActividadComponent.prototype, "paginator", void 0);
+tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])(_angular_material__WEBPACK_IMPORTED_MODULE_5__["MatSort"], null)
+], EditarActividadComponent.prototype, "sort", void 0);
+EditarActividadComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-editar-actividad',
+        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./editar-actividad.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/profesor/editar-actividad/editar-actividad.component.html")).default,
+        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./editar-actividad.component.css */ "./src/app/profesor/editar-actividad/editar-actividad.component.css")).default]
+    })
+], EditarActividadComponent);
+
+
+
+/***/ }),
+
+/***/ "./src/app/profesor/editar-clase/editar-clase.component.css":
+/*!******************************************************************!*\
+  !*** ./src/app/profesor/editar-clase/editar-clase.component.css ***!
+  \******************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("table {\n    width: 100%;\n  }\n  \n  .example-container {\n    display: -webkit-box;\n    display: flex;\n    -webkit-box-orient: vertical;\n    -webkit-box-direction: normal;\n            flex-direction: column;\n    min-width: 300px;\n  }\n  \n  .example-header {\n    min-height: 64px;\n    padding: 8px 24px 0;\n  }\n  \n  .mat-form-field {\n    font-size: 14px;\n    width: 100%;\n  }\n  \n  .mat-table {\n    overflow: auto;\n    max-height: 500px;\n  }\n  \n  .example-box {\n    width: 70px;\n    height: 70px;\n    border: solid 1px #ccc;\n    color: rgba(0, 0, 0, 0.87);\n    cursor: move;\n    display: -webkit-inline-box;\n    display: inline-flex;\n    -webkit-box-pack: center;\n            justify-content: center;\n    -webkit-box-align: center;\n            align-items: center;\n    text-align: center;\n    background: #fff;\n    border-radius: 4px;\n    margin-right: 0px;\n    position: relative;\n    z-index: 1;\n    box-sizing: border-box;\n    padding: 10px;\n    -webkit-transition: box-shadow 200ms cubic-bezier(0, 0, 0.2, 1);\n    transition: box-shadow 200ms cubic-bezier(0, 0, 0.2, 1);\n    box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);\n  }\n  \n  .example-box:active {\n    box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2), 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12);\n  }\n  \n  .example-boundary {\n    width: 400px;\n    height: 400px;\n    max-width: 100%;\n    border: dotted #ccc 2px;\n  }\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcHJvZmVzb3IvZWRpdGFyLWNsYXNlL2VkaXRhci1jbGFzZS5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0lBQ0ksV0FBVztFQUNiOztFQUVBO0lBQ0Usb0JBQWE7SUFBYixhQUFhO0lBQ2IsNEJBQXNCO0lBQXRCLDZCQUFzQjtZQUF0QixzQkFBc0I7SUFDdEIsZ0JBQWdCO0VBQ2xCOztFQUVBO0lBQ0UsZ0JBQWdCO0lBQ2hCLG1CQUFtQjtFQUNyQjs7RUFFQTtJQUNFLGVBQWU7SUFDZixXQUFXO0VBQ2I7O0VBRUE7SUFDRSxjQUFjO0lBQ2QsaUJBQWlCO0VBQ25COztFQUVBO0lBQ0UsV0FBVztJQUNYLFlBQVk7SUFDWixzQkFBc0I7SUFDdEIsMEJBQTBCO0lBQzFCLFlBQVk7SUFDWiwyQkFBb0I7SUFBcEIsb0JBQW9CO0lBQ3BCLHdCQUF1QjtZQUF2Qix1QkFBdUI7SUFDdkIseUJBQW1CO1lBQW5CLG1CQUFtQjtJQUNuQixrQkFBa0I7SUFDbEIsZ0JBQWdCO0lBQ2hCLGtCQUFrQjtJQUNsQixpQkFBaUI7SUFDakIsa0JBQWtCO0lBQ2xCLFVBQVU7SUFDVixzQkFBc0I7SUFDdEIsYUFBYTtJQUNiLCtEQUF1RDtJQUF2RCx1REFBdUQ7SUFDdkQsK0dBQStHO0VBQ2pIOztFQUVBO0lBQ0UscUhBQXFIO0VBQ3ZIOztFQUVBO0lBQ0UsWUFBWTtJQUNaLGFBQWE7SUFDYixlQUFlO0lBQ2YsdUJBQXVCO0VBQ3pCIiwiZmlsZSI6InNyYy9hcHAvcHJvZmVzb3IvZWRpdGFyLWNsYXNlL2VkaXRhci1jbGFzZS5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsidGFibGUge1xuICAgIHdpZHRoOiAxMDAlO1xuICB9XG4gIFxuICAuZXhhbXBsZS1jb250YWluZXIge1xuICAgIGRpc3BsYXk6IGZsZXg7XG4gICAgZmxleC1kaXJlY3Rpb246IGNvbHVtbjtcbiAgICBtaW4td2lkdGg6IDMwMHB4O1xuICB9XG4gIFxuICAuZXhhbXBsZS1oZWFkZXIge1xuICAgIG1pbi1oZWlnaHQ6IDY0cHg7XG4gICAgcGFkZGluZzogOHB4IDI0cHggMDtcbiAgfVxuICBcbiAgLm1hdC1mb3JtLWZpZWxkIHtcbiAgICBmb250LXNpemU6IDE0cHg7XG4gICAgd2lkdGg6IDEwMCU7XG4gIH1cbiAgXG4gIC5tYXQtdGFibGUge1xuICAgIG92ZXJmbG93OiBhdXRvO1xuICAgIG1heC1oZWlnaHQ6IDUwMHB4O1xuICB9XG4gIFxuICAuZXhhbXBsZS1ib3gge1xuICAgIHdpZHRoOiA3MHB4O1xuICAgIGhlaWdodDogNzBweDtcbiAgICBib3JkZXI6IHNvbGlkIDFweCAjY2NjO1xuICAgIGNvbG9yOiByZ2JhKDAsIDAsIDAsIDAuODcpO1xuICAgIGN1cnNvcjogbW92ZTtcbiAgICBkaXNwbGF5OiBpbmxpbmUtZmxleDtcbiAgICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjtcbiAgICBhbGlnbi1pdGVtczogY2VudGVyO1xuICAgIHRleHQtYWxpZ246IGNlbnRlcjtcbiAgICBiYWNrZ3JvdW5kOiAjZmZmO1xuICAgIGJvcmRlci1yYWRpdXM6IDRweDtcbiAgICBtYXJnaW4tcmlnaHQ6IDBweDtcbiAgICBwb3NpdGlvbjogcmVsYXRpdmU7XG4gICAgei1pbmRleDogMTtcbiAgICBib3gtc2l6aW5nOiBib3JkZXItYm94O1xuICAgIHBhZGRpbmc6IDEwcHg7XG4gICAgdHJhbnNpdGlvbjogYm94LXNoYWRvdyAyMDBtcyBjdWJpYy1iZXppZXIoMCwgMCwgMC4yLCAxKTtcbiAgICBib3gtc2hhZG93OiAwIDNweCAxcHggLTJweCByZ2JhKDAsIDAsIDAsIDAuMiksIDAgMnB4IDJweCAwIHJnYmEoMCwgMCwgMCwgMC4xNCksIDAgMXB4IDVweCAwIHJnYmEoMCwgMCwgMCwgMC4xMik7XG4gIH1cbiAgXG4gIC5leGFtcGxlLWJveDphY3RpdmUge1xuICAgIGJveC1zaGFkb3c6IDAgNXB4IDVweCAtM3B4IHJnYmEoMCwgMCwgMCwgMC4yKSwgMCA4cHggMTBweCAxcHggcmdiYSgwLCAwLCAwLCAwLjE0KSwgMCAzcHggMTRweCAycHggcmdiYSgwLCAwLCAwLCAwLjEyKTtcbiAgfVxuICBcbiAgLmV4YW1wbGUtYm91bmRhcnkge1xuICAgIHdpZHRoOiA0MDBweDtcbiAgICBoZWlnaHQ6IDQwMHB4O1xuICAgIG1heC13aWR0aDogMTAwJTtcbiAgICBib3JkZXI6IGRvdHRlZCAjY2NjIDJweDtcbiAgfSJdfQ== */");
+
+/***/ }),
+
+/***/ "./src/app/profesor/editar-clase/editar-clase.component.ts":
+/*!*****************************************************************!*\
+  !*** ./src/app/profesor/editar-clase/editar-clase.component.ts ***!
+  \*****************************************************************/
+/*! exports provided: EditarClaseComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EditarClaseComponent", function() { return EditarClaseComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
+/* harmony import */ var _Modelos_modelos__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../Modelos/modelos */ "./src/app/Modelos/modelos.ts");
+/* harmony import */ var _angular_cdk_collections__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/cdk/collections */ "./node_modules/@angular/cdk/esm2015/collections.js");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm2015/material.js");
+/* harmony import */ var _profesor_profesor_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../profesor/profesor.component */ "./src/app/profesor/profesor.component.ts");
+
+
+
+
+
+
+
+let EditarClaseComponent = class EditarClaseComponent {
+    constructor(_formBuilder, profesor) {
+        this._formBuilder = _formBuilder;
+        this.profesor = profesor;
         //Prueba de una tabla con filtro y paginacion
         this.displayedColumns = ['select', 'nombre', 'apellidos', 'clase'];
         this.selection = new _angular_cdk_collections__WEBPACK_IMPORTED_MODULE_4__["SelectionModel"](true, []);
@@ -2275,7 +2787,7 @@ let EditarActividadComponent = class EditarActividadComponent {
                 columna++;
             }*/
             //MODIFICADO
-            this.arryaAlumnos.push(new _Modelos_modelos__WEBPACK_IMPORTED_MODULE_3__["Alumnos"](this.selection.selected[i], { x: 0, y: 0 }, this.editarActividad));
+            this.arryaAlumnos.push(new _Modelos_modelos__WEBPACK_IMPORTED_MODULE_3__["AlumnosClase"](this.selection.selected[i], { x: 0, y: 0 }, this.editarActividad));
         }
         this.alumnosSeleccionados = this.arryaAlumnos;
         /*this.actividadCreate.alumnos=arryaAlumnos;
@@ -2284,34 +2796,98 @@ let EditarActividadComponent = class EditarActividadComponent {
     }
     actualizar() {
         this.editarActividad.alumnos = this.alumnosSeleccionados;
-        this.actividadEditada.emit(this.editarActividad);
+        var ju = this;
+        console.log(this.editarActividad);
+        $.ajax({
+            type: 'POST',
+            url: '/actualizarClase',
+            data: JSON.stringify(ju.editarActividad),
+            success: function (data) {
+                ju.profesor.actualizarClases();
+            },
+            contentType: 'application/json',
+            dataType: 'json'
+        });
+        //this.actividadEditada.emit(this.editarActividad);
     }
 };
-EditarActividadComponent.ctorParameters = () => [
-    { type: _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormBuilder"] }
+EditarClaseComponent.ctorParameters = () => [
+    { type: _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormBuilder"] },
+    { type: _profesor_profesor_component__WEBPACK_IMPORTED_MODULE_6__["ProfesorComponent"] }
 ];
 tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])()
-], EditarActividadComponent.prototype, "estudiantes", void 0);
+], EditarClaseComponent.prototype, "estudiantes", void 0);
 tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])()
-], EditarActividadComponent.prototype, "editarActividad", void 0);
-tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])()
-], EditarActividadComponent.prototype, "actividadEditada", void 0);
+], EditarClaseComponent.prototype, "editarActividad", void 0);
 tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])(_angular_material__WEBPACK_IMPORTED_MODULE_5__["MatPaginator"], null)
-], EditarActividadComponent.prototype, "paginator", void 0);
+], EditarClaseComponent.prototype, "paginator", void 0);
 tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])(_angular_material__WEBPACK_IMPORTED_MODULE_5__["MatSort"], null)
-], EditarActividadComponent.prototype, "sort", void 0);
-EditarActividadComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+], EditarClaseComponent.prototype, "sort", void 0);
+EditarClaseComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-        selector: 'app-editar-actividad',
-        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./editar-actividad.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/profesor/editar-actividad/editar-actividad.component.html")).default,
-        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./editar-actividad.component.css */ "./src/app/profesor/editar-actividad/editar-actividad.component.css")).default]
+        selector: 'app-editar-clase',
+        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./editar-clase.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/profesor/editar-clase/editar-clase.component.html")).default,
+        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./editar-clase.component.css */ "./src/app/profesor/editar-clase/editar-clase.component.css")).default]
     })
-], EditarActividadComponent);
+], EditarClaseComponent);
+
+
+
+/***/ }),
+
+/***/ "./src/app/profesor/mensaje/mensaje.component.css":
+/*!********************************************************!*\
+  !*** ./src/app/profesor/mensaje/mensaje.component.css ***!
+  \********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3Byb2Zlc29yL21lbnNhamUvbWVuc2FqZS5jb21wb25lbnQuY3NzIn0= */");
+
+/***/ }),
+
+/***/ "./src/app/profesor/mensaje/mensaje.component.ts":
+/*!*******************************************************!*\
+  !*** ./src/app/profesor/mensaje/mensaje.component.ts ***!
+  \*******************************************************/
+/*! exports provided: MensajeComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MensajeComponent", function() { return MensajeComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _profesor_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../profesor.component */ "./src/app/profesor/profesor.component.ts");
+
+
+
+let MensajeComponent = class MensajeComponent {
+    constructor(profesor) {
+        this.profesor = profesor;
+    }
+    ngOnInit() {
+    }
+    abrirActividad() {
+        //this.profesor.abrirUltimaActividad();
+    }
+};
+MensajeComponent.ctorParameters = () => [
+    { type: _profesor_component__WEBPACK_IMPORTED_MODULE_2__["ProfesorComponent"] }
+];
+MensajeComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-mensaje',
+        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./mensaje.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/profesor/mensaje/mensaje.component.html")).default,
+        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./mensaje.component.css */ "./src/app/profesor/mensaje/mensaje.component.css")).default]
+    })
+], MensajeComponent);
 
 
 
@@ -2326,7 +2902,7 @@ EditarActividadComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("/* The sidebar menu */\n.sidenav {\n    height: 100%; /* Full-height: remove this if you want \"auto\" height */\n    \n    z-index: 1; /* Stay on top */\n    top: auto; /* Stay at the top */\n    left: 0;\n    background-color: #4A7B9D; /* Black */\n    overflow-x: hidden; /* Disable horizontal scroll */\n    \n  }\n/* The navigation menu links */\n.sidenav a {\n    padding: 6px 8px 6px 16px;\n    text-decoration: none;\n    font-size: 25px;\n    color: #ECFFB0;\n    display: block;\n  }\n/* When you mouse over the navigation links, change their color */\n.sidenav a:hover {\n    color: #9AA899;\n  }\n/* Style page content */\n.main {\n    margin-left: 160px; /* Same as the width of the sidebar */\n    padding: 0px 10px;\n  }\n/* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */\n@media screen and (max-height: 450px) {\n    .sidenav {padding-top: 15px;}\n    .sidenav a {font-size: 18px;}\n  }\n.example-box {\n  width: 70px;\n  height: 70px;\n  border: solid 1px #ccc;\n  color: rgba(0, 0, 0, 0.87);\n  cursor: move;\n  display: -webkit-inline-box;\n  display: inline-flex;\n  -webkit-box-pack: center;\n          justify-content: center;\n  -webkit-box-align: center;\n          align-items: center;\n  text-align: center;\n  background: #fff;\n  border-radius: 4px;\n  margin-right: 0px;\n  position: relative;\n  z-index: 1;\n  box-sizing: border-box;\n  padding: 10px;\n  -webkit-transition: box-shadow 200ms cubic-bezier(0, 0, 0.2, 1);\n  transition: box-shadow 200ms cubic-bezier(0, 0, 0.2, 1);\n  box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);\n}\n.example-box:active {\n  box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2), 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12);\n}\n.example-boundary {\n  width: 400px;\n  height: 400px;\n  max-width: 100%;\n  border: dotted #ccc 2px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcHJvZmVzb3IvcHJvZmVzb3IuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSxxQkFBcUI7QUFDckI7SUFDSSxZQUFZLEVBQUUsdURBQXVEOztJQUVyRSxVQUFVLEVBQUUsZ0JBQWdCO0lBQzVCLFNBQVMsRUFBRSxvQkFBb0I7SUFDL0IsT0FBTztJQUNQLHlCQUF5QixFQUFFLFVBQVU7SUFDckMsa0JBQWtCLEVBQUUsOEJBQThCOztFQUVwRDtBQUVBLDhCQUE4QjtBQUM5QjtJQUNFLHlCQUF5QjtJQUN6QixxQkFBcUI7SUFDckIsZUFBZTtJQUNmLGNBQWM7SUFDZCxjQUFjO0VBQ2hCO0FBRUEsaUVBQWlFO0FBQ2pFO0lBQ0UsY0FBYztFQUNoQjtBQUVBLHVCQUF1QjtBQUN2QjtJQUNFLGtCQUFrQixFQUFFLHFDQUFxQztJQUN6RCxpQkFBaUI7RUFDbkI7QUFFQSxnSUFBZ0k7QUFDaEk7SUFDRSxVQUFVLGlCQUFpQixDQUFDO0lBQzVCLFlBQVksZUFBZSxDQUFDO0VBQzlCO0FBR0Y7RUFDRSxXQUFXO0VBQ1gsWUFBWTtFQUNaLHNCQUFzQjtFQUN0QiwwQkFBMEI7RUFDMUIsWUFBWTtFQUNaLDJCQUFvQjtFQUFwQixvQkFBb0I7RUFDcEIsd0JBQXVCO1VBQXZCLHVCQUF1QjtFQUN2Qix5QkFBbUI7VUFBbkIsbUJBQW1CO0VBQ25CLGtCQUFrQjtFQUNsQixnQkFBZ0I7RUFDaEIsa0JBQWtCO0VBQ2xCLGlCQUFpQjtFQUNqQixrQkFBa0I7RUFDbEIsVUFBVTtFQUNWLHNCQUFzQjtFQUN0QixhQUFhO0VBQ2IsK0RBQXVEO0VBQXZELHVEQUF1RDtFQUN2RCwrR0FBK0c7QUFDakg7QUFFQTtFQUNFLHFIQUFxSDtBQUN2SDtBQUVBO0VBQ0UsWUFBWTtFQUNaLGFBQWE7RUFDYixlQUFlO0VBQ2YsdUJBQXVCO0FBQ3pCIiwiZmlsZSI6InNyYy9hcHAvcHJvZmVzb3IvcHJvZmVzb3IuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi8qIFRoZSBzaWRlYmFyIG1lbnUgKi9cbi5zaWRlbmF2IHtcbiAgICBoZWlnaHQ6IDEwMCU7IC8qIEZ1bGwtaGVpZ2h0OiByZW1vdmUgdGhpcyBpZiB5b3Ugd2FudCBcImF1dG9cIiBoZWlnaHQgKi9cbiAgICBcbiAgICB6LWluZGV4OiAxOyAvKiBTdGF5IG9uIHRvcCAqL1xuICAgIHRvcDogYXV0bzsgLyogU3RheSBhdCB0aGUgdG9wICovXG4gICAgbGVmdDogMDtcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiAjNEE3QjlEOyAvKiBCbGFjayAqL1xuICAgIG92ZXJmbG93LXg6IGhpZGRlbjsgLyogRGlzYWJsZSBob3Jpem9udGFsIHNjcm9sbCAqL1xuICAgIFxuICB9XG4gIFxuICAvKiBUaGUgbmF2aWdhdGlvbiBtZW51IGxpbmtzICovXG4gIC5zaWRlbmF2IGEge1xuICAgIHBhZGRpbmc6IDZweCA4cHggNnB4IDE2cHg7XG4gICAgdGV4dC1kZWNvcmF0aW9uOiBub25lO1xuICAgIGZvbnQtc2l6ZTogMjVweDtcbiAgICBjb2xvcjogI0VDRkZCMDtcbiAgICBkaXNwbGF5OiBibG9jaztcbiAgfVxuICBcbiAgLyogV2hlbiB5b3UgbW91c2Ugb3ZlciB0aGUgbmF2aWdhdGlvbiBsaW5rcywgY2hhbmdlIHRoZWlyIGNvbG9yICovXG4gIC5zaWRlbmF2IGE6aG92ZXIge1xuICAgIGNvbG9yOiAjOUFBODk5O1xuICB9XG4gIFxuICAvKiBTdHlsZSBwYWdlIGNvbnRlbnQgKi9cbiAgLm1haW4ge1xuICAgIG1hcmdpbi1sZWZ0OiAxNjBweDsgLyogU2FtZSBhcyB0aGUgd2lkdGggb2YgdGhlIHNpZGViYXIgKi9cbiAgICBwYWRkaW5nOiAwcHggMTBweDtcbiAgfVxuICBcbiAgLyogT24gc21hbGxlciBzY3JlZW5zLCB3aGVyZSBoZWlnaHQgaXMgbGVzcyB0aGFuIDQ1MHB4LCBjaGFuZ2UgdGhlIHN0eWxlIG9mIHRoZSBzaWRlYmFyIChsZXNzIHBhZGRpbmcgYW5kIGEgc21hbGxlciBmb250IHNpemUpICovXG4gIEBtZWRpYSBzY3JlZW4gYW5kIChtYXgtaGVpZ2h0OiA0NTBweCkge1xuICAgIC5zaWRlbmF2IHtwYWRkaW5nLXRvcDogMTVweDt9XG4gICAgLnNpZGVuYXYgYSB7Zm9udC1zaXplOiAxOHB4O31cbiAgfVxuXG5cbi5leGFtcGxlLWJveCB7XG4gIHdpZHRoOiA3MHB4O1xuICBoZWlnaHQ6IDcwcHg7XG4gIGJvcmRlcjogc29saWQgMXB4ICNjY2M7XG4gIGNvbG9yOiByZ2JhKDAsIDAsIDAsIDAuODcpO1xuICBjdXJzb3I6IG1vdmU7XG4gIGRpc3BsYXk6IGlubGluZS1mbGV4O1xuICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjtcbiAgYWxpZ24taXRlbXM6IGNlbnRlcjtcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xuICBiYWNrZ3JvdW5kOiAjZmZmO1xuICBib3JkZXItcmFkaXVzOiA0cHg7XG4gIG1hcmdpbi1yaWdodDogMHB4O1xuICBwb3NpdGlvbjogcmVsYXRpdmU7XG4gIHotaW5kZXg6IDE7XG4gIGJveC1zaXppbmc6IGJvcmRlci1ib3g7XG4gIHBhZGRpbmc6IDEwcHg7XG4gIHRyYW5zaXRpb246IGJveC1zaGFkb3cgMjAwbXMgY3ViaWMtYmV6aWVyKDAsIDAsIDAuMiwgMSk7XG4gIGJveC1zaGFkb3c6IDAgM3B4IDFweCAtMnB4IHJnYmEoMCwgMCwgMCwgMC4yKSwgMCAycHggMnB4IDAgcmdiYSgwLCAwLCAwLCAwLjE0KSwgMCAxcHggNXB4IDAgcmdiYSgwLCAwLCAwLCAwLjEyKTtcbn1cblxuLmV4YW1wbGUtYm94OmFjdGl2ZSB7XG4gIGJveC1zaGFkb3c6IDAgNXB4IDVweCAtM3B4IHJnYmEoMCwgMCwgMCwgMC4yKSwgMCA4cHggMTBweCAxcHggcmdiYSgwLCAwLCAwLCAwLjE0KSwgMCAzcHggMTRweCAycHggcmdiYSgwLCAwLCAwLCAwLjEyKTtcbn1cblxuLmV4YW1wbGUtYm91bmRhcnkge1xuICB3aWR0aDogNDAwcHg7XG4gIGhlaWdodDogNDAwcHg7XG4gIG1heC13aWR0aDogMTAwJTtcbiAgYm9yZGVyOiBkb3R0ZWQgI2NjYyAycHg7XG59Il19 */");
+/* harmony default export */ __webpack_exports__["default"] = ("/* The sidebar menu */\n.sidenav {\n    height: 100%; /* Full-height: remove this if you want \"auto\" height */\n    \n    z-index: 1; /* Stay on top */\n    top: auto; /* Stay at the top */\n    left: 0;\n    background-color: #4A7B9D; /* Black */\n    overflow-x: hidden; /* Disable horizontal scroll */\n    \n  }\n/* The navigation menu links */\n.sidenav a {\n    padding: 6px 8px 6px 16px;\n    text-decoration: none;\n    font-size: 25px;\n    color: #ECFFB0;\n    display: block;\n  }\n/* When you mouse over the navigation links, change their color */\n.sidenav a:hover {\n    color: #9AA899;\n  }\n/* Style page content */\n.main {\n    margin-left: 160px; /* Same as the width of the sidebar */\n    padding: 0px 10px;\n  }\n/* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */\n@media screen and (max-height: 450px) {\n    .sidenav {padding-top: 15px;}\n    .sidenav a {font-size: 18px;}\n  }\n.example-box {\n  width: 70px;\n  height: 70px;\n  border: solid 1px #ccc;\n  color: rgba(0, 0, 0, 0.87);\n  cursor: move;\n  display: -webkit-inline-box;\n  display: inline-flex;\n  -webkit-box-pack: center;\n          justify-content: center;\n  -webkit-box-align: center;\n          align-items: center;\n  text-align: center;\n  background: #fff;\n  border-radius: 4px;\n  margin-right: 0px;\n  position: relative;\n  z-index: 1;\n  box-sizing: border-box;\n  padding: 10px;\n  -webkit-transition: box-shadow 200ms cubic-bezier(0, 0, 0.2, 1);\n  transition: box-shadow 200ms cubic-bezier(0, 0, 0.2, 1);\n  box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);\n}\n.example-box:active {\n  box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2), 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12);\n}\n.example-boundary {\n  width: 400px;\n  height: 400px;\n  max-width: 100%;\n  border: dotted #ccc 2px;\n}\n#snackbar {\n  visibility: hidden;\n  min-width: 250px;\n  margin-left: -125px;\n  background-color: #333;\n  color: #fff;\n  text-align: center;\n  border-radius: 2px;\n  padding: 16px;\n  position: fixed;\n  z-index: 1;\n  left: 50%;\n  bottom: 30px;\n  font-size: 17px;\n}\n#snackbar.show {\n  visibility: visible;\n  -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;\n  animation: fadein 0.5s, fadeout 0.5s 2.5s;\n}\n@-webkit-keyframes fadein {\n  from {bottom: 0; opacity: 0;} \n  to {bottom: 30px; opacity: 1;}\n}\n@keyframes fadein {\n  from {bottom: 0; opacity: 0;}\n  to {bottom: 30px; opacity: 1;}\n}\n@-webkit-keyframes fadeout {\n  from {bottom: 30px; opacity: 1;} \n  to {bottom: 0; opacity: 0;}\n}\n@keyframes fadeout {\n  from {bottom: 30px; opacity: 1;}\n  to {bottom: 0; opacity: 0;}\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcHJvZmVzb3IvcHJvZmVzb3IuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSxxQkFBcUI7QUFDckI7SUFDSSxZQUFZLEVBQUUsdURBQXVEOztJQUVyRSxVQUFVLEVBQUUsZ0JBQWdCO0lBQzVCLFNBQVMsRUFBRSxvQkFBb0I7SUFDL0IsT0FBTztJQUNQLHlCQUF5QixFQUFFLFVBQVU7SUFDckMsa0JBQWtCLEVBQUUsOEJBQThCOztFQUVwRDtBQUVBLDhCQUE4QjtBQUM5QjtJQUNFLHlCQUF5QjtJQUN6QixxQkFBcUI7SUFDckIsZUFBZTtJQUNmLGNBQWM7SUFDZCxjQUFjO0VBQ2hCO0FBRUEsaUVBQWlFO0FBQ2pFO0lBQ0UsY0FBYztFQUNoQjtBQUVBLHVCQUF1QjtBQUN2QjtJQUNFLGtCQUFrQixFQUFFLHFDQUFxQztJQUN6RCxpQkFBaUI7RUFDbkI7QUFFQSxnSUFBZ0k7QUFDaEk7SUFDRSxVQUFVLGlCQUFpQixDQUFDO0lBQzVCLFlBQVksZUFBZSxDQUFDO0VBQzlCO0FBR0Y7RUFDRSxXQUFXO0VBQ1gsWUFBWTtFQUNaLHNCQUFzQjtFQUN0QiwwQkFBMEI7RUFDMUIsWUFBWTtFQUNaLDJCQUFvQjtFQUFwQixvQkFBb0I7RUFDcEIsd0JBQXVCO1VBQXZCLHVCQUF1QjtFQUN2Qix5QkFBbUI7VUFBbkIsbUJBQW1CO0VBQ25CLGtCQUFrQjtFQUNsQixnQkFBZ0I7RUFDaEIsa0JBQWtCO0VBQ2xCLGlCQUFpQjtFQUNqQixrQkFBa0I7RUFDbEIsVUFBVTtFQUNWLHNCQUFzQjtFQUN0QixhQUFhO0VBQ2IsK0RBQXVEO0VBQXZELHVEQUF1RDtFQUN2RCwrR0FBK0c7QUFDakg7QUFFQTtFQUNFLHFIQUFxSDtBQUN2SDtBQUVBO0VBQ0UsWUFBWTtFQUNaLGFBQWE7RUFDYixlQUFlO0VBQ2YsdUJBQXVCO0FBQ3pCO0FBR0E7RUFDRSxrQkFBa0I7RUFDbEIsZ0JBQWdCO0VBQ2hCLG1CQUFtQjtFQUNuQixzQkFBc0I7RUFDdEIsV0FBVztFQUNYLGtCQUFrQjtFQUNsQixrQkFBa0I7RUFDbEIsYUFBYTtFQUNiLGVBQWU7RUFDZixVQUFVO0VBQ1YsU0FBUztFQUNULFlBQVk7RUFDWixlQUFlO0FBQ2pCO0FBRUE7RUFDRSxtQkFBbUI7RUFDbkIsaURBQWlEO0VBQ2pELHlDQUF5QztBQUMzQztBQUVBO0VBQ0UsTUFBTSxTQUFTLEVBQUUsVUFBVSxDQUFDO0VBQzVCLElBQUksWUFBWSxFQUFFLFVBQVUsQ0FBQztBQUMvQjtBQUVBO0VBQ0UsTUFBTSxTQUFTLEVBQUUsVUFBVSxDQUFDO0VBQzVCLElBQUksWUFBWSxFQUFFLFVBQVUsQ0FBQztBQUMvQjtBQUVBO0VBQ0UsTUFBTSxZQUFZLEVBQUUsVUFBVSxDQUFDO0VBQy9CLElBQUksU0FBUyxFQUFFLFVBQVUsQ0FBQztBQUM1QjtBQUVBO0VBQ0UsTUFBTSxZQUFZLEVBQUUsVUFBVSxDQUFDO0VBQy9CLElBQUksU0FBUyxFQUFFLFVBQVUsQ0FBQztBQUM1QiIsImZpbGUiOiJzcmMvYXBwL3Byb2Zlc29yL3Byb2Zlc29yLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIvKiBUaGUgc2lkZWJhciBtZW51ICovXG4uc2lkZW5hdiB7XG4gICAgaGVpZ2h0OiAxMDAlOyAvKiBGdWxsLWhlaWdodDogcmVtb3ZlIHRoaXMgaWYgeW91IHdhbnQgXCJhdXRvXCIgaGVpZ2h0ICovXG4gICAgXG4gICAgei1pbmRleDogMTsgLyogU3RheSBvbiB0b3AgKi9cbiAgICB0b3A6IGF1dG87IC8qIFN0YXkgYXQgdGhlIHRvcCAqL1xuICAgIGxlZnQ6IDA7XG4gICAgYmFja2dyb3VuZC1jb2xvcjogIzRBN0I5RDsgLyogQmxhY2sgKi9cbiAgICBvdmVyZmxvdy14OiBoaWRkZW47IC8qIERpc2FibGUgaG9yaXpvbnRhbCBzY3JvbGwgKi9cbiAgICBcbiAgfVxuICBcbiAgLyogVGhlIG5hdmlnYXRpb24gbWVudSBsaW5rcyAqL1xuICAuc2lkZW5hdiBhIHtcbiAgICBwYWRkaW5nOiA2cHggOHB4IDZweCAxNnB4O1xuICAgIHRleHQtZGVjb3JhdGlvbjogbm9uZTtcbiAgICBmb250LXNpemU6IDI1cHg7XG4gICAgY29sb3I6ICNFQ0ZGQjA7XG4gICAgZGlzcGxheTogYmxvY2s7XG4gIH1cbiAgXG4gIC8qIFdoZW4geW91IG1vdXNlIG92ZXIgdGhlIG5hdmlnYXRpb24gbGlua3MsIGNoYW5nZSB0aGVpciBjb2xvciAqL1xuICAuc2lkZW5hdiBhOmhvdmVyIHtcbiAgICBjb2xvcjogIzlBQTg5OTtcbiAgfVxuICBcbiAgLyogU3R5bGUgcGFnZSBjb250ZW50ICovXG4gIC5tYWluIHtcbiAgICBtYXJnaW4tbGVmdDogMTYwcHg7IC8qIFNhbWUgYXMgdGhlIHdpZHRoIG9mIHRoZSBzaWRlYmFyICovXG4gICAgcGFkZGluZzogMHB4IDEwcHg7XG4gIH1cbiAgXG4gIC8qIE9uIHNtYWxsZXIgc2NyZWVucywgd2hlcmUgaGVpZ2h0IGlzIGxlc3MgdGhhbiA0NTBweCwgY2hhbmdlIHRoZSBzdHlsZSBvZiB0aGUgc2lkZWJhciAobGVzcyBwYWRkaW5nIGFuZCBhIHNtYWxsZXIgZm9udCBzaXplKSAqL1xuICBAbWVkaWEgc2NyZWVuIGFuZCAobWF4LWhlaWdodDogNDUwcHgpIHtcbiAgICAuc2lkZW5hdiB7cGFkZGluZy10b3A6IDE1cHg7fVxuICAgIC5zaWRlbmF2IGEge2ZvbnQtc2l6ZTogMThweDt9XG4gIH1cblxuXG4uZXhhbXBsZS1ib3gge1xuICB3aWR0aDogNzBweDtcbiAgaGVpZ2h0OiA3MHB4O1xuICBib3JkZXI6IHNvbGlkIDFweCAjY2NjO1xuICBjb2xvcjogcmdiYSgwLCAwLCAwLCAwLjg3KTtcbiAgY3Vyc29yOiBtb3ZlO1xuICBkaXNwbGF5OiBpbmxpbmUtZmxleDtcbiAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XG4gIGFsaWduLWl0ZW1zOiBjZW50ZXI7XG4gIHRleHQtYWxpZ246IGNlbnRlcjtcbiAgYmFja2dyb3VuZDogI2ZmZjtcbiAgYm9yZGVyLXJhZGl1czogNHB4O1xuICBtYXJnaW4tcmlnaHQ6IDBweDtcbiAgcG9zaXRpb246IHJlbGF0aXZlO1xuICB6LWluZGV4OiAxO1xuICBib3gtc2l6aW5nOiBib3JkZXItYm94O1xuICBwYWRkaW5nOiAxMHB4O1xuICB0cmFuc2l0aW9uOiBib3gtc2hhZG93IDIwMG1zIGN1YmljLWJlemllcigwLCAwLCAwLjIsIDEpO1xuICBib3gtc2hhZG93OiAwIDNweCAxcHggLTJweCByZ2JhKDAsIDAsIDAsIDAuMiksIDAgMnB4IDJweCAwIHJnYmEoMCwgMCwgMCwgMC4xNCksIDAgMXB4IDVweCAwIHJnYmEoMCwgMCwgMCwgMC4xMik7XG59XG5cbi5leGFtcGxlLWJveDphY3RpdmUge1xuICBib3gtc2hhZG93OiAwIDVweCA1cHggLTNweCByZ2JhKDAsIDAsIDAsIDAuMiksIDAgOHB4IDEwcHggMXB4IHJnYmEoMCwgMCwgMCwgMC4xNCksIDAgM3B4IDE0cHggMnB4IHJnYmEoMCwgMCwgMCwgMC4xMik7XG59XG5cbi5leGFtcGxlLWJvdW5kYXJ5IHtcbiAgd2lkdGg6IDQwMHB4O1xuICBoZWlnaHQ6IDQwMHB4O1xuICBtYXgtd2lkdGg6IDEwMCU7XG4gIGJvcmRlcjogZG90dGVkICNjY2MgMnB4O1xufVxuXG5cbiNzbmFja2JhciB7XG4gIHZpc2liaWxpdHk6IGhpZGRlbjtcbiAgbWluLXdpZHRoOiAyNTBweDtcbiAgbWFyZ2luLWxlZnQ6IC0xMjVweDtcbiAgYmFja2dyb3VuZC1jb2xvcjogIzMzMztcbiAgY29sb3I6ICNmZmY7XG4gIHRleHQtYWxpZ246IGNlbnRlcjtcbiAgYm9yZGVyLXJhZGl1czogMnB4O1xuICBwYWRkaW5nOiAxNnB4O1xuICBwb3NpdGlvbjogZml4ZWQ7XG4gIHotaW5kZXg6IDE7XG4gIGxlZnQ6IDUwJTtcbiAgYm90dG9tOiAzMHB4O1xuICBmb250LXNpemU6IDE3cHg7XG59XG5cbiNzbmFja2Jhci5zaG93IHtcbiAgdmlzaWJpbGl0eTogdmlzaWJsZTtcbiAgLXdlYmtpdC1hbmltYXRpb246IGZhZGVpbiAwLjVzLCBmYWRlb3V0IDAuNXMgMi41cztcbiAgYW5pbWF0aW9uOiBmYWRlaW4gMC41cywgZmFkZW91dCAwLjVzIDIuNXM7XG59XG5cbkAtd2Via2l0LWtleWZyYW1lcyBmYWRlaW4ge1xuICBmcm9tIHtib3R0b206IDA7IG9wYWNpdHk6IDA7fSBcbiAgdG8ge2JvdHRvbTogMzBweDsgb3BhY2l0eTogMTt9XG59XG5cbkBrZXlmcmFtZXMgZmFkZWluIHtcbiAgZnJvbSB7Ym90dG9tOiAwOyBvcGFjaXR5OiAwO31cbiAgdG8ge2JvdHRvbTogMzBweDsgb3BhY2l0eTogMTt9XG59XG5cbkAtd2Via2l0LWtleWZyYW1lcyBmYWRlb3V0IHtcbiAgZnJvbSB7Ym90dG9tOiAzMHB4OyBvcGFjaXR5OiAxO30gXG4gIHRvIHtib3R0b206IDA7IG9wYWNpdHk6IDA7fVxufVxuXG5Aa2V5ZnJhbWVzIGZhZGVvdXQge1xuICBmcm9tIHtib3R0b206IDMwcHg7IG9wYWNpdHk6IDE7fVxuICB0byB7Ym90dG9tOiAwOyBvcGFjaXR5OiAwO31cbn0iXX0= */");
 
 /***/ }),
 
@@ -2347,6 +2923,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var socket_io_client__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! socket.io-client */ "./node_modules/socket.io-client/lib/index.js");
 /* harmony import */ var socket_io_client__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(socket_io_client__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var _ver_actividad_ver_actividad_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./ver-actividad/ver-actividad.component */ "./src/app/profesor/ver-actividad/ver-actividad.component.ts");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _angular_material_snack_bar__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/material/snack-bar */ "./node_modules/@angular/material/esm2015/snack-bar.js");
+
+
 
 
 
@@ -2354,9 +2935,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let ProfesorComponent = class ProfesorComponent {
-    constructor(matDialog, estudiantes) {
+    constructor(matDialog, estudiantes, _snackBar) {
         this.matDialog = matDialog;
         this.estudiantes = estudiantes;
+        this._snackBar = _snackBar;
         this.alumnoCreate = {
             _id: '',
             nombre: '',
@@ -2384,6 +2966,13 @@ let ProfesorComponent = class ProfesorComponent {
         this.verActividad = false;
         this.gestionAlumnos = true;
         this.gestionActividades = false;
+        this.gestionClases = false;
+        this.listaClases = [];
+        this.crearClase = false;
+        this.editarClase = false;
+        this.verClase = false;
+        this.ClaseparaEditar = null;
+        this.ultimaActividadCreada = null;
         this.soyProfesor = function () {
             this.socket.emit('soyProfesor');
         };
@@ -2500,6 +3089,10 @@ let ProfesorComponent = class ProfesorComponent {
                 //console.log(data);
                 ju.listaActividades = data;
             });
+            yield $.getJSON("/verClases", function (data) {
+                //console.log(data);
+                ju.listaClases = data;
+            });
             //console.log(this.listaAlumnos);
         });
     }
@@ -2593,17 +3186,29 @@ let ProfesorComponent = class ProfesorComponent {
     abrirAlumnos() {
         this.gestionAlumnos = true;
         this.gestionActividades = false;
+        this.gestionClases = false;
     }
     abrirActividades() {
         this.gestionActividades = true;
         this.gestionAlumnos = false;
+        this.gestionClases = false;
         //this.openDialog()
+    }
+    abrirClases() {
+        this.gestionClases = true;
+        this.gestionAlumnos = false;
+        this.verActividad = false;
+        this.gestionActividades = false;
     }
     abrirCrearActividad() {
         this.crearActividad = true;
     }
+    abrirCrearClase() {
+        this.crearClase = true;
+    }
     cerrarModal() {
         this.crearActividad = false;
+        this.crearClase = false;
         this.editarActividad = false;
     }
     guardarActividad(actividad) {
@@ -2615,6 +3220,7 @@ let ProfesorComponent = class ProfesorComponent {
             url: '/registrarActividad',
             data: JSON.stringify(actividad),
             success: function (data) {
+                ju.ultimaActividadCreada = data;
                 /*$.getJSON("/verEstudiantes", function (data) {
                   //console.log(data);
                   ju.listaAlumnos = data;
@@ -2628,6 +3234,7 @@ let ProfesorComponent = class ProfesorComponent {
                     ju.crearActividad = false;
                     console.log(ju.listaActividades);
                 });
+                ju.menActividadCreada();
                 //ju.listaActividades.push(actividad);
             },
             contentType: 'application/json',
@@ -2643,20 +3250,37 @@ let ProfesorComponent = class ProfesorComponent {
             data: JSON.stringify(actividad),
             success: function (data) {
                 //this.actividad=data;
+                ju.ultimaActividadCreada = data;
                 $.getJSON("/verActividades", function (data) {
                     //console.log(data);
                     ju.listaActividades = data;
                     ju.editarActividad = false;
                     console.log(ju.listaActividades);
                 });
+                ju.menActividadEditada();
             },
             contentType: 'application/json',
             dataType: 'json'
         });
     }
+    actualizarClases() {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
+            this.crearClase = false;
+            this.editarClase = false;
+            var ju = this;
+            yield $.getJSON("/verClases", function (data) {
+                //console.log(data);
+                ju.listaClases = data;
+            });
+        });
+    }
     editarA(act) {
         this.editarActividad = true;
         this.ActividadparaEditar = act;
+    }
+    editarC(clase) {
+        this.editarClase = true;
+        this.ClaseparaEditar = clase;
     }
     agregarDatosActividad(datos) {
         this.verActividadComp.insertarDatos(datos);
@@ -2672,7 +3296,22 @@ let ProfesorComponent = class ProfesorComponent {
                 console.log("Actividad eliminado");
                 $.getJSON("/verActividades", function (data) {
                     ju.listaActividades = data;
+                    ju.menActividadBorrada();
                 });
+            },
+            contentType: 'application/json',
+            dataType: 'json'
+        });
+    }
+    borrarC(clase) {
+        var ju = this;
+        $.ajax({
+            type: 'DELETE',
+            url: '/eliminarClase',
+            data: JSON.stringify(clase),
+            success: function (data) {
+                console.log("Clase eliminada");
+                ju.actualizarClases();
             },
             contentType: 'application/json',
             dataType: 'json'
@@ -2701,6 +3340,106 @@ let ProfesorComponent = class ProfesorComponent {
         }
         return false;
     }
+    crearActividadAsociada(clase) {
+        var ju = this;
+        var actividadCreate = {
+            nombre: '',
+            profesor: '',
+            fecha: '',
+            alumnos: {},
+            estado: 'Creada',
+            resumen: {
+                alegria: [],
+                asco: [],
+                miedo: [],
+                sorpresa: [],
+                tristeza: [],
+                ira: [],
+                pulsaciones: [],
+                tiempo: [],
+                distraido: [],
+                concentrado: [],
+                frustrado: [],
+                motivado: [],
+            }
+        };
+        actividadCreate.nombre = clase.nombre + ' ' + moment__WEBPACK_IMPORTED_MODULE_6__().format('LLLL');
+        actividadCreate.profesor = clase.profesor;
+        actividadCreate.fecha = moment__WEBPACK_IMPORTED_MODULE_6__().format('LLLL');
+        var arrayAlumnos = [];
+        for (let i = 0; i < clase.alumnos.length; i++) {
+            arrayAlumnos.push({
+                estudiante: clase.alumnos[i].estudiante,
+                id_item: '',
+                posicion: clase.alumnos[i].posicion,
+                datos: {
+                    alegria: [],
+                    asco: [],
+                    miedo: [],
+                    sorpresa: [],
+                    tristeza: [],
+                    ira: [],
+                    pulsaciones: [],
+                    tiempo: [],
+                    distraido: [],
+                    concentrado: [],
+                    frustrado: [],
+                    motivado: [],
+                }
+            });
+        }
+        actividadCreate.alumnos = arrayAlumnos;
+        $.ajax({
+            type: 'POST',
+            url: '/registrarActividad',
+            data: JSON.stringify(actividadCreate),
+            success: function (data) {
+                ju.ultimaActividadCreada = data;
+                $.getJSON("/verActividades", function (data) {
+                    //console.log(data);
+                    ju.listaActividades = data;
+                    ju.crearActividad = false;
+                    console.log(ju.listaActividades);
+                });
+                //ju.listaActividades.push(actividad);
+                ju.menActividadCreada();
+                //abrirActividad
+            },
+            contentType: 'application/json',
+            dataType: 'json'
+        });
+    }
+    menActividadCreada() {
+        let men = this._snackBar.open('Actividad Creada', 'Abrir', {
+            duration: 5000,
+        });
+        men.onAction().subscribe(() => {
+            this.gestionClases = false;
+            this.gestionActividades = true;
+            this.crearClase = false;
+            this.editarClase = false;
+            this.verClase = false;
+            this.abrirActividad(this.ultimaActividadCreada);
+        });
+    }
+    menActividadEditada() {
+        let men = this._snackBar.open('Actividad Editada', 'Abrir', {
+            duration: 5000,
+        });
+        men.onAction().subscribe(() => {
+            this.gestionClases = false;
+            this.gestionActividades = true;
+            this.crearClase = false;
+            this.editarClase = false;
+            this.verClase = false;
+            this.abrirActividad(this.ultimaActividadCreada);
+        });
+    }
+    menActividadBorrada() {
+        let men = this._snackBar.open('Actividad Borrada', 'Cerrar', {
+            duration: 1000,
+        });
+    }
     //Gestion de los WebSockets
     ini() {
         this.socket = socket_io_client__WEBPACK_IMPORTED_MODULE_4__["connect"]();
@@ -2710,7 +3449,8 @@ let ProfesorComponent = class ProfesorComponent {
 };
 ProfesorComponent.ctorParameters = () => [
     { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"] },
-    { type: _estudiante_service__WEBPACK_IMPORTED_MODULE_3__["EstudianteService"] }
+    { type: _estudiante_service__WEBPACK_IMPORTED_MODULE_3__["EstudianteService"] },
+    { type: _angular_material_snack_bar__WEBPACK_IMPORTED_MODULE_7__["MatSnackBar"] }
 ];
 tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])(_ver_actividad_ver_actividad_component__WEBPACK_IMPORTED_MODULE_5__["VerActividadComponent"], { static: false })
@@ -3173,53 +3913,102 @@ let VerActividadComponent = class VerActividadComponent {
     }
     seleccionarEstado(estado) {
         this.estadoSeleccionado = estado;
-        for (let i = 0; i < this.actividad.alumnos.length; i++) {
-            if (this.actividad.alumnos[i].id_item == this.objAlumnoSeleccionado.id_item) {
-                this.configuracionGraficaLineal = {
-                    type: 'line',
-                    data: {
-                        datasets: [
-                            {
-                                label: this.estadoSeleccionado,
-                                backgroundColor: this.ColorSad,
-                                borderColor: this.ColorSad,
-                                fill: false,
-                                data: this.actividad.alumnos[i].datos['' + this.estadoSeleccionado + ''],
-                            }
-                        ]
-                    },
-                    options: {
-                        responsive: true,
-                        title: {
-                            display: true,
-                            text: this.estadoSeleccionado,
-                        },
-                        scales: {
-                            xAxes: [{
-                                    type: 'time',
-                                    display: true,
-                                    scaleLabel: {
-                                        display: true,
-                                        labelString: 'Tiempo'
-                                    },
-                                    ticks: {
-                                        major: {
-                                            fontStyle: 'bold',
-                                            fontColor: '#FF0000'
-                                        }
-                                    }
-                                }],
-                            yAxes: [{
-                                    display: true,
-                                    scaleLabel: {
-                                        display: true,
-                                        labelString: 'Porcentaje'
-                                    }
-                                }]
+        if (this.objAlumnoSeleccionado == null) {
+            this.configuracionGraficaLineal = {
+                type: 'line',
+                data: {
+                    datasets: [
+                        {
+                            label: this.estadoSeleccionado,
+                            backgroundColor: this.ColorSad,
+                            borderColor: this.ColorSad,
+                            fill: false,
+                            data: this.actividad.resumen['' + this.estadoSeleccionado + ''],
                         }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    title: {
+                        display: true,
+                        text: this.estadoSeleccionado,
+                    },
+                    scales: {
+                        xAxes: [{
+                                type: 'time',
+                                display: true,
+                                scaleLabel: {
+                                    display: true,
+                                    labelString: 'Tiempo'
+                                },
+                                ticks: {
+                                    major: {
+                                        fontStyle: 'bold',
+                                        fontColor: '#FF0000'
+                                    }
+                                }
+                            }],
+                        yAxes: [{
+                                display: true,
+                                scaleLabel: {
+                                    display: true,
+                                    labelString: 'Porcentaje'
+                                }
+                            }]
                     }
-                };
-                this.graficaLineal = new chart_js__WEBPACK_IMPORTED_MODULE_2__["Chart"]('graficaLineal', this.configuracionGraficaLineal);
+                }
+            };
+            this.graficaLineal = new chart_js__WEBPACK_IMPORTED_MODULE_2__["Chart"]('graficaLineal', this.configuracionGraficaLineal);
+        }
+        else {
+            for (let i = 0; i < this.actividad.alumnos.length; i++) {
+                if (this.actividad.alumnos[i].id_item == this.objAlumnoSeleccionado.id_item) {
+                    this.configuracionGraficaLineal = {
+                        type: 'line',
+                        data: {
+                            datasets: [
+                                {
+                                    label: this.estadoSeleccionado,
+                                    backgroundColor: this.ColorSad,
+                                    borderColor: this.ColorSad,
+                                    fill: false,
+                                    data: this.actividad.alumnos[i].datos['' + this.estadoSeleccionado + ''],
+                                }
+                            ]
+                        },
+                        options: {
+                            responsive: true,
+                            title: {
+                                display: true,
+                                text: this.estadoSeleccionado,
+                            },
+                            scales: {
+                                xAxes: [{
+                                        type: 'time',
+                                        display: true,
+                                        scaleLabel: {
+                                            display: true,
+                                            labelString: 'Tiempo'
+                                        },
+                                        ticks: {
+                                            major: {
+                                                fontStyle: 'bold',
+                                                fontColor: '#FF0000'
+                                            }
+                                        }
+                                    }],
+                                yAxes: [{
+                                        display: true,
+                                        scaleLabel: {
+                                            display: true,
+                                            labelString: 'Porcentaje'
+                                        }
+                                    }]
+                            }
+                        }
+                    };
+                    this.graficaLineal = new chart_js__WEBPACK_IMPORTED_MODULE_2__["Chart"]('graficaLineal', this.configuracionGraficaLineal);
+                }
             }
         }
     }
@@ -3351,6 +4140,50 @@ VerActividadComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./ver-actividad.component.css */ "./src/app/profesor/ver-actividad/ver-actividad.component.css")).default]
     })
 ], VerActividadComponent);
+
+
+
+/***/ }),
+
+/***/ "./src/app/profesor/ver-clase/ver-clase.component.css":
+/*!************************************************************!*\
+  !*** ./src/app/profesor/ver-clase/ver-clase.component.css ***!
+  \************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3Byb2Zlc29yL3Zlci1jbGFzZS92ZXItY2xhc2UuY29tcG9uZW50LmNzcyJ9 */");
+
+/***/ }),
+
+/***/ "./src/app/profesor/ver-clase/ver-clase.component.ts":
+/*!***********************************************************!*\
+  !*** ./src/app/profesor/ver-clase/ver-clase.component.ts ***!
+  \***********************************************************/
+/*! exports provided: VerClaseComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "VerClaseComponent", function() { return VerClaseComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+
+
+let VerClaseComponent = class VerClaseComponent {
+    constructor() { }
+    ngOnInit() {
+    }
+};
+VerClaseComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-ver-clase',
+        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./ver-clase.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/profesor/ver-clase/ver-clase.component.html")).default,
+        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./ver-clase.component.css */ "./src/app/profesor/ver-clase/ver-clase.component.css")).default]
+    })
+], VerClaseComponent);
 
 
 

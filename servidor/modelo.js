@@ -4,7 +4,7 @@ var ObjectID = require("mongodb").ObjectID;
 function Centro() {
 
     //Atributos
-
+    this.clases = {};
     this.actividades = {};
     this.estudiantes = {};
     this.actividadesListas = {};
@@ -75,8 +75,77 @@ function Centro() {
         });
     }
 
+    //CRUD Clases
+    this.agregarClase = function (clase, callback) {
+        var ju = this;
+        /*let alumnos = {};
+        for (var email in estudiantes) {
+            alumnos[email] = new Alumno(estudiantes[email]);
+        }*/
+        let a = {
+            nombre: clase.nombre,
+            profesor: clase.profesor,
+            alumnos: clase.alumnos,
+            actividades: clase.actividades,
+            resumen: clase.resumen,
+        }
+
+        this.dao.connect(function (db) {
+            ju.dao.insertarClase(a, function (ru) {
+                ju.clases[ru._id] = new Clase(ru._id, ru.nombre, ru.profesor, ru.alumnos, ru.actividades, ru.resumen);
+                callback(ru);
+                db.close();
+            });
+        });
+    }
+    this.editarClase = function (act, callback) {
+        var ju = this;
+        if (!this.clases[act._id]) {
+            let alumnos = {};
+            /*for (var email in estudiantes) {
+                alumnos[email] = new Alumno(estudiantes[email]);
+            }*/
+            let a = {
+                nombre: act.nombre,
+                profesor: act.profesor,
+                alumnos: act.alumnos,
+                actividades: act.actividades,
+                resumen: act.resumen,
+            }
+            this.dao.connect(function (db) {
+                //console.log(a);
+                ju.dao.modificarClase(act._id, a, function (u) {
+                    callback(act);
+                    db.close();
+                });
+            });
+        }
+    }
+    this.borrarClase = function (act, callback) {
+        var ju = this;
+        this.dao.connect(function (db) {
+            ju.dao.eliminarClase(act, function (u) {
+                delete ju.clases[act._id];
+                callback(u);
+                db.close();
+            });
+        });
+        //}
+    }
+
+    this.mostrarClases = function (callback) {
+        var ju = this;
+        this.dao.connect(function (db) {
+            ju.dao.mostrarClases(function (u) {
+                ju.clases = u;
+                callback(u);
+                db.close();
+            });
+        });
+    }
+
     //CRUD Actividades
-    this.agregarActividad = function (nombre, profesor, alumnos, resumen, callback) {
+    this.agregarActividad = function (nombre, profesor,fecha, alumnos, resumen, callback) {
         var ju = this;
         /*let alumnos = {};
         for (var email in estudiantes) {
@@ -85,6 +154,7 @@ function Centro() {
         let a = {
             nombre: nombre,
             profesor: profesor,
+            fecha:fecha,
             alumnos: alumnos,
             estado: 'Creada',
             resumen: resumen,
@@ -101,7 +171,7 @@ function Centro() {
                 }
                 ru.alumnos = alu;
                 ju.dao.modificarActividad(ru._id, ru, function (u) {
-                    ju.actividades[u._id] = new Actividad(u._id, u.nombre, u.profesor, u.alumnos, u.estado);
+                    ju.actividades[u._id] = new Actividad(u._id, u.nombre, u.profesor,u.fecha, u.alumnos, u.estado);
                     //console.log(ru);
                     callback(u);
                     db.close();
@@ -120,20 +190,21 @@ function Centro() {
             let a = {
                 nombre: act.nombre,
                 profesor: act.profesor,
+                fecha: act.fecha,
                 alumnos: act.alumnos,
                 estado: act.estado,
                 resumen: act.resumen,
             }
             this.dao.connect(function (db) {
                 //console.log(a);
-                ju.dao.modificarActividad(act._id,a, function (u) {
+                ju.dao.modificarActividad(act._id, a, function (u) {
                     //ju.actividades[u._id].editarActividad(u.nombre, u.profesor, u.alumnos, u.estado);
                     //console.log(u);
-                    if(act.estado=="Comenzada"){
-                        ju.actividadesListas[act._id]=act;
+                    if (act.estado == "Comenzada") {
+                        ju.actividadesListas[act._id] = act;
                     }
-                    if(u!=null){
-                        ju.actividades[u._id]=act;
+                    if (u != null) {
+                        ju.actividades[u._id] = act;
                         callback(act);
                     }
                     db.close();
@@ -218,25 +289,25 @@ function Centro() {
         });
     }
 
-    this.anadirActividadLista = function(act,callback){
-        if(this.actividadesListas[act._id]==null){
-            this.actividadesListas[act._id]=act;
+    this.anadirActividadLista = function (act, callback) {
+        if (this.actividadesListas[act._id] == null) {
+            this.actividadesListas[act._id] = act;
         }
         console.log(this.actividadesListas);
         callback(this.actividadesListas[act._id]);
     }
 
-    this.borrarActividadLista = function(act,callback){
+    this.borrarActividadLista = function (act, callback) {
         delete this.actividadesListas[act._id];
         callback(act);
     }
 
-    this.mostrarActividadListasxAlumno = function(id_alu,callback){
+    this.mostrarActividadListasxAlumno = function (id_alu, callback) {
         let actividades = [];
         console.log(id_alu);
         for (var id in this.actividadesListas) {
-            for(let i=0; i<this.actividadesListas[id].alumnos.length;i++){
-                if(this.actividadesListas[id].alumnos[i].estudiante._id==id_alu){
+            for (let i = 0; i < this.actividadesListas[id].alumnos.length; i++) {
+                if (this.actividadesListas[id].alumnos[i].estudiante._id == id_alu) {
                     actividades.push(this.actividadesListas[id]);
                     break;
                 }
@@ -246,34 +317,71 @@ function Centro() {
     }
 
     //Iniciar Sesion
-    this.iniciarSesion = function(email,contrasena,callback){
+    this.iniciarSesion = function (email, contrasena, callback) {
         var ju = this;
         this.dao.connect(function (db) {
             ju.dao.obtenerEstudianteCriterio({ $and: [{ 'contrasena': contrasena }, { 'email': email }] }, function (u) {
-				if (!u) {
-					//console.log("No se ha podido loguear");
-				}
-				else {
-					//console.log("El usuario es: " + u._id);
-					//console.log("Se ha podido Loguear");
-					callback(u);
-				}
-				db.close();
-			});
+                if (!u) {
+                    //console.log("No se ha podido loguear");
+                }
+                else {
+                    //console.log("El usuario es: " + u._id);
+                    //console.log("Se ha podido Loguear");
+                    callback(u);
+                }
+                db.close();
+            });
         });
 
     }
 
 }
 
-function Actividad(id, nombre, profesor, alumnos, estado) {
+function Actividad(id, nombre, profesor,fecha, alumnos, estado) {
+
+    //Atributos
+    this._id = id;
+    this.nombre = nombre;
+    this.profesor = profesor;
+    this.fecha = fecha;
+    this.alumnos = alumnos;
+    this.estado = estado;
+    this.resumen = {};
+
+    //Metodos
+    this.anadirAlumno = function (estudiante, posicion) {
+
+        this.alumnos[estudiante.email] = new Alumno(estudiante, posicion, this);
+
+    }
+    this.editarActividad = function (nombre, profesor, alumnos, estado) {
+        this.nombre = nombre;
+        this.profesor = profesor;
+        this.alumnos = alumnos;
+        this.estado = estado;
+        return this;
+    }
+    this.borrarAlumno = function (nombre) {
+        delete this.alumnos[nombre];
+        return this;
+    }
+
+    //Print
+    this.mostrarActividad = function () {
+        return this;
+    }
+
+}
+
+
+function Clase(id,nombre,profesor,alumnos,actividades,resumen) {
 
     //Atributos
     this._id = id;
     this.nombre = nombre;
     this.profesor = profesor;
     this.alumnos = alumnos;
-    this.estado = estado;
+    this.actividades = {};
     this.resumen = {};
 
     //Metodos
