@@ -93,6 +93,7 @@ function Centro() {
         this.dao.connect(function (db) {
             ju.dao.insertarClase(a, function (ru) {
                 ju.clases[ru._id] = new Clase(ru._id, ru.nombre, ru.profesor, ru.alumnos, ru.actividades, ru.resumen);
+                console.log(ju.clases);
                 callback(ru);
                 db.close();
             });
@@ -125,14 +126,16 @@ function Centro() {
         var ju = this;
         this.dao.connect(function (db) {
             ju.dao.eliminarClase(act, function (u) {
-                delete ju.clases[act._id];
+                //delete ju.clases[act._id];
+                for (var act in act.actividades) {
+                    ju.borrarActividad(act.actividades[act]);
+                }
                 callback(u);
                 db.close();
             });
         });
         //}
     }
-
     this.mostrarClases = function (callback) {
         var ju = this;
         this.dao.connect(function (db) {
@@ -144,8 +147,133 @@ function Centro() {
         });
     }
 
+    //CRUD Actividades dentro de la Clase
+
+    this.crearActividadEnClase = function (clase, actividad, callback) {
+        var ju = this;
+        console.log("crearActividadEnClase")
+        //console.log(clase);
+        //console.log(actividad);
+        if (!this.clases[clase._id]) {
+            let ac = {
+                nombre: clase.nombre,
+                profesor: clase.profesor,
+                alumnos: clase.alumnos,
+                actividades: clase.actividades,
+                resumen: clase.resumen,
+            }
+            let a = {
+                nombre: actividad.nombre,
+                profesor: actividad.profesor,
+                fecha: actividad.fecha,
+                alumnos: actividad.alumnos,
+                estado: 'Creada',
+                resumen: actividad.resumen,
+                clase: actividad.clase,
+            }
+            /*this.dao.connect(function (db) {
+                //console.log(a);
+                ju.agregarActividad(actividad.nombre, actividad.profesor, actividad.fecha, actividad.alumnos, actividad.resumen, function (act) {
+                    a.actividades[act._id] = new Actividad(act._id,act.nombre, act.profesor, act.fecha, act.alumnos, act.resumen);
+                    //console.log(act);
+                    console.log("Actividad Agregada")
+                    ju.dao.modificarClase(clase._id, a, function (u) {
+                        //console.log(u);
+                        //console.log(ju.clases);
+                        //ju.clases[clase._id].actividades[actividad._id]=new Actividad(actividad._id,actividad.nombre,actividad.profesor,actividad.fecha,actividad.alumnos,actividad.estado);
+                        console.log("Actividad añadida a la clase");
+                        clase.actividades[act._id]=act;
+                        console.log(clase)
+                        callback(clase);
+                        db.close();
+                    });
+                })
+            });*/
+            this.dao.connect(function (db) {
+                ju.dao.insertarActividad(a, function (ru) {
+                    let alu = [];
+                    for (let i = 0; i < ru.alumnos.length; i++) {
+                        ru.alumnos[i].id_item = ru.alumnos[i]._id + ru._id;
+                    }
+                    for (let i = 0; i < ru.alumnos.length; i++) {
+                        //item.id_item = item.estudiante._id + ru._id;
+                        //alu.push(ru.alumnos[i].id_item=ru.alumnos[i].estudiante._id + ru._id);
+                        alu.push(new Alumno(ru.alumnos[i].estudiante, ru.alumnos[i].posicion, ru, ru.alumnos[i].datos));
+                    }
+                    ru.alumnos = alu;
+                    ju.actividades[ru._id] = new Actividad(ru._id, ru.nombre, ru.profesor, ru.fecha, ru.alumnos, ru.estado, ru.clase);
+                    //callback(ru);
+                    //db.close();
+                    //a.actividades[act._id] = new Actividad(act._id, act.nombre, act.profesor, act.fecha, act.alumnos, act.resumen);
+                    //console.log(act);
+                    console.log("Actividad Agregada")
+                    ac.actividades[ru._id]=ru;
+                    ju.dao.modificarClase(clase._id, ac, function (u) {
+                        //console.log("elemento añadido")
+                        //console.log(u);
+                        //console.log(ju.clases);
+                        //ju.clases[clase._id].actividades[actividad._id]=new Actividad(actividad._id,actividad.nombre,actividad.profesor,actividad.fecha,actividad.alumnos,actividad.estado);
+                        console.log("Actividad añadida a la clase");
+                        clase.actividades[ru._id] = ru;
+                        console.log(clase)
+                        callback(clase);
+                        db.close();
+                    });
+                });
+            });
+        }
+    }
+    this.editarActividadEnClase = function (clase, actividad, callback) {
+        var ju = this;
+        if (!this.clases[clase._id].actividades[actividad._id]) {
+            let a = {
+                nombre: clase.nombre,
+                profesor: clase.profesor,
+                alumnos: clase.alumnos,
+                actividades: clase.actividades,
+                resumen: clase.resumen,
+            }
+            a.actividades[actividad._id] = actividad;
+            this.dao.connect(function (db) {
+                //console.log(a);
+                ju.dao.modificarClase(clase._id, a, function (u) {
+                    ju.clases[clase._id].actividades[actividad._id] = actividad;
+                    ju.editarActividad(actividad, function (act) {
+                        callback(clase);
+                        db.close();
+                    });
+
+                });
+            });
+        }
+    }
+    this.borrarActividadEnClase = function (clase, actividad, callback) {
+        var ju = this;
+        if (!this.clases[clase._id].actividades[actividad._id]) {
+            let a = {
+                nombre: clase.nombre,
+                profesor: clase.profesor,
+                alumnos: clase.alumnos,
+                actividades: clase.actividades,
+                resumen: clase.resumen,
+            }
+            delete a.actividades[actividad._id];
+            this.dao.connect(function (db) {
+                //console.log(a);
+                ju.dao.modificarClase(clase._id, a, function (u) {
+                    delete ju.clases[clase._id].actividades[actividad._id];
+                    ju.borrarActividad(actividad._id, function () {
+                        callback(clase);
+                        db.close();
+                    })
+
+                });
+            });
+        }
+    }
+
     //CRUD Actividades
-    this.agregarActividad = function (nombre, profesor,fecha, alumnos, resumen, callback) {
+    this.agregarActividad = function (nombre, profesor, fecha, alumnos, resumen,clase, callback) {
         var ju = this;
         /*let alumnos = {};
         for (var email in estudiantes) {
@@ -154,29 +282,30 @@ function Centro() {
         let a = {
             nombre: nombre,
             profesor: profesor,
-            fecha:fecha,
+            fecha: fecha,
             alumnos: alumnos,
             estado: 'Creada',
             resumen: resumen,
+            clase: clase,
         }
 
         this.dao.connect(function (db) {
             ju.dao.insertarActividad(a, function (ru) {
                 let alu = [];
-                //console.log(ru);
-                for (item of ru.alumnos) {
-                    item.id_item = item.estudiante._id + ru._id;
-                    //console.log(item);
-                    alu.push(item);
+                for (let i = 0; i < ru.alumnos.length; i++) {
+                    ru.alumnos[i].id_item = ru.alumnos[i]._id + ru._id;
+                }
+                for (let i = 0; i < ru.alumnos.length; i++) {
+                    //item.id_item = item.estudiante._id + ru._id;
+                    //alu.push(ru.alumnos[i].id_item=ru.alumnos[i].estudiante._id + ru._id);
+                    alu.push(new Alumno(ru.alumnos[i].estudiante, ru.alumnos[i].posicion, ru, ru.alumnos[i].datos));
                 }
                 ru.alumnos = alu;
                 ju.dao.modificarActividad(ru._id, ru, function (u) {
-                    ju.actividades[u._id] = new Actividad(u._id, u.nombre, u.profesor,u.fecha, u.alumnos, u.estado);
-                    //console.log(ru);
-                    callback(u);
+                    ju.actividades[u._id] = new Actividad(u._id, u.nombre, u.profesor, u.fecha, u.alumnos, u.estado, u.clase);
+                    callback(ru);
                     db.close();
                 });
-
             });
         });
     }
@@ -337,7 +466,7 @@ function Centro() {
 
 }
 
-function Actividad(id, nombre, profesor,fecha, alumnos, estado) {
+function Actividad(id, nombre, profesor, fecha, alumnos, estado,clase) {
 
     //Atributos
     this._id = id;
@@ -347,6 +476,7 @@ function Actividad(id, nombre, profesor,fecha, alumnos, estado) {
     this.alumnos = alumnos;
     this.estado = estado;
     this.resumen = {};
+    this.clase = {};
 
     //Metodos
     this.anadirAlumno = function (estudiante, posicion) {
@@ -374,18 +504,18 @@ function Actividad(id, nombre, profesor,fecha, alumnos, estado) {
 }
 
 
-function Clase(id,nombre,profesor,alumnos,actividades,resumen) {
+function Clase(id, nombre, profesor, alumnos, actividades, resumen) {
 
     //Atributos
     this._id = id;
     this.nombre = nombre;
     this.profesor = profesor;
     this.alumnos = alumnos;
-    this.actividades = {};
-    this.resumen = {};
+    this.actividades = actividades;
+    this.resumen = resumen;
 
     //Metodos
-    this.anadirAlumno = function (estudiante, posicion) {
+    /*this.anadirAlumno = function (estudiante, posicion) {
 
         this.alumnos[estudiante.email] = new Alumno(estudiante, posicion, this);
 
@@ -405,7 +535,7 @@ function Clase(id,nombre,profesor,alumnos,actividades,resumen) {
     //Print
     this.mostrarActividad = function () {
         return this;
-    }
+    }*/
 
 }
 
@@ -430,13 +560,13 @@ function Estudiante(id, nombre, apellidos, clase, email, contrasena) {
 
 }
 
-function Alumno(estudiante, posicion, actividad) {
+function Alumno(estudiante, posicion, actividad, datos) {
 
     //Atributos
     this.estudiante = estudiante;
     this.posicion = posicion;
     this.id_item = this.estudiante._id + actividad._id;
-    this.datos = {};
+    this.datos = datos;
 
     this.setActividad = function (act) {
         this.id_item = this.estudiante._id + act._id;

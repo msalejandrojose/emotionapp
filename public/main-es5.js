@@ -491,7 +491,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"row\">\n    <div class=\"col-md-2\">\n        <!--<app-sidenav-profesor></app-sidenav-profesor>-->\n        <div class=\"sidenav list-group\">\n            <a href=\"#\" (click)=\"abrirAlumnos()\">Alumno</a>\n            <a href=\"#\" (click)=\"abrirActividades()\">Actividades</a>\n            <a href=\"#\" (click)=\"abrirClases()\">Clases</a>\n        </div>\n    </div>\n    <div *ngIf=\"gestionAlumnos\" class=\"col-md-10\">\n        <br>\n        <div class=\"row justify-content-md-center\">\n            <div class=\"col-md-10\">\n                <h4>Alumno</h4>\n            </div>\n            <div class=\"col-md-2\">\n                <button type=\"button\" (click)=\"abrirActividades()\" class=\"btn btn-outline-primary\">Crear\n                    Actividad</button>\n            </div>\n        </div>\n        <div class=\"row justify-content-md-center\">\n            <!--<div class=\"card-body card-body-cascade text-center wow fadeIn\">\n                <h4>Hola mundo</h4>\n                <p>asdalksdjlajsdklasjdkljlañksjfñdskladsfjñalksfj</p>\n            </div>-->\n            <div class=\"card col-md-6\">\n                <div *ngIf=\"!editarAlumno\" class=\"card-body\">\n                    <h4 class=\"card-title\">Crear Alumno</h4>\n                    <div>\n                        <label>Nombre del Alumn@</label>\n                        <input [(ngModel)]=\"alumnoCreate.nombre\" type=\"text\" class=\"form-control\" id=\"nombre\"\n                            placeholder=\"Nombre\">\n                        <br>\n                        <label>Apellidos</label>\n                        <input [(ngModel)]=\"alumnoCreate.apellidos\" type=\"text\" class=\"form-control\" id=\"apellidos\"\n                            ng-model=\"apellidos\" placeholder=\"Apellidos\">\n                        <br>\n                        <label>Clase</label>\n                        <input [(ngModel)]=\"alumnoCreate.clase\" type=\"text\" class=\"form-control\" id=\"clase\"\n                            ng-model=\"clase\" placeholder=\"Clase\">\n                        <br>\n                        <label>Email</label>\n                        <input [(ngModel)]=\"alumnoCreate.email\" type=\"email\" class=\"form-control\" id=\"email\"\n                            ng-model=\"email\" placeholder=\"Enter email\">\n                        <small id=\"emailHelp\" class=\"form-text text-muted\">El email tiene que ser unico</small>\n                        <br>\n                        <label>Contraseña</label>\n                        <input [(ngModel)]=\"alumnoCreate.contrasena\" type=\"password\" class=\"form-control\"\n                            id=\"contrasena\" ng-model=\"contrasena\" placeholder=\"Contraseña\">\n                        <small id=\"contrasenaHelp\" class=\"form-text text-muted\">El usuario podra entrar con esta\n                            contraseña</small>\n                        <button type=\"button\" (click)=\"limpiar()\" class=\"btn btn-raised btn-danger\">Limpiar</button>\n                        <button type=\"button\" (click)=\"anadirAlumno()\" class=\"btn btn-raised btn-success\">Guardar\n                            Alumn@</button>\n                    </div>\n                </div>\n                <div *ngIf=\"editarAlumno\" class=\"card-body\">\n                    <h4 class=\"card-title\">Editar Alumno</h4>\n                    <div>\n                        <label>Nombre del Alumn@</label>\n                        <input [(ngModel)]=\"onSelectedAlumno.nombre\" type=\"text\" class=\"form-control\" id=\"nombre\"\n                            placeholder=\"Nombre\">\n                        <br>\n                        <label>Apellidos</label>\n                        <input [(ngModel)]=\"onSelectedAlumno.apellidos\" type=\"text\" class=\"form-control\" id=\"apellidos\"\n                            ng-model=\"apellidos\" placeholder=\"Apellidos\">\n                        <br>\n                        <label>Clase</label>\n                        <input [(ngModel)]=\"onSelectedAlumno.clase\" type=\"text\" class=\"form-control\" id=\"clase\"\n                            ng-model=\"clase\" placeholder=\"Clase\">\n                        <br>\n                        <label>Email</label>\n                        <input [(ngModel)]=\"onSelectedAlumno.email\" type=\"email\" class=\"form-control\" id=\"email\"\n                            ng-model=\"email\" placeholder=\"Enter email\">\n                        <small id=\"emailHelp\" class=\"form-text text-muted\">El email tiene que ser unico</small>\n                        <br>\n                        <label>Contraseña</label>\n                        <input [(ngModel)]=\"onSelectedAlumno.contrasena\" type=\"password\" class=\"form-control\"\n                            id=\"contrasena\" ng-model=\"contrasena\" placeholder=\"Contraseña\">\n                        <small id=\"contrasenaHelp\" class=\"form-text text-muted\">El usuario podra entrar con esta\n                            contraseña</small>\n                        <button type=\"button\" (click)=\"limpiar()\" class=\"btn btn-raised btn-danger\">Limpiar</button>\n                        <button type=\"button\" (click)=\"actualizarAlumno()\" class=\"btn btn-raised btn-success\">Actualizar\n                            Alumn@</button>\n                    </div>\n                </div>\n            </div>\n            <div class=\"col-md-6\">\n                <h3>Lista de Alumnos</h3>\n                <table class=\"table table-striped\">\n                    <thead>\n                        <tr>\n                            <th scope=\"col\">Nombre</th>\n                            <th scope=\"col\">Apellidos</th>\n                            <th scope=\"col\">Clase</th>\n                            <th scope=\"col\"></th>\n                            <th scope=\"col\"></th>\n                        </tr>\n                    </thead>\n                    <tbody *ngFor=\"let alumno of listaAlumnos\">\n                        <tr>\n                            <td>{{alumno.nombre}}</td>\n                            <td>{{alumno.apellidos}}</td>\n                            <td>{{alumno.clase}}</td>\n                            <td><i (click)=\"editar(alumno)\" class=\"fa fa-edit\"></i></td>\n                            <td><i (click)=\"borrar(alumno)\" class=\"fa fa-trash-o\"></i></td>\n                        </tr>\n                    </tbody>\n                </table>\n            </div>\n        </div>\n    </div>\n    <div *ngIf=\"gestionActividades\" class=\"col-md-10\">\n        <br>\n        <div class=\"row justify-content-md-center\">\n            <div class=\"col-md-9\">\n                <h4>Actividades</h4>\n            </div>\n            <div class=\"col-md-3\">\n                <button type=\"button\" *ngIf=\"(!crearActividad && !verActividad) && !editarActividad\"\n                    (click)=\"abrirCrearActividad()\" class=\"btn btn-outline-primary\">Crear\n                    Actividad Individual</button>\n                <button type=\"button\" *ngIf=\"(crearActividad && !verActividad) || editarActividad\"\n                    (click)=\"cerrarModal()\" class=\"btn btn-outline-danger\">Cancelar</button>\n                <!--<button type=\"button\" *ngIf=\"!crearActividad && verActividad\" (click)=\"cerrarActividad()\" class=\"btn btn-outline-danger\">Cerrar Actividad</button>-->\n            </div>\n        </div>\n        <br>\n        <div class=\"col-md-11\">\n            <app-crear-actividad *ngIf=\"crearActividad\" [estudiantes]=\"listaAlumnos\"\n                (actividadCreada)=\"guardarActividad($event)\"></app-crear-actividad>\n            <app-editar-actividad *ngIf=\"editarActividad\" [estudiantes]=\"listaAlumnos\"\n                [editarActividad]=\"ActividadparaEditar\" (actividadEditada)=\"actualizarActividad($event)\">\n            </app-editar-actividad>\n        </div>\n        <br>\n        <div *ngIf=\"verActividad\">\n            <app-ver-actividad [actividad]=\"actividadSelected\" [aluConectados]=\"alumnosConectados\"\n                (actividadCreada)=\"cerrarActividad($event)\"></app-ver-actividad>\n        </div>\n        <div *ngIf=\"!verActividad\" class=\"row justify-content-md-center\">\n            <div class=\"col-md-10\">\n                <h3>Lista de Actividades</h3>\n                <table class=\"table table-striped\">\n                    <thead>\n                        <tr>\n                            <th scope=\"col\">Nombre</th>\n                            <th scope=\"col\">Profesor</th>\n                            <th scope=\"col\">Estado</th>\n                            <th scope=\"col\"></th>\n                            <th scope=\"col\"></th>\n                            <th scope=\"col\"></th>\n                        </tr>\n                    </thead>\n                    <tbody *ngFor=\"let actividad of listaActividades\">\n                        <tr *ngIf=\"actividad.estado=='Creada'\">\n                            <td>{{actividad.nombre}}</td>\n                            <td>{{actividad.profesor}}</td>\n                            <td>{{actividad.estado}}</td>\n                            <td><button type=\"button\" class=\"btn btn-outline-primary\"\n                                    (click)=\"abrirActividad(actividad)\">Acceder</button></td>\n                            <td><i (click)=\"editarA(actividad)\" class=\"fa fa-edit\"></i></td>\n                            <td><i (click)=\"borrarA(actividad)\" class=\"fa fa-trash-o\"></i></td>\n                        </tr>\n                        <tr *ngIf=\"actividad.estado=='Comenzada'\">\n                            <td>{{actividad.nombre}}</td>\n                            <td>{{actividad.profesor}}</td>\n                            <td>{{actividad.estado}}</td>\n                            <td><button type=\"button\" class=\"btn btn-outline-success\"\n                                    (click)=\"abrirActividad(actividad)\">Ver</button></td>\n                            <td><i (click)=\"editarA(actividad)\" class=\"fa fa-edit\"></i></td>\n                            <td><i (click)=\"borrarA(actividad)\" class=\"fa fa-trash-o\"></i></td>\n                        </tr>\n                        <tr *ngIf=\"actividad.estado=='Finalizada'\">\n                            <td>{{actividad.nombre}}</td>\n                            <td>{{actividad.profesor}}</td>\n                            <td>{{actividad.estado}}</td>\n                            <td><button type=\"button\" class=\"btn btn-outline-success\"\n                                    (click)=\"abrirActividad(actividad)\">Resumen</button></td>\n                            <td><i (click)=\"editarA(actividad)\" class=\"fa fa-edit\"></i></td>\n                            <td><i (click)=\"borrarA(actividad)\" class=\"fa fa-trash-o\"></i></td>\n                        </tr>\n                    </tbody>\n                </table>\n            </div>\n        </div>\n    </div>\n    <div *ngIf=\"gestionClases\" class=\"col-md-10\">\n        <br>\n        <div class=\"row justify-content-md-center\">\n            <div class=\"col-md-9\">\n                <h4>Clases</h4>\n            </div>\n            <div class=\"col-md-3\">\n                <button type=\"button\" *ngIf=\"!crearClase\" (click)=\"abrirCrearClase()\"\n                    class=\"btn btn-outline-primary\">Crear\n                    Clase</button>\n                <button type=\"button\" *ngIf=\"crearClase\" (click)=\"cerrarModal()\"\n                    class=\"btn btn-outline-danger\">Cancelar</button>\n            </div>\n        </div>\n        <br>\n        <div class=\"col-md-11\">\n            <app-crear-clase *ngIf=\"crearClase\" [estudiantes]=\"listaAlumnos\"></app-crear-clase>\n            <app-editar-clase *ngIf=\"editarClase\" [estudiantes]=\"listaAlumnos\" [editarActividad]=\"ClaseparaEditar\">\n            </app-editar-clase>\n        </div>\n        <br>\n        <div *ngIf=\"verClase\">\n            <!--<app-ver-clase [actividad]=\"actividadSelected\" [aluConectados]=\"alumnosConectados\"\n                ></app-ver-clase>-->\n        </div>\n        <div *ngIf=\"!verActividad\" class=\"row justify-content-md-center\">\n            <div class=\"col-md-10\">\n                <h3>Lista de Clases</h3>\n                <table class=\"table table-striped\">\n                    <thead>\n                        <tr>\n                            <th scope=\"col\">Nombre</th>\n                            <th scope=\"col\">Profesor</th>\n                            <th scope=\"col\"></th>\n                            <th scope=\"col\"></th>\n                            <th scope=\"col\"></th>\n                        </tr>\n                    </thead>\n                    <tbody *ngFor=\"let clase of listaClases\">\n                        <tr>\n                            <td>{{clase.nombre}}</td>\n                            <td>{{clase.profesor}}</td>\n                            <td><button type=\"button\" class=\"btn btn-outline-primary\"\n                                    (click)=\"crearActividadAsociada(clase)\">Crear Actividad</button></td>\n                            <td><i (click)=\"editarC(clase)\" class=\"fa fa-edit\"></i></td>\n                            <td><i (click)=\"borrarC(clase)\" class=\"fa fa-trash-o\"></i></td>\n                        </tr>\n                    </tbody>\n                </table>\n            </div>\n        </div>\n    </div>\n</div>";
+    __webpack_exports__["default"] = "<div class=\"row\">\n    <div class=\"col-md-2\">\n        <!--<app-sidenav-profesor></app-sidenav-profesor>-->\n        <div class=\"sidenav list-group\">\n            <a href=\"#\" class=\"item-menu-sidenav\" (click)=\"abrirActividadActual()\">Home</a>\n            <a href=\"#\" class=\"item-menu-sidenav\" (click)=\"abrirAlumnos()\">Alumno</a>\n            <a href=\"#\" class=\"item-menu-sidenav\" (click)=\"abrirActividades()\">Actividades</a>\n            <a href=\"#\" class=\"item-menu-sidenav\" (click)=\"abrirClases()\">Clases</a>\n        </div>\n    </div>\n    <div *ngIf=\"actividadAbierta\" class=\"col-md-10\">\n        <br>\n        <app-ver-actividad [actividad]=\"actividadSelected\" [aluConectados]=\"alumnosConectados\"></app-ver-actividad>\n    </div>\n    <div *ngIf=\"gestionAlumnos\" class=\"col-md-10\">\n        <br>\n        <div class=\"row justify-content-md-center\">\n            <div class=\"col-md-10\">\n                <h4>Alumno</h4>\n            </div>\n            <div class=\"col-md-2\">\n                <button type=\"button\" (click)=\"abrirActividades()\" class=\"btn btn-outline-primary\">Crear\n                    Actividad</button>\n            </div>\n        </div>\n        <div class=\"row justify-content-md-center\">\n            <!--<div class=\"card-body card-body-cascade text-center wow fadeIn\">\n                <h4>Hola mundo</h4>\n                <p>asdalksdjlajsdklasjdkljlañksjfñdskladsfjñalksfj</p>\n            </div>-->\n            <div class=\"card col-md-6\">\n                <div *ngIf=\"!editarAlumno\" class=\"card-body\">\n                    <h4 class=\"card-title\">Crear Alumno</h4>\n                    <div>\n                        <label>Nombre del Alumn@</label>\n                        <input [(ngModel)]=\"alumnoCreate.nombre\" type=\"text\" class=\"form-control\" id=\"nombre\"\n                            placeholder=\"Nombre\">\n                        <br>\n                        <label>Apellidos</label>\n                        <input [(ngModel)]=\"alumnoCreate.apellidos\" type=\"text\" class=\"form-control\" id=\"apellidos\"\n                            ng-model=\"apellidos\" placeholder=\"Apellidos\">\n                        <br>\n                        <label>Clase</label>\n                        <input [(ngModel)]=\"alumnoCreate.clase\" type=\"text\" class=\"form-control\" id=\"clase\"\n                            ng-model=\"clase\" placeholder=\"Clase\">\n                        <br>\n                        <label>Email</label>\n                        <input [(ngModel)]=\"alumnoCreate.email\" type=\"email\" class=\"form-control\" id=\"email\"\n                            ng-model=\"email\" placeholder=\"Enter email\">\n                        <small id=\"emailHelp\" class=\"form-text text-muted\">El email tiene que ser unico</small>\n                        <br>\n                        <label>Contraseña</label>\n                        <input [(ngModel)]=\"alumnoCreate.contrasena\" type=\"password\" class=\"form-control\"\n                            id=\"contrasena\" ng-model=\"contrasena\" placeholder=\"Contraseña\">\n                        <small id=\"contrasenaHelp\" class=\"form-text text-muted\">El usuario podra entrar con esta\n                            contraseña</small>\n                        <button type=\"button\" (click)=\"limpiar()\" class=\"btn btn-raised btn-danger\">Limpiar</button>\n                        <button type=\"button\" (click)=\"anadirAlumno()\" class=\"btn btn-raised btn-success\">Guardar\n                            Alumn@</button>\n                    </div>\n                </div>\n                <div *ngIf=\"editarAlumno\" class=\"card-body\">\n                    <h4 class=\"card-title\">Editar Alumno</h4>\n                    <div>\n                        <label>Nombre del Alumn@</label>\n                        <input [(ngModel)]=\"onSelectedAlumno.nombre\" type=\"text\" class=\"form-control\" id=\"nombre\"\n                            placeholder=\"Nombre\">\n                        <br>\n                        <label>Apellidos</label>\n                        <input [(ngModel)]=\"onSelectedAlumno.apellidos\" type=\"text\" class=\"form-control\" id=\"apellidos\"\n                            ng-model=\"apellidos\" placeholder=\"Apellidos\">\n                        <br>\n                        <label>Clase</label>\n                        <input [(ngModel)]=\"onSelectedAlumno.clase\" type=\"text\" class=\"form-control\" id=\"clase\"\n                            ng-model=\"clase\" placeholder=\"Clase\">\n                        <br>\n                        <label>Email</label>\n                        <input [(ngModel)]=\"onSelectedAlumno.email\" type=\"email\" class=\"form-control\" id=\"email\"\n                            ng-model=\"email\" placeholder=\"Enter email\">\n                        <small id=\"emailHelp\" class=\"form-text text-muted\">El email tiene que ser unico</small>\n                        <br>\n                        <label>Contraseña</label>\n                        <input [(ngModel)]=\"onSelectedAlumno.contrasena\" type=\"password\" class=\"form-control\"\n                            id=\"contrasena\" ng-model=\"contrasena\" placeholder=\"Contraseña\">\n                        <small id=\"contrasenaHelp\" class=\"form-text text-muted\">El usuario podra entrar con esta\n                            contraseña</small>\n                        <button type=\"button\" (click)=\"limpiar()\" class=\"btn btn-raised btn-danger\">Limpiar</button>\n                        <button type=\"button\" (click)=\"actualizarAlumno()\" class=\"btn btn-raised btn-success\">Actualizar\n                            Alumn@</button>\n                    </div>\n                </div>\n            </div>\n            <div class=\"col-md-6\">\n                <h3>Lista de Alumnos</h3>\n                <table class=\"table table-striped\">\n                    <thead>\n                        <tr>\n                            <th scope=\"col\">Nombre</th>\n                            <th scope=\"col\">Apellidos</th>\n                            <th scope=\"col\">Clase</th>\n                            <th scope=\"col\"></th>\n                            <th scope=\"col\"></th>\n                        </tr>\n                    </thead>\n                    <tbody *ngFor=\"let alumno of listaAlumnos\">\n                        <tr>\n                            <td>{{alumno.nombre}}</td>\n                            <td>{{alumno.apellidos}}</td>\n                            <td>{{alumno.clase}}</td>\n                            <td><i (click)=\"editar(alumno)\" class=\"fa fa-edit\"></i></td>\n                            <td><i (click)=\"borrar(alumno)\" class=\"fa fa-trash-o\"></i></td>\n                        </tr>\n                    </tbody>\n                </table>\n            </div>\n        </div>\n    </div>\n    <div *ngIf=\"gestionActividades\" class=\"col-md-10\">\n        <br>\n        <div class=\"row justify-content-md-center\">\n            <div class=\"col-md-9\">\n                <h4>Actividades</h4>\n            </div>\n            <div class=\"col-md-3\">\n                <button type=\"button\" *ngIf=\"(!crearActividad) && !editarActividad\"\n                    (click)=\"abrirCrearActividad()\" class=\"btn btn-outline-primary\">Crear\n                    Actividad Individual</button>\n                <button type=\"button\" *ngIf=\"(crearActividad) || editarActividad\"\n                    (click)=\"cerrarModal()\" class=\"btn btn-outline-danger\">Cancelar</button>\n                <!--<button type=\"button\" *ngIf=\"!crearActividad && verActividad\" (click)=\"cerrarActividad()\" class=\"btn btn-outline-danger\">Cerrar Actividad</button>-->\n            </div>\n        </div>\n        <br>\n        <div class=\"col-md-11\">\n            <app-crear-actividad *ngIf=\"crearActividad\" [estudiantes]=\"listaAlumnos\"\n                (actividadCreada)=\"guardarActividad($event)\"></app-crear-actividad>\n            <app-editar-actividad *ngIf=\"editarActividad\" [estudiantes]=\"listaAlumnos\"\n                [editarActividad]=\"ActividadparaEditar\" (actividadEditada)=\"actualizarActividad($event)\">\n            </app-editar-actividad>\n        </div>\n        <br>\n        <!--<div *ngIf=\"verActividad\">\n            <app-ver-actividad [actividad]=\"actividadSelected\" [aluConectados]=\"alumnosConectados\"\n                (actividadCreada)=\"cerrarActividad($event)\"></app-ver-actividad>\n        </div>-->\n        <div class=\"row justify-content-md-center\">\n            <div class=\"col-md-10\">\n                <h3>Lista de Actividades</h3>\n                <table class=\"table table-striped\">\n                    <thead>\n                        <tr>\n                            <th scope=\"col\">Nombre</th>\n                            <th scope=\"col\">Profesor</th>\n                            <th scope=\"col\">Estado</th>\n                            <th scope=\"col\"></th>\n                            <th scope=\"col\"></th>\n                            <th scope=\"col\"></th>\n                        </tr>\n                    </thead>\n                    <tbody *ngFor=\"let actividad of listaActividades\">\n                        <tr *ngIf=\"actividad.estado=='Creada'\">\n                            <td>{{actividad.nombre}}</td>\n                            <td>{{actividad.profesor}}</td>\n                            <td>{{actividad.estado}}</td>\n                            <td><button type=\"button\" class=\"btn btn-outline-primary\"\n                                    (click)=\"abrirActividad(actividad)\">Acceder</button></td>\n                            <td><i (click)=\"editarA(actividad)\" class=\"fa fa-edit\"></i></td>\n                            <td><i (click)=\"borrarA(actividad)\" class=\"fa fa-trash-o\"></i></td>\n                        </tr>\n                        <tr *ngIf=\"actividad.estado=='Comenzada'\">\n                            <td>{{actividad.nombre}}</td>\n                            <td>{{actividad.profesor}}</td>\n                            <td>{{actividad.estado}}</td>\n                            <td><button type=\"button\" class=\"btn btn-outline-success\"\n                                    (click)=\"abrirActividad(actividad)\">Ver</button></td>\n                            <td><i (click)=\"editarA(actividad)\" class=\"fa fa-edit\"></i></td>\n                            <td><i (click)=\"borrarA(actividad)\" class=\"fa fa-trash-o\"></i></td>\n                        </tr>\n                        <tr *ngIf=\"actividad.estado=='Finalizada'\">\n                            <td>{{actividad.nombre}}</td>\n                            <td>{{actividad.profesor}}</td>\n                            <td>{{actividad.estado}}</td>\n                            <td><button type=\"button\" class=\"btn btn-outline-success\"\n                                    (click)=\"abrirActividad(actividad)\">Resumen</button></td>\n                            <td><i (click)=\"editarA(actividad)\" class=\"fa fa-edit\"></i></td>\n                            <td><i (click)=\"borrarA(actividad)\" class=\"fa fa-trash-o\"></i></td>\n                        </tr>\n                    </tbody>\n                </table>\n            </div>\n        </div>\n    </div>\n    <div *ngIf=\"gestionClases\" class=\"col-md-10\">\n        <br>\n        <div *ngIf=\"!verClase\" class=\"row justify-content-md-center\">\n            <div class=\"col-md-9\">\n                <h4>Clases</h4>\n            </div>\n            <div class=\"col-md-3\">\n                <button type=\"button\" *ngIf=\"!crearClase\" (click)=\"abrirCrearClase()\"\n                    class=\"btn btn-outline-primary\">Crear\n                    Clase</button>\n                <button type=\"button\" *ngIf=\"crearClase\" (click)=\"cerrarModal()\"\n                    class=\"btn btn-outline-danger\">Cancelar</button>\n            </div>\n        </div>\n        <br>\n        <div class=\"col-md-11\">\n            <app-crear-clase *ngIf=\"crearClase\" [estudiantes]=\"listaAlumnos\"></app-crear-clase>\n            <app-editar-clase *ngIf=\"editarClase\" [estudiantes]=\"listaAlumnos\" [editarActividad]=\"ClaseparaEditar\">\n            </app-editar-clase>\n        </div>\n        <br>\n        <div *ngIf=\"verClase\">\n            <!--<app-ver-clase [actividad]=\"actividadSelected\" [aluConectados]=\"alumnosConectados\"\n                ></app-ver-clase>-->\n        </div>\n        <div *ngIf=\"!verClase\" class=\"row justify-content-md-center\">\n            <div class=\"col-md-10\">\n                <h3>Lista de Clases</h3>\n                <table class=\"table table-striped\">\n                    <thead>\n                        <tr>\n                            <th scope=\"col\">Nombre</th>\n                            <th scope=\"col\">Profesor</th>\n                            <th scope=\"col\"></th>\n                            <th scope=\"col\"></th>\n                            <th scope=\"col\"></th>\n                            <th scope=\"col\"></th>\n                        </tr>\n                    </thead>\n                    <tbody *ngFor=\"let clase of listaClases\">\n                        <tr>\n                            <td>{{clase.nombre}}</td>\n                            <td>{{clase.profesor}}</td>\n                            <td><button type=\"button\" class=\"btn btn-outline-success\"\n                                    (click)=\"crearActividadAsociada(clase)\">Crear Actividad</button></td>\n                            <td><button type=\"button\" class=\"btn btn-outline-primary\" (click)=\"abrirClase(clase)\">Ver\n                                    Clase</button></td>\n                            <td><i (click)=\"editarC(clase)\" class=\"fa fa-edit\"></i></td>\n                            <td><i (click)=\"borrarC(clase)\" class=\"fa fa-trash-o\"></i></td>\n                        </tr>\n                    </tbody>\n                </table>\n            </div>\n        </div>\n        <div *ngIf=\"verClase\">\n            <app-ver-clase [clase]=\"claseSelected\"></app-ver-clase>\n        </div>\n\n    </div>\n</div>";
     /***/
   },
 
@@ -551,7 +551,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<p>ver-clase works!</p>\n";
+    __webpack_exports__["default"] = "<div class=\"row justify-content-center\">\n    <div class=\"col-2\">\n        <button type=\"button\" class=\"btn btn-outline-danger\" (click)=\"cerrarClase()\">Cerrar Clase</button>\n    </div>\n    <div class=\"col-8\">\n        <h3 class=\"text-center\">{{clase.nombre}}</h3>\n    </div>\n    <div class=\"col-2\">\n        <button type=\"button\" class=\"btn btn btn-outline-success\" (click)=\"crearActividad()\">Crear Actividad</button>\n    </div>\n</div>\n<br>\n<div class=\"row justify-content-md-center\">\n    <div class=\"col-md-10\">\n        <h3>Lista de Actividades</h3>\n        <table class=\"table table-striped\">\n            <thead>\n                <tr>\n                    <th scope=\"col\">Nombre</th>\n                    <th scope=\"col\">Profesor</th>\n                    <th scope=\"col\">Estado</th>\n                    <th scope=\"col\"></th>\n                    <th scope=\"col\"></th>\n                    <th scope=\"col\"></th>\n                </tr>\n            </thead>\n            <tbody *ngFor=\"let actividad of actividades\">\n                <tr *ngIf=\"actividad.estado=='Creada'\">\n                    <td>{{actividad.nombre}}</td>\n                    <td>{{actividad.profesor}}</td>\n                    <td>{{actividad.estado}}</td>\n                    <td><button type=\"button\" class=\"btn btn-outline-primary\"\n                            (click)=\"abrirActividad(actividad)\">Acceder</button></td>\n                    <td><i (click)=\"editarA(actividad)\" class=\"fa fa-edit\"></i></td>\n                    <td><i (click)=\"borrarA(actividad)\" class=\"fa fa-trash-o\"></i></td>\n                </tr>\n                <tr *ngIf=\"actividad.estado=='Comenzada'\">\n                    <td>{{actividad.nombre}}</td>\n                    <td>{{actividad.profesor}}</td>\n                    <td>{{actividad.estado}}</td>\n                    <td><button type=\"button\" class=\"btn btn-outline-success\"\n                            (click)=\"abrirActividad(actividad)\">Ver</button></td>\n                    <td><i (click)=\"editarA(actividad)\" class=\"fa fa-edit\"></i></td>\n                    <td><i (click)=\"borrarA(actividad)\" class=\"fa fa-trash-o\"></i></td>\n                </tr>\n                <tr *ngIf=\"actividad.estado=='Finalizada'\">\n                    <td>{{actividad.nombre}}</td>\n                    <td>{{actividad.profesor}}</td>\n                    <td>{{actividad.estado}}</td>\n                    <td><button type=\"button\" class=\"btn btn-outline-success\"\n                            (click)=\"abrirActividad(actividad)\">Resumen</button></td>\n                    <td><i (click)=\"editarA(actividad)\" class=\"fa fa-edit\"></i></td>\n                    <td><i (click)=\"borrarA(actividad)\" class=\"fa fa-trash-o\"></i></td>\n                </tr>\n            </tbody>\n        </table>\n    </div>\n</div>\n<!--<div class=\"row justify-content-md-center\">\n    <div *ngIf=\"vistaGeneral\" class=\"btn-group btn-group-toggle\">\n        <label class=\"btn btn-outline-primary active\">\n            <input type=\"radio\" name=\"options\" id=\"general\" (click)=\"cambiarAGeneral()\" checked> General\n        </label>\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAMapa()\"> Mapa de la clase\n        </label>\n    </div>\n    <div *ngIf=\"vistaMapaDeLaClase\" class=\"btn-group btn-group-toggle\">\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"general\" (click)=\"cambiarAGeneral()\"> General\n        </label>\n        <label class=\"btn btn-outline-primary active\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAMapa()\" checked> Mapa de la clase\n        </label>\n    </div>\n</div>-->\n<br>\n<!--<div class=\"row justify-content-center\">\n    <div class=\"col-5\">\n        <div class=\"card-body\">\n            <h5 class=\"text-center card-title\">Actividades Completadas</h5>\n            <div class=\"card-content\">\n                <canvas id=\"usersConectados\"></canvas>\n                <h6 class=\"text-center\">{{porUsuariosConectados}}% Actividades Completadas</h6>\n            </div>\n        </div>\n    </div>\n</div>-->\n<!--<div class=\"row\">\n    <div class=\"card-body\">\n        <div class=\"row\">\n            <h5 class=\"col-4 text-center card-title\">Grafica</h5>\n            <div class=\"col-4\">\n                <div class=\"btn-group\">\n                    <button type=\"button\" class=\"btn btn-info dropdown-toggle\" data-toggle=\"dropdown\"\n                        aria-haspopup=\"true\" aria-expanded=\"false\">\n                        {{estadoSeleccionado}}\n                    </button>\n                    <div class=\"dropdown-menu\">\n                        <a class=\"dropdown-item\" *ngFor=\"let estado of estados\"\n                            (click)=\"seleccionarEstado(estado)\">{{estado}}</a>\n                    </div>\n                </div>\n            </div>\n            <div class=\"col-4\">\n                <div class=\"btn-group\">\n                    <button type=\"button\" class=\"btn btn-info dropdown-toggle\" data-toggle=\"dropdown\"\n                        aria-haspopup=\"true\" aria-expanded=\"false\">\n                        {{alumnoSeleccionado}}\n                    </button>\n                    <div class=\"dropdown-menu\">\n                        <a *ngIf=\"alumnoSeleccionadoAlumno\" class=\"dropdown-item\"\n                            (click)=\"seleccionarMediaAlumnos()\">Media de la clase</a>\n                        <a class=\"dropdown-item\" *ngFor=\"let alumno of alumnos\"\n                            (click)=\"seleccionarAlumno(alumno)\">{{alumno.estudiante.nombre}}</a>\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>\n</div>-->\n<!--<div *ngIf=\"vistaMapaDeLaClase\" class=\"row justify-content-md-center\">\n    <div class=\"card col-md-11\">\n        <div class=\"card-body\">\n            <h5 class=\"card-title\">Distribucion de la clase</h5>\n            <div id=\"clase\" class=\"example-boundary\">\n                <div id=\"{{item.id_item}}\" *ngFor=\"let item of actividad.alumnos\" class=\"example-box\"\n                    ondrop=\"myFunction(item)\" [cdkDragFreeDragPosition]=\"item.posicion\"\n                    cdkDragBoundary=\".example-boundary\" cdkDrag (cdkDragEnded)=\"dragEnded($event,item)\">\n                    {{item.estudiante.nombre}}\n                </div>\n            </div>\n        </div>\n    </div>\n</div>-->";
     /***/
   },
 
@@ -3638,8 +3638,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         this.claseCreate = {
           nombre: '',
           profesor: '',
-          alumnos: {},
-          actividades: [],
+          alumnos: [],
+          actividades: {},
           resumen: {
             alegria: [],
             asco: [],
@@ -3809,8 +3809,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                     this.claseCreate = {
                       nombre: '',
                       profesor: '',
-                      alumnos: {},
-                      actividades: [],
+                      alumnos: [],
+                      actividades: {},
                       resumen: {
                         alegria: [],
                         asco: [],
@@ -4291,8 +4291,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           });
 
           for (var i in this.editarActividad.alumnos) {
-            console.log(this.editarActividad.alumnos[i]);
-            this.selection.selected.push(this.editarActividad.alumnos[i].estudiante); //this.arryaAlumnos.push(new Alumnos(this.editarActividad.alumnos[i].estudiante, { x: 0, y: 0 }, this.editarActividad));
+            console.log(this.editarActividad.alumnos[i]); //this.selection.selected.push(this.editarActividad.alumnos[i].estudiante);
+            //this.arryaAlumnos.push(new Alumnos(this.editarActividad.alumnos[i].estudiante, { x: 0, y: 0 }, this.editarActividad));
           }
           /*
           console.log(this.selection);*/
@@ -4612,7 +4612,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "/* The sidebar menu */\n.sidenav {\n    height: 100%; /* Full-height: remove this if you want \"auto\" height */\n    \n    z-index: 1; /* Stay on top */\n    top: auto; /* Stay at the top */\n    left: 0;\n    background-color: #4A7B9D; /* Black */\n    overflow-x: hidden; /* Disable horizontal scroll */\n    \n  }\n/* The navigation menu links */\n.sidenav a {\n    padding: 6px 8px 6px 16px;\n    text-decoration: none;\n    font-size: 25px;\n    color: #ECFFB0;\n    display: block;\n  }\n/* When you mouse over the navigation links, change their color */\n.sidenav a:hover {\n    color: #9AA899;\n  }\n/* Style page content */\n.main {\n    margin-left: 160px; /* Same as the width of the sidebar */\n    padding: 0px 10px;\n  }\n/* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */\n@media screen and (max-height: 450px) {\n    .sidenav {padding-top: 15px;}\n    .sidenav a {font-size: 18px;}\n  }\n.example-box {\n  width: 70px;\n  height: 70px;\n  border: solid 1px #ccc;\n  color: rgba(0, 0, 0, 0.87);\n  cursor: move;\n  display: -webkit-inline-box;\n  display: inline-flex;\n  -webkit-box-pack: center;\n          justify-content: center;\n  -webkit-box-align: center;\n          align-items: center;\n  text-align: center;\n  background: #fff;\n  border-radius: 4px;\n  margin-right: 0px;\n  position: relative;\n  z-index: 1;\n  box-sizing: border-box;\n  padding: 10px;\n  -webkit-transition: box-shadow 200ms cubic-bezier(0, 0, 0.2, 1);\n  transition: box-shadow 200ms cubic-bezier(0, 0, 0.2, 1);\n  box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);\n}\n.example-box:active {\n  box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2), 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12);\n}\n.example-boundary {\n  width: 400px;\n  height: 400px;\n  max-width: 100%;\n  border: dotted #ccc 2px;\n}\n#snackbar {\n  visibility: hidden;\n  min-width: 250px;\n  margin-left: -125px;\n  background-color: #333;\n  color: #fff;\n  text-align: center;\n  border-radius: 2px;\n  padding: 16px;\n  position: fixed;\n  z-index: 1;\n  left: 50%;\n  bottom: 30px;\n  font-size: 17px;\n}\n#snackbar.show {\n  visibility: visible;\n  -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;\n  animation: fadein 0.5s, fadeout 0.5s 2.5s;\n}\n@-webkit-keyframes fadein {\n  from {bottom: 0; opacity: 0;} \n  to {bottom: 30px; opacity: 1;}\n}\n@keyframes fadein {\n  from {bottom: 0; opacity: 0;}\n  to {bottom: 30px; opacity: 1;}\n}\n@-webkit-keyframes fadeout {\n  from {bottom: 30px; opacity: 1;} \n  to {bottom: 0; opacity: 0;}\n}\n@keyframes fadeout {\n  from {bottom: 30px; opacity: 1;}\n  to {bottom: 0; opacity: 0;}\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcHJvZmVzb3IvcHJvZmVzb3IuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSxxQkFBcUI7QUFDckI7SUFDSSxZQUFZLEVBQUUsdURBQXVEOztJQUVyRSxVQUFVLEVBQUUsZ0JBQWdCO0lBQzVCLFNBQVMsRUFBRSxvQkFBb0I7SUFDL0IsT0FBTztJQUNQLHlCQUF5QixFQUFFLFVBQVU7SUFDckMsa0JBQWtCLEVBQUUsOEJBQThCOztFQUVwRDtBQUVBLDhCQUE4QjtBQUM5QjtJQUNFLHlCQUF5QjtJQUN6QixxQkFBcUI7SUFDckIsZUFBZTtJQUNmLGNBQWM7SUFDZCxjQUFjO0VBQ2hCO0FBRUEsaUVBQWlFO0FBQ2pFO0lBQ0UsY0FBYztFQUNoQjtBQUVBLHVCQUF1QjtBQUN2QjtJQUNFLGtCQUFrQixFQUFFLHFDQUFxQztJQUN6RCxpQkFBaUI7RUFDbkI7QUFFQSxnSUFBZ0k7QUFDaEk7SUFDRSxVQUFVLGlCQUFpQixDQUFDO0lBQzVCLFlBQVksZUFBZSxDQUFDO0VBQzlCO0FBR0Y7RUFDRSxXQUFXO0VBQ1gsWUFBWTtFQUNaLHNCQUFzQjtFQUN0QiwwQkFBMEI7RUFDMUIsWUFBWTtFQUNaLDJCQUFvQjtFQUFwQixvQkFBb0I7RUFDcEIsd0JBQXVCO1VBQXZCLHVCQUF1QjtFQUN2Qix5QkFBbUI7VUFBbkIsbUJBQW1CO0VBQ25CLGtCQUFrQjtFQUNsQixnQkFBZ0I7RUFDaEIsa0JBQWtCO0VBQ2xCLGlCQUFpQjtFQUNqQixrQkFBa0I7RUFDbEIsVUFBVTtFQUNWLHNCQUFzQjtFQUN0QixhQUFhO0VBQ2IsK0RBQXVEO0VBQXZELHVEQUF1RDtFQUN2RCwrR0FBK0c7QUFDakg7QUFFQTtFQUNFLHFIQUFxSDtBQUN2SDtBQUVBO0VBQ0UsWUFBWTtFQUNaLGFBQWE7RUFDYixlQUFlO0VBQ2YsdUJBQXVCO0FBQ3pCO0FBR0E7RUFDRSxrQkFBa0I7RUFDbEIsZ0JBQWdCO0VBQ2hCLG1CQUFtQjtFQUNuQixzQkFBc0I7RUFDdEIsV0FBVztFQUNYLGtCQUFrQjtFQUNsQixrQkFBa0I7RUFDbEIsYUFBYTtFQUNiLGVBQWU7RUFDZixVQUFVO0VBQ1YsU0FBUztFQUNULFlBQVk7RUFDWixlQUFlO0FBQ2pCO0FBRUE7RUFDRSxtQkFBbUI7RUFDbkIsaURBQWlEO0VBQ2pELHlDQUF5QztBQUMzQztBQUVBO0VBQ0UsTUFBTSxTQUFTLEVBQUUsVUFBVSxDQUFDO0VBQzVCLElBQUksWUFBWSxFQUFFLFVBQVUsQ0FBQztBQUMvQjtBQUVBO0VBQ0UsTUFBTSxTQUFTLEVBQUUsVUFBVSxDQUFDO0VBQzVCLElBQUksWUFBWSxFQUFFLFVBQVUsQ0FBQztBQUMvQjtBQUVBO0VBQ0UsTUFBTSxZQUFZLEVBQUUsVUFBVSxDQUFDO0VBQy9CLElBQUksU0FBUyxFQUFFLFVBQVUsQ0FBQztBQUM1QjtBQUVBO0VBQ0UsTUFBTSxZQUFZLEVBQUUsVUFBVSxDQUFDO0VBQy9CLElBQUksU0FBUyxFQUFFLFVBQVUsQ0FBQztBQUM1QiIsImZpbGUiOiJzcmMvYXBwL3Byb2Zlc29yL3Byb2Zlc29yLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIvKiBUaGUgc2lkZWJhciBtZW51ICovXG4uc2lkZW5hdiB7XG4gICAgaGVpZ2h0OiAxMDAlOyAvKiBGdWxsLWhlaWdodDogcmVtb3ZlIHRoaXMgaWYgeW91IHdhbnQgXCJhdXRvXCIgaGVpZ2h0ICovXG4gICAgXG4gICAgei1pbmRleDogMTsgLyogU3RheSBvbiB0b3AgKi9cbiAgICB0b3A6IGF1dG87IC8qIFN0YXkgYXQgdGhlIHRvcCAqL1xuICAgIGxlZnQ6IDA7XG4gICAgYmFja2dyb3VuZC1jb2xvcjogIzRBN0I5RDsgLyogQmxhY2sgKi9cbiAgICBvdmVyZmxvdy14OiBoaWRkZW47IC8qIERpc2FibGUgaG9yaXpvbnRhbCBzY3JvbGwgKi9cbiAgICBcbiAgfVxuICBcbiAgLyogVGhlIG5hdmlnYXRpb24gbWVudSBsaW5rcyAqL1xuICAuc2lkZW5hdiBhIHtcbiAgICBwYWRkaW5nOiA2cHggOHB4IDZweCAxNnB4O1xuICAgIHRleHQtZGVjb3JhdGlvbjogbm9uZTtcbiAgICBmb250LXNpemU6IDI1cHg7XG4gICAgY29sb3I6ICNFQ0ZGQjA7XG4gICAgZGlzcGxheTogYmxvY2s7XG4gIH1cbiAgXG4gIC8qIFdoZW4geW91IG1vdXNlIG92ZXIgdGhlIG5hdmlnYXRpb24gbGlua3MsIGNoYW5nZSB0aGVpciBjb2xvciAqL1xuICAuc2lkZW5hdiBhOmhvdmVyIHtcbiAgICBjb2xvcjogIzlBQTg5OTtcbiAgfVxuICBcbiAgLyogU3R5bGUgcGFnZSBjb250ZW50ICovXG4gIC5tYWluIHtcbiAgICBtYXJnaW4tbGVmdDogMTYwcHg7IC8qIFNhbWUgYXMgdGhlIHdpZHRoIG9mIHRoZSBzaWRlYmFyICovXG4gICAgcGFkZGluZzogMHB4IDEwcHg7XG4gIH1cbiAgXG4gIC8qIE9uIHNtYWxsZXIgc2NyZWVucywgd2hlcmUgaGVpZ2h0IGlzIGxlc3MgdGhhbiA0NTBweCwgY2hhbmdlIHRoZSBzdHlsZSBvZiB0aGUgc2lkZWJhciAobGVzcyBwYWRkaW5nIGFuZCBhIHNtYWxsZXIgZm9udCBzaXplKSAqL1xuICBAbWVkaWEgc2NyZWVuIGFuZCAobWF4LWhlaWdodDogNDUwcHgpIHtcbiAgICAuc2lkZW5hdiB7cGFkZGluZy10b3A6IDE1cHg7fVxuICAgIC5zaWRlbmF2IGEge2ZvbnQtc2l6ZTogMThweDt9XG4gIH1cblxuXG4uZXhhbXBsZS1ib3gge1xuICB3aWR0aDogNzBweDtcbiAgaGVpZ2h0OiA3MHB4O1xuICBib3JkZXI6IHNvbGlkIDFweCAjY2NjO1xuICBjb2xvcjogcmdiYSgwLCAwLCAwLCAwLjg3KTtcbiAgY3Vyc29yOiBtb3ZlO1xuICBkaXNwbGF5OiBpbmxpbmUtZmxleDtcbiAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XG4gIGFsaWduLWl0ZW1zOiBjZW50ZXI7XG4gIHRleHQtYWxpZ246IGNlbnRlcjtcbiAgYmFja2dyb3VuZDogI2ZmZjtcbiAgYm9yZGVyLXJhZGl1czogNHB4O1xuICBtYXJnaW4tcmlnaHQ6IDBweDtcbiAgcG9zaXRpb246IHJlbGF0aXZlO1xuICB6LWluZGV4OiAxO1xuICBib3gtc2l6aW5nOiBib3JkZXItYm94O1xuICBwYWRkaW5nOiAxMHB4O1xuICB0cmFuc2l0aW9uOiBib3gtc2hhZG93IDIwMG1zIGN1YmljLWJlemllcigwLCAwLCAwLjIsIDEpO1xuICBib3gtc2hhZG93OiAwIDNweCAxcHggLTJweCByZ2JhKDAsIDAsIDAsIDAuMiksIDAgMnB4IDJweCAwIHJnYmEoMCwgMCwgMCwgMC4xNCksIDAgMXB4IDVweCAwIHJnYmEoMCwgMCwgMCwgMC4xMik7XG59XG5cbi5leGFtcGxlLWJveDphY3RpdmUge1xuICBib3gtc2hhZG93OiAwIDVweCA1cHggLTNweCByZ2JhKDAsIDAsIDAsIDAuMiksIDAgOHB4IDEwcHggMXB4IHJnYmEoMCwgMCwgMCwgMC4xNCksIDAgM3B4IDE0cHggMnB4IHJnYmEoMCwgMCwgMCwgMC4xMik7XG59XG5cbi5leGFtcGxlLWJvdW5kYXJ5IHtcbiAgd2lkdGg6IDQwMHB4O1xuICBoZWlnaHQ6IDQwMHB4O1xuICBtYXgtd2lkdGg6IDEwMCU7XG4gIGJvcmRlcjogZG90dGVkICNjY2MgMnB4O1xufVxuXG5cbiNzbmFja2JhciB7XG4gIHZpc2liaWxpdHk6IGhpZGRlbjtcbiAgbWluLXdpZHRoOiAyNTBweDtcbiAgbWFyZ2luLWxlZnQ6IC0xMjVweDtcbiAgYmFja2dyb3VuZC1jb2xvcjogIzMzMztcbiAgY29sb3I6ICNmZmY7XG4gIHRleHQtYWxpZ246IGNlbnRlcjtcbiAgYm9yZGVyLXJhZGl1czogMnB4O1xuICBwYWRkaW5nOiAxNnB4O1xuICBwb3NpdGlvbjogZml4ZWQ7XG4gIHotaW5kZXg6IDE7XG4gIGxlZnQ6IDUwJTtcbiAgYm90dG9tOiAzMHB4O1xuICBmb250LXNpemU6IDE3cHg7XG59XG5cbiNzbmFja2Jhci5zaG93IHtcbiAgdmlzaWJpbGl0eTogdmlzaWJsZTtcbiAgLXdlYmtpdC1hbmltYXRpb246IGZhZGVpbiAwLjVzLCBmYWRlb3V0IDAuNXMgMi41cztcbiAgYW5pbWF0aW9uOiBmYWRlaW4gMC41cywgZmFkZW91dCAwLjVzIDIuNXM7XG59XG5cbkAtd2Via2l0LWtleWZyYW1lcyBmYWRlaW4ge1xuICBmcm9tIHtib3R0b206IDA7IG9wYWNpdHk6IDA7fSBcbiAgdG8ge2JvdHRvbTogMzBweDsgb3BhY2l0eTogMTt9XG59XG5cbkBrZXlmcmFtZXMgZmFkZWluIHtcbiAgZnJvbSB7Ym90dG9tOiAwOyBvcGFjaXR5OiAwO31cbiAgdG8ge2JvdHRvbTogMzBweDsgb3BhY2l0eTogMTt9XG59XG5cbkAtd2Via2l0LWtleWZyYW1lcyBmYWRlb3V0IHtcbiAgZnJvbSB7Ym90dG9tOiAzMHB4OyBvcGFjaXR5OiAxO30gXG4gIHRvIHtib3R0b206IDA7IG9wYWNpdHk6IDA7fVxufVxuXG5Aa2V5ZnJhbWVzIGZhZGVvdXQge1xuICBmcm9tIHtib3R0b206IDMwcHg7IG9wYWNpdHk6IDE7fVxuICB0byB7Ym90dG9tOiAwOyBvcGFjaXR5OiAwO31cbn0iXX0= */";
+    __webpack_exports__["default"] = "/* The sidebar menu */\n\n.sidenav {\n    height: 100%; /* Full-height: remove this if you want \"auto\" height */\n    \n    z-index: 1; /* Stay on top */\n    top: auto; /* Stay at the top */\n    left: 0;\n    background-color: #4A7B9D; /* Black */\n    overflow-x: hidden; /* Disable horizontal scroll */\n    \n  }\n\n/* The navigation menu links */\n\n.sidenav a {\n    padding: 6px 8px 6px 16px;\n    text-decoration: none;\n    font-size: 25px;\n    color: #ECFFB0;\n    display: block;\n  }\n\n/* When you mouse over the navigation links, change their color */\n\n.sidenav a:hover {\n    color: #9AA899;\n  }\n\n/* Style page content */\n\n.main {\n    margin-left: 160px; /* Same as the width of the sidebar */\n    padding: 0px 10px;\n  }\n\n/* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */\n\n@media screen and (max-height: 450px) {\n    .sidenav {padding-top: 15px;}\n    .sidenav a {font-size: 18px;}\n  }\n\n.example-box {\n  width: 70px;\n  height: 70px;\n  border: solid 1px #ccc;\n  color: rgba(0, 0, 0, 0.87);\n  cursor: move;\n  display: -webkit-inline-box;\n  display: inline-flex;\n  -webkit-box-pack: center;\n          justify-content: center;\n  -webkit-box-align: center;\n          align-items: center;\n  text-align: center;\n  background: #fff;\n  border-radius: 4px;\n  margin-right: 0px;\n  position: relative;\n  z-index: 1;\n  box-sizing: border-box;\n  padding: 10px;\n  -webkit-transition: box-shadow 200ms cubic-bezier(0, 0, 0.2, 1);\n  transition: box-shadow 200ms cubic-bezier(0, 0, 0.2, 1);\n  box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);\n}\n\n.example-box:active {\n  box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2), 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12);\n}\n\n.example-boundary {\n  width: 400px;\n  height: 400px;\n  max-width: 100%;\n  border: dotted #ccc 2px;\n}\n\n#snackbar {\n  visibility: hidden;\n  min-width: 250px;\n  margin-left: -125px;\n  background-color: #333;\n  color: #fff;\n  text-align: center;\n  border-radius: 2px;\n  padding: 16px;\n  position: fixed;\n  z-index: 1;\n  left: 50%;\n  bottom: 30px;\n  font-size: 17px;\n}\n\n#snackbar.show {\n  visibility: visible;\n  -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;\n  animation: fadein 0.5s, fadeout 0.5s 2.5s;\n}\n\n@-webkit-keyframes fadein {\n  from {bottom: 0; opacity: 0;} \n  to {bottom: 30px; opacity: 1;}\n}\n\n@keyframes fadein {\n  from {bottom: 0; opacity: 0;}\n  to {bottom: 30px; opacity: 1;}\n}\n\n@-webkit-keyframes fadeout {\n  from {bottom: 30px; opacity: 1;} \n  to {bottom: 0; opacity: 0;}\n}\n\n@keyframes fadeout {\n  from {bottom: 30px; opacity: 1;}\n  to {bottom: 0; opacity: 0;}\n}\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcHJvZmVzb3IvcHJvZmVzb3IuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSxxQkFBcUI7O0FBRXJCO0lBQ0ksWUFBWSxFQUFFLHVEQUF1RDs7SUFFckUsVUFBVSxFQUFFLGdCQUFnQjtJQUM1QixTQUFTLEVBQUUsb0JBQW9CO0lBQy9CLE9BQU87SUFDUCx5QkFBeUIsRUFBRSxVQUFVO0lBQ3JDLGtCQUFrQixFQUFFLDhCQUE4Qjs7RUFFcEQ7O0FBRUEsOEJBQThCOztBQUM5QjtJQUNFLHlCQUF5QjtJQUN6QixxQkFBcUI7SUFDckIsZUFBZTtJQUNmLGNBQWM7SUFDZCxjQUFjO0VBQ2hCOztBQUVBLGlFQUFpRTs7QUFDakU7SUFDRSxjQUFjO0VBQ2hCOztBQUVBLHVCQUF1Qjs7QUFDdkI7SUFDRSxrQkFBa0IsRUFBRSxxQ0FBcUM7SUFDekQsaUJBQWlCO0VBQ25COztBQUVBLGdJQUFnSTs7QUFDaEk7SUFDRSxVQUFVLGlCQUFpQixDQUFDO0lBQzVCLFlBQVksZUFBZSxDQUFDO0VBQzlCOztBQUdGO0VBQ0UsV0FBVztFQUNYLFlBQVk7RUFDWixzQkFBc0I7RUFDdEIsMEJBQTBCO0VBQzFCLFlBQVk7RUFDWiwyQkFBb0I7RUFBcEIsb0JBQW9CO0VBQ3BCLHdCQUF1QjtVQUF2Qix1QkFBdUI7RUFDdkIseUJBQW1CO1VBQW5CLG1CQUFtQjtFQUNuQixrQkFBa0I7RUFDbEIsZ0JBQWdCO0VBQ2hCLGtCQUFrQjtFQUNsQixpQkFBaUI7RUFDakIsa0JBQWtCO0VBQ2xCLFVBQVU7RUFDVixzQkFBc0I7RUFDdEIsYUFBYTtFQUNiLCtEQUF1RDtFQUF2RCx1REFBdUQ7RUFDdkQsK0dBQStHO0FBQ2pIOztBQUVBO0VBQ0UscUhBQXFIO0FBQ3ZIOztBQUVBO0VBQ0UsWUFBWTtFQUNaLGFBQWE7RUFDYixlQUFlO0VBQ2YsdUJBQXVCO0FBQ3pCOztBQUdBO0VBQ0Usa0JBQWtCO0VBQ2xCLGdCQUFnQjtFQUNoQixtQkFBbUI7RUFDbkIsc0JBQXNCO0VBQ3RCLFdBQVc7RUFDWCxrQkFBa0I7RUFDbEIsa0JBQWtCO0VBQ2xCLGFBQWE7RUFDYixlQUFlO0VBQ2YsVUFBVTtFQUNWLFNBQVM7RUFDVCxZQUFZO0VBQ1osZUFBZTtBQUNqQjs7QUFFQTtFQUNFLG1CQUFtQjtFQUNuQixpREFBaUQ7RUFDakQseUNBQXlDO0FBQzNDOztBQUVBO0VBQ0UsTUFBTSxTQUFTLEVBQUUsVUFBVSxDQUFDO0VBQzVCLElBQUksWUFBWSxFQUFFLFVBQVUsQ0FBQztBQUMvQjs7QUFFQTtFQUNFLE1BQU0sU0FBUyxFQUFFLFVBQVUsQ0FBQztFQUM1QixJQUFJLFlBQVksRUFBRSxVQUFVLENBQUM7QUFDL0I7O0FBRUE7RUFDRSxNQUFNLFlBQVksRUFBRSxVQUFVLENBQUM7RUFDL0IsSUFBSSxTQUFTLEVBQUUsVUFBVSxDQUFDO0FBQzVCOztBQUVBO0VBQ0UsTUFBTSxZQUFZLEVBQUUsVUFBVSxDQUFDO0VBQy9CLElBQUksU0FBUyxFQUFFLFVBQVUsQ0FBQztBQUM1QiIsImZpbGUiOiJzcmMvYXBwL3Byb2Zlc29yL3Byb2Zlc29yLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIvKiBUaGUgc2lkZWJhciBtZW51ICovXG5cbi5zaWRlbmF2IHtcbiAgICBoZWlnaHQ6IDEwMCU7IC8qIEZ1bGwtaGVpZ2h0OiByZW1vdmUgdGhpcyBpZiB5b3Ugd2FudCBcImF1dG9cIiBoZWlnaHQgKi9cbiAgICBcbiAgICB6LWluZGV4OiAxOyAvKiBTdGF5IG9uIHRvcCAqL1xuICAgIHRvcDogYXV0bzsgLyogU3RheSBhdCB0aGUgdG9wICovXG4gICAgbGVmdDogMDtcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiAjNEE3QjlEOyAvKiBCbGFjayAqL1xuICAgIG92ZXJmbG93LXg6IGhpZGRlbjsgLyogRGlzYWJsZSBob3Jpem9udGFsIHNjcm9sbCAqL1xuICAgIFxuICB9XG4gIFxuICAvKiBUaGUgbmF2aWdhdGlvbiBtZW51IGxpbmtzICovXG4gIC5zaWRlbmF2IGEge1xuICAgIHBhZGRpbmc6IDZweCA4cHggNnB4IDE2cHg7XG4gICAgdGV4dC1kZWNvcmF0aW9uOiBub25lO1xuICAgIGZvbnQtc2l6ZTogMjVweDtcbiAgICBjb2xvcjogI0VDRkZCMDtcbiAgICBkaXNwbGF5OiBibG9jaztcbiAgfVxuICBcbiAgLyogV2hlbiB5b3UgbW91c2Ugb3ZlciB0aGUgbmF2aWdhdGlvbiBsaW5rcywgY2hhbmdlIHRoZWlyIGNvbG9yICovXG4gIC5zaWRlbmF2IGE6aG92ZXIge1xuICAgIGNvbG9yOiAjOUFBODk5O1xuICB9XG4gIFxuICAvKiBTdHlsZSBwYWdlIGNvbnRlbnQgKi9cbiAgLm1haW4ge1xuICAgIG1hcmdpbi1sZWZ0OiAxNjBweDsgLyogU2FtZSBhcyB0aGUgd2lkdGggb2YgdGhlIHNpZGViYXIgKi9cbiAgICBwYWRkaW5nOiAwcHggMTBweDtcbiAgfVxuICBcbiAgLyogT24gc21hbGxlciBzY3JlZW5zLCB3aGVyZSBoZWlnaHQgaXMgbGVzcyB0aGFuIDQ1MHB4LCBjaGFuZ2UgdGhlIHN0eWxlIG9mIHRoZSBzaWRlYmFyIChsZXNzIHBhZGRpbmcgYW5kIGEgc21hbGxlciBmb250IHNpemUpICovXG4gIEBtZWRpYSBzY3JlZW4gYW5kIChtYXgtaGVpZ2h0OiA0NTBweCkge1xuICAgIC5zaWRlbmF2IHtwYWRkaW5nLXRvcDogMTVweDt9XG4gICAgLnNpZGVuYXYgYSB7Zm9udC1zaXplOiAxOHB4O31cbiAgfVxuXG5cbi5leGFtcGxlLWJveCB7XG4gIHdpZHRoOiA3MHB4O1xuICBoZWlnaHQ6IDcwcHg7XG4gIGJvcmRlcjogc29saWQgMXB4ICNjY2M7XG4gIGNvbG9yOiByZ2JhKDAsIDAsIDAsIDAuODcpO1xuICBjdXJzb3I6IG1vdmU7XG4gIGRpc3BsYXk6IGlubGluZS1mbGV4O1xuICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjtcbiAgYWxpZ24taXRlbXM6IGNlbnRlcjtcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xuICBiYWNrZ3JvdW5kOiAjZmZmO1xuICBib3JkZXItcmFkaXVzOiA0cHg7XG4gIG1hcmdpbi1yaWdodDogMHB4O1xuICBwb3NpdGlvbjogcmVsYXRpdmU7XG4gIHotaW5kZXg6IDE7XG4gIGJveC1zaXppbmc6IGJvcmRlci1ib3g7XG4gIHBhZGRpbmc6IDEwcHg7XG4gIHRyYW5zaXRpb246IGJveC1zaGFkb3cgMjAwbXMgY3ViaWMtYmV6aWVyKDAsIDAsIDAuMiwgMSk7XG4gIGJveC1zaGFkb3c6IDAgM3B4IDFweCAtMnB4IHJnYmEoMCwgMCwgMCwgMC4yKSwgMCAycHggMnB4IDAgcmdiYSgwLCAwLCAwLCAwLjE0KSwgMCAxcHggNXB4IDAgcmdiYSgwLCAwLCAwLCAwLjEyKTtcbn1cblxuLmV4YW1wbGUtYm94OmFjdGl2ZSB7XG4gIGJveC1zaGFkb3c6IDAgNXB4IDVweCAtM3B4IHJnYmEoMCwgMCwgMCwgMC4yKSwgMCA4cHggMTBweCAxcHggcmdiYSgwLCAwLCAwLCAwLjE0KSwgMCAzcHggMTRweCAycHggcmdiYSgwLCAwLCAwLCAwLjEyKTtcbn1cblxuLmV4YW1wbGUtYm91bmRhcnkge1xuICB3aWR0aDogNDAwcHg7XG4gIGhlaWdodDogNDAwcHg7XG4gIG1heC13aWR0aDogMTAwJTtcbiAgYm9yZGVyOiBkb3R0ZWQgI2NjYyAycHg7XG59XG5cblxuI3NuYWNrYmFyIHtcbiAgdmlzaWJpbGl0eTogaGlkZGVuO1xuICBtaW4td2lkdGg6IDI1MHB4O1xuICBtYXJnaW4tbGVmdDogLTEyNXB4O1xuICBiYWNrZ3JvdW5kLWNvbG9yOiAjMzMzO1xuICBjb2xvcjogI2ZmZjtcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xuICBib3JkZXItcmFkaXVzOiAycHg7XG4gIHBhZGRpbmc6IDE2cHg7XG4gIHBvc2l0aW9uOiBmaXhlZDtcbiAgei1pbmRleDogMTtcbiAgbGVmdDogNTAlO1xuICBib3R0b206IDMwcHg7XG4gIGZvbnQtc2l6ZTogMTdweDtcbn1cblxuI3NuYWNrYmFyLnNob3cge1xuICB2aXNpYmlsaXR5OiB2aXNpYmxlO1xuICAtd2Via2l0LWFuaW1hdGlvbjogZmFkZWluIDAuNXMsIGZhZGVvdXQgMC41cyAyLjVzO1xuICBhbmltYXRpb246IGZhZGVpbiAwLjVzLCBmYWRlb3V0IDAuNXMgMi41cztcbn1cblxuQC13ZWJraXQta2V5ZnJhbWVzIGZhZGVpbiB7XG4gIGZyb20ge2JvdHRvbTogMDsgb3BhY2l0eTogMDt9IFxuICB0byB7Ym90dG9tOiAzMHB4OyBvcGFjaXR5OiAxO31cbn1cblxuQGtleWZyYW1lcyBmYWRlaW4ge1xuICBmcm9tIHtib3R0b206IDA7IG9wYWNpdHk6IDA7fVxuICB0byB7Ym90dG9tOiAzMHB4OyBvcGFjaXR5OiAxO31cbn1cblxuQC13ZWJraXQta2V5ZnJhbWVzIGZhZGVvdXQge1xuICBmcm9tIHtib3R0b206IDMwcHg7IG9wYWNpdHk6IDE7fSBcbiAgdG8ge2JvdHRvbTogMDsgb3BhY2l0eTogMDt9XG59XG5cbkBrZXlmcmFtZXMgZmFkZW91dCB7XG4gIGZyb20ge2JvdHRvbTogMzBweDsgb3BhY2l0eTogMTt9XG4gIHRvIHtib3R0b206IDA7IG9wYWNpdHk6IDA7fVxufVxuIl19 */";
     /***/
   },
 
@@ -4680,19 +4680,25 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var moment__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    var _ver_clase_ver_clase_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    /*! ./ver-clase/ver-clase.component */
+    "./src/app/profesor/ver-clase/ver-clase.component.ts");
+    /* harmony import */
+
+
+    var moment__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
     /*! moment */
     "./node_modules/moment/moment.js");
     /* harmony import */
 
 
-    var moment__WEBPACK_IMPORTED_MODULE_6___default =
+    var moment__WEBPACK_IMPORTED_MODULE_7___default =
     /*#__PURE__*/
-    __webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_6__);
+    __webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_7__);
     /* harmony import */
 
 
-    var _angular_material_snack_bar__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    var _angular_material_snack_bar__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
     /*! @angular/material/snack-bar */
     "./node_modules/@angular/material/esm2015/snack-bar.js");
 
@@ -4713,6 +4719,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           email: '',
           contrasena: ''
         };
+        this.actividadAbierta = false;
         this.editarAlumno = false;
         this.onSelectedAlumno = {
           _id: '',
@@ -4730,6 +4737,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         this.alumnosConectados = [];
         this.posicionDelAlumnoConectado = null;
         this.verActividad = false;
+        this.actividadSelected = null;
         this.gestionAlumnos = true;
         this.gestionActividades = false;
         this.gestionClases = false;
@@ -4988,15 +4996,40 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           });
         }
       }, {
+        key: "abrirActividadActual",
+        value: function abrirActividadActual() {
+          if (this.actividadSelected == null || this.actividadSelected == undefined) {
+            this.abrirActividades();
+          } else {
+            this.actividadAbierta = true;
+            this.gestionActividades = false;
+            this.gestionAlumnos = false;
+            this.gestionClases = false;
+          }
+        }
+      }, {
         key: "abrirAlumnos",
         value: function abrirAlumnos() {
-          this.gestionAlumnos = true;
+          var ju = this; //this.listaAlumnos=this.estudiantes.getEstudiantes();
+
+          $.getJSON("/verEstudiantes", function (data) {
+            //console.log(data);
+            ju.listaAlumnos = data;
+          });
+          this.actividadAbierta = false;
           this.gestionActividades = false;
+          this.gestionAlumnos = true;
           this.gestionClases = false;
         }
       }, {
         key: "abrirActividades",
         value: function abrirActividades() {
+          var ju = this;
+          $.getJSON("/verActividades", function (data) {
+            //console.log(data);
+            ju.listaActividades = data;
+          });
+          this.actividadAbierta = false;
           this.gestionActividades = true;
           this.gestionAlumnos = false;
           this.gestionClases = false; //this.openDialog()
@@ -5004,10 +5037,26 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "abrirClases",
         value: function abrirClases() {
-          this.gestionClases = true;
+          var ju = this;
+          $.getJSON("/verClases", function (data) {
+            //console.log(data);
+            ju.listaClases = data;
+          });
+          /*this.gestionClases = true;
           this.gestionAlumnos = false;
           this.verActividad = false;
+          this.gestionActividades = false;*/
+
+          this.actividadAbierta = false;
           this.gestionActividades = false;
+          this.gestionAlumnos = false;
+          this.gestionClases = true;
+        }
+      }, {
+        key: "abrirClase",
+        value: function abrirClase(clase) {
+          this.claseSelected = clase;
+          this.verClase = true;
         }
       }, {
         key: "abrirCrearActividad",
@@ -5030,8 +5079,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         key: "guardarActividad",
         value: function guardarActividad(actividad) {
           //this.actividadCreada = actividad;
-          var ju = this;
-          console.log(actividad);
+          var ju = this; //console.log(actividad);
+
           $.ajax({
             type: 'POST',
             url: '/registrarActividad',
@@ -5125,8 +5174,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "agregarDatosActividad",
         value: function agregarDatosActividad(datos) {
-          this.verActividadComp.insertarDatos(datos);
-          this.actividadSelected.alumnos;
+          this.verActividadComp.insertarDatos(datos); //this.actividadSelected.alumnos
         }
       }, {
         key: "borrarA",
@@ -5170,6 +5218,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           this.actividadSelected = actividad;
           this.crearActividadLista(actividad);
           this.abroActividad(actividad);
+          this.abrirActividadActual();
         }
       }, {
         key: "cerrarActividad",
@@ -5177,8 +5226,15 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           //console.log(this.actividadSelected);
           this.borrarActividadLista(this.actividadSelected);
           this.verActividad = false;
-          this.actividadSelected = null; //this.alumnosConectados.length=0
+          this.actividadSelected = null;
+          this.claseSelected = null;
+          this.abrirActividades(); //this.alumnosConectados.length=0
           //this.alumnosConectados = [];
+        }
+      }, {
+        key: "cerrarClase",
+        value: function cerrarClase() {
+          this.verClase = false;
         }
       }, {
         key: "esta",
@@ -5200,7 +5256,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             nombre: '',
             profesor: '',
             fecha: '',
-            alumnos: {},
+            alumnos: [],
             estado: 'Creada',
             resumen: {
               alegria: [],
@@ -5215,11 +5271,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               concentrado: [],
               frustrado: [],
               motivado: []
-            }
+            },
+            clase: clase
           };
-          actividadCreate.nombre = clase.nombre + ' ' + moment__WEBPACK_IMPORTED_MODULE_6__().format('LLLL');
+          actividadCreate.nombre = clase.nombre + ' ' + moment__WEBPACK_IMPORTED_MODULE_7__().format('LLLL');
           actividadCreate.profesor = clase.profesor;
-          actividadCreate.fecha = moment__WEBPACK_IMPORTED_MODULE_6__().format('LLLL');
+          actividadCreate.fecha = moment__WEBPACK_IMPORTED_MODULE_7__().format('LLLL');
           var arrayAlumnos = [];
 
           for (var i = 0; i < clase.alumnos.length; i++) {
@@ -5247,22 +5304,103 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           actividadCreate.alumnos = arrayAlumnos;
           $.ajax({
             type: 'POST',
+            url: '/agregarActividadEnClase',
+            data: JSON.stringify({
+              clase: clase,
+              act: actividadCreate
+            }),
+            success: function success(data) {
+              //ju.clase=data;
+              //ju.ultimaActividadCreada = data;
+              console.log("Clase Actualizada");
+              console.log(data); //ju.actualizar();
+              //ju.menActividadCreada();
+              //abrirActividad
+            },
+            contentType: 'application/json',
+            dataType: 'json'
+          });
+          /*var ju = this;
+          var actividadCreate = {
+            nombre: '',
+            profesor: '',
+            fecha: '',
+            alumnos: {},
+            estado: 'Creada',
+            resumen: {
+              alegria: [],
+              asco: [],
+              miedo: [],
+              sorpresa: [],
+              tristeza: [],
+              ira: [],
+              pulsaciones: [],
+              tiempo: [],
+              distraido: [],
+              concentrado: [],
+              frustrado: [],
+              motivado: [],
+            }
+          }
+          actividadCreate.nombre = clase.nombre + ' ' + moment().format('LLLL');
+          actividadCreate.profesor = clase.profesor;
+          actividadCreate.fecha = moment().format('LLLL');
+          var arrayAlumnos = [];
+          for (let i = 0; i < clase.alumnos.length; i++) {
+            arrayAlumnos.push({
+              estudiante: clase.alumnos[i].estudiante,
+              id_item: '',
+              posicion: clase.alumnos[i].posicion,
+              datos: {
+                alegria: [],
+                asco: [],
+                miedo: [],
+                sorpresa: [],
+                tristeza: [],
+                ira: [],
+                pulsaciones: [],
+                tiempo: [],
+                distraido: [],
+                concentrado: [],
+                frustrado: [],
+                motivado: [],
+              }
+            });
+          }
+          actividadCreate.alumnos = arrayAlumnos;
+               $.ajax({
+            type: 'POST',
             url: '/registrarActividad',
             data: JSON.stringify(actividadCreate),
-            success: function success(data) {
+            success: function (data) {
               ju.ultimaActividadCreada = data;
+              console.log(data);
               $.getJSON("/verActividades", function (data) {
                 //console.log(data);
                 ju.listaActividades = data;
                 ju.crearActividad = false;
                 console.log(ju.listaActividades);
-              }); //ju.listaActividades.push(actividad);
-
-              ju.menActividadCreada(); //abrirActividad
+              });
+              //ju.listaActividades.push(actividad);
+              ju.menActividadCreada();
+              clase.actividades.push(data);
+              $.ajax({
+                type: 'POST',
+                url: '/actualizarClase',
+                data: JSON.stringify(clase),
+                success: function (data) {
+                  ju.actualizarClases();
+                },
+                contentType: 'application/json',
+                dataType: 'json'
+              });
+           
+              //abrirActividad
             },
             contentType: 'application/json',
             dataType: 'json'
           });
+               */
         }
       }, {
         key: "menActividadCreada",
@@ -5328,13 +5466,16 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         type: _estudiante_service__WEBPACK_IMPORTED_MODULE_3__["EstudianteService"]
       }, {
-        type: _angular_material_snack_bar__WEBPACK_IMPORTED_MODULE_7__["MatSnackBar"]
+        type: _angular_material_snack_bar__WEBPACK_IMPORTED_MODULE_8__["MatSnackBar"]
       }];
     };
 
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])(_ver_actividad_ver_actividad_component__WEBPACK_IMPORTED_MODULE_5__["VerActividadComponent"], {
       static: false
     })], ProfesorComponent.prototype, "verActividadComp", void 0);
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])(_ver_clase_ver_clase_component__WEBPACK_IMPORTED_MODULE_6__["VerClaseComponent"], {
+      static: false
+    })], ProfesorComponent.prototype, "verClaseComp", void 0);
     ProfesorComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
       selector: 'app-profesor',
       template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
@@ -5520,7 +5661,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         _classCallCheck(this, VerActividadComponent);
 
         this.profesor = profesor;
-        this.actividadCreada = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
         this.ColorSad = 'rgba(81,81,255,0.4)'; //Color de la tristeza Correcto
 
         this.alumnos = [];
@@ -5801,7 +5941,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "cerrarActividad",
         value: function cerrarActividad() {
-          this.actividadCreada.emit("cerrar");
+          //this.actividadCreada.emit("cerrar");
+          this.profesor.cerrarActividad('ok');
           clearInterval(this.intervaloResumen);
         }
       }, {
@@ -6201,7 +6342,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])()], VerActividadComponent.prototype, "actividad", void 0);
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])()], VerActividadComponent.prototype, "aluConectados", void 0);
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])()], VerActividadComponent.prototype, "actividadCreada", void 0);
     VerActividadComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
       selector: 'app-ver-actividad',
       template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
@@ -6265,22 +6405,240 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
     /*! @angular/core */
     "./node_modules/@angular/core/fesm2015/core.js");
+    /* harmony import */
+
+
+    var moment__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! moment */
+    "./node_modules/moment/moment.js");
+    /* harmony import */
+
+
+    var moment__WEBPACK_IMPORTED_MODULE_2___default =
+    /*#__PURE__*/
+    __webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_2__);
+    /* harmony import */
+
+
+    var _profesor_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! ../profesor.component */
+    "./src/app/profesor/profesor.component.ts");
+    /* harmony import */
+
+
+    var _angular_material_snack_bar__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! @angular/material/snack-bar */
+    "./node_modules/@angular/material/esm2015/snack-bar.js");
 
     var VerClaseComponent =
     /*#__PURE__*/
     function () {
-      function VerClaseComponent() {
+      function VerClaseComponent(profesor, _snackBar) {
         _classCallCheck(this, VerClaseComponent);
+
+        this.profesor = profesor;
+        this._snackBar = _snackBar;
+        this.actividades = [];
+        this.numeroActFinalizadas = 0;
+        this.numeroActComenzadas = 0;
+        this.numeroActSinComenzar = 0;
       }
 
       _createClass(VerClaseComponent, [{
         key: "ngOnInit",
-        value: function ngOnInit() {}
+        value: function ngOnInit() {
+          var ju = this;
+          console.log(this.clase);
+
+          for (var id in this.clase.actividades) {
+            ju.actividades.push(this.clase.actividades[id]);
+          }
+          /*for (let i = 0; i < this.clase.actividades.length; i++) {
+            console.log(this.clase.actividades[i]);
+            if (this.clase.actividades[i]['estado'] == 'Creada') {
+              this.numeroActSinComenzar++;
+            } else if (this.clase.actividades[i]['estado'] == 'Comenzada') {
+              this.numeroActComenzadas++;
+            } else if (this.clase.actividades[i]['estado'] == 'Finalizada') {
+              this.numeroActFinalizadas++;
+            }
+          }*/
+
+        }
+      }, {
+        key: "actualizar",
+        value: function actualizar() {
+          this.actividades.length = 0;
+
+          for (var id in this.clase.actividades) {
+            this.actividades.push(this.clase.actividades[id]);
+          }
+        }
+      }, {
+        key: "cerrarClase",
+        value: function cerrarClase() {
+          this.profesor.cerrarClase();
+        }
+      }, {
+        key: "crearActividad",
+        value: function crearActividad() {
+          var ju = this;
+          var actividadCreate = {
+            nombre: '',
+            profesor: '',
+            fecha: '',
+            alumnos: [],
+            estado: 'Creada',
+            resumen: {
+              alegria: [],
+              asco: [],
+              miedo: [],
+              sorpresa: [],
+              tristeza: [],
+              ira: [],
+              pulsaciones: [],
+              tiempo: [],
+              distraido: [],
+              concentrado: [],
+              frustrado: [],
+              motivado: []
+            },
+            clase: this.clase
+          };
+          actividadCreate.nombre = this.clase.nombre + ' ' + moment__WEBPACK_IMPORTED_MODULE_2__().format('LLLL');
+          actividadCreate.profesor = this.clase.profesor;
+          actividadCreate.fecha = moment__WEBPACK_IMPORTED_MODULE_2__().format('LLLL');
+          var arrayAlumnos = [];
+
+          for (var i = 0; i < this.clase.alumnos.length; i++) {
+            arrayAlumnos.push({
+              estudiante: this.clase.alumnos[i].estudiante,
+              id_item: '',
+              posicion: this.clase.alumnos[i].posicion,
+              datos: {
+                alegria: [],
+                asco: [],
+                miedo: [],
+                sorpresa: [],
+                tristeza: [],
+                ira: [],
+                pulsaciones: [],
+                tiempo: [],
+                distraido: [],
+                concentrado: [],
+                frustrado: [],
+                motivado: []
+              }
+            });
+          }
+
+          actividadCreate.alumnos = arrayAlumnos;
+          $.ajax({
+            type: 'POST',
+            url: '/agregarActividadEnClase',
+            data: JSON.stringify({
+              clase: this.clase,
+              act: actividadCreate
+            }),
+            success: function success(data) {
+              ju.clase = data; //ju.ultimaActividadCreada = data;
+
+              console.log("Clase Actualizada");
+              console.log(data);
+              ju.actualizar(); //ju.menActividadCreada();
+              //abrirActividad
+            },
+            contentType: 'application/json',
+            dataType: 'json'
+          });
+        }
+      }, {
+        key: "crearActividadFuera",
+        value: function crearActividadFuera(clase) {
+          var ju = this;
+          var actividadCreate = {
+            nombre: '',
+            profesor: '',
+            fecha: '',
+            alumnos: [],
+            estado: 'Creada',
+            resumen: {
+              alegria: [],
+              asco: [],
+              miedo: [],
+              sorpresa: [],
+              tristeza: [],
+              ira: [],
+              pulsaciones: [],
+              tiempo: [],
+              distraido: [],
+              concentrado: [],
+              frustrado: [],
+              motivado: []
+            },
+            clase: clase
+          };
+          actividadCreate.nombre = clase.nombre + ' ' + moment__WEBPACK_IMPORTED_MODULE_2__().format('LLLL');
+          actividadCreate.profesor = clase.profesor;
+          actividadCreate.fecha = moment__WEBPACK_IMPORTED_MODULE_2__().format('LLLL');
+          var arrayAlumnos = [];
+
+          for (var i = 0; i < clase.alumnos.length; i++) {
+            arrayAlumnos.push({
+              estudiante: clase.alumnos[i].estudiante,
+              id_item: '',
+              posicion: clase.alumnos[i].posicion,
+              datos: {
+                alegria: [],
+                asco: [],
+                miedo: [],
+                sorpresa: [],
+                tristeza: [],
+                ira: [],
+                pulsaciones: [],
+                tiempo: [],
+                distraido: [],
+                concentrado: [],
+                frustrado: [],
+                motivado: []
+              }
+            });
+          }
+
+          actividadCreate.alumnos = arrayAlumnos;
+          $.ajax({
+            type: 'POST',
+            url: '/agregarActividadEnClase',
+            data: JSON.stringify({
+              clase: clase,
+              act: actividadCreate
+            }),
+            success: function success(data) {
+              ju.clase = data; //ju.ultimaActividadCreada = data;
+
+              console.log("Clase Actualizada");
+              console.log(data);
+              ju.actualizar(); //ju.menActividadCreada();
+              //abrirActividad
+            },
+            contentType: 'application/json',
+            dataType: 'json'
+          });
+        }
       }]);
 
       return VerClaseComponent;
     }();
 
+    VerClaseComponent.ctorParameters = function () {
+      return [{
+        type: _profesor_component__WEBPACK_IMPORTED_MODULE_3__["ProfesorComponent"]
+      }, {
+        type: _angular_material_snack_bar__WEBPACK_IMPORTED_MODULE_4__["MatSnackBar"]
+      }];
+    };
+
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])()], VerClaseComponent.prototype, "clase", void 0);
     VerClaseComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
       selector: 'app-ver-clase',
       template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(

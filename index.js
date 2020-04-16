@@ -77,11 +77,11 @@ app.post("/verActividadesComenzadas", function (request, response) {
 
 app.post("/registrarActividad", function (request, response) {
   var act = request.body;
-  centro.agregarActividad(act.nombre,act.profesor,act.fecha,act.alumnos,act.resumen,function(res){
+  centro.agregarActividad(act.nombre,act.profesor,act.fecha,act.alumnos,act.resumen,act.clase,function(res){
     if (res != '') {
       console.log("Actividad agregada");
-      console.log(res);
-      response.send(res.value);
+      //console.log(res);
+      response.send(res);
     }
   })
 });
@@ -97,7 +97,6 @@ app.post("/actualizarActividad", function (request, response) {
     }
   })
 });
-
 
 app.delete("/eliminarActividad", function (request, response) {
   var act = request.body;
@@ -149,7 +148,38 @@ app.delete("/eliminarClase", function (request, response) {
   })
 });
 
+app.post("/agregarActividadEnClase", function (request, response) {
+  var clase = request.body.clase;
+  var act = request.body.act;
+  centro.crearActividadEnClase(clase,act,function(res){
+    if (res != '') {
+      console.log("Actividad creada y añadida");
+      response.send(res);
+    }
+  })
+});
 
+app.post("/editarActividadEnClase", function (request, response) {
+  var clase = request.body.clase;
+  var act = request.body.act;
+  centro.editarActividadEnClase(clase,act,function(res){
+    if (res != '') {
+      console.log("Actividad editada");
+      response.send(res);
+    }
+  })
+});
+
+app.delete("/borrarActividadEnClase", function (request, response) {
+  var clase = request.body.clase;
+  var act = request.body.act;
+  centro.borrarActividadEnClase(clase,act,function(res){
+    if (res != '') {
+      console.log("Actividad borrada");
+      response.send(res);
+    }
+  })
+});
 
 app.post("/estudianteIniciarSesion", function (request, response) {
   var est = request.body;
