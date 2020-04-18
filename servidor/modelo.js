@@ -122,25 +122,54 @@ function Centro() {
             });
         }
     }
-    this.borrarClase = function (act, callback) {
+    this.borrarClase = async function (act, callback) {
         var ju = this;
-        this.dao.connect(function (db) {
+        var k;
+        var bbdd;
+        await this.dao.connect(function (db) {
+            var a = act;
             ju.dao.eliminarClase(act, function (u) {
                 //delete ju.clases[act._id];
-                for (var act in act.actividades) {
-                    ju.borrarActividad(act.actividades[act]);
+                k = u;
+                var jus = ju;
+                console.log(u);
+                for (var i in a.actividades) {
+                    console.log('hola');
+                    console.log(a.actividades[i]);
+                    jus.dao.eliminarActividad(a.actividades[i], function (u) {
+                        console.log('Actividad borrada');
+                        console.log(u);
+                        delete ju.actividades[act._id];
+                    });
+                    //ju.borrarActividad(i.actividades[i]);
                 }
+
                 callback(u);
+
+            });
+            bbdd = db;
+
+        });
+        bbdd.close();
+        //}
+    }
+
+    this.mostrarClase = function (clase, callback) {
+        var ju = this;
+        this.dao.connect(function (db) {
+            ju.dao.obtenerClaseCriterio(clase._id, function (c) {
+                callback(c);
                 db.close();
             });
         });
-        //}
     }
+
     this.mostrarClases = function (callback) {
         var ju = this;
         this.dao.connect(function (db) {
             ju.dao.mostrarClases(function (u) {
                 ju.clases = u;
+                console.log(u);
                 callback(u);
                 db.close();
             });
@@ -207,73 +236,130 @@ function Centro() {
                     //a.actividades[act._id] = new Actividad(act._id, act.nombre, act.profesor, act.fecha, act.alumnos, act.resumen);
                     //console.log(act);
                     console.log("Actividad Agregada")
-                    ac.actividades[ru._id]=ru;
+                    ac.actividades[ru._id] = ru;
                     ju.dao.modificarClase(clase._id, ac, function (u) {
                         //console.log("elemento añadido")
                         //console.log(u);
                         //console.log(ju.clases);
                         //ju.clases[clase._id].actividades[actividad._id]=new Actividad(actividad._id,actividad.nombre,actividad.profesor,actividad.fecha,actividad.alumnos,actividad.estado);
-                        console.log("Actividad añadida a la clase");
+                        //console.log("Actividad añadida a la clase");
                         clase.actividades[ru._id] = ru;
-                        console.log(clase)
-                        callback(clase);
-                        db.close();
+                        //console.log(clase)
+                        ju.dao.obtenerClaseCriterio(clase._id, function (c) {
+                            callback(c);
+                            db.close();
+                        });
                     });
                 });
             });
         }
     }
-    this.editarActividadEnClase = function (clase, actividad, callback) {
+    this.editarActividadEnClase = function (actividad, callback) {
         var ju = this;
-        if (!this.clases[clase._id].actividades[actividad._id]) {
-            let a = {
-                nombre: clase.nombre,
-                profesor: clase.profesor,
-                alumnos: clase.alumnos,
-                actividades: clase.actividades,
-                resumen: clase.resumen,
+        var bbdd;
+        if (!this.actividades[actividad._id]) {
+            let act = {
+                nombre: actividad.nombre,
+                profesor: actividad.profesor,
+                fecha: actividad.fecha,
+                estado: actividad.estado,
+                alumnos: actividad.alumnos,
+                resumen: actividad.resumen,
+                clase: actividad.clase,
             }
-            a.actividades[actividad._id] = actividad;
+            //a.actividades[actividad._id] = actividad;
             this.dao.connect(function (db) {
-                //console.log(a);
-                ju.dao.modificarClase(clase._id, a, function (u) {
+                bbdd = db;
+                ju.dao.obtenerClaseCriterio(actividad.clase._id, function (clase) {
+                    ju.dao.modificarActividad(actividad._id, act, function (u) {
+                        if (act.estado == "Comenzada") {
+                            ju.actividadesListas[actividad._id] = actividad;
+                        }
+                        if (u != null) {
+                            ju.actividades[u._id] = actividad;
+                            //callback(act); ///////
+                        }
+                        let c = {
+                            nombre: clase.nombre,
+                            profesor: clase.profesor,
+                            alumnos: clase.alumnos,
+                            actividades: clase.actividades,
+                            resumen: clase.resumen,
+                        }
+                        c.actividades[actividad._id] = actividad;
+                        ju.dao.modificarClase(clase._id, c, function (u) {
+                            clase[actividad._id] = actividad;
+                            ju.clases[clase._id] = clase;
+                            //ju.clases[clase._id].actividades[actividad._id] = actividad;
+                            /*ju.editarActividad(actividad, function (act) {
+                                callback(clase);
+                                db.close();
+                            });*/
+                            callback(actividad);
+                            db.close();
+                        });
+                        //db.close();
+                    });
+                })
+                /*ju.dao.modificarClase(clase._id, a, function (u) {
                     ju.clases[clase._id].actividades[actividad._id] = actividad;
                     ju.editarActividad(actividad, function (act) {
                         callback(clase);
                         db.close();
                     });
 
-                });
+                });*/
             });
         }
     }
-    this.borrarActividadEnClase = function (clase, actividad, callback) {
+    this.borrarActividadEnClase = function (actividad, callback) {
         var ju = this;
-        if (!this.clases[clase._id].actividades[actividad._id]) {
-            let a = {
-                nombre: clase.nombre,
-                profesor: clase.profesor,
-                alumnos: clase.alumnos,
-                actividades: clase.actividades,
-                resumen: clase.resumen,
-            }
-            delete a.actividades[actividad._id];
-            this.dao.connect(function (db) {
-                //console.log(a);
-                ju.dao.modificarClase(clase._id, a, function (u) {
-                    delete ju.clases[clase._id].actividades[actividad._id];
-                    ju.borrarActividad(actividad._id, function () {
-                        callback(clase);
-                        db.close();
-                    })
-
+        var bbdd;
+        console.log('Hola')
+        this.dao.connect(function (db) {
+            bbdd = db;
+            ju.dao.obtenerClaseCriterio(actividad.clase._id, function (clase) {
+                console.log('Hola')
+                ju.dao.eliminarActividad(actividad, function (u) {
+                    delete ju.actividades[actividad._id];
+                    let c = {
+                        nombre: clase.nombre,
+                        profesor: clase.profesor,
+                        alumnos: clase.alumnos,
+                        actividades: clase.actividades,
+                        resumen: clase.resumen,
+                    }
+                    delete c.actividades[actividad._id]
+                    console.log('Hola')
+                    ju.dao.modificarClase(clase._id, c, function (u) {
+                        delete clase[actividad._id];
+                        ju.clases[clase._id] = clase;
+                        //ju.clases[clase._id].actividades[actividad._id] = actividad;
+                        /*ju.editarActividad(actividad, function (act) {
+                            callback(clase);
+                            db.close();
+                        });*/
+                        ju.dao.obtenerClaseCriterio(clase._id, function (c) {
+                            callback(c);
+                            db.close();
+                        });
+                    });
+                    //db.close();
                 });
-            });
-        }
+            })
+            /*ju.dao.modificarClase(clase._id, a, function (u) {
+                ju.clases[clase._id].actividades[actividad._id] = actividad;
+                ju.editarActividad(actividad, function (act) {
+                    callback(clase);
+                    db.close();
+                });
+
+            });*/
+        });
     }
 
     //CRUD Actividades
-    this.agregarActividad = function (nombre, profesor, fecha, alumnos, resumen,clase, callback) {
+    this.agregarActividad = function (nombre, profesor, fecha, alumnos, resumen, clase, callback) {
         var ju = this;
         /*let alumnos = {};
         for (var email in estudiantes) {
@@ -323,6 +409,7 @@ function Centro() {
                 alumnos: act.alumnos,
                 estado: act.estado,
                 resumen: act.resumen,
+                clase: act.clase,
             }
             this.dao.connect(function (db) {
                 //console.log(a);
@@ -466,7 +553,7 @@ function Centro() {
 
 }
 
-function Actividad(id, nombre, profesor, fecha, alumnos, estado,clase) {
+function Actividad(id, nombre, profesor, fecha, alumnos, estado, clase) {
 
     //Atributos
     this._id = id;

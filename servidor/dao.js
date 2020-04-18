@@ -54,6 +54,10 @@ function Dao() {
         obtenerTodos(this.Estudiante, callback);
     }
 
+    this.obtenerClaseCriterio = function(id,callback){
+        obtener(this.Clase,{ _id: ObjectID(id) },callback);
+    }
+
     this.insertarClase = function (act, callback) {
         insertar(this.Clase, act, callback);
     }
@@ -124,6 +128,7 @@ function Dao() {
 
     function eliminar(coleccion, criterio, callback) {
         coleccion.deleteOne(criterio, function (err, result) {
+            console.log(err);
             if (!err) {
                 console.log("Elemento borrado");
                 callback(result);

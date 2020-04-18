@@ -21,8 +21,10 @@ app.use(exp.static(__dirname + "/public"));
 //app.use(exp.static(__dirname + "/cliente_Prueba"));
 
 var bodyParser = require("body-parser");
+app.use(bodyParser.json({limit: "50mb"}));
+app.use(bodyParser.urlencoded({limit: "50mb", extended: true, parameterLimit:50000}));
 
-app.use(bodyParser.urlencoded({ extended: true }));
+//app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(secure);
 
@@ -89,21 +91,38 @@ app.post("/registrarActividad", function (request, response) {
 app.post("/actualizarActividad", function (request, response) {
   var act = request.body;
   //console.log(act);
-  centro.editarActividad(act,function(res){
-    if (res != '') {
-      console.log("Actividad actualizada");
-      console.log(res);
-      response.send(res);
-    }
-  })
+  if(act.clase._id==""){
+    centro.editarActividad(act,function(res){
+      if (res != '') {
+        console.log("Actividad actualizada");
+        //console.log(res);
+        response.send(res);
+      }
+    })
+  }else{
+    centro.editarActividadEnClase(act,function(res){
+      if (res != '') {
+        console.log("Actividad editada");
+        response.send(res);
+      }
+    })
+  }
+  
 });
 
 app.delete("/eliminarActividad", function (request, response) {
   var act = request.body;
-  console.log(act._id);
-  centro.borrarActividad(act, function (res) {
-    response.send(res);
-  });
+  //console.log(act._id);
+  if(act.clase._id==""){
+    centro.borrarActividad(act, function (res) {
+      response.send(res);
+    });
+  }else{
+    centro.borrarActividadEnClase(act,function(res){
+      response.send(res);
+    })
+  }
+  
 });
 
 //CRUD Clases
@@ -111,7 +130,15 @@ app.delete("/eliminarActividad", function (request, response) {
 app.get("/verClases", function (request, response) {
   centro.mostrarClases(function (res) {
     response.send(res);
-    return res;
+    //return res;
+  })
+});
+
+app.get("/verClase", function (request, response) {
+  var clase = request.body;
+  centro.mostrarClase(clase,function (res) {
+    response.send(res);
+    //return res;
   })
 });
 
