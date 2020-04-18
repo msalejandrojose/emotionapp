@@ -391,7 +391,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"card\">\n  <div class=\"card-body\">\n    <h5 class=\"card-title\">Crear Actividad</h5>\n    <mat-horizontal-stepper linear #stepper>\n      <mat-step label=\"Crear Actividad\" [stepControl]=\"datosPrimarios\">\n        <br>\n        <form [formGroup]=\"datosPrimarios\">\n          <div class=\"col-md-6\">\n            <label>Nombre de la Actividad</label>\n            <input formControlName=\"fromControlNombreActividad\" [(ngModel)]=\"actividadCreate.nombre\" type=\"text\"\n              class=\"form-control\" id=\"nombreActividad\" placeholder=\"Nombre de la actividad\">\n            <br>\n            <label>Nombre del Profesor</label>\n            <input formControlName=\"fromControlNombreProfesor\" [(ngModel)]=\"actividadCreate.profesor\" type=\"text\"\n              class=\"form-control\" id=\"nombreProfesor\" placeholder=\"Nombre del Profesor\">\n            <br>\n          </div>\n          <div class=\"row justify-content-md-center\">\n            <button mat-button matStepperNext class=\"btn btn-success\">Siguiente Paso</button>\n          </div>\n        </form>\n      </mat-step>\n      <mat-step label=\"Seleccionar Alumnos\">\n        <!--Tabla de alumnos-->\n        <br>\n\n        <div class=\"example-header\">\n          <mat-form-field>\n            <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filtrar\">\n          </mat-form-field>\n        </div>\n\n        <div class=\"example-container\">\n\n          <mat-table [dataSource]=\"dataSource\" matSort>\n\n            <ng-container matColumnDef=\"select\">\n              <th mat-header-cell *matHeaderCellDef>\n                <mat-checkbox (change)=\"$event ? masterToggle() : null\"\n                  [checked]=\"selection.hasValue() && isAllSelected()\"\n                  [indeterminate]=\"selection.hasValue() && !isAllSelected()\" [aria-label]=\"checkboxLabel()\">\n                </mat-checkbox>\n              </th>\n              <td mat-cell *matCellDef=\"let row\">\n                <mat-checkbox (click)=\"$event.stopPropagation()\" (change)=\"$event ? selection.toggle(row) : null\"\n                  [checked]=\"selection.isSelected(row)\" [aria-label]=\"checkboxLabel(row)\">\n                </mat-checkbox>\n              </td>\n            </ng-container>\n\n            <!-- ID Column -->\n            <ng-container matColumnDef=\"nombre\">\n              <mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </mat-header-cell>\n              <mat-cell *matCellDef=\"let row\"> {{row.nombre}} </mat-cell>\n            </ng-container>\n\n            <!-- Progress Column -->\n            <ng-container matColumnDef=\"apellidos\">\n              <mat-header-cell *matHeaderCellDef mat-sort-header> Apellidos </mat-header-cell>\n              <mat-cell *matCellDef=\"let row\"> {{row.apellidos}} </mat-cell>\n            </ng-container>\n\n            <!-- Name Column -->\n            <ng-container matColumnDef=\"clase\">\n              <mat-header-cell *matHeaderCellDef mat-sort-header> Clase </mat-header-cell>\n              <mat-cell *matCellDef=\"let row\"> {{row.clase}} </mat-cell>\n            </ng-container>\n\n            <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\n            <mat-row *matRowDef=\"let row; columns: displayedColumns;\">\n            </mat-row>\n          </mat-table>\n\n          <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\n        </div>\n        <br>\n        <div class=\"row justify-content-md-center\">\n          <button mat-button matStepperPrevious class=\"btn btn-info\">Volver atras</button>\n          <p> </p>\n          <button mat-button matStepperNext class=\"btn btn-success\" (click)=\"ponerAlumnos()\">Siguiente Paso</button>\n        </div>\n      </mat-step>\n      <mat-step label=\"Localizacion de los alumnos\">\n        <h4>Localizacion de Alumnos</h4>\n        <div id=\"clase\" class=\"example-boundary\">\n          <!--<app-alumno *ngFor=\"let item of alumnosSeleccionados\" [alumno]=\"item\"></app-alumno>-->\n          <div *ngFor=\"let item of alumnosSeleccionados\" class=\"example-box\" ondrop=\"myFunction(item)\"\n            [cdkDragFreeDragPosition]=\"item.estudiante.posicion\" cdkDragBoundary=\".example-boundary\" cdkDrag\n            (cdkDragEnded)=\"dragEnded($event,item)\">\n            {{item.estudiante.nombre}}\n          </div>\n        </div>\n        <br>\n        <div class=\"row justify-content-md-center\">\n          <button mat-button matStepperPrevious class=\"btn btn-info\">Volver atras</button>\n          <p> </p>\n          <button mat-button matStepperNext class=\"btn btn-success\" (click)=guardarActividad()>Guardar</button>\n        </div>\n      </mat-step>\n    </mat-horizontal-stepper>\n  </div>\n</div>";
+    __webpack_exports__["default"] = "<div class=\"card\">\n  <div class=\"card-body\">\n    <h5 class=\"card-title\">Crear Actividad</h5>\n    <mat-horizontal-stepper linear #stepper>\n      <mat-step label=\"Crear Actividad\" [stepControl]=\"datosPrimarios\">\n        <br>\n        <form [formGroup]=\"datosPrimarios\">\n          <div class=\"col-md-6\">\n            <label>Nombre de la Actividad</label>\n            <input formControlName=\"fromControlNombreActividad\" [(ngModel)]=\"actividadCreate.nombre\" type=\"text\"\n              class=\"form-control\" id=\"nombreActividad\" placeholder=\"Nombre de la actividad\">\n            <br>\n            <label>Nombre del Profesor</label>\n            <input formControlName=\"fromControlNombreProfesor\" [(ngModel)]=\"actividadCreate.profesor\" type=\"text\"\n              class=\"form-control\" id=\"nombreProfesor\" placeholder=\"Nombre del Profesor\">\n            <br>\n          </div>\n          <div class=\"row justify-content-md-center\">\n            <button mat-button matStepperNext class=\"btn btn-success\">Siguiente Paso</button>\n          </div>\n        </form>\n      </mat-step>\n      <mat-step label=\"Seleccionar Alumnos\">\n        <!--Tabla de alumnos-->\n        <br>\n\n        <div class=\"example-header\">\n          <mat-form-field>\n            <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filtrar\">\n          </mat-form-field>\n        </div>\n\n        <div class=\"example-container\">\n          <mat-table [dataSource]=\"dataSource\" class=\"mat-elevation-z1\" matSort>\n\n            <ng-container matColumnDef=\"select\">\n              <th mat-header-cell *matHeaderCellDef>\n                <mat-checkbox (change)=\"$event ? masterToggle() : null\"\n                  [checked]=\"selection.hasValue() && isAllSelected()\"\n                  [indeterminate]=\"selection.hasValue() && !isAllSelected()\" [aria-label]=\"checkboxLabel()\">\n                </mat-checkbox>\n              </th>\n              <td mat-cell *matCellDef=\"let row\">\n                <mat-checkbox (click)=\"$event.stopPropagation()\" (change)=\"$event ? selection.toggle(row) : null\"\n                  [checked]=\"selection.isSelected(row)\" [aria-label]=\"checkboxLabel(row)\">\n                </mat-checkbox>\n              </td>\n            </ng-container>\n\n            <!-- ID Column -->\n            <ng-container matColumnDef=\"nombre\">\n              <mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </mat-header-cell>\n              <mat-cell *matCellDef=\"let row\"> {{row.nombre}} </mat-cell>\n            </ng-container>\n\n            <!-- Progress Column -->\n            <ng-container matColumnDef=\"apellidos\">\n              <mat-header-cell *matHeaderCellDef mat-sort-header> Apellidos </mat-header-cell>\n              <mat-cell *matCellDef=\"let row\"> {{row.apellidos}} </mat-cell>\n            </ng-container>\n\n            <!-- Name Column -->\n            <ng-container matColumnDef=\"clase\">\n              <mat-header-cell *matHeaderCellDef mat-sort-header> Clase </mat-header-cell>\n              <mat-cell *matCellDef=\"let row\"> {{row.clase}} </mat-cell>\n            </ng-container>\n\n            <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\n            <mat-row *matRowDef=\"let row; columns: displayedColumns;\">\n            </mat-row>\n          </mat-table>\n          <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\n        </div>\n        <br>\n        <div class=\"row justify-content-md-center\">\n          <button mat-button matStepperPrevious class=\"btn btn-info\">Volver atras</button>\n          <p> </p>\n          <button mat-button matStepperNext class=\"btn btn-success\" (click)=\"ponerAlumnos()\">Siguiente Paso</button>\n        </div>\n      </mat-step>\n      <mat-step label=\"Localizacion de los alumnos\">\n        <h4>Localizacion de Alumnos</h4>\n        <div id=\"clase\" class=\"example-boundary\">\n          <!--<app-alumno *ngFor=\"let item of alumnosSeleccionados\" [alumno]=\"item\"></app-alumno>-->\n          <div *ngFor=\"let item of alumnosSeleccionados\" class=\"example-box\" ondrop=\"myFunction(item)\"\n            [cdkDragFreeDragPosition]=\"item.estudiante.posicion\" cdkDragBoundary=\".example-boundary\" cdkDrag\n            (cdkDragEnded)=\"dragEnded($event,item)\">\n            {{item.estudiante.nombre}}\n          </div>\n        </div>\n        <br>\n        <div class=\"row justify-content-md-center\">\n          <button mat-button matStepperPrevious class=\"btn btn-info\">Volver atras</button>\n          <p> </p>\n          <button mat-button matStepperNext class=\"btn btn-success\" (click)=guardarActividad()>Guardar</button>\n        </div>\n      </mat-step>\n    </mat-horizontal-stepper>\n  </div>\n</div>";
     /***/
   },
 
@@ -411,7 +411,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"card\">\n    <div class=\"card-body\">\n      <h5 class=\"card-title\">Crear Clase</h5>\n      <mat-horizontal-stepper linear #stepper>\n        <mat-step label=\"Crear Clase\" [stepControl]=\"datosPrimarios\">\n          <br>\n          <form [formGroup]=\"datosPrimarios\">\n            <div class=\"col-md-6\">\n              <label>Nombre de la clase</label>\n              <input formControlName=\"fromControlNombreActividad\" [(ngModel)]=\"claseCreate.nombre\" type=\"text\"\n                class=\"form-control\" id=\"nombreActividad\" placeholder=\"Nombre de la actividad\">\n              <br>\n              <label>Nombre del Profesor Habitual</label>\n              <input formControlName=\"fromControlNombreProfesor\" [(ngModel)]=\"claseCreate.profesor\" type=\"text\"\n                class=\"form-control\" id=\"nombreProfesor\" placeholder=\"Nombre del Profesor\">\n              <br>\n            </div>\n            <div class=\"row justify-content-md-center\">\n              <button mat-button matStepperNext class=\"btn btn-success\">Siguiente Paso</button>\n            </div>\n          </form>\n        </mat-step>\n        <mat-step label=\"Seleccionar Alumnos\">\n          <!--Tabla de alumnos-->\n          <br>\n  \n          <div class=\"example-header\">\n            <mat-form-field>\n              <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filtrar\">\n            </mat-form-field>\n          </div>\n  \n          <div class=\"example-container\">\n  \n            <mat-table [dataSource]=\"dataSource\" matSort>\n  \n              <ng-container matColumnDef=\"select\">\n                <th mat-header-cell *matHeaderCellDef>\n                  <mat-checkbox (change)=\"$event ? masterToggle() : null\"\n                    [checked]=\"selection.hasValue() && isAllSelected()\"\n                    [indeterminate]=\"selection.hasValue() && !isAllSelected()\" [aria-label]=\"checkboxLabel()\">\n                  </mat-checkbox>\n                </th>\n                <td mat-cell *matCellDef=\"let row\">\n                  <mat-checkbox (click)=\"$event.stopPropagation()\" (change)=\"$event ? selection.toggle(row) : null\"\n                    [checked]=\"selection.isSelected(row)\" [aria-label]=\"checkboxLabel(row)\">\n                  </mat-checkbox>\n                </td>\n              </ng-container>\n  \n              <!-- ID Column -->\n              <ng-container matColumnDef=\"nombre\">\n                <mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </mat-header-cell>\n                <mat-cell *matCellDef=\"let row\"> {{row.nombre}} </mat-cell>\n              </ng-container>\n  \n              <!-- Progress Column -->\n              <ng-container matColumnDef=\"apellidos\">\n                <mat-header-cell *matHeaderCellDef mat-sort-header> Apellidos </mat-header-cell>\n                <mat-cell *matCellDef=\"let row\"> {{row.apellidos}} </mat-cell>\n              </ng-container>\n  \n              <!-- Name Column -->\n              <ng-container matColumnDef=\"clase\">\n                <mat-header-cell *matHeaderCellDef mat-sort-header> Clase </mat-header-cell>\n                <mat-cell *matCellDef=\"let row\"> {{row.clase}} </mat-cell>\n              </ng-container>\n  \n              <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\n              <mat-row *matRowDef=\"let row; columns: displayedColumns;\">\n              </mat-row>\n            </mat-table>\n  \n            <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\n          </div>\n          <br>\n          <div class=\"row justify-content-md-center\">\n            <button mat-button matStepperPrevious class=\"btn btn-info\">Volver atras</button>\n            <p> </p>\n            <button mat-button matStepperNext class=\"btn btn-success\" (click)=\"ponerAlumnos()\">Siguiente Paso</button>\n          </div>\n        </mat-step>\n        <mat-step label=\"Localizacion de los alumnos\">\n          <h4>Localizacion de Alumnos</h4>\n          <div id=\"clase\" class=\"example-boundary\">\n            <!--<app-alumno *ngFor=\"let item of alumnosSeleccionados\" [alumno]=\"item\"></app-alumno>-->\n            <div *ngFor=\"let item of alumnosSeleccionados\" class=\"example-box\" ondrop=\"myFunction(item)\"\n              [cdkDragFreeDragPosition]=\"item.estudiante.posicion\" cdkDragBoundary=\".example-boundary\" cdkDrag\n              (cdkDragEnded)=\"dragEnded($event,item)\">\n              {{item.estudiante.nombre}}\n            </div>\n          </div>\n          <br>\n          <div class=\"row justify-content-md-center\">\n            <button mat-button matStepperPrevious class=\"btn btn-info\">Volver atras</button>\n            <p> </p>\n            <button mat-button matStepperNext class=\"btn btn-success\" (click)=guardarActividad()>Guardar</button>\n          </div>\n        </mat-step>\n      </mat-horizontal-stepper>\n    </div>\n  </div>";
+    __webpack_exports__["default"] = "<div class=\"card\">\n    <div class=\"card-body\">\n      <h5 class=\"card-title\">Crear Clase</h5>\n      <mat-horizontal-stepper linear #stepper>\n        <mat-step label=\"Crear Clase\" [stepControl]=\"datosPrimarios\">\n          <br>\n          <form [formGroup]=\"datosPrimarios\">\n            <div class=\"col-md-6\">\n              <label>Nombre de la clase</label>\n              <input formControlName=\"fromControlNombreActividad\" [(ngModel)]=\"claseCreate.nombre\" type=\"text\"\n                class=\"form-control\" id=\"nombreActividad\" placeholder=\"Nombre de la actividad\">\n              <br>\n              <label>Nombre del Profesor Habitual</label>\n              <input formControlName=\"fromControlNombreProfesor\" [(ngModel)]=\"claseCreate.profesor\" type=\"text\"\n                class=\"form-control\" id=\"nombreProfesor\" placeholder=\"Nombre del Profesor\">\n              <br>\n            </div>\n            <div class=\"row justify-content-md-center\">\n              <button mat-button matStepperNext class=\"btn btn-success\">Siguiente Paso</button>\n            </div>\n          </form>\n        </mat-step>\n        <mat-step label=\"Seleccionar Alumnos\">\n          <!--Tabla de alumnos-->\n          <br>\n  \n          <div class=\"example-header\">\n            <mat-form-field>\n              <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filtrar\">\n            </mat-form-field>\n          </div>\n  \n          <div class=\"example-container\">\n  \n            <mat-table [dataSource]=\"dataSource\" class=\"mat-elevation-z1\" matSort>\n  \n              <ng-container matColumnDef=\"select\">\n                <th mat-header-cell *matHeaderCellDef>\n                  <mat-checkbox (change)=\"$event ? masterToggle() : null\"\n                    [checked]=\"selection.hasValue() && isAllSelected()\"\n                    [indeterminate]=\"selection.hasValue() && !isAllSelected()\" [aria-label]=\"checkboxLabel()\">\n                  </mat-checkbox>\n                </th>\n                <td mat-cell *matCellDef=\"let row\">\n                  <mat-checkbox (click)=\"$event.stopPropagation()\" (change)=\"$event ? selection.toggle(row) : null\"\n                    [checked]=\"selection.isSelected(row)\" [aria-label]=\"checkboxLabel(row)\">\n                  </mat-checkbox>\n                </td>\n              </ng-container>\n  \n              <!-- ID Column -->\n              <ng-container matColumnDef=\"nombre\">\n                <mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </mat-header-cell>\n                <mat-cell *matCellDef=\"let row\"> {{row.nombre}} </mat-cell>\n              </ng-container>\n  \n              <!-- Progress Column -->\n              <ng-container matColumnDef=\"apellidos\">\n                <mat-header-cell *matHeaderCellDef mat-sort-header> Apellidos </mat-header-cell>\n                <mat-cell *matCellDef=\"let row\"> {{row.apellidos}} </mat-cell>\n              </ng-container>\n  \n              <!-- Name Column -->\n              <ng-container matColumnDef=\"clase\">\n                <mat-header-cell *matHeaderCellDef mat-sort-header> Clase </mat-header-cell>\n                <mat-cell *matCellDef=\"let row\"> {{row.clase}} </mat-cell>\n              </ng-container>\n  \n              <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\n              <mat-row *matRowDef=\"let row; columns: displayedColumns;\">\n              </mat-row>\n            </mat-table>\n  \n            <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\n          </div>\n          <br>\n          <div class=\"row justify-content-md-center\">\n            <button mat-button matStepperPrevious class=\"btn btn-info\">Volver atras</button>\n            <p> </p>\n            <button mat-button matStepperNext class=\"btn btn-success\" (click)=\"ponerAlumnos()\">Siguiente Paso</button>\n          </div>\n        </mat-step>\n        <mat-step label=\"Localizacion de los alumnos\">\n          <h4>Localizacion de Alumnos</h4>\n          <div id=\"clase\" class=\"example-boundary\">\n            <!--<app-alumno *ngFor=\"let item of alumnosSeleccionados\" [alumno]=\"item\"></app-alumno>-->\n            <div *ngFor=\"let item of alumnosSeleccionados\" class=\"example-box\" ondrop=\"myFunction(item)\"\n              [cdkDragFreeDragPosition]=\"item.estudiante.posicion\" cdkDragBoundary=\".example-boundary\" cdkDrag\n              (cdkDragEnded)=\"dragEnded($event,item)\">\n              {{item.estudiante.nombre}}\n            </div>\n          </div>\n          <br>\n          <div class=\"row justify-content-md-center\">\n            <button mat-button matStepperPrevious class=\"btn btn-info\">Volver atras</button>\n            <p> </p>\n            <button mat-button matStepperNext class=\"btn btn-success\" (click)=guardarActividad()>Guardar</button>\n          </div>\n        </mat-step>\n      </mat-horizontal-stepper>\n    </div>\n  </div>";
     /***/
   },
 
@@ -451,7 +451,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"card\">\n    <div class=\"card-body\">\n      <h5 class=\"card-title\">Editar Actividad</h5>\n      <mat-horizontal-stepper linear #stepper>\n        <mat-step label=\"Crear Actividad\" [stepControl]=\"datosPrimarios\">\n          <br>\n          <form [formGroup]=\"datosPrimarios\">\n            <div class=\"col-md-6\">\n              <label>Nombre de la Actividad</label>\n              <input formControlName=\"fromControlNombreActividad\" [(ngModel)]=\"editarActividad.nombre\" type=\"text\"\n                class=\"form-control\" id=\"nombreActividad\" placeholder=\"Nombre de la actividad\">\n              <br>\n              <label>Nombre del Profesor</label>\n              <input formControlName=\"fromControlNombreProfesor\" [(ngModel)]=\"editarActividad.profesor\" type=\"text\"\n                class=\"form-control\" id=\"nombreProfesor\" placeholder=\"Nombre del Profesor\">\n              <br>\n  \n            </div>\n            <div class=\"row justify-content-md-center\">\n              <button mat-button matStepperNext class=\"btn btn-success\">Siguiente Paso</button>\n            </div>\n  \n          </form>\n        </mat-step>\n        <mat-step label=\"Seleccionar Alumnos\">\n          <!--Tabla de alumnos-->\n          <br>\n  \n          <div class=\"example-header\">\n            <mat-form-field>\n              <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filtrar\">\n            </mat-form-field>\n          </div>\n  \n          <div class=\"example-container\">\n  \n            <mat-table [dataSource]=\"dataSource\" matSort>\n  \n              <ng-container matColumnDef=\"select\">\n                <th mat-header-cell *matHeaderCellDef>\n                  <mat-checkbox (change)=\"$event ? masterToggle() : null\"\n                    [checked]=\"selection.hasValue() && isAllSelected()\"\n                    [indeterminate]=\"selection.hasValue() && !isAllSelected()\" [aria-label]=\"checkboxLabel()\">\n                  </mat-checkbox>\n                </th>\n                <td mat-cell *matCellDef=\"let row\">\n                  <mat-checkbox (click)=\"$event.stopPropagation()\" (change)=\"$event ? selection.toggle(row) : null\"\n                    [checked]=\"selection.isSelected(row)\" [aria-label]=\"checkboxLabel(row)\">\n                  </mat-checkbox>\n                </td>\n              </ng-container>\n  \n              <!-- ID Column -->\n              <ng-container matColumnDef=\"nombre\">\n                <mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </mat-header-cell>\n                <mat-cell *matCellDef=\"let row\"> {{row.nombre}} </mat-cell>\n              </ng-container>\n  \n              <!-- Progress Column -->\n              <ng-container matColumnDef=\"apellidos\">\n                <mat-header-cell *matHeaderCellDef mat-sort-header> Apellidos </mat-header-cell>\n                <mat-cell *matCellDef=\"let row\"> {{row.apellidos}} </mat-cell>\n              </ng-container>\n  \n              <!-- Name Column -->\n              <ng-container matColumnDef=\"clase\">\n                <mat-header-cell *matHeaderCellDef mat-sort-header> Clase </mat-header-cell>\n                <mat-cell *matCellDef=\"let row\"> {{row.clase}} </mat-cell>\n              </ng-container>\n  \n              <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\n              <mat-row *matRowDef=\"let row; columns: displayedColumns;\">\n              </mat-row>\n            </mat-table>\n  \n            <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\n          </div>\n          <br>\n          <div class=\"row justify-content-md-center\">\n            <button mat-button matStepperPrevious class=\"btn btn-info\">Volver atras</button>\n            <p> </p>\n            <button mat-button matStepperNext class=\"btn btn-success\" (click)=\"ponerAlumnos()\">Actualizar Alumnos</button>\n          </div>\n        </mat-step>\n        <mat-step label=\"Localizacion de los alumnos\">\n          <h4>Localizacion de Alumnos</h4>\n          <div id=\"clase\" class=\"example-boundary\">\n            <!--<app-alumno *ngFor=\"let item of alumnosSeleccionados\" [alumno]=\"item\"></app-alumno>-->\n            <div *ngFor=\"let item of alumnosSeleccionados\" class=\"example-box\" ondrop=\"myFunction(item)\"\n              [cdkDragFreeDragPosition]=\"item.estudiante.posicion\" cdkDragBoundary=\".example-boundary\" cdkDrag\n              (cdkDragEnded)=\"dragEnded($event,item)\">\n              {{item.estudiante.nombre}}\n            </div>\n          </div>\n          <br>\n          <div class=\"row justify-content-md-center\">\n            <button mat-button matStepperPrevious class=\"btn btn-info\">Volver atras</button>\n            <p> </p>\n            <button mat-button matStepperNext class=\"btn btn-success\" (click)=actualizar()>Actualizar</button>\n          </div>\n        </mat-step>\n      </mat-horizontal-stepper>\n    </div>\n  </div>";
+    __webpack_exports__["default"] = "<div class=\"card\">\n    <div class=\"card-body\">\n      <h5 class=\"card-title\">Editar Actividad</h5>\n      <mat-horizontal-stepper linear #stepper>\n        <mat-step label=\"Crear Actividad\" [stepControl]=\"datosPrimarios\">\n          <br>\n          <form [formGroup]=\"datosPrimarios\">\n            <div class=\"col-md-6\">\n              <label>Nombre de la Actividad</label>\n              <input formControlName=\"fromControlNombreActividad\" [(ngModel)]=\"editarActividad.nombre\" type=\"text\"\n                class=\"form-control\" id=\"nombreActividad\" placeholder=\"Nombre de la actividad\">\n              <br>\n              <label>Nombre del Profesor</label>\n              <input formControlName=\"fromControlNombreProfesor\" [(ngModel)]=\"editarActividad.profesor\" type=\"text\"\n                class=\"form-control\" id=\"nombreProfesor\" placeholder=\"Nombre del Profesor\">\n              <br>\n  \n            </div>\n            <div class=\"row justify-content-md-center\">\n              <button mat-button matStepperNext class=\"btn btn-success\">Siguiente Paso</button>\n            </div>\n  \n          </form>\n        </mat-step>\n        <mat-step label=\"Seleccionar Alumnos\">\n          <!--Tabla de alumnos-->\n          <br>\n  \n          <div class=\"example-header\">\n            <mat-form-field>\n              <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filtrar\">\n            </mat-form-field>\n          </div>\n  \n          <div class=\"example-container\">\n  \n            <mat-table [dataSource]=\"dataSource\" class=\"mat-elevation-z1\" matSort>\n  \n              <ng-container matColumnDef=\"select\">\n                <th mat-header-cell *matHeaderCellDef>\n                  <mat-checkbox (change)=\"$event ? masterToggle() : null\"\n                    [checked]=\"selection.hasValue() && isAllSelected()\"\n                    [indeterminate]=\"selection.hasValue() && !isAllSelected()\" [aria-label]=\"checkboxLabel()\">\n                  </mat-checkbox>\n                </th>\n                <td mat-cell *matCellDef=\"let row\">\n                  <mat-checkbox (click)=\"$event.stopPropagation()\" (change)=\"$event ? selection.toggle(row) : null\"\n                    [checked]=\"selection.isSelected(row)\" [aria-label]=\"checkboxLabel(row)\">\n                  </mat-checkbox>\n                </td>\n              </ng-container>\n  \n              <!-- ID Column -->\n              <ng-container matColumnDef=\"nombre\">\n                <mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </mat-header-cell>\n                <mat-cell *matCellDef=\"let row\"> {{row.nombre}} </mat-cell>\n              </ng-container>\n  \n              <!-- Progress Column -->\n              <ng-container matColumnDef=\"apellidos\">\n                <mat-header-cell *matHeaderCellDef mat-sort-header> Apellidos </mat-header-cell>\n                <mat-cell *matCellDef=\"let row\"> {{row.apellidos}} </mat-cell>\n              </ng-container>\n  \n              <!-- Name Column -->\n              <ng-container matColumnDef=\"clase\">\n                <mat-header-cell *matHeaderCellDef mat-sort-header> Clase </mat-header-cell>\n                <mat-cell *matCellDef=\"let row\"> {{row.clase}} </mat-cell>\n              </ng-container>\n  \n              <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\n              <mat-row *matRowDef=\"let row; columns: displayedColumns;\">\n              </mat-row>\n            </mat-table>\n  \n            <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\n          </div>\n          <br>\n          <div class=\"row justify-content-md-center\">\n            <button mat-button matStepperPrevious class=\"btn btn-info\">Volver atras</button>\n            <p> </p>\n            <button mat-button matStepperNext class=\"btn btn-success\" (click)=\"ponerAlumnos()\">Actualizar Alumnos</button>\n          </div>\n        </mat-step>\n        <mat-step label=\"Localizacion de los alumnos\">\n          <h4>Localizacion de Alumnos</h4>\n          <div id=\"clase\" class=\"example-boundary\">\n            <!--<app-alumno *ngFor=\"let item of alumnosSeleccionados\" [alumno]=\"item\"></app-alumno>-->\n            <div *ngFor=\"let item of alumnosSeleccionados\" class=\"example-box\" ondrop=\"myFunction(item)\"\n              [cdkDragFreeDragPosition]=\"item.estudiante.posicion\" cdkDragBoundary=\".example-boundary\" cdkDrag\n              (cdkDragEnded)=\"dragEnded($event,item)\">\n              {{item.estudiante.nombre}}\n            </div>\n          </div>\n          <br>\n          <div class=\"row justify-content-md-center\">\n            <button mat-button matStepperPrevious class=\"btn btn-info\">Volver atras</button>\n            <p> </p>\n            <button mat-button matStepperNext class=\"btn btn-success\" (click)=actualizar()>Actualizar</button>\n          </div>\n        </mat-step>\n      </mat-horizontal-stepper>\n    </div>\n  </div>";
     /***/
   },
 
@@ -491,7 +491,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"row\">\n    <div class=\"col-md-2\">\n        <!--<app-sidenav-profesor></app-sidenav-profesor>-->\n        <div class=\"sidenav list-group\">\n            <a href=\"#\" class=\"item-menu-sidenav\" (click)=\"abrirActividadActual()\"><i class=\"fa fa-home\"></i> Home</a>\n            <a href=\"#\" class=\"item-menu-sidenav\" (click)=\"abrirAlumnos()\"><i class=\"fa fa-user\"></i> Alumnos</a>\n            <a href=\"#\" class=\"item-menu-sidenav\" (click)=\"abrirClases()\"><i class=\"fa fa-book\"></i>\n                Clases</a>\n            <a href=\"#\" class=\"item-menu-sidenav\" (click)=\"abrirActividades()\"><i class=\"fas fa-shapes\"></i>\n                Actividades</a>\n        </div>\n    </div>\n    <div *ngIf=\"gestionHome\" class=\"col-md-10\">\n        <br>\n        <div *ngIf=\"!actividadAbierta\">\n            <br>\n            <br>\n            <br>\n            <br>\n            <br>\n            <br>\n            <br>\n            <br>\n            <br>\n        </div>\n        <div class=\"row justify-content-center\" *ngIf=\"!actividadAbierta\">\n            <div class=\"col-3 text-center\">\n                <button type=\"button\" class=\"btn btn-primary btn-circle\" (click)=\"abrirAlumnos()\"><i\n                        class=\"fa fa-user\"></i> Alumnos</button>\n            </div>\n            <div class=\"col-3 text-center\">\n                <button type=\"button\" class=\"btn btn-success btn-circle\" (click)=\"abrirClases()\"><i\n                        class=\"fas fa-shapes\"></i> Clases</button>\n            </div>\n            <div class=\"col-3 text-center\">\n                <button type=\"button\" class=\"btn btn-info btn-circle\" (click)=\"abrirActividades()\"><i\n                        class=\"fa fa-book\"></i> Actividades</button>\n            </div>\n        </div>\n        <div *ngIf=\"actividadAbierta\">\n            <app-ver-actividad [actividad]=\"actividadSelected\" [aluConectados]=\"alumnosConectados\"></app-ver-actividad>\n        </div>\n    </div>\n    <div *ngIf=\"gestionAlumnos\" class=\"col-md-10\">\n        <br>\n        <div class=\"row col-12 justify-content-center\">\n            <div class=\"col-3 text-left\">\n\n            </div>\n            <div class=\"col-6 text-center\">\n                <h3>Alumnos</h3>\n            </div>\n            <div class=\"col-3 text-right\">\n                <button type=\"button\" (click)=\"abrirActividades()\" class=\"btn btn-outline-primary\">Crear\n                    Actividad</button>\n            </div>\n        </div>\n        <br>\n        <div class=\"row justify-content-md-center\">\n            <!--<div class=\"card-body card-body-cascade text-center wow fadeIn\">\n                <h4>Hola mundo</h4>\n                <p>asdalksdjlajsdklasjdkljlañksjfñdskladsfjñalksfj</p>\n            </div>-->\n            <div class=\"card col-md-6\">\n                <div *ngIf=\"!editarAlumno\" class=\"card-body\">\n                    <h4 class=\"card-title\">Crear Alumno</h4>\n                    <div>\n                        <label>Nombre del Alumn@</label>\n                        <input [(ngModel)]=\"alumnoCreate.nombre\" type=\"text\" class=\"form-control\" id=\"nombre\"\n                            placeholder=\"Nombre\">\n                        <br>\n                        <label>Apellidos</label>\n                        <input [(ngModel)]=\"alumnoCreate.apellidos\" type=\"text\" class=\"form-control\" id=\"apellidos\"\n                            ng-model=\"apellidos\" placeholder=\"Apellidos\">\n                        <br>\n                        <label>Clase</label>\n                        <input [(ngModel)]=\"alumnoCreate.clase\" type=\"text\" class=\"form-control\" id=\"clase\"\n                            ng-model=\"clase\" placeholder=\"Clase\">\n                        <br>\n                        <label>Email</label>\n                        <input [(ngModel)]=\"alumnoCreate.email\" type=\"email\" class=\"form-control\" id=\"email\"\n                            ng-model=\"email\" placeholder=\"Enter email\">\n                        <small id=\"emailHelp\" class=\"form-text text-muted\">El email tiene que ser unico</small>\n                        <br>\n                        <label>Contraseña</label>\n                        <input [(ngModel)]=\"alumnoCreate.contrasena\" type=\"password\" class=\"form-control\"\n                            id=\"contrasena\" ng-model=\"contrasena\" placeholder=\"Contraseña\">\n                        <small id=\"contrasenaHelp\" class=\"form-text text-muted\">El usuario podra entrar con esta\n                            contraseña</small>\n                        <button type=\"button\" (click)=\"limpiar()\" class=\"btn btn-raised btn-danger\">Limpiar</button>\n                        <button type=\"button\" (click)=\"anadirAlumno()\" class=\"btn btn-raised btn-success\">Guardar\n                            Alumn@</button>\n                    </div>\n                </div>\n                <div *ngIf=\"editarAlumno\" class=\"card-body\">\n                    <h4 class=\"card-title\">Editar Alumno</h4>\n                    <div>\n                        <label>Nombre del Alumn@</label>\n                        <input [(ngModel)]=\"onSelectedAlumno.nombre\" type=\"text\" class=\"form-control\" id=\"nombre\"\n                            placeholder=\"Nombre\">\n                        <br>\n                        <label>Apellidos</label>\n                        <input [(ngModel)]=\"onSelectedAlumno.apellidos\" type=\"text\" class=\"form-control\" id=\"apellidos\"\n                            ng-model=\"apellidos\" placeholder=\"Apellidos\">\n                        <br>\n                        <label>Clase</label>\n                        <input [(ngModel)]=\"onSelectedAlumno.clase\" type=\"text\" class=\"form-control\" id=\"clase\"\n                            ng-model=\"clase\" placeholder=\"Clase\">\n                        <br>\n                        <label>Email</label>\n                        <input [(ngModel)]=\"onSelectedAlumno.email\" type=\"email\" class=\"form-control\" id=\"email\"\n                            ng-model=\"email\" placeholder=\"Enter email\">\n                        <small id=\"emailHelp\" class=\"form-text text-muted\">El email tiene que ser unico</small>\n                        <br>\n                        <label>Contraseña</label>\n                        <input [(ngModel)]=\"onSelectedAlumno.contrasena\" type=\"password\" class=\"form-control\"\n                            id=\"contrasena\" ng-model=\"contrasena\" placeholder=\"Contraseña\">\n                        <small id=\"contrasenaHelp\" class=\"form-text text-muted\">El usuario podra entrar con esta\n                            contraseña</small>\n                        <button type=\"button\" (click)=\"limpiar()\" class=\"btn btn-raised btn-danger\">Limpiar</button>\n                        <button type=\"button\" (click)=\"actualizarAlumno()\" class=\"btn btn-raised btn-success\">Actualizar\n                            Alumn@</button>\n                    </div>\n                </div>\n            </div>\n            <div class=\"col-md-6\">\n                <h3>Lista de Alumnos</h3>\n                <table class=\"table table-striped\">\n                    <thead>\n                        <tr>\n                            <th scope=\"col\">Nombre</th>\n                            <th scope=\"col\">Apellidos</th>\n                            <th scope=\"col\">Clase</th>\n                            <th scope=\"col\"></th>\n                            <th scope=\"col\"></th>\n                        </tr>\n                    </thead>\n                    <tbody *ngFor=\"let alumno of listaAlumnos\">\n                        <tr>\n                            <td>{{alumno.nombre}}</td>\n                            <td>{{alumno.apellidos}}</td>\n                            <td>{{alumno.clase}}</td>\n                            <td><i (click)=\"editar(alumno)\" class=\"fa fa-edit\"></i></td>\n                            <td><i (click)=\"borrar(alumno)\" class=\"fa fa-trash-o\"></i></td>\n                        </tr>\n                    </tbody>\n                </table>\n            </div>\n        </div>\n    </div>\n    <div *ngIf=\"gestionActividades\" class=\"col-md-10\">\n        <br>\n        <div class=\"row col-12 justify-content-center\">\n            <div class=\"col-3 text-left\">\n                <button type=\"button\" *ngIf=\"(crearActividad) || editarActividad\" (click)=\"cerrarModal()\"\n                    class=\"btn btn-outline-danger\">Cancelar</button>\n            </div>\n            <div class=\"col-6 text-center\">\n                <h3>Actividades</h3>\n            </div>\n            <div class=\"col-3 text-right\">\n                <button type=\"button\" *ngIf=\"(!crearActividad) && !editarActividad\" (click)=\"abrirCrearActividad()\"\n                    class=\"btn btn-outline-primary\">Crear\n                    Actividad Individual</button>\n            </div>\n        </div>\n        <br>\n        <div class=\"col-12\">\n            <app-crear-actividad *ngIf=\"crearActividad\" [estudiantes]=\"listaAlumnos\"\n                (actividadCreada)=\"guardarActividad($event)\"></app-crear-actividad>\n            <app-editar-actividad *ngIf=\"editarActividad\"\n                [editarActividad]=\"ActividadparaEditar\" [estudiantes]=\"listaAlumnos\" (actividadEditada)=\"actualizarActividad($event)\">\n            </app-editar-actividad>\n        </div>\n        <br>\n        <!--<div *ngIf=\"verActividad\">\n            <app-ver-actividad [actividad]=\"actividadSelected\" [aluConectados]=\"alumnosConectados\"\n                (actividadCreada)=\"cerrarActividad($event)\"></app-ver-actividad>\n        </div>-->\n        <div *ngIf=\"(!crearActividad || editarActividad) && (crearActividad || !editarActividad)\"\n            class=\"row col-12 justify-content-md-center\">\n            <div class=\"col-12\">\n                <table class=\"table table-striped\">\n                    <thead>\n                        <tr>\n                            <th scope=\"col\">Nombre</th>\n                            <th scope=\"col\">Profesor</th>\n                            <th scope=\"col\">Clase</th>\n                            <th scope=\"col\">Estado</th>\n                            <th scope=\"col\"></th>\n                            <th scope=\"col\"></th>\n                            <th scope=\"col\"></th>\n                        </tr>\n                    </thead>\n                    <tbody *ngFor=\"let actividad of listaActividades\">\n                        <tr *ngIf=\"actividad.estado=='Creada'\">\n                            <td>{{actividad.nombre}}</td>\n                            <td>{{actividad.profesor}}</td>\n                            <td>{{actividad.clase.nombre}}</td>\n                            <td>{{actividad.estado}}</td>\n                            <td><button type=\"button\" class=\"btn btn-outline-primary\"\n                                    (click)=\"abrirActividad(actividad)\">Acceder</button></td>\n                            <td><i (click)=\"editarA(actividad)\" class=\"fa fa-edit\"></i></td>\n                            <td><i (click)=\"borrarA(actividad)\" class=\"fa fa-trash-o\"></i></td>\n                        </tr>\n                        <tr *ngIf=\"actividad.estado=='Comenzada'\">\n                            <td>{{actividad.nombre}}</td>\n                            <td>{{actividad.profesor}}</td>\n                            <td>{{actividad.clase.nombre}}</td>\n                            <td>{{actividad.estado}}</td>\n                            <td><button type=\"button\" class=\"btn btn-outline-success\"\n                                    (click)=\"abrirActividad(actividad)\">Ver</button></td>\n                            <td><i (click)=\"editarA(actividad)\" class=\"fa fa-edit\"></i></td>\n                            <td><i (click)=\"borrarA(actividad)\" class=\"fa fa-trash-o\"></i></td>\n                        </tr>\n                        <tr *ngIf=\"actividad.estado=='Finalizada'\">\n                            <td>{{actividad.nombre}}</td>\n                            <td>{{actividad.profesor}}</td>\n                            <td>{{actividad.clase.nombre}}</td>\n                            <td>{{actividad.estado}}</td>\n                            <td><button type=\"button\" class=\"btn btn-outline-success\"\n                                    (click)=\"abrirActividad(actividad)\">Resumen</button></td>\n                            <td><i (click)=\"editarA(actividad)\" class=\"fa fa-edit\"></i></td>\n                            <td><i (click)=\"borrarA(actividad)\" class=\"fa fa-trash-o\"></i></td>\n                        </tr>\n                    </tbody>\n                </table>\n            </div>\n        </div>\n    </div>\n    <div *ngIf=\"gestionClases\" class=\"col-md-10\">\n        <br *ngIf=\"!verClase\">\n        <div *ngIf=\"!verClase\" class=\"row col-12 justify-content-center\">\n            <div class=\"col-3 text-left\">\n                <button type=\"button\" *ngIf=\"crearClase || editarClase\" (click)=\"cerrarModal()\"\n                    class=\"btn btn-outline-danger\">Cancelar</button>\n            </div>\n            <div class=\"col-6 text-center\">\n                <h3>Clases</h3>\n            </div>\n            <div class=\"col-3 text-right\">\n                <button type=\"button\" *ngIf=\"!crearClase || !editarClase\" (click)=\"abrirCrearClase()\"\n                    class=\"btn btn-outline-primary\">Crear\n                    Clase</button>\n            </div>\n        </div>\n        <br>\n        <div class=\"col-12\">\n            <app-crear-clase *ngIf=\"crearClase\" [estudiantes]=\"listaAlumnos\"></app-crear-clase>\n            <app-editar-clase *ngIf=\"editarClase\" [estudiantes]=\"listaAlumnos\" [editarActividad]=\"ClaseparaEditar\">\n            </app-editar-clase>\n        </div>\n        <!--<div *ngIf=\"verClase\">\n            <app-ver-clase [actividad]=\"actividadSelected\" [aluConectados]=\"alumnosConectados\"\n                ></app-ver-clase>\n        </div>-->\n        <div *ngIf=\"(!crearClase || editarClase) && (crearClase || !editarClase) && !verClase\"\n            class=\"row col-12 justify-content-md-center\">\n            <div class=\"col-12\">\n                <table class=\"table table-striped\">\n                    <thead>\n                        <tr>\n                            <th scope=\"col\">Nombre</th>\n                            <th scope=\"col\">Profesor</th>\n                            <th scope=\"col\"></th>\n                            <th scope=\"col\"></th>\n                            <th scope=\"col\"></th>\n                            <th scope=\"col\"></th>\n                        </tr>\n                    </thead>\n                    <tbody *ngFor=\"let clase of listaClases\">\n                        <tr>\n                            <td>{{clase.nombre}}</td>\n                            <td>{{clase.profesor}}</td>\n                            <td><button type=\"button\" class=\"btn btn-outline-success\"\n                                    (click)=\"crearActividadAsociada(clase)\">Crear Actividad</button></td>\n                            <td><button type=\"button\" class=\"btn btn-outline-primary\" (click)=\"abrirClase(clase)\">Ver\n                                    Clase</button></td>\n                            <td><i (click)=\"editarC(clase)\" class=\"fa fa-edit\"></i></td>\n                            <td><i (click)=\"borrarC(clase)\" class=\"fa fa-trash-o\"></i></td>\n                        </tr>\n                    </tbody>\n                </table>\n            </div>\n        </div>\n        <div *ngIf=\"verClase\">\n            <app-ver-clase [clase]=\"claseSelected\"></app-ver-clase>\n        </div>\n\n    </div>\n</div>";
+    __webpack_exports__["default"] = "<div class=\"row\">\n    <div class=\"col-md-2\">\n        <!--<app-sidenav-profesor></app-sidenav-profesor>-->\n        <div class=\"sidenav list-group\">\n            <a href=\"#\" class=\"item-menu-sidenav\" (click)=\"abrirActividadActual()\"><i class=\"fa fa-home\"></i> Home</a>\n            <a href=\"#\" class=\"item-menu-sidenav\" (click)=\"abrirAlumnos()\"><i class=\"fa fa-user\"></i> Alumnos</a>\n            <a href=\"#\" class=\"item-menu-sidenav\" (click)=\"abrirClases()\"><i class=\"fa fa-book\"></i>\n                Clases</a>\n            <a href=\"#\" class=\"item-menu-sidenav\" (click)=\"abrirActividades()\"><i class=\"fa fa-university\"></i>\n                Actividades</a>\n        </div>\n    </div>\n    <div *ngIf=\"gestionHome\" class=\"col-md-10\">\n        <br>\n        <div *ngIf=\"!actividadAbierta\">\n            <br>\n            <br>\n            <br>\n            <br>\n            <br>\n            <br>\n            <br>\n            <br>\n            <br>\n        </div>\n        <div class=\"row justify-content-center\" *ngIf=\"!actividadAbierta\">\n            <div class=\"col-3 text-center\">\n                <button type=\"button\" class=\"btn btn-primary btn-circle\" (click)=\"abrirAlumnos()\"><i\n                        class=\"fa fa-user\"></i> Alumnos</button>\n            </div>\n            <div class=\"col-3 text-center\">\n                <button type=\"button\" class=\"btn btn-success btn-circle\" (click)=\"abrirClases()\"><i\n                        class=\"fa fa-university\"></i> Clases</button>\n            </div>\n            <div class=\"col-3 text-center\">\n                <button type=\"button\" class=\"btn btn-info btn-circle\" (click)=\"abrirActividades()\"><i\n                        class=\"fa fa-book\"></i> Actividades</button>\n            </div>\n        </div>\n        <div *ngIf=\"actividadAbierta\">\n            <app-ver-actividad [actividad]=\"actividadSelected\" [aluConectados]=\"alumnosConectados\"></app-ver-actividad>\n        </div>\n    </div>\n    <div *ngIf=\"gestionAlumnos\" class=\"col-md-10\">\n        <br>\n        <div class=\"row col-12 justify-content-center\">\n            <div class=\"col-3 text-left\">\n                <button type=\"button\" *ngIf=\"crearEstudiante || editarAlumno\" (click)=\"cerrarCrearEstudiantes()\"\n                    class=\"btn btn-outline-danger\">Cancelar</button>\n            </div>\n            <div class=\"col-6 text-center\">\n                <h3>Alumnos</h3>\n            </div>\n            <div class=\"col-3 text-right\">\n                <button type=\"button\" *ngIf=\"!crearEstudiante && !editarAlumno\" (click)=\"abrirCrearEstudiantes()\"\n                    class=\"btn btn-outline-primary\">Crear\n                    Actividad</button>\n            </div>\n        </div>\n        <br>\n        <div class=\"row col-12 justify-content-center\">\n            <!--<div class=\"card-body card-body-cascade text-center wow fadeIn\">\n                <h4>Hola mundo</h4>\n                <p>asdalksdjlajsdklasjdkljlañksjfñdskladsfjñalksfj</p>\n            </div>-->\n            <div *ngIf=\"crearEstudiante\" class=\"col-12 card\">\n                <div class=\"card-body\">\n                    <h4 class=\"card-title\">Crear Alumno</h4>\n                    <div>\n                        <div class=\"row\">\n                            <div class=\"col-6\">\n                                <label>Nombre del Alumn@</label>\n                                <input [(ngModel)]=\"alumnoCreate.nombre\" type=\"text\" class=\"form-control\" id=\"nombre\"\n                                    placeholder=\"Nombre\">\n                                <br>\n                            </div>\n                            <div class=\"col-6\">\n                                <label>Apellidos</label>\n                                <input [(ngModel)]=\"alumnoCreate.apellidos\" type=\"text\" class=\"form-control\"\n                                    id=\"apellidos\" ng-model=\"apellidos\" placeholder=\"Apellidos\">\n                                <br>\n                            </div>\n                        </div>\n                        <div class=\"row\">\n                            <div class=\"col-12\">\n                                <label>Clase</label>\n                                <input [(ngModel)]=\"alumnoCreate.clase\" type=\"text\" class=\"form-control\" id=\"clase\"\n                                    ng-model=\"clase\" placeholder=\"Clase\">\n                                <br>\n                            </div>\n                        </div>\n                        <div class=\"row\">\n                            <div class=\"col-6\">\n                                <label>Email</label>\n                                <input [(ngModel)]=\"alumnoCreate.email\" type=\"email\" class=\"form-control\" id=\"email\"\n                                    ng-model=\"email\" placeholder=\"Enter email\">\n                                <small id=\"emailHelp\" class=\"form-text text-muted\">El email tiene que ser unico</small>\n                                <br>\n                            </div>\n                            <div class=\"col-6\">\n                                <label>Contraseña</label>\n                                <input [(ngModel)]=\"alumnoCreate.contrasena\" type=\"password\" class=\"form-control\"\n                                    id=\"contrasena\" ng-model=\"contrasena\" placeholder=\"Contraseña\">\n                                <small id=\"contrasenaHelp\" class=\"form-text text-muted\">El usuario podra entrar con esta\n                                    contraseña</small>\n                            </div>\n                        </div>\n                        <button type=\"button\" (click)=\"limpiar()\" class=\"btn btn-raised btn-danger\">Limpiar</button>\n                        <button type=\"button\" (click)=\"anadirAlumno()\" class=\"btn btn-raised btn-success\">Guardar\n                            Alumn@</button>\n                    </div>\n                </div>\n            </div>\n            <div *ngIf=\"editarAlumno\" class=\"col-12 card\">\n                <div class=\"card-body\">\n                    <h4 class=\"card-title\">Editar Alumno</h4>\n                    <div class=\"container\">\n                        <div class=\"row\">\n                            <div class=\"col-6\">\n                                <label>Nombre del Alumn@</label>\n                                <input [(ngModel)]=\"onSelectedAlumno.nombre\" type=\"text\" class=\"form-control\"\n                                    id=\"nombre\" placeholder=\"Nombre\">\n                                <br>\n                            </div>\n                            <div class=\"col-6\">\n                                <label>Apellidos</label>\n                                <input [(ngModel)]=\"onSelectedAlumno.apellidos\" type=\"text\" class=\"form-control\"\n                                    id=\"apellidos\" ng-model=\"apellidos\" placeholder=\"Apellidos\">\n                                <br>\n                            </div>\n                        </div>\n                        <div class=\"row\">\n                            <div class=\"col-12\">\n                                <label>Clase</label>\n                                <input [(ngModel)]=\"onSelectedAlumno.clase\" type=\"text\" class=\"form-control\" id=\"clase\"\n                                    ng-model=\"clase\" placeholder=\"Clase\">\n                                <br>\n                            </div>\n                        </div>\n                        <div class=\"row\">\n                            <div class=\"col-6\">\n                                <label>Email</label>\n                                <input [(ngModel)]=\"onSelectedAlumno.email\" type=\"email\" class=\"form-control\" id=\"email\"\n                                    ng-model=\"email\" placeholder=\"Enter email\">\n                                <small id=\"emailHelp\" class=\"form-text text-muted\">El email tiene que ser unico</small>\n                                <br>\n                            </div>\n                            <div class=\"col-6\">\n                                <label>Contraseña</label>\n                                <input [(ngModel)]=\"onSelectedAlumno.contrasena\" type=\"password\" class=\"form-control\"\n                                    id=\"contrasena\" ng-model=\"contrasena\" placeholder=\"Contraseña\">\n                                <small id=\"contrasenaHelp\" class=\"form-text text-muted\">El usuario podra entrar con esta\n                                    contraseña</small>\n                            </div>\n                        </div>\n                        <button type=\"button\" (click)=\"limpiar()\" class=\"btn btn-raised btn-danger\">Limpiar</button>\n                        <button type=\"button\" (click)=\"actualizarAlumno()\" class=\"btn btn-raised btn-success\">Actualizar\n                            Alumn@</button>\n                    </div>\n                </div>\n            </div>\n            <div *ngIf=\"!crearEstudiante && !editarAlumno\" class=\"col-12\">\n                <!--<table class=\"table table-striped\">\n                    <thead>\n                        <tr>\n                            <th scope=\"col\">Nombre</th>\n                            <th scope=\"col\">Apellidos</th>\n                            <th scope=\"col\">Clase</th>\n                            <th scope=\"col\"></th>\n                            <th scope=\"col\"></th>\n                        </tr>\n                    </thead>\n                    <tbody *ngFor=\"let alumno of listaAlumnos\">\n                        <tr>\n                            <td>{{alumno.nombre}}</td>\n                            <td>{{alumno.apellidos}}</td>\n                            <td>{{alumno.clase}}</td>\n                            <td><i (click)=\"editar(alumno)\" class=\"fa fa-edit\"></i></td>\n                            <td><i (click)=\"borrar(alumno)\" class=\"fa fa-trash-o\"></i></td>\n                        </tr>\n                    </tbody>\n                </table>-->\n                <br>\n                <div class=\"example-header\">\n                    <mat-form-field>\n                        <input matInput (keyup)=\"applyFilterE($event.target.value)\" placeholder=\"Filtrar\">\n                    </mat-form-field>\n                </div>\n                <div class=\"example-container\">\n                    <mat-table [dataSource]=\"dataSourceEstudiantes\" class=\"mat-elevation-z1\" matSort>\n                        <ng-container matColumnDef=\"nombre\">\n                            <mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </mat-header-cell>\n                            <mat-cell *matCellDef=\"let row\"> {{row.nombre}} </mat-cell>\n                        </ng-container>\n\n                        <ng-container matColumnDef=\"apellidos\">\n                            <mat-header-cell *matHeaderCellDef mat-sort-header> Apellidos </mat-header-cell>\n                            <mat-cell *matCellDef=\"let row\"> {{row.apellidos}} </mat-cell>\n                        </ng-container>\n\n                        <ng-container matColumnDef=\"clase\">\n                            <mat-header-cell *matHeaderCellDef mat-sort-header> Clase </mat-header-cell>\n                            <mat-cell *matCellDef=\"let row\"> {{row.clase}} </mat-cell>\n                        </ng-container>\n\n                        <ng-container matColumnDef=\"acciones\">\n                            <mat-header-cell *matHeaderCellDef mat-sort-header></mat-header-cell>\n                            <mat-cell *matCellDef=\"let row\"><i (click)=\"editar(row)\" class=\"fa fa-edit\"></i><i\n                                    (click)=\"borrar(row)\" class=\"fa fa-trash-o\"></i></mat-cell>\n                        </ng-container>\n\n                        <mat-header-row *matHeaderRowDef=\"displayedColumnsEstudiantes\"></mat-header-row>\n                        <mat-row *matRowDef=\"let row; columns: displayedColumnsEstudiantes;\">\n                        </mat-row>\n                    </mat-table>\n                    <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\n                </div>\n            </div>\n        </div>\n    </div>\n    <div *ngIf=\"gestionActividades\" class=\"col-md-10\">\n        <br>\n        <div class=\"row col-12 justify-content-center\">\n            <div class=\"col-3 text-left\">\n                <button type=\"button\" *ngIf=\"(crearActividad) || editarActividad\" (click)=\"cerrarModal()\"\n                    class=\"btn btn-outline-danger\">Cancelar</button>\n            </div>\n            <div class=\"col-6 text-center\">\n                <h3>Actividades</h3>\n            </div>\n            <div class=\"col-3 text-right\">\n                <button type=\"button\" *ngIf=\"(!crearActividad) && !editarActividad\" (click)=\"abrirCrearActividad()\"\n                    class=\"btn btn-outline-primary\">Crear\n                    Actividad Individual</button>\n            </div>\n        </div>\n        <br>\n        <div class=\"col-12\">\n            <app-crear-actividad *ngIf=\"crearActividad\" [estudiantes]=\"listaAlumnos\"\n                (actividadCreada)=\"guardarActividad($event)\"></app-crear-actividad>\n            <app-editar-actividad *ngIf=\"editarActividad\" [editarActividad]=\"ActividadparaEditar\"\n                [estudiantes]=\"listaAlumnos\" (actividadEditada)=\"actualizarActividad($event)\">\n            </app-editar-actividad>\n        </div>\n        <br>\n        <!--<div *ngIf=\"verActividad\">\n            <app-ver-actividad [actividad]=\"actividadSelected\" [aluConectados]=\"alumnosConectados\"\n                (actividadCreada)=\"cerrarActividad($event)\"></app-ver-actividad>\n        </div>-->\n        <div *ngIf=\"(!crearActividad || editarActividad) && (crearActividad || !editarActividad)\"\n            class=\"row col-12 justify-content-md-center\">\n            <div class=\"col-12\">\n                <!--<table class=\"table table-striped\">\n                    <thead>\n                        <tr>\n                            <th scope=\"col\">Nombre</th>\n                            <th scope=\"col\">Profesor</th>\n                            <th scope=\"col\">Clase</th>\n                            <th scope=\"col\">Estado</th>\n                            <th scope=\"col\"></th>\n                            <th scope=\"col\"></th>\n                            <th scope=\"col\"></th>\n                        </tr>\n                    </thead>\n                    <tbody *ngFor=\"let actividad of listaActividades\">\n                        <tr *ngIf=\"actividad.estado=='Creada'\">\n                            <td>{{actividad.nombre}}</td>\n                            <td>{{actividad.profesor}}</td>\n                            <td>{{actividad.clase.nombre}}</td>\n                            <td>{{actividad.estado}}</td>\n                            <td><button type=\"button\" class=\"btn btn-outline-primary\"\n                                    (click)=\"abrirActividad(actividad)\">Acceder</button></td>\n                            <td><i (click)=\"editarA(actividad)\" class=\"fa fa-edit\"></i></td>\n                            <td><i (click)=\"borrarA(actividad)\" class=\"fa fa-trash-o\"></i></td>\n                        </tr>\n                        <tr *ngIf=\"actividad.estado=='Comenzada'\">\n                            <td>{{actividad.nombre}}</td>\n                            <td>{{actividad.profesor}}</td>\n                            <td>{{actividad.clase.nombre}}</td>\n                            <td>{{actividad.estado}}</td>\n                            <td><button type=\"button\" class=\"btn btn-outline-success\"\n                                    (click)=\"abrirActividad(actividad)\">Ver</button></td>\n                            <td><i (click)=\"editarA(actividad)\" class=\"fa fa-edit\"></i></td>\n                            <td><i (click)=\"borrarA(actividad)\" class=\"fa fa-trash-o\"></i></td>\n                        </tr>\n                        <tr *ngIf=\"actividad.estado=='Finalizada'\">\n                            <td>{{actividad.nombre}}</td>\n                            <td>{{actividad.profesor}}</td>\n                            <td>{{actividad.clase.nombre}}</td>\n                            <td>{{actividad.estado}}</td>\n                            <td><button type=\"button\" class=\"btn btn-outline-success\"\n                                    (click)=\"abrirActividad(actividad)\">Resumen</button></td>\n                            <td><i (click)=\"editarA(actividad)\" class=\"fa fa-edit\"></i></td>\n                            <td><i (click)=\"borrarA(actividad)\" class=\"fa fa-trash-o\"></i></td>\n                        </tr>\n                    </tbody>\n                </table>-->\n                <div class=\"example-header\">\n                    <mat-form-field>\n                        <input matInput (keyup)=\"applyFilterA($event.target.value)\" placeholder=\"Filtrar\">\n                    </mat-form-field>\n                </div>\n                <div class=\"example-container\">\n                    <mat-table [dataSource]=\"dataSourceActividades\" class=\"mat-elevation-z1\" matSort>\n                        <ng-container matColumnDef=\"nombre\">\n                            <mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </mat-header-cell>\n                            <mat-cell *matCellDef=\"let row\"> {{row.nombre}} </mat-cell>\n                        </ng-container>\n\n                        <ng-container matColumnDef=\"profesor\">\n                            <mat-header-cell *matHeaderCellDef mat-sort-header> Profesor </mat-header-cell>\n                            <mat-cell *matCellDef=\"let row\"> {{row.profesor}} </mat-cell>\n                        </ng-container>\n\n                        <ng-container matColumnDef=\"clase\">\n                            <mat-header-cell *matHeaderCellDef mat-sort-header> Clase </mat-header-cell>\n                            <mat-cell *matCellDef=\"let row\"> {{row.clase.nombre}} </mat-cell>\n                        </ng-container>\n\n                        <ng-container matColumnDef=\"estado\">\n                            <mat-header-cell *matHeaderCellDef mat-sort-header> Clase </mat-header-cell>\n                            <mat-cell *matCellDef=\"let row\"> {{row.estado}} </mat-cell>\n                        </ng-container>\n\n                        <ng-container matColumnDef=\"acciones\">\n                            <mat-header-cell *matHeaderCellDef mat-sort-header></mat-header-cell>\n                            <mat-cell *matCellDef=\"let row\">\n                                <button *ngIf=\"row.estado=='Creada'\" type=\"button\" class=\"btn btn-outline-primary\"\n                                    (click)=\"abrirActividad(row)\">Acceder</button>\n                                <button *ngIf=\"row.estado=='Comenzada'\" type=\"button\" class=\"btn btn-outline-success\"\n                                    (click)=\"abrirActividad(row)\">Ver</button>\n                                <button *ngIf=\"row.estado=='Finalizada'\" type=\"button\" class=\"btn btn-outline-success\"\n                                    (click)=\"abrirActividad(row)\">Resumen</button>\n                            </mat-cell>\n                        </ng-container>\n                        <ng-container matColumnDef=\"editar\">\n                            <mat-header-cell *matHeaderCellDef mat-sort-header></mat-header-cell>\n                            <mat-cell *matCellDef=\"let row\">\n                                <i (click)=\"editarA(row)\" class=\"fa fa-edit\"></i>\n                            </mat-cell>\n                        </ng-container>\n                        <ng-container matColumnDef=\"borrar\">\n                            <mat-header-cell *matHeaderCellDef mat-sort-header></mat-header-cell>\n                            <mat-cell *matCellDef=\"let row\">\n                                <i (click)=\"borrarA(row)\" class=\"fa fa-trash-o\"></i>\n                            </mat-cell>\n                        </ng-container>\n                        <mat-header-row *matHeaderRowDef=\"displayedColumnsActividades\"></mat-header-row>\n                        <mat-row *matRowDef=\"let row; columns: displayedColumnsActividades;\">\n                        </mat-row>\n                    </mat-table>\n                    <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\n                </div>\n            </div>\n        </div>\n    </div>\n    <div *ngIf=\"gestionClases\" class=\"col-md-10\">\n        <br *ngIf=\"!verClase\">\n        <div *ngIf=\"!verClase\" class=\"row col-12 justify-content-center\">\n            <div class=\"col-3 text-left\">\n                <button type=\"button\" *ngIf=\"crearClase || editarClase\" (click)=\"cerrarModal()\"\n                    class=\"btn btn-outline-danger\">Cancelar</button>\n            </div>\n            <div class=\"col-6 text-center\">\n                <h3>Clases</h3>\n            </div>\n            <div class=\"col-3 text-right\">\n                <button type=\"button\" *ngIf=\"!crearClase || !editarClase\" (click)=\"abrirCrearClase()\"\n                    class=\"btn btn-outline-primary\">Crear\n                    Clase</button>\n            </div>\n        </div>\n        <br>\n        <div class=\"col-12\">\n            <app-crear-clase *ngIf=\"crearClase\" [estudiantes]=\"listaAlumnos\"></app-crear-clase>\n            <app-editar-clase *ngIf=\"editarClase\" [estudiantes]=\"listaAlumnos\" [editarActividad]=\"ClaseparaEditar\">\n            </app-editar-clase>\n        </div>\n        <!--<div *ngIf=\"verClase\">\n            <app-ver-clase [actividad]=\"actividadSelected\" [aluConectados]=\"alumnosConectados\"\n                ></app-ver-clase>\n        </div>-->\n        <div *ngIf=\"(!crearClase || editarClase) && (crearClase || !editarClase) && !verClase\"\n            class=\"row col-12 justify-content-md-center\">\n            <div class=\"col-12\">\n                <!--<table class=\"table table-striped\">\n                    <thead>\n                        <tr>\n                            <th scope=\"col\">Nombre</th>\n                            <th scope=\"col\">Profesor</th>\n                            <th scope=\"col\"></th>\n                            <th scope=\"col\"></th>\n                            <th scope=\"col\"></th>\n                            <th scope=\"col\"></th>\n                        </tr>\n                    </thead>\n                    <tbody *ngFor=\"let clase of listaClases\">\n                        <tr>\n                            <td>{{clase.nombre}}</td>\n                            <td>{{clase.profesor}}</td>\n                            <td><button type=\"button\" class=\"btn btn-outline-success\"\n                                    (click)=\"crearActividadAsociada(clase)\">Crear Actividad</button></td>\n                            <td><button type=\"button\" class=\"btn btn-outline-primary\" (click)=\"abrirClase(clase)\">Ver\n                                    Clase</button></td>\n                            <td><i (click)=\"editarC(clase)\" class=\"fa fa-edit\"></i></td>\n                            <td><i (click)=\"borrarC(clase)\" class=\"fa fa-trash-o\"></i></td>\n                        </tr>\n                    </tbody>\n                </table>-->\n                <div class=\"example-header\">\n                    <mat-form-field>\n                        <input matInput (keyup)=\"applyFilterC($event.target.value)\" placeholder=\"Filtrar\">\n                    </mat-form-field>\n                </div>\n                <div class=\"example-container\">\n                    <mat-table [dataSource]=\"dataSourceClases\" class=\"mat-elevation-z1\" matSort>\n                        <ng-container matColumnDef=\"nombre\">\n                            <mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </mat-header-cell>\n                            <mat-cell *matCellDef=\"let row\"> {{row.nombre}} </mat-cell>\n                        </ng-container>\n\n                        <ng-container matColumnDef=\"profesor\">\n                            <mat-header-cell *matHeaderCellDef mat-sort-header> Profesor </mat-header-cell>\n                            <mat-cell *matCellDef=\"let row\"> {{row.profesor}} </mat-cell>\n                        </ng-container>\n\n                        <ng-container matColumnDef=\"accion1\">\n                            <mat-header-cell *matHeaderCellDef mat-sort-header></mat-header-cell>\n                            <mat-cell *matCellDef=\"let row\">\n                                <button type=\"button\" class=\"btn btn-outline-success\"\n                                    (click)=\"crearActividadAsociada(row)\">Crear Actividad</button>\n                            </mat-cell>\n                        </ng-container>\n                        <ng-container matColumnDef=\"accion2\">\n                            <mat-header-cell *matHeaderCellDef mat-sort-header></mat-header-cell>\n                            <mat-cell *matCellDef=\"let row\">\n                                <button type=\"button\" class=\"btn btn-outline-primary\" (click)=\"abrirClase(row)\">Ver\n                                    Clase</button>\n                            </mat-cell>\n                        </ng-container>\n                        <ng-container matColumnDef=\"editar\">\n                            <mat-header-cell *matHeaderCellDef mat-sort-header></mat-header-cell>\n                            <mat-cell *matCellDef=\"let row\">\n                                <i (click)=\"editarC(row)\" class=\"fa fa-edit\"></i>\n                            </mat-cell>\n                        </ng-container>\n                        <ng-container matColumnDef=\"borrar\">\n                            <mat-header-cell *matHeaderCellDef mat-sort-header></mat-header-cell>\n                            <mat-cell *matCellDef=\"let row\">\n                                <i (click)=\"borrarC(row)\" class=\"fa fa-trash-o\"></i>\n                            </mat-cell>\n                        </ng-container>\n                        <mat-header-row *matHeaderRowDef=\"displayedColumnsClases\"></mat-header-row>\n                        <mat-row *matRowDef=\"let row; columns: displayedColumnsClases;\">\n                        </mat-row>\n                    </mat-table>\n                    <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\n                </div>\n            </div>\n        </div>\n        <div *ngIf=\"verClase\">\n            <app-ver-clase [clase]=\"claseSelected\"></app-ver-clase>\n        </div>\n\n    </div>\n</div>";
     /***/
   },
 
@@ -551,7 +551,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"row col-12 justify-content-center\">\n    <div class=\"col-3 text-left\">\n        <button *ngIf=\"!editarActividad\" type=\"button\" class=\"btn btn-outline-danger\" (click)=\"cerrarClase()\">Cerrar Clase</button>\n        <button *ngIf=\"editarActividad\" type=\"button\" class=\"btn btn-outline-danger\" (click)=\"cancelar()\">Cancelar</button>\n    </div>\n    <div class=\"col-6 text-center\">\n        <h3 class=\"text-center\">Clase: {{clase.nombre}}</h3>\n    </div>\n    <div class=\"col-3 text-right\">\n        <button type=\"button\" class=\"btn btn btn-outline-success\" (click)=\"crearActividad()\">Crear Actividad</button>\n    </div>\n</div>\n<br>\n<div class=\"col-12\">\n    <app-editar-actividad *ngIf=\"editarActividad\" [estudiantes]=\"listaAlumnos\"\n        [editarActividad]=\"actividad\" (actividadEditada)=\"actualizarActividad($event)\">\n    </app-editar-actividad>\n</div>\n<div *ngIf=\"!editarActividad\" class=\"row col-12 justify-content-md-center\">\n    <div class=\"col-md-12\">\n        <table class=\"table table-striped\">\n            <thead>\n                <tr>\n                    <th scope=\"col\">Nombre</th>\n                    <th scope=\"col\">Profesor</th>\n                    <th scope=\"col\">Estado</th>\n                    <th scope=\"col\"></th>\n                    <th scope=\"col\"></th>\n                    <th scope=\"col\"></th>\n                </tr>\n            </thead>\n            <tbody *ngFor=\"let actividad of actividades\">\n                <tr *ngIf=\"actividad.estado=='Creada'\">\n                    <td>{{actividad.nombre}}</td>\n                    <td>{{actividad.profesor}}</td>\n                    <td>{{actividad.estado}}</td>\n                    <td><button type=\"button\" class=\"btn btn-outline-primary\"\n                            (click)=\"abrirActividad(actividad)\">Acceder</button></td>\n                    <td><i (click)=\"editarA(actividad)\" class=\"fa fa-edit\"></i></td>\n                    <td><i (click)=\"borrarA(actividad)\" class=\"fa fa-trash-o\"></i></td>\n                </tr>\n                <tr *ngIf=\"actividad.estado=='Comenzada'\">\n                    <td>{{actividad.nombre}}</td>\n                    <td>{{actividad.profesor}}</td>\n                    <td>{{actividad.estado}}</td>\n                    <td><button type=\"button\" class=\"btn btn-outline-success\"\n                            (click)=\"abrirActividad(actividad)\">Ver</button></td>\n                    <td><i (click)=\"editarA(actividad)\" class=\"fa fa-edit\"></i></td>\n                    <td><i (click)=\"borrarA(actividad)\" class=\"fa fa-trash-o\"></i></td>\n                </tr>\n                <tr *ngIf=\"actividad.estado=='Finalizada'\">\n                    <td>{{actividad.nombre}}</td>\n                    <td>{{actividad.profesor}}</td>\n                    <td>{{actividad.estado}}</td>\n                    <td><button type=\"button\" class=\"btn btn-outline-success\"\n                            (click)=\"abrirActividad(actividad)\">Resumen</button></td>\n                    <td><i (click)=\"editarA(actividad)\" class=\"fa fa-edit\"></i></td>\n                    <td><i (click)=\"borrarA(actividad)\" class=\"fa fa-trash-o\"></i></td>\n                </tr>\n            </tbody>\n        </table>\n    </div>\n</div>\n<!--<div class=\"row justify-content-md-center\">\n    <div *ngIf=\"vistaGeneral\" class=\"btn-group btn-group-toggle\">\n        <label class=\"btn btn-outline-primary active\">\n            <input type=\"radio\" name=\"options\" id=\"general\" (click)=\"cambiarAGeneral()\" checked> General\n        </label>\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAMapa()\"> Mapa de la clase\n        </label>\n    </div>\n    <div *ngIf=\"vistaMapaDeLaClase\" class=\"btn-group btn-group-toggle\">\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"general\" (click)=\"cambiarAGeneral()\"> General\n        </label>\n        <label class=\"btn btn-outline-primary active\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAMapa()\" checked> Mapa de la clase\n        </label>\n    </div>\n</div>-->\n<br>\n<!--<div class=\"row justify-content-center\">\n    <div class=\"col-5\">\n        <div class=\"card-body\">\n            <h5 class=\"text-center card-title\">Actividades Completadas</h5>\n            <div class=\"card-content\">\n                <canvas id=\"usersConectados\"></canvas>\n                <h6 class=\"text-center\">{{porUsuariosConectados}}% Actividades Completadas</h6>\n            </div>\n        </div>\n    </div>\n</div>-->\n<!--<div class=\"row\">\n    <div class=\"card-body\">\n        <div class=\"row\">\n            <h5 class=\"col-4 text-center card-title\">Grafica</h5>\n            <div class=\"col-4\">\n                <div class=\"btn-group\">\n                    <button type=\"button\" class=\"btn btn-info dropdown-toggle\" data-toggle=\"dropdown\"\n                        aria-haspopup=\"true\" aria-expanded=\"false\">\n                        {{estadoSeleccionado}}\n                    </button>\n                    <div class=\"dropdown-menu\">\n                        <a class=\"dropdown-item\" *ngFor=\"let estado of estados\"\n                            (click)=\"seleccionarEstado(estado)\">{{estado}}</a>\n                    </div>\n                </div>\n            </div>\n            <div class=\"col-4\">\n                <div class=\"btn-group\">\n                    <button type=\"button\" class=\"btn btn-info dropdown-toggle\" data-toggle=\"dropdown\"\n                        aria-haspopup=\"true\" aria-expanded=\"false\">\n                        {{alumnoSeleccionado}}\n                    </button>\n                    <div class=\"dropdown-menu\">\n                        <a *ngIf=\"alumnoSeleccionadoAlumno\" class=\"dropdown-item\"\n                            (click)=\"seleccionarMediaAlumnos()\">Media de la clase</a>\n                        <a class=\"dropdown-item\" *ngFor=\"let alumno of alumnos\"\n                            (click)=\"seleccionarAlumno(alumno)\">{{alumno.estudiante.nombre}}</a>\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>\n</div>-->\n<!--<div *ngIf=\"vistaMapaDeLaClase\" class=\"row justify-content-md-center\">\n    <div class=\"card col-md-11\">\n        <div class=\"card-body\">\n            <h5 class=\"card-title\">Distribucion de la clase</h5>\n            <div id=\"clase\" class=\"example-boundary\">\n                <div id=\"{{item.id_item}}\" *ngFor=\"let item of actividad.alumnos\" class=\"example-box\"\n                    ondrop=\"myFunction(item)\" [cdkDragFreeDragPosition]=\"item.posicion\"\n                    cdkDragBoundary=\".example-boundary\" cdkDrag (cdkDragEnded)=\"dragEnded($event,item)\">\n                    {{item.estudiante.nombre}}\n                </div>\n            </div>\n        </div>\n    </div>\n</div>-->";
+    __webpack_exports__["default"] = "<div class=\"row col-12 justify-content-center\">\n    <div class=\"col-3 text-left\">\n        <button *ngIf=\"!editarActividad\" type=\"button\" class=\"btn btn-outline-danger\" (click)=\"cerrarClase()\">Cerrar Clase</button>\n        <button *ngIf=\"editarActividad\" type=\"button\" class=\"btn btn-outline-danger\" (click)=\"cancelar()\">Cancelar</button>\n    </div>\n    <div class=\"col-6 text-center\">\n        <h3 class=\"text-center\">Clase: {{clase.nombre}}</h3>\n    </div>\n    <div class=\"col-3 text-right\">\n        <button type=\"button\" class=\"btn btn btn-outline-success\" (click)=\"crearActividad()\">Crear Actividad</button>\n    </div>\n</div>\n<br>\n<div class=\"col-12\">\n    <app-editar-actividad *ngIf=\"editarActividad\" [estudiantes]=\"listaAlumnos\"\n        [editarActividad]=\"actividad\" (actividadEditada)=\"actualizarActividad($event)\">\n    </app-editar-actividad>\n</div>\n<div *ngIf=\"!editarActividad\" class=\"row col-12 justify-content-md-center\">\n    <div class=\"col-md-12\">\n        <!--<table class=\"table table-striped\">\n            <thead>\n                <tr>\n                    <th scope=\"col\">Nombre</th>\n                    <th scope=\"col\">Profesor</th>\n                    <th scope=\"col\">Estado</th>\n                    <th scope=\"col\"></th>\n                    <th scope=\"col\"></th>\n                    <th scope=\"col\"></th>\n                </tr>\n            </thead>\n            <tbody *ngFor=\"let actividad of actividades\">\n                <tr *ngIf=\"actividad.estado=='Creada'\">\n                    <td>{{actividad.nombre}}</td>\n                    <td>{{actividad.profesor}}</td>\n                    <td>{{actividad.estado}}</td>\n                    <td><button type=\"button\" class=\"btn btn-outline-primary\"\n                            (click)=\"abrirActividad(actividad)\">Acceder</button></td>\n                    <td><i (click)=\"editarA(actividad)\" class=\"fa fa-edit\"></i></td>\n                    <td><i (click)=\"borrarA(actividad)\" class=\"fa fa-trash-o\"></i></td>\n                </tr>\n                <tr *ngIf=\"actividad.estado=='Comenzada'\">\n                    <td>{{actividad.nombre}}</td>\n                    <td>{{actividad.profesor}}</td>\n                    <td>{{actividad.estado}}</td>\n                    <td><button type=\"button\" class=\"btn btn-outline-success\"\n                            (click)=\"abrirActividad(actividad)\">Ver</button></td>\n                    <td><i (click)=\"editarA(actividad)\" class=\"fa fa-edit\"></i></td>\n                    <td><i (click)=\"borrarA(actividad)\" class=\"fa fa-trash-o\"></i></td>\n                </tr>\n                <tr *ngIf=\"actividad.estado=='Finalizada'\">\n                    <td>{{actividad.nombre}}</td>\n                    <td>{{actividad.profesor}}</td>\n                    <td>{{actividad.estado}}</td>\n                    <td><button type=\"button\" class=\"btn btn-outline-success\"\n                            (click)=\"abrirActividad(actividad)\">Resumen</button></td>\n                    <td><i (click)=\"editarA(actividad)\" class=\"fa fa-edit\"></i></td>\n                    <td><i (click)=\"borrarA(actividad)\" class=\"fa fa-trash-o\"></i></td>\n                </tr>\n            </tbody>\n        </table>-->\n        <div class=\"example-header\">\n            <mat-form-field>\n                <input matInput (keyup)=\"applyFilterA($event.target.value)\" placeholder=\"Filtrar\">\n            </mat-form-field>\n        </div>\n        <div class=\"example-container\">\n            <mat-table [dataSource]=\"dataSourceActividades\" class=\"mat-elevation-z1\" matSort>\n                <ng-container matColumnDef=\"nombre\">\n                    <mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </mat-header-cell>\n                    <mat-cell *matCellDef=\"let row\"> {{row.nombre}} </mat-cell>\n                </ng-container>\n\n                <ng-container matColumnDef=\"profesor\">\n                    <mat-header-cell *matHeaderCellDef mat-sort-header> Profesor </mat-header-cell>\n                    <mat-cell *matCellDef=\"let row\"> {{row.profesor}} </mat-cell>\n                </ng-container>\n\n                <ng-container matColumnDef=\"estado\">\n                    <mat-header-cell *matHeaderCellDef mat-sort-header> Clase </mat-header-cell>\n                    <mat-cell *matCellDef=\"let row\"> {{row.estado}} </mat-cell>\n                </ng-container>\n\n                <ng-container matColumnDef=\"acciones\">\n                    <mat-header-cell *matHeaderCellDef mat-sort-header></mat-header-cell>\n                    <mat-cell *matCellDef=\"let row\">\n                        <button *ngIf=\"row.estado=='Creada'\" type=\"button\" class=\"btn btn-outline-primary\"\n                            (click)=\"abrirActividad(row)\">Acceder</button>\n                        <button *ngIf=\"row.estado=='Comenzada'\" type=\"button\" class=\"btn btn-outline-success\"\n                            (click)=\"abrirActividad(row)\">Ver</button>\n                        <button *ngIf=\"row.estado=='Finalizada'\" type=\"button\" class=\"btn btn-outline-success\"\n                            (click)=\"abrirActividad(row)\">Resumen</button>\n                    </mat-cell>\n                </ng-container>\n                <ng-container matColumnDef=\"editar\">\n                    <mat-header-cell *matHeaderCellDef mat-sort-header></mat-header-cell>\n                    <mat-cell *matCellDef=\"let row\">\n                        <i (click)=\"editarA(row)\" class=\"fa fa-edit\"></i>\n                    </mat-cell>\n                </ng-container>\n                <ng-container matColumnDef=\"borrar\">\n                    <mat-header-cell *matHeaderCellDef mat-sort-header></mat-header-cell>\n                    <mat-cell *matCellDef=\"let row\">\n                        <i (click)=\"borrarA(row)\" class=\"fa fa-trash-o\"></i>\n                    </mat-cell>\n                </ng-container>\n                <mat-header-row *matHeaderRowDef=\"displayedColumnsActividades\"></mat-header-row>\n                <mat-row *matRowDef=\"let row; columns: displayedColumnsActividades;\">\n                </mat-row>\n            </mat-table>\n            <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\n        </div>\n    </div>\n</div>\n<!--<div class=\"row justify-content-md-center\">\n    <div *ngIf=\"vistaGeneral\" class=\"btn-group btn-group-toggle\">\n        <label class=\"btn btn-outline-primary active\">\n            <input type=\"radio\" name=\"options\" id=\"general\" (click)=\"cambiarAGeneral()\" checked> General\n        </label>\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAMapa()\"> Mapa de la clase\n        </label>\n    </div>\n    <div *ngIf=\"vistaMapaDeLaClase\" class=\"btn-group btn-group-toggle\">\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"general\" (click)=\"cambiarAGeneral()\"> General\n        </label>\n        <label class=\"btn btn-outline-primary active\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAMapa()\" checked> Mapa de la clase\n        </label>\n    </div>\n</div>-->\n<br>\n<!--<div class=\"row justify-content-center\">\n    <div class=\"col-5\">\n        <div class=\"card-body\">\n            <h5 class=\"text-center card-title\">Actividades Completadas</h5>\n            <div class=\"card-content\">\n                <canvas id=\"usersConectados\"></canvas>\n                <h6 class=\"text-center\">{{porUsuariosConectados}}% Actividades Completadas</h6>\n            </div>\n        </div>\n    </div>\n</div>-->\n<!--<div class=\"row\">\n    <div class=\"card-body\">\n        <div class=\"row\">\n            <h5 class=\"col-4 text-center card-title\">Grafica</h5>\n            <div class=\"col-4\">\n                <div class=\"btn-group\">\n                    <button type=\"button\" class=\"btn btn-info dropdown-toggle\" data-toggle=\"dropdown\"\n                        aria-haspopup=\"true\" aria-expanded=\"false\">\n                        {{estadoSeleccionado}}\n                    </button>\n                    <div class=\"dropdown-menu\">\n                        <a class=\"dropdown-item\" *ngFor=\"let estado of estados\"\n                            (click)=\"seleccionarEstado(estado)\">{{estado}}</a>\n                    </div>\n                </div>\n            </div>\n            <div class=\"col-4\">\n                <div class=\"btn-group\">\n                    <button type=\"button\" class=\"btn btn-info dropdown-toggle\" data-toggle=\"dropdown\"\n                        aria-haspopup=\"true\" aria-expanded=\"false\">\n                        {{alumnoSeleccionado}}\n                    </button>\n                    <div class=\"dropdown-menu\">\n                        <a *ngIf=\"alumnoSeleccionadoAlumno\" class=\"dropdown-item\"\n                            (click)=\"seleccionarMediaAlumnos()\">Media de la clase</a>\n                        <a class=\"dropdown-item\" *ngFor=\"let alumno of alumnos\"\n                            (click)=\"seleccionarAlumno(alumno)\">{{alumno.estudiante.nombre}}</a>\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>\n</div>-->\n<!--<div *ngIf=\"vistaMapaDeLaClase\" class=\"row justify-content-md-center\">\n    <div class=\"card col-md-11\">\n        <div class=\"card-body\">\n            <h5 class=\"card-title\">Distribucion de la clase</h5>\n            <div id=\"clase\" class=\"example-boundary\">\n                <div id=\"{{item.id_item}}\" *ngFor=\"let item of actividad.alumnos\" class=\"example-box\"\n                    ondrop=\"myFunction(item)\" [cdkDragFreeDragPosition]=\"item.posicion\"\n                    cdkDragBoundary=\".example-boundary\" cdkDrag (cdkDragEnded)=\"dragEnded($event,item)\">\n                    {{item.estudiante.nombre}}\n                </div>\n            </div>\n        </div>\n    </div>\n</div>-->";
     /***/
   },
 
@@ -3317,8 +3317,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         _classCallCheck(this, CrearActividadComponent);
 
         this._formBuilder = _formBuilder;
-        this.actividadCreada = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"](); //Prueba de una tabla con filtro y paginacion
-
+        this.actividadCreada = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
         this.displayedColumns = ['select', 'nombre', 'apellidos', 'clase'];
         this.selection = new _angular_cdk_collections__WEBPACK_IMPORTED_MODULE_3__["SelectionModel"](true, []);
         this.dragPosition = {
@@ -4738,6 +4737,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
     /*! @fortawesome/free-solid-svg-icons */
     "./node_modules/@fortawesome/free-solid-svg-icons/index.es.js");
+    /* harmony import */
+
+
+    var _angular_material__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+    /*! @angular/material */
+    "./node_modules/@angular/material/esm2015/material.js");
 
     var ProfesorComponent =
     /*#__PURE__*/
@@ -4789,6 +4794,14 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         this.verClase = false;
         this.ClaseparaEditar = null;
         this.ultimaActividadCreada = null;
+        this.crearEstudiante = false;
+        this.editarEstudiante = false; //Tabla de estudiantes
+
+        this.displayedColumnsEstudiantes = ['nombre', 'apellidos', 'clase', 'acciones']; //Tabla de actividades
+
+        this.displayedColumnsActividades = ['nombre', 'profesor', 'clase', 'estado', 'acciones', 'editar', 'borrar']; //Tabla de clases
+
+        this.displayedColumnsClases = ['nombre', 'profesor', 'accion1', 'accion2', 'editar', 'borrar'];
 
         this.soyProfesor = function () {
           this.socket.emit('soyProfesor');
@@ -4917,6 +4930,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                     return $.getJSON("/verEstudiantes", function (data) {
                       //console.log(data);
                       ju.listaAlumnos = data;
+                      ju.dataSourceEstudiantes = new _angular_material__WEBPACK_IMPORTED_MODULE_10__["MatTableDataSource"](this.listaAlumnos);
+                      ju.dataSourceEstudiantes.paginator = ju.paginatorE;
+                      ju.dataSourceEstudiantes.sort = ju.sortE;
                     });
 
                   case 4:
@@ -4924,6 +4940,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                     return $.getJSON("/verActividades", function (data) {
                       //console.log(data);
                       ju.listaActividades = data;
+                      ju.dataSourceActividades = new _angular_material__WEBPACK_IMPORTED_MODULE_10__["MatTableDataSource"](ju.listaActividades);
+                      ju.dataSourceActividades.paginator = ju.paginatorA;
+                      ju.dataSourceActividades.sort = ju.sortA;
                     });
 
                   case 6:
@@ -4931,6 +4950,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                     return $.getJSON("/verClases", function (data) {
                       //console.log(data);
                       ju.listaClases = data;
+                      ju.dataSourceClases = new _angular_material__WEBPACK_IMPORTED_MODULE_10__["MatTableDataSource"](ju.listaClases);
+                      ju.dataSourceClases.paginator = ju.paginatorC;
+                      ju.dataSourceClases.sort = ju.sortC;
                     });
 
                   case 8:
@@ -4940,6 +4962,68 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               }
             }, _callee22, this);
           }));
+        }
+      }, {
+        key: "ngOnChanges",
+        value: function ngOnChanges() {
+          this.dataSourceEstudiantes = new _angular_material__WEBPACK_IMPORTED_MODULE_10__["MatTableDataSource"](this.listaAlumnos);
+        }
+      }, {
+        key: "ngAfterViewInit",
+        value: function ngAfterViewInit() {
+          return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
+          /*#__PURE__*/
+          regeneratorRuntime.mark(function _callee23() {
+            var ju;
+            return regeneratorRuntime.wrap(function _callee23$(_context23) {
+              while (1) {
+                switch (_context23.prev = _context23.next) {
+                  case 0:
+                    ju = this; //this.listaAlumnos=this.estudiantes.getEstudiantes();
+
+                    _context23.next = 3;
+                    return $.getJSON("/verEstudiantes", function (data) {
+                      //console.log(data);
+                      ju.listaAlumnos = data;
+                      ju.dataSourceEstudiantes = new _angular_material__WEBPACK_IMPORTED_MODULE_10__["MatTableDataSource"](ju.listaAlumnos);
+                      ju.dataSourceEstudiantes.paginator = ju.paginatorE;
+                      ju.dataSourceEstudiantes.sort = ju.sortE;
+                    });
+
+                  case 3:
+                  case "end":
+                    return _context23.stop();
+                }
+              }
+            }, _callee23, this);
+          }));
+        }
+      }, {
+        key: "applyFilterE",
+        value: function applyFilterE(filterValue) {
+          filterValue = filterValue.trim(); // Remove whitespace
+
+          filterValue = filterValue.toLowerCase(); // Datasource defaults to lowercase matches
+
+          this.dataSourceEstudiantes.filter = filterValue;
+        }
+      }, {
+        key: "applyFilterC",
+        value: function applyFilterC(filterValue) {
+          filterValue = filterValue.trim(); // Remove whitespace
+
+          filterValue = filterValue.toLowerCase(); // Datasource defaults to lowercase matches
+
+          this.dataSourceClases.filter = filterValue;
+        }
+      }, {
+        key: "applyFilterA",
+        value: function applyFilterA(filterValue) {
+          filterValue = filterValue.trim(); // Remove whitespace
+
+          filterValue = filterValue.toLowerCase(); // Datasource defaults to lowercase matches
+
+          this.dataSourceActividades.filter = filterValue;
         } //anadirAlumno(nombre:string,apellidos:string,clase:string,email:string,contrasena:string) {
 
       }, {
@@ -4962,7 +5046,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                 ju.limpiar();
                 ju.editarAlumno = false;
                 console.log(ju.listaAlumnos);
+                ju.dataSourceEstudiantes = new _angular_material__WEBPACK_IMPORTED_MODULE_10__["MatTableDataSource"](this.listaAlumnos);
+                ju.dataSourceEstudiantes.paginator = this.paginatorE;
+                ju.dataSourceEstudiantes.sort = this.sortE;
               });
+              ju.crearEstudiante = false;
             },
             contentType: 'application/json',
             dataType: 'json'
@@ -4983,6 +5071,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               $.getJSON("/verEstudiantes", function (data) {
                 ju.listaAlumnos = data;
                 ju.limpiar();
+                ju.dataSourceEstudiantes = new _angular_material__WEBPACK_IMPORTED_MODULE_10__["MatTableDataSource"](this.listaAlumnos);
+                ju.dataSourceEstudiantes.paginator = this.paginatorE;
+                ju.dataSourceEstudiantes.sort = this.sortE;
                 ju.editarAlumno = false;
               });
             },
@@ -5031,6 +5122,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               console.log("Estudiante eliminado");
               $.getJSON("/verEstudiantes", function (data) {
                 ju.listaAlumnos = data;
+                ju.dataSourceEstudiantes = new _angular_material__WEBPACK_IMPORTED_MODULE_10__["MatTableDataSource"](this.listaAlumnos);
+                ju.dataSourceEstudiantes.paginator = this.paginatorE;
+                ju.dataSourceEstudiantes.sort = this.sortE;
               });
             },
             contentType: 'application/json',
@@ -5055,6 +5149,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             $.getJSON("/verEstudiantes", function (data) {
               //console.log(data);
               ju.listaAlumnos = data;
+              ju.dataSourceEstudiantes = new _angular_material__WEBPACK_IMPORTED_MODULE_10__["MatTableDataSource"](this.listaAlumnos);
+              ju.dataSourceEstudiantes.paginator = this.paginatorE;
+              ju.dataSourceEstudiantes.sort = this.sortE;
             });
           } catch (e) {}
 
@@ -5072,6 +5169,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             $.getJSON("/verActividades", function (data) {
               //console.log(data);
               ju.listaActividades = data;
+              ju.dataSourceActividades = new _angular_material__WEBPACK_IMPORTED_MODULE_10__["MatTableDataSource"](ju.listaActividades);
+              ju.dataSourceActividades.paginator = ju.paginatorA;
+              ju.dataSourceActividades.sort = ju.sortA;
             });
           } catch (e) {}
 
@@ -5079,6 +5179,18 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           this.gestionActividades = true;
           this.gestionAlumnos = false;
           this.gestionClases = false; //this.openDialog()
+        }
+      }, {
+        key: "abrirCrearEstudiantes",
+        value: function abrirCrearEstudiantes() {
+          this.editarAlumno = false;
+          this.crearEstudiante = true;
+        }
+      }, {
+        key: "cerrarCrearEstudiantes",
+        value: function cerrarCrearEstudiantes() {
+          this.editarAlumno = false;
+          this.crearEstudiante = false;
         }
       }, {
         key: "abrirClases",
@@ -5089,6 +5201,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             $.getJSON("/verClases", function (data) {
               //console.log(data);
               ju.listaClases = data;
+              ju.dataSourceClases = new _angular_material__WEBPACK_IMPORTED_MODULE_10__["MatTableDataSource"](ju.listaClases);
+              ju.dataSourceClases.paginator = ju.paginatorC;
+              ju.dataSourceClases.sort = ju.sortC;
             });
           } catch (e) {}
 
@@ -5124,11 +5239,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function cerrarModal() {
           return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
           /*#__PURE__*/
-          regeneratorRuntime.mark(function _callee23() {
+          regeneratorRuntime.mark(function _callee24() {
             var ju;
-            return regeneratorRuntime.wrap(function _callee23$(_context23) {
+            return regeneratorRuntime.wrap(function _callee24$(_context24) {
               while (1) {
-                switch (_context23.prev = _context23.next) {
+                switch (_context24.prev = _context24.next) {
                   case 0:
                     this.crearActividad = false;
                     this.crearClase = false;
@@ -5136,32 +5251,41 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                     this.editarClase = false;
                     ju = this; //this.listaAlumnos=this.estudiantes.getEstudiantes();
 
-                    _context23.next = 7;
+                    _context24.next = 7;
                     return $.getJSON("/verEstudiantes", function (data) {
                       //console.log(data);
                       ju.listaAlumnos = data;
+                      ju.dataSourceEstudiantes = new _angular_material__WEBPACK_IMPORTED_MODULE_10__["MatTableDataSource"](this.listaAlumnos);
+                      ju.dataSourceEstudiantes.paginator = this.paginatorE;
+                      ju.dataSourceEstudiantes.sort = this.sortE;
                     });
 
                   case 7:
-                    _context23.next = 9;
+                    _context24.next = 9;
                     return $.getJSON("/verActividades", function (data) {
                       //console.log(data);
                       ju.listaActividades = data;
+                      ju.dataSourceActividades = new _angular_material__WEBPACK_IMPORTED_MODULE_10__["MatTableDataSource"](ju.listaActividades);
+                      ju.dataSourceActividades.paginator = ju.paginatorA;
+                      ju.dataSourceActividades.sort = ju.sortA;
                     });
 
                   case 9:
-                    _context23.next = 11;
+                    _context24.next = 11;
                     return $.getJSON("/verClases", function (data) {
                       //console.log(data);
                       ju.listaClases = data;
+                      ju.dataSourceClases = new _angular_material__WEBPACK_IMPORTED_MODULE_10__["MatTableDataSource"](ju.listaClases);
+                      ju.dataSourceClases.paginator = ju.paginatorC;
+                      ju.dataSourceClases.sort = ju.sortC;
                     });
 
                   case 11:
                   case "end":
-                    return _context23.stop();
+                    return _context24.stop();
                 }
               }
-            }, _callee23, this);
+            }, _callee24, this);
           }));
         }
       }, {
@@ -5187,6 +5311,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               $.getJSON("/verActividades", function (data) {
                 //console.log(data);
                 ju.listaActividades = data;
+                ju.dataSourceActividades = new _angular_material__WEBPACK_IMPORTED_MODULE_10__["MatTableDataSource"](ju.listaActividades);
+                ju.dataSourceActividades.paginator = ju.paginatorA;
+                ju.dataSourceActividades.sort = ju.sortA;
                 ju.crearActividad = false;
                 console.log(ju.listaActividades);
               });
@@ -5211,6 +5338,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               $.getJSON("/verActividades", function (data) {
                 //console.log(data);
                 ju.listaActividades = data;
+                ju.dataSourceActividades = new _angular_material__WEBPACK_IMPORTED_MODULE_10__["MatTableDataSource"](ju.listaActividades);
+                ju.dataSourceActividades.paginator = ju.paginatorA;
+                ju.dataSourceActividades.sort = ju.sortA;
                 ju.editarActividad = false;
                 console.log(ju.listaActividades);
               });
@@ -5225,27 +5355,30 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function actualizarClases() {
           return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
           /*#__PURE__*/
-          regeneratorRuntime.mark(function _callee24() {
+          regeneratorRuntime.mark(function _callee25() {
             var ju;
-            return regeneratorRuntime.wrap(function _callee24$(_context24) {
+            return regeneratorRuntime.wrap(function _callee25$(_context25) {
               while (1) {
-                switch (_context24.prev = _context24.next) {
+                switch (_context25.prev = _context25.next) {
                   case 0:
                     this.crearClase = false;
                     this.editarClase = false;
                     ju = this;
-                    _context24.next = 5;
+                    _context25.next = 5;
                     return $.getJSON("/verClases", function (data) {
                       //console.log(data);
                       ju.listaClases = data;
+                      ju.dataSourceClases = new _angular_material__WEBPACK_IMPORTED_MODULE_10__["MatTableDataSource"](ju.listaClases);
+                      ju.dataSourceClases.paginator = ju.paginatorC;
+                      ju.dataSourceClases.sort = ju.sortC;
                     });
 
                   case 5:
                   case "end":
-                    return _context24.stop();
+                    return _context25.stop();
                 }
               }
-            }, _callee24, this);
+            }, _callee25, this);
           }));
         }
       }, {
@@ -5277,6 +5410,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               console.log("Actividad eliminado");
               $.getJSON("/verActividades", function (data) {
                 ju.listaActividades = data;
+                ju.dataSourceActividades = new _angular_material__WEBPACK_IMPORTED_MODULE_10__["MatTableDataSource"](ju.listaActividades);
+                ju.dataSourceActividades.paginator = ju.paginatorA;
+                ju.dataSourceActividades.sort = ju.sortA;
                 ju.menActividadBorrada();
               });
             },
@@ -5289,14 +5425,14 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function borrarC(clase) {
           return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
           /*#__PURE__*/
-          regeneratorRuntime.mark(function _callee25() {
+          regeneratorRuntime.mark(function _callee26() {
             var ju;
-            return regeneratorRuntime.wrap(function _callee25$(_context25) {
+            return regeneratorRuntime.wrap(function _callee26$(_context26) {
               while (1) {
-                switch (_context25.prev = _context25.next) {
+                switch (_context26.prev = _context26.next) {
                   case 0:
                     ju = this;
-                    _context25.next = 3;
+                    _context26.next = 3;
                     return $.ajax({
                       type: 'DELETE',
                       url: '/eliminarClase',
@@ -5317,10 +5453,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
                   case 3:
                   case "end":
-                    return _context25.stop();
+                    return _context26.stop();
                 }
               }
-            }, _callee25, this);
+            }, _callee26, this);
           }));
         }
       }, {
@@ -5368,11 +5504,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function crearActividadAsociada(clase) {
           return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
           /*#__PURE__*/
-          regeneratorRuntime.mark(function _callee26() {
+          regeneratorRuntime.mark(function _callee27() {
             var ju, actividadCreate, arrayAlumnos, i;
-            return regeneratorRuntime.wrap(function _callee26$(_context26) {
+            return regeneratorRuntime.wrap(function _callee27$(_context27) {
               while (1) {
-                switch (_context26.prev = _context26.next) {
+                switch (_context27.prev = _context27.next) {
                   case 0:
                     ju = this;
                     actividadCreate = {
@@ -5428,7 +5564,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                     }
 
                     actividadCreate.alumnos = arrayAlumnos;
-                    _context26.next = 10;
+                    _context27.next = 10;
                     return $.ajax({
                       type: 'POST',
                       url: '/agregarActividadEnClase',
@@ -5451,10 +5587,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
                   case 10:
                   case "end":
-                    return _context26.stop();
+                    return _context27.stop();
                 }
               }
-            }, _callee26, this);
+            }, _callee27, this);
           }));
         }
       }, {
@@ -5531,6 +5667,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])(_ver_clase_ver_clase_component__WEBPACK_IMPORTED_MODULE_6__["VerClaseComponent"], {
       static: false
     })], ProfesorComponent.prototype, "verClaseComp", void 0);
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])(_angular_material__WEBPACK_IMPORTED_MODULE_10__["MatPaginator"], null)], ProfesorComponent.prototype, "paginatorE", void 0);
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])(_angular_material__WEBPACK_IMPORTED_MODULE_10__["MatSort"], null)], ProfesorComponent.prototype, "sortE", void 0);
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])(_angular_material__WEBPACK_IMPORTED_MODULE_10__["MatPaginator"], null)], ProfesorComponent.prototype, "paginatorA", void 0);
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])(_angular_material__WEBPACK_IMPORTED_MODULE_10__["MatSort"], null)], ProfesorComponent.prototype, "sortA", void 0);
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])(_angular_material__WEBPACK_IMPORTED_MODULE_10__["MatPaginator"], null)], ProfesorComponent.prototype, "paginatorC", void 0);
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])(_angular_material__WEBPACK_IMPORTED_MODULE_10__["MatSort"], null)], ProfesorComponent.prototype, "sortC", void 0);
     ProfesorComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
       selector: 'app-profesor',
       template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
@@ -5900,10 +6042,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           setInterval(function () {
             return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](_this12, void 0, void 0,
             /*#__PURE__*/
-            regeneratorRuntime.mark(function _callee27() {
-              return regeneratorRuntime.wrap(function _callee27$(_context27) {
+            regeneratorRuntime.mark(function _callee28() {
+              return regeneratorRuntime.wrap(function _callee28$(_context28) {
                 while (1) {
-                  switch (_context27.prev = _context27.next) {
+                  switch (_context28.prev = _context28.next) {
                     case 0:
                       //console.log(this.aluConectados);
                       if (this.numAlumnosConectados != this.aluConectados.length) {
@@ -5939,10 +6081,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
                     case 1:
                     case "end":
-                      return _context27.stop();
+                      return _context28.stop();
                   }
                 }
-              }, _callee27, this);
+              }, _callee28, this);
             }));
           }, 1000);
         }
@@ -6086,11 +6228,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function insertarResumen() {
           return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
           /*#__PURE__*/
-          regeneratorRuntime.mark(function _callee28() {
+          regeneratorRuntime.mark(function _callee29() {
             var sumaTotalEmociones, x, sumaTotalEstadoDisConc, sumaTotalEstadoFrusMotiv;
-            return regeneratorRuntime.wrap(function _callee28$(_context28) {
+            return regeneratorRuntime.wrap(function _callee29$(_context29) {
               while (1) {
-                switch (_context28.prev = _context28.next) {
+                switch (_context29.prev = _context29.next) {
                   case 0:
                     //Datos Emocionales
                     sumaTotalEmociones = 0; //console.log(this.resumen);
@@ -6168,10 +6310,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
                   case 22:
                   case "end":
-                    return _context28.stop();
+                    return _context29.stop();
                 }
               }
-            }, _callee28, this);
+            }, _callee29, this);
           }));
         }
       }, {
@@ -6484,6 +6626,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var _angular_material_snack_bar__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
     /*! @angular/material/snack-bar */
     "./node_modules/@angular/material/esm2015/snack-bar.js");
+    /* harmony import */
+
+
+    var _angular_material__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    /*! @angular/material */
+    "./node_modules/@angular/material/esm2015/material.js");
 
     var VerClaseComponent =
     /*#__PURE__*/
@@ -6499,7 +6647,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         this.numeroActComenzadas = 0;
         this.numeroActSinComenzar = 0;
         this.editarActividad = false;
-        this.listaAlumnos = [];
+        this.listaAlumnos = []; //Tabla de actividades
+
+        this.displayedColumnsActividades = ['nombre', 'profesor', 'estado', 'acciones', 'editar', 'borrar'];
       }
 
       _createClass(VerClaseComponent, [{
@@ -6507,11 +6657,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function ngOnInit() {
           return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
           /*#__PURE__*/
-          regeneratorRuntime.mark(function _callee29() {
+          regeneratorRuntime.mark(function _callee30() {
             var ju, id;
-            return regeneratorRuntime.wrap(function _callee29$(_context29) {
+            return regeneratorRuntime.wrap(function _callee30$(_context30) {
               while (1) {
-                switch (_context29.prev = _context29.next) {
+                switch (_context30.prev = _context30.next) {
                   case 0:
                     ju = this;
                     console.log(this.clase);
@@ -6521,7 +6671,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                     } //this.listaAlumnos=this.estudiantes.getEstudiantes();
 
 
-                    _context29.next = 5;
+                    _context30.next = 5;
                     return $.getJSON("/verEstudiantes", function (data) {
                       //console.log(data);
                       ju.listaAlumnos = data;
@@ -6529,10 +6679,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
                   case 5:
                   case "end":
-                    return _context29.stop();
+                    return _context30.stop();
                 }
               }
-            }, _callee29, this);
+            }, _callee30, this);
           }));
         }
       }, {
@@ -6544,6 +6694,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           for (var id in this.clase.actividades) {
             this.actividades.push(this.clase.actividades[id]);
           }
+
+          this.dataSourceActividades = new _angular_material__WEBPACK_IMPORTED_MODULE_5__["MatTableDataSource"](this.actividades);
+          this.dataSourceActividades.paginator = this.paginatorA;
+          this.dataSourceActividades.sort = this.sortA;
         }
       }, {
         key: "actualizarClase",
@@ -6558,6 +6712,15 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               ju.actividades.push(this.clase.actividades[id]);
             }
           });
+        }
+      }, {
+        key: "applyFilterA",
+        value: function applyFilterA(filterValue) {
+          filterValue = filterValue.trim(); // Remove whitespace
+
+          filterValue = filterValue.toLowerCase(); // Datasource defaults to lowercase matches
+
+          this.dataSourceActividades.filter = filterValue;
         }
       }, {
         key: "cerrarClase",
@@ -6772,6 +6935,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     };
 
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])()], VerClaseComponent.prototype, "clase", void 0);
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])(_angular_material__WEBPACK_IMPORTED_MODULE_5__["MatPaginator"], null)], VerClaseComponent.prototype, "paginatorA", void 0);
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])(_angular_material__WEBPACK_IMPORTED_MODULE_5__["MatSort"], null)], VerClaseComponent.prototype, "sortA", void 0);
     VerClaseComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
       selector: 'app-ver-clase',
       template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
