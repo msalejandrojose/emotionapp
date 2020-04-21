@@ -134,7 +134,7 @@ app.get("/verClases", function (request, response) {
   })
 });
 
-app.get("/verClase", function (request, response) {
+app.post("/verClase", function (request, response) {
   var clase = request.body;
   centro.mostrarClase(clase,function (res) {
     response.send(res);
