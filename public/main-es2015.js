@@ -435,7 +435,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"row\">\n    <div class=\"col-12\">\n        <h3 class=\"text-center\">{{actividad.nombre}}</h3>\n    </div>\n</div>\n<div class=\"row justify-content-md-center\">\n    <div class=\"col-12\">\n        <h5 class=\"text-center\" *ngIf=\"actividad.estado=='Creada'\">Actividad sin empezar</h5>\n        <h5 class=\"text-center\" *ngIf=\"actividad.estado=='Comenzada'\">Actividad empezada</h5>\n        <h5 class=\"text-center\" *ngIf=\"actividad.estado=='Finalizada'\">Actividad finalizada</h5>\n    </div>\n</div>\n<div class=\"row justify-content-md-center text-center\">\n    <div class=\"col-3 text-left\">\n        <button *ngIf=\" !botonCreadaCargando && !botonFinalizadaCargando && !botonReanudarCargando\" type=\"button\" class=\"btn btn-outline-danger\" (click)=\"cerrarActividad()\">Cerrar Actividad</button>\n        <button *ngIf=\"botonCreadaCargando || botonFinalizadaCargando || botonReanudarCargando\" type=\"button\" class=\"btn btn-outline-danger\" (click)=\"cerrarActividad()\" disabled>Cerrar Actividad</button>\n    </div>\n    <div class=\"row col-6 justify-content-center text-center\" *ngIf=\"!actividadAbierta\">\n        <div class=\"col-2 text-center\">\n            <div class=\"row justify-content-center\">\n                <button type=\"button\" class=\"btn btn-success btn-circle2\" disabled>\n                    <i class=\"fa fa-check\" aria-hidden=\"true\"></i>\n                </button>\n            </div>\n            <div class=\"row justify-content-center\">\n                Creada\n            </div>\n        </div>\n        <div class=\"col-3\">\n            <hr style=\"margin-top: 30%;\">\n        </div>\n        <div class=\"col-2 text-center\">\n            <div class=\"row justify-content-center\">\n                <button *ngIf=\"actividad.estado=='Comenzada' || actividad.estado=='Finalizada'\" type=\"button\"\n                    class=\"btn btn-success btn-circle2\" disabled>\n                    <i class=\"fa fa-check\" aria-hidden=\"true\"></i>\n                </button>\n                <button *ngIf=\"actividad.estado=='Creada'\" type=\"button\" class=\"btn btn-outline-secondary btn-circle2\"\n                    disabled>\n\n                </button>\n            </div>\n            <div class=\"row justify-content-center\">\n                Comenzada\n            </div>\n        </div>\n        <div class=\"col-3\">\n            <hr style=\"margin-top: 30%;\">\n        </div>\n        <div class=\"col-2 text-center\">\n            <div class=\"row justify-content-center\">\n                <button *ngIf=\"actividad.estado=='Finalizada'\" type=\"button\" class=\"btn btn-success btn-circle2\"\n                    disabled>\n                    <i class=\"fa fa-check\" aria-hidden=\"true\"></i>\n                </button>\n                <button *ngIf=\"actividad.estado=='Creada' || actividad.estado=='Comenzada'\" type=\"button\"\n                    class=\"btn btn-outline-secondary btn-circle2\" disabled>\n\n                </button>\n            </div>\n            <div class=\"row justify-content-center\">\n                Finalizada\n            </div>\n        </div>\n    </div>\n    <div class=\"col-3 text-right\">\n        <button *ngIf=\"actividad.estado=='Creada' && !botonCreadaCargando && !botonFinalizadaCargando && !botonReanudarCargando\" type=\"button\" class=\"btn btn-outline-success disenable\"\n            (click)=\"comenzar()\">Comenzar</button>\n        <button *ngIf=\"botonCreadaCargando\" class=\"btn btn-outline-success\" type=\"button\" disabled>\n            <span class=\"spinner-border spinner-border-sm\" role=\"status\" aria-hidden=\"true\"></span>\n            Comenzando...\n        </button>\n        <button *ngIf=\"actividad.estado=='Comenzada' && !botonCreadaCargando && !botonFinalizadaCargando && !botonReanudarCargando\" type=\"button\" class=\"btn btn-outline-dark disenable\"\n            (click)=\"terminar()\">Terminar</button>\n        <button *ngIf=\"botonFinalizadaCargando\" class=\"btn btn-outline-dark\" type=\"button\" disabled>\n            <span class=\"spinner-border spinner-border-sm\" role=\"status\" aria-hidden=\"true\"></span>\n            Terminando...\n        </button>\n        <button *ngIf=\"actividad.estado=='Finalizada' && !botonCreadaCargando && !botonFinalizadaCargando && !botonReanudarCargando\" type=\"button\" class=\"btn btn-outline-success disenable\"\n            (click)=\"comenzar()\">Reanudar Actividad</button>\n        <button *ngIf=\"actividad.estado=='Finalizada' && botonReanudarCargando\" class=\"btn btn-outline-dark\" type=\"button\" disabled>\n            <span class=\"spinner-border spinner-border-sm\" role=\"status\" aria-hidden=\"true\"></span>\n            Reanunando..\n        </button>\n    </div>\n\n</div>\n<br>\n<div class=\"row justify-content-center text-center\">\n    <div *ngIf=\"vistaGeneral\" class=\"btn-group btn-group-toggle\">\n        <label class=\"btn btn-outline-primary active\">\n            <input type=\"radio\" name=\"options\" id=\"general\" (click)=\"cambiarAGeneral()\" checked> General\n        </label>\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAMapa()\"> Mapa de la clase\n        </label>\n    </div>\n    <div *ngIf=\"vistaMapaDeLaClase\" class=\"btn-group btn-group-toggle\">\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"general\" (click)=\"cambiarAGeneral()\"> General\n        </label>\n        <label class=\"btn btn-outline-primary active\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAMapa()\" checked> Mapa de la clase\n        </label>\n    </div>\n</div>\n<br>\n<div id=\"vistaGeneral\">\n    <div class=\"row justify-content-center\">\n        <div class=\"col-5\">\n            <div class=\"card-body\">\n                <h5 class=\"text-center card-title\">Usuarios Conectados</h5>\n                <div class=\"card-content\">\n                    <canvas id=\"usersConectados\"></canvas>\n                    <h6 class=\"text-center\">{{porUsuariosConectados}}% Usuarios conectados</h6>\n                    <!--<h6 >{{((usuariosConectados.length()/usuariosTotales)*100)}}%</h6>-->\n                </div>\n            </div>\n        </div>\n        <div class=\"col-7\">\n            <div class=\"row\">\n                <div class=\"card-body\">\n                    <div class=\"row\">\n                        <h5 class=\"col-4 text-center card-title\">Grafica</h5>\n                        <div class=\"col-4\">\n                            <div class=\"btn-group\">\n                                <button type=\"button\" class=\"btn btn-info dropdown-toggle\" data-toggle=\"dropdown\"\n                                    aria-haspopup=\"true\" aria-expanded=\"false\">\n                                    Estado\n                                </button>\n                                <div class=\"dropdown-menu\">\n                                    <div class=\"dropdown-item\" *ngFor=\"let estado of estados\">\n                                        <input type=\"checkbox\" class=\"form-check-input\" [(ngModel)]=\"estado.checked\">\n                                        <a>{{estado.nombre}}</a>\n                                    </div>\n                                    <!--<a class=\"dropdown-item\" *ngFor=\"let estado of estados\"\n                                        (click)=\"seleccionarEstado(estado)\">{{estado.nombre}}\n                                    </a>-->\n                                </div>\n                            </div>\n                        </div>\n                        <div class=\"col-4\">\n                            <div class=\"btn-group\">\n                                <button type=\"button\" class=\"btn btn-info dropdown-toggle\" data-toggle=\"dropdown\"\n                                    aria-haspopup=\"true\" aria-expanded=\"false\">\n                                    Alumnos\n                                </button>\n                                <div class=\"dropdown-menu\">\n                                    <a *ngIf=\"alumnoSeleccionadoAlumno\" class=\"dropdown-item\">Media de la clase</a>\n                                    <div class=\"dropdown-item\" *ngFor=\"let alumno of alumnosSelect\">\n                                        <input type=\"checkbox\" class=\"form-check-input\" [(ngModel)]=\"alumno.checked\">\n                                        <a>{{alumno.nombre}}</a>\n                                    </div>\n                                    <!--<a class=\"dropdown-item\" *ngFor=\"let alumno of alumnos\"\n                                        (click)=\"seleccionarAlumno(alumno)\">{{alumno.estudiante.nombre}}</a>-->\n                                </div>\n                            </div>\n                        </div>\n                        <div>\n                            <button type=\"button\" class=\"btn btn-outline-success\"\n                                (click)=\"actualizarGraficaLineal()\">Actualizar</button>\n                        </div>\n                    </div>\n        \n                </div>\n            </div>\n            <div class=\"row\">\n                <div class=\"col-12\">\n                    <div class=\"card-content\">\n                        <canvas id=\"graficaLineal\"></canvas>\n                    </div>\n                </div>\n            </div>\n        </div>\n\n\n    </div>\n    \n</div>\n<div id=\"vistaMapaDeLaClase\" style=\"display: none;\" class=\"row justify-content-md-center\">\n    <div class=\"card col-md-11\">\n        <div class=\"card-body\">\n            <h5 class=\"card-title\">Distribucion de la clase</h5>\n            <div id=\"clase\" class=\"example-boundary\">\n                <div id=\"{{item.id_item}}\" *ngFor=\"let item of actividad.alumnos\" class=\"example-box\"\n                    ondrop=\"myFunction(item)\" [cdkDragFreeDragPosition]=\"item.posicion\"\n                    cdkDragBoundary=\".example-boundary\" cdkDrag (cdkDragEnded)=\"dragEnded($event,item)\">\n                    {{item.estudiante.nombre}}\n                </div>\n            </div>\n        </div>\n    </div>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"row\">\n    <div class=\"col-12\">\n        <h3 class=\"text-center\">{{actividad.nombre}}</h3>\n    </div>\n</div>\n<div class=\"row justify-content-md-center\">\n    <div class=\"col-12\">\n        <h5 class=\"text-center\" *ngIf=\"actividad.estado=='Creada'\">Actividad sin empezar</h5>\n        <h5 class=\"text-center\" *ngIf=\"actividad.estado=='Comenzada'\">Actividad empezada</h5>\n        <h5 class=\"text-center\" *ngIf=\"actividad.estado=='Finalizada'\">Actividad finalizada</h5>\n    </div>\n</div>\n<div class=\"row justify-content-md-center text-center\">\n    <div class=\"col-3 text-left\">\n        <button *ngIf=\" !botonCreadaCargando && !botonFinalizadaCargando && !botonReanudarCargando\" type=\"button\"\n            class=\"btn btn-outline-danger\" (click)=\"cerrarActividad()\">Cerrar Actividad</button>\n        <button *ngIf=\"botonCreadaCargando || botonFinalizadaCargando || botonReanudarCargando\" type=\"button\"\n            class=\"btn btn-outline-danger\" (click)=\"cerrarActividad()\" disabled>Cerrar Actividad</button>\n    </div>\n    <div class=\"row col-6 justify-content-center text-center\" *ngIf=\"!actividadAbierta\">\n        <div class=\"col-2 text-center\">\n            <div class=\"row justify-content-center\">\n                <button type=\"button\" class=\"btn btn-success btn-circle2\" disabled>\n                    <i class=\"fa fa-check\" aria-hidden=\"true\"></i>\n                </button>\n            </div>\n            <div class=\"row justify-content-center\">\n                Creada\n            </div>\n        </div>\n        <div class=\"col-3\">\n            <hr style=\"margin-top: 30%;\">\n        </div>\n        <div class=\"col-2 text-center\">\n            <div class=\"row justify-content-center\">\n                <button *ngIf=\"actividad.estado=='Comenzada' || actividad.estado=='Finalizada'\" type=\"button\"\n                    class=\"btn btn-success btn-circle2\" disabled>\n                    <i class=\"fa fa-check\" aria-hidden=\"true\"></i>\n                </button>\n                <button *ngIf=\"actividad.estado=='Creada'\" type=\"button\" class=\"btn btn-outline-secondary btn-circle2\"\n                    disabled>\n\n                </button>\n            </div>\n            <div class=\"row justify-content-center\">\n                Comenzada\n            </div>\n        </div>\n        <div class=\"col-3\">\n            <hr style=\"margin-top: 30%;\">\n        </div>\n        <div class=\"col-2 text-center\">\n            <div class=\"row justify-content-center\">\n                <button *ngIf=\"actividad.estado=='Finalizada'\" type=\"button\" class=\"btn btn-success btn-circle2\"\n                    disabled>\n                    <i class=\"fa fa-check\" aria-hidden=\"true\"></i>\n                </button>\n                <button *ngIf=\"actividad.estado=='Creada' || actividad.estado=='Comenzada'\" type=\"button\"\n                    class=\"btn btn-outline-secondary btn-circle2\" disabled>\n\n                </button>\n            </div>\n            <div class=\"row justify-content-center\">\n                Finalizada\n            </div>\n        </div>\n    </div>\n    <div class=\"col-3 text-right\">\n        <button\n            *ngIf=\"actividad.estado=='Creada' && !botonCreadaCargando && !botonFinalizadaCargando && !botonReanudarCargando\"\n            type=\"button\" class=\"btn btn-outline-success disenable\" (click)=\"comenzar()\">Comenzar</button>\n        <button *ngIf=\"botonCreadaCargando\" class=\"btn btn-outline-success\" type=\"button\" disabled>\n            <span class=\"spinner-border spinner-border-sm\" role=\"status\" aria-hidden=\"true\"></span>\n            Comenzando...\n        </button>\n        <button\n            *ngIf=\"actividad.estado=='Comenzada' && !botonCreadaCargando && !botonFinalizadaCargando && !botonReanudarCargando\"\n            type=\"button\" class=\"btn btn-outline-dark disenable\" (click)=\"terminar()\">Terminar</button>\n        <button *ngIf=\"botonFinalizadaCargando\" class=\"btn btn-outline-dark\" type=\"button\" disabled>\n            <span class=\"spinner-border spinner-border-sm\" role=\"status\" aria-hidden=\"true\"></span>\n            Terminando...\n        </button>\n        <button\n            *ngIf=\"actividad.estado=='Finalizada' && !botonCreadaCargando && !botonFinalizadaCargando && !botonReanudarCargando\"\n            type=\"button\" class=\"btn btn-outline-success disenable\" (click)=\"comenzar()\">Reanudar Actividad</button>\n        <button *ngIf=\"actividad.estado=='Finalizada' && botonReanudarCargando\" class=\"btn btn-outline-dark\"\n            type=\"button\" disabled>\n            <span class=\"spinner-border spinner-border-sm\" role=\"status\" aria-hidden=\"true\"></span>\n            Reanunando..\n        </button>\n    </div>\n\n</div>\n<br>\n<div class=\"row justify-content-center text-center\">\n    <div *ngIf=\"vistaGeneral\" class=\"btn-group btn-group-toggle\">\n        <label class=\"btn btn-outline-primary active\">\n            <input type=\"radio\" name=\"options\" id=\"general\" (click)=\"cambiarAGeneral()\" checked> General\n        </label>\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAMapa()\"> Mapa de la clase\n        </label>\n    </div>\n    <div *ngIf=\"vistaMapaDeLaClase\" class=\"btn-group btn-group-toggle\">\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"general\" (click)=\"cambiarAGeneral()\"> General\n        </label>\n        <label class=\"btn btn-outline-primary active\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAMapa()\" checked> Mapa de la clase\n        </label>\n    </div>\n</div>\n<br>\n<div id=\"vistaGeneral\">\n    <div class=\"row justify-content-center\">\n        <div style=\"padding-bottom: 0%;\" class=\"col-5\">\n            <h5 class=\"text-center card-title\">Usuarios Conectados</h5>\n            <canvas id=\"usersConectados\"></canvas>\n            <h6 class=\"text-center\">{{porUsuariosConectados}}% Usuarios conectados</h6>\n            <!--<h6 >{{((usuariosConectados.length()/usuariosTotales)*100)}}%</h6>-->\n        </div>\n        <div class=\"col-7\">\n            <div>\n                <div class=\"row\">\n                    <h5 class=\"col-12 text-center card-title\">Grafica</h5>\n                </div>\n                <div class=\"row text-center justify-content-center\">\n                    <div class=\"col-4\">\n                        <div class=\"btn-group\">\n                            <button type=\"button\" class=\"btn btn-info dropdown-toggle\" data-toggle=\"dropdown\"\n                                aria-haspopup=\"true\" aria-expanded=\"false\">\n                                Estado\n                            </button>\n                            <div class=\"dropdown-menu\">\n                                <div class=\"dropdown-item\" *ngFor=\"let estado of estados\">\n                                    <input type=\"checkbox\" class=\"form-check-input\" [(ngModel)]=\"estado.checked\">\n                                    <a>{{estado.nombre}}</a>\n                                </div>\n                                <!--<a class=\"dropdown-item\" *ngFor=\"let estado of estados\"\n                                        (click)=\"seleccionarEstado(estado)\">{{estado.nombre}}\n                                    </a>-->\n                            </div>\n                        </div>\n                    </div>\n                    <div class=\"col-4\">\n                        <div class=\"btn-group\">\n                            <button type=\"button\" class=\"btn btn-info dropdown-toggle\" data-toggle=\"dropdown\"\n                                aria-haspopup=\"true\" aria-expanded=\"false\">\n                                Alumnos\n                            </button>\n                            <div class=\"dropdown-menu\">\n                                <a *ngIf=\"alumnoSeleccionadoAlumno\" class=\"dropdown-item\">Media de la clase</a>\n                                <div class=\"dropdown-item\" *ngFor=\"let alumno of alumnosSelect\">\n                                    <input type=\"checkbox\" class=\"form-check-input\" [(ngModel)]=\"alumno.checked\">\n                                    <a>{{alumno.nombre}}</a>\n                                </div>\n                                <!--<a class=\"dropdown-item\" *ngFor=\"let alumno of alumnos\"\n                                        (click)=\"seleccionarAlumno(alumno)\">{{alumno.estudiante.nombre}}</a>-->\n                            </div>\n                        </div>\n                    </div>\n                    <div class=\"col-4\">\n                        <button type=\"button\" class=\"btn btn-outline-success\"\n                            (click)=\"actualizarGraficaLineal()\">Actualizar</button>\n                    </div>\n                </div>\n            </div>\n            <div>\n                <canvas id=\"graficaLineal\"></canvas>\n            </div>\n        </div>\n    </div>\n    <br>\n    <div class=\"row justify-content-center\">\n        <div class=\"col-7\">\n            <div class=\"text-center\">\n                <h5>Alumnos</h5>\n            </div>\n            <div class=\"example-header\">\n                <mat-form-field>\n                    <input matInput (keyup)=\"applyFilterA($event.target.value)\" placeholder=\"Filtrar\">\n                </mat-form-field>\n            </div>\n            <div class=\"example-container\">\n                <mat-table [dataSource]=\"dataSourceAlumnos\" class=\"mat-elevation-z1\" matSort>\n                    <ng-container matColumnDef=\"nombre\">\n                        <mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </mat-header-cell>\n                        <mat-cell *matCellDef=\"let element\"> {{element.name}} </mat-cell>\n                    </ng-container>\n                    <ng-container matColumnDef=\"estado\">\n                        <mat-header-cell *matHeaderCellDef mat-sort-header> Estado </mat-header-cell>\n                        <mat-cell *matCellDef=\"let row\"> {{row.weight}} </mat-cell>\n                    </ng-container>\n                    <ng-container matColumnDef=\"pulsaciones\">\n                        <mat-header-cell *matHeaderCellDef mat-sort-header> Pulsaciones </mat-header-cell>\n                        <mat-cell *matCellDef=\"let row\"> {{row.symbol}} ppm </mat-cell>\n                    </ng-container>\n                    <mat-header-row *matHeaderRowDef=\"displayedColumnsAlumnos\"></mat-header-row>\n                    <mat-row *matRowDef=\"let row; columns: displayedColumnsAlumnos;\">\n                    </mat-row>\n                </mat-table>\n                <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\n            </div>\n        </div>\n        <div class=\"col-5 text-center\">\n            <div class=\"row\">\n                <div class=\"col-12 text-center\">\n                    <h5>Estado de la clase</h5>\n                </div>\n            </div>\n            <div class=\"row justify-content-center\">\n                <div class=\"col-4\">\n                    <div class=\"btn-group\">\n                        <button type=\"button\" class=\"btn btn-info dropdown-toggle\" data-toggle=\"dropdown\"\n                            aria-haspopup=\"true\" aria-expanded=\"false\">\n                            Estado\n                        </button>\n                        <div class=\"dropdown-menu\">\n                            <div class=\"dropdown-item\" *ngFor=\"let estado of estadosGlobales\">\n                                <input type=\"checkbox\" class=\"form-check-input\" [(ngModel)]=\"estado.checked\">\n                                <a>{{estado.nombre}}</a>\n                            </div>\n                            <!--<a class=\"dropdown-item\" *ngFor=\"let estado of estados\"\n                                    (click)=\"seleccionarEstado(estado)\">{{estado.nombre}}\n                                </a>-->\n                        </div>\n                    </div>\n                </div>\n                <div class=\"col-4\">\n                    <button type=\"button\" class=\"btn btn-outline-success\"\n                        (click)=\"actualizarGraficaGlobal()\">Actualizar</button>\n                </div>\n            </div>\n            <br>\n            <div>\n                <canvas id=\"estadoGlobal\"></canvas>\n            </div>\n        </div>\n    </div>\n</div>\n<div id=\"vistaMapaDeLaClase\" style=\"display: none;\" class=\"row justify-content-md-center\">\n    <div class=\"card col-md-11\">\n        <div class=\"card-body\">\n            <h5 class=\"card-title\">Distribucion de la clase</h5>\n            <div id=\"clase\" class=\"example-boundary\">\n                <div id=\"{{item.id_item}}\" *ngFor=\"let item of actividad.alumnos\" class=\"example-box\"\n                    ondrop=\"myFunction(item)\" [cdkDragFreeDragPosition]=\"item.posicion\"\n                    cdkDragBoundary=\".example-boundary\" cdkDrag (cdkDragEnded)=\"dragEnded($event,item)\">\n                    {{item.estudiante.nombre}}\n                </div>\n            </div>\n        </div>\n    </div>\n</div>");
 
 /***/ }),
 
@@ -1121,6 +1121,9 @@ AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
             _angular_cdk_drag_drop__WEBPACK_IMPORTED_MODULE_3__["DragDropModule"],
             ngx_webcam__WEBPACK_IMPORTED_MODULE_45__["WebcamModule"],
             _angular_common_http__WEBPACK_IMPORTED_MODULE_46__["HttpClientModule"],
+            _angular_platform_browser__WEBPACK_IMPORTED_MODULE_43__["BrowserModule"],
+            _angular_material_table__WEBPACK_IMPORTED_MODULE_38__["MatTableModule"],
+            _angular_material_sort__WEBPACK_IMPORTED_MODULE_37__["MatSortModule"],
         ],
         providers: [_angular_material_sidenav__WEBPACK_IMPORTED_MODULE_33__["MatSidenavModule"],
             _angular_material_stepper__WEBPACK_IMPORTED_MODULE_17__["MatStepperModule"],
@@ -3839,11 +3842,25 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _profesor_profesor_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../profesor/profesor.component */ "./src/app/profesor/profesor.component.ts");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm2015/material.js");
 
 
 
 
 
+
+const ELEMENT_DATA = [
+    { position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H' },
+    { position: 2, name: 'Helium', weight: 4.0026, symbol: 'He' },
+    { position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li' },
+    { position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be' },
+    { position: 5, name: 'Boron', weight: 10.811, symbol: 'B' },
+    { position: 6, name: 'Carbon', weight: 12.0107, symbol: 'C' },
+    { position: 7, name: 'Nitrogen', weight: 14.0067, symbol: 'N' },
+    { position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O' },
+    { position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F' },
+    { position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne' },
+];
 let VerActividadComponent = class VerActividadComponent {
     //@ViewChild(ProfesorComponent,{static: false}) profesor:ProfesorComponent;
     constructor(profesor) {
@@ -3873,6 +3890,18 @@ let VerActividadComponent = class VerActividadComponent {
             { nombre: 'concentrado', checked: false },
             { nombre: 'frustrado', checked: false },
             { nombre: 'motivado', checked: false },
+        ];
+        this.estadosGlobales = [
+            { nombre: 'alegria', checked: true, color: 'rgba(255,255,84,1)' },
+            { nombre: 'asco', checked: true, color: 'rgba(0,0,0,0.5)' },
+            { nombre: 'miedo', checked: false, color: 'rgba(0,150,0,1)' },
+            { nombre: 'sorpresa', checked: false, color: 'rgba(89,189,255,1)' },
+            { nombre: 'tristeza', checked: false, color: 'rgba(81,81,255,1)' },
+            { nombre: 'ira', checked: false, color: 'rgba(255,0,0,1)' },
+            { nombre: 'distraido', checked: false, color: 'rgba(70,70,70,1)' },
+            { nombre: 'concentrado', checked: false, color: 'rgba(84,255,84,1)' },
+            { nombre: 'frustrado', checked: false, color: 'rgba(123,123,123,1)' },
+            { nombre: 'motivado', checked: false, color: 'rgba(84,25,80,1)' },
         ];
         this.resumen = {
             alegria: 0,
@@ -3917,6 +3946,9 @@ let VerActividadComponent = class VerActividadComponent {
                     display: true,
                     text: this.estadoSeleccionado,
                 },
+                legend: {
+                    position: 'bottom',
+                },
                 scales: {
                     xAxes: [{
                             type: 'time',
@@ -3948,6 +3980,8 @@ let VerActividadComponent = class VerActividadComponent {
         this.botonCreadaCargando = false;
         this.botonFinalizadaCargando = false;
         this.botonReanudarCargando = false;
+        //Tabla de estudiantes
+        this.displayedColumnsAlumnos = ['nombre', 'estado', 'pulsaciones'];
         //console.log(this.usuariosConectados);
         this.comprobarDatos();
     }
@@ -3958,6 +3992,14 @@ let VerActividadComponent = class VerActividadComponent {
                 this.insertarResumen();
             }, 20000);
         }
+        this.dataSourceAlumnos = new _angular_material__WEBPACK_IMPORTED_MODULE_5__["MatTableDataSource"](ELEMENT_DATA);
+        this.dataSourceAlumnos.paginator = this.paginatorA;
+        this.dataSourceAlumnos.sort = this.sortA;
+    }
+    applyFilterA(filterValue) {
+        filterValue = filterValue.trim(); // Remove whitespace
+        filterValue = filterValue.toLowerCase(); // Datasource defaults to lowercase matches
+        this.dataSourceAlumnos.filter = filterValue;
     }
     cargarGraficas() {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
@@ -3997,6 +4039,9 @@ let VerActividadComponent = class VerActividadComponent {
                     cutoutPercentage: 50,
                     rotation: 1 * Math.PI,
                     circumference: 1 * Math.PI,
+                    legend: {
+                        position: 'bottom',
+                    },
                 }
             };
             this.porUsuariosConectados = (this.numAlumnosConectados / this.numAlumnosTotales) * 100;
@@ -4057,6 +4102,7 @@ let VerActividadComponent = class VerActividadComponent {
     }
     ngAfterViewInit() {
         this.cargarGraficas();
+        this.actualizarGraficaGlobal();
     }
     comprobarDatos() {
         setInterval(() => tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
@@ -4092,6 +4138,9 @@ let VerActividadComponent = class VerActividadComponent {
                         cutoutPercentage: 50,
                         rotation: 1 * Math.PI,
                         circumference: 1 * Math.PI,
+                        legend: {
+                            position: 'bottom',
+                        },
                     }
                 };
                 this.usersConectadosGraf = null;
@@ -4250,161 +4299,169 @@ let VerActividadComponent = class VerActividadComponent {
         });
     }
     seleccionarEstado(estado) {
-        console.log(this.estados);
+        /*console.log(this.estados);
         this.estadoSeleccionado = estado;
         if (this.objAlumnoSeleccionado == null) {
-            this.configuracionGraficaLineal = {
-                type: 'line',
-                data: {
-                    datasets: [
-                        {
-                            label: this.estadoSeleccionado,
-                            backgroundColor: this.ColorSad,
-                            borderColor: this.ColorSad,
-                            fill: false,
-                            data: this.actividad.resumen['' + this.estadoSeleccionado + ''],
-                        }
-                    ]
-                },
-                options: {
-                    responsive: true,
-                    title: {
-                        display: true,
-                        text: this.estadoSeleccionado,
-                    },
-                    scales: {
-                        xAxes: [{
-                                type: 'time',
-                                display: true,
-                                scaleLabel: {
-                                    display: true,
-                                    labelString: 'Tiempo'
-                                },
-                                ticks: {
-                                    major: {
-                                        fontStyle: 'bold',
-                                        fontColor: '#FF0000'
-                                    }
-                                }
-                            }],
-                        yAxes: [{
-                                display: true,
-                                scaleLabel: {
-                                    display: true,
-                                    labelString: 'Porcentaje'
-                                }
-                            }]
-                    }
+          this.configuracionGraficaLineal = {
+            type: 'line',
+            data: {
+              datasets: [
+                {
+                  label: this.estadoSeleccionado,
+                  backgroundColor: this.ColorSad,
+                  borderColor: this.ColorSad,
+                  fill: false,
+                  data: this.actividad.resumen['' + this.estadoSeleccionado + ''],
                 }
-            };
-            this.graficaLineal = new chart_js__WEBPACK_IMPORTED_MODULE_2__["Chart"]('graficaLineal', this.configuracionGraficaLineal);
+              ]
+    
+            },
+            legend:{
+              labels:{
+                position: 'bottom',
+              }
+            },
+            options: {
+              responsive: true,
+              title: {
+                display: true,
+                text: this.estadoSeleccionado,
+              },
+              scales: {
+                xAxes: [{
+                  type: 'time',
+                  display: true,
+                  scaleLabel: {
+                    display: true,
+                    labelString: 'Tiempo'
+                  },
+                  ticks: {
+                    major: {
+                      fontStyle: 'bold',
+                      fontColor: '#FF0000'
+                    }
+                  }
+                }],
+                yAxes: [{
+                  display: true,
+                  scaleLabel: {
+                    display: true,
+                    labelString: 'Porcentaje'
+                  }
+                }]
+              }
+            }
+          };
+          this.graficaLineal = new Chart('graficaLineal', this.configuracionGraficaLineal);
         }
         else {
-            for (let i = 0; i < this.actividad.alumnos.length; i++) {
-                if (this.actividad.alumnos[i].id_item == this.objAlumnoSeleccionado.id_item) {
-                    this.configuracionGraficaLineal = {
-                        type: 'line',
-                        data: {
-                            datasets: [
-                                {
-                                    label: this.estadoSeleccionado,
-                                    backgroundColor: this.ColorSad,
-                                    borderColor: this.ColorSad,
-                                    fill: false,
-                                    data: this.actividad.alumnos[i].datos['' + this.estadoSeleccionado + ''],
-                                }
-                            ]
-                        },
-                        options: {
-                            responsive: true,
-                            title: {
-                                display: true,
-                                text: this.estadoSeleccionado,
-                            },
-                            scales: {
-                                xAxes: [{
-                                        type: 'time',
-                                        display: true,
-                                        scaleLabel: {
-                                            display: true,
-                                            labelString: 'Tiempo'
-                                        },
-                                        ticks: {
-                                            major: {
-                                                fontStyle: 'bold',
-                                                fontColor: '#FF0000'
-                                            }
-                                        }
-                                    }],
-                                yAxes: [{
-                                        display: true,
-                                        scaleLabel: {
-                                            display: true,
-                                            labelString: 'Porcentaje'
-                                        }
-                                    }]
-                            }
+          for (let i = 0; i < this.actividad.alumnos.length; i++) {
+            if (this.actividad.alumnos[i].id_item == this.objAlumnoSeleccionado.id_item) {
+              this.configuracionGraficaLineal = {
+                type: 'line',
+                data: {
+                  datasets: [
+                    {
+                      label: this.estadoSeleccionado,
+                      backgroundColor: this.ColorSad,
+                      borderColor: this.ColorSad,
+                      fill: false,
+                      data: this.actividad.alumnos[i].datos['' + this.estadoSeleccionado + ''],
+                    }
+                  ]
+    
+                },
+                options: {
+                  responsive: true,
+                  title: {
+                    display: true,
+                    text: this.estadoSeleccionado,
+                  },
+                  scales: {
+                    xAxes: [{
+                      type: 'time',
+                      display: true,
+                      scaleLabel: {
+                        display: true,
+                        labelString: 'Tiempo'
+                      },
+                      ticks: {
+                        major: {
+                          fontStyle: 'bold',
+                          fontColor: '#FF0000'
                         }
-                    };
-                    this.graficaLineal = new chart_js__WEBPACK_IMPORTED_MODULE_2__["Chart"]('graficaLineal', this.configuracionGraficaLineal);
+                      }
+                    }],
+                    yAxes: [{
+                      display: true,
+                      scaleLabel: {
+                        display: true,
+                        labelString: 'Porcentaje'
+                      }
+                    }]
+                  }
                 }
+              };
+              this.graficaLineal = new Chart('graficaLineal', this.configuracionGraficaLineal);
             }
-        }
+          }
+        }*/
     }
     seleccionarAlumno(alumno) {
-        console.log(this.alumnosSelect);
+        /*console.log(this.alumnosSelect);
         this.alumnoSeleccionado = alumno.estudiante.nombre;
         this.objAlumnoSeleccionado = alumno;
         this.alumnoSeleccionadoAlumno = true;
         for (let i = 0; i < this.actividad.alumnos.length; i++) {
-            if (this.actividad.alumnos[i].id_item == this.objAlumnoSeleccionado.id_item) {
-                this.configuracionGraficaLineal = {
-                    type: 'line',
-                    data: {
-                        datasets: [
-                            {
-                                label: this.estadoSeleccionado,
-                                backgroundColor: this.ColorSad,
-                                borderColor: this.ColorSad,
-                                fill: false,
-                                data: this.actividad.alumnos[i].datos['' + this.estadoSeleccionado + ''],
-                            }
-                        ]
+          if (this.actividad.alumnos[i].id_item == this.objAlumnoSeleccionado.id_item) {
+            this.configuracionGraficaLineal = {
+              type: 'line',
+              data: {
+                datasets: [
+                  {
+                    label: this.estadoSeleccionado,
+                    backgroundColor: this.ColorSad,
+                    borderColor: this.ColorSad,
+                    fill: false,
+                    data: this.actividad.alumnos[i].datos['' + this.estadoSeleccionado + ''],
+                  }
+                ]
+    
+              },
+              options: {
+                responsive: true,
+                title: {
+                  display: true,
+                  text: this.estadoSeleccionado,
+                },
+                scales: {
+                  xAxes: [{
+                    type: 'time',
+                    display: true,
+                    scaleLabel: {
+                      display: true,
+                      labelString: 'Tiempo'
                     },
-                    options: {
-                        responsive: true,
-                        title: {
-                            display: true,
-                            text: this.estadoSeleccionado,
-                        },
-                        scales: {
-                            xAxes: [{
-                                    type: 'time',
-                                    display: true,
-                                    scaleLabel: {
-                                        display: true,
-                                        labelString: 'Tiempo'
-                                    },
-                                    ticks: {
-                                        major: {
-                                            fontStyle: 'bold',
-                                            fontColor: '#FF0000'
-                                        }
-                                    }
-                                }],
-                            yAxes: [{
-                                    display: true,
-                                    scaleLabel: {
-                                        display: true,
-                                        labelString: 'Porcentaje'
-                                    }
-                                }]
-                        }
+                    ticks: {
+                      major: {
+                        fontStyle: 'bold',
+                        fontColor: '#FF0000'
+                      }
                     }
-                };
-                this.graficaLineal = new chart_js__WEBPACK_IMPORTED_MODULE_2__["Chart"]('graficaLineal', this.configuracionGraficaLineal);
-            }
-        }
+                  }],
+                  yAxes: [{
+                    display: true,
+                    scaleLabel: {
+                      display: true,
+                      labelString: 'Porcentaje'
+                    }
+                  }]
+                }
+              }
+            };
+            this.graficaLineal = new Chart('graficaLineal', this.configuracionGraficaLineal);
+          }
+        }*/
     }
     seleccionarMediaAlumnos() {
         //this.actualizarGraficaLineal();
@@ -4513,6 +4570,9 @@ let VerActividadComponent = class VerActividadComponent {
                         display: true,
                         text: this.estadoSeleccionado,
                     },
+                    legend: {
+                        position: 'bottom',
+                    },
                     scales: {
                         xAxes: [{
                                 type: 'time',
@@ -4541,6 +4601,38 @@ let VerActividadComponent = class VerActividadComponent {
             this.graficaLineal = new chart_js__WEBPACK_IMPORTED_MODULE_2__["Chart"]('graficaLineal', this.configuracionGraficaLineal);
         });
     }
+    actualizarGraficaGlobal() {
+        console.log(this.estadosGlobales);
+        var labels = [];
+        var colores = [];
+        var datos = [];
+        for (let i = 0; i < this.estadosGlobales.length; i++) {
+            if (this.estadosGlobales[i].checked) {
+                labels.push(this.estadosGlobales[i].nombre);
+                colores.push(this.estadosGlobales[i].color);
+                datos.push(1);
+            }
+        }
+        this.configUsersConectados = {
+            type: 'doughnut',
+            data: {
+                labels: labels,
+                datasets: [{
+                        backgroundColor: colores,
+                        data: datos
+                    }]
+            },
+            options: {
+                responsive: true,
+                cutoutPercentage: 50,
+                borderColor: 'rgba(12,12,12,1)',
+                legend: {
+                    position: 'right',
+                },
+            }
+        };
+        this.usersConectadosGraf = new chart_js__WEBPACK_IMPORTED_MODULE_2__["Chart"]('estadoGlobal', this.configUsersConectados);
+    }
     colorRGB() {
         //'rgba(81,81,255,0.4)'
         var color = "(" + this.generarNumero() + "," + this.generarNumero() + "," + this.generarNumero() + ")";
@@ -4562,6 +4654,12 @@ tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])()
 ], VerActividadComponent.prototype, "aluConectados", void 0);
+tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])(_angular_material__WEBPACK_IMPORTED_MODULE_5__["MatPaginator"], null)
+], VerActividadComponent.prototype, "paginatorA", void 0);
+tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])(_angular_material__WEBPACK_IMPORTED_MODULE_5__["MatSort"], null)
+], VerActividadComponent.prototype, "sortA", void 0);
 VerActividadComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'app-ver-actividad',

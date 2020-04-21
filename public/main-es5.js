@@ -531,7 +531,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"row\">\n    <div class=\"col-12\">\n        <h3 class=\"text-center\">{{actividad.nombre}}</h3>\n    </div>\n</div>\n<div class=\"row justify-content-md-center\">\n    <div class=\"col-12\">\n        <h5 class=\"text-center\" *ngIf=\"actividad.estado=='Creada'\">Actividad sin empezar</h5>\n        <h5 class=\"text-center\" *ngIf=\"actividad.estado=='Comenzada'\">Actividad empezada</h5>\n        <h5 class=\"text-center\" *ngIf=\"actividad.estado=='Finalizada'\">Actividad finalizada</h5>\n    </div>\n</div>\n<div class=\"row justify-content-md-center text-center\">\n    <div class=\"col-3 text-left\">\n        <button *ngIf=\" !botonCreadaCargando && !botonFinalizadaCargando && !botonReanudarCargando\" type=\"button\" class=\"btn btn-outline-danger\" (click)=\"cerrarActividad()\">Cerrar Actividad</button>\n        <button *ngIf=\"botonCreadaCargando || botonFinalizadaCargando || botonReanudarCargando\" type=\"button\" class=\"btn btn-outline-danger\" (click)=\"cerrarActividad()\" disabled>Cerrar Actividad</button>\n    </div>\n    <div class=\"row col-6 justify-content-center text-center\" *ngIf=\"!actividadAbierta\">\n        <div class=\"col-2 text-center\">\n            <div class=\"row justify-content-center\">\n                <button type=\"button\" class=\"btn btn-success btn-circle2\" disabled>\n                    <i class=\"fa fa-check\" aria-hidden=\"true\"></i>\n                </button>\n            </div>\n            <div class=\"row justify-content-center\">\n                Creada\n            </div>\n        </div>\n        <div class=\"col-3\">\n            <hr style=\"margin-top: 30%;\">\n        </div>\n        <div class=\"col-2 text-center\">\n            <div class=\"row justify-content-center\">\n                <button *ngIf=\"actividad.estado=='Comenzada' || actividad.estado=='Finalizada'\" type=\"button\"\n                    class=\"btn btn-success btn-circle2\" disabled>\n                    <i class=\"fa fa-check\" aria-hidden=\"true\"></i>\n                </button>\n                <button *ngIf=\"actividad.estado=='Creada'\" type=\"button\" class=\"btn btn-outline-secondary btn-circle2\"\n                    disabled>\n\n                </button>\n            </div>\n            <div class=\"row justify-content-center\">\n                Comenzada\n            </div>\n        </div>\n        <div class=\"col-3\">\n            <hr style=\"margin-top: 30%;\">\n        </div>\n        <div class=\"col-2 text-center\">\n            <div class=\"row justify-content-center\">\n                <button *ngIf=\"actividad.estado=='Finalizada'\" type=\"button\" class=\"btn btn-success btn-circle2\"\n                    disabled>\n                    <i class=\"fa fa-check\" aria-hidden=\"true\"></i>\n                </button>\n                <button *ngIf=\"actividad.estado=='Creada' || actividad.estado=='Comenzada'\" type=\"button\"\n                    class=\"btn btn-outline-secondary btn-circle2\" disabled>\n\n                </button>\n            </div>\n            <div class=\"row justify-content-center\">\n                Finalizada\n            </div>\n        </div>\n    </div>\n    <div class=\"col-3 text-right\">\n        <button *ngIf=\"actividad.estado=='Creada' && !botonCreadaCargando && !botonFinalizadaCargando && !botonReanudarCargando\" type=\"button\" class=\"btn btn-outline-success disenable\"\n            (click)=\"comenzar()\">Comenzar</button>\n        <button *ngIf=\"botonCreadaCargando\" class=\"btn btn-outline-success\" type=\"button\" disabled>\n            <span class=\"spinner-border spinner-border-sm\" role=\"status\" aria-hidden=\"true\"></span>\n            Comenzando...\n        </button>\n        <button *ngIf=\"actividad.estado=='Comenzada' && !botonCreadaCargando && !botonFinalizadaCargando && !botonReanudarCargando\" type=\"button\" class=\"btn btn-outline-dark disenable\"\n            (click)=\"terminar()\">Terminar</button>\n        <button *ngIf=\"botonFinalizadaCargando\" class=\"btn btn-outline-dark\" type=\"button\" disabled>\n            <span class=\"spinner-border spinner-border-sm\" role=\"status\" aria-hidden=\"true\"></span>\n            Terminando...\n        </button>\n        <button *ngIf=\"actividad.estado=='Finalizada' && !botonCreadaCargando && !botonFinalizadaCargando && !botonReanudarCargando\" type=\"button\" class=\"btn btn-outline-success disenable\"\n            (click)=\"comenzar()\">Reanudar Actividad</button>\n        <button *ngIf=\"actividad.estado=='Finalizada' && botonReanudarCargando\" class=\"btn btn-outline-dark\" type=\"button\" disabled>\n            <span class=\"spinner-border spinner-border-sm\" role=\"status\" aria-hidden=\"true\"></span>\n            Reanunando..\n        </button>\n    </div>\n\n</div>\n<br>\n<div class=\"row justify-content-center text-center\">\n    <div *ngIf=\"vistaGeneral\" class=\"btn-group btn-group-toggle\">\n        <label class=\"btn btn-outline-primary active\">\n            <input type=\"radio\" name=\"options\" id=\"general\" (click)=\"cambiarAGeneral()\" checked> General\n        </label>\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAMapa()\"> Mapa de la clase\n        </label>\n    </div>\n    <div *ngIf=\"vistaMapaDeLaClase\" class=\"btn-group btn-group-toggle\">\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"general\" (click)=\"cambiarAGeneral()\"> General\n        </label>\n        <label class=\"btn btn-outline-primary active\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAMapa()\" checked> Mapa de la clase\n        </label>\n    </div>\n</div>\n<br>\n<div id=\"vistaGeneral\">\n    <div class=\"row justify-content-center\">\n        <div class=\"col-5\">\n            <div class=\"card-body\">\n                <h5 class=\"text-center card-title\">Usuarios Conectados</h5>\n                <div class=\"card-content\">\n                    <canvas id=\"usersConectados\"></canvas>\n                    <h6 class=\"text-center\">{{porUsuariosConectados}}% Usuarios conectados</h6>\n                    <!--<h6 >{{((usuariosConectados.length()/usuariosTotales)*100)}}%</h6>-->\n                </div>\n            </div>\n        </div>\n        <div class=\"col-7\">\n            <div class=\"row\">\n                <div class=\"card-body\">\n                    <div class=\"row\">\n                        <h5 class=\"col-4 text-center card-title\">Grafica</h5>\n                        <div class=\"col-4\">\n                            <div class=\"btn-group\">\n                                <button type=\"button\" class=\"btn btn-info dropdown-toggle\" data-toggle=\"dropdown\"\n                                    aria-haspopup=\"true\" aria-expanded=\"false\">\n                                    Estado\n                                </button>\n                                <div class=\"dropdown-menu\">\n                                    <div class=\"dropdown-item\" *ngFor=\"let estado of estados\">\n                                        <input type=\"checkbox\" class=\"form-check-input\" [(ngModel)]=\"estado.checked\">\n                                        <a>{{estado.nombre}}</a>\n                                    </div>\n                                    <!--<a class=\"dropdown-item\" *ngFor=\"let estado of estados\"\n                                        (click)=\"seleccionarEstado(estado)\">{{estado.nombre}}\n                                    </a>-->\n                                </div>\n                            </div>\n                        </div>\n                        <div class=\"col-4\">\n                            <div class=\"btn-group\">\n                                <button type=\"button\" class=\"btn btn-info dropdown-toggle\" data-toggle=\"dropdown\"\n                                    aria-haspopup=\"true\" aria-expanded=\"false\">\n                                    Alumnos\n                                </button>\n                                <div class=\"dropdown-menu\">\n                                    <a *ngIf=\"alumnoSeleccionadoAlumno\" class=\"dropdown-item\">Media de la clase</a>\n                                    <div class=\"dropdown-item\" *ngFor=\"let alumno of alumnosSelect\">\n                                        <input type=\"checkbox\" class=\"form-check-input\" [(ngModel)]=\"alumno.checked\">\n                                        <a>{{alumno.nombre}}</a>\n                                    </div>\n                                    <!--<a class=\"dropdown-item\" *ngFor=\"let alumno of alumnos\"\n                                        (click)=\"seleccionarAlumno(alumno)\">{{alumno.estudiante.nombre}}</a>-->\n                                </div>\n                            </div>\n                        </div>\n                        <div>\n                            <button type=\"button\" class=\"btn btn-outline-success\"\n                                (click)=\"actualizarGraficaLineal()\">Actualizar</button>\n                        </div>\n                    </div>\n        \n                </div>\n            </div>\n            <div class=\"row\">\n                <div class=\"col-12\">\n                    <div class=\"card-content\">\n                        <canvas id=\"graficaLineal\"></canvas>\n                    </div>\n                </div>\n            </div>\n        </div>\n\n\n    </div>\n    \n</div>\n<div id=\"vistaMapaDeLaClase\" style=\"display: none;\" class=\"row justify-content-md-center\">\n    <div class=\"card col-md-11\">\n        <div class=\"card-body\">\n            <h5 class=\"card-title\">Distribucion de la clase</h5>\n            <div id=\"clase\" class=\"example-boundary\">\n                <div id=\"{{item.id_item}}\" *ngFor=\"let item of actividad.alumnos\" class=\"example-box\"\n                    ondrop=\"myFunction(item)\" [cdkDragFreeDragPosition]=\"item.posicion\"\n                    cdkDragBoundary=\".example-boundary\" cdkDrag (cdkDragEnded)=\"dragEnded($event,item)\">\n                    {{item.estudiante.nombre}}\n                </div>\n            </div>\n        </div>\n    </div>\n</div>";
+    __webpack_exports__["default"] = "<div class=\"row\">\n    <div class=\"col-12\">\n        <h3 class=\"text-center\">{{actividad.nombre}}</h3>\n    </div>\n</div>\n<div class=\"row justify-content-md-center\">\n    <div class=\"col-12\">\n        <h5 class=\"text-center\" *ngIf=\"actividad.estado=='Creada'\">Actividad sin empezar</h5>\n        <h5 class=\"text-center\" *ngIf=\"actividad.estado=='Comenzada'\">Actividad empezada</h5>\n        <h5 class=\"text-center\" *ngIf=\"actividad.estado=='Finalizada'\">Actividad finalizada</h5>\n    </div>\n</div>\n<div class=\"row justify-content-md-center text-center\">\n    <div class=\"col-3 text-left\">\n        <button *ngIf=\" !botonCreadaCargando && !botonFinalizadaCargando && !botonReanudarCargando\" type=\"button\"\n            class=\"btn btn-outline-danger\" (click)=\"cerrarActividad()\">Cerrar Actividad</button>\n        <button *ngIf=\"botonCreadaCargando || botonFinalizadaCargando || botonReanudarCargando\" type=\"button\"\n            class=\"btn btn-outline-danger\" (click)=\"cerrarActividad()\" disabled>Cerrar Actividad</button>\n    </div>\n    <div class=\"row col-6 justify-content-center text-center\" *ngIf=\"!actividadAbierta\">\n        <div class=\"col-2 text-center\">\n            <div class=\"row justify-content-center\">\n                <button type=\"button\" class=\"btn btn-success btn-circle2\" disabled>\n                    <i class=\"fa fa-check\" aria-hidden=\"true\"></i>\n                </button>\n            </div>\n            <div class=\"row justify-content-center\">\n                Creada\n            </div>\n        </div>\n        <div class=\"col-3\">\n            <hr style=\"margin-top: 30%;\">\n        </div>\n        <div class=\"col-2 text-center\">\n            <div class=\"row justify-content-center\">\n                <button *ngIf=\"actividad.estado=='Comenzada' || actividad.estado=='Finalizada'\" type=\"button\"\n                    class=\"btn btn-success btn-circle2\" disabled>\n                    <i class=\"fa fa-check\" aria-hidden=\"true\"></i>\n                </button>\n                <button *ngIf=\"actividad.estado=='Creada'\" type=\"button\" class=\"btn btn-outline-secondary btn-circle2\"\n                    disabled>\n\n                </button>\n            </div>\n            <div class=\"row justify-content-center\">\n                Comenzada\n            </div>\n        </div>\n        <div class=\"col-3\">\n            <hr style=\"margin-top: 30%;\">\n        </div>\n        <div class=\"col-2 text-center\">\n            <div class=\"row justify-content-center\">\n                <button *ngIf=\"actividad.estado=='Finalizada'\" type=\"button\" class=\"btn btn-success btn-circle2\"\n                    disabled>\n                    <i class=\"fa fa-check\" aria-hidden=\"true\"></i>\n                </button>\n                <button *ngIf=\"actividad.estado=='Creada' || actividad.estado=='Comenzada'\" type=\"button\"\n                    class=\"btn btn-outline-secondary btn-circle2\" disabled>\n\n                </button>\n            </div>\n            <div class=\"row justify-content-center\">\n                Finalizada\n            </div>\n        </div>\n    </div>\n    <div class=\"col-3 text-right\">\n        <button\n            *ngIf=\"actividad.estado=='Creada' && !botonCreadaCargando && !botonFinalizadaCargando && !botonReanudarCargando\"\n            type=\"button\" class=\"btn btn-outline-success disenable\" (click)=\"comenzar()\">Comenzar</button>\n        <button *ngIf=\"botonCreadaCargando\" class=\"btn btn-outline-success\" type=\"button\" disabled>\n            <span class=\"spinner-border spinner-border-sm\" role=\"status\" aria-hidden=\"true\"></span>\n            Comenzando...\n        </button>\n        <button\n            *ngIf=\"actividad.estado=='Comenzada' && !botonCreadaCargando && !botonFinalizadaCargando && !botonReanudarCargando\"\n            type=\"button\" class=\"btn btn-outline-dark disenable\" (click)=\"terminar()\">Terminar</button>\n        <button *ngIf=\"botonFinalizadaCargando\" class=\"btn btn-outline-dark\" type=\"button\" disabled>\n            <span class=\"spinner-border spinner-border-sm\" role=\"status\" aria-hidden=\"true\"></span>\n            Terminando...\n        </button>\n        <button\n            *ngIf=\"actividad.estado=='Finalizada' && !botonCreadaCargando && !botonFinalizadaCargando && !botonReanudarCargando\"\n            type=\"button\" class=\"btn btn-outline-success disenable\" (click)=\"comenzar()\">Reanudar Actividad</button>\n        <button *ngIf=\"actividad.estado=='Finalizada' && botonReanudarCargando\" class=\"btn btn-outline-dark\"\n            type=\"button\" disabled>\n            <span class=\"spinner-border spinner-border-sm\" role=\"status\" aria-hidden=\"true\"></span>\n            Reanunando..\n        </button>\n    </div>\n\n</div>\n<br>\n<div class=\"row justify-content-center text-center\">\n    <div *ngIf=\"vistaGeneral\" class=\"btn-group btn-group-toggle\">\n        <label class=\"btn btn-outline-primary active\">\n            <input type=\"radio\" name=\"options\" id=\"general\" (click)=\"cambiarAGeneral()\" checked> General\n        </label>\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAMapa()\"> Mapa de la clase\n        </label>\n    </div>\n    <div *ngIf=\"vistaMapaDeLaClase\" class=\"btn-group btn-group-toggle\">\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"general\" (click)=\"cambiarAGeneral()\"> General\n        </label>\n        <label class=\"btn btn-outline-primary active\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAMapa()\" checked> Mapa de la clase\n        </label>\n    </div>\n</div>\n<br>\n<div id=\"vistaGeneral\">\n    <div class=\"row justify-content-center\">\n        <div style=\"padding-bottom: 0%;\" class=\"col-5\">\n            <h5 class=\"text-center card-title\">Usuarios Conectados</h5>\n            <canvas id=\"usersConectados\"></canvas>\n            <h6 class=\"text-center\">{{porUsuariosConectados}}% Usuarios conectados</h6>\n            <!--<h6 >{{((usuariosConectados.length()/usuariosTotales)*100)}}%</h6>-->\n        </div>\n        <div class=\"col-7\">\n            <div>\n                <div class=\"row\">\n                    <h5 class=\"col-12 text-center card-title\">Grafica</h5>\n                </div>\n                <div class=\"row text-center justify-content-center\">\n                    <div class=\"col-4\">\n                        <div class=\"btn-group\">\n                            <button type=\"button\" class=\"btn btn-info dropdown-toggle\" data-toggle=\"dropdown\"\n                                aria-haspopup=\"true\" aria-expanded=\"false\">\n                                Estado\n                            </button>\n                            <div class=\"dropdown-menu\">\n                                <div class=\"dropdown-item\" *ngFor=\"let estado of estados\">\n                                    <input type=\"checkbox\" class=\"form-check-input\" [(ngModel)]=\"estado.checked\">\n                                    <a>{{estado.nombre}}</a>\n                                </div>\n                                <!--<a class=\"dropdown-item\" *ngFor=\"let estado of estados\"\n                                        (click)=\"seleccionarEstado(estado)\">{{estado.nombre}}\n                                    </a>-->\n                            </div>\n                        </div>\n                    </div>\n                    <div class=\"col-4\">\n                        <div class=\"btn-group\">\n                            <button type=\"button\" class=\"btn btn-info dropdown-toggle\" data-toggle=\"dropdown\"\n                                aria-haspopup=\"true\" aria-expanded=\"false\">\n                                Alumnos\n                            </button>\n                            <div class=\"dropdown-menu\">\n                                <a *ngIf=\"alumnoSeleccionadoAlumno\" class=\"dropdown-item\">Media de la clase</a>\n                                <div class=\"dropdown-item\" *ngFor=\"let alumno of alumnosSelect\">\n                                    <input type=\"checkbox\" class=\"form-check-input\" [(ngModel)]=\"alumno.checked\">\n                                    <a>{{alumno.nombre}}</a>\n                                </div>\n                                <!--<a class=\"dropdown-item\" *ngFor=\"let alumno of alumnos\"\n                                        (click)=\"seleccionarAlumno(alumno)\">{{alumno.estudiante.nombre}}</a>-->\n                            </div>\n                        </div>\n                    </div>\n                    <div class=\"col-4\">\n                        <button type=\"button\" class=\"btn btn-outline-success\"\n                            (click)=\"actualizarGraficaLineal()\">Actualizar</button>\n                    </div>\n                </div>\n            </div>\n            <div>\n                <canvas id=\"graficaLineal\"></canvas>\n            </div>\n        </div>\n    </div>\n    <br>\n    <div class=\"row justify-content-center\">\n        <div class=\"col-7\">\n            <div class=\"text-center\">\n                <h5>Alumnos</h5>\n            </div>\n            <div class=\"example-header\">\n                <mat-form-field>\n                    <input matInput (keyup)=\"applyFilterA($event.target.value)\" placeholder=\"Filtrar\">\n                </mat-form-field>\n            </div>\n            <div class=\"example-container\">\n                <mat-table [dataSource]=\"dataSourceAlumnos\" class=\"mat-elevation-z1\" matSort>\n                    <ng-container matColumnDef=\"nombre\">\n                        <mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </mat-header-cell>\n                        <mat-cell *matCellDef=\"let element\"> {{element.name}} </mat-cell>\n                    </ng-container>\n                    <ng-container matColumnDef=\"estado\">\n                        <mat-header-cell *matHeaderCellDef mat-sort-header> Estado </mat-header-cell>\n                        <mat-cell *matCellDef=\"let row\"> {{row.weight}} </mat-cell>\n                    </ng-container>\n                    <ng-container matColumnDef=\"pulsaciones\">\n                        <mat-header-cell *matHeaderCellDef mat-sort-header> Pulsaciones </mat-header-cell>\n                        <mat-cell *matCellDef=\"let row\"> {{row.symbol}} ppm </mat-cell>\n                    </ng-container>\n                    <mat-header-row *matHeaderRowDef=\"displayedColumnsAlumnos\"></mat-header-row>\n                    <mat-row *matRowDef=\"let row; columns: displayedColumnsAlumnos;\">\n                    </mat-row>\n                </mat-table>\n                <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\n            </div>\n        </div>\n        <div class=\"col-5 text-center\">\n            <div class=\"row\">\n                <div class=\"col-12 text-center\">\n                    <h5>Estado de la clase</h5>\n                </div>\n            </div>\n            <div class=\"row justify-content-center\">\n                <div class=\"col-4\">\n                    <div class=\"btn-group\">\n                        <button type=\"button\" class=\"btn btn-info dropdown-toggle\" data-toggle=\"dropdown\"\n                            aria-haspopup=\"true\" aria-expanded=\"false\">\n                            Estado\n                        </button>\n                        <div class=\"dropdown-menu\">\n                            <div class=\"dropdown-item\" *ngFor=\"let estado of estadosGlobales\">\n                                <input type=\"checkbox\" class=\"form-check-input\" [(ngModel)]=\"estado.checked\">\n                                <a>{{estado.nombre}}</a>\n                            </div>\n                            <!--<a class=\"dropdown-item\" *ngFor=\"let estado of estados\"\n                                    (click)=\"seleccionarEstado(estado)\">{{estado.nombre}}\n                                </a>-->\n                        </div>\n                    </div>\n                </div>\n                <div class=\"col-4\">\n                    <button type=\"button\" class=\"btn btn-outline-success\"\n                        (click)=\"actualizarGraficaGlobal()\">Actualizar</button>\n                </div>\n            </div>\n            <br>\n            <div>\n                <canvas id=\"estadoGlobal\"></canvas>\n            </div>\n        </div>\n    </div>\n</div>\n<div id=\"vistaMapaDeLaClase\" style=\"display: none;\" class=\"row justify-content-md-center\">\n    <div class=\"card col-md-11\">\n        <div class=\"card-body\">\n            <h5 class=\"card-title\">Distribucion de la clase</h5>\n            <div id=\"clase\" class=\"example-boundary\">\n                <div id=\"{{item.id_item}}\" *ngFor=\"let item of actividad.alumnos\" class=\"example-box\"\n                    ondrop=\"myFunction(item)\" [cdkDragFreeDragPosition]=\"item.posicion\"\n                    cdkDragBoundary=\".example-boundary\" cdkDrag (cdkDragEnded)=\"dragEnded($event,item)\">\n                    {{item.estudiante.nombre}}\n                </div>\n            </div>\n        </div>\n    </div>\n</div>";
     /***/
   },
 
@@ -1824,7 +1824,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       declarations: [_app_component__WEBPACK_IMPORTED_MODULE_50__["AppComponent"], _profesor_profesor_component__WEBPACK_IMPORTED_MODULE_52__["ProfesorComponent"], _estudiante_estudiante_component__WEBPACK_IMPORTED_MODULE_53__["EstudianteComponent"], _profesor_sidenav_profesor_sidenav_profesor_component__WEBPACK_IMPORTED_MODULE_54__["SidenavProfesorComponent"], _profesor_crear_actividad_crear_actividad_component__WEBPACK_IMPORTED_MODULE_55__["CrearActividadComponent"], _profesor_ver_actividad_ver_actividad_component__WEBPACK_IMPORTED_MODULE_56__["VerActividadComponent"], _profesor_editar_actividad_editar_actividad_component__WEBPACK_IMPORTED_MODULE_57__["EditarActividadComponent"], _profesor_crear_clase_crear_clase_component__WEBPACK_IMPORTED_MODULE_58__["CrearClaseComponent"], _profesor_editar_clase_editar_clase_component__WEBPACK_IMPORTED_MODULE_59__["EditarClaseComponent"], _profesor_ver_clase_ver_clase_component__WEBPACK_IMPORTED_MODULE_60__["VerClaseComponent"], _profesor_mensaje_mensaje_component__WEBPACK_IMPORTED_MODULE_61__["MensajeComponent"]],
       exports: [_angular_material_sidenav__WEBPACK_IMPORTED_MODULE_33__["MatSidenavModule"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_19__["MatDialogModule"], _angular_material_stepper__WEBPACK_IMPORTED_MODULE_17__["MatStepperModule"], _angular_cdk_a11y__WEBPACK_IMPORTED_MODULE_2__["A11yModule"], //ClipboardModule,
       _angular_cdk_stepper__WEBPACK_IMPORTED_MODULE_6__["CdkStepperModule"], _angular_cdk_table__WEBPACK_IMPORTED_MODULE_7__["CdkTableModule"], _angular_cdk_tree__WEBPACK_IMPORTED_MODULE_8__["CdkTreeModule"], _angular_cdk_drag_drop__WEBPACK_IMPORTED_MODULE_3__["DragDropModule"], _angular_material_autocomplete__WEBPACK_IMPORTED_MODULE_9__["MatAutocompleteModule"], _angular_material_badge__WEBPACK_IMPORTED_MODULE_10__["MatBadgeModule"], _angular_material_bottom_sheet__WEBPACK_IMPORTED_MODULE_11__["MatBottomSheetModule"], _angular_material_button__WEBPACK_IMPORTED_MODULE_12__["MatButtonModule"], _angular_material_button_toggle__WEBPACK_IMPORTED_MODULE_13__["MatButtonToggleModule"], _angular_material_card__WEBPACK_IMPORTED_MODULE_14__["MatCardModule"], _angular_material_checkbox__WEBPACK_IMPORTED_MODULE_15__["MatCheckboxModule"], _angular_material_chips__WEBPACK_IMPORTED_MODULE_16__["MatChipsModule"], _angular_material_stepper__WEBPACK_IMPORTED_MODULE_17__["MatStepperModule"], _angular_material_datepicker__WEBPACK_IMPORTED_MODULE_18__["MatDatepickerModule"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_19__["MatDialogModule"], _angular_material_divider__WEBPACK_IMPORTED_MODULE_20__["MatDividerModule"], _angular_material_expansion__WEBPACK_IMPORTED_MODULE_21__["MatExpansionModule"], _angular_material_grid_list__WEBPACK_IMPORTED_MODULE_22__["MatGridListModule"], _angular_material_icon__WEBPACK_IMPORTED_MODULE_23__["MatIconModule"], _angular_material_input__WEBPACK_IMPORTED_MODULE_24__["MatInputModule"], _angular_material_list__WEBPACK_IMPORTED_MODULE_25__["MatListModule"], _angular_material_menu__WEBPACK_IMPORTED_MODULE_26__["MatMenuModule"], _angular_material_core__WEBPACK_IMPORTED_MODULE_27__["MatNativeDateModule"], _angular_material_paginator__WEBPACK_IMPORTED_MODULE_28__["MatPaginatorModule"], _angular_material_progress_bar__WEBPACK_IMPORTED_MODULE_29__["MatProgressBarModule"], _angular_material_progress_spinner__WEBPACK_IMPORTED_MODULE_30__["MatProgressSpinnerModule"], _angular_material_radio__WEBPACK_IMPORTED_MODULE_31__["MatRadioModule"], _angular_material_core__WEBPACK_IMPORTED_MODULE_27__["MatRippleModule"], _angular_material_select__WEBPACK_IMPORTED_MODULE_32__["MatSelectModule"], _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_33__["MatSidenavModule"], _angular_material_slider__WEBPACK_IMPORTED_MODULE_34__["MatSliderModule"], _angular_material_slide_toggle__WEBPACK_IMPORTED_MODULE_35__["MatSlideToggleModule"], _angular_material_snack_bar__WEBPACK_IMPORTED_MODULE_36__["MatSnackBarModule"], _angular_material_sort__WEBPACK_IMPORTED_MODULE_37__["MatSortModule"], _angular_material_table__WEBPACK_IMPORTED_MODULE_38__["MatTableModule"], _angular_material_tabs__WEBPACK_IMPORTED_MODULE_39__["MatTabsModule"], _angular_material_toolbar__WEBPACK_IMPORTED_MODULE_40__["MatToolbarModule"], _angular_material_tooltip__WEBPACK_IMPORTED_MODULE_41__["MatTooltipModule"], _angular_material_tree__WEBPACK_IMPORTED_MODULE_42__["MatTreeModule"], _angular_cdk_portal__WEBPACK_IMPORTED_MODULE_4__["PortalModule"], _angular_cdk_scrolling__WEBPACK_IMPORTED_MODULE_5__["ScrollingModule"], _angular_material_button__WEBPACK_IMPORTED_MODULE_12__["MatButtonModule"], _angular_material_input__WEBPACK_IMPORTED_MODULE_24__["MatInputModule"], _angular_material_core__WEBPACK_IMPORTED_MODULE_27__["MatRippleModule"], _angular_material_toolbar__WEBPACK_IMPORTED_MODULE_40__["MatToolbarModule"], _angular_material_button__WEBPACK_IMPORTED_MODULE_12__["MatButtonModule"], _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_33__["MatSidenavModule"], _angular_material_icon__WEBPACK_IMPORTED_MODULE_23__["MatIconModule"], _angular_material_list__WEBPACK_IMPORTED_MODULE_25__["MatListModule"], _angular_material_stepper__WEBPACK_IMPORTED_MODULE_17__["MatStepperModule"], _angular_material_input__WEBPACK_IMPORTED_MODULE_24__["MatInputModule"], _profesor_mensaje_mensaje_component__WEBPACK_IMPORTED_MODULE_61__["MensajeComponent"], _fortawesome_angular_fontawesome__WEBPACK_IMPORTED_MODULE_48__["FontAwesomeModule"]],
-      imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_43__["BrowserModule"], _app_routing_module__WEBPACK_IMPORTED_MODULE_49__["AppRoutingModule"], _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_51__["BrowserAnimationsModule"], _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_33__["MatSidenavModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_44__["FormsModule"], _angular_material_button__WEBPACK_IMPORTED_MODULE_12__["MatButtonModule"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_19__["MatDialogModule"], _angular_material_stepper__WEBPACK_IMPORTED_MODULE_17__["MatStepperModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_44__["ReactiveFormsModule"], _angular_material_table__WEBPACK_IMPORTED_MODULE_38__["MatTableModule"], _angular_material_checkbox__WEBPACK_IMPORTED_MODULE_15__["MatCheckboxModule"], _angular_material_toolbar__WEBPACK_IMPORTED_MODULE_40__["MatToolbarModule"], _angular_material_button__WEBPACK_IMPORTED_MODULE_12__["MatButtonModule"], _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_33__["MatSidenavModule"], _angular_material_icon__WEBPACK_IMPORTED_MODULE_23__["MatIconModule"], _angular_material_list__WEBPACK_IMPORTED_MODULE_25__["MatListModule"], _angular_material_stepper__WEBPACK_IMPORTED_MODULE_17__["MatStepperModule"], _angular_material_input__WEBPACK_IMPORTED_MODULE_24__["MatInputModule"], _angular_material_paginator__WEBPACK_IMPORTED_MODULE_28__["MatPaginatorModule"], _angular_cdk_drag_drop__WEBPACK_IMPORTED_MODULE_3__["DragDropModule"], ngx_webcam__WEBPACK_IMPORTED_MODULE_45__["WebcamModule"], _angular_common_http__WEBPACK_IMPORTED_MODULE_46__["HttpClientModule"]],
+      imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_43__["BrowserModule"], _app_routing_module__WEBPACK_IMPORTED_MODULE_49__["AppRoutingModule"], _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_51__["BrowserAnimationsModule"], _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_33__["MatSidenavModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_44__["FormsModule"], _angular_material_button__WEBPACK_IMPORTED_MODULE_12__["MatButtonModule"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_19__["MatDialogModule"], _angular_material_stepper__WEBPACK_IMPORTED_MODULE_17__["MatStepperModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_44__["ReactiveFormsModule"], _angular_material_table__WEBPACK_IMPORTED_MODULE_38__["MatTableModule"], _angular_material_checkbox__WEBPACK_IMPORTED_MODULE_15__["MatCheckboxModule"], _angular_material_toolbar__WEBPACK_IMPORTED_MODULE_40__["MatToolbarModule"], _angular_material_button__WEBPACK_IMPORTED_MODULE_12__["MatButtonModule"], _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_33__["MatSidenavModule"], _angular_material_icon__WEBPACK_IMPORTED_MODULE_23__["MatIconModule"], _angular_material_list__WEBPACK_IMPORTED_MODULE_25__["MatListModule"], _angular_material_stepper__WEBPACK_IMPORTED_MODULE_17__["MatStepperModule"], _angular_material_input__WEBPACK_IMPORTED_MODULE_24__["MatInputModule"], _angular_material_paginator__WEBPACK_IMPORTED_MODULE_28__["MatPaginatorModule"], _angular_cdk_drag_drop__WEBPACK_IMPORTED_MODULE_3__["DragDropModule"], ngx_webcam__WEBPACK_IMPORTED_MODULE_45__["WebcamModule"], _angular_common_http__WEBPACK_IMPORTED_MODULE_46__["HttpClientModule"], _angular_platform_browser__WEBPACK_IMPORTED_MODULE_43__["BrowserModule"], _angular_material_table__WEBPACK_IMPORTED_MODULE_38__["MatTableModule"], _angular_material_sort__WEBPACK_IMPORTED_MODULE_37__["MatSortModule"]],
       providers: [_angular_material_sidenav__WEBPACK_IMPORTED_MODULE_33__["MatSidenavModule"], _angular_material_stepper__WEBPACK_IMPORTED_MODULE_17__["MatStepperModule"], _socketio_service__WEBPACK_IMPORTED_MODULE_47__["SocketioService"]],
       entryComponents: [_profesor_mensaje_mensaje_component__WEBPACK_IMPORTED_MODULE_61__["MensajeComponent"]],
       bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_50__["AppComponent"]]
@@ -5846,6 +5846,64 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var _profesor_profesor_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
     /*! ../../profesor/profesor.component */
     "./src/app/profesor/profesor.component.ts");
+    /* harmony import */
+
+
+    var _angular_material__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    /*! @angular/material */
+    "./node_modules/@angular/material/esm2015/material.js");
+
+    var ELEMENT_DATA = [{
+      position: 1,
+      name: 'Hydrogen',
+      weight: 1.0079,
+      symbol: 'H'
+    }, {
+      position: 2,
+      name: 'Helium',
+      weight: 4.0026,
+      symbol: 'He'
+    }, {
+      position: 3,
+      name: 'Lithium',
+      weight: 6.941,
+      symbol: 'Li'
+    }, {
+      position: 4,
+      name: 'Beryllium',
+      weight: 9.0122,
+      symbol: 'Be'
+    }, {
+      position: 5,
+      name: 'Boron',
+      weight: 10.811,
+      symbol: 'B'
+    }, {
+      position: 6,
+      name: 'Carbon',
+      weight: 12.0107,
+      symbol: 'C'
+    }, {
+      position: 7,
+      name: 'Nitrogen',
+      weight: 14.0067,
+      symbol: 'N'
+    }, {
+      position: 8,
+      name: 'Oxygen',
+      weight: 15.9994,
+      symbol: 'O'
+    }, {
+      position: 9,
+      name: 'Fluorine',
+      weight: 18.9984,
+      symbol: 'F'
+    }, {
+      position: 10,
+      name: 'Neon',
+      weight: 20.1797,
+      symbol: 'Ne'
+    }];
 
     var VerActividadComponent =
     /*#__PURE__*/
@@ -5903,6 +5961,47 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           nombre: 'motivado',
           checked: false
         }];
+        this.estadosGlobales = [{
+          nombre: 'alegria',
+          checked: true,
+          color: 'rgba(255,255,84,1)'
+        }, {
+          nombre: 'asco',
+          checked: true,
+          color: 'rgba(0,0,0,0.5)'
+        }, {
+          nombre: 'miedo',
+          checked: false,
+          color: 'rgba(0,150,0,1)'
+        }, {
+          nombre: 'sorpresa',
+          checked: false,
+          color: 'rgba(89,189,255,1)'
+        }, {
+          nombre: 'tristeza',
+          checked: false,
+          color: 'rgba(81,81,255,1)'
+        }, {
+          nombre: 'ira',
+          checked: false,
+          color: 'rgba(255,0,0,1)'
+        }, {
+          nombre: 'distraido',
+          checked: false,
+          color: 'rgba(70,70,70,1)'
+        }, {
+          nombre: 'concentrado',
+          checked: false,
+          color: 'rgba(84,255,84,1)'
+        }, {
+          nombre: 'frustrado',
+          checked: false,
+          color: 'rgba(123,123,123,1)'
+        }, {
+          nombre: 'motivado',
+          checked: false,
+          color: 'rgba(84,25,80,1)'
+        }];
         this.resumen = {
           alegria: 0,
           asco: 0,
@@ -5944,6 +6043,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               display: true,
               text: this.estadoSeleccionado
             },
+            legend: {
+              position: 'bottom'
+            },
             scales: {
               xAxes: [{
                 type: 'time',
@@ -5974,7 +6076,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         this.configuracionGraficaResumen = {};
         this.botonCreadaCargando = false;
         this.botonFinalizadaCargando = false;
-        this.botonReanudarCargando = false; //console.log(this.usuariosConectados);
+        this.botonReanudarCargando = false; //Tabla de estudiantes
+
+        this.displayedColumnsAlumnos = ['nombre', 'estado', 'pulsaciones']; //console.log(this.usuariosConectados);
 
         this.comprobarDatos();
       }
@@ -5990,6 +6094,19 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               _this11.insertarResumen();
             }, 20000);
           }
+
+          this.dataSourceAlumnos = new _angular_material__WEBPACK_IMPORTED_MODULE_5__["MatTableDataSource"](ELEMENT_DATA);
+          this.dataSourceAlumnos.paginator = this.paginatorA;
+          this.dataSourceAlumnos.sort = this.sortA;
+        }
+      }, {
+        key: "applyFilterA",
+        value: function applyFilterA(filterValue) {
+          filterValue = filterValue.trim(); // Remove whitespace
+
+          filterValue = filterValue.toLowerCase(); // Datasource defaults to lowercase matches
+
+          this.dataSourceAlumnos.filter = filterValue;
         }
       }, {
         key: "cargarGraficas",
@@ -6047,7 +6164,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                         responsive: true,
                         cutoutPercentage: 50,
                         rotation: 1 * Math.PI,
-                        circumference: 1 * Math.PI
+                        circumference: 1 * Math.PI,
+                        legend: {
+                          position: 'bottom'
+                        }
                       }
                     };
                     this.porUsuariosConectados = this.numAlumnosConectados / this.numAlumnosTotales * 100; //console.log("Porcentaje:")
@@ -6121,6 +6241,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         key: "ngAfterViewInit",
         value: function ngAfterViewInit() {
           this.cargarGraficas();
+          this.actualizarGraficaGlobal();
         }
       }, {
         key: "comprobarDatos",
@@ -6160,7 +6281,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                             responsive: true,
                             cutoutPercentage: 50,
                             rotation: 1 * Math.PI,
-                            circumference: 1 * Math.PI
+                            circumference: 1 * Math.PI,
+                            legend: {
+                              position: 'bottom'
+                            }
                           }
                         };
                         this.usersConectadosGraf = null;
@@ -6443,26 +6567,32 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "seleccionarEstado",
         value: function seleccionarEstado(estado) {
-          console.log(this.estados);
+          /*console.log(this.estados);
           this.estadoSeleccionado = estado;
-
           if (this.objAlumnoSeleccionado == null) {
             this.configuracionGraficaLineal = {
               type: 'line',
               data: {
-                datasets: [{
-                  label: this.estadoSeleccionado,
-                  backgroundColor: this.ColorSad,
-                  borderColor: this.ColorSad,
-                  fill: false,
-                  data: this.actividad.resumen['' + this.estadoSeleccionado + '']
-                }]
+                datasets: [
+                  {
+                    label: this.estadoSeleccionado,
+                    backgroundColor: this.ColorSad,
+                    borderColor: this.ColorSad,
+                    fill: false,
+                    data: this.actividad.resumen['' + this.estadoSeleccionado + ''],
+                  }
+                ]
+                   },
+              legend:{
+                labels:{
+                  position: 'bottom',
+                }
               },
               options: {
                 responsive: true,
                 title: {
                   display: true,
-                  text: this.estadoSeleccionado
+                  text: this.estadoSeleccionado,
                 },
                 scales: {
                   xAxes: [{
@@ -6489,26 +6619,29 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                 }
               }
             };
-            this.graficaLineal = new chart_js__WEBPACK_IMPORTED_MODULE_2__["Chart"]('graficaLineal', this.configuracionGraficaLineal);
-          } else {
-            for (var i = 0; i < this.actividad.alumnos.length; i++) {
+            this.graficaLineal = new Chart('graficaLineal', this.configuracionGraficaLineal);
+          }
+          else {
+            for (let i = 0; i < this.actividad.alumnos.length; i++) {
               if (this.actividad.alumnos[i].id_item == this.objAlumnoSeleccionado.id_item) {
                 this.configuracionGraficaLineal = {
                   type: 'line',
                   data: {
-                    datasets: [{
-                      label: this.estadoSeleccionado,
-                      backgroundColor: this.ColorSad,
-                      borderColor: this.ColorSad,
-                      fill: false,
-                      data: this.actividad.alumnos[i].datos['' + this.estadoSeleccionado + '']
-                    }]
-                  },
+                    datasets: [
+                      {
+                        label: this.estadoSeleccionado,
+                        backgroundColor: this.ColorSad,
+                        borderColor: this.ColorSad,
+                        fill: false,
+                        data: this.actividad.alumnos[i].datos['' + this.estadoSeleccionado + ''],
+                      }
+                    ]
+                       },
                   options: {
                     responsive: true,
                     title: {
                       display: true,
-                      text: this.estadoSeleccionado
+                      text: this.estadoSeleccionado,
                     },
                     scales: {
                       xAxes: [{
@@ -6535,37 +6668,38 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                     }
                   }
                 };
-                this.graficaLineal = new chart_js__WEBPACK_IMPORTED_MODULE_2__["Chart"]('graficaLineal', this.configuracionGraficaLineal);
+                this.graficaLineal = new Chart('graficaLineal', this.configuracionGraficaLineal);
               }
             }
-          }
+          }*/
         }
       }, {
         key: "seleccionarAlumno",
         value: function seleccionarAlumno(alumno) {
-          console.log(this.alumnosSelect);
+          /*console.log(this.alumnosSelect);
           this.alumnoSeleccionado = alumno.estudiante.nombre;
           this.objAlumnoSeleccionado = alumno;
           this.alumnoSeleccionadoAlumno = true;
-
-          for (var i = 0; i < this.actividad.alumnos.length; i++) {
+          for (let i = 0; i < this.actividad.alumnos.length; i++) {
             if (this.actividad.alumnos[i].id_item == this.objAlumnoSeleccionado.id_item) {
               this.configuracionGraficaLineal = {
                 type: 'line',
                 data: {
-                  datasets: [{
-                    label: this.estadoSeleccionado,
-                    backgroundColor: this.ColorSad,
-                    borderColor: this.ColorSad,
-                    fill: false,
-                    data: this.actividad.alumnos[i].datos['' + this.estadoSeleccionado + '']
-                  }]
-                },
+                  datasets: [
+                    {
+                      label: this.estadoSeleccionado,
+                      backgroundColor: this.ColorSad,
+                      borderColor: this.ColorSad,
+                      fill: false,
+                      data: this.actividad.alumnos[i].datos['' + this.estadoSeleccionado + ''],
+                    }
+                  ]
+                     },
                 options: {
                   responsive: true,
                   title: {
                     display: true,
-                    text: this.estadoSeleccionado
+                    text: this.estadoSeleccionado,
                   },
                   scales: {
                     xAxes: [{
@@ -6592,9 +6726,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                   }
                 }
               };
-              this.graficaLineal = new chart_js__WEBPACK_IMPORTED_MODULE_2__["Chart"]('graficaLineal', this.configuracionGraficaLineal);
+              this.graficaLineal = new Chart('graficaLineal', this.configuracionGraficaLineal);
             }
-          }
+          }*/
         }
       }, {
         key: "seleccionarMediaAlumnos",
@@ -6715,6 +6849,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                           display: true,
                           text: this.estadoSeleccionado
                         },
+                        legend: {
+                          position: 'bottom'
+                        },
                         scales: {
                           xAxes: [{
                             type: 'time',
@@ -6751,6 +6888,42 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           }));
         }
       }, {
+        key: "actualizarGraficaGlobal",
+        value: function actualizarGraficaGlobal() {
+          console.log(this.estadosGlobales);
+          var labels = [];
+          var colores = [];
+          var datos = [];
+
+          for (var i = 0; i < this.estadosGlobales.length; i++) {
+            if (this.estadosGlobales[i].checked) {
+              labels.push(this.estadosGlobales[i].nombre);
+              colores.push(this.estadosGlobales[i].color);
+              datos.push(1);
+            }
+          }
+
+          this.configUsersConectados = {
+            type: 'doughnut',
+            data: {
+              labels: labels,
+              datasets: [{
+                backgroundColor: colores,
+                data: datos
+              }]
+            },
+            options: {
+              responsive: true,
+              cutoutPercentage: 50,
+              borderColor: 'rgba(12,12,12,1)',
+              legend: {
+                position: 'right'
+              }
+            }
+          };
+          this.usersConectadosGraf = new chart_js__WEBPACK_IMPORTED_MODULE_2__["Chart"]('estadoGlobal', this.configUsersConectados);
+        }
+      }, {
         key: "colorRGB",
         value: function colorRGB() {
           //'rgba(81,81,255,0.4)'
@@ -6780,6 +6953,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])()], VerActividadComponent.prototype, "actividad", void 0);
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])()], VerActividadComponent.prototype, "aluConectados", void 0);
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])(_angular_material__WEBPACK_IMPORTED_MODULE_5__["MatPaginator"], null)], VerActividadComponent.prototype, "paginatorA", void 0);
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])(_angular_material__WEBPACK_IMPORTED_MODULE_5__["MatSort"], null)], VerActividadComponent.prototype, "sortA", void 0);
     VerActividadComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
       selector: 'app-ver-actividad',
       template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
