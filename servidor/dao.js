@@ -86,6 +86,10 @@ function Dao() {
         eliminar(this.Actividad, { _id: ObjectID(act._id) }, callback);
     }
 
+    this.obtenerActividadCriterio = function(id,callback){
+        obtener(this.Actividad,{ _id: ObjectID(id) },callback);
+    }
+
     this.mostrarActividades = function (callback) {
         obtenerTodos(this.Actividad, callback);
     }

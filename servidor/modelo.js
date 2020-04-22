@@ -158,6 +158,8 @@ function Centro() {
         var ju = this;
         this.dao.connect(function (db) {
             ju.dao.obtenerClaseCriterio(clase._id, function (c) {
+                console.log(c)
+                console.log("clase actualizada");
                 callback(c);
                 db.close();
             });
@@ -220,36 +222,56 @@ function Centro() {
             });*/
             this.dao.connect(function (db) {
                 ju.dao.insertarActividad(a, function (ru) {
-                    let alu = [];
-                    for (let i = 0; i < ru.alumnos.length; i++) {
-                        ru.alumnos[i].id_item = ru.alumnos[i]._id + ru._id;
+                    let act = {
+                        nombre: ru.nombre,
+                        profesor: ru.profesor,
+                        fecha: ru.fecha,
+                        alumnos: ru.alumnos,
+                        estado: 'Creada',
+                        resumen: ru.resumen,
+                        clase: ru.clase,
                     }
+                    let alu = [];
+                    /*for (let i = 0; i < ru.alumnos.length; i++) {
+                        ru.alumnos[i].id_item = ru.alumnos[i]._id + ru._id;
+                    }*/
                     for (let i = 0; i < ru.alumnos.length; i++) {
                         //item.id_item = item.estudiante._id + ru._id;
                         //alu.push(ru.alumnos[i].id_item=ru.alumnos[i].estudiante._id + ru._id);
                         alu.push(new Alumno(ru.alumnos[i].estudiante, ru.alumnos[i].posicion, ru, ru.alumnos[i].datos));
                     }
                     ru.alumnos = alu;
-                    ju.actividades[ru._id] = new Actividad(ru._id, ru.nombre, ru.profesor, ru.fecha, ru.alumnos, ru.estado, ru.clase);
+                    act.alumnos = alu;
+                    ju.dao.modificarActividad(ru._id, act, function (r) {
+                        ju.actividades[ru._id] = new Actividad(ru._id, ru.nombre, ru.profesor, ru.fecha, ru.alumnos, ru.estado, ru.clase);
+                        console.log("Actividad Agregada")
+                        ac.actividades[ru._id] = ru;
+                        ju.dao.modificarClase(clase._id, ac, function (u) {
+                            //console.log("elemento añadido")
+                            //console.log(u);
+                            //console.log(ju.clases);
+                            //ju.clases[clase._id].actividades[actividad._id]=new Actividad(actividad._id,actividad.nombre,actividad.profesor,actividad.fecha,actividad.alumnos,actividad.estado);
+                            //console.log("Actividad añadida a la clase");
+                            clase.actividades[ru._id] = ru;
+                            //console.log(clase)
+                            /*ju.dao.obtenerClaseCriterio(clase._id, function (c) {
+                                callback(c);
+                                db.close();
+                            });*/
+                            console.log("ID");
+                            console.log(ru._id);
+                            ju.dao.obtenerActividadCriterio(ru._id,function(res){
+                                callback(res);
+                                db.close();
+                            })
+                        });
+                    })
+
                     //callback(ru);
                     //db.close();
                     //a.actividades[act._id] = new Actividad(act._id, act.nombre, act.profesor, act.fecha, act.alumnos, act.resumen);
                     //console.log(act);
-                    console.log("Actividad Agregada")
-                    ac.actividades[ru._id] = ru;
-                    ju.dao.modificarClase(clase._id, ac, function (u) {
-                        //console.log("elemento añadido")
-                        //console.log(u);
-                        //console.log(ju.clases);
-                        //ju.clases[clase._id].actividades[actividad._id]=new Actividad(actividad._id,actividad.nombre,actividad.profesor,actividad.fecha,actividad.alumnos,actividad.estado);
-                        //console.log("Actividad añadida a la clase");
-                        clase.actividades[ru._id] = ru;
-                        //console.log(clase)
-                        ju.dao.obtenerClaseCriterio(clase._id, function (c) {
-                            callback(c);
-                            db.close();
-                        });
-                    });
+
                 });
             });
         }

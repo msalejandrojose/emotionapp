@@ -49,7 +49,9 @@ function ServidorWS() {
                 }
             })
             socket.on('meDesconectoActividad',function(actividad,estudiante){
-                cli.enviarATodos(io,actividad._id, 'seHaDesconectado',estudiante);
+                if(actividad._id){
+                    cli.enviarATodos(io,actividad._id, 'seHaDesconectado',estudiante);
+                }
             })
 
             socket.on('crearActividadLista', function (actividad) {

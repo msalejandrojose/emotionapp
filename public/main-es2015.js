@@ -3040,7 +3040,7 @@ let ProfesorComponent = class ProfesorComponent {
                 }
             });
             this.socket.on('recepcionDatos', function (datos) {
-                //console.log(datos);
+                console.log(datos);
                 $('#' + datos.id_item + '').css("background-color", datos.color);
                 cli.agregarDatosActividad(datos);
                 //console.log(datos.pulsaciones);
@@ -3986,6 +3986,7 @@ let VerActividadComponent = class VerActividadComponent {
         this.comprobarDatos();
     }
     ngOnInit() {
+        console.log(this.actividad);
         //console.log(angular.element( document.querySelector( '#some-id' ) ))
         if (this.actividad.estado == 'Comenzada') {
             this.intervaloResumen = setInterval(async => {
@@ -4225,6 +4226,8 @@ let VerActividadComponent = class VerActividadComponent {
     }
     insertarDatos(datos) {
         //console.log(datos);
+        console.log(datos);
+        console.log(this.actividad.alumnos);
         for (let i = 0; i < this.actividad.alumnos.length; i++) {
             if (datos.id_item == this.alumnos[i].id_item) {
                 this.resumen.alegria += datos.alegria;
@@ -4251,6 +4254,7 @@ let VerActividadComponent = class VerActividadComponent {
                 this.actividad.alumnos[i].datos.concentrado.push({ x: datos.concentrado.x, y: datos.concentrado.y });
                 this.actividad.alumnos[i].datos.frustrado.push({ x: datos.frustrado.x, y: datos.frustrado.y });
                 this.actividad.alumnos[i].datos.motivado.push({ x: datos.motivado.x, y: datos.motivado.y });
+                this.graficaLineal.update();
             }
         }
     }
@@ -4804,6 +4808,7 @@ let VerClaseComponent = class VerClaseComponent {
         this.profesor.cerrarClase();
     }
     crearActividad() {
+        console.log("creamos una actividad");
         var ju = this;
         var actividadCreate = {
             nombre: '',
@@ -4853,15 +4858,16 @@ let VerClaseComponent = class VerClaseComponent {
             });
         }
         actividadCreate.alumnos = arrayAlumnos;
+        console.log("estamos a punto de crearla");
         $.ajax({
             type: 'POST',
             url: '/agregarActividadEnClase',
             data: JSON.stringify({ clase: this.clase, act: actividadCreate }),
             success: function (data) {
-                ju.clase = data;
+                //ju.clase = data;
                 //ju.ultimaActividadCreada = data;
-                console.log("Clase Actualizada");
-                console.log(data);
+                console.log("Actividad creada");
+                //console.log(data);
                 ju.actualizarClase();
                 //ju.menActividadCreada();
                 //abrirActividad

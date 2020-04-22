@@ -4849,7 +4849,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             }
           });
           this.socket.on('recepcionDatos', function (datos) {
-            //console.log(datos);
+            console.log(datos);
             $('#' + datos.id_item + '').css("background-color", datos.color);
             cli.agregarDatosActividad(datos); //console.log(datos.pulsaciones);
           });
@@ -6088,7 +6088,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function ngOnInit() {
           var _this11 = this;
 
-          //console.log(angular.element( document.querySelector( '#some-id' ) ))
+          console.log(this.actividad); //console.log(angular.element( document.querySelector( '#some-id' ) ))
+
           if (this.actividad.estado == 'Comenzada') {
             this.intervaloResumen = setInterval(function (async) {
               _this11.insertarResumen();
@@ -6406,6 +6407,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         key: "insertarDatos",
         value: function insertarDatos(datos) {
           //console.log(datos);
+          console.log(datos);
+          console.log(this.actividad.alumnos);
+
           for (var i = 0; i < this.actividad.alumnos.length; i++) {
             if (datos.id_item == this.alumnos[i].id_item) {
               this.resumen.alegria += datos.alegria;
@@ -6468,6 +6472,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                 x: datos.motivado.x,
                 y: datos.motivado.y
               });
+              this.graficaLineal.update();
             }
           }
         }
@@ -7188,6 +7193,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "crearActividad",
         value: function crearActividad() {
+          console.log("creamos una actividad");
           var ju = this;
           var actividadCreate = {
             nombre: '',
@@ -7242,6 +7248,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           }
 
           actividadCreate.alumnos = arrayAlumnos;
+          console.log("estamos a punto de crearla");
           $.ajax({
             type: 'POST',
             url: '/agregarActividadEnClase',
@@ -7250,10 +7257,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               act: actividadCreate
             }),
             success: function success(data) {
-              ju.clase = data; //ju.ultimaActividadCreada = data;
+              //ju.clase = data;
+              //ju.ultimaActividadCreada = data;
+              console.log("Actividad creada"); //console.log(data);
 
-              console.log("Clase Actualizada");
-              console.log(data);
               ju.actualizarClase(); //ju.menActividadCreada();
               //abrirActividad
             },
