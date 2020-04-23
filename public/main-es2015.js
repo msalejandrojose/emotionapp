@@ -1270,8 +1270,7 @@ let EstudianteComponent = class EstudianteComponent {
         this.listaSensores = [];
         this.id = '';
         this.intervaloDeEnvio = null;
-        this.pulsaciones = Math.round(Math.random() * (100 - 40) + 40);
-        this.pulsacionesTotales = [];
+        this.pulsaciones = 0;
         this.pulsacionesMax = 180;
         this.pulsacionesMin = 30;
         this.emocionAlegria = 0;
@@ -1285,6 +1284,9 @@ let EstudianteComponent = class EstudianteComponent {
         this.contador = 0;
         this.canvas = null;
         this.intervaloGenerarDatos = null;
+        this.intervaloPulsaciones = null;
+        this.band = null;
+        this.chart = [];
         this.soyEstudiante = function () {
             this.socket.emit('soyEstudiante', this.estudiante);
         };
@@ -1716,16 +1718,10 @@ let EstudianteComponent = class EstudianteComponent {
             this.emocionNeutra = 0;
             this.datosTotalesEmocionales = 0;
             //Estado de las Pulsaciones
-            let mediaPulsaciones = 0;
-            for (let i = 0; i < this.pulsacionesTotales.length; i++) {
-                mediaPulsaciones += this.pulsacionesTotales[i];
-            }
             datos['pulsaciones'] = yield {
                 x: x,
-                y: (mediaPulsaciones / this.pulsacionesTotales.length),
+                y: this.pulsaciones,
             };
-            this.pulsacionesTotales.length = 0;
-            //console.log(this.pulsacionesTotales);
             //Estado temporal
             datos['tiempo'] = x;
             //Estado Cognitivo
@@ -1819,26 +1815,28 @@ let EstudianteComponent = class EstudianteComponent {
         }
     }
     conectarPulsera(sensor) {
-        sensor.estado = "Conectado";
-        setInterval(async => {
-            this.pulsometro(sensor);
-        }, 1000);
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
+            try {
+                pulseraMiband.connect();
+                sensor.estado = "Conectado";
+                this.intervaloPulsaciones = setInterval(async => {
+                    this.pulsometro(sensor);
+                }, 2000);
+            }
+            catch (e) {
+                console.log(e);
+                console.log("Error en la conexion con la pulsera, se generan datos aleatorios");
+                sensor.estado = "Conectado";
+                this.intervaloPulsaciones = setInterval(async => {
+                    this.pulsometro(sensor);
+                }, 2000);
+            }
+        });
     }
     pulsometro(sensor) {
         if (sensor.estado == "Conectado") {
-            if (Math.round(Math.random() * (1 - 0) + 0) == 1) {
-                this.pulsaciones = this.pulsaciones + Math.round(Math.random() * (5 - 0) + 0);
-            }
-            else {
-                this.pulsaciones = this.pulsaciones - Math.round(Math.random() * (5 - 0) + 0);
-            }
-            if (this.pulsaciones >= this.pulsacionesMax) {
-                this.pulsaciones = this.pulsacionesMax;
-            }
-            else if (this.pulsaciones <= this.pulsacionesMin) {
-                this.pulsaciones = this.pulsacionesMin;
-            }
-            this.pulsacionesTotales.push(this.pulsaciones);
+            this.pulsaciones = pulseraMiband.pulsacionesActuales;
+            console.log(this.pulsaciones);
         }
     }
     desconectarSensor(sensor) {
@@ -1884,6 +1882,8 @@ let EstudianteComponent = class EstudianteComponent {
                 }
             }
             if (sensor.nombre == "Pulsera") {
+                pulseraMiband.desconnect();
+                clearInterval(this.intervaloPulsaciones);
                 sensor.data = null;
                 sensor.estado = "Desconectado";
             }
@@ -1970,10 +1970,12 @@ let EstudianteComponent = class EstudianteComponent {
         });
     }
     ngOnDestroy() {
-        if (this.actividadActual) {
+        if (this.actividadActual != null) {
             this.socket.emit('meDesconectoActividad', this.actividadActual, this.estudiante);
         }
         clearInterval(this.intervaloGenerarDatos);
+        clearInterval(this.intervaloPulsaciones);
+        pulseraMiband.desconnect();
     }
     //Implementacion de los sockets
     ini() {
