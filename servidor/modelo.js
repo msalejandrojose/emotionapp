@@ -462,6 +462,25 @@ function Centro() {
         });
         //}
     }
+    this.verActividadesDeAlumno = function(alumno, callback){
+        var ju = this;
+        var actividades=[];
+        this.dao.connect(function (db) {
+            ju.dao.mostrarActividades(function (u) {
+                for(let i = 0;i<u.length;i++){
+                    for(let j = 0;j<u[i].alumnos.length;j++){
+                        //console.log(u[i].alumnos[j].estudiante)
+                        if(alumno._id==u[i].alumnos[j].estudiante._id){
+                            actividades.push(u[i]);
+                        }
+                    }
+                }
+                callback(actividades);
+                db.close();
+            });
+        });
+
+    }
 
     //Añadir Alumnos a la Actividad
     this.anadirAlumnoaActividad = function (_id, emailEstudiante, callback) {

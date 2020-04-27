@@ -77,6 +77,13 @@ app.post("/verActividadesComenzadas", function (request, response) {
   })
 });
 
+app.post("/verActividadesDeAlumno", function (request, response) {
+  var alumno = request.body;
+  centro.verActividadesDeAlumno(alumno,function(res){
+    response.send(res);
+  })
+});
+
 app.post("/registrarActividad", function (request, response) {
   var act = request.body;
   centro.agregarActividad(act.nombre,act.profesor,act.fecha,act.alumnos,act.resumen,act.clase,function(res){
