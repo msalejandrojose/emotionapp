@@ -551,7 +551,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"row col-12 justify-content-center\">\n    <div class=\"col-3 text-left\">\n        <button *ngIf=\"!editarActividadesView\" type=\"button\" class=\"btn btn-outline-danger\" (click)=\"cancelar()\">Cerrar Alumno</button>\n        <button *ngIf=\"editarActividadesView\" type=\"button\" class=\"btn btn-outline-danger\" (click)=\"cancelarEdicion()\">Cancelar eleccion de actividades</button>\n    </div>\n    <div class=\"col-6 text-center\">\n        <h3 class=\"text-center\">{{alumno.nombre}} {{alumno.apellidos}}</h3>\n    </div>\n    <div class=\"col-3 text-right\">\n        <button *ngIf=\"!editarActividadesView\" type=\"button\" class=\"btn btn btn-outline-success\" (click)=\"editarActividades()\">Editar actividades mostradas</button>\n    </div>\n</div>\n<br>\n<div class=\"row justify-content-center text-center\">\n    <div class=\"col-8\">\n        <h5>Estadisticas de las actividades</h5>\n    </div>\n    <div class=\"col-4\">\n        <div class=\"btn-group\">\n            <button type=\"button\" class=\"btn btn-info dropdown-toggle\" data-toggle=\"dropdown\"\n                aria-haspopup=\"true\" aria-expanded=\"false\">\n                {{estadoSeleccionado}}\n            </button>\n            <div class=\"dropdown-menu\">\n                <div class=\"dropdown-item\" (click)=\"seleccionarEstado(estado)\" *ngFor=\"let estado of estados\">\n                    <a>{{estado.nombre}}</a>\n                </div>\n            </div>\n        </div>\n    </div>\n</div>\n<div class=\"row justify-content-center text-center\">\n    <div class=\"col-11\">\n        <canvas id=\"progresoTotal\"></canvas>\n    </div>\n</div>\n<br>\n<div class=\"row justify-content-center text-center\">\n    <div class=\"col-8\">\n        <h5>Estadisticas conjuntas</h5>\n    </div>\n    <div class=\"col-4\">\n        <div class=\"btn-group\">\n            <button type=\"button\" class=\"btn btn-info dropdown-toggle\" data-toggle=\"dropdown\"\n                aria-haspopup=\"true\" aria-expanded=\"false\">\n                {{estadoConjuntoSeleccionado.nombre}}\n            </button>\n            <div class=\"dropdown-menu\">\n                <div class=\"dropdown-item\" (click)=\"seleccionarEstadoConjunto(estado)\" *ngFor=\"let estado of estadosConjunto\">\n                    <a>{{estado.nombre}}</a>\n                </div>\n            </div>\n        </div>\n    </div>\n</div>\n<div class=\"row justify-content-center text-center\">\n    <div class=\"col-11\">\n        <canvas id=\"progresoConjuntoTotal\"></canvas>\n    </div>\n</div>\n<br>\n<div class=\"row justify-content-center text-center\">\n    <div class=\"col-8\">\n        <h5>Estadisticas Globales del alumno</h5>\n    </div>\n    <div class=\"col-4\">\n        <div class=\"btn-group\">\n            <button type=\"button\" class=\"btn btn-info dropdown-toggle\" data-toggle=\"dropdown\"\n                aria-haspopup=\"true\" aria-expanded=\"false\">\n                {{estadoGeneralSeleccionado.nombre}}\n            </button>\n            <div class=\"dropdown-menu\">\n                <div class=\"dropdown-item\" (click)=\"seleccionarEstadoGeneral(estado)\" *ngFor=\"let estado of estadosConjunto\">\n                    <a>{{estado.nombre}}</a>\n                </div>\n            </div>\n        </div>\n    </div>\n</div>\n<div class=\"row justify-content-center text-center\">\n    <div class=\"col-11\">\n        <canvas id=\"resumenGeneral\"></canvas>\n    </div>\n</div>";
+    __webpack_exports__["default"] = "<div class=\"row col-12 justify-content-center\">\n    <div class=\"col-3 text-left\">\n        <button *ngIf=\"!editarActividadesView\" type=\"button\" class=\"btn btn-outline-danger\" (click)=\"cancelar()\">Cerrar Alumno</button>\n        <!--<button *ngIf=\"editarActividadesView\" type=\"button\" class=\"btn btn-outline-danger\" (click)=\"cancelarEdicion()\">Cancelar eleccion de actividades</button>-->\n    </div>\n    <div class=\"col-6 text-center\">\n        <h3 class=\"text-center\">{{alumno.nombre}} {{alumno.apellidos}}</h3>\n    </div>\n    <div class=\"col-3 text-right\">\n        <button *ngIf=\"!editarActividadesView\" type=\"button\" class=\"btn btn btn-outline-success\" (click)=\"editarActividades()\">Editar actividades mostradas</button>\n    </div>\n</div>\n<br>\n<div class=\"col-12\" *ngIf=\"editarActividadesView\">\n    <div class=\"card\">\n        <div class=\"card-body\">\n            <div class=\"example-header\">\n                <mat-form-field>\n                    <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filtrar\">\n                </mat-form-field>\n            </div>\n            <div class=\"example-container\">\n\n                <mat-table [dataSource]=\"dataSource\" class=\"mat-elevation-z1\" matSort>\n\n                    <ng-container matColumnDef=\"select\">\n                        <th mat-header-cell *matHeaderCellDef>\n                            <mat-checkbox (change)=\"$event ? masterToggle() : null\"\n                                [checked]=\"selection.hasValue() && isAllSelected()\"\n                                [indeterminate]=\"selection.hasValue() && !isAllSelected()\"\n                                [aria-label]=\"checkboxLabel()\">\n                            </mat-checkbox>\n                        </th>\n                        <td mat-cell *matCellDef=\"let row\">\n                            <mat-checkbox (click)=\"$event.stopPropagation()\"\n                                (change)=\"$event ? selection.toggle(row) : null\" [checked]=\"selection.isSelected(row)\"\n                                [aria-label]=\"checkboxLabel(row)\">\n                            </mat-checkbox>\n                        </td>\n                    </ng-container>\n\n                    <!-- ID Column -->\n                    <ng-container matColumnDef=\"nombre\">\n                        <mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </mat-header-cell>\n                        <mat-cell *matCellDef=\"let row\"> {{row.nombre}} </mat-cell>\n                    </ng-container>\n\n                    <!-- Progress Column -->\n                    <ng-container matColumnDef=\"profesor\">\n                        <mat-header-cell *matHeaderCellDef mat-sort-header> Profesor </mat-header-cell>\n                        <mat-cell *matCellDef=\"let row\"> {{row.profesor}} </mat-cell>\n                    </ng-container>\n\n                    <!-- Name Column -->\n                    <ng-container matColumnDef=\"clase\">\n                        <mat-header-cell *matHeaderCellDef mat-sort-header> Clase </mat-header-cell>\n                        <mat-cell *matCellDef=\"let row\"> {{row.clase}} </mat-cell>\n                    </ng-container>\n\n                    <ng-container matColumnDef=\"estado\">\n                        <mat-header-cell *matHeaderCellDef mat-sort-header> Estado </mat-header-cell>\n                        <mat-cell *matCellDef=\"let row\"> {{row.estado}} </mat-cell>\n                    </ng-container>\n\n                    <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\n                    <mat-row *matRowDef=\"let row; columns: displayedColumns;\">\n                    </mat-row>\n                </mat-table>\n\n                <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\n            </div>\n            <div class=\"row justify-content-center text-center\">\n                <div class=\"col-3\">\n                    <button class=\"btn btn btn-danger\" (click)=\"cancelarEdicion()\">Cancelar</button>\n                </div>\n                <div class=\"col-3\">\n                    <button class=\"btn btn btn-success\" (click)=\"actualizar()\">Actualizar Actividades</button>\n                </div>\n                \n            </div>\n        </div>\n    </div>\n</div>\n<div id=\"graficas\">\n    <div class=\"row justify-content-center text-center\">\n        <div class=\"col-8\">\n            <h5>Estadisticas de las actividades</h5>\n        </div>\n        <div class=\"col-4\">\n            <div class=\"btn-group\">\n                <button type=\"button\" class=\"btn btn-info dropdown-toggle\" data-toggle=\"dropdown\"\n                    aria-haspopup=\"true\" aria-expanded=\"false\">\n                    {{estadoSeleccionado}}\n                </button>\n                <div class=\"dropdown-menu\">\n                    <div class=\"dropdown-item\" (click)=\"seleccionarEstado(estado)\" *ngFor=\"let estado of estados\">\n                        <a>{{estado.nombre}}</a>\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>\n    <div class=\"row justify-content-center text-center\">\n        <div class=\"col-11\">\n            <canvas id=\"progresoTotal\"></canvas>\n        </div>\n    </div>\n    <br>\n    <div class=\"row justify-content-center text-center\">\n        <div class=\"col-8\">\n            <h5>Estadisticas conjuntas</h5>\n        </div>\n        <div class=\"col-4\">\n            <div class=\"btn-group\">\n                <button type=\"button\" class=\"btn btn-info dropdown-toggle\" data-toggle=\"dropdown\"\n                    aria-haspopup=\"true\" aria-expanded=\"false\">\n                    {{estadoConjuntoSeleccionado.nombre}}\n                </button>\n                <div class=\"dropdown-menu\">\n                    <div class=\"dropdown-item\" (click)=\"seleccionarEstadoConjunto(estado)\" *ngFor=\"let estado of estadosConjunto\">\n                        <a>{{estado.nombre}}</a>\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>\n    <div class=\"row justify-content-center text-center\">\n        <div class=\"col-11\">\n            <canvas id=\"progresoConjuntoTotal\"></canvas>\n        </div>\n    </div>\n    <br>\n    <div class=\"row justify-content-center text-center\">\n        <div class=\"col-8\">\n            <h5>Estadisticas Globales del alumno</h5>\n        </div>\n        <div class=\"col-4\">\n            <div class=\"btn-group\">\n                <button type=\"button\" class=\"btn btn-info dropdown-toggle\" data-toggle=\"dropdown\"\n                    aria-haspopup=\"true\" aria-expanded=\"false\">\n                    {{estadoGeneralSeleccionado.nombre}}\n                </button>\n                <div class=\"dropdown-menu\">\n                    <div class=\"dropdown-item\" (click)=\"seleccionarEstadoGeneral(estado)\" *ngFor=\"let estado of estadosConjunto\">\n                        <a>{{estado.nombre}}</a>\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>\n    <div class=\"row justify-content-center text-center\">\n        <div class=\"col-11\">\n            <canvas id=\"resumenGeneral\"></canvas>\n        </div>\n    </div>\n</div>\n\n";
     /***/
   },
 
@@ -591,7 +591,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"row justify-content-center\">\n    <div class=\"col-3 text-left\">\n        <button *ngIf=\"!editarActividadesView\" type=\"button\" class=\"btn btn-outline-danger\" (click)=\"cancelar()\">Cerrar Alumno</button>\n        <button *ngIf=\"editarActividadesView\" type=\"button\" class=\"btn btn-outline-danger\" (click)=\"cancelarEdicion()\">Cancelar eleccion de actividades</button>\n    </div>\n    <div class=\"col-6 text-center\">\n        <h3 class=\"text-center\">{{clase.nombre}}</h3>\n    </div>\n    <div class=\"col-3 text-right\">\n        <button *ngIf=\"!editarActividadesView\" type=\"button\" class=\"btn btn btn-outline-success\" (click)=\"editarActividades()\">Editar actividades mostradas</button>\n    </div>\n</div>\n<br>\n<div class=\"row justify-content-center text-center\">\n    <div class=\"col-8\">\n        <h5>Estadisticas de las actividades</h5>\n    </div>\n    <div class=\"col-4\">\n        <div class=\"btn-group\">\n            <button type=\"button\" class=\"btn btn-info dropdown-toggle\" data-toggle=\"dropdown\"\n                aria-haspopup=\"true\" aria-expanded=\"false\">\n                {{estadoSeleccionado}}\n            </button>\n            <div class=\"dropdown-menu\">\n                <div class=\"dropdown-item\" (click)=\"seleccionarEstado(estado)\" *ngFor=\"let estado of estados\">\n                    <a>{{estado.nombre}}</a>\n                </div>\n            </div>\n        </div>\n    </div>\n</div>\n<div class=\"row justify-content-center text-center\">\n    <div class=\"col-11\">\n        <canvas id=\"progresoTotal\"></canvas>\n    </div>\n</div>\n<br>\n<div class=\"row justify-content-center text-center\">\n    <div class=\"col-8\">\n        <h5>Estadisticas conjuntas</h5>\n    </div>\n    <div class=\"col-4\">\n        <div class=\"btn-group\">\n            <button type=\"button\" class=\"btn btn-info dropdown-toggle\" data-toggle=\"dropdown\"\n                aria-haspopup=\"true\" aria-expanded=\"false\">\n                {{estadoConjuntoSeleccionado.nombre}}\n            </button>\n            <div class=\"dropdown-menu\">\n                <div class=\"dropdown-item\" (click)=\"seleccionarEstadoConjunto(estado)\" *ngFor=\"let estado of estadosConjunto\">\n                    <a>{{estado.nombre}}</a>\n                </div>\n            </div>\n        </div>\n    </div>\n</div>\n<div class=\"row justify-content-center text-center\">\n    <div class=\"col-11\">\n        <canvas id=\"progresoConjuntoTotal\"></canvas>\n    </div>\n</div>";
+    __webpack_exports__["default"] = "<div class=\"row justify-content-center\">\n    <div class=\"col-3 text-left\">\n        <button *ngIf=\"!editarActividadesView\" type=\"button\" class=\"btn btn-outline-danger\" (click)=\"cancelar()\">Cerrar\n            Alumno</button>\n        <!--<button *ngIf=\"editarActividadesView\" type=\"button\" class=\"btn btn-outline-danger\"\n            (click)=\"cancelarEdicion()\">Cancelar eleccion de actividades</button>-->\n    </div>\n    <div class=\"col-6 text-center\">\n        <h3 class=\"text-center\">{{clase.nombre}}</h3>\n    </div>\n    <div class=\"col-3 text-right\">\n        <button *ngIf=\"!editarActividadesView\" type=\"button\" class=\"btn btn btn-outline-success\"\n            (click)=\"editarActividades()\">Editar actividades mostradas</button>\n    </div>\n</div>\n<br>\n<div class=\"col-12\" *ngIf=\"editarActividadesView\">\n    <div class=\"card\">\n        <div class=\"card-body\">\n            <div class=\"example-header\">\n                <mat-form-field>\n                    <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filtrar\">\n                </mat-form-field>\n            </div>\n            <div class=\"example-container\">\n\n                <mat-table [dataSource]=\"dataSource\" class=\"mat-elevation-z1\" matSort>\n\n                    <ng-container matColumnDef=\"select\">\n                        <th mat-header-cell *matHeaderCellDef>\n                            <mat-checkbox (change)=\"$event ? masterToggle() : null\"\n                                [checked]=\"selection.hasValue() && isAllSelected()\"\n                                [indeterminate]=\"selection.hasValue() && !isAllSelected()\"\n                                [aria-label]=\"checkboxLabel()\">\n                            </mat-checkbox>\n                        </th>\n                        <td mat-cell *matCellDef=\"let row\">\n                            <mat-checkbox (click)=\"$event.stopPropagation()\"\n                                (change)=\"$event ? selection.toggle(row) : null\" [checked]=\"selection.isSelected(row)\"\n                                [aria-label]=\"checkboxLabel(row)\">\n                            </mat-checkbox>\n                        </td>\n                    </ng-container>\n\n                    <!-- ID Column -->\n                    <ng-container matColumnDef=\"nombre\">\n                        <mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </mat-header-cell>\n                        <mat-cell *matCellDef=\"let row\"> {{row.nombre}} </mat-cell>\n                    </ng-container>\n\n                    <!-- Progress Column -->\n                    <ng-container matColumnDef=\"profesor\">\n                        <mat-header-cell *matHeaderCellDef mat-sort-header> Profesor </mat-header-cell>\n                        <mat-cell *matCellDef=\"let row\"> {{row.profesor}} </mat-cell>\n                    </ng-container>\n\n                    <!-- Name Column -->\n                    <ng-container matColumnDef=\"clase\">\n                        <mat-header-cell *matHeaderCellDef mat-sort-header> Clase </mat-header-cell>\n                        <mat-cell *matCellDef=\"let row\"> {{row.clase}} </mat-cell>\n                    </ng-container>\n\n                    <ng-container matColumnDef=\"estado\">\n                        <mat-header-cell *matHeaderCellDef mat-sort-header> Estado </mat-header-cell>\n                        <mat-cell *matCellDef=\"let row\"> {{row.estado}} </mat-cell>\n                    </ng-container>\n\n                    <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\n                    <mat-row *matRowDef=\"let row; columns: displayedColumns;\">\n                    </mat-row>\n                </mat-table>\n\n                <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\n            </div>\n            <div class=\"row justify-content-center text-center\">\n                <div class=\"col-3\">\n                    <button class=\"btn btn btn-danger\" (click)=\"cancelarEdicion()\">Cancelar</button>\n                </div>\n                <div class=\"col-3\">\n                    <button class=\"btn btn btn-success\" (click)=\"actualizar()\">Actualizar Actividades</button>\n                </div>\n                \n            </div>\n        </div>\n    </div>\n</div>\n<div id=\"graficas\">\n    <div  class=\"row justify-content-center text-center\">\n        <div class=\"col-8\">\n            <h5>Estadisticas de las actividades</h5>\n        </div>\n        <div class=\"col-4\">\n            <div class=\"btn-group\">\n                <button type=\"button\" class=\"btn btn-info dropdown-toggle\" data-toggle=\"dropdown\" aria-haspopup=\"true\"\n                    aria-expanded=\"false\">\n                    {{estadoSeleccionado}}\n                </button>\n                <div class=\"dropdown-menu\">\n                    <div class=\"dropdown-item\" (click)=\"seleccionarEstado(estado)\" *ngFor=\"let estado of estados\">\n                        <a>{{estado.nombre}}</a>\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>\n    <div class=\"row justify-content-center text-center\">\n        <div class=\"col-11\">\n            <canvas id=\"progresoTotal\"></canvas>\n        </div>\n    </div>\n    <br>\n    <div class=\"row justify-content-center text-center\">\n        <div class=\"col-8\">\n            <h5>Estadisticas conjuntas</h5>\n        </div>\n        <div class=\"col-4\">\n            <div class=\"btn-group\">\n                <button type=\"button\" class=\"btn btn-info dropdown-toggle\" data-toggle=\"dropdown\" aria-haspopup=\"true\"\n                    aria-expanded=\"false\">\n                    {{estadoConjuntoSeleccionado.nombre}}\n                </button>\n                <div class=\"dropdown-menu\">\n                    <div class=\"dropdown-item\" (click)=\"seleccionarEstadoConjunto(estado)\"\n                        *ngFor=\"let estado of estadosConjunto\">\n                        <a>{{estado.nombre}}</a>\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>\n    <div class=\"row justify-content-center text-center\">\n        <div class=\"col-11\">\n            <canvas id=\"progresoConjuntoTotal\"></canvas>\n        </div>\n    </div>\n</div>\n";
     /***/
   },
 
@@ -3810,14 +3810,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "applyFilter",
         value: function applyFilter(filterValue) {
-          filterValue = filterValue.trim(); // Remove whitespace
-
-          filterValue = filterValue.toLowerCase(); // Datasource defaults to lowercase matches
-
+          filterValue = filterValue.trim();
+          filterValue = filterValue.toLowerCase();
           this.dataSource.filter = filterValue;
         }
-        /** Whether the number of selected elements matches the total number of rows. */
-
       }, {
         key: "isAllSelected",
         value: function isAllSelected() {
@@ -3825,8 +3821,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           var numRows = this.dataSource.data.length;
           return numSelected === numRows;
         }
-        /** Selects all rows if they are not all selected; otherwise clear selection. */
-
       }, {
         key: "masterToggle",
         value: function masterToggle() {
@@ -7190,6 +7184,18 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var chart_js__WEBPACK_IMPORTED_MODULE_3___default =
     /*#__PURE__*/
     __webpack_require__.n(chart_js__WEBPACK_IMPORTED_MODULE_3__);
+    /* harmony import */
+
+
+    var _angular_cdk_collections__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! @angular/cdk/collections */
+    "./node_modules/@angular/cdk/esm2015/collections.js");
+    /* harmony import */
+
+
+    var _angular_material__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    /*! @angular/material */
+    "./node_modules/@angular/material/esm2015/material.js");
 
     var VerAlumnoComponent =
     /*#__PURE__*/
@@ -7323,6 +7329,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           frustrado: [],
           motivado: []
         };
+        this.displayedColumns = ['select', 'nombre', 'profesor', 'estado'];
+        this.selection = new _angular_cdk_collections__WEBPACK_IMPORTED_MODULE_4__["SelectionModel"](true, []);
       }
 
       _createClass(VerAlumnoComponent, [{
@@ -7346,6 +7354,38 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           });
         }
       }, {
+        key: "applyFilter",
+        value: function applyFilter(filterValue) {
+          filterValue = filterValue.trim();
+          filterValue = filterValue.toLowerCase();
+          this.dataSource.filter = filterValue;
+        }
+      }, {
+        key: "isAllSelected",
+        value: function isAllSelected() {
+          var numSelected = this.selection.selected.length;
+          var numRows = this.dataSource.data.length;
+          return numSelected === numRows;
+        }
+      }, {
+        key: "masterToggle",
+        value: function masterToggle() {
+          var _this13 = this;
+
+          this.isAllSelected() ? this.selection.clear() : this.dataSource.data.forEach(function (row) {
+            return _this13.selection.select(row);
+          });
+        }
+      }, {
+        key: "checkboxLabel",
+        value: function checkboxLabel(row) {
+          if (!row) {
+            return "".concat(this.isAllSelected() ? 'select' : 'deselect', " all");
+          }
+
+          return "".concat(this.selection.isSelected(row) ? 'deselect' : 'select');
+        }
+      }, {
         key: "seleccionarEstado",
         value: function seleccionarEstado(estado) {
           this.estadoSeleccionado = estado.nombre;
@@ -7364,6 +7404,77 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           this.actualizarGeneral();
         }
       }, {
+        key: "actualizar",
+        value: function actualizar() {
+          //console.log(this.selection.selected);
+          this.actividades.length = 0;
+          console.log(this.actividades);
+          console.log(this.selection.selected);
+          this.actividades = this.selection.selected;
+          this.editarActividadesView = false;
+          this.estadoGlobalAlumno = [{
+            nombre: 'alegria',
+            datos: 0
+          }, {
+            nombre: 'asco',
+            datos: 0
+          }, {
+            nombre: 'miedo',
+            datos: 0
+          }, {
+            nombre: 'sorpresa',
+            datos: 0
+          }, {
+            nombre: 'tristeza',
+            datos: 0
+          }, {
+            nombre: 'ira',
+            datos: 0
+          }, {
+            nombre: 'distraido',
+            datos: 0
+          }, {
+            nombre: 'concentrado',
+            datos: 0
+          }, {
+            nombre: 'frustrado',
+            datos: 0
+          }, {
+            nombre: 'motivado',
+            datos: 0
+          }];
+          this.datosIndividuales = {
+            alegria: [],
+            asco: [],
+            miedo: [],
+            sorpresa: [],
+            tristeza: [],
+            ira: [],
+            pulsaciones: [],
+            distraido: [],
+            concentrado: [],
+            frustrado: [],
+            motivado: []
+          };
+          this.datosGenerales = {
+            alegria: [],
+            asco: [],
+            miedo: [],
+            sorpresa: [],
+            tristeza: [],
+            ira: [],
+            pulsaciones: [],
+            distraido: [],
+            concentrado: [],
+            frustrado: [],
+            motivado: []
+          };
+          this.labels.length = 0;
+          this.computarDatos();
+          this.actualizarGraficas();
+          document.getElementById("graficas").style.display = "block";
+        }
+      }, {
         key: "cancelar",
         value: function cancelar() {
           this.profesor.cerrarEstadisticasAlumno();
@@ -7372,11 +7483,29 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         key: "cancelarEdicion",
         value: function cancelarEdicion() {
           this.editarActividadesView = false;
+          document.getElementById("graficas").style.display = "block";
         }
       }, {
         key: "editarActividades",
         value: function editarActividades() {
+          var ju = this;
           this.editarActividadesView = true;
+          document.getElementById("graficas").style.display = "none";
+          $.ajax({
+            type: 'POST',
+            url: '/verActividadesDeAlumno',
+            data: JSON.stringify(ju.alumno),
+            success: function success(data) {
+              ju.actividades = data;
+              ju.dataSource = new _angular_material__WEBPACK_IMPORTED_MODULE_5__["MatTableDataSource"](ju.actividades);
+              ju.dataSource.paginator = ju.paginator;
+              ju.dataSource.sort = ju.sort; //console.log(ju.actividades);
+              //ju.computarDatos();
+              //ju.actualizarGraficas();
+            },
+            contentType: 'application/json',
+            dataType: 'json'
+          });
         }
       }, {
         key: "computarDatos",
@@ -7485,15 +7614,14 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           }
 
           for (var _i5 = 0; _i5 < this.estadoGlobalAlumno.length; _i5++) {
-            var a = 0;
-            console.log(this.datosIndividuales);
+            var a = 0; //console.log(this.datosIndividuales)
 
             for (var _j13 = 0; _j13 < this.datosIndividuales[this.estadoGlobalAlumno[_i5].nombre].length; _j13++) {
-              console.log(this.datosIndividuales[this.estadoGlobalAlumno[_i5].nombre][_j13]);
+              //console.log(this.datosIndividuales[this.estadoGlobalAlumno[i].nombre][j]);
               a += this.datosIndividuales[this.estadoGlobalAlumno[_i5].nombre][_j13];
-            }
+            } //console.log(a);
 
-            console.log(a);
+
             this.estadoGlobalAlumno[_i5].datos = a / this.datosIndividuales[this.estadoGlobalAlumno[_i5].nombre].length;
           }
         }
@@ -7646,8 +7774,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function actualizarGeneral() {
           var labels = [];
           var colores = [];
-          var datos = [];
-          console.log(this.estadoGlobalAlumno);
+          var datos = []; //console.log(this.estadoGlobalAlumno);
 
           for (var i = 0; i < this.estadoGeneralSeleccionado.estados.length; i++) {
             /*datos.push(
@@ -7667,10 +7794,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                 datos.push(this.estadoGlobalAlumno[j].datos);
               }
             }
-          }
+          } //console.log(datos);
+          //console.log(labels);
 
-          console.log(datos);
-          console.log(labels);
+
           this.configEstadoGlobal = {
             type: 'doughnut',
             data: {
@@ -7708,6 +7835,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     };
 
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])()], VerAlumnoComponent.prototype, "alumno", void 0);
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])(_angular_material__WEBPACK_IMPORTED_MODULE_5__["MatPaginator"], null)], VerAlumnoComponent.prototype, "paginator", void 0);
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])(_angular_material__WEBPACK_IMPORTED_MODULE_5__["MatSort"], null)], VerAlumnoComponent.prototype, "sort", void 0);
     VerAlumnoComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
       selector: 'app-ver-alumno',
       template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
@@ -8242,6 +8371,18 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var chart_js__WEBPACK_IMPORTED_MODULE_3___default =
     /*#__PURE__*/
     __webpack_require__.n(chart_js__WEBPACK_IMPORTED_MODULE_3__);
+    /* harmony import */
+
+
+    var _angular_cdk_collections__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! @angular/cdk/collections */
+    "./node_modules/@angular/cdk/esm2015/collections.js");
+    /* harmony import */
+
+
+    var _angular_material__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    /*! @angular/material */
+    "./node_modules/@angular/material/esm2015/material.js");
 
     var VerEstadisticasClaseComponent =
     /*#__PURE__*/
@@ -8375,6 +8516,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           frustrado: [],
           motivado: []
         };
+        this.displayedColumns = ['select', 'nombre', 'profesor', 'estado'];
+        this.selection = new _angular_cdk_collections__WEBPACK_IMPORTED_MODULE_4__["SelectionModel"](true, []);
       }
 
       _createClass(VerEstadisticasClaseComponent, [{
@@ -8389,8 +8532,113 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             this.actividades.push(actividades[item]);
           }
 
+          this.dataSource = new _angular_material__WEBPACK_IMPORTED_MODULE_5__["MatTableDataSource"](this.actividades);
+          this.dataSource.paginator = this.paginator;
+          this.dataSource.sort = this.sort;
           this.computarDatos();
           this.actualizarGraficas();
+        }
+      }, {
+        key: "applyFilter",
+        value: function applyFilter(filterValue) {
+          filterValue = filterValue.trim();
+          filterValue = filterValue.toLowerCase();
+          this.dataSource.filter = filterValue;
+        }
+      }, {
+        key: "isAllSelected",
+        value: function isAllSelected() {
+          var numSelected = this.selection.selected.length;
+          var numRows = this.dataSource.data.length;
+          return numSelected === numRows;
+        }
+      }, {
+        key: "masterToggle",
+        value: function masterToggle() {
+          var _this14 = this;
+
+          this.isAllSelected() ? this.selection.clear() : this.dataSource.data.forEach(function (row) {
+            return _this14.selection.select(row);
+          });
+        }
+      }, {
+        key: "checkboxLabel",
+        value: function checkboxLabel(row) {
+          if (!row) {
+            return "".concat(this.isAllSelected() ? 'select' : 'deselect', " all");
+          }
+
+          return "".concat(this.selection.isSelected(row) ? 'deselect' : 'select');
+        }
+      }, {
+        key: "actualizar",
+        value: function actualizar() {
+          this.actividades.length = 0;
+          console.log(this.actividades);
+          console.log(this.selection.selected);
+          this.actividades = this.selection.selected;
+          this.editarActividadesView = false;
+          this.estadoGlobalAlumno = [{
+            nombre: 'alegria',
+            datos: 0
+          }, {
+            nombre: 'asco',
+            datos: 0
+          }, {
+            nombre: 'miedo',
+            datos: 0
+          }, {
+            nombre: 'sorpresa',
+            datos: 0
+          }, {
+            nombre: 'tristeza',
+            datos: 0
+          }, {
+            nombre: 'ira',
+            datos: 0
+          }, {
+            nombre: 'distraido',
+            datos: 0
+          }, {
+            nombre: 'concentrado',
+            datos: 0
+          }, {
+            nombre: 'frustrado',
+            datos: 0
+          }, {
+            nombre: 'motivado',
+            datos: 0
+          }];
+          this.datosIndividuales = {
+            alegria: [],
+            asco: [],
+            miedo: [],
+            sorpresa: [],
+            tristeza: [],
+            ira: [],
+            pulsaciones: [],
+            distraido: [],
+            concentrado: [],
+            frustrado: [],
+            motivado: []
+          };
+          this.datosGenerales = {
+            alegria: [],
+            asco: [],
+            miedo: [],
+            sorpresa: [],
+            tristeza: [],
+            ira: [],
+            pulsaciones: [],
+            distraido: [],
+            concentrado: [],
+            frustrado: [],
+            motivado: []
+          };
+          this.labels.length = 0;
+          this.computarDatos();
+          this.actualizarGraficas();
+          document.getElementById("graficas").style.display = "block";
         }
       }, {
         key: "seleccionarEstado",
@@ -8419,11 +8667,23 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         key: "cancelarEdicion",
         value: function cancelarEdicion() {
           this.editarActividadesView = false;
+          document.getElementById("graficas").style.display = "block";
         }
       }, {
         key: "editarActividades",
         value: function editarActividades() {
+          document.getElementById("graficas").style.display = "none";
           this.editarActividadesView = true;
+          var actividades = this.clase.actividades;
+          this.actividades.length = 0;
+
+          for (var item in actividades) {
+            this.actividades.push(actividades[item]);
+          }
+
+          this.dataSource = new _angular_material__WEBPACK_IMPORTED_MODULE_5__["MatTableDataSource"](this.actividades);
+          this.dataSource.paginator = this.paginator;
+          this.dataSource.sort = this.sort;
         }
       }, {
         key: "computarDatos",
@@ -8738,6 +8998,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     };
 
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])()], VerEstadisticasClaseComponent.prototype, "clase", void 0);
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])(_angular_material__WEBPACK_IMPORTED_MODULE_5__["MatPaginator"], null)], VerEstadisticasClaseComponent.prototype, "paginator", void 0);
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])(_angular_material__WEBPACK_IMPORTED_MODULE_5__["MatSort"], null)], VerEstadisticasClaseComponent.prototype, "sort", void 0);
     VerEstadisticasClaseComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
       selector: 'app-ver-estadisticas-clase',
       template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
