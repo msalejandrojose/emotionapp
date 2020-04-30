@@ -260,7 +260,7 @@ function Centro() {
                             });*/
                             console.log("ID");
                             console.log(ru._id);
-                            ju.dao.obtenerActividadCriterio(ru._id,function(res){
+                            ju.dao.obtenerActividadCriterio(ru._id, function (res) {
                                 callback(res);
                                 db.close();
                             })
@@ -279,60 +279,61 @@ function Centro() {
     this.editarActividadEnClase = function (actividad, callback) {
         var ju = this;
         var bbdd;
-        if (!this.actividades[actividad._id]) {
-            let act = {
-                nombre: actividad.nombre,
-                profesor: actividad.profesor,
-                fecha: actividad.fecha,
-                estado: actividad.estado,
-                alumnos: actividad.alumnos,
-                resumen: actividad.resumen,
-                clase: actividad.clase,
-            }
-            //a.actividades[actividad._id] = actividad;
-            this.dao.connect(function (db) {
-                bbdd = db;
-                ju.dao.obtenerClaseCriterio(actividad.clase._id, function (clase) {
-                    ju.dao.modificarActividad(actividad._id, act, function (u) {
-                        if (act.estado == "Comenzada") {
-                            ju.actividadesListas[actividad._id] = actividad;
-                        }
-                        if (u != null) {
-                            ju.actividades[u._id] = actividad;
-                            //callback(act); ///////
-                        }
-                        let c = {
-                            nombre: clase.nombre,
-                            profesor: clase.profesor,
-                            alumnos: clase.alumnos,
-                            actividades: clase.actividades,
-                            resumen: clase.resumen,
-                        }
-                        c.actividades[actividad._id] = actividad;
-                        ju.dao.modificarClase(clase._id, c, function (u) {
-                            clase[actividad._id] = actividad;
-                            ju.clases[clase._id] = clase;
-                            //ju.clases[clase._id].actividades[actividad._id] = actividad;
-                            /*ju.editarActividad(actividad, function (act) {
-                                callback(clase);
-                                db.close();
-                            });*/
-                            callback(actividad);
+        let act = {
+            nombre: actividad.nombre,
+            profesor: actividad.profesor,
+            fecha: actividad.fecha,
+            estado: actividad.estado,
+            alumnos: actividad.alumnos,
+            resumen: actividad.resumen,
+            clase: actividad.clase,
+        }
+        //a.actividades[actividad._id] = actividad;
+        this.dao.connect(function (db) {
+            bbdd = db;
+            ju.dao.obtenerClaseCriterio(actividad.clase._id, function (clase) {
+                console.log("Datos BBDD");
+                console.log(actividad)
+                ju.dao.modificarActividad(actividad._id, act, function (u) {
+                    if (act.estado == "Comenzada") {
+                        ju.actividadesListas[actividad._id] = actividad;
+                    }
+                    if (u != null) {
+                        ju.actividades[u._id] = actividad;
+                        //callback(act); ///////
+                    }
+                    let c = {
+                        nombre: clase.nombre,
+                        profesor: clase.profesor,
+                        alumnos: clase.alumnos,
+                        actividades: clase.actividades,
+                        resumen: clase.resumen,
+                    }
+
+                    c.actividades[actividad._id] = actividad;
+                    ju.dao.modificarClase(clase._id, c, function (u) {
+                        clase[actividad._id] = actividad;
+                        ju.clases[clase._id] = clase;
+                        //ju.clases[clase._id].actividades[actividad._id] = actividad;
+                        /*ju.editarActividad(actividad, function (act) {
+                            callback(clase);
                             db.close();
-                        });
-                        //db.close();
-                    });
-                })
-                /*ju.dao.modificarClase(clase._id, a, function (u) {
-                    ju.clases[clase._id].actividades[actividad._id] = actividad;
-                    ju.editarActividad(actividad, function (act) {
-                        callback(clase);
+                        });*/
+                        callback(actividad);
                         db.close();
                     });
+                    //db.close();
+                });
+            })
+            /*ju.dao.modificarClase(clase._id, a, function (u) {
+                ju.clases[clase._id].actividades[actividad._id] = actividad;
+                ju.editarActividad(actividad, function (act) {
+                    callback(clase);
+                    db.close();
+                });
 
-                });*/
-            });
-        }
+            });*/
+        });
     }
     this.borrarActividadEnClase = function (actividad, callback) {
         var ju = this;
@@ -419,36 +420,37 @@ function Centro() {
     }
     this.editarActividad = function (act, callback) {
         var ju = this;
-        if (!this.actividades[act._id]) {
-            let alumnos = {};
-            /*for (var email in estudiantes) {
-                alumnos[email] = new Alumno(estudiantes[email]);
-            }*/
-            let a = {
-                nombre: act.nombre,
-                profesor: act.profesor,
-                fecha: act.fecha,
-                alumnos: act.alumnos,
-                estado: act.estado,
-                resumen: act.resumen,
-                clase: act.clase,
-            }
-            this.dao.connect(function (db) {
-                //console.log(a);
-                ju.dao.modificarActividad(act._id, a, function (u) {
-                    //ju.actividades[u._id].editarActividad(u.nombre, u.profesor, u.alumnos, u.estado);
-                    //console.log(u);
-                    if (act.estado == "Comenzada") {
-                        ju.actividadesListas[act._id] = act;
-                    }
-                    if (u != null) {
-                        ju.actividades[u._id] = act;
-                        callback(act);
-                    }
-                    db.close();
-                });
-            });
+        let alumnos = {};
+        /*for (var email in estudiantes) {
+            alumnos[email] = new Alumno(estudiantes[email]);
+        }*/
+        let a = {
+            nombre: act.nombre,
+            profesor: act.profesor,
+            fecha: act.fecha,
+            alumnos: act.alumnos,
+            estado: act.estado,
+            resumen: act.resumen,
+            clase: act.clase,
         }
+        this.dao.connect(function (db) {
+            //console.log(a);
+            ju.dao.modificarActividad(act._id, a, function (u) {
+                //ju.actividades[u._id].editarActividad(u.nombre, u.profesor, u.alumnos, u.estado);
+                //console.log(u);
+                if (act.estado == "Comenzada") {
+                    ju.actividadesListas[act._id] = act;
+                }
+                console.log("Valor de la bbdd");
+                console.log(u);
+                if (u != null) {
+                    ju.actividades[u._id] = act;
+                    callback(act);
+                }
+                db.close();
+            });
+        });
+
     }
     this.borrarActividad = function (act, callback) {
         var ju = this;
@@ -462,15 +464,15 @@ function Centro() {
         });
         //}
     }
-    this.verActividadesDeAlumno = function(alumno, callback){
+    this.verActividadesDeAlumno = function (alumno, callback) {
         var ju = this;
-        var actividades=[];
+        var actividades = [];
         this.dao.connect(function (db) {
             ju.dao.mostrarActividades(function (u) {
-                for(let i = 0;i<u.length;i++){
-                    for(let j = 0;j<u[i].alumnos.length;j++){
+                for (let i = 0; i < u.length; i++) {
+                    for (let j = 0; j < u[i].alumnos.length; j++) {
                         //console.log(u[i].alumnos[j].estudiante)
-                        if(alumno._id==u[i].alumnos[j].estudiante._id){
+                        if (alumno._id == u[i].alumnos[j].estudiante._id) {
                             actividades.push(u[i]);
                         }
                     }
