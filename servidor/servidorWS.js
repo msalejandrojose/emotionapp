@@ -73,6 +73,12 @@ function ServidorWS() {
                 });*/
             });
 
+            socket.on('modificacionDeActividad',function(actividad){
+                for(let i =0;i<actividad.alumnos.length;i++){
+                    cli.enviarATodos(io, actividad.alumnos[i].estudiante._id, "actividades", actividad);
+                }
+            })
+
             socket.on('borrarActividadLista', function (actividad) {
                 centro.borrarActividadLista(actividad, function (u) {
                     cli.enviarRemitente(socket, "actividadBorrada", u);
@@ -86,9 +92,29 @@ function ServidorWS() {
             socket.on('envioDeDatos',function(datos,actividad){
                 //console.log(datos);
                 if(actividad){
+                    centro.insertarDatos(datos);
                     cli.enviarATodos(io, actividad._id, "recepcionDatos", datos);
                 }
-                
+            })
+
+            socket.on('empezarActividad',function(actividad){
+                //console.log(datos);
+                if(actividad){
+                    centro.empezarActividad(actividad,function(res){
+                        console.log(res);
+                        cli.enviarATodos(io, actividad._id, "actividadEmpezada", res);
+                    });
+                    
+                }
+            })
+
+            socket.on('terminarActividad',function(actividad){
+                if(actividad){
+                    centro.terminarActividad(actividad,function(res){
+                        cli.enviarATodos(io, actividad._id, "actividadTerminada", res);
+                    });
+                    
+                }
             })
 
             socket.on('disconect',function(actividad,estudiante){

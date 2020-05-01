@@ -371,7 +371,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<!--<div class=\"row\">\n    <div class=\"col-md-2\">\n        <!--<app-sidenav-profesor></app-sidenav-profesor>\n        <div class=\"sidenav list-group\">\n            <a href=\"#\">Emociones</a>\n        </div>\n    </div>\n</div>-->\n<br>\n<div *ngIf=\"noHayEstudiante\" class=\"row justify-content-md-center\">\n    <div class=\"card col-md-6\">\n        <div class=\"card-body\">\n            <h4 class=\"card-title\">Iniciar Sesion</h4>\n            <div>\n                <label>Email</label>\n                <input [(ngModel)]=\"estudiante.email\" type=\"email\" class=\"form-control\" id=\"emailIS\" ng-model=\"email\"\n                    placeholder=\"Email\">\n                <br>\n                <label>Contraseña</label>\n                <input [(ngModel)]=\"estudiante.contrasena\" type=\"password\" class=\"form-control\" id=\"contrasenaIS\"\n                    ng-model=\"contrasena\" placeholder=\"Contraseña\">\n                <br>\n                <button type=\"button\" (click)=\"limpiar()\" class=\"btn btn-raised btn-danger\">Cancelar</button>\n                <button type=\"button\" (click)=\"iniciarSesion()\" class=\"btn btn-raised btn-success\">Iniciar\n                    Sesion</button>\n            </div>\n        </div>\n    </div>\n</div>\n<div *ngIf=\"!noHayEstudiante\" class=\"row\">\n    <div class=\"col\">\n        <h3>Sensores</h3>\n        <table class=\"table table-striped\">\n            <thead class=\"thead-light\">\n                <tr>\n                    <th scope=\"col\">Nombre</th>\n                    <th scope=\"col\">Estado</th>\n                    <th scope=\"col\"></th>\n                    <th scope=\"col\"></th>\n                </tr>\n            </thead>\n            <tbody *ngFor=\"let sensor of listaSensores\">\n                <tr>\n                    <td>{{sensor.nombre}}</td>\n                    <td>{{sensor.estado}}</td>\n                    <td *ngIf=\"sensor.estado=='Desconectado'\"><button type=\"button\" class=\"btn btn-outline-primary\"\n                            (click)=\"conectarSensor(sensor)\">Conectarse</button></td>\n                    <td *ngIf=\"sensor.estado=='Conectado'\"><button type=\"button\" class=\"btn btn-outline-danger\"\n                            (click)=\"desconectarSensor(sensor)\">Desconectarse</button></td>\n                    <td></td>\n                </tr>\n            </tbody>\n        </table>\n    </div>\n    <div *ngIf=\"conectadoaActividad\" class=\"col\">\n        <button type=\"button\" class=\"btn btn-outline-danger\"\n                            (click)=\"desconectarse()\">Desconectarse</button>\n    </div>\n    \n    <div *ngIf=\"!conectadoaActividad\" class=\"col\">\n        <h3>Actividades listas</h3>\n        <table class=\"table table-striped\">\n            <thead class=\"thead-light\">\n                <tr>\n                    <th scope=\"col\">Nombre</th>\n                    <th scope=\"col\">Profesor</th>\n                    <th scope=\"col\">Estado</th>\n                    <th scope=\"col\"></th>\n                </tr>\n            </thead>\n            <tbody *ngFor=\"let actividad of listaActividades\">\n                <tr>\n                    <td>{{actividad.nombre}}</td>\n                    <td>{{actividad.profesor}}</td>\n                    <td>{{actividad.estado}}</td>\n                    <td><button type=\"button\" class=\"btn btn-outline-primary\"\n                            (click)=\"conectarse(actividad)\">Conectarse</button></td>\n                </tr>\n            </tbody>\n        </table>\n    </div>\n</div>\n<div class=\"row justify-content-md-center\">\n    <!--*ngIf=\"!noHayEstudiante && conectadoaActividad\"-->\n    <div class=\"col-md-8\">\n        <video id=\"video\" width=\"480\" height=\"360\" autoplay muted></video>\n        <!--<video id=\"video\" playsinline autoplay></video>-->\n    </div>\n    <div *ngIf=\"conectadoaActividad\" class=\"col-md-4\" id=\"estadoAlumno\" class=\"circulo\">\n        <p>Estado</p>\n    </div>\n</div>";
+    __webpack_exports__["default"] = "<!--<div class=\"row\">\n    <div class=\"col-md-2\">\n        <!--<app-sidenav-profesor></app-sidenav-profesor>\n        <div class=\"sidenav list-group\">\n            <a href=\"#\">Emociones</a>\n        </div>\n    </div>\n</div>-->\n<br>\n<div *ngIf=\"noHayEstudiante\" class=\"row justify-content-md-center\">\n    <div class=\"card col-md-6\">\n        <div class=\"card-body\">\n            <h4 class=\"card-title\">Iniciar Sesion</h4>\n            <div>\n                <label>Email</label>\n                <input [(ngModel)]=\"estudiante.email\" type=\"email\" class=\"form-control\" id=\"emailIS\" ng-model=\"email\"\n                    placeholder=\"Email\">\n                <br>\n                <label>Contraseña</label>\n                <input [(ngModel)]=\"estudiante.contrasena\" type=\"password\" class=\"form-control\" id=\"contrasenaIS\"\n                    ng-model=\"contrasena\" placeholder=\"Contraseña\">\n                <br>\n                <button type=\"button\" (click)=\"limpiar()\" class=\"btn btn-raised btn-danger\">Cancelar</button>\n                <button type=\"button\" (click)=\"iniciarSesion()\" class=\"btn btn-raised btn-success\">Iniciar\n                    Sesion</button>\n            </div>\n        </div>\n    </div>\n</div>\n<div *ngIf=\"!noHayEstudiante\" class=\"row\">\n    <div class=\"col\">\n        <h3>Sensores</h3>\n        <table class=\"table table-striped\">\n            <thead class=\"thead-light\">\n                <tr>\n                    <th scope=\"col\">Nombre</th>\n                    <th scope=\"col\">Estado</th>\n                    <th scope=\"col\"></th>\n                    <th scope=\"col\"></th>\n                </tr>\n            </thead>\n            <tbody *ngFor=\"let sensor of listaSensores\">\n                <tr>\n                    <td>{{sensor.nombre}}</td>\n                    <td>{{sensor.estado}}</td>\n                    <td *ngIf=\"sensor.estado=='Desconectado'\"><button type=\"button\" class=\"btn btn-outline-primary\"\n                            (click)=\"conectarSensor(sensor)\">Conectarse</button></td>\n                    <td *ngIf=\"sensor.estado=='Conectado'\"><button type=\"button\" class=\"btn btn-outline-danger\"\n                            (click)=\"desconectarSensor(sensor)\">Desconectarse</button></td>\n                    <td></td>\n                </tr>\n            </tbody>\n        </table>\n    </div>\n    <div *ngIf=\"conectadoaActividad\" class=\"col\">\n        <button type=\"button\" class=\"btn btn-outline-danger\"\n                            (click)=\"desconectarse()\">Desconectarse</button>\n    </div>\n    \n    <div *ngIf=\"!conectadoaActividad\" class=\"col\">\n        <h3>Actividades listas</h3>\n        <table class=\"table table-striped\">\n            <thead class=\"thead-light\">\n                <tr>\n                    <th scope=\"col\">Nombre</th>\n                    <th scope=\"col\">Profesor</th>\n                    <th scope=\"col\">Estado</th>\n                    <th scope=\"col\"></th>\n                </tr>\n            </thead>\n            <tbody *ngFor=\"let actividad of listaActividades\">\n                <tr>\n                    <td>{{actividad.nombre}}</td>\n                    <td>{{actividad.profesor}}</td>\n                    <td>{{actividad.estado}}</td>\n                    <td><button *ngIf=\"actividad.estado!='Finalizada'\" type=\"button\" class=\"btn btn-outline-primary\"\n                            (click)=\"conectarse(actividad)\">Conectarse</button></td>\n                </tr>\n            </tbody>\n        </table>\n    </div>\n</div>\n<div class=\"row justify-content-md-center\">\n    <!--*ngIf=\"!noHayEstudiante && conectadoaActividad\"-->\n    <div class=\"col-md-8\">\n        <video id=\"video\" width=\"480\" height=\"360\" autoplay muted></video>\n        <!--<video id=\"video\" playsinline autoplay></video>-->\n    </div>\n    <div *ngIf=\"conectadoaActividad\" class=\"col-md-4\" id=\"estadoAlumno\" class=\"circulo\">\n        <p>Estado</p>\n    </div>\n</div>";
     /***/
   },
 
@@ -491,7 +491,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"row\">\n    <div class=\"col-md-2\">\n        <!--<app-sidenav-profesor></app-sidenav-profesor>-->\n        <div class=\"sidenav list-group\">\n            <a href=\"#\" class=\"item-menu-sidenav\" (click)=\"abrirActividadActual()\"><i class=\"fa fa-home\"></i> Home</a>\n            <a href=\"#\" class=\"item-menu-sidenav\" (click)=\"abrirAlumnos()\"><i class=\"fa fa-user\"></i> Alumnos</a>\n            <a href=\"#\" class=\"item-menu-sidenav\" (click)=\"abrirClases()\"><i class=\"fa fa-book\"></i>\n                Clases</a>\n            <a href=\"#\" class=\"item-menu-sidenav\" (click)=\"abrirActividades()\"><i class=\"fa fa-university\"></i>\n                Actividades</a>\n        </div>\n    </div>\n    <div *ngIf=\"gestionHome\" class=\"col-md-10\">\n        <br>\n        <div *ngIf=\"!actividadAbierta\">\n            <br>\n            <br>\n            <br>\n            <br>\n            <br>\n            <br>\n            <br>\n            <br>\n            <br>\n        </div>\n        <div class=\"row justify-content-center\" *ngIf=\"!actividadAbierta\">\n            <div class=\"col-3 text-center\">\n                <button type=\"button\" class=\"btn btn-primary btn-circle\" (click)=\"abrirAlumnos()\"><i\n                        class=\"fa fa-user\"></i> Alumnos</button>\n            </div>\n            <div class=\"col-3 text-center\">\n                <button type=\"button\" class=\"btn btn-success btn-circle\" (click)=\"abrirClases()\"><i\n                        class=\"fa fa-university\"></i> Clases</button>\n            </div>\n            <div class=\"col-3 text-center\">\n                <button type=\"button\" class=\"btn btn-info btn-circle\" (click)=\"abrirActividades()\"><i\n                        class=\"fa fa-book\"></i> Actividades</button>\n            </div>\n        </div>\n        <div class=\"col-12\">\n            <app-ver-actividad *ngIf=\"actividadAbierta\" [actividad]=\"actividadSelected\"\n                [aluConectados]=\"alumnosConectados\"></app-ver-actividad>\n        </div>\n    </div>\n    <div *ngIf=\"gestionAlumnos\" class=\"col-md-10\">\n        <br>\n        <div *ngIf=\"verEstadisticasA\">\n            <app-ver-alumno [alumno]=\"verAlumno\"></app-ver-alumno>\n        </div>\n        <div *ngIf=\"!verEstadisticasA\" class=\"row col-12 justify-content-center\">\n            <div class=\"col-3 text-left\">\n                <button type=\"button\" *ngIf=\"crearEstudiante || editarAlumno\" (click)=\"cerrarCrearEstudiantes()\"\n                    class=\"btn btn-outline-danger\">Cancelar</button>\n            </div>\n            <div class=\"col-6 text-center\">\n                <h3>Alumnos</h3>\n            </div>\n            <div class=\"col-3 text-right\">\n                <button type=\"button\" *ngIf=\"!crearEstudiante && !editarAlumno\" (click)=\"abrirCrearEstudiantes()\"\n                    class=\"btn btn-outline-success\">Crear\n                    Alumno</button>\n            </div>\n        </div>\n        <br>\n        <div *ngIf=\"!verEstadisticasA\" class=\"row col-12 justify-content-center\">\n            <!--<div class=\"card-body card-body-cascade text-center wow fadeIn\">\n                <h4>Hola mundo</h4>\n                <p>asdalksdjlajsdklasjdkljlañksjfñdskladsfjñalksfj</p>\n            </div>-->\n            <div *ngIf=\"crearEstudiante\" class=\"col-12 card\">\n                <div class=\"card-body\">\n                    <h4 class=\"card-title\">Crear Alumno</h4>\n                    <div>\n                        <div class=\"row\">\n                            <div class=\"col-6\">\n                                <label>Nombre del Alumn@</label>\n                                <input [(ngModel)]=\"alumnoCreate.nombre\" type=\"text\" class=\"form-control\" id=\"nombre\"\n                                    placeholder=\"Nombre\">\n                                <br>\n                            </div>\n                            <div class=\"col-6\">\n                                <label>Apellidos</label>\n                                <input [(ngModel)]=\"alumnoCreate.apellidos\" type=\"text\" class=\"form-control\"\n                                    id=\"apellidos\" ng-model=\"apellidos\" placeholder=\"Apellidos\">\n                                <br>\n                            </div>\n                        </div>\n                        <div class=\"row\">\n                            <div class=\"col-12\">\n                                <label>Clase</label>\n                                <input [(ngModel)]=\"alumnoCreate.clase\" type=\"text\" class=\"form-control\" id=\"clase\"\n                                    ng-model=\"clase\" placeholder=\"Clase\">\n                                <br>\n                            </div>\n                        </div>\n                        <div class=\"row\">\n                            <div class=\"col-6\">\n                                <label>Email</label>\n                                <input [(ngModel)]=\"alumnoCreate.email\" type=\"email\" class=\"form-control\" id=\"email\"\n                                    ng-model=\"email\" placeholder=\"Enter email\">\n                                <small id=\"emailHelp\" class=\"form-text text-muted\">El email tiene que ser unico</small>\n                                <br>\n                            </div>\n                            <div class=\"col-6\">\n                                <label>Contraseña</label>\n                                <input [(ngModel)]=\"alumnoCreate.contrasena\" type=\"password\" class=\"form-control\"\n                                    id=\"contrasena\" ng-model=\"contrasena\" placeholder=\"Contraseña\">\n                                <small id=\"contrasenaHelp\" class=\"form-text text-muted\">El usuario podra entrar con esta\n                                    contraseña</small>\n                            </div>\n                        </div>\n                        <div class=\"row justify-content-center\">\n                            <div class=\"col-6 text-center\">\n                                <button type=\"button\" (click)=\"limpiar()\"\n                                    class=\"btn btn-raised btn-danger\">Limpiar</button>\n                            </div>\n                            <div class=\"col-6 text-center\">\n                                <button type=\"button\" (click)=\"anadirAlumno()\"\n                                    class=\"btn btn-raised btn-success\">Guardar Alumno</button>\n                            </div>\n                        </div>\n\n\n                    </div>\n                </div>\n            </div>\n            <div *ngIf=\"editarAlumno\" class=\"col-12 card\">\n                <div class=\"card-body\">\n                    <h4 class=\"card-title\">Editar Alumno</h4>\n                    <div class=\"container\">\n                        <div class=\"row\">\n                            <div class=\"col-6\">\n                                <label>Nombre del Alumn@</label>\n                                <input [(ngModel)]=\"onSelectedAlumno.nombre\" type=\"text\" class=\"form-control\"\n                                    id=\"nombre\" placeholder=\"Nombre\">\n                                <br>\n                            </div>\n                            <div class=\"col-6\">\n                                <label>Apellidos</label>\n                                <input [(ngModel)]=\"onSelectedAlumno.apellidos\" type=\"text\" class=\"form-control\"\n                                    id=\"apellidos\" ng-model=\"apellidos\" placeholder=\"Apellidos\">\n                                <br>\n                            </div>\n                        </div>\n                        <div class=\"row\">\n                            <div class=\"col-12\">\n                                <label>Clase</label>\n                                <input [(ngModel)]=\"onSelectedAlumno.clase\" type=\"text\" class=\"form-control\" id=\"clase\"\n                                    ng-model=\"clase\" placeholder=\"Clase\">\n                                <br>\n                            </div>\n                        </div>\n                        <div class=\"row\">\n                            <div class=\"col-6\">\n                                <label>Email</label>\n                                <input [(ngModel)]=\"onSelectedAlumno.email\" type=\"email\" class=\"form-control\" id=\"email\"\n                                    ng-model=\"email\" placeholder=\"Enter email\">\n                                <small id=\"emailHelp\" class=\"form-text text-muted\">El email tiene que ser unico</small>\n                                <br>\n                            </div>\n                            <div class=\"col-6\">\n                                <label>Contraseña</label>\n                                <input [(ngModel)]=\"onSelectedAlumno.contrasena\" type=\"password\" class=\"form-control\"\n                                    id=\"contrasena\" ng-model=\"contrasena\" placeholder=\"Contraseña\">\n                                <small id=\"contrasenaHelp\" class=\"form-text text-muted\">El usuario podra entrar con esta\n                                    contraseña</small>\n                            </div>\n                        </div>\n                        <div class=\"row\">\n                            <div class=\"col-6 text-center\">\n                                <button type=\"button\" (click)=\"limpiar()\"\n                                    class=\"btn btn-raised btn-danger\">Limpiar</button>\n                            </div>\n                            <div class=\"col-6 text-center\">\n                                <button type=\"button\" (click)=\"actualizarAlumno()\"\n                                    class=\"btn btn-raised btn-success\">Actualizar\n                                    Alumno</button>\n                            </div>\n                        </div>\n\n\n                    </div>\n                </div>\n            </div>\n            <div *ngIf=\"!crearEstudiante && !editarAlumno\" class=\"col-12\">\n                <!--<table class=\"table table-striped\">\n                    <thead>\n                        <tr>\n                            <th scope=\"col\">Nombre</th>\n                            <th scope=\"col\">Apellidos</th>\n                            <th scope=\"col\">Clase</th>\n                            <th scope=\"col\"></th>\n                            <th scope=\"col\"></th>\n                        </tr>\n                    </thead>\n                    <tbody *ngFor=\"let alumno of listaAlumnos\">\n                        <tr>\n                            <td>{{alumno.nombre}}</td>\n                            <td>{{alumno.apellidos}}</td>\n                            <td>{{alumno.clase}}</td>\n                            <td><i (click)=\"editar(alumno)\" class=\"fa fa-edit\"></i></td>\n                            <td><i (click)=\"borrar(alumno)\" class=\"fa fa-trash-o\"></i></td>\n                        </tr>\n                    </tbody>\n                </table>-->\n                <div class=\"example-header\">\n                    <mat-form-field>\n                        <input matInput (keyup)=\"applyFilterE($event.target.value)\" placeholder=\"Filtrar\">\n                    </mat-form-field>\n                </div>\n                <div class=\"example-container\">\n                    <mat-table [dataSource]=\"dataSourceEstudiantes\" class=\"mat-elevation-z1\" matSort>\n                        <ng-container matColumnDef=\"nombre\">\n                            <mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </mat-header-cell>\n                            <mat-cell *matCellDef=\"let row\"> {{row.nombre}} </mat-cell>\n                        </ng-container>\n\n                        <ng-container matColumnDef=\"apellidos\">\n                            <mat-header-cell *matHeaderCellDef mat-sort-header> Apellidos </mat-header-cell>\n                            <mat-cell *matCellDef=\"let row\"> {{row.apellidos}} </mat-cell>\n                        </ng-container>\n\n                        <ng-container matColumnDef=\"clase\">\n                            <mat-header-cell *matHeaderCellDef mat-sort-header> Clase </mat-header-cell>\n                            <mat-cell *matCellDef=\"let row\"> {{row.clase}} </mat-cell>\n                        </ng-container>\n\n                        <ng-container matColumnDef=\"estadisticas\">\n                            <mat-header-cell *matHeaderCellDef mat-sort-header></mat-header-cell>\n                            <mat-cell *matCellDef=\"let row\"><button type=\"button\" class=\"btn btn-sm btn-info\"\n                                    (click)=\"verEstadisticasAlumno(row)\"><i class=\"fas fa-chart-bar\"></i>Ver\n                                    Estadisticas</button></mat-cell>\n                        </ng-container>\n                        <ng-container matColumnDef=\"acciones\">\n                            <mat-header-cell *matHeaderCellDef mat-sort-header>Editar/Borrar</mat-header-cell>\n                            <mat-cell *matCellDef=\"let row\" class=\"text-center\">\n                                <div class=\"text-center\">\n                                    <i (click)=\"editar(row)\" class=\"fa fa-edit\"></i>\n                                    <i (click)=\"borrar(row)\" class=\"fa fa-trash-o\"></i>\n                                </div>\n                            </mat-cell>\n                        </ng-container>\n\n                        <mat-header-row *matHeaderRowDef=\"displayedColumnsEstudiantes\"></mat-header-row>\n                        <mat-row *matRowDef=\"let row; columns: displayedColumnsEstudiantes;\">\n                        </mat-row>\n                    </mat-table>\n                    <mat-paginator [pageSizeOptions]=\"[10, 25, 100]\"></mat-paginator>\n                </div>\n            </div>\n        </div>\n    </div>\n    <div *ngIf=\"gestionActividades\" class=\"col-md-10\">\n        <br>\n        <div class=\"row col-12 justify-content-center\">\n            <div class=\"col-3 text-left\">\n                <button type=\"button\" *ngIf=\"(crearActividad) || editarActividad\" (click)=\"cerrarModal()\"\n                    class=\"btn btn-outline-danger\">Cancelar</button>\n            </div>\n            <div class=\"col-6 text-center\">\n                <h3>Actividades</h3>\n            </div>\n            <div class=\"col-3 text-right\">\n                <button type=\"button\" *ngIf=\"(!crearActividad) && !editarActividad\" (click)=\"abrirCrearActividad()\"\n                    class=\"btn btn-outline-success\">Crear\n                    Actividad Individual</button>\n            </div>\n        </div>\n        <br>\n        <div class=\"col-12\">\n            <app-crear-actividad *ngIf=\"crearActividad\" [estudiantes]=\"listaAlumnos\"\n                (actividadCreada)=\"guardarActividad($event)\"></app-crear-actividad>\n            <app-editar-actividad *ngIf=\"editarActividad\" [editarActividad]=\"ActividadparaEditar\"\n                [estudiantes]=\"listaAlumnos\" (actividadEditada)=\"actualizarActividad($event)\">\n            </app-editar-actividad>\n        </div>\n        <!--<div *ngIf=\"verActividad\">\n            <app-ver-actividad [actividad]=\"actividadSelected\" [aluConectados]=\"alumnosConectados\"\n                (actividadCreada)=\"cerrarActividad($event)\"></app-ver-actividad>\n        </div>-->\n        <div *ngIf=\"(!crearActividad || editarActividad) && (crearActividad || !editarActividad)\"\n            class=\"row col-12 justify-content-md-center\">\n            <div class=\"col-12\">\n                <!--<table class=\"table table-striped\">\n                    <thead>\n                        <tr>\n                            <th scope=\"col\">Nombre</th>\n                            <th scope=\"col\">Profesor</th>\n                            <th scope=\"col\">Clase</th>\n                            <th scope=\"col\">Estado</th>\n                            <th scope=\"col\"></th>\n                            <th scope=\"col\"></th>\n                            <th scope=\"col\"></th>\n                        </tr>\n                    </thead>\n                    <tbody *ngFor=\"let actividad of listaActividades\">\n                        <tr *ngIf=\"actividad.estado=='Creada'\">\n                            <td>{{actividad.nombre}}</td>\n                            <td>{{actividad.profesor}}</td>\n                            <td>{{actividad.clase.nombre}}</td>\n                            <td>{{actividad.estado}}</td>\n                            <td><button type=\"button\" class=\"btn btn-outline-primary\"\n                                    (click)=\"abrirActividad(actividad)\">Acceder</button></td>\n                            <td><i (click)=\"editarA(actividad)\" class=\"fa fa-edit\"></i></td>\n                            <td><i (click)=\"borrarA(actividad)\" class=\"fa fa-trash-o\"></i></td>\n                        </tr>\n                        <tr *ngIf=\"actividad.estado=='Comenzada'\">\n                            <td>{{actividad.nombre}}</td>\n                            <td>{{actividad.profesor}}</td>\n                            <td>{{actividad.clase.nombre}}</td>\n                            <td>{{actividad.estado}}</td>\n                            <td><button type=\"button\" class=\"btn btn-outline-success\"\n                                    (click)=\"abrirActividad(actividad)\">Ver</button></td>\n                            <td><i (click)=\"editarA(actividad)\" class=\"fa fa-edit\"></i></td>\n                            <td><i (click)=\"borrarA(actividad)\" class=\"fa fa-trash-o\"></i></td>\n                        </tr>\n                        <tr *ngIf=\"actividad.estado=='Finalizada'\">\n                            <td>{{actividad.nombre}}</td>\n                            <td>{{actividad.profesor}}</td>\n                            <td>{{actividad.clase.nombre}}</td>\n                            <td>{{actividad.estado}}</td>\n                            <td><button type=\"button\" class=\"btn btn-outline-success\"\n                                    (click)=\"abrirActividad(actividad)\">Resumen</button></td>\n                            <td><i (click)=\"editarA(actividad)\" class=\"fa fa-edit\"></i></td>\n                            <td><i (click)=\"borrarA(actividad)\" class=\"fa fa-trash-o\"></i></td>\n                        </tr>\n                    </tbody>\n                </table>-->\n                <div class=\"example-header\">\n                    <mat-form-field>\n                        <input matInput (keyup)=\"applyFilterA($event.target.value)\" placeholder=\"Filtrar\">\n                    </mat-form-field>\n                </div>\n                <div class=\"example-container\">\n                    <mat-table [dataSource]=\"dataSourceActividades\" class=\"mat-elevation-z1\" matSort>\n                        <ng-container matColumnDef=\"nombre\">\n                            <mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </mat-header-cell>\n                            <mat-cell *matCellDef=\"let row\"> {{row.nombre}} </mat-cell>\n                        </ng-container>\n\n                        <ng-container matColumnDef=\"profesor\">\n                            <mat-header-cell *matHeaderCellDef mat-sort-header> Profesor </mat-header-cell>\n                            <mat-cell *matCellDef=\"let row\"> {{row.profesor}} </mat-cell>\n                        </ng-container>\n\n                        <ng-container matColumnDef=\"clase\">\n                            <mat-header-cell *matHeaderCellDef mat-sort-header> Clase </mat-header-cell>\n                            <mat-cell *matCellDef=\"let row\"> {{row.clase.nombre}} </mat-cell>\n                        </ng-container>\n\n                        <ng-container matColumnDef=\"estado\">\n                            <mat-header-cell *matHeaderCellDef mat-sort-header> Estado </mat-header-cell>\n                            <mat-cell *matCellDef=\"let row\"> {{row.estado}} </mat-cell>\n                        </ng-container>\n\n                        <ng-container matColumnDef=\"acciones\">\n                            <mat-header-cell *matHeaderCellDef mat-sort-header></mat-header-cell>\n                            <mat-cell *matCellDef=\"let row\">\n                                <button *ngIf=\"row.estado=='Creada'\" type=\"button\"\n                                    class=\"btn btn-sm btn-outline-primary\"\n                                    (click)=\"abrirActividad(row)\">Acceder</button>\n                                <button *ngIf=\"row.estado=='Comenzada'\" type=\"button\"\n                                    class=\"btn btn-sm btn-outline-primary\" (click)=\"abrirActividad(row)\">Ver</button>\n                                <button *ngIf=\"row.estado=='Finalizada'\" type=\"button\"\n                                    class=\"btn btn-sm btn-outline-info\" (click)=\"abrirActividad(row)\">Ver\n                                    Estadisticas</button>\n                            </mat-cell>\n                        </ng-container>\n                        <ng-container matColumnDef=\"editarborrar\">\n                            <mat-header-cell *matHeaderCellDef mat-sort-header>Editar/Borrar</mat-header-cell>\n                            <mat-cell *matCellDef=\"let row\" class=\"text-center\">\n                                <div class=\"text-center\">\n                                    <i (click)=\"editarA(row)\" class=\"fa fa-edit\"></i>\n                                    <i (click)=\"borrarA(row)\" class=\"fa fa-trash-o\"></i>\n                                </div>\n\n                            </mat-cell>\n                        </ng-container>\n                        <mat-header-row *matHeaderRowDef=\"displayedColumnsActividades\"></mat-header-row>\n                        <mat-row *matRowDef=\"let row; columns: displayedColumnsActividades;\">\n                        </mat-row>\n                    </mat-table>\n                    <mat-paginator [pageSizeOptions]=\"[10, 25, 100]\"></mat-paginator>\n                </div>\n            </div>\n        </div>\n    </div>\n    <div *ngIf=\"gestionClases\" class=\"col-md-10\">\n        <br *ngIf=\"!verClase\">\n        <div *ngIf=\"!verClase\" class=\"row col-12 justify-content-center\">\n            <div class=\"col-3 text-left\">\n                <button type=\"button\" *ngIf=\"crearClase || editarClase\" (click)=\"cerrarModal()\"\n                    class=\"btn btn-outline-danger\">Cancelar</button>\n            </div>\n            <div class=\"col-6 text-center\">\n                <h3>Clases</h3>\n            </div>\n            <div class=\"col-3 text-right\">\n                <button type=\"button\" *ngIf=\"!crearClase || !editarClase\" (click)=\"abrirCrearClase()\"\n                    class=\"btn btn-outline-success\">Crear\n                    Clase</button>\n            </div>\n        </div>\n        <br>\n        <div class=\"col-12\">\n            <app-crear-clase *ngIf=\"crearClase\" [estudiantes]=\"listaAlumnos\"></app-crear-clase>\n            <app-editar-clase *ngIf=\"editarClase\" [estudiantes]=\"listaAlumnos\" [editarActividad]=\"ClaseparaEditar\">\n            </app-editar-clase>\n        </div>\n        <!--<div *ngIf=\"verClase\">\n            <app-ver-clase [actividad]=\"actividadSelected\" [aluConectados]=\"alumnosConectados\"\n                ></app-ver-clase>\n        </div>-->\n        <div *ngIf=\"(!crearClase || editarClase) && (crearClase || !editarClase) && !verClase\"\n            class=\"row col-12 justify-content-md-center\">\n            <div class=\"col-12\">\n                <!--<table class=\"table table-striped\">\n                    <thead>\n                        <tr>\n                            <th scope=\"col\">Nombre</th>\n                            <th scope=\"col\">Profesor</th>\n                            <th scope=\"col\"></th>\n                            <th scope=\"col\"></th>\n                            <th scope=\"col\"></th>\n                            <th scope=\"col\"></th>\n                        </tr>\n                    </thead>\n                    <tbody *ngFor=\"let clase of listaClases\">\n                        <tr>\n                            <td>{{clase.nombre}}</td>\n                            <td>{{clase.profesor}}</td>\n                            <td><button type=\"button\" class=\"btn btn-outline-success\"\n                                    (click)=\"crearActividadAsociada(clase)\">Crear Actividad</button></td>\n                            <td><button type=\"button\" class=\"btn btn-outline-primary\" (click)=\"abrirClase(clase)\">Ver\n                                    Clase</button></td>\n                            <td><i (click)=\"editarC(clase)\" class=\"fa fa-edit\"></i></td>\n                            <td><i (click)=\"borrarC(clase)\" class=\"fa fa-trash-o\"></i></td>\n                        </tr>\n                    </tbody>\n                </table>-->\n                <div class=\"example-header\">\n                    <mat-form-field>\n                        <input matInput (keyup)=\"applyFilterC($event.target.value)\" placeholder=\"Filtrar\">\n                    </mat-form-field>\n                </div>\n                <div class=\"example-container\">\n                    <mat-table [dataSource]=\"dataSourceClases\" class=\"mat-elevation-z1\" matSort>\n                        <ng-container matColumnDef=\"nombre\">\n                            <mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </mat-header-cell>\n                            <mat-cell *matCellDef=\"let row\"> {{row.nombre}} </mat-cell>\n                        </ng-container>\n\n                        <ng-container matColumnDef=\"profesor\">\n                            <mat-header-cell *matHeaderCellDef mat-sort-header> Profesor </mat-header-cell>\n                            <mat-cell *matCellDef=\"let row\"> {{row.profesor}} </mat-cell>\n                        </ng-container>\n\n                        <ng-container matColumnDef=\"accion1\">\n                            <mat-header-cell *matHeaderCellDef mat-sort-header></mat-header-cell>\n                            <mat-cell *matCellDef=\"let row\">\n                                <button type=\"button\" class=\"btn btn-sm btn-outline-success\"\n                                    (click)=\"crearActividadAsociada(row)\">Crear Actividad</button>\n                            </mat-cell>\n                        </ng-container>\n                        <ng-container matColumnDef=\"accion2\">\n                            <mat-header-cell *matHeaderCellDef mat-sort-header></mat-header-cell>\n                            <mat-cell *matCellDef=\"let row\">\n                                <button type=\"button\" class=\"btn btn-sm btn-outline-primary\"\n                                    (click)=\"abrirClase(row)\">Ver\n                                    Clase</button>\n                            </mat-cell>\n                        </ng-container>\n                        <ng-container matColumnDef=\"editarborrar\">\n                            <mat-header-cell *matHeaderCellDef mat-sort-header>Editar/Borrar</mat-header-cell>\n                            <mat-cell *matCellDef=\"let row\" class=\"text-center\">\n                                <div class=\"text-center\">\n                                    <i (click)=\"editarC(row)\" class=\"fa fa-edit\"></i>\n                                    <i (click)=\"borrarC(row)\" class=\"fa fa-trash-o\"></i>\n                                </div>\n\n                            </mat-cell>\n                        </ng-container>\n                        <mat-header-row *matHeaderRowDef=\"displayedColumnsClases\"></mat-header-row>\n                        <mat-row *matRowDef=\"let row; columns: displayedColumnsClases;\">\n                        </mat-row>\n                    </mat-table>\n                    <mat-paginator [pageSizeOptions]=\"[10, 25, 100]\"></mat-paginator>\n                </div>\n            </div>\n        </div>\n        <div *ngIf=\"verClase\">\n            <app-ver-clase [clase]=\"claseSelected\"></app-ver-clase>\n        </div>\n\n    </div>\n</div>\n<br>";
+    __webpack_exports__["default"] = "<div class=\"row\">\n    <div class=\"col-md-2\">\n        <!--<app-sidenav-profesor></app-sidenav-profesor>-->\n        <div class=\"sidenav list-group\">\n            <a href=\"#\" class=\"item-menu-sidenav\" (click)=\"abrirActividadActual()\"><i class=\"fa fa-home\"></i> Home</a>\n            <a href=\"#\" class=\"item-menu-sidenav\" (click)=\"abrirAlumnos()\"><i class=\"fa fa-user\"></i> Alumnos</a>\n            <a href=\"#\" class=\"item-menu-sidenav\" (click)=\"abrirClases()\"><i class=\"fa fa-book\"></i>\n                Clases</a>\n            <a href=\"#\" class=\"item-menu-sidenav\" (click)=\"abrirActividades()\"><i class=\"fa fa-university\"></i>\n                Actividades</a>\n        </div>\n    </div>\n    <div *ngIf=\"gestionHome\" class=\"col-md-10\">\n        <br>\n        <div *ngIf=\"!actividadAbierta\">\n            <br>\n            <br>\n            <br>\n            <br>\n            <br>\n            <br>\n            <br>\n            <br>\n            <br>\n        </div>\n        <div class=\"row justify-content-center\" *ngIf=\"!actividadAbierta\">\n            <div class=\"col-3 text-center\">\n                <button type=\"button\" class=\"btn btn-primary btn-circle\" (click)=\"abrirAlumnos()\"><i\n                        class=\"fa fa-user\"></i> Alumnos</button>\n            </div>\n            <div class=\"col-3 text-center\">\n                <button type=\"button\" class=\"btn btn-success btn-circle\" (click)=\"abrirClases()\"><i\n                        class=\"fa fa-university\"></i> Clases</button>\n            </div>\n            <div class=\"col-3 text-center\">\n                <button type=\"button\" class=\"btn btn-info btn-circle\" (click)=\"abrirActividades()\"><i\n                        class=\"fa fa-book\"></i> Actividades</button>\n            </div>\n        </div>\n        <div class=\"col-12\">\n            <app-ver-actividad *ngIf=\"actividadAbierta\" [actividad]=\"actividadSelected\"\n                [aluConectados]=\"alumnosConectados\"></app-ver-actividad>\n        </div>\n    </div>\n    <div *ngIf=\"gestionAlumnos\" class=\"col-md-10\">\n        <br>\n        <div *ngIf=\"verEstadisticasA\">\n            <app-ver-alumno [alumno]=\"verAlumno\"></app-ver-alumno>\n        </div>\n        <div *ngIf=\"!verEstadisticasA\" class=\"row col-12 justify-content-center\">\n            <div class=\"col-3 text-left\">\n                <button type=\"button\" *ngIf=\"crearEstudiante || editarAlumno\" (click)=\"cerrarCrearEstudiantes()\"\n                    class=\"btn btn-outline-danger\">Cancelar</button>\n            </div>\n            <div class=\"col-6 text-center\">\n                <h3>Alumnos</h3>\n            </div>\n            <div class=\"col-3 text-right\">\n                <button type=\"button\" *ngIf=\"!crearEstudiante && !editarAlumno\" (click)=\"abrirCrearEstudiantes()\"\n                    class=\"btn btn-outline-success\">Crear\n                    Alumno</button>\n            </div>\n        </div>\n        <br>\n        <div *ngIf=\"!verEstadisticasA\" class=\"row col-12 justify-content-center\">\n            <!--<div class=\"card-body card-body-cascade text-center wow fadeIn\">\n                <h4>Hola mundo</h4>\n                <p>asdalksdjlajsdklasjdkljlañksjfñdskladsfjñalksfj</p>\n            </div>-->\n            <div *ngIf=\"crearEstudiante\" class=\"col-12 card\">\n                <div class=\"card-body\">\n                    <h4 class=\"card-title\">Crear Alumno</h4>\n                    <div>\n                        <div class=\"row\">\n                            <div class=\"col-6\">\n                                <label>Nombre del Alumn@</label>\n                                <input [(ngModel)]=\"alumnoCreate.nombre\" type=\"text\" class=\"form-control\" id=\"nombre\"\n                                    placeholder=\"Nombre\">\n                                <br>\n                            </div>\n                            <div class=\"col-6\">\n                                <label>Apellidos</label>\n                                <input [(ngModel)]=\"alumnoCreate.apellidos\" type=\"text\" class=\"form-control\"\n                                    id=\"apellidos\" ng-model=\"apellidos\" placeholder=\"Apellidos\">\n                                <br>\n                            </div>\n                        </div>\n                        <div class=\"row\">\n                            <div class=\"col-12\">\n                                <label>Clase</label>\n                                <input [(ngModel)]=\"alumnoCreate.clase\" type=\"text\" class=\"form-control\" id=\"clase\"\n                                    ng-model=\"clase\" placeholder=\"Clase\">\n                                <br>\n                            </div>\n                        </div>\n                        <div class=\"row\">\n                            <div class=\"col-6\">\n                                <label>Email</label>\n                                <input [(ngModel)]=\"alumnoCreate.email\" type=\"email\" class=\"form-control\" id=\"email\"\n                                    ng-model=\"email\" placeholder=\"Enter email\">\n                                <small id=\"emailHelp\" class=\"form-text text-muted\">El email tiene que ser unico</small>\n                                <br>\n                            </div>\n                            <div class=\"col-6\">\n                                <label>Contraseña</label>\n                                <input [(ngModel)]=\"alumnoCreate.contrasena\" type=\"password\" class=\"form-control\"\n                                    id=\"contrasena\" ng-model=\"contrasena\" placeholder=\"Contraseña\">\n                                <small id=\"contrasenaHelp\" class=\"form-text text-muted\">El usuario podra entrar con esta\n                                    contraseña</small>\n                            </div>\n                        </div>\n                        <div class=\"row justify-content-center\">\n                            <div class=\"col-6 text-center\">\n                                <button type=\"button\" (click)=\"limpiar()\"\n                                    class=\"btn btn-raised btn-danger\">Limpiar</button>\n                            </div>\n                            <div class=\"col-6 text-center\">\n                                <button type=\"button\" (click)=\"anadirAlumno()\"\n                                    class=\"btn btn-raised btn-success\">Guardar Alumno</button>\n                            </div>\n                        </div>\n\n\n                    </div>\n                </div>\n            </div>\n            <div *ngIf=\"editarAlumno\" class=\"col-12 card\">\n                <div class=\"card-body\">\n                    <h4 class=\"card-title\">Editar Alumno</h4>\n                    <div class=\"container\">\n                        <div class=\"row\">\n                            <div class=\"col-6\">\n                                <label>Nombre del Alumn@</label>\n                                <input [(ngModel)]=\"onSelectedAlumno.nombre\" type=\"text\" class=\"form-control\"\n                                    id=\"nombre\" placeholder=\"Nombre\">\n                                <br>\n                            </div>\n                            <div class=\"col-6\">\n                                <label>Apellidos</label>\n                                <input [(ngModel)]=\"onSelectedAlumno.apellidos\" type=\"text\" class=\"form-control\"\n                                    id=\"apellidos\" ng-model=\"apellidos\" placeholder=\"Apellidos\">\n                                <br>\n                            </div>\n                        </div>\n                        <div class=\"row\">\n                            <div class=\"col-12\">\n                                <label>Clase</label>\n                                <input [(ngModel)]=\"onSelectedAlumno.clase\" type=\"text\" class=\"form-control\" id=\"clase\"\n                                    ng-model=\"clase\" placeholder=\"Clase\">\n                                <br>\n                            </div>\n                        </div>\n                        <div class=\"row\">\n                            <div class=\"col-6\">\n                                <label>Email</label>\n                                <input [(ngModel)]=\"onSelectedAlumno.email\" type=\"email\" class=\"form-control\" id=\"email\"\n                                    ng-model=\"email\" placeholder=\"Enter email\">\n                                <small id=\"emailHelp\" class=\"form-text text-muted\">El email tiene que ser unico</small>\n                                <br>\n                            </div>\n                            <div class=\"col-6\">\n                                <label>Contraseña</label>\n                                <input [(ngModel)]=\"onSelectedAlumno.contrasena\" type=\"password\" class=\"form-control\"\n                                    id=\"contrasena\" ng-model=\"contrasena\" placeholder=\"Contraseña\">\n                                <small id=\"contrasenaHelp\" class=\"form-text text-muted\">El usuario podra entrar con esta\n                                    contraseña</small>\n                            </div>\n                        </div>\n                        <div class=\"row\">\n                            <div class=\"col-6 text-center\">\n                                <button type=\"button\" (click)=\"limpiar()\"\n                                    class=\"btn btn-raised btn-danger\">Limpiar</button>\n                            </div>\n                            <div class=\"col-6 text-center\">\n                                <button type=\"button\" (click)=\"actualizarAlumno()\"\n                                    class=\"btn btn-raised btn-success\">Actualizar\n                                    Alumno</button>\n                            </div>\n                        </div>\n\n\n                    </div>\n                </div>\n            </div>\n            <div *ngIf=\"!crearEstudiante && !editarAlumno\" class=\"col-12\">\n                <!--<table class=\"table table-striped\">\n                    <thead>\n                        <tr>\n                            <th scope=\"col\">Nombre</th>\n                            <th scope=\"col\">Apellidos</th>\n                            <th scope=\"col\">Clase</th>\n                            <th scope=\"col\"></th>\n                            <th scope=\"col\"></th>\n                        </tr>\n                    </thead>\n                    <tbody *ngFor=\"let alumno of listaAlumnos\">\n                        <tr>\n                            <td>{{alumno.nombre}}</td>\n                            <td>{{alumno.apellidos}}</td>\n                            <td>{{alumno.clase}}</td>\n                            <td><i (click)=\"editar(alumno)\" class=\"fa fa-edit\"></i></td>\n                            <td><i (click)=\"borrar(alumno)\" class=\"fa fa-trash-o\"></i></td>\n                        </tr>\n                    </tbody>\n                </table>-->\n                <div class=\"example-header\">\n                    <mat-form-field>\n                        <input matInput (keyup)=\"applyFilterE($event.target.value)\" placeholder=\"Filtrar\">\n                    </mat-form-field>\n                </div>\n                <div class=\"example-container\">\n                    <mat-table [dataSource]=\"dataSourceEstudiantes\" class=\"mat-elevation-z1\" matSort>\n                        <ng-container matColumnDef=\"nombre\">\n                            <mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </mat-header-cell>\n                            <mat-cell *matCellDef=\"let row\"> {{row.nombre}} </mat-cell>\n                        </ng-container>\n\n                        <ng-container matColumnDef=\"apellidos\">\n                            <mat-header-cell *matHeaderCellDef mat-sort-header> Apellidos </mat-header-cell>\n                            <mat-cell *matCellDef=\"let row\"> {{row.apellidos}} </mat-cell>\n                        </ng-container>\n\n                        <ng-container matColumnDef=\"clase\">\n                            <mat-header-cell *matHeaderCellDef mat-sort-header> Clase </mat-header-cell>\n                            <mat-cell *matCellDef=\"let row\"> {{row.clase}} </mat-cell>\n                        </ng-container>\n\n                        <ng-container matColumnDef=\"estadisticas\">\n                            <mat-header-cell *matHeaderCellDef mat-sort-header></mat-header-cell>\n                            <mat-cell *matCellDef=\"let row\"><button type=\"button\" class=\"btn btn-sm btn-info\"\n                                    (click)=\"verEstadisticasAlumno(row)\"><i class=\"fas fa-chart-bar\"></i>Ver\n                                    Estadisticas</button></mat-cell>\n                        </ng-container>\n                        <ng-container matColumnDef=\"acciones\">\n                            <mat-header-cell *matHeaderCellDef mat-sort-header>Editar/Borrar</mat-header-cell>\n                            <mat-cell *matCellDef=\"let row\" class=\"text-center\">\n                                <div class=\"text-center\">\n                                    <i (click)=\"editar(row)\" class=\"fa fa-edit\"></i>\n                                    <i (click)=\"borrar(row)\" class=\"fa fa-trash-o\"></i>\n                                </div>\n                            </mat-cell>\n                        </ng-container>\n\n                        <mat-header-row *matHeaderRowDef=\"displayedColumnsEstudiantes\"></mat-header-row>\n                        <mat-row *matRowDef=\"let row; columns: displayedColumnsEstudiantes;\">\n                        </mat-row>\n                    </mat-table>\n                    <mat-paginator [pageSizeOptions]=\"[10, 25, 100]\"></mat-paginator>\n                </div>\n            </div>\n        </div>\n    </div>\n    <div *ngIf=\"gestionActividades\" class=\"col-md-10\">\n        <br>\n        <div class=\"row col-12 justify-content-center\">\n            <div class=\"col-3 text-left\">\n                <button type=\"button\" *ngIf=\"(crearActividad) || editarActividad\" (click)=\"cerrarModal()\"\n                    class=\"btn btn-outline-danger\">Cancelar</button>\n            </div>\n            <div class=\"col-6 text-center\">\n                <h3>Actividades</h3>\n            </div>\n            <div class=\"col-3 text-right\">\n                <button type=\"button\" *ngIf=\"(!crearActividad) && !editarActividad\" (click)=\"abrirCrearActividad()\"\n                    class=\"btn btn-outline-success\">Crear\n                    Actividad Individual</button>\n            </div>\n        </div>\n        <br>\n        <div class=\"col-12\">\n            <app-crear-actividad *ngIf=\"crearActividad\" [estudiantes]=\"listaAlumnos\"\n                (actividadCreada)=\"guardarActividad($event)\"></app-crear-actividad>\n            <app-editar-actividad *ngIf=\"editarActividad\" [editarActividad]=\"ActividadparaEditar\"\n                [estudiantes]=\"listaAlumnos\" (actividadEditada)=\"actualizarActividad($event)\">\n            </app-editar-actividad>\n        </div>\n        <!--<div *ngIf=\"verActividad\">\n            <app-ver-actividad [actividad]=\"actividadSelected\" [aluConectados]=\"alumnosConectados\"\n                (actividadCreada)=\"cerrarActividad($event)\"></app-ver-actividad>\n        </div>-->\n        <div *ngIf=\"(!crearActividad || editarActividad) && (crearActividad || !editarActividad)\"\n            class=\"row col-12 justify-content-md-center\">\n            <div class=\"col-12\">\n                <!--<table class=\"table table-striped\">\n                    <thead>\n                        <tr>\n                            <th scope=\"col\">Nombre</th>\n                            <th scope=\"col\">Profesor</th>\n                            <th scope=\"col\">Clase</th>\n                            <th scope=\"col\">Estado</th>\n                            <th scope=\"col\"></th>\n                            <th scope=\"col\"></th>\n                            <th scope=\"col\"></th>\n                        </tr>\n                    </thead>\n                    <tbody *ngFor=\"let actividad of listaActividades\">\n                        <tr *ngIf=\"actividad.estado=='Creada'\">\n                            <td>{{actividad.nombre}}</td>\n                            <td>{{actividad.profesor}}</td>\n                            <td>{{actividad.clase.nombre}}</td>\n                            <td>{{actividad.estado}}</td>\n                            <td><button type=\"button\" class=\"btn btn-outline-primary\"\n                                    (click)=\"abrirActividad(actividad)\">Acceder</button></td>\n                            <td><i (click)=\"editarA(actividad)\" class=\"fa fa-edit\"></i></td>\n                            <td><i (click)=\"borrarA(actividad)\" class=\"fa fa-trash-o\"></i></td>\n                        </tr>\n                        <tr *ngIf=\"actividad.estado=='Comenzada'\">\n                            <td>{{actividad.nombre}}</td>\n                            <td>{{actividad.profesor}}</td>\n                            <td>{{actividad.clase.nombre}}</td>\n                            <td>{{actividad.estado}}</td>\n                            <td><button type=\"button\" class=\"btn btn-outline-success\"\n                                    (click)=\"abrirActividad(actividad)\">Ver</button></td>\n                            <td><i (click)=\"editarA(actividad)\" class=\"fa fa-edit\"></i></td>\n                            <td><i (click)=\"borrarA(actividad)\" class=\"fa fa-trash-o\"></i></td>\n                        </tr>\n                        <tr *ngIf=\"actividad.estado=='Finalizada'\">\n                            <td>{{actividad.nombre}}</td>\n                            <td>{{actividad.profesor}}</td>\n                            <td>{{actividad.clase.nombre}}</td>\n                            <td>{{actividad.estado}}</td>\n                            <td><button type=\"button\" class=\"btn btn-outline-success\"\n                                    (click)=\"abrirActividad(actividad)\">Resumen</button></td>\n                            <td><i (click)=\"editarA(actividad)\" class=\"fa fa-edit\"></i></td>\n                            <td><i (click)=\"borrarA(actividad)\" class=\"fa fa-trash-o\"></i></td>\n                        </tr>\n                    </tbody>\n                </table>-->\n                <div class=\"example-header\">\n                    <mat-form-field>\n                        <input matInput (keyup)=\"applyFilterA($event.target.value)\" placeholder=\"Filtrar\">\n                    </mat-form-field>\n                </div>\n                <div class=\"example-container\">\n                    <mat-table [dataSource]=\"dataSourceActividades\" class=\"mat-elevation-z1\" matSort>\n                        <ng-container matColumnDef=\"nombre\">\n                            <mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </mat-header-cell>\n                            <mat-cell *matCellDef=\"let row\"> {{row.nombre}} </mat-cell>\n                        </ng-container>\n\n                        <ng-container matColumnDef=\"profesor\">\n                            <mat-header-cell *matHeaderCellDef mat-sort-header> Profesor </mat-header-cell>\n                            <mat-cell *matCellDef=\"let row\"> {{row.profesor}} </mat-cell>\n                        </ng-container>\n\n                        <ng-container matColumnDef=\"clase\">\n                            <mat-header-cell *matHeaderCellDef mat-sort-header> Clase </mat-header-cell>\n                            <mat-cell *matCellDef=\"let row\"> {{row.clase.nombre}} </mat-cell>\n                        </ng-container>\n\n                        <ng-container matColumnDef=\"estado\">\n                            <mat-header-cell *matHeaderCellDef mat-sort-header> Estado </mat-header-cell>\n                            <mat-cell *matCellDef=\"let row\"> {{row.estado}} </mat-cell>\n                        </ng-container>\n\n                        <ng-container matColumnDef=\"acciones\">\n                            <mat-header-cell *matHeaderCellDef mat-sort-header></mat-header-cell>\n                            <mat-cell *matCellDef=\"let row\">\n                                <button *ngIf=\"row.estado=='Creada'\" type=\"button\"\n                                    class=\"btn btn-sm btn-outline-primary\"\n                                    (click)=\"abrirActividad(row)\">Acceder</button>\n                                <button *ngIf=\"row.estado=='Comenzada'\" type=\"button\"\n                                    class=\"btn btn-sm btn-outline-primary\" (click)=\"abrirActividad(row)\">Ver</button>\n                                <button *ngIf=\"row.estado=='Finalizada'\" type=\"button\"\n                                    class=\"btn btn-sm btn-outline-info\" (click)=\"abrirActividad(row)\">Ver\n                                    Estadisticas</button>\n                            </mat-cell>\n                        </ng-container>\n                        <ng-container matColumnDef=\"editarborrar\">\n                            <mat-header-cell *matHeaderCellDef mat-sort-header>Editar/Borrar</mat-header-cell>\n                            <mat-cell *matCellDef=\"let row\" class=\"text-center\">\n                                <div class=\"text-center\">\n                                    <i (click)=\"editarA(row)\" class=\"fa fa-edit\"></i>\n                                    <i (click)=\"borrarA(row)\" class=\"fa fa-trash-o\"></i>\n                                </div>\n\n                            </mat-cell>\n                        </ng-container>\n                        <mat-header-row *matHeaderRowDef=\"displayedColumnsActividades\"></mat-header-row>\n                        <mat-row *matRowDef=\"let row; columns: displayedColumnsActividades;\">\n                        </mat-row>\n                    </mat-table>\n                    <mat-paginator [pageSizeOptions]=\"[10, 25, 100]\"></mat-paginator>\n                </div>\n            </div>\n        </div>\n    </div>\n    <div *ngIf=\"gestionClases\" class=\"col-md-10\">\n        <br *ngIf=\"!verClase\">\n        <div *ngIf=\"!verClase\" class=\"row col-12 justify-content-center\">\n            <div class=\"col-3 text-left\">\n                <button type=\"button\" *ngIf=\"crearClase || editarClase\" (click)=\"cerrarModal()\"\n                    class=\"btn btn-outline-danger\">Cancelar</button>\n            </div>\n            <div class=\"col-6 text-center\">\n                <h3>Clases</h3>\n            </div>\n            <div class=\"col-3 text-right\">\n                <button type=\"button\" *ngIf=\"!crearClase || !editarClase\" (click)=\"abrirCrearClase()\"\n                    class=\"btn btn-outline-success\">Crear\n                    Clase</button>\n            </div>\n        </div>\n        <br>\n        <div class=\"col-12\">\n            <app-crear-clase *ngIf=\"crearClase\" [estudiantes]=\"listaAlumnos\"></app-crear-clase>\n            <app-editar-clase *ngIf=\"editarClase\" [estudiantes]=\"listaAlumnos\" [editarActividad]=\"ClaseparaEditar\">\n            </app-editar-clase>\n        </div>\n        <!--<div *ngIf=\"verClase\">\n            <app-ver-clase [actividad]=\"actividadSelected\" [aluConectados]=\"alumnosConectados\"\n                ></app-ver-clase>\n        </div>-->\n        <div *ngIf=\"(!crearClase || editarClase) && (crearClase || !editarClase) && !verClase\"\n            class=\"row col-12 justify-content-md-center\">\n            <div class=\"col-12\">\n                <!--<table class=\"table table-striped\">\n                    <thead>\n                        <tr>\n                            <th scope=\"col\">Nombre</th>\n                            <th scope=\"col\">Profesor</th>\n                            <th scope=\"col\"></th>\n                            <th scope=\"col\"></th>\n                            <th scope=\"col\"></th>\n                            <th scope=\"col\"></th>\n                        </tr>\n                    </thead>\n                    <tbody *ngFor=\"let clase of listaClases\">\n                        <tr>\n                            <td>{{clase.nombre}}</td>\n                            <td>{{clase.profesor}}</td>\n                            <td><button type=\"button\" class=\"btn btn-outline-success\"\n                                    (click)=\"crearActividadAsociada(clase)\">Crear Actividad</button></td>\n                            <td><button type=\"button\" class=\"btn btn-outline-primary\" (click)=\"abrirClase(clase)\">Ver\n                                    Clase</button></td>\n                            <td><i (click)=\"editarC(clase)\" class=\"fa fa-edit\"></i></td>\n                            <td><i (click)=\"borrarC(clase)\" class=\"fa fa-trash-o\"></i></td>\n                        </tr>\n                    </tbody>\n                </table>-->\n                <div class=\"example-header\">\n                    <mat-form-field>\n                        <input matInput (keyup)=\"applyFilterC($event.target.value)\" placeholder=\"Filtrar\">\n                    </mat-form-field>\n                </div>\n                <div class=\"example-container\">\n                    <mat-table [dataSource]=\"dataSourceClases\" class=\"mat-elevation-z1\" matSort>\n                        <ng-container matColumnDef=\"nombre\">\n                            <mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </mat-header-cell>\n                            <mat-cell *matCellDef=\"let row\"> {{row.nombre}} </mat-cell>\n                        </ng-container>\n\n                        <ng-container matColumnDef=\"profesor\">\n                            <mat-header-cell *matHeaderCellDef mat-sort-header> Profesor </mat-header-cell>\n                            <mat-cell *matCellDef=\"let row\"> {{row.profesor}} </mat-cell>\n                        </ng-container>\n\n                        <ng-container matColumnDef=\"accion1\">\n                            <mat-header-cell *matHeaderCellDef mat-sort-header></mat-header-cell>\n                            <mat-cell *matCellDef=\"let row\">\n                                <button *ngIf=\"!creandoActividadAsociada\" type=\"button\" class=\"btn btn-sm btn-outline-success\"\n                                    (click)=\"crearActividadAsociada(row)\">Crear Actividad</button>\n                                <button *ngIf=\"creandoActividadAsociada\" class=\"btn btn-sm btn-outline-success disabled\" type=\"button\"\n                                    disabled>\n                                    <span class=\"spinner-border spinner-border-sm\" role=\"status\"\n                                        aria-hidden=\"true\"></span>\n                                    Creando Actividad...\n                                </button>\n                            </mat-cell>\n                        </ng-container>\n                        <ng-container matColumnDef=\"accion2\">\n                            <mat-header-cell *matHeaderCellDef mat-sort-header></mat-header-cell>\n                            <mat-cell *matCellDef=\"let row\">\n                                <button type=\"button\" class=\"btn btn-sm btn-outline-primary\"\n                                    (click)=\"abrirClase(row)\">Ver\n                                    Clase</button>\n                            </mat-cell>\n                        </ng-container>\n                        <ng-container matColumnDef=\"editarborrar\">\n                            <mat-header-cell *matHeaderCellDef mat-sort-header>Editar/Borrar</mat-header-cell>\n                            <mat-cell *matCellDef=\"let row\" class=\"text-center\">\n                                <div class=\"text-center\">\n                                    <i (click)=\"editarC(row)\" class=\"fa fa-edit\"></i>\n                                    <i (click)=\"borrarC(row)\" class=\"fa fa-trash-o\"></i>\n                                </div>\n\n                            </mat-cell>\n                        </ng-container>\n                        <mat-header-row *matHeaderRowDef=\"displayedColumnsClases\"></mat-header-row>\n                        <mat-row *matRowDef=\"let row; columns: displayedColumnsClases;\">\n                        </mat-row>\n                    </mat-table>\n                    <mat-paginator [pageSizeOptions]=\"[10, 25, 100]\"></mat-paginator>\n                </div>\n            </div>\n        </div>\n        <div *ngIf=\"verClase\">\n            <app-ver-clase [clase]=\"claseSelected\"></app-ver-clase>\n        </div>\n\n    </div>\n</div>\n<br>";
     /***/
   },
 
@@ -2107,6 +2107,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         this.listaSensores = [];
         this.id = '';
         this.intervaloDeEnvio = null;
+        this.estoyComputando = false;
         this.pulsaciones = 0;
         this.pulsacionesMax = 180;
         this.pulsacionesMin = 30;
@@ -2122,6 +2123,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         this.canvas = null;
         this.intervaloGenerarDatos = null;
         this.intervaloPulsaciones = null;
+        this.intervaloEnvio = null;
         this.band = null;
         this.chart = [];
 
@@ -2478,12 +2480,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function empezar() {
           return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
           /*#__PURE__*/
-          regeneratorRuntime.mark(function _callee5() {
+          regeneratorRuntime.mark(function _callee6() {
             var _this = this;
 
-            return regeneratorRuntime.wrap(function _callee5$(_context5) {
+            return regeneratorRuntime.wrap(function _callee6$(_context6) {
               while (1) {
-                switch (_context5.prev = _context5.next) {
+                switch (_context6.prev = _context6.next) {
                   case 0:
                     //console.log(this.video.srcObject);
                     Promise.all([faceapi.nets.ageGenderNet.loadFromUri('assets/modelos'), faceapi.nets.faceExpressionNet.loadFromUri('assets/modelos'), faceapi.nets.faceLandmark68Net.loadFromUri('assets/modelos'), faceapi.nets.faceLandmark68TinyNet.loadFromUri('assets/modelos'), faceapi.nets.faceRecognitionNet.loadFromUri('assets/modelos'), faceapi.nets.ssdMobilenetv1.loadFromUri('assets/modelos'), faceapi.nets.tinyFaceDetector.loadFromUri('assets/modelos')]); //console.log(this.video.srcObject);
@@ -2498,27 +2500,45 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                       height: this.camara.data.height
                     };
                     faceapi.matchDimensions(this.canvas, this.displaySize);
-                    this.intervaloGenerarDatos = setInterval(function () {
+                    this.intervaloDeEnvio = setInterval(function () {
                       return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](_this, void 0, void 0,
                       /*#__PURE__*/
                       regeneratorRuntime.mark(function _callee4() {
-                        var detections, datos, datosFisicos, datosNeutral, datosHappy, datosSad, datosAngry, datosFearful, datosSurprised, datosDisgusted;
                         return regeneratorRuntime.wrap(function _callee4$(_context4) {
                           while (1) {
                             switch (_context4.prev = _context4.next) {
                               case 0:
-                                _context4.prev = 0;
-                                _context4.next = 3;
+                                this.computacionDatos();
+
+                              case 1:
+                              case "end":
+                                return _context4.stop();
+                            }
+                          }
+                        }, _callee4, this);
+                      }));
+                    }, 5000);
+                    this.intervaloGenerarDatos = setInterval(function () {
+                      return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](_this, void 0, void 0,
+                      /*#__PURE__*/
+                      regeneratorRuntime.mark(function _callee5() {
+                        var detections, datos, datosFisicos, datosNeutral, datosHappy, datosSad, datosAngry, datosFearful, datosSurprised, datosDisgusted;
+                        return regeneratorRuntime.wrap(function _callee5$(_context5) {
+                          while (1) {
+                            switch (_context5.prev = _context5.next) {
+                              case 0:
+                                _context5.prev = 0;
+                                _context5.next = 3;
                                 return faceapi.detectSingleFace(this.camara.data, new faceapi.TinyFaceDetectorOptions()).withFaceLandmarks().withFaceExpressions();
 
                               case 3:
-                                detections = _context4.sent;
+                                detections = _context5.sent;
                                 datos = faceapi.resizeResults(detections, this.displaySize).expressions;
-                                _context4.next = 7;
+                                _context5.next = 7;
                                 return faceapi.detectSingleFace(this.camara.data).withFaceLandmarks().withAgeAndGender();
 
                               case 7:
-                                datosFisicos = _context4.sent;
+                                datosFisicos = _context5.sent;
                                 datosNeutral = faceapi.resizeResults(detections, this.displaySize).expressions.neutral;
                                 datosHappy = faceapi.resizeResults(detections, this.displaySize).expressions.happy;
                                 datosSad = faceapi.resizeResults(detections, this.displaySize).expressions.sad;
@@ -2526,46 +2546,38 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                                 datosFearful = faceapi.resizeResults(detections, this.displaySize).expressions.fearful;
                                 datosSurprised = faceapi.resizeResults(detections, this.displaySize).expressions.surprised;
                                 datosDisgusted = faceapi.resizeResults(detections, this.displaySize).expressions.disgusted;
-                                this.emocionAlegria += datosHappy;
-                                this.emocionAsco += datosDisgusted;
-                                this.emocionIra += datosAngry;
-                                this.emocionMiedo += datosFearful;
-                                this.emocionSorpresa += datosSurprised;
-                                this.emocionTristeza += datosSad;
-                                this.contador += 1;
 
-                                if (!(this.contador == 5)) {
-                                  _context4.next = 26;
-                                  break;
+                                if (!this.estoyComputando) {
+                                  this.emocionAlegria += datosHappy;
+                                  this.emocionAsco += datosDisgusted;
+                                  this.emocionIra += datosAngry;
+                                  this.emocionMiedo += datosFearful;
+                                  this.emocionSorpresa += datosSurprised;
+                                  this.emocionTristeza += datosSad;
                                 }
 
-                                this.contador = 0;
-                                _context4.next = 26;
-                                return this.computacionDatos();
-
-                              case 26:
-                                _context4.next = 30;
+                                _context5.next = 20;
                                 break;
 
-                              case 28:
-                                _context4.prev = 28;
-                                _context4.t0 = _context4["catch"](0);
+                              case 18:
+                                _context5.prev = 18;
+                                _context5.t0 = _context5["catch"](0);
 
-                              case 30:
+                              case 20:
                               case "end":
-                                return _context4.stop();
+                                return _context5.stop();
                             }
                           }
-                        }, _callee4, this, [[0, 28]]);
+                        }, _callee5, this, [[0, 18]]);
                       }));
                     }, 1000);
 
-                  case 6:
+                  case 7:
                   case "end":
-                    return _context5.stop();
+                    return _context6.stop();
                 }
               }
-            }, _callee5, this);
+            }, _callee6, this);
           }));
         }
       }, {
@@ -2573,11 +2585,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function computacionDatos() {
           return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
           /*#__PURE__*/
-          regeneratorRuntime.mark(function _callee6() {
+          regeneratorRuntime.mark(function _callee7() {
             var datos, x, predominante;
-            return regeneratorRuntime.wrap(function _callee6$(_context6) {
+            return regeneratorRuntime.wrap(function _callee7$(_context7) {
               while (1) {
-                switch (_context6.prev = _context6.next) {
+                switch (_context7.prev = _context7.next) {
                   case 0:
                     /*
                     push({
@@ -2585,7 +2597,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                         y: -30
                       });
                     */
+                    this.estoyComputando = true;
                     datos = {};
+                    datos['id_actividad'] = this.actividadActual['_id'];
                     x = moment__WEBPACK_IMPORTED_MODULE_4__().format();
                     predominante = 0; //Estado Emocional
 
@@ -2594,14 +2608,14 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                     datos['id_item'] = this.id_item;
                     this.colorPredominante = this.ColorNeutral2; //Alegria
 
-                    _context6.next = 8;
+                    _context7.next = 10;
                     return {
                       x: x,
                       y: this.emocionAlegria / this.datosTotalesEmocionales
                     };
 
-                  case 8:
-                    datos['alegria'] = _context6.sent;
+                  case 10:
+                    datos['alegria'] = _context7.sent;
 
                     if (predominante < datos['alegria'].y) {
                       predominante = datos['alegria'].y;
@@ -2609,14 +2623,14 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                     } //Asco
 
 
-                    _context6.next = 12;
+                    _context7.next = 14;
                     return {
                       x: x,
                       y: this.emocionAsco / this.datosTotalesEmocionales
                     };
 
-                  case 12:
-                    datos['asco'] = _context6.sent;
+                  case 14:
+                    datos['asco'] = _context7.sent;
 
                     if (predominante < datos['asco'].y) {
                       predominante = datos['asco'].y;
@@ -2624,14 +2638,14 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                     } //Ira
 
 
-                    _context6.next = 16;
+                    _context7.next = 18;
                     return {
                       x: x,
                       y: this.emocionIra / this.datosTotalesEmocionales
                     };
 
-                  case 16:
-                    datos['ira'] = _context6.sent;
+                  case 18:
+                    datos['ira'] = _context7.sent;
 
                     if (predominante < datos['ira'].y) {
                       predominante = datos['ira'].y;
@@ -2639,14 +2653,14 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                     } //Miedo
 
 
-                    _context6.next = 20;
+                    _context7.next = 22;
                     return {
                       x: x,
                       y: this.emocionMiedo / this.datosTotalesEmocionales
                     };
 
-                  case 20:
-                    datos['miedo'] = _context6.sent;
+                  case 22:
+                    datos['miedo'] = _context7.sent;
 
                     if (predominante < datos['miedo']) {
                       predominante = datos['miedo'].y;
@@ -2654,14 +2668,14 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                     } //Sorpresa
 
 
-                    _context6.next = 24;
+                    _context7.next = 26;
                     return {
                       x: x,
                       y: this.emocionSorpresa / this.datosTotalesEmocionales
                     };
 
-                  case 24:
-                    datos['sorpresa'] = _context6.sent;
+                  case 26:
+                    datos['sorpresa'] = _context7.sent;
 
                     if (predominante < datos['sorpresa']) {
                       predominante = datos['sorpresa'].y;
@@ -2669,25 +2683,25 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                     } //Triteza
 
 
-                    _context6.next = 28;
+                    _context7.next = 30;
                     return {
                       x: x,
                       y: this.emocionTristeza / this.datosTotalesEmocionales
                     };
 
-                  case 28:
-                    datos['tristeza'] = _context6.sent;
+                  case 30:
+                    datos['tristeza'] = _context7.sent;
 
                     if (predominante < datos['tristeza'].y) {
                       predominante = datos['tristeza'].y;
                       this.colorPredominante = this.ColorSad2;
                     }
 
-                    _context6.next = 32;
+                    _context7.next = 34;
                     return 0;
 
-                  case 32:
-                    predominante = _context6.sent;
+                  case 34:
+                    predominante = _context7.sent;
 
                     /*datos['neutra']=this.emocionNeutra/this.datosTotalesEmocionales;
                     if(datos['tristeza']<datos['neutra']){
@@ -2730,64 +2744,64 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                     this.emocionNeutra = 0;
                     this.datosTotalesEmocionales = 0; //Estado de las Pulsaciones
 
-                    _context6.next = 52;
+                    _context7.next = 54;
                     return {
                       x: x,
                       y: this.pulsaciones
                     };
 
-                  case 52:
-                    datos['pulsaciones'] = _context6.sent;
+                  case 54:
+                    datos['pulsaciones'] = _context7.sent;
                     //Estado temporal
                     datos['tiempo'] = x; //Estado Cognitivo
 
-                    _context6.next = 56;
+                    _context7.next = 58;
                     return {
                       x: x,
                       y: 0
                     };
 
-                  case 56:
-                    datos['distraido'] = _context6.sent;
+                  case 58:
+                    datos['distraido'] = _context7.sent;
 
                     if (!(datos['pulsaciones'].y > 85)) {
-                      _context6.next = 61;
+                      _context7.next = 63;
                       break;
                     }
 
-                    _context6.next = 60;
+                    _context7.next = 62;
                     return {
                       x: x,
                       y: datos['sorpresa'].y
                     };
 
-                  case 60:
-                    datos['distraido'] = _context6.sent;
+                  case 62:
+                    datos['distraido'] = _context7.sent;
 
-                  case 61:
+                  case 63:
                     if (!(datos['alegria'].y == NaN || datos['alegria'].y == null)) {
-                      _context6.next = 65;
+                      _context7.next = 67;
                       break;
                     }
 
-                    _context6.next = 64;
+                    _context7.next = 66;
                     return {
                       x: x,
                       y: 1
                     };
 
-                  case 64:
-                    datos['distraido'] = _context6.sent;
+                  case 66:
+                    datos['distraido'] = _context7.sent;
 
-                  case 65:
-                    _context6.next = 67;
+                  case 67:
+                    _context7.next = 69;
                     return {
                       x: x,
                       y: 1 - datos['distraido'].y
                     };
 
-                  case 67:
-                    datos['concentrado'] = _context6.sent;
+                  case 69:
+                    datos['concentrado'] = _context7.sent;
                     console.log('1');
                     datos['frustrado'] = {
                       x: x,
@@ -2847,12 +2861,14 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                     console.log(datos);
                     this.enviarDatos(datos); //this.enviarEmocionesWebCam(datos);
 
-                  case 85:
+                    this.estoyComputando = false;
+
+                  case 88:
                   case "end":
-                    return _context6.stop();
+                    return _context7.stop();
                 }
               }
-            }, _callee6, this);
+            }, _callee7, this);
           }));
         }
       }, {
@@ -2883,12 +2899,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function conectarPulsera(sensor) {
           return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
           /*#__PURE__*/
-          regeneratorRuntime.mark(function _callee7() {
+          regeneratorRuntime.mark(function _callee8() {
             var _this2 = this;
 
-            return regeneratorRuntime.wrap(function _callee7$(_context7) {
+            return regeneratorRuntime.wrap(function _callee8$(_context8) {
               while (1) {
-                switch (_context7.prev = _context7.next) {
+                switch (_context8.prev = _context8.next) {
                   case 0:
                     try {
                       pulseraMiband.connect();
@@ -2907,10 +2923,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
                   case 1:
                   case "end":
-                    return _context7.stop();
+                    return _context8.stop();
                 }
               }
-            }, _callee7, this);
+            }, _callee8, this);
           }));
         }
       }, {
@@ -2926,11 +2942,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function desconectarSensor(sensor) {
           return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
           /*#__PURE__*/
-          regeneratorRuntime.mark(function _callee8() {
+          regeneratorRuntime.mark(function _callee9() {
             var constraints, stream, track;
-            return regeneratorRuntime.wrap(function _callee8$(_context8) {
+            return regeneratorRuntime.wrap(function _callee9$(_context9) {
               while (1) {
-                switch (_context8.prev = _context8.next) {
+                switch (_context9.prev = _context9.next) {
                   case 0:
                     if (sensor.nombre == "Led") {
                       //console.log(sensor);
@@ -2939,7 +2955,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                     }
 
                     if (!(sensor.nombre == "Camara")) {
-                      _context8.next = 17;
+                      _context9.next = 17;
                       break;
                     }
 
@@ -2964,26 +2980,26 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                         height: 480
                       }
                     };
-                    _context8.prev = 3;
-                    _context8.next = 6;
+                    _context9.prev = 3;
+                    _context9.next = 6;
                     return navigator.mediaDevices.getUserMedia(constraints);
 
                   case 6:
-                    stream = _context8.sent;
+                    stream = _context9.sent;
                     track = stream.getTracks()[0]; // if only one media track
                     // ...
 
                     track.stop();
                     sensor.data = null;
                     sensor.estado = "Desconectado";
-                    _context8.next = 17;
+                    _context9.next = 17;
                     break;
 
                   case 13:
-                    _context8.prev = 13;
-                    _context8.t0 = _context8["catch"](3);
+                    _context9.prev = 13;
+                    _context9.t0 = _context9["catch"](3);
                     //errorMsgElement.innerHTML = `navigator.getUserMedia error:${e.toString()}`;
-                    console.log(_context8.t0);
+                    console.log(_context9.t0);
                     console.log("Has tenido un error");
 
                   case 17:
@@ -2996,10 +3012,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
                   case 18:
                   case "end":
-                    return _context8.stop();
+                    return _context9.stop();
                 }
               }
-            }, _callee8, this, [[3, 13]]);
+            }, _callee9, this, [[3, 13]]);
           }));
         } //Implementacion del led
 
@@ -3008,14 +3024,14 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function conectarLed(sensor) {
           return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
           /*#__PURE__*/
-          regeneratorRuntime.mark(function _callee9() {
-            return regeneratorRuntime.wrap(function _callee9$(_context9) {
+          regeneratorRuntime.mark(function _callee10() {
+            return regeneratorRuntime.wrap(function _callee10$(_context10) {
               while (1) {
-                switch (_context9.prev = _context9.next) {
+                switch (_context10.prev = _context10.next) {
                   case 0:
                     console.log("Conectandose...");
-                    _context9.prev = 1;
-                    _context9.next = 4;
+                    _context10.prev = 1;
+                    _context10.next = 4;
                     return navigator.hid.requestDevice({
                       filters: [{
                         vendorId: 0x20a0,
@@ -3024,20 +3040,20 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                     });
 
                   case 4:
-                    sensor.data = _context9.sent;
+                    sensor.data = _context10.sent;
                     //device.open();
                     //console.log(this.device);
                     this.led.estado = "Conectado";
-                    _context9.next = 8;
+                    _context10.next = 8;
                     return sensor.data.open();
 
                   case 8:
-                    _context9.next = 12;
+                    _context10.next = 12;
                     break;
 
                   case 10:
-                    _context9.prev = 10;
-                    _context9.t0 = _context9["catch"](1);
+                    _context10.prev = 10;
+                    _context10.t0 = _context10["catch"](1);
 
                   case 12:
                     //console.log(this.listaSensores)
@@ -3046,36 +3062,15 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
                   case 13:
                   case "end":
-                    return _context9.stop();
+                    return _context10.stop();
                 }
               }
-            }, _callee9, this, [[1, 10]]);
+            }, _callee10, this, [[1, 10]]);
           }));
         }
       }, {
         key: "ponerHappy",
         value: function ponerHappy() {
-          return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
-          /*#__PURE__*/
-          regeneratorRuntime.mark(function _callee10() {
-            return regeneratorRuntime.wrap(function _callee10$(_context10) {
-              while (1) {
-                switch (_context10.prev = _context10.next) {
-                  case 0:
-                    _context10.next = 2;
-                    return this.fadeToColor(this.led.data, [255, 255, 0]);
-
-                  case 2:
-                  case "end":
-                    return _context10.stop();
-                }
-              }
-            }, _callee10, this);
-          }));
-        }
-      }, {
-        key: "ponerNeutral",
-        value: function ponerNeutral() {
           return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
           /*#__PURE__*/
           regeneratorRuntime.mark(function _callee11() {
@@ -3084,7 +3079,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                 switch (_context11.prev = _context11.next) {
                   case 0:
                     _context11.next = 2;
-                    return this.fadeToColor(this.led.data, [84, 255, 84]);
+                    return this.fadeToColor(this.led.data, [255, 255, 0]);
 
                   case 2:
                   case "end":
@@ -3095,8 +3090,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           }));
         }
       }, {
-        key: "ponerSad",
-        value: function ponerSad() {
+        key: "ponerNeutral",
+        value: function ponerNeutral() {
           return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
           /*#__PURE__*/
           regeneratorRuntime.mark(function _callee12() {
@@ -3105,7 +3100,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                 switch (_context12.prev = _context12.next) {
                   case 0:
                     _context12.next = 2;
-                    return this.fadeToColor(this.led.data, [81, 81, 255]);
+                    return this.fadeToColor(this.led.data, [84, 255, 84]);
 
                   case 2:
                   case "end":
@@ -3116,8 +3111,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           }));
         }
       }, {
-        key: "ponerAngry",
-        value: function ponerAngry() {
+        key: "ponerSad",
+        value: function ponerSad() {
           return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
           /*#__PURE__*/
           regeneratorRuntime.mark(function _callee13() {
@@ -3126,7 +3121,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                 switch (_context13.prev = _context13.next) {
                   case 0:
                     _context13.next = 2;
-                    return this.fadeToColor(this.led.data, [255, 0, 0]);
+                    return this.fadeToColor(this.led.data, [81, 81, 255]);
 
                   case 2:
                   case "end":
@@ -3137,8 +3132,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           }));
         }
       }, {
-        key: "ponerFearful",
-        value: function ponerFearful() {
+        key: "ponerAngry",
+        value: function ponerAngry() {
           return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
           /*#__PURE__*/
           regeneratorRuntime.mark(function _callee14() {
@@ -3147,7 +3142,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                 switch (_context14.prev = _context14.next) {
                   case 0:
                     _context14.next = 2;
-                    return this.fadeToColor(this.led.data, [0, 150, 0]);
+                    return this.fadeToColor(this.led.data, [255, 0, 0]);
 
                   case 2:
                   case "end":
@@ -3158,8 +3153,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           }));
         }
       }, {
-        key: "ponerDisgusted",
-        value: function ponerDisgusted() {
+        key: "ponerFearful",
+        value: function ponerFearful() {
           return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
           /*#__PURE__*/
           regeneratorRuntime.mark(function _callee15() {
@@ -3168,7 +3163,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                 switch (_context15.prev = _context15.next) {
                   case 0:
                     _context15.next = 2;
-                    return this.fadeToColor(this.led.data, [80, 80, 80]);
+                    return this.fadeToColor(this.led.data, [0, 150, 0]);
 
                   case 2:
                   case "end":
@@ -3179,8 +3174,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           }));
         }
       }, {
-        key: "ponerSurprised",
-        value: function ponerSurprised() {
+        key: "ponerDisgusted",
+        value: function ponerDisgusted() {
           return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
           /*#__PURE__*/
           regeneratorRuntime.mark(function _callee16() {
@@ -3189,7 +3184,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                 switch (_context16.prev = _context16.next) {
                   case 0:
                     _context16.next = 2;
-                    return this.fadeToColor(this.led.data, [89, 189, 255]);
+                    return this.fadeToColor(this.led.data, [80, 80, 80]);
 
                   case 2:
                   case "end":
@@ -3200,8 +3195,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           }));
         }
       }, {
-        key: "ponerColor",
-        value: function ponerColor() {
+        key: "ponerSurprised",
+        value: function ponerSurprised() {
           return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
           /*#__PURE__*/
           regeneratorRuntime.mark(function _callee17() {
@@ -3210,7 +3205,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                 switch (_context17.prev = _context17.next) {
                   case 0:
                     _context17.next = 2;
-                    return this.fadeToColor(this.led.data, [this.colorPredominante[0], this.colorPredominante[1], this.colorPredominante[2]]);
+                    return this.fadeToColor(this.led.data, [89, 189, 255]);
 
                   case 2:
                   case "end":
@@ -3218,6 +3213,27 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                 }
               }
             }, _callee17, this);
+          }));
+        }
+      }, {
+        key: "ponerColor",
+        value: function ponerColor() {
+          return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
+          /*#__PURE__*/
+          regeneratorRuntime.mark(function _callee18() {
+            return regeneratorRuntime.wrap(function _callee18$(_context18) {
+              while (1) {
+                switch (_context18.prev = _context18.next) {
+                  case 0:
+                    _context18.next = 2;
+                    return this.fadeToColor(this.led.data, [this.colorPredominante[0], this.colorPredominante[1], this.colorPredominante[2]]);
+
+                  case 2:
+                  case "end":
+                    return _context18.stop();
+                }
+              }
+            }, _callee18, this);
           }));
         }
       }, {
@@ -3230,34 +3246,34 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
           return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
           /*#__PURE__*/
-          regeneratorRuntime.mark(function _callee18() {
+          regeneratorRuntime.mark(function _callee19() {
             var reportId, data;
-            return regeneratorRuntime.wrap(function _callee18$(_context18) {
+            return regeneratorRuntime.wrap(function _callee19$(_context19) {
               while (1) {
-                switch (_context18.prev = _context18.next) {
+                switch (_context19.prev = _context19.next) {
                   case 0:
                     reportId = 1; //console.log([r, g, b]);
 
                     data = Uint8Array.from([r, g, b]); //const negro = Uint8Array.from([0x63, 0, 0, 0, 0x00, 0x10, 0x00, 0x00]);
 
-                    _context18.prev = 2;
-                    _context18.next = 5;
+                    _context19.prev = 2;
+                    _context19.next = 5;
                     return device.sendFeatureReport(1, data);
 
                   case 5:
-                    _context18.next = 9;
+                    _context19.next = 9;
                     break;
 
                   case 7:
-                    _context18.prev = 7;
-                    _context18.t0 = _context18["catch"](2);
+                    _context19.prev = 7;
+                    _context19.t0 = _context19["catch"](2);
 
                   case 9:
                   case "end":
-                    return _context18.stop();
+                    return _context19.stop();
                 }
               }
-            }, _callee18, null, [[2, 7]]);
+            }, _callee19, null, [[2, 7]]);
           }));
         }
       }, {
@@ -3457,10 +3473,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function ngOnInit() {
           return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
           /*#__PURE__*/
-          regeneratorRuntime.mark(function _callee19() {
-            return regeneratorRuntime.wrap(function _callee19$(_context19) {
+          regeneratorRuntime.mark(function _callee20() {
+            return regeneratorRuntime.wrap(function _callee20$(_context20) {
               while (1) {
-                switch (_context19.prev = _context19.next) {
+                switch (_context20.prev = _context20.next) {
                   case 0:
                     this.datosPrimarios = this._formBuilder.group({
                       fromControlNombreActividad: true,
@@ -3470,10 +3486,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
                   case 1:
                   case "end":
-                    return _context19.stop();
+                    return _context20.stop();
                 }
               }
-            }, _callee19, this);
+            }, _callee20, this);
           }));
         }
       }, {
@@ -3902,11 +3918,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function guardarActividad() {
           return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
           /*#__PURE__*/
-          regeneratorRuntime.mark(function _callee20() {
+          regeneratorRuntime.mark(function _callee21() {
             var ju;
-            return regeneratorRuntime.wrap(function _callee20$(_context20) {
+            return regeneratorRuntime.wrap(function _callee21$(_context21) {
               while (1) {
-                switch (_context20.prev = _context20.next) {
+                switch (_context21.prev = _context21.next) {
                   case 0:
                     ju = this;
                     this.claseCreate.alumnos = this.alumnosSeleccionados;
@@ -3945,10 +3961,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
                   case 5:
                   case "end":
-                    return _context20.stop();
+                    return _context21.stop();
                 }
               }
-            }, _callee20, this);
+            }, _callee21, this);
           }));
         }
       }]);
@@ -4134,10 +4150,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function actualizarr(item) {
           return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
           /*#__PURE__*/
-          regeneratorRuntime.mark(function _callee21() {
-            return regeneratorRuntime.wrap(function _callee21$(_context21) {
+          regeneratorRuntime.mark(function _callee22() {
+            return regeneratorRuntime.wrap(function _callee22$(_context22) {
               while (1) {
-                switch (_context21.prev = _context21.next) {
+                switch (_context22.prev = _context22.next) {
                   case 0:
                     this.arryaAlumnos.push(new _Modelos_modelos__WEBPACK_IMPORTED_MODULE_3__["Alumnos"](item, item.posicion, this.editarActividad, null));
                     this.alumnosSeleccionados = this.arryaAlumnos;
@@ -4145,10 +4161,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
                   case 3:
                   case "end":
-                    return _context21.stop();
+                    return _context22.stop();
                 }
               }
-            }, _callee21, this);
+            }, _callee22, this);
           }));
         }
       }, {
@@ -4444,10 +4460,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function actualizarr(item) {
           return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
           /*#__PURE__*/
-          regeneratorRuntime.mark(function _callee22() {
-            return regeneratorRuntime.wrap(function _callee22$(_context22) {
+          regeneratorRuntime.mark(function _callee23() {
+            return regeneratorRuntime.wrap(function _callee23$(_context23) {
               while (1) {
-                switch (_context22.prev = _context22.next) {
+                switch (_context23.prev = _context23.next) {
                   case 0:
                     this.arryaAlumnos.push(new _Modelos_modelos__WEBPACK_IMPORTED_MODULE_3__["AlumnosClase"](item, {
                       x: 0,
@@ -4458,10 +4474,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
                   case 3:
                   case "end":
-                    return _context22.stop();
+                    return _context23.stop();
                 }
               }
-            }, _callee22, this);
+            }, _callee23, this);
           }));
         }
       }, {
@@ -4876,7 +4892,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         this.ultimaActividadCreada = null;
         this.crearEstudiante = false;
         this.editarEstudiante = false;
-        this.verEstadisticasA = false; //Tabla de estudiantes
+        this.verEstadisticasA = false;
+        this.creandoActividadAsociada = false; //Tabla de estudiantes
 
         this.displayedColumnsEstudiantes = ['nombre', 'apellidos', 'clase', 'estadisticas', 'acciones']; //Tabla de actividades
 
@@ -4893,8 +4910,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         };
 
         this.crearActividadLista = function (actividad) {
-          this.socket.emit('crearActividadLista', actividad);
-          console.log("Actividad: " + actividad._id + " está lista.");
+          this.socket.emit('crearActividadLista', actividad); //console.log("Actividad: " + actividad._id + " está lista.");
         };
 
         this.borrarActividadLista = function (actividad) {
@@ -4904,10 +4920,22 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
         this.listoParaRecibirDatos = function (actividad) {
           this.socket.emit('listoParaRecibirDatos', actividad);
+          this.socket.emit('modificacionDeActividad', actividad);
         };
 
         this.listoParaNoRecibirDatos = function (actividad) {
           this.socket.emit('listoParaNoRecibirDatos', actividad);
+          this.socket.emit('modificacionDeActividad', actividad);
+        };
+
+        this.empezarActividad = function (actividad) {
+          this.socket.emit('empezarActividad', actividad);
+          this.socket.emit('crearActividadLista', actividad);
+        };
+
+        this.terminarActividad = function (actividad) {
+          this.socket.emit('terminarActividad', actividad);
+          this.socket.emit('borrarActividadLista', actividad);
         };
 
         this.lanzarSocketSrv = function () {
@@ -4935,6 +4963,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             console.log(datos);
             $('#' + datos.id_item + '').css("background-color", datos.color);
             cli.agregarDatosActividad(datos); //console.log(datos.pulsaciones);
+          });
+          this.socket.on('actividadEmpezada', function (res) {
+            cli.actividadEmpezada(res);
+          });
+          this.socket.on('actividadTerminada', function (res) {
+            cli.actividadTerminada(res);
           });
           /*
           this.socket.on('partidaCreada',function(partida){
@@ -4995,11 +5029,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function ngOnInit() {
           return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
           /*#__PURE__*/
-          regeneratorRuntime.mark(function _callee23() {
+          regeneratorRuntime.mark(function _callee24() {
             var ju;
-            return regeneratorRuntime.wrap(function _callee23$(_context23) {
+            return regeneratorRuntime.wrap(function _callee24$(_context24) {
               while (1) {
-                switch (_context23.prev = _context23.next) {
+                switch (_context24.prev = _context24.next) {
                   case 0:
                     //this.socket = new ClienteWS('profesor');
                     //this.socket.ini();
@@ -5007,7 +5041,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
                     ju = this; //this.listaAlumnos=this.estudiantes.getEstudiantes();
 
-                    _context23.next = 4;
+                    _context24.next = 4;
                     return $.getJSON("/verEstudiantes", function (data) {
                       //console.log(data);
                       ju.listaAlumnos = data;
@@ -5017,7 +5051,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                     });
 
                   case 4:
-                    _context23.next = 6;
+                    _context24.next = 6;
                     return $.getJSON("/verActividades", function (data) {
                       //console.log(data);
                       ju.listaActividades = data;
@@ -5027,7 +5061,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                     });
 
                   case 6:
-                    _context23.next = 8;
+                    _context24.next = 8;
                     return $.getJSON("/verClases", function (data) {
                       //console.log(data);
                       ju.listaClases = data;
@@ -5038,10 +5072,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
                   case 8:
                   case "end":
-                    return _context23.stop();
+                    return _context24.stop();
                 }
               }
-            }, _callee23, this);
+            }, _callee24, this);
           }));
         }
         /*ngOnChanges() {
@@ -5053,15 +5087,15 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function ngAfterViewInit() {
           return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
           /*#__PURE__*/
-          regeneratorRuntime.mark(function _callee24() {
+          regeneratorRuntime.mark(function _callee25() {
             var ju;
-            return regeneratorRuntime.wrap(function _callee24$(_context24) {
+            return regeneratorRuntime.wrap(function _callee25$(_context25) {
               while (1) {
-                switch (_context24.prev = _context24.next) {
+                switch (_context25.prev = _context25.next) {
                   case 0:
                     ju = this; //this.listaAlumnos=this.estudiantes.getEstudiantes();
 
-                    _context24.next = 3;
+                    _context25.next = 3;
                     return $.getJSON("/verEstudiantes", function (data) {
                       //console.log(data);
                       ju.listaAlumnos = data;
@@ -5072,10 +5106,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
                   case 3:
                   case "end":
-                    return _context24.stop();
+                    return _context25.stop();
                 }
               }
-            }, _callee24, this);
+            }, _callee25, this);
           }));
         }
       }, {
@@ -5237,16 +5271,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function abrirAlumnos() {
           var ju = this; //this.listaAlumnos=this.estudiantes.getEstudiantes();
 
-          try {
-            $.getJSON("/verEstudiantes", function (data) {
-              //console.log(data);
-              ju.listaAlumnos = data;
-              ju.dataSourceEstudiantes = new _angular_material__WEBPACK_IMPORTED_MODULE_10__["MatTableDataSource"](ju.listaAlumnos.reverse());
-              ju.dataSourceEstudiantes.paginator = ju.paginatorE;
-              ju.dataSourceEstudiantes.sort = ju.sortE;
-            });
-          } catch (e) {}
-
+          $.getJSON("/verEstudiantes", function (data) {
+            //console.log(data);
+            ju.listaAlumnos = data;
+            ju.dataSourceEstudiantes = new _angular_material__WEBPACK_IMPORTED_MODULE_10__["MatTableDataSource"](ju.listaAlumnos.reverse());
+            ju.dataSourceEstudiantes.paginator = ju.paginatorE;
+            ju.dataSourceEstudiantes.sort = ju.sortE;
+          });
           this.gestionHome = false;
           this.gestionActividades = false;
           this.gestionAlumnos = true;
@@ -5331,11 +5362,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function cerrarModal() {
           return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
           /*#__PURE__*/
-          regeneratorRuntime.mark(function _callee25() {
+          regeneratorRuntime.mark(function _callee26() {
             var ju;
-            return regeneratorRuntime.wrap(function _callee25$(_context25) {
+            return regeneratorRuntime.wrap(function _callee26$(_context26) {
               while (1) {
-                switch (_context25.prev = _context25.next) {
+                switch (_context26.prev = _context26.next) {
                   case 0:
                     this.crearActividad = false;
                     this.crearClase = false;
@@ -5343,7 +5374,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                     this.editarClase = false;
                     ju = this; //this.listaAlumnos=this.estudiantes.getEstudiantes();
 
-                    _context25.next = 7;
+                    _context26.next = 7;
                     return $.getJSON("/verEstudiantes", function (data) {
                       //console.log(data);
                       ju.listaAlumnos = data;
@@ -5353,7 +5384,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                     });
 
                   case 7:
-                    _context25.next = 9;
+                    _context26.next = 9;
                     return $.getJSON("/verActividades", function (data) {
                       //console.log(data);
                       ju.listaActividades = data;
@@ -5363,7 +5394,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                     });
 
                   case 9:
-                    _context25.next = 11;
+                    _context26.next = 11;
                     return $.getJSON("/verClases", function (data) {
                       //console.log(data);
                       ju.listaClases = data;
@@ -5374,10 +5405,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
                   case 11:
                   case "end":
-                    return _context25.stop();
+                    return _context26.stop();
                 }
               }
-            }, _callee25, this);
+            }, _callee26, this);
           }));
         }
       }, {
@@ -5447,16 +5478,16 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function actualizarClases() {
           return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
           /*#__PURE__*/
-          regeneratorRuntime.mark(function _callee26() {
+          regeneratorRuntime.mark(function _callee27() {
             var ju;
-            return regeneratorRuntime.wrap(function _callee26$(_context26) {
+            return regeneratorRuntime.wrap(function _callee27$(_context27) {
               while (1) {
-                switch (_context26.prev = _context26.next) {
+                switch (_context27.prev = _context27.next) {
                   case 0:
                     this.crearClase = false;
                     this.editarClase = false;
                     ju = this;
-                    _context26.next = 5;
+                    _context27.next = 5;
                     return $.getJSON("/verClases", function (data) {
                       //console.log(data);
                       ju.listaClases = data;
@@ -5467,10 +5498,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
                   case 5:
                   case "end":
-                    return _context26.stop();
+                    return _context27.stop();
                 }
               }
-            }, _callee26, this);
+            }, _callee27, this);
           }));
         }
       }, {
@@ -5517,14 +5548,14 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function borrarC(clase) {
           return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
           /*#__PURE__*/
-          regeneratorRuntime.mark(function _callee27() {
+          regeneratorRuntime.mark(function _callee28() {
             var ju;
-            return regeneratorRuntime.wrap(function _callee27$(_context27) {
+            return regeneratorRuntime.wrap(function _callee28$(_context28) {
               while (1) {
-                switch (_context27.prev = _context27.next) {
+                switch (_context28.prev = _context28.next) {
                   case 0:
                     ju = this;
-                    _context27.next = 3;
+                    _context28.next = 3;
                     return $.ajax({
                       type: 'DELETE',
                       url: '/eliminarClase',
@@ -5545,10 +5576,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
                   case 3:
                   case "end":
-                    return _context27.stop();
+                    return _context28.stop();
                 }
               }
-            }, _callee27, this);
+            }, _callee28, this);
           }));
         }
       }, {
@@ -5566,6 +5597,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function cerrarActividad(cerrar) {
           //console.log(this.actividadSelected);
           this.actividadAbierta = false;
+          this.socket.emit('listoParaNoRecibirDatos', this.actividadSelected);
           this.borrarActividadLista(this.actividadSelected);
           this.verActividad = false;
           this.actividadSelected = null;
@@ -5596,13 +5628,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function crearActividadAsociada(clase) {
           return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
           /*#__PURE__*/
-          regeneratorRuntime.mark(function _callee28() {
+          regeneratorRuntime.mark(function _callee29() {
             var ju, actividadCreate, arrayAlumnos, i;
-            return regeneratorRuntime.wrap(function _callee28$(_context28) {
+            return regeneratorRuntime.wrap(function _callee29$(_context29) {
               while (1) {
-                switch (_context28.prev = _context28.next) {
+                switch (_context29.prev = _context29.next) {
                   case 0:
-                    console.log("Pulsado");
+                    this.creandoActividadAsociada = true;
                     ju = this;
                     actividadCreate = {
                       nombre: '',
@@ -5657,7 +5689,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                     }
 
                     actividadCreate.alumnos = arrayAlumnos;
-                    _context28.next = 11;
+                    _context29.next = 11;
                     return $.ajax({
                       type: 'POST',
                       url: '/agregarActividadEnClase',
@@ -5673,6 +5705,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                         ju.actualizarClases(); //ju.actualizar();
 
                         ju.menActividadCreada(); //abrirActividad
+
+                        ju.creandoActividadAsociada = false;
                       },
                       contentType: 'application/json',
                       dataType: 'json'
@@ -5680,10 +5714,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
                   case 11:
                   case "end":
-                    return _context28.stop();
+                    return _context29.stop();
                 }
               }
-            }, _callee28, this);
+            }, _callee29, this);
           }));
         }
       }, {
@@ -5730,6 +5764,16 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           var men = this._snackBar.open('Actividad Borrada', 'Cerrar', {
             duration: 1000
           });
+        }
+      }, {
+        key: "actividadEmpezada",
+        value: function actividadEmpezada(actividad) {
+          this.verActividadComp.actividadEmpezada(actividad);
+        }
+      }, {
+        key: "actividadTerminada",
+        value: function actividadTerminada(actividad) {
+          this.verActividadComp.actividadTerminada(actividad);
         } //Gestion de los WebSockets
 
       }, {
@@ -6206,18 +6250,18 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function cargarGraficas() {
           return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
           /*#__PURE__*/
-          regeneratorRuntime.mark(function _callee29() {
+          regeneratorRuntime.mark(function _callee30() {
             var _i3, i;
 
-            return regeneratorRuntime.wrap(function _callee29$(_context29) {
+            return regeneratorRuntime.wrap(function _callee30$(_context30) {
               while (1) {
-                switch (_context29.prev = _context29.next) {
+                switch (_context30.prev = _context30.next) {
                   case 0:
-                    _context29.next = 2;
+                    _context30.next = 2;
                     return true;
 
                   case 2:
-                    this.vistaGeneral = _context29.sent;
+                    this.vistaGeneral = _context30.sent;
                     this.alumnos = this.actividad.alumnos;
                     this.alumnosSelect.length = 0;
                     this.alumnosSelect.push({
@@ -6271,11 +6315,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                       this.usersConectadosGraf.destroy();
                     }
 
-                    _context29.next = 15;
+                    _context30.next = 15;
                     return new chart_js__WEBPACK_IMPORTED_MODULE_2__["Chart"]('usersConectados', this.configUsersConectados);
 
                   case 15:
-                    this.usersConectadosGraf = _context29.sent;
+                    this.usersConectadosGraf = _context30.sent;
                     //Grafica Lineal 
 
                     /*this.configuracionGraficaLineal = {
@@ -6328,10 +6372,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
                   case 17:
                   case "end":
-                    return _context29.stop();
+                    return _context30.stop();
                 }
               }
-            }, _callee29, this);
+            }, _callee30, this);
           }));
         }
       }, {
@@ -6348,10 +6392,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           setInterval(function () {
             return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](_this12, void 0, void 0,
             /*#__PURE__*/
-            regeneratorRuntime.mark(function _callee30() {
-              return regeneratorRuntime.wrap(function _callee30$(_context30) {
+            regeneratorRuntime.mark(function _callee31() {
+              return regeneratorRuntime.wrap(function _callee31$(_context31) {
                 while (1) {
-                  switch (_context30.prev = _context30.next) {
+                  switch (_context31.prev = _context31.next) {
                     case 0:
                       //console.log(this.aluConectados);
                       if (this.numAlumnosConectados != this.aluConectados.length) {
@@ -6394,10 +6438,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
                     case 1:
                     case "end":
-                      return _context30.stop();
+                      return _context31.stop();
                   }
                 }
-              }, _callee30, this);
+              }, _callee31, this);
             }));
           }, 1000);
         }
@@ -6408,6 +6452,33 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           item.posicion = $event.source.getFreeDragPosition(); //console.log(item);
           //this.alumno.posicion=this.dragPosition;
         }
+        /*comenzar() {
+          this.botonCreadaCargando = true;
+          this.botonReanudarCargando = true;
+          let ju = this;
+          let act = this.actividad;
+          act.estado = "Comenzada";
+          $.ajax({
+            type: 'POST',
+            url: '/actualizarActividad',
+            data: JSON.stringify(act),
+            success: function (data) {
+              console.log(data);
+              ju.actividad = data;
+              console.log(ju.actividad);
+              ju.profesor.listoParaRecibirDatos(ju.actividad);
+                 ju.intervaloResumen = setInterval(async => {
+                ju.insertarResumen();
+              }, 20000);
+              ju.botonCreadaCargando = false;
+              ju.botonReanudarCargando = false;
+              ju.actividad.estado = "Comenzada";
+            },
+            contentType: 'application/json',
+            dataType: 'json'
+          });
+        }*/
+
       }, {
         key: "comenzar",
         value: function comenzar() {
@@ -6415,10 +6486,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           this.botonReanudarCargando = true;
           var ju = this;
           var act = this.actividad;
-          act.estado = "Comenzada";
+          act.estado = "Comenzada"; //this.profesor.empezarActividad(this.actividad);
+
           $.ajax({
             type: 'POST',
-            url: '/actualizarActividad',
+            url: '/empezarActividad',
             data: JSON.stringify(act),
             success: function success(data) {
               console.log(data);
@@ -6437,6 +6509,45 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           });
         }
       }, {
+        key: "actividadEmpezada",
+        value: function actividadEmpezada(actividad) {
+          var _this13 = this;
+
+          console.log(actividad);
+          this.actividad = actividad;
+          this.profesor.listoParaRecibirDatos(this.actividad);
+          this.intervaloResumen = setInterval(function (async) {
+            _this13.insertarResumen();
+          }, 20000);
+          this.botonCreadaCargando = false;
+          this.botonReanudarCargando = false;
+          this.actividad.estado = "Comenzada";
+        }
+        /*terminar() {
+          //console.log(this.usuariosConectadoss);
+          let ju = this;
+          let act = this.actividad;
+          act.fecha = moment().format('LLLL');
+          act.estado = "Finalizada";
+          this.botonFinalizadaCargando = true;
+          $.ajax({
+            type: 'POST',
+            url: '/actualizarActividad',
+            data: JSON.stringify(act),
+            success: function (data) {
+              console.log(data);
+              ju.actividad = data;
+              ju.profesor.listoParaNoRecibirDatos(ju.actividad);
+              clearInterval(ju.intervaloResumen);
+              ju.botonFinalizadaCargando = false;
+              ju.actividad.estado = "Finalizada";
+            },
+            contentType: 'application/json',
+            dataType: 'json'
+          });
+        }*/
+
+      }, {
         key: "terminar",
         value: function terminar() {
           //console.log(this.usuariosConectadoss);
@@ -6444,10 +6555,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           var act = this.actividad;
           act.fecha = moment__WEBPACK_IMPORTED_MODULE_3__().format('LLLL');
           act.estado = "Finalizada";
-          this.botonFinalizadaCargando = true;
+          this.botonFinalizadaCargando = true; //this.profesor.terminarActividad(this.actividad);
+
           $.ajax({
             type: 'POST',
-            url: '/actualizarActividad',
+            url: '/terminarActividad',
             data: JSON.stringify(act),
             success: function success(data) {
               console.log(data);
@@ -6462,6 +6574,16 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           });
         }
       }, {
+        key: "actividadTerminada",
+        value: function actividadTerminada(actividad) {
+          console.log(actividad);
+          this.actividad = actividad;
+          this.profesor.listoParaNoRecibirDatos(this.actividad);
+          clearInterval(this.intervaloResumen);
+          this.botonFinalizadaCargando = false;
+          this.actividad.estado = "Finalizada";
+        }
+      }, {
         key: "cerrarActividad",
         value: function cerrarActividad() {
           //this.actividadCreada.emit("cerrar");
@@ -6473,29 +6595,29 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function cambiarAGeneral() {
           return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
           /*#__PURE__*/
-          regeneratorRuntime.mark(function _callee31() {
-            return regeneratorRuntime.wrap(function _callee31$(_context31) {
+          regeneratorRuntime.mark(function _callee32() {
+            return regeneratorRuntime.wrap(function _callee32$(_context32) {
               while (1) {
-                switch (_context31.prev = _context31.next) {
+                switch (_context32.prev = _context32.next) {
                   case 0:
                     document.getElementById("vistaGeneral").style.display = "block";
                     document.getElementById("vistaMapaDeLaClase").style.display = "none";
                     this.vistaGeneral = true;
                     this.vistaMapaDeLaClase = false;
-                    _context31.next = 6;
+                    _context32.next = 6;
                     return this.cargarGraficas();
 
                   case 6:
                     console.log("terminado de cargar");
-                    _context31.next = 9;
+                    _context32.next = 9;
                     return this.cargarGraficas();
 
                   case 9:
                   case "end":
-                    return _context31.stop();
+                    return _context32.stop();
                 }
               }
-            }, _callee31, this);
+            }, _callee32, this);
           }));
         }
       }, {
@@ -6592,11 +6714,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function insertarResumen() {
           return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
           /*#__PURE__*/
-          regeneratorRuntime.mark(function _callee32() {
+          regeneratorRuntime.mark(function _callee33() {
             var sumaTotalEmociones, x, sumaTotalEstadoDisConc, sumaTotalEstadoFrusMotiv;
-            return regeneratorRuntime.wrap(function _callee32$(_context32) {
+            return regeneratorRuntime.wrap(function _callee33$(_context33) {
               while (1) {
-                switch (_context32.prev = _context32.next) {
+                switch (_context33.prev = _context33.next) {
                   case 0:
                     //Datos Emocionales
                     sumaTotalEmociones = 0; //console.log(this.resumen);
@@ -6687,10 +6809,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
                   case 35:
                   case "end":
-                    return _context32.stop();
+                    return _context33.stop();
                 }
               }
-            }, _callee32, this);
+            }, _callee33, this);
           }));
         }
       }, {
@@ -6918,12 +7040,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function actualizarGraficaLineal() {
           return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
           /*#__PURE__*/
-          regeneratorRuntime.mark(function _callee33() {
+          regeneratorRuntime.mark(function _callee34() {
             var datos, i, j, color, h, _j;
 
-            return regeneratorRuntime.wrap(function _callee33$(_context33) {
+            return regeneratorRuntime.wrap(function _callee34$(_context34) {
               while (1) {
-                switch (_context33.prev = _context33.next) {
+                switch (_context34.prev = _context34.next) {
                   case 0:
                     datos = [];
 
@@ -7015,10 +7137,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
                   case 5:
                   case "end":
-                    return _context33.stop();
+                    return _context34.stop();
                 }
               }
-            }, _callee33, this);
+            }, _callee34, this);
           }));
         }
       }, {
@@ -7374,10 +7496,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "masterToggle",
         value: function masterToggle() {
-          var _this13 = this;
+          var _this14 = this;
 
           this.isAllSelected() ? this.selection.clear() : this.dataSource.data.forEach(function (row) {
-            return _this13.selection.select(row);
+            return _this14.selection.select(row);
           });
         }
       }, {
@@ -7960,11 +8082,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function ngOnInit() {
           return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
           /*#__PURE__*/
-          regeneratorRuntime.mark(function _callee34() {
+          regeneratorRuntime.mark(function _callee35() {
             var ju;
-            return regeneratorRuntime.wrap(function _callee34$(_context34) {
+            return regeneratorRuntime.wrap(function _callee35$(_context35) {
               while (1) {
-                switch (_context34.prev = _context34.next) {
+                switch (_context35.prev = _context35.next) {
                   case 0:
                     /*var ju = this;
                     console.log(this.clase);
@@ -7975,7 +8097,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                     this.actualizarClase();
                     ju = this; //this.listaAlumnos=this.estudiantes.getEstudiantes();
 
-                    _context34.next = 5;
+                    _context35.next = 5;
                     return $.getJSON("/verEstudiantes", function (data) {
                       //console.log(data);
                       ju.listaAlumnos = data;
@@ -7983,10 +8105,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
                   case 5:
                   case "end":
-                    return _context34.stop();
+                    return _context35.stop();
                 }
               }
-            }, _callee34, this);
+            }, _callee35, this);
           }));
         }
       }, {
@@ -8009,11 +8131,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function actualizarClase() {
           return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
           /*#__PURE__*/
-          regeneratorRuntime.mark(function _callee35() {
+          regeneratorRuntime.mark(function _callee36() {
             var ju;
-            return regeneratorRuntime.wrap(function _callee35$(_context35) {
+            return regeneratorRuntime.wrap(function _callee36$(_context36) {
               while (1) {
-                switch (_context35.prev = _context35.next) {
+                switch (_context36.prev = _context36.next) {
                   case 0:
                     ju = this;
                     /*$.getJSON("/verClase", this.clase, function (data) {
@@ -8053,10 +8175,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
                   case 2:
                   case "end":
-                    return _context35.stop();
+                    return _context36.stop();
                 }
               }
-            }, _callee35, this);
+            }, _callee36, this);
           }));
         }
       }, {
@@ -8560,10 +8682,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "masterToggle",
         value: function masterToggle() {
-          var _this14 = this;
+          var _this15 = this;
 
           this.isAllSelected() ? this.selection.clear() : this.dataSource.data.forEach(function (row) {
-            return _this14.selection.select(row);
+            return _this15.selection.select(row);
           });
         }
       }, {

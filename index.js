@@ -7,8 +7,8 @@ var secure = require('ssl-express-www');
 var app = exp();
 var server = require('http').Server(app);
 var io = require('socket.io').listen(server);
-var srvWS=require('./servidor/servidorWS');
-var ws=new srvWS.ServidorWS();
+var srvWS = require('./servidor/servidorWS');
+var ws = new srvWS.ServidorWS();
 
 var modelo = require("./servidor/modelo");
 
@@ -21,8 +21,8 @@ app.use(exp.static(__dirname + "/public"));
 //app.use(exp.static(__dirname + "/cliente_Prueba"));
 
 var bodyParser = require("body-parser");
-app.use(bodyParser.json({limit: "50mb"}));
-app.use(bodyParser.urlencoded({limit: "50mb", extended: true, parameterLimit:50000}));
+app.use(bodyParser.json({ limit: "50mb" }));
+app.use(bodyParser.urlencoded({ limit: "50mb", extended: true, parameterLimit: 50000 }));
 
 //app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -70,7 +70,7 @@ app.get("/verActividades", function (request, response) {
 
 app.post("/verActividadesComenzadas", function (request, response) {
   var alumno = request.body;
-  centro.mostrarActividadListasxAlumno(alumno._id,function(res){
+  centro.mostrarActividadListasxAlumno(alumno._id, function (res) {
     console.log("Actividades abiertas");
     console.log(res);
     response.send(res);
@@ -79,14 +79,14 @@ app.post("/verActividadesComenzadas", function (request, response) {
 
 app.post("/verActividadesDeAlumno", function (request, response) {
   var alumno = request.body;
-  centro.verActividadesDeAlumno(alumno,function(res){
+  centro.verActividadesDeAlumno(alumno, function (res) {
     response.send(res);
   })
 });
 
 app.post("/registrarActividad", function (request, response) {
   var act = request.body;
-  centro.agregarActividad(act.nombre,act.profesor,act.fecha,act.alumnos,act.resumen,act.clase,function(res){
+  centro.agregarActividad(act.nombre, act.profesor, act.fecha, act.alumnos, act.resumen, act.clase, function (res) {
     if (res != '') {
       console.log("Actividad agregada");
       //console.log(res);
@@ -98,38 +98,54 @@ app.post("/registrarActividad", function (request, response) {
 app.post("/actualizarActividad", function (request, response) {
   var act = request.body;
   //console.log(act);
-  if(act.clase._id==""){
-    centro.editarActividad(act,function(res){
+  if (act.clase._id == "") {
+    centro.editarActividad(act, function (res) {
       if (res != '') {
         console.log("Actividad actualizada");
         //console.log(res);
         response.send(res);
       }
     })
-  }else{
-    centro.editarActividadEnClase(act,function(res){
+  } else {
+    centro.editarActividadEnClase(act, function (res) {
       if (res != '') {
         console.log("Actividad editada");
         response.send(res);
       }
     })
   }
-  
+
 });
 
 app.delete("/eliminarActividad", function (request, response) {
   var act = request.body;
   //console.log(act._id);
-  if(act.clase._id==""){
+  if (act.clase._id == "") {
     centro.borrarActividad(act, function (res) {
       response.send(res);
     });
-  }else{
-    centro.borrarActividadEnClase(act,function(res){
+  } else {
+    centro.borrarActividadEnClase(act, function (res) {
       response.send(res);
     })
   }
-  
+
+});
+
+app.post("/empezarActividad", function (request, response) {
+  var act = request.body;
+  //console.log(act._id);
+  centro.empezarActividad(act, function (res) {
+    response.send(res);
+  })
+});
+
+app.post("/terminarActividad", function (request, response) {
+  var act = request.body;
+  //console.log(act._id);
+  centro.terminarActividad(act, function (res) {
+    response.send(res);
+  })
 });
 
 //CRUD Clases
@@ -143,7 +159,7 @@ app.get("/verClases", function (request, response) {
 
 app.post("/verClase", function (request, response) {
   var clase = request.body;
-  centro.mostrarClase(clase,function (res) {
+  centro.mostrarClase(clase, function (res) {
     response.send(res);
     //return res;
   })
@@ -152,7 +168,7 @@ app.post("/verClase", function (request, response) {
 app.post("/registrarClase", function (request, response) {
   var clase = request.body;
   console.log(clase);
-  centro.agregarClase(clase,function(res){
+  centro.agregarClase(clase, function (res) {
     if (res != '') {
       console.log("Clase creada");
       response.send(res);
@@ -163,7 +179,7 @@ app.post("/registrarClase", function (request, response) {
 app.post("/actualizarClase", function (request, response) {
   var clase = request.body;
   console.log(clase);
-  centro.editarClase(clase,function(res){
+  centro.editarClase(clase, function (res) {
     if (res != '') {
       console.log("Clase actualizada");
       response.send(res);
@@ -174,7 +190,7 @@ app.post("/actualizarClase", function (request, response) {
 app.delete("/eliminarClase", function (request, response) {
   var clase = request.body;
   console.log(clase);
-  centro.borrarClase(clase,function(res){
+  centro.borrarClase(clase, function (res) {
     if (res != '') {
       console.log("Clase borrada");
       response.send(res);
@@ -185,7 +201,7 @@ app.delete("/eliminarClase", function (request, response) {
 app.post("/agregarActividadEnClase", function (request, response) {
   var clase = request.body.clase;
   var act = request.body.act;
-  centro.crearActividadEnClase(clase,act,function(res){
+  centro.crearActividadEnClase(clase, act, function (res) {
     if (res != '') {
       console.log("Actividad creada y añadida");
       response.send(res);
@@ -196,7 +212,7 @@ app.post("/agregarActividadEnClase", function (request, response) {
 app.post("/editarActividadEnClase", function (request, response) {
   var clase = request.body.clase;
   var act = request.body.act;
-  centro.editarActividadEnClase(clase,act,function(res){
+  centro.editarActividadEnClase(clase, act, function (res) {
     if (res != '') {
       console.log("Actividad editada");
       response.send(res);
@@ -207,7 +223,7 @@ app.post("/editarActividadEnClase", function (request, response) {
 app.delete("/borrarActividadEnClase", function (request, response) {
   var clase = request.body.clase;
   var act = request.body.act;
-  centro.borrarActividadEnClase(clase,act,function(res){
+  centro.borrarActividadEnClase(clase, act, function (res) {
     if (res != '') {
       console.log("Actividad borrada");
       response.send(res);
@@ -218,7 +234,7 @@ app.delete("/borrarActividadEnClase", function (request, response) {
 app.post("/estudianteIniciarSesion", function (request, response) {
   var est = request.body;
   //console.log(est);
-  centro.iniciarSesion(est.email,est.contrasena,function(res){
+  centro.iniciarSesion(est.email, est.contrasena, function (res) {
     response.send(res);
   })
 });
@@ -228,4 +244,4 @@ server.listen(app.get('port'), function () {
   console.log('Node app se está ejecutando en el puerto', port);
 });
 
-ws.lanzarSocketSrv(io,centro);
+ws.lanzarSocketSrv(io, centro);

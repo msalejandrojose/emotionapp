@@ -6,6 +6,9 @@ function Centro() {
     //Atributos
     this.clases = {};
     this.actividades = {};
+    this.resumenActividades = {}
+    this.actividadesEnProceso = {};
+    this.intervalo = null;
     this.estudiantes = {};
     this.actividadesListas = {};
     this.dao = new dao.Dao();
@@ -292,8 +295,6 @@ function Centro() {
         this.dao.connect(function (db) {
             bbdd = db;
             ju.dao.obtenerClaseCriterio(actividad.clase._id, function (clase) {
-                console.log("Datos BBDD");
-                console.log(actividad)
                 ju.dao.modificarActividad(actividad._id, act, function (u) {
                     if (act.estado == "Comenzada") {
                         ju.actividadesListas[actividad._id] = actividad;
@@ -482,6 +483,181 @@ function Centro() {
             });
         });
 
+    }
+
+    //Gestion de datos de la actividad
+    this.empezarActividad = function (actividad, callback) {
+        var ju = this;
+        this.actividades[actividad._id] = actividad;
+        this.actividadesListas[actividad._id] = actividad;
+        console.log("Actividad Comenzada");
+        if (actividad.clase._id == "") {
+            this.editarActividad(actividad, function (res) {
+                if (res != '') {
+                    var num = 0;
+                    console.log("Actividad terminada");
+                    console.log(res);
+                    ju.actividadesEnProceso[actividad._id] = actividad._id;
+                    ju.comprobar()
+                    callback(actividad);
+                }
+            });
+        } else {
+            this.editarActividadEnClase(actividad, function (res) {
+                if (res != '') {
+                    console.log("Actividad terminda");
+                    console.log(res);
+                    ju.actividadesEnProceso[actividad._id] = actividad._id;
+                    ju.comprobar()
+                    callback(actividad);
+                }
+            });
+        }
+    }
+
+    this.comprobar = function () {
+        var num;
+        for (var key in this.actividadesEnProceso) {
+            num++;
+        }
+        if (num == 1) {
+            this.intervalo = setInterval(async => {
+                this.hacerResumenActividad();
+            }, 30000);
+        }
+        if (num == 0) {
+            clearImmediate(this.intervalo);
+        }
+    }
+
+    this.hacerResumenActividad = function () {
+        for (var key in this.actividadesEnProceso) {
+            var sumatorioE = this.resumenActividades[key].resumen.alegria +
+                this.resumenActividades[key].resumen.asco +
+                this.resumenActividades[key].resumen.ira +
+                this.resumenActividades[key].resumen.miedo +
+                this.resumenActividades[key].resumen.sorpresa +
+                this.resumenActividades[key].resumen.tristeza;
+            var sumatorioDC = this.actividades[key].resumen.distraido + this.actividades[key].resumen.concentrado;
+            var sumatorioMF = this.actividades[key].resumen.motivado + this.actividades[key].resumen.frustrado;
+
+            this.actividades[key].resumen.alegria = this.resumenActividades[key].alegria / sumatorioE;
+            this.actividades[key].resumen.asco = this.resumenActividades[key].asco / sumatorioE;
+            this.actividades[key].resumen.concentrado = this.resumenActividades[key].concentrado / sumatorioDC;
+            this.actividades[key].resumen.distraido = this.resumenActividades[key].distraido / sumatorioDC;
+            this.actividades[key].resumen.frustrado = this.resumenActividades[key].frustrado / sumatorioMF;
+            this.actividades[key].resumen.ira = this.resumenActividades[key].ira / sumatorioE;
+            this.actividades[key].resumen.miedo = this.resumenActividades[key].miedo / sumatorioE;
+            this.actividades[key].resumen.motivado = this.resumenActividades[key].motivado / sumatorioMF;
+            this.actividades[key].resumen.sorpresa = this.resumenActividades[key].sorpresa / sumatorioE;
+            this.actividades[key].resumen.tristeza = this.resumenActividades[key].tristeza / sumatorioE;
+            this.actividades[key].resumen.pulsaciones = this.resumenActividades[key].pulsaciones / this.resumenActividades[key].nPulsaciones;
+
+            this.resumenActividades[key].resumen.alegria = 0;
+            this.resumenActividades[key].resumen.asco = 0;
+            this.resumenActividades[key].resumen.concentrado = 0;
+            this.resumenActividades[key].resumen.distraido = 0;
+            this.resumenActividades[key].resumen.frustrado = 0;
+            this.resumenActividades[key].resumen.ira = 0;
+            this.resumenActividades[key].resumen.miedo = 0;
+            this.resumenActividades[key].resumen.motivado = 0;
+            this.resumenActividades[key].resumen.sorpresa = 0;
+            this.resumenActividades[key].resumen.tristeza = 0;
+            this.resumenActividades[key].resumen.pulsaciones = 0;
+            this.resumenActividades[key].resumen.nPulsaciones = 0;
+        }
+    }
+
+    this.insertarDatos = function (datos) {
+        console.log("SERVIDOOOOOR");
+        try {
+            for (let i = 0; i < this.actividades[datos.id_actividad].alumnos.length; i++) {
+                console.log("servidor");
+                console.log(this.actividades[datos.id_actividad].alumnos[i]);
+                console.log(datos);
+                console.log(datos.id_item == this.actividades[datos.id_actividad].alumnos[i].id_item);
+                if (datos.id_item == this.actividades[datos.id_actividad].alumnos[i].id_item) {
+
+                    this.resumenActividades[datos.id_actividad].alegria += datos.alegria.y;
+                    this.resumenActividades[datos.id_actividad].asco += datos.asco.y;
+                    this.resumenActividades[datos.id_actividad].concentrado += datos.concentrado.y;
+                    this.resumenActividades[datos.id_actividad].distraido += datos.distraido.y;
+                    this.resumenActividades[datos.id_actividad].frustrado += datos.frustrado.y;
+                    this.resumenActividades[datos.id_actividad].ira += datos.ira.y;
+                    this.resumenActividades[datos.id_actividad].miedo += datos.miedo.y;
+                    this.resumenActividades[datos.id_actividad].motivado += datos.motivado.y;
+                    this.resumenActividades[datos.id_actividad].sorpresa += datos.sorpresa.y;
+                    this.resumenActividades[datos.id_actividad].tristeza += datos.tristeza.y;
+                    this.resumenActividades[datos.id_actividad].pulsaciones += datos.pulsaciones.y;
+                    this.resumenActividades[datos.id_actividad].nPulsaciones++;
+
+
+                    /*this.resumen.alegria += datos.alegria.y;
+                    this.resumen.asco += datos.asco.y;
+                    this.resumen.concentrado += datos.concentrado.y;
+                    this.resumen.distraido += datos.distraido.y;
+                    this.resumen.frustrado += datos.frustrado.y;
+                    this.resumen.ira += datos.ira.y;
+    
+                    this.resumen.miedo += datos.miedo.y;
+                    this.resumen.motivado += datos.motivado.y;
+                    this.resumen.sorpresa += datos.sorpresa.y;
+    
+                    this.resumen.tristeza += datos.tristeza.y;
+                    this.resumen.pulsaciones += datos.pulsaciones.y;
+                    this.numPulsaciones++;*/
+
+                    this.actividades[datos.id_actividad].alumnos[i].datos.alegria.push({ x: datos.alegria.x, y: datos.alegria.y });
+                    this.actividades[datos.id_actividad].alumnos[i].datos.asco.push({ x: datos.asco.x, y: datos.asco.y });
+                    this.actividades[datos.id_actividad].alumnos[i].datos.ira.push({ x: datos.ira.x, y: datos.ira.y });
+                    this.actividades[datos.id_actividad].alumnos[i].datos.miedo.push({ x: datos.miedo.x, y: datos.miedo.y });
+                    this.actividades[datos.id_actividad].alumnos[i].datos.sorpresa.push({ x: datos.sorpresa.x, y: datos.sorpresa.y });
+                    this.actividades[datos.id_actividad].alumnos[i].datos.tristeza.push({ x: datos.tristeza.x, y: datos.tristeza.y });
+                    this.actividades[datos.id_actividad].alumnos[i].datos.pulsaciones.push({ x: datos.pulsaciones.x, y: datos.pulsaciones.y })
+                    this.actividades[datos.id_actividad].alumnos[i].datos.tiempo.push({ x: datos.tiempo.x, y: datos.tiempo.y })
+                    this.actividades[datos.id_actividad].alumnos[i].datos.distraido.push({ x: datos.distraido.x, y: datos.distraido.y })
+                    this.actividades[datos.id_actividad].alumnos[i].datos.concentrado.push({ x: datos.concentrado.x, y: datos.concentrado.y });
+                    this.actividades[datos.id_actividad].alumnos[i].datos.frustrado.push({ x: datos.frustrado.x, y: datos.frustrado.y });
+                    this.actividades[datos.id_actividad].alumnos[i].datos.motivado.push({ x: datos.motivado.x, y: datos.motivado.y });
+                    console.log("Datos modificados en el servidor");
+                }
+            }
+        } catch (e) {
+
+        }
+        //console.log(this.actividades[datos.id_actividad]);
+
+    }
+
+    this.terminarActividad = function (actividad, callback) {
+        var ju = this;
+        console.log(actividad);
+        actividad.estado = "Finalizada";
+        console.log(this.actividades[actividad._id]);
+        this.actividades[actividad._id].fecha = actividad.fecha;
+        if (actividad.clase._id == "") {
+            this.editarActividad(actividad, function (res) {
+                if (res != '') {
+                    console.log("Actividad terminada");
+                    console.log(res);
+                    delete ju.actividadesEnProceso[actividad._id];
+                    delete ju.resumenActividades[actividad._id];
+                    ju.comprobar();
+                    callback(res);
+                }
+            })
+        } else {
+            this.editarActividadEnClase(actividad, function (res) {
+                if (res != '') {
+                    console.log("Actividad terminda");
+                    console.log(res);
+                    delete ju.actividadesEnProceso[actividad._id];
+                    delete ju.resumenActividades[actividad._id];
+                    ju.comprobar()
+                    callback(res);
+                }
+            })
+        }
     }
 
     //Añadir Alumnos a la Actividad
