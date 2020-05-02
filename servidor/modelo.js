@@ -488,16 +488,20 @@ function Centro() {
     //Gestion de datos de la actividad
     this.empezarActividad = function (actividad, callback) {
         var ju = this;
+        console.log("Empezar");
+        console.log(actividad._id);
         this.actividades[actividad._id] = actividad;
+        console.log(this.actividades);
         this.actividadesListas[actividad._id] = actividad;
         console.log("Actividad Comenzada");
         if (actividad.clase._id == "") {
             this.editarActividad(actividad, function (res) {
                 if (res != '') {
                     var num = 0;
-                    console.log("Actividad terminada");
+                    console.log("Actividad empezada");
                     console.log(res);
                     ju.actividadesEnProceso[actividad._id] = actividad._id;
+                    ju.resumenActividades[actividad._id] = new DatosResumen();
                     ju.comprobar()
                     callback(actividad);
                 }
@@ -505,9 +509,10 @@ function Centro() {
         } else {
             this.editarActividadEnClase(actividad, function (res) {
                 if (res != '') {
-                    console.log("Actividad terminda");
+                    console.log("Actividad empezada");
                     console.log(res);
                     ju.actividadesEnProceso[actividad._id] = actividad._id;
+                    ju.resumenActividades[actividad._id] = new DatosResumen();
                     ju.comprobar()
                     callback(actividad);
                 }
@@ -516,11 +521,13 @@ function Centro() {
     }
 
     this.comprobar = function () {
-        var num;
+        console.log("Comprobar");
+        var num = 0;
         for (var key in this.actividadesEnProceso) {
             num++;
         }
         if (num == 1) {
+            console.log("Creacion del intervalo");
             this.intervalo = setInterval(async => {
                 this.hacerResumenActividad();
             }, 30000);
@@ -532,64 +539,52 @@ function Centro() {
 
     this.hacerResumenActividad = function () {
         for (var key in this.actividadesEnProceso) {
-            var sumatorioE = this.resumenActividades[key].resumen.alegria +
-                this.resumenActividades[key].resumen.asco +
-                this.resumenActividades[key].resumen.ira +
-                this.resumenActividades[key].resumen.miedo +
-                this.resumenActividades[key].resumen.sorpresa +
-                this.resumenActividades[key].resumen.tristeza;
-            var sumatorioDC = this.actividades[key].resumen.distraido + this.actividades[key].resumen.concentrado;
-            var sumatorioMF = this.actividades[key].resumen.motivado + this.actividades[key].resumen.frustrado;
+            var sumatorioE = this.resumenActividades[key].alegria +
+                this.resumenActividades[key].asco +
+                this.resumenActividades[key].ira +
+                this.resumenActividades[key].miedo +
+                this.resumenActividades[key].sorpresa +
+                this.resumenActividades[key].tristeza;
+            var sumatorioDC = this.resumenActividades[key].distraido + this.resumenActividades[key].concentrado;
+            var sumatorioMF = this.resumenActividades[key].motivado + this.resumenActividades[key].frustrado;
 
-            this.actividades[key].resumen.alegria = this.resumenActividades[key].alegria / sumatorioE;
-            this.actividades[key].resumen.asco = this.resumenActividades[key].asco / sumatorioE;
-            this.actividades[key].resumen.concentrado = this.resumenActividades[key].concentrado / sumatorioDC;
-            this.actividades[key].resumen.distraido = this.resumenActividades[key].distraido / sumatorioDC;
-            this.actividades[key].resumen.frustrado = this.resumenActividades[key].frustrado / sumatorioMF;
-            this.actividades[key].resumen.ira = this.resumenActividades[key].ira / sumatorioE;
-            this.actividades[key].resumen.miedo = this.resumenActividades[key].miedo / sumatorioE;
-            this.actividades[key].resumen.motivado = this.resumenActividades[key].motivado / sumatorioMF;
-            this.actividades[key].resumen.sorpresa = this.resumenActividades[key].sorpresa / sumatorioE;
-            this.actividades[key].resumen.tristeza = this.resumenActividades[key].tristeza / sumatorioE;
-            this.actividades[key].resumen.pulsaciones = this.resumenActividades[key].pulsaciones / this.resumenActividades[key].nPulsaciones;
-
-            this.resumenActividades[key].resumen.alegria = 0;
-            this.resumenActividades[key].resumen.asco = 0;
-            this.resumenActividades[key].resumen.concentrado = 0;
-            this.resumenActividades[key].resumen.distraido = 0;
-            this.resumenActividades[key].resumen.frustrado = 0;
-            this.resumenActividades[key].resumen.ira = 0;
-            this.resumenActividades[key].resumen.miedo = 0;
-            this.resumenActividades[key].resumen.motivado = 0;
-            this.resumenActividades[key].resumen.sorpresa = 0;
-            this.resumenActividades[key].resumen.tristeza = 0;
-            this.resumenActividades[key].resumen.pulsaciones = 0;
-            this.resumenActividades[key].resumen.nPulsaciones = 0;
+            this.actividades[key].resumen.alegria.push(this.resumenActividades[key].alegria / sumatorioE);
+            this.actividades[key].resumen.asco.push( this.resumenActividades[key].asco / sumatorioE);
+            this.actividades[key].resumen.concentrado.push( this.resumenActividades[key].concentrado / sumatorioDC);
+            this.actividades[key].resumen.distraido.push( this.resumenActividades[key].distraido / sumatorioDC);
+            this.actividades[key].resumen.frustrado.push( this.resumenActividades[key].frustrado / sumatorioMF);
+            this.actividades[key].resumen.ira.push( this.resumenActividades[key].ira / sumatorioE);
+            this.actividades[key].resumen.miedo.push( this.resumenActividades[key].miedo / sumatorioE);
+            this.actividades[key].resumen.motivado.push( this.resumenActividades[key].motivado / sumatorioMF);
+            this.actividades[key].resumen.sorpresa.push( this.resumenActividades[key].sorpresa / sumatorioE);
+            this.actividades[key].resumen.tristeza.push( this.resumenActividades[key].tristeza / sumatorioE);
+            this.actividades[key].resumen.pulsaciones.push( this.resumenActividades[key].pulsaciones / this.resumenActividades[key].nPulsaciones);
+            this.resumenActividades[key] = new DatosResumen();
         }
     }
 
     this.insertarDatos = function (datos) {
-        console.log("SERVIDOOOOOR");
+        var ju = this;
         try {
+            console.log("Insertar datos");
+            console.log(this.actividades[datos.id_actividad]);
             for (let i = 0; i < this.actividades[datos.id_actividad].alumnos.length; i++) {
-                console.log("servidor");
                 console.log(this.actividades[datos.id_actividad].alumnos[i]);
-                console.log(datos);
-                console.log(datos.id_item == this.actividades[datos.id_actividad].alumnos[i].id_item);
-                if (datos.id_item == this.actividades[datos.id_actividad].alumnos[i].id_item) {
+                console.log(datos.id_item);
+                if (datos.id_item == ju.actividades[datos.id_actividad].alumnos[i].id_item) {
 
-                    this.resumenActividades[datos.id_actividad].alegria += datos.alegria.y;
-                    this.resumenActividades[datos.id_actividad].asco += datos.asco.y;
-                    this.resumenActividades[datos.id_actividad].concentrado += datos.concentrado.y;
-                    this.resumenActividades[datos.id_actividad].distraido += datos.distraido.y;
-                    this.resumenActividades[datos.id_actividad].frustrado += datos.frustrado.y;
-                    this.resumenActividades[datos.id_actividad].ira += datos.ira.y;
-                    this.resumenActividades[datos.id_actividad].miedo += datos.miedo.y;
-                    this.resumenActividades[datos.id_actividad].motivado += datos.motivado.y;
-                    this.resumenActividades[datos.id_actividad].sorpresa += datos.sorpresa.y;
-                    this.resumenActividades[datos.id_actividad].tristeza += datos.tristeza.y;
-                    this.resumenActividades[datos.id_actividad].pulsaciones += datos.pulsaciones.y;
-                    this.resumenActividades[datos.id_actividad].nPulsaciones++;
+                    ju.resumenActividades[datos.id_actividad]['alegria'] += datos.alegria.y;
+                    ju.resumenActividades[datos.id_actividad]['asco'] += datos.asco.y;
+                    ju.resumenActividades[datos.id_actividad]['concentrado'] += datos.concentrado.y;
+                    ju.resumenActividades[datos.id_actividad]['distraido'] += datos.distraido.y;
+                    ju.resumenActividades[datos.id_actividad]['frustrado'] += datos.frustrado.y;
+                    ju.resumenActividades[datos.id_actividad]['ira'] += datos.ira.y;
+                    ju.resumenActividades[datos.id_actividad]['miedo'] += datos.miedo.y;
+                    ju.resumenActividades[datos.id_actividad]['motivado'] += datos.motivado.y;
+                    ju.resumenActividades[datos.id_actividad]['sorpresa'] += datos.sorpresa.y;
+                    ju.resumenActividades[datos.id_actividad]['tristeza'] += datos.tristeza.y;
+                    ju.resumenActividades[datos.id_actividad]['pulsaciones'] += datos.pulsaciones.y;
+                    ju.resumenActividades[datos.id_actividad]['nPulsaciones']++;
 
 
                     /*this.resumen.alegria += datos.alegria.y;
@@ -607,23 +602,23 @@ function Centro() {
                     this.resumen.pulsaciones += datos.pulsaciones.y;
                     this.numPulsaciones++;*/
 
-                    this.actividades[datos.id_actividad].alumnos[i].datos.alegria.push({ x: datos.alegria.x, y: datos.alegria.y });
-                    this.actividades[datos.id_actividad].alumnos[i].datos.asco.push({ x: datos.asco.x, y: datos.asco.y });
-                    this.actividades[datos.id_actividad].alumnos[i].datos.ira.push({ x: datos.ira.x, y: datos.ira.y });
-                    this.actividades[datos.id_actividad].alumnos[i].datos.miedo.push({ x: datos.miedo.x, y: datos.miedo.y });
-                    this.actividades[datos.id_actividad].alumnos[i].datos.sorpresa.push({ x: datos.sorpresa.x, y: datos.sorpresa.y });
-                    this.actividades[datos.id_actividad].alumnos[i].datos.tristeza.push({ x: datos.tristeza.x, y: datos.tristeza.y });
-                    this.actividades[datos.id_actividad].alumnos[i].datos.pulsaciones.push({ x: datos.pulsaciones.x, y: datos.pulsaciones.y })
-                    this.actividades[datos.id_actividad].alumnos[i].datos.tiempo.push({ x: datos.tiempo.x, y: datos.tiempo.y })
-                    this.actividades[datos.id_actividad].alumnos[i].datos.distraido.push({ x: datos.distraido.x, y: datos.distraido.y })
-                    this.actividades[datos.id_actividad].alumnos[i].datos.concentrado.push({ x: datos.concentrado.x, y: datos.concentrado.y });
-                    this.actividades[datos.id_actividad].alumnos[i].datos.frustrado.push({ x: datos.frustrado.x, y: datos.frustrado.y });
-                    this.actividades[datos.id_actividad].alumnos[i].datos.motivado.push({ x: datos.motivado.x, y: datos.motivado.y });
+                    ju.actividades[datos.id_actividad].alumnos[i].datos.alegria.push({ x: datos.alegria.x, y: datos.alegria.y });
+                    ju.actividades[datos.id_actividad].alumnos[i].datos.asco.push({ x: datos.asco.x, y: datos.asco.y });
+                    ju.actividades[datos.id_actividad].alumnos[i].datos.ira.push({ x: datos.ira.x, y: datos.ira.y });
+                    ju.actividades[datos.id_actividad].alumnos[i].datos.miedo.push({ x: datos.miedo.x, y: datos.miedo.y });
+                    ju.actividades[datos.id_actividad].alumnos[i].datos.sorpresa.push({ x: datos.sorpresa.x, y: datos.sorpresa.y });
+                    ju.actividades[datos.id_actividad].alumnos[i].datos.tristeza.push({ x: datos.tristeza.x, y: datos.tristeza.y });
+                    ju.actividades[datos.id_actividad].alumnos[i].datos.pulsaciones.push({ x: datos.pulsaciones.x, y: datos.pulsaciones.y })
+                    ju.actividades[datos.id_actividad].alumnos[i].datos.tiempo.push({ x: datos.tiempo.x, y: datos.tiempo.y })
+                    ju.actividades[datos.id_actividad].alumnos[i].datos.distraido.push({ x: datos.distraido.x, y: datos.distraido.y })
+                    ju.actividades[datos.id_actividad].alumnos[i].datos.concentrado.push({ x: datos.concentrado.x, y: datos.concentrado.y });
+                    ju.actividades[datos.id_actividad].alumnos[i].datos.frustrado.push({ x: datos.frustrado.x, y: datos.frustrado.y });
+                    ju.actividades[datos.id_actividad].alumnos[i].datos.motivado.push({ x: datos.motivado.x, y: datos.motivado.y });
                     console.log("Datos modificados en el servidor");
                 }
             }
         } catch (e) {
-
+            console.log(e);
         }
         //console.log(this.actividades[datos.id_actividad]);
 
@@ -631,32 +626,41 @@ function Centro() {
 
     this.terminarActividad = function (actividad, callback) {
         var ju = this;
-        console.log(actividad);
-        actividad.estado = "Finalizada";
-        console.log(this.actividades[actividad._id]);
-        this.actividades[actividad._id].fecha = actividad.fecha;
-        if (actividad.clase._id == "") {
-            this.editarActividad(actividad, function (res) {
-                if (res != '') {
-                    console.log("Actividad terminada");
-                    console.log(res);
-                    delete ju.actividadesEnProceso[actividad._id];
-                    delete ju.resumenActividades[actividad._id];
-                    ju.comprobar();
-                    callback(res);
+        console.log("SERVIDOR");
+        console.log(actividad._id);
+        console.log(ju.actividades);
+        for (var key in ju.actividades) {
+            if (ju.actividades[key]._id == actividad._id) {
+                ju.actividades[key].estado = "Finalizada";
+                ju.actividades[key].fecha = actividad.fecha;
+                console.log("datos a almacenar");
+                console.log(ju.actividades[key].resumen);
+                console.log(ju.actividades[key].alumnos[0].datos);
+                if (actividad.clase._id == "") {
+                    this.editarActividad(ju.actividades[key], function (res) {
+                        if (res != '') {
+                            console.log("Actividad terminada");
+                            console.log(res);
+                            delete ju.actividadesEnProceso[actividad._id];
+                            delete ju.resumenActividades[actividad._id];
+                            ju.comprobar();
+                            callback(ju.actividades[key]);
+                        }
+                    })
+                } else {
+                    this.editarActividadEnClase(ju.actividades[key], function (res) {
+                        if (res != '') {
+                            console.log("Actividad terminda");
+                            console.log(res);
+                            delete ju.actividadesEnProceso[actividad._id];
+                            delete ju.resumenActividades[actividad._id];
+                            ju.comprobar()
+                            callback(ju.actividades[key]);
+                        }
+                    })
                 }
-            })
-        } else {
-            this.editarActividadEnClase(actividad, function (res) {
-                if (res != '') {
-                    console.log("Actividad terminda");
-                    console.log(res);
-                    delete ju.actividadesEnProceso[actividad._id];
-                    delete ju.resumenActividades[actividad._id];
-                    ju.comprobar()
-                    callback(res);
-                }
-            })
+                break;
+            }
         }
     }
 
@@ -877,6 +881,21 @@ function Alumno(estudiante, posicion, actividad, datos) {
     this.setActividad = function (act) {
         this.id_item = this.estudiante._id + act._id;
     }
+}
+
+function DatosResumen() {
+    this.alegria=0;
+    this.asco=0;
+    this.concentrado=0;
+    this.distraido=0;
+    this.frustrado=0;
+    this.ira=0;
+    this.miedo=0;
+    this.motivado=0;
+    this.sorpresa=0;
+    this.tristeza=0;
+    this.pulsaciones=0;
+    this.nPulsaciones=0;
 }
 
 module.exports.Centro = Centro;

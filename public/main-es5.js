@@ -5596,9 +5596,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         key: "cerrarActividad",
         value: function cerrarActividad(cerrar) {
           //console.log(this.actividadSelected);
-          this.actividadAbierta = false;
-          this.socket.emit('listoParaNoRecibirDatos', this.actividadSelected);
-          this.borrarActividadLista(this.actividadSelected);
+          this.actividadAbierta = false; //this.socket.emit('listoParaNoRecibirDatos', this.actividadSelected);
+          //
+
+          if (this.actividadSelected.estado == "Creada") {
+            this.borrarActividadLista(this.actividadSelected);
+          }
+
           this.verActividad = false;
           this.actividadSelected = null;
           this.claseSelected = null;

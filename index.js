@@ -143,8 +143,8 @@ app.post("/empezarActividad", function (request, response) {
 app.post("/terminarActividad", function (request, response) {
   var act = request.body;
   //console.log(act._id);
-  centro.terminarActividad(act, function (res) {
-    response.send(res);
+  centro.terminarActividad(act, function (respuesta) {
+    response.send(respuesta);
   })
 });
 
