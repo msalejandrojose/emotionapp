@@ -6209,20 +6209,18 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
           if (this.actividad.estado == "Finalizada") {
             for (var i = 0; i < this.actividad.alumnos.length; i++) {
-              for (var j = 0; j < this.alumnos.length; j++) {
-                var pul = 0;
+              var pul = 0;
 
-                for (var g = 0; g < this.alumnos[j].datos.pulsaciones.length; g++) {
-                  pul += this.alumnos[g].datos.pulsaciones[g].y;
-                }
-
-                this.alumnosTabla.push({
-                  id_item: this.actividad.alumnos[i].id_item,
-                  nombre: this.actividad.alumnos[i].estudiante.nombre + ' ' + this.actividad.alumnos[i].estudiante.apellidos,
-                  estado: 'Desconectado',
-                  pulsaciones: pul / this.alumnos[j].datos.pulsaciones.length
-                });
+              for (var j = 0; j < this.actividad.alumnos[i].datos.pulsaciones.length; j++) {
+                pul += this.actividad.alumnos[i].datos.pulsaciones[j].y;
               }
+
+              this.alumnosTabla.push({
+                id_item: this.actividad.alumnos[i].id_item,
+                nombre: this.actividad.alumnos[i].estudiante.nombre + ' ' + this.actividad.alumnos[i].estudiante.apellidos,
+                estado: 'Desconectado',
+                pulsaciones: pul / this.actividad.alumnos[i].datos.pulsaciones.length
+              });
             }
           } else {
             for (var _i2 = 0; _i2 < this.actividad.alumnos.length; _i2++) {

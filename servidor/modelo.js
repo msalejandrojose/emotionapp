@@ -530,7 +530,7 @@ function Centro() {
             console.log("Creacion del intervalo");
             this.intervalo = setInterval(async => {
                 this.hacerResumenActividad();
-            }, 30000);
+            }, 20000);
         }
         if (num == 0) {
             clearImmediate(this.intervalo);

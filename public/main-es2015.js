@@ -4090,18 +4090,16 @@ let VerActividadComponent = class VerActividadComponent {
         }
         if (this.actividad.estado == "Finalizada") {
             for (let i = 0; i < this.actividad.alumnos.length; i++) {
-                for (let j = 0; j < this.alumnos.length; j++) {
-                    let pul = 0;
-                    for (let g = 0; g < this.alumnos[j].datos.pulsaciones.length; g++) {
-                        pul += this.alumnos[g].datos.pulsaciones[g].y;
-                    }
-                    this.alumnosTabla.push({
-                        id_item: this.actividad.alumnos[i].id_item,
-                        nombre: this.actividad.alumnos[i].estudiante.nombre + ' ' + this.actividad.alumnos[i].estudiante.apellidos,
-                        estado: 'Desconectado',
-                        pulsaciones: pul / this.alumnos[j].datos.pulsaciones.length,
-                    });
+                let pul = 0;
+                for (let j = 0; j < this.actividad.alumnos[i].datos.pulsaciones.length; j++) {
+                    pul += this.actividad.alumnos[i].datos.pulsaciones[j].y;
                 }
+                this.alumnosTabla.push({
+                    id_item: this.actividad.alumnos[i].id_item,
+                    nombre: this.actividad.alumnos[i].estudiante.nombre + ' ' + this.actividad.alumnos[i].estudiante.apellidos,
+                    estado: 'Desconectado',
+                    pulsaciones: pul / this.actividad.alumnos[i].datos.pulsaciones.length,
+                });
             }
         }
         else {
