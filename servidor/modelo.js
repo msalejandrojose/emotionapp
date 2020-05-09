@@ -1,5 +1,6 @@
 var dao = require("./dao");
 var ObjectID = require("mongodb").ObjectID;
+var moment = require('moment');
 
 function Centro() {
 
@@ -539,6 +540,7 @@ function Centro() {
 
     this.hacerResumenActividad = function () {
         for (var key in this.actividadesEnProceso) {
+            var tiempo = moment().format();
             var sumatorioE = this.resumenActividades[key].alegria +
                 this.resumenActividades[key].asco +
                 this.resumenActividades[key].ira +
@@ -548,17 +550,17 @@ function Centro() {
             var sumatorioDC = this.resumenActividades[key].distraido + this.resumenActividades[key].concentrado;
             var sumatorioMF = this.resumenActividades[key].motivado + this.resumenActividades[key].frustrado;
 
-            this.actividades[key].resumen.alegria.push(this.resumenActividades[key].alegria / sumatorioE);
-            this.actividades[key].resumen.asco.push( this.resumenActividades[key].asco / sumatorioE);
-            this.actividades[key].resumen.concentrado.push( this.resumenActividades[key].concentrado / sumatorioDC);
-            this.actividades[key].resumen.distraido.push( this.resumenActividades[key].distraido / sumatorioDC);
-            this.actividades[key].resumen.frustrado.push( this.resumenActividades[key].frustrado / sumatorioMF);
-            this.actividades[key].resumen.ira.push( this.resumenActividades[key].ira / sumatorioE);
-            this.actividades[key].resumen.miedo.push( this.resumenActividades[key].miedo / sumatorioE);
-            this.actividades[key].resumen.motivado.push( this.resumenActividades[key].motivado / sumatorioMF);
-            this.actividades[key].resumen.sorpresa.push( this.resumenActividades[key].sorpresa / sumatorioE);
-            this.actividades[key].resumen.tristeza.push( this.resumenActividades[key].tristeza / sumatorioE);
-            this.actividades[key].resumen.pulsaciones.push( this.resumenActividades[key].pulsaciones / this.resumenActividades[key].nPulsaciones);
+            this.actividades[key].resumen.alegria.push({y:this.resumenActividades[key].alegria / sumatorioE,x:tiempo});
+            this.actividades[key].resumen.asco.push( {y:this.resumenActividades[key].asco / sumatorioE,x:tiempo});
+            this.actividades[key].resumen.concentrado.push( {y:this.resumenActividades[key].concentrado / sumatorioDC,x:tiempo});
+            this.actividades[key].resumen.distraido.push( {y:this.resumenActividades[key].distraido / sumatorioDC,x:tiempo});
+            this.actividades[key].resumen.frustrado.push( {y:this.resumenActividades[key].frustrado / sumatorioMF,x:tiempo});
+            this.actividades[key].resumen.ira.push( {y:this.resumenActividades[key].ira / sumatorioE,x:tiempo});
+            this.actividades[key].resumen.miedo.push( {y:this.resumenActividades[key].miedo / sumatorioE,x:tiempo});
+            this.actividades[key].resumen.motivado.push( {y:this.resumenActividades[key].motivado / sumatorioMF,x:tiempo});
+            this.actividades[key].resumen.sorpresa.push( {y:this.resumenActividades[key].sorpresa / sumatorioE,x:tiempo});
+            this.actividades[key].resumen.tristeza.push( {y:this.resumenActividades[key].tristeza / sumatorioE,x:tiempo});
+            this.actividades[key].resumen.pulsaciones.push( {y:this.resumenActividades[key].pulsaciones / this.resumenActividades[key].nPulsaciones,x:tiempo});
             this.resumenActividades[key] = new DatosResumen();
         }
     }
