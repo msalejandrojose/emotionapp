@@ -8962,7 +8962,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                 xAxes: [{
                   gridLines: {
                     offsetGridLines: false
-                  }
+                  },
+                  stacked: true
                 }],
                 yAxes: [{
                   label: 'Porcentaje',

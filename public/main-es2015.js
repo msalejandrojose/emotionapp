@@ -6154,7 +6154,8 @@ let VerEstadisticasClaseComponent = class VerEstadisticasClaseComponent {
                     xAxes: [{
                             gridLines: {
                                 offsetGridLines: false,
-                            }
+                            },
+                            stacked: true,
                         }],
                     yAxes: [{
                             label: 'Porcentaje',
