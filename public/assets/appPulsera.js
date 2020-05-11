@@ -23,7 +23,12 @@ class pulseraMiBand {
     }
 
     desconnect() {
-        this.band.hrmStop();
+        try{
+            this.band.hrmStop();
+        }catch(e){
+
+        }
+        
     }
 
     async startBandInit() {
