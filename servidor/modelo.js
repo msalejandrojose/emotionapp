@@ -13,6 +13,7 @@ function Centro() {
     this.estudiantes = {};
     this.actividadesListas = {};
     this.dao = new dao.Dao();
+    this.estoyComputando=false;
 
 
     //METODOS
@@ -242,7 +243,7 @@ function Centro() {
                     for (let i = 0; i < ru.alumnos.length; i++) {
                         //item.id_item = item.estudiante._id + ru._id;
                         //alu.push(ru.alumnos[i].id_item=ru.alumnos[i].estudiante._id + ru._id);
-                        alu.push(new Alumno(ru.alumnos[i].estudiante, ru.alumnos[i].posicion, ru, ru.alumnos[i].datos));
+                        alu.push(new Alumno(ru.alumnos[i].estudiante, ru.alumnos[i].posicion, ru, ru.alumnos[i].datos,ru.alumnos[i].sensorWebCam,ru.alumnos[i].sensorPulsera,ru.alumnos[i].sensorLed));
                     }
                     ru.alumnos = alu;
                     act.alumnos = alu;
@@ -409,7 +410,7 @@ function Centro() {
                 for (let i = 0; i < ru.alumnos.length; i++) {
                     //item.id_item = item.estudiante._id + ru._id;
                     //alu.push(ru.alumnos[i].id_item=ru.alumnos[i].estudiante._id + ru._id);
-                    alu.push(new Alumno(ru.alumnos[i].estudiante, ru.alumnos[i].posicion, ru, ru.alumnos[i].datos));
+                    alu.push(new Alumno(ru.alumnos[i].estudiante, ru.alumnos[i].posicion, ru, ru.alumnos[i].datos,ru.alumnos[i].sensorWebCam,ru.alumnos[i].sensorPulsera,ru.alumnos[i].sensorLed));
                 }
                 ru.alumnos = alu;
                 ju.dao.modificarActividad(ru._id, ru, function (u) {
@@ -539,6 +540,7 @@ function Centro() {
     }
 
     this.hacerResumenActividad = function () {
+        this.estoyComputando=true;
         for (var key in this.actividadesEnProceso) {
             var tiempo = moment().format();
             var sumatorioE = this.resumenActividades[key].alegria +
@@ -563,6 +565,7 @@ function Centro() {
             this.actividades[key].resumen.pulsaciones.push( {y:this.resumenActividades[key].pulsaciones / this.resumenActividades[key].nPulsaciones,x:tiempo});
             this.resumenActividades[key] = new DatosResumen();
         }
+        this.estoyComputando=false;
     }
 
     this.insertarDatos = function (datos) {
@@ -574,35 +577,20 @@ function Centro() {
                 console.log(this.actividades[datos.id_actividad].alumnos[i]);
                 console.log(datos.id_item);
                 if (datos.id_item == ju.actividades[datos.id_actividad].alumnos[i].id_item) {
-
-                    ju.resumenActividades[datos.id_actividad]['alegria'] += datos.alegria.y;
-                    ju.resumenActividades[datos.id_actividad]['asco'] += datos.asco.y;
-                    ju.resumenActividades[datos.id_actividad]['concentrado'] += datos.concentrado.y;
-                    ju.resumenActividades[datos.id_actividad]['distraido'] += datos.distraido.y;
-                    ju.resumenActividades[datos.id_actividad]['frustrado'] += datos.frustrado.y;
-                    ju.resumenActividades[datos.id_actividad]['ira'] += datos.ira.y;
-                    ju.resumenActividades[datos.id_actividad]['miedo'] += datos.miedo.y;
-                    ju.resumenActividades[datos.id_actividad]['motivado'] += datos.motivado.y;
-                    ju.resumenActividades[datos.id_actividad]['sorpresa'] += datos.sorpresa.y;
-                    ju.resumenActividades[datos.id_actividad]['tristeza'] += datos.tristeza.y;
-                    ju.resumenActividades[datos.id_actividad]['pulsaciones'] += datos.pulsaciones.y;
-                    ju.resumenActividades[datos.id_actividad]['nPulsaciones']++;
-
-
-                    /*this.resumen.alegria += datos.alegria.y;
-                    this.resumen.asco += datos.asco.y;
-                    this.resumen.concentrado += datos.concentrado.y;
-                    this.resumen.distraido += datos.distraido.y;
-                    this.resumen.frustrado += datos.frustrado.y;
-                    this.resumen.ira += datos.ira.y;
-    
-                    this.resumen.miedo += datos.miedo.y;
-                    this.resumen.motivado += datos.motivado.y;
-                    this.resumen.sorpresa += datos.sorpresa.y;
-    
-                    this.resumen.tristeza += datos.tristeza.y;
-                    this.resumen.pulsaciones += datos.pulsaciones.y;
-                    this.numPulsaciones++;*/
+                    if(!ju.estoyComputando){
+                        ju.resumenActividades[datos.id_actividad]['alegria'] += datos.alegria.y;
+                        ju.resumenActividades[datos.id_actividad]['asco'] += datos.asco.y;
+                        ju.resumenActividades[datos.id_actividad]['concentrado'] += datos.concentrado.y;
+                        ju.resumenActividades[datos.id_actividad]['distraido'] += datos.distraido.y;
+                        ju.resumenActividades[datos.id_actividad]['frustrado'] += datos.frustrado.y;
+                        ju.resumenActividades[datos.id_actividad]['ira'] += datos.ira.y;
+                        ju.resumenActividades[datos.id_actividad]['miedo'] += datos.miedo.y;
+                        ju.resumenActividades[datos.id_actividad]['motivado'] += datos.motivado.y;
+                        ju.resumenActividades[datos.id_actividad]['sorpresa'] += datos.sorpresa.y;
+                        ju.resumenActividades[datos.id_actividad]['tristeza'] += datos.tristeza.y;
+                        ju.resumenActividades[datos.id_actividad]['pulsaciones'] += datos.pulsaciones.y;
+                        ju.resumenActividades[datos.id_actividad]['nPulsaciones']++;
+                    }
 
                     ju.actividades[datos.id_actividad].alumnos[i].datos.alegria.push({ x: datos.alegria.x, y: datos.alegria.y });
                     ju.actividades[datos.id_actividad].alumnos[i].datos.asco.push({ x: datos.asco.x, y: datos.asco.y });
@@ -872,14 +860,16 @@ function Estudiante(id, nombre, apellidos, clase, email, contrasena) {
 
 }
 
-function Alumno(estudiante, posicion, actividad, datos) {
+function Alumno(estudiante, posicion, actividad, datos,sensorWebCam,sensorPulsera,sensorLed) {
 
     //Atributos
     this.estudiante = estudiante;
     this.posicion = posicion;
     this.id_item = this.estudiante._id + actividad._id;
     this.datos = datos;
-
+    this.sensorWebCam=sensorWebCam;
+    this.sensorPulsera=sensorPulsera;
+    this.sensorLed=sensorLed;
     this.setActividad = function (act) {
         this.id_item = this.estudiante._id + act._id;
     }
