@@ -318,7 +318,7 @@ webpackContext.id = "./node_modules/moment/locale sync recursive ^\\.\\/.*$";
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<style>\n  :host {\n    font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\";\n    font-size: 14px;\n    color: #333;\n    box-sizing: border-box;\n    -webkit-font-smoothing: antialiased;\n    -moz-osx-font-smoothing: grayscale;\n  }\n\n  h1,\n  h2,\n  h3,\n  h4,\n  h5,\n  h6 {\n    margin: 8px 0;\n  }\n\n  p {\n    margin: 0;\n  }\n\n  .spacer {\n    flex: 1;\n  }\n\n  .toolbar {\n    height: 60px;\n    margin: 0px;\n    display: flex;\n    align-items: center;\n    background-color: #54577C;\n    color: white;\n    font-weight: 600;\n  }\n\n  .toolbar img {\n    margin: 0 16px;\n  }\n\n  .toolbar #twitter-logo {\n    height: 40px;\n    margin: 0 16px;\n  }\n\n  .toolbar #twitter-logo:hover {\n    opacity: 0.8;\n  }\n\n  .content {\n    display: flex;\n    margin: 32px auto;\n    padding: 0 16px;\n    max-width: 960px;\n    flex-direction: column;\n    align-items: center;\n  }\n\n  svg.material-icons {\n    height: 24px;\n    width: auto;\n  }\n\n  svg.material-icons:not(:last-child) {\n    margin-right: 8px;\n  }\n\n  .card svg.material-icons path {\n    fill: #888;\n  }\n\n  .card-container {\n    display: flex;\n    flex-wrap: wrap;\n    justify-content: center;\n    margin-top: 16px;\n  }\n\n  .card {\n    border-radius: 4px;\n    border: 1px solid #eee;\n    background-color: #fafafa;\n    height: 40px;\n    width: 200px;\n    margin: 0 8px 16px;\n    padding: 16px;\n    display: flex;\n    flex-direction: row;\n    justify-content: center;\n    align-items: center;\n    transition: all 0.2s ease-in-out;\n    line-height: 24px;\n  }\n\n  .card-container .card:not(:last-child) {\n    margin-right: 0;\n  }\n\n  .card.card-small {\n    height: 16px;\n    width: 168px;\n  }\n\n  .card-container .card:not(.highlight-card) {\n    cursor: pointer;\n  }\n\n  .card-container .card:not(.highlight-card):hover {\n    transform: translateY(-3px);\n    box-shadow: 0 4px 17px rgba(black, 0.35);\n  }\n\n  .card-container .card:not(.highlight-card):hover .material-icons path {\n    fill: rgb(105, 103, 103);\n  }\n\n  .card.highlight-card {\n    background-color: #1976d2;\n    color: white;\n    font-weight: 600;\n    border: none;\n    width: auto;\n    min-width: 30%;\n    position: relative;\n  }\n\n  .card.card.highlight-card span {\n    margin-left: 60px;\n  }\n\n  svg#rocket {\n    width: 80px;\n    position: absolute;\n    left: -10px;\n    top: -24px;\n  }\n\n  svg#rocket-smoke {\n    height: 100vh;\n    position: absolute;\n    top: 10px;\n    right: 180px;\n    z-index: -10;\n  }\n\n  a,\n  a:visited,\n  a:hover {\n    color: #1976d2;\n    text-decoration: none;\n  }\n\n  a:hover {\n    color: #125699;\n  }\n\n  .terminal {\n    position: relative;\n    width: 80%;\n    max-width: 600px;\n    border-radius: 6px;\n    padding-top: 45px;\n    margin-top: 8px;\n    overflow: hidden;\n    background-color: rgb(15, 15, 16);\n  }\n\n  .terminal::before {\n    content: \"\\2022 \\2022 \\2022\";\n    position: absolute;\n    top: 0;\n    left: 0;\n    height: 4px;\n    background: rgb(58, 58, 58);\n    color: #c2c3c4;\n    width: 100%;\n    font-size: 2rem;\n    line-height: 0;\n    padding: 14px 0;\n    text-indent: 4px;\n  }\n\n  .terminal pre {\n    font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace;\n    color: white;\n    padding: 0 1rem 1rem;\n    margin: 0;\n  }\n\n  .circle-link {\n    height: 40px;\n    width: 40px;\n    border-radius: 40px;\n    margin: 8px;\n    background-color: white;\n    border: 1px solid #eeeeee;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    cursor: pointer;\n    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);\n    transition: 1s ease-out;\n  }\n\n  .circle-link:hover {\n    transform: translateY(-0.25rem);\n    box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);\n  }\n\n  footer {\n    margin-top: 8px;\n    display: flex;\n    align-items: center;\n    line-height: 20px;\n  }\n\n  footer a {\n    display: flex;\n    align-items: center;\n  }\n\n  .github-star-badge {\n    color: #24292e;\n    display: flex;\n    align-items: center;\n    font-size: 12px;\n    padding: 3px 10px;\n    border: 1px solid rgba(27, 31, 35, .2);\n    border-radius: 3px;\n    background-image: linear-gradient(-180deg, #fafbfc, #eff3f6 90%);\n    margin-left: 4px;\n    font-weight: 600;\n    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;\n  }\n\n  .github-star-badge:hover {\n    background-image: linear-gradient(-180deg, #f0f3f6, #e6ebf1 90%);\n    border-color: rgba(27, 31, 35, .35);\n    background-position: -.5em;\n  }\n\n  .github-star-badge .material-icons {\n    height: 16px;\n    width: 16px;\n    margin-right: 4px;\n  }\n\n  svg#clouds {\n    position: fixed;\n    bottom: -160px;\n    left: -230px;\n    z-index: -10;\n    width: 1920px;\n  }\n\n\n  /* Responsive Styles */\n  @media screen and (max-width: 767px) {\n\n    .card-container>*:not(.circle-link),\n    .terminal {\n      width: 100%;\n    }\n\n    .card:not(.highlight-card) {\n      height: 16px;\n      margin: 8px 0;\n    }\n\n    .card.highlight-card span {\n      margin-left: 72px;\n    }\n\n    svg#rocket-smoke {\n      right: 120px;\n      transform: rotate(-5deg);\n    }\n  }\n\n  @media screen and (max-width: 575px) {\n    svg#rocket-smoke {\n      display: none;\n      visibility: hidden;\n    }\n  }\n</style>\n\n<!-- Toolbar -->\n<div class=\"toolbar .container-fluid row justify-content-center\"  role=\"banner\">\n  <div class=\"col-sm-2 col-1 text-center\">\n    <img style=\"cursor: pointer;\" height=\"30px\" width=\"30px\" (click)=\"entrarHome()\" src=\"assets/Logo10.png\">\n  </div>\n  <div class=\"col-sm-10 col-11\">\n    <div class=\"row\">\n      <div class=\"row col-12 justify-content-center\">\n        <div class=\"col-6\">\n          <h3 class=\"text-left\" style=\"font-style: oblique;\" id=\"titulo\">EmotionAppAj</h3>\n        </div>\n        <div *ngIf=\"!dentro\" class=\"col-3 text-right\">\n          <button type=\"button\" (click)=\"entrarProfesor()\" class=\"btn btn-primary\">Profesor</button>\n        </div>\n        <div *ngIf=\"!dentro\" class=\"col-3 text-right\">\n          <button type=\"button\" (click)=\"entrarEstudiante()\" class=\"btn btn-success\">Estudiante</button>\n        </div>\n        <div *ngIf=\"dentro\" class=\"col-3 col-auto\">\n          {{personaIniciada.nombre}} {{personaIniciada.apellidos}}\n        </div>\n        <div *ngIf=\"dentro\" class=\"col-md-3 col-auto text-right\">\n          <button type=\"button\" (click)=\"salir()\" class=\"btn btn-danger\">Salir <i class=\"fa fa-sign-out\"></i></button>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n<!--Seccion del profesor-->\n<app-profesor id=\"profesor\" *ngIf=\"profesor\"></app-profesor>\n<!--Seccion del estudiante-->\n<app-estudiante id=\"estudiante\" *ngIf=\"estudiante\" (estudianteIniciado)=\"iniciarSesion($event)\"></app-estudiante>\n<div *ngIf=\"(!dentro && !visualizacion) || visualizacion\" >\n  <br>\n  <br>\n</div>\n<div *ngIf=\"!dentro && !visualizacion\" class=\"row justify-content-center\">\n  <div class=\"col-8 text-center\">\n    <h4>Le damos la bienvenida a la aplicacion web</h4>\n  </div>\n</div>\n<div *ngIf=\"(!dentro && !visualizacion) || visualizacion\">\n  <br>\n  <br>\n</div>\n<div *ngIf=\"!dentro && !visualizacion\" class=\"row justify-content-center\">\n  <div class=\"col-auto col-sm-6 text-center\">\n    <br>\n    <br>\n    <img height=\"380px\" width=\"380px\" src=\"assets/Logo10.png\">\n  </div>\n  <div class=\"col-auto col-md-auto text-right\">\n    <br>\n    <div class=\"text-center\">\n      <button type=\"button\" (click)=\"entrarProfesor()\" class=\"btn btn-primary btn-circle\">Profesor</button>\n    </div>\n    <br>\n    <div class=\"text-center\">\n      <button type=\"button\" (click)=\"entrarEstudiante()\" class=\"btn btn-success btn-circle\">Estudiante</button>\n    </div>\n  </div>\n</div>\n<div *ngIf=\"visualizacion\" class=\"row justify-content-center\">\n  <div *ngIf=\"acercaDe\" class=\"col-6\">\n    <h4>Acerca de </h4>\n    <ul>\n      <li>\n        <p>\n          Autor: Alejandro José Martínez Sánchez</p>\n      </li>\n      <li>\n        <p>\n          Encargado de desarrollar la aplicación EmotionAppAJ como correspondencia al Trabajo de Fin de Grado de Ingeniería\n          Informatica, en la intensificación de Tencologias de la Información.</p>\n      </li>\n      <li>\n        <p>\n          Herramienta para facilitar la tarea didactica a los docentes, con posibilidad de elaborar graficos y estadisticas\n          sobre la evolucion de sus alumnos en las activiades realizadas.\n        </p>\n      </li>\n      <li>\n        <p>\n          Fecha: Junio 2020\n        </p>\n      </li>\n    </ul>\n    <div class=\"text-center\">\n      <button type=\"button\" (click)=\"cerrarAcercaDe()\" class=\"btn btn-outline-danger\">Cerrar</button>\n    </div>\n    \n  </div>\n  <div *ngIf=\"privacidad\" class=\"col-6\">\n    <div class=\"text-center\">\n      <h4>Privacidad </h4>\n      <p>\n        El uso de esta aplicación utiliza información de caracter personal, a la hora de hacer un escaneo de la cara,\n        para la realización de la computación afectiva, pero no realiza ningun tipo de almanenamiento de dichas imagenes\n        solo de los datos obtenidos.\n      </p>\n      <div>\n        <button type=\"button\" (click)=\"cerrarPrivacidad()\" class=\"btn btn-outline-danger\">Cerrar</button>\n      </div>\n    </div>\n  </div>\n</div>\n<div *ngIf=\"(!dentro && !visualizacion) || visualizacion\">\n  <br>\n  <br>\n</div>\n<div *ngIf=\"(!dentro && !visualizacion) || visualizacion\">\n  <br>\n  <br>\n</div>\n<div class=\"footer container-fluid\" style=\"background-color:rgba(30, 30, 30,0.9); z-index: 2;\">\n  <br>\n  <div class=\"row justify-content-center\">\n    <div class=\"col-6 text-center\">\n      <h4 style=\"font-style: oblique;\">EmotionAppAj </h4>\n      <img style=\"cursor: pointer;\" height=\"30px\" width=\"30px\" src=\"assets/Logo10.png\">\n    </div>\n  </div>\n  <div class=\"row\">\n    <div class=\"col-6 text-center\">\n      <div class=\"row\">\n        <div class=\"col-12\">\n          <a style=\"cursor: pointer; color: white;\" (click)=\"ponerAcercaDe()\">\n            <h6>Acerda de</h6>\n          </a>\n        </div>\n      </div>\n      <div class=\"row\">\n        <div class=\"col-12\">\n          <a style=\"cursor: pointer; color: white;\" (click)=\"ponerPrivacidad()\">\n            <h6>Privacidad</h6>\n          </a>\n        </div>\n      </div>\n      <!--<div class=\"row\">\n        <div class=\"col-12\">\n          <a style=\"cursor: pointer; color: white;\"><h6 href=\"\">RGPD</h6></a>\n        </div>\n      </div>-->\n\n    </div>\n    <div class=\"col-6 text-center\">\n      <div class=\"row\">\n        <div class=\"col-12\">\n          <h6>Redes Sociales</h6>\n        </div>\n      </div>\n      <div class=\" row justify-content-center\">\n        <div class=\"col-1\">\n          <a class=\"icono_rrss\" href=\"https://www.instagram.com/?hl=es\" target=\"_blank\"><i class=\"fa fa-instagram fa-2x\"\n              width=\"15\" height=\"15\"></i></a>\n        </div>\n        <br>\n        <div class=\"col-1\">\n          <a class=\"icono_rrss\" href=\"https://www.facebook.com/alejandrojose.martinez.12\" target=\"_blank\"><i\n              class=\"fa fa-facebook fa-2x\" width=\"15\" height=\"15\"></i></a>\n        </div>\n        <br>\n        <div class=\"col-1\">\n          <a class=\"icono_rrss\" href=\"https://github.com/msalejandrojose/emotionapp\" target=\"_blank\"><i\n              class=\"fa fa-github fa-2x\" width=\"15\" height=\"15\"></i></a>\n        </div>\n        <div class=\"col-1\">\n          <a class=\"icono_rrss\" href=\"https://www.linkedin.com/in/alejandro-jos%C3%A9-256a211a9/\" target=\"_blank\"><i\n              class=\"fa fa-linkedin fa-2x\"></i></a>\n        </div>\n        <div class=\"col-1\">\n          <a class=\"icono_rrss\" href=\"mailto:msalejandrojose7@gmail.com\" target=\"_blank\"><i\n              class=\"fa fa-envelope fa-2x\"></i></a>\n        </div>\n      </div>\n    </div>\n  </div>\n  <br>\n  <div class=\"row\">\n    <div class=\"col-12 text-center\">\n      <p><i>\n          Esta aplicación web esta desarrollada como Proyecto de Fin de Grado para la universidad de Castilla-La Mancha\n          UCLM, Edificio Politecnico Albacete, a fecha de Junio 2020.\n        </i></p>\n    </div>\n  </div>\n  <br>\n</div>\n\n<!--Rutas-->\n<router-outlet></router-outlet>");
+/* harmony default export */ __webpack_exports__["default"] = ("<style>\n  :host {\n    font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\";\n    font-size: 14px;\n    color: #333;\n    box-sizing: border-box;\n    -webkit-font-smoothing: antialiased;\n    -moz-osx-font-smoothing: grayscale;\n  }\n\n  h1,\n  h2,\n  h3,\n  h4,\n  h5,\n  h6 {\n    margin: 8px 0;\n  }\n\n  p {\n    margin: 0;\n  }\n\n  .spacer {\n    flex: 1;\n  }\n\n  .toolbar {\n    height: 60px;\n    margin: 0px;\n    display: flex;\n    align-items: center;\n    background-color: #54577C;\n    color: white;\n    font-weight: 600;\n  }\n\n  .toolbar img {\n    margin: 0 16px;\n  }\n\n  .toolbar #twitter-logo {\n    height: 40px;\n    margin: 0 16px;\n  }\n\n  .toolbar #twitter-logo:hover {\n    opacity: 0.8;\n  }\n\n  .content {\n    display: flex;\n    margin: 32px auto;\n    padding: 0 16px;\n    max-width: 960px;\n    flex-direction: column;\n    align-items: center;\n  }\n\n  svg.material-icons {\n    height: 24px;\n    width: auto;\n  }\n\n  svg.material-icons:not(:last-child) {\n    margin-right: 8px;\n  }\n\n  .card svg.material-icons path {\n    fill: #888;\n  }\n\n  .card-container {\n    display: flex;\n    flex-wrap: wrap;\n    justify-content: center;\n    margin-top: 16px;\n  }\n\n  .card {\n    border-radius: 4px;\n    border: 1px solid #eee;\n    background-color: #fafafa;\n    height: 40px;\n    width: 200px;\n    margin: 0 8px 16px;\n    padding: 16px;\n    display: flex;\n    flex-direction: row;\n    justify-content: center;\n    align-items: center;\n    transition: all 0.2s ease-in-out;\n    line-height: 24px;\n  }\n\n  .card-container .card:not(:last-child) {\n    margin-right: 0;\n  }\n\n  .card.card-small {\n    height: 16px;\n    width: 168px;\n  }\n\n  .card-container .card:not(.highlight-card) {\n    cursor: pointer;\n  }\n\n  .card-container .card:not(.highlight-card):hover {\n    transform: translateY(-3px);\n    box-shadow: 0 4px 17px rgba(black, 0.35);\n  }\n\n  .card-container .card:not(.highlight-card):hover .material-icons path {\n    fill: rgb(105, 103, 103);\n  }\n\n  .card.highlight-card {\n    background-color: #1976d2;\n    color: white;\n    font-weight: 600;\n    border: none;\n    width: auto;\n    min-width: 30%;\n    position: relative;\n  }\n\n  .card.card.highlight-card span {\n    margin-left: 60px;\n  }\n\n  svg#rocket {\n    width: 80px;\n    position: absolute;\n    left: -10px;\n    top: -24px;\n  }\n\n  svg#rocket-smoke {\n    height: 100vh;\n    position: absolute;\n    top: 10px;\n    right: 180px;\n    z-index: -10;\n  }\n\n  a,\n  a:visited,\n  a:hover {\n    color: #1976d2;\n    text-decoration: none;\n  }\n\n  a:hover {\n    color: #125699;\n  }\n\n  .terminal {\n    position: relative;\n    width: 80%;\n    max-width: 600px;\n    border-radius: 6px;\n    padding-top: 45px;\n    margin-top: 8px;\n    overflow: hidden;\n    background-color: rgb(15, 15, 16);\n  }\n\n  .terminal::before {\n    content: \"\\2022 \\2022 \\2022\";\n    position: absolute;\n    top: 0;\n    left: 0;\n    height: 4px;\n    background: rgb(58, 58, 58);\n    color: #c2c3c4;\n    width: 100%;\n    font-size: 2rem;\n    line-height: 0;\n    padding: 14px 0;\n    text-indent: 4px;\n  }\n\n  .terminal pre {\n    font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace;\n    color: white;\n    padding: 0 1rem 1rem;\n    margin: 0;\n  }\n\n  .circle-link {\n    height: 40px;\n    width: 40px;\n    border-radius: 40px;\n    margin: 8px;\n    background-color: white;\n    border: 1px solid #eeeeee;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    cursor: pointer;\n    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);\n    transition: 1s ease-out;\n  }\n\n  .circle-link:hover {\n    transform: translateY(-0.25rem);\n    box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);\n  }\n\n  footer {\n    margin-top: 8px;\n    display: flex;\n    align-items: center;\n    line-height: 20px;\n  }\n\n  footer a {\n    display: flex;\n    align-items: center;\n  }\n\n  .github-star-badge {\n    color: #24292e;\n    display: flex;\n    align-items: center;\n    font-size: 12px;\n    padding: 3px 10px;\n    border: 1px solid rgba(27, 31, 35, .2);\n    border-radius: 3px;\n    background-image: linear-gradient(-180deg, #fafbfc, #eff3f6 90%);\n    margin-left: 4px;\n    font-weight: 600;\n    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;\n  }\n\n  .github-star-badge:hover {\n    background-image: linear-gradient(-180deg, #f0f3f6, #e6ebf1 90%);\n    border-color: rgba(27, 31, 35, .35);\n    background-position: -.5em;\n  }\n\n  .github-star-badge .material-icons {\n    height: 16px;\n    width: 16px;\n    margin-right: 4px;\n  }\n\n  svg#clouds {\n    position: fixed;\n    bottom: -160px;\n    left: -230px;\n    z-index: -10;\n    width: 1920px;\n  }\n\n\n  /* Responsive Styles */\n  @media screen and (max-width: 767px) {\n\n    .card-container>*:not(.circle-link),\n    .terminal {\n      width: 100%;\n    }\n\n    .card:not(.highlight-card) {\n      height: 16px;\n      margin: 8px 0;\n    }\n\n    .card.highlight-card span {\n      margin-left: 72px;\n    }\n\n    svg#rocket-smoke {\n      right: 120px;\n      transform: rotate(-5deg);\n    }\n  }\n\n  @media screen and (max-width: 575px) {\n    svg#rocket-smoke {\n      display: none;\n      visibility: hidden;\n    }\n  }\n</style>\n\n<!-- Toolbar -->\n<div class=\"toolbar .container-fluid row justify-content-center\"  role=\"banner\">\n  <div class=\"col-sm-2 col-1 text-center\">\n    <img style=\"cursor: pointer;\" height=\"30px\" width=\"30px\" (click)=\"entrarHome()\" src=\"assets/Logo10.png\">\n  </div>\n  <div class=\"col-sm-10 col-11\">\n    <div class=\"row\">\n      <div class=\"row col-12 justify-content-center\">\n        <div class=\"col-6\">\n          <h3 class=\"text-left\" style=\"font-style: oblique;\" id=\"titulo\">EmotionAppAj</h3>\n        </div>\n        <div *ngIf=\"!dentro\" class=\"col-3 text-right\">\n          <button type=\"button\" (click)=\"entrarProfesor()\" class=\"btn btn-primary\">Profesor</button>\n        </div>\n        <div *ngIf=\"!dentro\" class=\"col-3 text-right\">\n          <button type=\"button\" (click)=\"entrarEstudiante()\" class=\"btn btn-success\">Estudiante</button>\n        </div>\n        <div *ngIf=\"dentro\" class=\"col-auto\">\n          {{personaIniciada.nombre}} {{personaIniciada.apellidos}}\n        </div>\n        <div *ngIf=\"dentro\" class=\"col-md-3 col-auto text-right\">\n          <button type=\"button\" (click)=\"salir()\" class=\"btn btn-danger\">Salir <i class=\"fa fa-sign-out\"></i></button>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n<!--Seccion del profesor-->\n<app-profesor id=\"profesor\" *ngIf=\"profesor\"></app-profesor>\n<!--Seccion del estudiante-->\n<app-estudiante id=\"estudiante\" *ngIf=\"estudiante\" (estudianteIniciado)=\"iniciarSesion($event)\"></app-estudiante>\n<div *ngIf=\"(!dentro && !visualizacion) || visualizacion\" >\n  <br>\n  <br>\n</div>\n<div *ngIf=\"!dentro && !visualizacion\" class=\"row justify-content-center\">\n  <div class=\"col-8 text-center\">\n    <h4>Le damos la bienvenida a la aplicacion web</h4>\n  </div>\n</div>\n<div *ngIf=\"(!dentro && !visualizacion) || visualizacion\">\n  <br>\n  <br>\n</div>\n<div *ngIf=\"!dentro && !visualizacion\" class=\"row justify-content-center\">\n  <div class=\"col-auto col-sm-6 text-center\">\n    <br>\n    <br>\n    <img height=\"380px\" width=\"380px\" src=\"assets/Logo10.png\">\n  </div>\n  <div class=\"col-auto col-md-auto text-right\">\n    <br>\n    <div class=\"text-center\">\n      <button type=\"button\" (click)=\"entrarProfesor()\" class=\"btn btn-primary btn-circle\">Profesor</button>\n    </div>\n    <br>\n    <div class=\"text-center\">\n      <button type=\"button\" (click)=\"entrarEstudiante()\" class=\"btn btn-success btn-circle\">Estudiante</button>\n    </div>\n  </div>\n</div>\n<div *ngIf=\"visualizacion\" class=\"row justify-content-center\">\n  <div *ngIf=\"acercaDe\" class=\"col-6\">\n    <h4>Acerca de </h4>\n    <ul>\n      <li>\n        <p>\n          Autor: Alejandro José Martínez Sánchez</p>\n      </li>\n      <li>\n        <p>\n          Encargado de desarrollar la aplicación EmotionAppAJ como correspondencia al Trabajo de Fin de Grado de Ingeniería\n          Informatica, en la intensificación de Tencologias de la Información.</p>\n      </li>\n      <li>\n        <p>\n          Herramienta para facilitar la tarea didactica a los docentes, con posibilidad de elaborar graficos y estadisticas\n          sobre la evolucion de sus alumnos en las activiades realizadas.\n        </p>\n      </li>\n      <li>\n        <p>\n          Fecha: Junio 2020\n        </p>\n      </li>\n    </ul>\n    <div class=\"text-center\">\n      <button type=\"button\" (click)=\"cerrarAcercaDe()\" class=\"btn btn-outline-danger\">Cerrar</button>\n    </div>\n    \n  </div>\n  <div *ngIf=\"privacidad\" class=\"col-6\">\n    <div class=\"text-center\">\n      <h4>Privacidad </h4>\n      <p>\n        El uso de esta aplicación utiliza información de caracter personal, a la hora de hacer un escaneo de la cara,\n        para la realización de la computación afectiva, pero no realiza ningun tipo de almanenamiento de dichas imagenes\n        solo de los datos obtenidos.\n      </p>\n      <div>\n        <button type=\"button\" (click)=\"cerrarPrivacidad()\" class=\"btn btn-outline-danger\">Cerrar</button>\n      </div>\n    </div>\n  </div>\n</div>\n<div *ngIf=\"(!dentro && !visualizacion) || visualizacion\">\n  <br>\n  <br>\n</div>\n<div *ngIf=\"(!dentro && !visualizacion) || visualizacion\">\n  <br>\n  <br>\n</div>\n<div class=\"footer container-fluid\" style=\"background-color:rgba(30, 30, 30,0.9); z-index: 2;\">\n  <br>\n  <div class=\"row justify-content-center\">\n    <div class=\"col-6 text-center\">\n      <h4 style=\"font-style: oblique;\">EmotionAppAj </h4>\n      <img style=\"cursor: pointer;\" height=\"30px\" width=\"30px\" src=\"assets/Logo10.png\">\n    </div>\n  </div>\n  <div class=\"row\">\n    <div class=\"col-6 text-center\">\n      <div class=\"row\">\n        <div class=\"col-12\">\n          <a style=\"cursor: pointer; color: white;\" (click)=\"ponerAcercaDe()\">\n            <h6>Acerda de</h6>\n          </a>\n        </div>\n      </div>\n      <div class=\"row\">\n        <div class=\"col-12\">\n          <a style=\"cursor: pointer; color: white;\" (click)=\"ponerPrivacidad()\">\n            <h6>Privacidad</h6>\n          </a>\n        </div>\n      </div>\n      <!--<div class=\"row\">\n        <div class=\"col-12\">\n          <a style=\"cursor: pointer; color: white;\"><h6 href=\"\">RGPD</h6></a>\n        </div>\n      </div>-->\n\n    </div>\n    <div class=\"col-6 text-center\">\n      <div class=\"row\">\n        <div class=\"col-12\">\n          <h6>Redes Sociales</h6>\n        </div>\n      </div>\n      <div class=\" row justify-content-center\">\n        <div class=\"col-1\">\n          <a class=\"icono_rrss\" href=\"https://www.instagram.com/?hl=es\" target=\"_blank\"><i class=\"fa fa-instagram fa-2x\"\n              width=\"15\" height=\"15\"></i></a>\n        </div>\n        <br>\n        <div class=\"col-1\">\n          <a class=\"icono_rrss\" href=\"https://www.facebook.com/alejandrojose.martinez.12\" target=\"_blank\"><i\n              class=\"fa fa-facebook fa-2x\" width=\"15\" height=\"15\"></i></a>\n        </div>\n        <br>\n        <div class=\"col-1\">\n          <a class=\"icono_rrss\" href=\"https://github.com/msalejandrojose/emotionapp\" target=\"_blank\"><i\n              class=\"fa fa-github fa-2x\" width=\"15\" height=\"15\"></i></a>\n        </div>\n        <div class=\"col-1\">\n          <a class=\"icono_rrss\" href=\"https://www.linkedin.com/in/alejandro-jos%C3%A9-256a211a9/\" target=\"_blank\"><i\n              class=\"fa fa-linkedin fa-2x\"></i></a>\n        </div>\n        <div class=\"col-1\">\n          <a class=\"icono_rrss\" href=\"mailto:msalejandrojose7@gmail.com\" target=\"_blank\"><i\n              class=\"fa fa-envelope fa-2x\"></i></a>\n        </div>\n      </div>\n    </div>\n  </div>\n  <br>\n  <div class=\"row\">\n    <div class=\"col-12 text-center\">\n      <p><i>\n          Esta aplicación web esta desarrollada como Proyecto de Fin de Grado para la universidad de Castilla-La Mancha\n          UCLM, Edificio Politecnico Albacete, a fecha de Junio 2020.\n        </i></p>\n    </div>\n  </div>\n  <br>\n</div>\n\n<!--Rutas-->\n<router-outlet></router-outlet>");
 
 /***/ }),
 
@@ -435,7 +435,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"row\">\n    <div class=\"col-12\">\n        <h3 class=\"text-center\">{{actividad.nombre}}</h3>\n    </div>\n</div>\n<div class=\"row justify-content-md-center\">\n    <div class=\"col-12\">\n        <h5 class=\"text-center\" *ngIf=\"actividad.estado=='Creada'\">Actividad sin empezar</h5>\n        <h5 class=\"text-center\" *ngIf=\"actividad.estado=='Comenzada'\">Actividad empezada</h5>\n        <h5 class=\"text-center\" *ngIf=\"actividad.estado=='Finalizada'\">Actividad finalizada</h5>\n    </div>\n</div>\n<div class=\"row justify-content-md-center text-center\">\n    <div class=\"col-3 text-left\">\n        <button *ngIf=\" !botonCreadaCargando && !botonFinalizadaCargando && !botonReanudarCargando\" type=\"button\"\n            class=\"btn btn-outline-danger\" (click)=\"cerrarActividad()\"><i class=\"fa fa-times-circle\"></i> Cerrar\n            Actividad</button>\n        <button *ngIf=\"botonCreadaCargando || botonFinalizadaCargando || botonReanudarCargando\" type=\"button\"\n            class=\"btn btn-outline-danger\" (click)=\"cerrarActividad()\" disabled><i class=\"fa fa-times-circle\"></i>\n            Cerrar Actividad</button>\n    </div>\n    <div class=\"row col-6 justify-content-center text-center\" *ngIf=\"!actividadAbierta\">\n        <div class=\"col-2 text-center\">\n            <div class=\"row justify-content-center\">\n                <button type=\"button\" class=\"btn btn-success btn-circle2\" disabled>\n                    <i class=\"fa fa-check\" aria-hidden=\"true\"></i>\n                </button>\n            </div>\n            <div class=\"row justify-content-center\">\n                Creada\n            </div>\n        </div>\n        <div class=\"col-3\">\n            <hr style=\"margin-top: 30%;\">\n        </div>\n        <div class=\"col-2 text-center\">\n            <div class=\"row justify-content-center\">\n                <button *ngIf=\"actividad.estado=='Comenzada' || actividad.estado=='Finalizada'\" type=\"button\"\n                    class=\"btn btn-success btn-circle2\" disabled>\n                    <i class=\"fa fa-check\" aria-hidden=\"true\"></i>\n                </button>\n                <button *ngIf=\"actividad.estado=='Creada'\" type=\"button\" class=\"btn btn-outline-secondary btn-circle2\"\n                    disabled>\n\n                </button>\n            </div>\n            <div class=\"row justify-content-center\">\n                Comenzada\n            </div>\n        </div>\n        <div class=\"col-3\">\n            <hr style=\"margin-top: 30%;\">\n        </div>\n        <div class=\"col-2 text-center\">\n            <div class=\"row justify-content-center\">\n                <button *ngIf=\"actividad.estado=='Finalizada'\" type=\"button\" class=\"btn btn-success btn-circle2\"\n                    disabled>\n                    <i class=\"fa fa-check\" aria-hidden=\"true\"></i>\n                </button>\n                <button *ngIf=\"actividad.estado=='Creada' || actividad.estado=='Comenzada'\" type=\"button\"\n                    class=\"btn btn-outline-secondary btn-circle2\" disabled>\n\n                </button>\n            </div>\n            <div class=\"row justify-content-center\">\n                Finalizada\n            </div>\n        </div>\n    </div>\n    <div class=\"col-3 text-right\">\n        <button\n            *ngIf=\"actividad.estado=='Creada' && !botonCreadaCargando && !botonFinalizadaCargando && !botonReanudarCargando\"\n            type=\"button\" class=\"btn btn-outline-success disenable\" (click)=\"comenzar()\"><i\n                class=\"fa fa-play-circle\"></i> Comenzar</button>\n        <button *ngIf=\"botonCreadaCargando\" class=\"btn btn-outline-success\" type=\"button\" disabled>\n            <span class=\"spinner-border spinner-border-sm\" role=\"status\" aria-hidden=\"true\"></span>\n            Comenzando...\n        </button>\n        <button\n            *ngIf=\"actividad.estado=='Comenzada' && !botonCreadaCargando && !botonFinalizadaCargando && !botonReanudarCargando\"\n            type=\"button\" class=\"btn btn-outline-dark disenable\" (click)=\"terminar()\"><i class=\"fa fa-stop-circle\"></i>\n            Terminar</button>\n        <button *ngIf=\"botonFinalizadaCargando\" class=\"btn btn-outline-dark\" type=\"button\" disabled>\n            <span class=\"spinner-border spinner-border-sm\" role=\"status\" aria-hidden=\"true\"></span>\n            Terminando...\n        </button>\n        <button\n            *ngIf=\"actividad.estado=='Finalizada' && !botonCreadaCargando && !botonFinalizadaCargando && !botonReanudarCargando\"\n            type=\"button\" class=\"btn btn-outline-success disenable\" (click)=\"comenzar()\"><i class=\"fa fa-undo\"></i>\n            Reanudar Actividad</button>\n        <button *ngIf=\"actividad.estado=='Finalizada' && botonReanudarCargando\" class=\"btn btn-outline-dark\"\n            type=\"button\" disabled>\n            <span class=\"spinner-border spinner-border-sm\" role=\"status\" aria-hidden=\"true\"></span>\n            Reanunando..\n        </button>\n    </div>\n\n</div>\n<br>\n<div class=\"row justify-content-center text-center\">\n    <div *ngIf=\"vistaGeneral\" class=\"btn-group btn-group-toggle\">\n        <label class=\"btn btn-outline-primary active\">\n            <input type=\"radio\" name=\"options\" id=\"general\" (click)=\"cambiarAGeneral()\" checked> General\n        </label>\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAMapa()\"> Mapa de la clase\n        </label>\n        <label *ngIf=\"actividad.estado=='Comenzada'\" class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAConectados()\"> Conectados\n        </label>\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAEvolucion()\"> Evolucion\n        </label>\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAMedia()\"> Media\n        </label>\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAAlumnos()\"> Alumnos\n        </label>\n    </div>\n    <div *ngIf=\"vistaMapaDeLaClase\" class=\"btn-group btn-group-toggle\">\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"general\" (click)=\"cambiarAGeneral()\"> General\n        </label>\n        <label class=\"btn btn-outline-primary active\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAMapa()\" checked> Mapa de la clase\n        </label>\n        <label *ngIf=\"actividad.estado=='Comenzada'\" class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAConectados()\"> Conectados\n        </label>\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAEvolucion()\"> Evolucion\n        </label>\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAMedia()\"> Media\n        </label>\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAAlumnos()\"> Alumnos\n        </label>\n    </div>\n    <div *ngIf=\"evolucion\" class=\"btn-group btn-group-toggle\">\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"general\" (click)=\"cambiarAGeneral()\"> General\n        </label>\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAMapa()\"> Mapa de la clase\n        </label>\n        <label *ngIf=\"actividad.estado=='Comenzada'\" class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAConectados()\"> Conectados\n        </label>\n        <label class=\"btn btn-outline-primary active\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAEvolucion()\" checked> Evolucion\n        </label>\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAMedia()\"> Media\n        </label>\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAAlumnos()\"> Alumnos\n        </label>\n    </div>\n    <div *ngIf=\"conectados\" class=\"btn-group btn-group-toggle\">\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"general\" (click)=\"cambiarAGeneral()\"> General\n        </label>\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAMapa()\"> Mapa de la clase\n        </label>\n        <label *ngIf=\"actividad.estado=='Comenzada'\" class=\"btn btn-outline-primary active\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAConectados()\" checked> Conectados\n        </label>\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAEvolucion()\"> Evolucion\n        </label>\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAMedia()\"> Media\n        </label>\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAAlumnos()\"> Alumnos\n        </label>\n    </div>\n    <div *ngIf=\"media\" class=\"btn-group btn-group-toggle\">\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"general\" (click)=\"cambiarAGeneral()\"> General\n        </label>\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAMapa()\"> Mapa de la clase\n        </label>\n        <label *ngIf=\"actividad.estado=='Comenzada'\" class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAConectados()\"> Conectados\n        </label>\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAEvolucion()\"> Evolucion\n        </label>\n        <label class=\"btn btn-outline-primary active\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAMedia()\" checked> Media\n        </label>\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAAlumnos()\"> Alumnos\n        </label>\n    </div>\n    <div *ngIf=\"tablaAlumnos\" class=\"btn-group btn-group-toggle\">\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"general\" (click)=\"cambiarAGeneral()\"> General\n        </label>\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAMapa()\"> Mapa de la clase\n        </label>\n        <label *ngIf=\"actividad.estado=='Comenzada'\" class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAConectados()\"> Conectados\n        </label>\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAEvolucion()\"> Evolucion\n        </label>\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAMedia()\"> Media\n        </label>\n        <label class=\"btn btn-outline-primary active\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAAlumnos()\" checked> Alumnos\n        </label>\n    </div>\n</div>\n<br>\n<div id=\"vistaGeneral\">\n    <div class=\"row justify-content-center\">\n        <div id=\"conectadosPequeños\" class=\"col-md-auto col-sm-auto\">\n            <h5 class=\"text-center card-title\">Usuarios Conectados</h5>\n            <canvas id=\"usersConectados\"></canvas>\n            <h6 class=\"text-center\">{{porUsuariosConectados}}% Usuarios conectados</h6>\n            <!--<h6 >{{((usuariosConectados.length()/usuariosTotales)*100)}}%</h6>-->\n        </div>\n        <div class=\"col-9\">\n            <div>\n                <div class=\"row\">\n                    <h5 class=\"col-12 text-center card-title\">Grafica</h5>\n                </div>\n                <div class=\"row text-center justify-content-center\">\n                    <div class=\"col-4\">\n                        <div class=\"btn-group\">\n                            <button type=\"button\" class=\"btn btn-info dropdown-toggle\" data-toggle=\"dropdown\"\n                                aria-haspopup=\"true\" aria-expanded=\"false\">\n                                Estado\n                            </button>\n                            <div class=\"dropdown-menu\">\n                                <div class=\"dropdown-item\" *ngFor=\"let estado of estados\">\n                                    <input type=\"checkbox\" class=\"form-check-input\" [(ngModel)]=\"estado.checked\">\n                                    <a>{{estado.nombre}}</a>\n                                </div>\n                                <!--<a class=\"dropdown-item\" *ngFor=\"let estado of estados\"\n                                        (click)=\"seleccionarEstado(estado)\">{{estado.nombre}}\n                                    </a>-->\n                            </div>\n                        </div>\n                    </div>\n                    <div class=\"col-4\">\n                        <div class=\"btn-group\">\n                            <button type=\"button\" class=\"btn btn-info dropdown-toggle\" data-toggle=\"dropdown\"\n                                aria-haspopup=\"true\" aria-expanded=\"false\">\n                                Alumnos\n                            </button>\n                            <div class=\"dropdown-menu\">\n                                <a *ngIf=\"alumnoSeleccionadoAlumno\" class=\"dropdown-item\">Media de la clase</a>\n                                <div class=\"dropdown-item\" *ngFor=\"let alumno of alumnosSelect\">\n                                    <input type=\"checkbox\" class=\"form-check-input\" [(ngModel)]=\"alumno.checked\">\n                                    <a>{{alumno.nombre}}</a>\n                                </div>\n                                <!--<a class=\"dropdown-item\" *ngFor=\"let alumno of alumnos\"\n                                        (click)=\"seleccionarAlumno(alumno)\">{{alumno.estudiante.nombre}}</a>-->\n                            </div>\n                        </div>\n                    </div>\n                    <div class=\"col-4\">\n                        <button type=\"button\" class=\"btn btn-outline-success\"\n                            (click)=\"actualizarGraficaLineal()\"><i class=\"fa fa-refresh\"></i> Actualizar</button>\n                    </div>\n                </div>\n            </div>\n            <div>\n                <canvas id=\"graficaLineal\"></canvas>\n            </div>\n        </div>\n    </div>\n    <br>\n    <div class=\"row justify-content-center\">\n        <div class=\"col-sm-auto col-md-7\">\n            <div class=\"text-center\">\n                <h5>Alumnos</h5>\n            </div>\n            <div class=\"example-header\">\n                <mat-form-field>\n                    <input matInput (keyup)=\"applyFilterA($event.target.value)\" placeholder=\"Filtrar\">\n                </mat-form-field>\n            </div>\n            <div class=\"example-container\">\n                <mat-table [dataSource]=\"dataSourceAlumnos\" class=\"mat-elevation-z1\" matSort>\n                    <ng-container matColumnDef=\"nombre\">\n                        <mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </mat-header-cell>\n                        <mat-cell *matCellDef=\"let element\"> {{element.nombre}} </mat-cell>\n                    </ng-container>\n                    <ng-container matColumnDef=\"estado\">\n                        <mat-header-cell *matHeaderCellDef mat-sort-header> Estado </mat-header-cell>\n                        <mat-cell *matCellDef=\"let row\"> {{row.estado}} </mat-cell>\n                    </ng-container>\n                    <ng-container matColumnDef=\"pulsaciones\">\n                        <mat-header-cell *matHeaderCellDef mat-sort-header> Pulsaciones </mat-header-cell>\n                        <mat-cell *matCellDef=\"let row\"> {{row.pulsaciones}} ppm </mat-cell>\n                    </ng-container>\n                    <ng-container matColumnDef=\"webcam\">\n                        <mat-header-cell *matHeaderCellDef><button class=\"btn btn-sm btn-primary\" (click)=\"activarTodasWebCam()\"><i class=\"fa fa-video-camera\"></i> Todos</button></mat-header-cell>\n                        <mat-cell *matCellDef=\"let row\"><button class=\"btn btn-sm btn-outline-primary\" (click)=\"activarWebCam(row)\"><i class=\"fa fa-video-camera\"></i> Activar</button></mat-cell>\n                    </ng-container>\n                    <ng-container matColumnDef=\"pulsera\">\n                        <mat-header-cell *matHeaderCellDef><button class=\"btn btn-sm btn-primary\" (click)=\"activarTodasPulseras()\"><i class=\"fa fa-heartbeat\"></i> Todos</button></mat-header-cell>\n                        <mat-cell *matCellDef=\"let row\"><button class=\"btn btn-sm btn-outline-primary\" (click)=\"activarPulsera(row)\"><i class=\"fa fa-heartbeat\"></i> Activar</button></mat-cell>\n                        <mat-cell *matCellDef=\"let row\"> {{row.pulsaciones}} ppm </mat-cell>\n                    </ng-container>\n                    <ng-container matColumnDef=\"led\">\n                        <mat-header-cell *matHeaderCellDef><button class=\"btn btn-sm btn-primary\" (click)=\"activarTodosLeds()\"><i class=\"fa fa-lightbulb-o\"></i> Todos</button></mat-header-cell>\n                        <mat-cell *matCellDef=\"let row\"><button class=\"btn btn-sm btn-outline-primary\" (click)=\"activarLed(row)\"><i class=\"fa fa-lightbulb-o\"></i> Activar</button></mat-cell>\n                    </ng-container>\n                    <mat-header-row *matHeaderRowDef=\"displayedColumnsAlumnos\"></mat-header-row>\n                    <mat-row *matRowDef=\"let row; columns: displayedColumnsAlumnos;\">\n                    </mat-row>\n                </mat-table>\n                <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\n            </div>\n        </div>\n        <div class=\"col-auto text-center\">\n            <div class=\"row\">\n                <div class=\"col-12 text-center\">\n                    <h5>Estado de la clase</h5>\n                </div>\n            </div>\n            <div class=\"row justify-content-center\">\n                <div class=\"col-5\">\n                    <div class=\"btn-group\">\n                        <button type=\"button\" class=\"btn btn-info dropdown-toggle\" data-toggle=\"dropdown\"\n                            aria-haspopup=\"true\" aria-expanded=\"false\">\n                            Estado\n                        </button>\n                        <div class=\"dropdown-menu\">\n                            <div class=\"dropdown-item\" *ngFor=\"let estado of estadosGlobales\">\n                                <input type=\"checkbox\" class=\"form-check-input\" [(ngModel)]=\"estado.checked\">\n                                <a>{{estado.nombre}}</a>\n                            </div>\n                            <!--<a class=\"dropdown-item\" *ngFor=\"let estado of estados\"\n                                    (click)=\"seleccionarEstado(estado)\">{{estado.nombre}}\n                                </a>-->\n                        </div>\n                    </div>\n                </div>\n                <div class=\"col-5\">\n                    <button type=\"button\" class=\"btn btn-outline-success\"\n                        (click)=\"actualizarGraficaGlobal()\"> <i class=\"fa fa-refresh\"></i> Actualizar</button>\n                </div>\n            </div>\n            <br>\n            <div>\n                <canvas id=\"estadoGlobal\"></canvas>\n            </div>\n        </div>\n    </div>\n</div>\n<div id=\"vistaMapaDeLaClase\" style=\"display: none;\" class=\"row col-12 justify-content-center\">\n    <div class=\"card col-12\">\n        <div class=\"card-body\">\n            <div class=\"row justify-content-center\">\n                <div class=\"col-6 text-center\">\n                    <h5 class=\"card-title\">Distribucion de la clase</h5>\n                </div>\n            </div>\n            <div class=\"row justify-content-center\">\n                <div class=\"col-3 text-center\">\n                    <div class=\"btn-group\">\n                        <button type=\"button\" class=\"btn btn-info dropdown-toggle\" data-toggle=\"dropdown\"\n                            aria-haspopup=\"true\" aria-expanded=\"false\">\n                            {{visualizacionSelected}}\n                        </button>\n                        <div class=\"dropdown-menu\">\n                            <a *ngIf=\"alumnoSeleccionadoAlumno\" class=\"dropdown-item\">Media de la clase</a>\n                            <div class=\"dropdown-item\" *ngFor=\"let visualizacion of visualizaciones\"\n                                (click)=\"seleccionVisualizacion(visualizacion)\">\n                                <a>{{visualizacion.nombre}}</a>\n                            </div>\n                            <!--<a class=\"dropdown-item\" *ngFor=\"let alumno of alumnos\"\n                                    (click)=\"seleccionarAlumno(alumno)\">{{alumno.estudiante.nombre}}</a>-->\n                        </div>\n                    </div>\n                </div>\n                <div class=\"col-3 text-center\">\n                    <div class=\"btn-group\">\n                        <button type=\"button\" class=\"btn btn-info dropdown-toggle\" data-toggle=\"dropdown\"\n                            aria-haspopup=\"true\" aria-expanded=\"false\">\n                            {{estadoConjuntoSeleccionado}}\n                        </button>\n                        <div class=\"dropdown-menu\">\n                            <div class=\"dropdown-item\" (click)=\"seleccionarEstadoConjunto(estado)\"\n                                *ngFor=\"let estado of estadosConjunto\">\n                                <a>{{estado.nombre}}</a>\n                            </div>\n                        </div>\n                    </div>\n                </div>\n            </div>\n            <br>\n            <div class=\"row justify-content-center\">\n                <div class=\"col-auto\">\n                    <div id=\"clase\" class=\"example-boundary\">\n                        <div id=\"{{item.id_item}}\" *ngFor=\"let item of actividad.alumnos\" class=\"example-box\"\n                            ondrop=\"myFunction(item)\" [cdkDragFreeDragPosition]=\"item.posicion\"\n                            cdkDragBoundary=\".example-boundary\" cdkDrag (cdkDragEnded)=\"dragEnded($event,item)\">\n                            {{item.estudiante.nombre}}\n                        </div>\n                    </div>\n                </div>\n                <div class=\"col-sm-6 col-12\">\n                    <div *ngIf=\"datoAlegria\">\n                        <div class=\"text-left\">\n                            <h6>Alegria</h6>\n                        </div>\n                        <div class=\"row\">\n                            <div class=\"progress col-10\">\n                                <div id=\"progress-alegria\" class=\"progress-bar\" role=\"progressbar\"\n                                    style=\"background-color: rgba(255,255,84,1)\" aria-valuenow=\"25\" aria-valuemin=\"0\"\n                                    aria-valuemax=\"100\"></div>\n                            </div>\n                            <div class=\"col-2\">\n                                {{datosResumenSeleccionados.alegria}}%\n                            </div>\n                        </div>\n                    </div>\n                    <div *ngIf=\"datoAsco\">\n                        <div class=\"text-left\">\n                            <h6>Asco</h6>\n                        </div>\n                        <div class=\"row\">\n                            <div class=\"progress col-10\">\n                                <div id=\"progress-asco\" class=\"progress-bar\" role=\"progressbar\"\n                                    style=\"background-color: rgba(0,0,0,0.5)\" aria-valuenow=\"25\" aria-valuemin=\"0\"\n                                    aria-valuemax=\"100\"></div>\n                            </div>\n                            <div class=\"col-2\">\n                                {{datosResumenSeleccionados.asco}}%\n                            </div>\n                        </div>\n                    </div>\n                    <div *ngIf=\"datoMiedo\">\n                        <div class=\"text-left\">\n                            <h6>Miedo</h6>\n                        </div>\n                        <div class=\"row\">\n                            <div class=\"progress col-10\">\n                                <div id=\"progress-miedo\" class=\"progress-bar\" role=\"progressbar\"\n                                    style=\"background-color: rgba(0,150,0,1)\" aria-valuenow=\"25\" aria-valuemin=\"0\"\n                                    aria-valuemax=\"100\"></div>\n                            </div>\n                            <div class=\"col-2\">\n                                {{datosResumenSeleccionados.miedo}}%\n                            </div>\n                        </div>\n                    </div>\n                    <div *ngIf=\"datoSorpresa\">\n                        <div class=\"text-left\">\n                            <h6>Sorpresa</h6>\n                        </div>\n                        <div class=\"row\">\n                            <div class=\"progress col-10\">\n                                <div id=\"progress-sorpresa\" class=\"progress-bar\" role=\"progressbar\"\n                                    style=\"background-color: rgba(89,189,255,1)\" aria-valuenow=\"25\" aria-valuemin=\"0\"\n                                    aria-valuemax=\"100\"></div>\n                            </div>\n                            <div class=\"col-2\">\n                                {{datosResumenSeleccionados.sorpresa}}%\n                            </div>\n                        </div>\n                    </div>\n                    <div *ngIf=\"datoTristeza\">\n                        <div class=\"text-left\">\n                            <h6>Tristeza</h6>\n                        </div>\n                        <div class=\"row\">\n                            <div class=\"progress col-10\">\n                                <div id=\"progress-tristeza\" class=\"progress-bar\" role=\"progressbar\"\n                                    style=\"background-color: rgba(81,81,255,1)\" aria-valuenow=\"25\" aria-valuemin=\"0\"\n                                    aria-valuemax=\"100\"></div>\n                            </div>\n                            <div class=\"col-2\">\n                                {{datosResumenSeleccionados.tristeza}}%\n                            </div>\n                        </div>\n                    </div>\n                    <div *ngIf=\"datoIra\">\n                        <div class=\"text-left\">\n                            <h6>Ira</h6>\n                        </div>\n                        <div class=\"row\">\n                            <div class=\"progress col-10\">\n                                <div id=\"progress-ira\" class=\"progress-bar\" role=\"progressbar\"\n                                    style=\"background-color: rgba(255,0,0,1)\" aria-valuenow=\"25\" aria-valuemin=\"0\"\n                                    aria-valuemax=\"100\"></div>\n                            </div>\n                            <div class=\"col-2\">\n                                {{datosResumenSeleccionados.ira}}%\n                            </div>\n                        </div>\n                    </div>\n                    <div *ngIf=\"datoconcentrado\">\n                        <div class=\"text-left\">\n                            <h6>Concentrado</h6>\n                        </div>\n                        <div class=\"row\">\n                            <div class=\"progress col-10\">\n                                <div id=\"progress-concentrado\" class=\"progress-bar\" role=\"progressbar\"\n                                    style=\"background-color: rgba(84,255,84,1)\" aria-valuenow=\"25\" aria-valuemin=\"0\"\n                                    aria-valuemax=\"100\"></div>\n                            </div>\n                            <div class=\"col-2\">\n                                {{datosResumenSeleccionados.concentrado}}%\n                            </div>\n                        </div>\n                    </div>\n                    <div *ngIf=\"datodistraido\">\n                        <div class=\"text-left\">\n                            <h6>Distraido</h6>\n                        </div>\n                        <div class=\"row\">\n                            <div class=\"progress col-10\">\n                                <div id=\"progress-distraido\" class=\"progress-bar\" role=\"progressbar\"\n                                    style=\"background-color: rgba(70,70,70,1)\" aria-valuenow=\"25\" aria-valuemin=\"0\"\n                                    aria-valuemax=\"100\"></div>\n                            </div>\n                            <div class=\"col-2\">\n                                {{datosResumenSeleccionados.distraido}}%\n                            </div>\n                        </div>\n                    </div>                 \n                    <div *ngIf=\"datomotivado\">\n                        <div class=\"text-left\">\n                            <h6>Motivado</h6>\n                        </div>\n                        <div class=\"row\">\n                            <div class=\"progress col-10\">\n                                <div id=\"progress-motivado\" class=\"progress-bar\" role=\"progressbar\"\n                                    style=\"background-color: rgba(84,25,80,1)\" aria-valuenow=\"25\" aria-valuemin=\"0\"\n                                    aria-valuemax=\"100\"></div>\n                            </div>\n                            <div class=\"col-2\">\n                                {{datosResumenSeleccionados.motivado}}%\n                            </div>\n                        </div>\n                    </div>\n                    <div *ngIf=\"datofrustrado\">\n                        <div class=\"text-left\">\n                            <h6>Frustrado</h6>\n                        </div>\n                        <div class=\"row\">\n                            <div class=\"progress col-10\">\n                                <div id=\"progress-frustrado\" class=\"progress-bar\" role=\"progressbar\"\n                                    style=\"background-color: rgba(123,123,123,1)\" aria-valuenow=\"25\" aria-valuemin=\"0\"\n                                    aria-valuemax=\"100\"></div>\n                            </div>\n                            <div class=\"col-2\">\n                                {{datosResumenSeleccionados.frustrado}}%\n                            </div>\n                        </div>\n                    </div>\n                    \n                </div>\n            </div>\n        </div>\n    </div>\n</div>\n<div id=\"GraficoEvolucion\">\n    <div class=\"row\">\n        <h5 class=\"col-12 text-center card-title\">Grafica</h5>\n    </div>\n    <div class=\"row text-center justify-content-center\">\n        <div class=\"col-4\">\n            <div class=\"btn-group\">\n                <button type=\"button\" class=\"btn btn-info dropdown-toggle\" data-toggle=\"dropdown\" aria-haspopup=\"true\"\n                    aria-expanded=\"false\">\n                    Estado\n                </button>\n                <div class=\"dropdown-menu\">\n                    <div class=\"dropdown-item\" *ngFor=\"let estado of estados\">\n                        <input type=\"checkbox\" class=\"form-check-input\" [(ngModel)]=\"estado.checked\">\n                        <a>{{estado.nombre}}</a>\n                    </div>\n                </div>\n            </div>\n        </div>\n        <div class=\"col-4\">\n            <div class=\"btn-group\">\n                <button type=\"button\" class=\"btn btn-info dropdown-toggle\" data-toggle=\"dropdown\" aria-haspopup=\"true\"\n                    aria-expanded=\"false\">\n                    Alumnos\n                </button>\n                <div class=\"dropdown-menu\">\n                    <a *ngIf=\"alumnoSeleccionadoAlumno\" class=\"dropdown-item\">Media de la clase</a>\n                    <div class=\"dropdown-item\" *ngFor=\"let alumno of alumnosSelect\">\n                        <input type=\"checkbox\" class=\"form-check-input\" [(ngModel)]=\"alumno.checked\">\n                        <a>{{alumno.nombre}}</a>\n                    </div>\n                </div>\n            </div>\n        </div>\n        <div class=\"col-4\">\n            <button type=\"button\" class=\"btn btn-outline-success\"\n                (click)=\"actualizarGraficaLineal()\"><i class=\"fa fa-refresh\"></i> Actualizar</button>\n        </div>\n    </div>\n    <div class=\"row\">\n        <div class=\"col-12\">\n            <canvas id=\"graficaLinealEntera\"></canvas>\n        </div>\n    </div>\n</div>\n<div id=\"gUsuariosConectados\" class=\"row\">\n    <div class=\"col-12\">\n        <h5 class=\"text-center card-title\">Usuarios Conectados</h5>\n        <canvas id=\"usersConectadosEntera\"></canvas>\n        <h6 class=\"text-center\">{{porUsuariosConectados}}%</h6>\n    </div>\n</div>\n<div id=\"gEstadoUsuarios\">\n\n</div>\n<div id=\"tablaUsuarios\">\n\n</div>\n<br>\n<br>\n<br>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"row\">\n    <div class=\"col-12\">\n        <h3 class=\"text-center\">{{actividad.nombre}}</h3>\n    </div>\n</div>\n<div class=\"row justify-content-md-center\">\n    <div class=\"col-12\">\n        <h5 class=\"text-center\" *ngIf=\"actividad.estado=='Creada'\">Actividad sin empezar</h5>\n        <h5 class=\"text-center\" *ngIf=\"actividad.estado=='Comenzada'\">Actividad empezada</h5>\n        <h5 class=\"text-center\" *ngIf=\"actividad.estado=='Finalizada'\">Actividad finalizada</h5>\n    </div>\n</div>\n<div class=\"row justify-content-md-center text-center\">\n    <div class=\"col-3 text-left\">\n        <button *ngIf=\" !botonCreadaCargando && !botonFinalizadaCargando && !botonReanudarCargando\" type=\"button\"\n            class=\"btn btn-outline-danger\" (click)=\"cerrarActividad()\"><i class=\"fa fa-times-circle\"></i> Cerrar\n            Actividad</button>\n        <button *ngIf=\"botonCreadaCargando || botonFinalizadaCargando || botonReanudarCargando\" type=\"button\"\n            class=\"btn btn-outline-danger\" (click)=\"cerrarActividad()\" disabled><i class=\"fa fa-times-circle\"></i>\n            Cerrar Actividad</button>\n    </div>\n    <div class=\"row col-6 justify-content-center text-center\" *ngIf=\"!actividadAbierta\">\n        <div class=\"col-2 text-center\">\n            <div class=\"row justify-content-center\">\n                <button type=\"button\" class=\"btn btn-success btn-circle2\" disabled>\n                    <i class=\"fa fa-check\" aria-hidden=\"true\"></i>\n                </button>\n            </div>\n            <div class=\"row justify-content-center\">\n                Creada\n            </div>\n        </div>\n        <div class=\"col-3\">\n            <hr style=\"margin-top: 30%;\">\n        </div>\n        <div class=\"col-2 text-center\">\n            <div class=\"row justify-content-center\">\n                <button *ngIf=\"actividad.estado=='Comenzada' || actividad.estado=='Finalizada'\" type=\"button\"\n                    class=\"btn btn-success btn-circle2\" disabled>\n                    <i class=\"fa fa-check\" aria-hidden=\"true\"></i>\n                </button>\n                <button *ngIf=\"actividad.estado=='Creada'\" type=\"button\" class=\"btn btn-outline-secondary btn-circle2\"\n                    disabled>\n\n                </button>\n            </div>\n            <div class=\"row justify-content-center\">\n                Comenzada\n            </div>\n        </div>\n        <div class=\"col-3\">\n            <hr style=\"margin-top: 30%;\">\n        </div>\n        <div class=\"col-2 text-center\">\n            <div class=\"row justify-content-center\">\n                <button *ngIf=\"actividad.estado=='Finalizada'\" type=\"button\" class=\"btn btn-success btn-circle2\"\n                    disabled>\n                    <i class=\"fa fa-check\" aria-hidden=\"true\"></i>\n                </button>\n                <button *ngIf=\"actividad.estado=='Creada' || actividad.estado=='Comenzada'\" type=\"button\"\n                    class=\"btn btn-outline-secondary btn-circle2\" disabled>\n\n                </button>\n            </div>\n            <div class=\"row justify-content-center\">\n                Finalizada\n            </div>\n        </div>\n    </div>\n    <div class=\"col-3 text-right\">\n        <button\n            *ngIf=\"actividad.estado=='Creada' && !botonCreadaCargando && !botonFinalizadaCargando && !botonReanudarCargando\"\n            type=\"button\" class=\"btn btn-outline-success disenable\" (click)=\"comenzar()\"><i\n                class=\"fa fa-play-circle\"></i> Comenzar</button>\n        <button *ngIf=\"botonCreadaCargando\" class=\"btn btn-outline-success\" type=\"button\" disabled>\n            <span class=\"spinner-border spinner-border-sm\" role=\"status\" aria-hidden=\"true\"></span>\n            Comenzando...\n        </button>\n        <button\n            *ngIf=\"actividad.estado=='Comenzada' && !botonCreadaCargando && !botonFinalizadaCargando && !botonReanudarCargando\"\n            type=\"button\" class=\"btn btn-outline-dark disenable\" (click)=\"terminar()\"><i class=\"fa fa-stop-circle\"></i>\n            Terminar</button>\n        <button *ngIf=\"botonFinalizadaCargando\" class=\"btn btn-outline-dark\" type=\"button\" disabled>\n            <span class=\"spinner-border spinner-border-sm\" role=\"status\" aria-hidden=\"true\"></span>\n            Terminando...\n        </button>\n        <button\n            *ngIf=\"actividad.estado=='Finalizada' && !botonCreadaCargando && !botonFinalizadaCargando && !botonReanudarCargando\"\n            type=\"button\" class=\"btn btn-outline-success disenable\" (click)=\"comenzar()\"><i class=\"fa fa-undo\"></i>\n            Reanudar Actividad</button>\n        <button *ngIf=\"actividad.estado=='Finalizada' && botonReanudarCargando\" class=\"btn btn-outline-dark\"\n            type=\"button\" disabled>\n            <span class=\"spinner-border spinner-border-sm\" role=\"status\" aria-hidden=\"true\"></span>\n            Reanunando..\n        </button>\n    </div>\n\n</div>\n<br>\n<div class=\"row justify-content-center text-center\">\n    <div *ngIf=\"vistaGeneral\" class=\"btn-group btn-group-toggle\">\n        <label class=\"btn btn-outline-primary active\">\n            <input type=\"radio\" name=\"options\" id=\"general\" (click)=\"cambiarAGeneral()\" checked> General\n        </label>\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAMapa()\"> Mapa de la clase\n        </label>\n        <label *ngIf=\"actividad.estado=='Comenzada'\" class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAConectados()\"> Conectados\n        </label>\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAEvolucion()\"> Evolucion\n        </label>\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAMedia()\"> Media\n        </label>\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAAlumnos()\"> Alumnos\n        </label>\n    </div>\n    <div *ngIf=\"vistaMapaDeLaClase\" class=\"btn-group btn-group-toggle\">\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"general\" (click)=\"cambiarAGeneral()\"> General\n        </label>\n        <label class=\"btn btn-outline-primary active\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAMapa()\" checked> Mapa de la clase\n        </label>\n        <label *ngIf=\"actividad.estado=='Comenzada'\" class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAConectados()\"> Conectados\n        </label>\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAEvolucion()\"> Evolucion\n        </label>\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAMedia()\"> Media\n        </label>\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAAlumnos()\"> Alumnos\n        </label>\n    </div>\n    <div *ngIf=\"evolucion\" class=\"btn-group btn-group-toggle\">\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"general\" (click)=\"cambiarAGeneral()\"> General\n        </label>\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAMapa()\"> Mapa de la clase\n        </label>\n        <label *ngIf=\"actividad.estado=='Comenzada'\" class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAConectados()\"> Conectados\n        </label>\n        <label class=\"btn btn-outline-primary active\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAEvolucion()\" checked> Evolucion\n        </label>\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAMedia()\"> Media\n        </label>\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAAlumnos()\"> Alumnos\n        </label>\n    </div>\n    <div *ngIf=\"conectados\" class=\"btn-group btn-group-toggle\">\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"general\" (click)=\"cambiarAGeneral()\"> General\n        </label>\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAMapa()\"> Mapa de la clase\n        </label>\n        <label *ngIf=\"actividad.estado=='Comenzada'\" class=\"btn btn-outline-primary active\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAConectados()\" checked> Conectados\n        </label>\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAEvolucion()\"> Evolucion\n        </label>\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAMedia()\"> Media\n        </label>\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAAlumnos()\"> Alumnos\n        </label>\n    </div>\n    <div *ngIf=\"media\" class=\"btn-group btn-group-toggle\">\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"general\" (click)=\"cambiarAGeneral()\"> General\n        </label>\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAMapa()\"> Mapa de la clase\n        </label>\n        <label *ngIf=\"actividad.estado=='Comenzada'\" class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAConectados()\"> Conectados\n        </label>\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAEvolucion()\"> Evolucion\n        </label>\n        <label class=\"btn btn-outline-primary active\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAMedia()\" checked> Media\n        </label>\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAAlumnos()\"> Alumnos\n        </label>\n    </div>\n    <div *ngIf=\"tablaAlumnos\" class=\"btn-group btn-group-toggle\">\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"general\" (click)=\"cambiarAGeneral()\"> General\n        </label>\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAMapa()\"> Mapa de la clase\n        </label>\n        <label *ngIf=\"actividad.estado=='Comenzada'\" class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAConectados()\"> Conectados\n        </label>\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAEvolucion()\"> Evolucion\n        </label>\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAMedia()\"> Media\n        </label>\n        <label class=\"btn btn-outline-primary active\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAAlumnos()\" checked> Alumnos\n        </label>\n    </div>\n</div>\n<br>\n<div *ngIf=\"actividad.estado=='Comenzada'\" class=\"row justify-content-center text-center\">\n    <div class=\"col-2\">\n        <button *ngIf=\"!simulandoDatos\" (click)=\"simularDatos()\" type=\"button\" class=\"btn btn-outline-success\"> <i\n                class=\"fa fa-bar-chart\"></i> Simular datos </button>\n        <button *ngIf=\"simulandoDatos\" (click)=\"simularDatos()\" type=\"button\" class=\"btn btn-outline-danger\"> <i\n                class=\"fa fa-bar-chart\"></i> Parar simulacion </button>\n    </div>\n</div>\n<br>\n<div id=\"vistaGeneral\">\n    <div class=\"row justify-content-center\">\n        <div id=\"conectadosPequeños\" class=\"col-md-auto col-sm-auto\">\n            <h5 class=\"text-center card-title\">Usuarios Conectados</h5>\n            <canvas id=\"usersConectados\"></canvas>\n            <h6 class=\"text-center\">{{porUsuariosConectados}}% Usuarios conectados</h6>\n            <!--<h6 >{{((usuariosConectados.length()/usuariosTotales)*100)}}%</h6>-->\n        </div>\n        <div class=\"col-9\">\n            <div>\n                <div class=\"row\">\n                    <h5 class=\"col-12 text-center card-title\">Grafica</h5>\n                </div>\n                <div class=\"row text-center justify-content-center\">\n                    <div class=\"col-4\">\n                        <div class=\"btn-group\">\n                            <button type=\"button\" class=\"btn btn-info dropdown-toggle\" data-toggle=\"dropdown\"\n                                aria-haspopup=\"true\" aria-expanded=\"false\">\n                                Estado\n                            </button>\n                            <div class=\"dropdown-menu\">\n                                <div class=\"dropdown-item\" *ngFor=\"let estado of estados\">\n                                    <input type=\"checkbox\" class=\"form-check-input\" [(ngModel)]=\"estado.checked\">\n                                    <a>{{estado.nombre}}</a>\n                                </div>\n                                <!--<a class=\"dropdown-item\" *ngFor=\"let estado of estados\"\n                                        (click)=\"seleccionarEstado(estado)\">{{estado.nombre}}\n                                    </a>-->\n                            </div>\n                        </div>\n                    </div>\n                    <div class=\"col-4\">\n                        <div class=\"btn-group\">\n                            <button type=\"button\" class=\"btn btn-info dropdown-toggle\" data-toggle=\"dropdown\"\n                                aria-haspopup=\"true\" aria-expanded=\"false\">\n                                Alumnos\n                            </button>\n                            <div class=\"dropdown-menu\">\n                                <a *ngIf=\"alumnoSeleccionadoAlumno\" class=\"dropdown-item\">Media de la clase</a>\n                                <div class=\"dropdown-item\" *ngFor=\"let alumno of alumnosSelect\">\n                                    <input type=\"checkbox\" class=\"form-check-input\" [(ngModel)]=\"alumno.checked\">\n                                    <a>{{alumno.nombre}}</a>\n                                </div>\n                                <!--<a class=\"dropdown-item\" *ngFor=\"let alumno of alumnos\"\n                                        (click)=\"seleccionarAlumno(alumno)\">{{alumno.estudiante.nombre}}</a>-->\n                            </div>\n                        </div>\n                    </div>\n                    <div class=\"col-4\">\n                        <button type=\"button\" class=\"btn btn-outline-success\" (click)=\"actualizarGraficaLineal()\"><i\n                                class=\"fa fa-refresh\"></i> Actualizar</button>\n                    </div>\n                </div>\n            </div>\n            <div>\n                <canvas id=\"graficaLineal\"></canvas>\n            </div>\n        </div>\n    </div>\n    <br>\n    <div class=\"row justify-content-center\">\n        <div class=\"col-sm-auto col-md-7\">\n            <div class=\"text-center\">\n                <h5>Alumnos</h5>\n            </div>\n            <div class=\"example-header\">\n                <mat-form-field>\n                    <input matInput (keyup)=\"applyFilterA($event.target.value)\" placeholder=\"Filtrar\">\n                </mat-form-field>\n            </div>\n            <div class=\"example-container\">\n                <mat-table [dataSource]=\"dataSourceAlumnos\" class=\"mat-elevation-z1\" matSort>\n                    <ng-container matColumnDef=\"nombre\">\n                        <mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </mat-header-cell>\n                        <mat-cell *matCellDef=\"let element\"> {{element.nombre}} </mat-cell>\n                    </ng-container>\n                    <ng-container matColumnDef=\"estado\">\n                        <mat-header-cell *matHeaderCellDef mat-sort-header> Estado </mat-header-cell>\n                        <mat-cell *matCellDef=\"let row\"> {{row.estado}} </mat-cell>\n                    </ng-container>\n                    <ng-container matColumnDef=\"pulsaciones\">\n                        <mat-header-cell *matHeaderCellDef mat-sort-header> Pulsaciones </mat-header-cell>\n                        <mat-cell *matCellDef=\"let row\">\n                            <div *ngIf=\"row.pulsaciones<=95\">{{row.pulsaciones}} ppm</div>\n                            <div *ngIf=\"row.pulsaciones>95\" style=\"color:red\">{{row.pulsaciones}} ppm</div>\n                        </mat-cell>\n                    </ng-container>\n                    <ng-container matColumnDef=\"webcam\">\n                        <mat-header-cell *matHeaderCellDef><button class=\"btn btn-sm btn-primary\"\n                                (click)=\"activarTodasWebCam()\"><i class=\"fa fa-video-camera\"></i> Todos</button>\n                        </mat-header-cell>\n                        <mat-cell *matCellDef=\"let row\">\n                            <button *ngIf=\"row.webcam!=true && row.estado!='Desconectado'\"\n                                class=\"btn btn-sm btn-outline-primary\" (click)=\"activarWebCam(row.estudiante)\"><i\n                                    class=\"fa fa-video-camera\"></i> Activar</button>\n                            <button *ngIf=\"row.webcam==true && row.estado!='Desconectado'\"\n                                class=\"btn btn-sm btn-outline-danger\" (click)=\"desactivarWebCam(row.estudiante)\"><i\n                                    class=\"fa fa-video-camera\"></i> Desactivar</button>\n                        </mat-cell>\n                    </ng-container>\n                    <ng-container matColumnDef=\"pulsera\">\n                        <mat-header-cell *matHeaderCellDef><button class=\"btn btn-sm btn-primary\"\n                                (click)=\"activarTodasPulseras()\"><i class=\"fa fa-heartbeat\"></i> Todos</button>\n                        </mat-header-cell>\n                        <mat-cell *matCellDef=\"let row\">\n                            <button *ngIf=\"row.pulsera!=true && row.estado!='Desconectado'\"\n                                class=\"btn btn-sm btn-outline-primary\" (click)=\"activarPulsera(row.estudiante)\"><i\n                                    class=\"fa fa-heartbeat\"></i> Activar</button>\n                            <button *ngIf=\"row.pulsera==true && row.estado!='Desconectado'\"\n                                class=\"btn btn-sm btn-outline-danger\" (click)=\"desactivarPulsera(row.estudiante)\"><i\n                                    class=\"fa fa-heartbeat\"></i> Desactivar</button>\n                        </mat-cell>\n                    </ng-container>\n                    <ng-container matColumnDef=\"led\">\n                        <mat-header-cell *matHeaderCellDef>\n                            <button class=\"btn btn-sm btn-primary\" (click)=\"activarTodosLeds()\"><i\n                                    class=\"fa fa-lightbulb-o\"></i> Todos</button>\n                        </mat-header-cell>\n                        <mat-cell *matCellDef=\"let row\">\n                            <button *ngIf=\"row.led!=true && row.estado!='Desconectado'\"\n                                class=\"btn btn-sm btn-outline-primary\" (click)=\"activarLed(row.estudiante)\"><i\n                                    class=\"fa fa-lightbulb-o\"></i> Activar</button>\n                            <button *ngIf=\"row.led==true && row.estado!='Desconectado'\"\n                                class=\"btn btn-sm btn-outline-danger\" (click)=\"desactivarLed(row.estudiante)\"><i\n                                    class=\"fa fa-lightbulb-o\"></i> Desactivar</button>\n                        </mat-cell>\n                    </ng-container>\n                    <mat-header-row *matHeaderRowDef=\"displayedColumnsAlumnos\"></mat-header-row>\n                    <mat-row *matRowDef=\"let row; columns: displayedColumnsAlumnos;\">\n                    </mat-row>\n                </mat-table>\n                <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\n            </div>\n        </div>\n        <div class=\"col-auto text-center\">\n            <div class=\"row\">\n                <div class=\"col-12 text-center\">\n                    <h5>Estado de la clase</h5>\n                </div>\n            </div>\n            <div class=\"row justify-content-center\">\n                <div class=\"col-5\">\n                    <div class=\"btn-group\">\n                        <button type=\"button\" class=\"btn btn-info dropdown-toggle\" data-toggle=\"dropdown\"\n                            aria-haspopup=\"true\" aria-expanded=\"false\">\n                            Estado\n                        </button>\n                        <div class=\"dropdown-menu\">\n                            <div class=\"dropdown-item\" *ngFor=\"let estado of estadosGlobales\">\n                                <input type=\"checkbox\" class=\"form-check-input\" [(ngModel)]=\"estado.checked\">\n                                <a>{{estado.nombre}}</a>\n                            </div>\n                            <!--<a class=\"dropdown-item\" *ngFor=\"let estado of estados\"\n                                    (click)=\"seleccionarEstado(estado)\">{{estado.nombre}}\n                                </a>-->\n                        </div>\n                    </div>\n                </div>\n                <div class=\"col-5\">\n                    <button type=\"button\" class=\"btn btn-outline-success\" (click)=\"actualizarGraficaGlobal()\"> <i\n                            class=\"fa fa-refresh\"></i> Actualizar</button>\n                </div>\n            </div>\n            <br>\n            <div>\n                <canvas id=\"estadoGlobal\"></canvas>\n            </div>\n        </div>\n    </div>\n</div>\n<div id=\"vistaMapaDeLaClase\" style=\"display: none;\" class=\"row col-12 justify-content-center\">\n    <div class=\"card col-12\">\n        <div class=\"card-body\">\n            <div class=\"row justify-content-center\">\n                <div class=\"col-6 text-center\">\n                    <h5 class=\"card-title\">Distribucion de la clase</h5>\n                </div>\n            </div>\n            <div class=\"row justify-content-center\">\n                <div class=\"col-3 text-center\">\n                    <div class=\"btn-group\">\n                        <button type=\"button\" class=\"btn btn-info dropdown-toggle\" data-toggle=\"dropdown\"\n                            aria-haspopup=\"true\" aria-expanded=\"false\">\n                            {{visualizacionSelected}}\n                        </button>\n                        <div class=\"dropdown-menu\">\n                            <a *ngIf=\"alumnoSeleccionadoAlumno\" class=\"dropdown-item\">Media de la clase</a>\n                            <div class=\"dropdown-item\" *ngFor=\"let visualizacion of visualizaciones\"\n                                (click)=\"seleccionVisualizacion(visualizacion)\">\n                                <a>{{visualizacion.nombre}}</a>\n                            </div>\n                            <!--<a class=\"dropdown-item\" *ngFor=\"let alumno of alumnos\"\n                                    (click)=\"seleccionarAlumno(alumno)\">{{alumno.estudiante.nombre}}</a>-->\n                        </div>\n                    </div>\n                </div>\n                <div class=\"col-3 text-center\">\n                    <div class=\"btn-group\">\n                        <button type=\"button\" class=\"btn btn-info dropdown-toggle\" data-toggle=\"dropdown\"\n                            aria-haspopup=\"true\" aria-expanded=\"false\">\n                            {{estadoConjuntoSeleccionado}}\n                        </button>\n                        <div class=\"dropdown-menu\">\n                            <div class=\"dropdown-item\" (click)=\"seleccionarEstadoConjunto(estado)\"\n                                *ngFor=\"let estado of estadosConjunto\">\n                                <a>{{estado.nombre}}</a>\n                            </div>\n                        </div>\n                    </div>\n                </div>\n            </div>\n            <br>\n            <div class=\"row justify-content-center\">\n                <div class=\"col-auto\">\n                    <div id=\"clase\" class=\"example-boundary\">\n                        <div id=\"{{item.id_item}}\" *ngFor=\"let item of actividad.alumnos\" class=\"example-box\"\n                            ondrop=\"myFunction(item)\" [cdkDragFreeDragPosition]=\"item.posicion\"\n                            cdkDragBoundary=\".example-boundary\" cdkDrag (cdkDragEnded)=\"dragEnded($event,item)\">\n                            {{item.estudiante.nombre}}\n                        </div>\n                    </div>\n                </div>\n                <div class=\"col-sm-6 col-12\">\n                    <div *ngIf=\"datoAlegria\">\n                        <div class=\"text-left\">\n                            <h6>Alegria</h6>\n                        </div>\n                        <div class=\"row\">\n                            <div class=\"progress col-10\">\n                                <div id=\"progress-alegria\" class=\"progress-bar\" role=\"progressbar\"\n                                    style=\"background-color: rgba(255,255,84,1)\" aria-valuenow=\"25\" aria-valuemin=\"0\"\n                                    aria-valuemax=\"100\"></div>\n                            </div>\n                            <div class=\"col-2\">\n                                {{datosResumenSeleccionados.alegria}}%\n                            </div>\n                        </div>\n                    </div>\n                    <div *ngIf=\"datoAsco\">\n                        <div class=\"text-left\">\n                            <h6>Asco</h6>\n                        </div>\n                        <div class=\"row\">\n                            <div class=\"progress col-10\">\n                                <div id=\"progress-asco\" class=\"progress-bar\" role=\"progressbar\"\n                                    style=\"background-color: rgba(0,0,0,0.5)\" aria-valuenow=\"25\" aria-valuemin=\"0\"\n                                    aria-valuemax=\"100\"></div>\n                            </div>\n                            <div class=\"col-2\">\n                                {{datosResumenSeleccionados.asco}}%\n                            </div>\n                        </div>\n                    </div>\n                    <div *ngIf=\"datoMiedo\">\n                        <div class=\"text-left\">\n                            <h6>Miedo</h6>\n                        </div>\n                        <div class=\"row\">\n                            <div class=\"progress col-10\">\n                                <div id=\"progress-miedo\" class=\"progress-bar\" role=\"progressbar\"\n                                    style=\"background-color: rgba(0,150,0,1)\" aria-valuenow=\"25\" aria-valuemin=\"0\"\n                                    aria-valuemax=\"100\"></div>\n                            </div>\n                            <div class=\"col-2\">\n                                {{datosResumenSeleccionados.miedo}}%\n                            </div>\n                        </div>\n                    </div>\n                    <div *ngIf=\"datoSorpresa\">\n                        <div class=\"text-left\">\n                            <h6>Sorpresa</h6>\n                        </div>\n                        <div class=\"row\">\n                            <div class=\"progress col-10\">\n                                <div id=\"progress-sorpresa\" class=\"progress-bar\" role=\"progressbar\"\n                                    style=\"background-color: rgba(89,189,255,1)\" aria-valuenow=\"25\" aria-valuemin=\"0\"\n                                    aria-valuemax=\"100\"></div>\n                            </div>\n                            <div class=\"col-2\">\n                                {{datosResumenSeleccionados.sorpresa}}%\n                            </div>\n                        </div>\n                    </div>\n                    <div *ngIf=\"datoTristeza\">\n                        <div class=\"text-left\">\n                            <h6>Tristeza</h6>\n                        </div>\n                        <div class=\"row\">\n                            <div class=\"progress col-10\">\n                                <div id=\"progress-tristeza\" class=\"progress-bar\" role=\"progressbar\"\n                                    style=\"background-color: rgba(81,81,255,1)\" aria-valuenow=\"25\" aria-valuemin=\"0\"\n                                    aria-valuemax=\"100\"></div>\n                            </div>\n                            <div class=\"col-2\">\n                                {{datosResumenSeleccionados.tristeza}}%\n                            </div>\n                        </div>\n                    </div>\n                    <div *ngIf=\"datoIra\">\n                        <div class=\"text-left\">\n                            <h6>Ira</h6>\n                        </div>\n                        <div class=\"row\">\n                            <div class=\"progress col-10\">\n                                <div id=\"progress-ira\" class=\"progress-bar\" role=\"progressbar\"\n                                    style=\"background-color: rgba(255,0,0,1)\" aria-valuenow=\"25\" aria-valuemin=\"0\"\n                                    aria-valuemax=\"100\"></div>\n                            </div>\n                            <div class=\"col-2\">\n                                {{datosResumenSeleccionados.ira}}%\n                            </div>\n                        </div>\n                    </div>\n                    <div *ngIf=\"datoconcentrado\">\n                        <div class=\"text-left\">\n                            <h6>Concentrado</h6>\n                        </div>\n                        <div class=\"row\">\n                            <div class=\"progress col-10\">\n                                <div id=\"progress-concentrado\" class=\"progress-bar\" role=\"progressbar\"\n                                    style=\"background-color: rgba(84,255,84,1)\" aria-valuenow=\"25\" aria-valuemin=\"0\"\n                                    aria-valuemax=\"100\"></div>\n                            </div>\n                            <div class=\"col-2\">\n                                {{datosResumenSeleccionados.concentrado}}%\n                            </div>\n                        </div>\n                    </div>\n                    <div *ngIf=\"datodistraido\">\n                        <div class=\"text-left\">\n                            <h6>Distraido</h6>\n                        </div>\n                        <div class=\"row\">\n                            <div class=\"progress col-10\">\n                                <div id=\"progress-distraido\" class=\"progress-bar\" role=\"progressbar\"\n                                    style=\"background-color: rgba(70,70,70,1)\" aria-valuenow=\"25\" aria-valuemin=\"0\"\n                                    aria-valuemax=\"100\"></div>\n                            </div>\n                            <div class=\"col-2\">\n                                {{datosResumenSeleccionados.distraido}}%\n                            </div>\n                        </div>\n                    </div>\n                    <div *ngIf=\"datomotivado\">\n                        <div class=\"text-left\">\n                            <h6>Motivado</h6>\n                        </div>\n                        <div class=\"row\">\n                            <div class=\"progress col-10\">\n                                <div id=\"progress-motivado\" class=\"progress-bar\" role=\"progressbar\"\n                                    style=\"background-color: rgba(84,25,80,1)\" aria-valuenow=\"25\" aria-valuemin=\"0\"\n                                    aria-valuemax=\"100\"></div>\n                            </div>\n                            <div class=\"col-2\">\n                                {{datosResumenSeleccionados.motivado}}%\n                            </div>\n                        </div>\n                    </div>\n                    <div *ngIf=\"datofrustrado\">\n                        <div class=\"text-left\">\n                            <h6>Frustrado</h6>\n                        </div>\n                        <div class=\"row\">\n                            <div class=\"progress col-10\">\n                                <div id=\"progress-frustrado\" class=\"progress-bar\" role=\"progressbar\"\n                                    style=\"background-color: rgba(123,123,123,1)\" aria-valuenow=\"25\" aria-valuemin=\"0\"\n                                    aria-valuemax=\"100\"></div>\n                            </div>\n                            <div class=\"col-2\">\n                                {{datosResumenSeleccionados.frustrado}}%\n                            </div>\n                        </div>\n                    </div>\n\n                </div>\n            </div>\n        </div>\n    </div>\n</div>\n<div id=\"GraficoEvolucion\">\n    <div class=\"row\">\n        <h5 class=\"col-12 text-center card-title\">Grafica</h5>\n    </div>\n    <div class=\"row text-center justify-content-center\">\n        <div class=\"col-4\">\n            <div class=\"btn-group\">\n                <button type=\"button\" class=\"btn btn-info dropdown-toggle\" data-toggle=\"dropdown\" aria-haspopup=\"true\"\n                    aria-expanded=\"false\">\n                    Estado\n                </button>\n                <div class=\"dropdown-menu\">\n                    <div class=\"dropdown-item\" *ngFor=\"let estado of estados\">\n                        <input type=\"checkbox\" class=\"form-check-input\" [(ngModel)]=\"estado.checked\">\n                        <a>{{estado.nombre}}</a>\n                    </div>\n                </div>\n            </div>\n        </div>\n        <div class=\"col-4\">\n            <div class=\"btn-group\">\n                <button type=\"button\" class=\"btn btn-info dropdown-toggle\" data-toggle=\"dropdown\" aria-haspopup=\"true\"\n                    aria-expanded=\"false\">\n                    Alumnos\n                </button>\n                <div class=\"dropdown-menu\">\n                    <a *ngIf=\"alumnoSeleccionadoAlumno\" class=\"dropdown-item\">Media de la clase</a>\n                    <div class=\"dropdown-item\" *ngFor=\"let alumno of alumnosSelect\">\n                        <input type=\"checkbox\" class=\"form-check-input\" [(ngModel)]=\"alumno.checked\">\n                        <a>{{alumno.nombre}}</a>\n                    </div>\n                </div>\n            </div>\n        </div>\n        <div class=\"col-4\">\n            <button type=\"button\" class=\"btn btn-outline-success\" (click)=\"actualizarGraficaLineal()\"><i\n                    class=\"fa fa-refresh\"></i> Actualizar</button>\n        </div>\n    </div>\n    <div class=\"row\">\n        <div class=\"col-12\">\n            <canvas id=\"graficaLinealEntera\"></canvas>\n        </div>\n    </div>\n</div>\n<div id=\"gUsuariosConectados\" class=\"row\">\n    <div class=\"col-12\">\n        <h5 class=\"text-center card-title\">Usuarios Conectados</h5>\n        <canvas id=\"usersConectadosEntera\"></canvas>\n        <h6 class=\"text-center\">{{porUsuariosConectados}}%</h6>\n    </div>\n</div>\n<div id=\"gEstadoUsuarios\">\n\n</div>\n<div id=\"tablaUsuarios\">\n    <div class=\"text-center\">\n        <h5>Alumnos</h5>\n    </div>\n    <div class=\"example-header\">\n        <mat-form-field>\n            <input matInput (keyup)=\"applyFilterA($event.target.value)\" placeholder=\"Filtrar\">\n        </mat-form-field>\n    </div>\n    <div class=\"example-container\">\n        <mat-table [dataSource]=\"dataSourceAlumnos\" class=\"mat-elevation-z1\" matSort>\n            <ng-container matColumnDef=\"nombre\">\n                <mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </mat-header-cell>\n                <mat-cell *matCellDef=\"let element\"> {{element.nombre}} </mat-cell>\n            </ng-container>\n            <ng-container matColumnDef=\"estado\">\n                <mat-header-cell *matHeaderCellDef mat-sort-header> Estado </mat-header-cell>\n                <mat-cell *matCellDef=\"let row\"> {{row.estado}} </mat-cell>\n            </ng-container>\n            <ng-container matColumnDef=\"pulsaciones\">\n                <mat-header-cell *matHeaderCellDef mat-sort-header> Pulsaciones </mat-header-cell>\n                <mat-cell *matCellDef=\"let row\">\n                    <div *ngIf=\"row.pulsaciones<=95\">{{row.pulsaciones}} ppm</div>\n                    <div *ngIf=\"row.pulsaciones>95\" style=\"color:red\">{{row.pulsaciones}} ppm</div>\n                </mat-cell>\n            </ng-container>\n            <ng-container matColumnDef=\"webcam\">\n                <mat-header-cell *matHeaderCellDef><button class=\"btn btn-sm btn-primary\"\n                        (click)=\"activarTodasWebCam()\"><i class=\"fa fa-video-camera\"></i> Todos</button>\n                </mat-header-cell>\n                <mat-cell *matCellDef=\"let row\">\n                    <button *ngIf=\"row.webcam!=true && row.estado!='Desconectado'\"\n                        class=\"btn btn-sm btn-outline-primary\" (click)=\"activarWebCam(row.estudiante)\"><i\n                            class=\"fa fa-video-camera\"></i> Activar</button>\n                    <button *ngIf=\"row.webcam==true && row.estado!='Desconectado'\" class=\"btn btn-sm btn-outline-danger\"\n                        (click)=\"desactivarWebCam(row.estudiante)\"><i class=\"fa fa-video-camera\"></i>\n                        Desactivar</button>\n                </mat-cell>\n            </ng-container>\n            <ng-container matColumnDef=\"pulsera\">\n                <mat-header-cell *matHeaderCellDef><button class=\"btn btn-sm btn-primary\"\n                        (click)=\"activarTodasPulseras()\"><i class=\"fa fa-heartbeat\"></i> Todos</button>\n                </mat-header-cell>\n                <mat-cell *matCellDef=\"let row\">\n                    <button *ngIf=\"row.pulsera!=true && row.estado!='Desconectado'\"\n                        class=\"btn btn-sm btn-outline-primary\" (click)=\"activarPulsera(row.estudiante)\"><i\n                            class=\"fa fa-heartbeat\"></i> Activar</button>\n                    <button *ngIf=\"row.pulsera==true && row.estado!='Desconectado'\"\n                        class=\"btn btn-sm btn-outline-danger\" (click)=\"desactivarPulsera(row.estudiante)\"><i\n                            class=\"fa fa-heartbeat\"></i> Desactivar</button>\n                </mat-cell>\n            </ng-container>\n            <ng-container matColumnDef=\"led\">\n                <mat-header-cell *matHeaderCellDef>\n                    <button class=\"btn btn-sm btn-primary\" (click)=\"activarTodosLeds()\"><i\n                            class=\"fa fa-lightbulb-o\"></i> Todos</button>\n                </mat-header-cell>\n                <mat-cell *matCellDef=\"let row\">\n                    <button *ngIf=\"row.led!=true && row.estado!='Desconectado'\" class=\"btn btn-sm btn-outline-primary\"\n                        (click)=\"activarLed(row.estudiante)\"><i class=\"fa fa-lightbulb-o\"></i> Activar</button>\n                    <button *ngIf=\"row.led==true && row.estado!='Desconectado'\" class=\"btn btn-sm btn-outline-danger\"\n                        (click)=\"desactivarLed(row.estudiante)\"><i class=\"fa fa-lightbulb-o\"></i> Desactivar</button>\n                </mat-cell>\n            </ng-container>\n            <mat-header-row *matHeaderRowDef=\"displayedColumnsAlumnos\"></mat-header-row>\n            <mat-row *matRowDef=\"let row; columns: displayedColumnsAlumnos;\">\n            </mat-row>\n        </mat-table>\n        <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\n    </div>\n</div>\n<br>\n<br>\n<br>");
 
 /***/ }),
 
@@ -448,7 +448,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"row col-12 justify-content-center\">\n    <div class=\"col-6 text-left\">\n        <h3>{{alumno.nombre}} {{alumno.apellidos}}</h3>\n    </div>\n    <div class=\"col-3 text-right\">\n        <button *ngIf=\"!editarActividadesView\" type=\"button\" class=\"btn btn-outline-danger\" (click)=\"cancelar()\"><i class=\"fa fa-times-circle\"></i> Cerrar Alumno</button>\n        <!--<button *ngIf=\"editarActividadesView\" type=\"button\" class=\"btn btn-outline-danger\" (click)=\"cancelarEdicion()\">Cancelar eleccion de actividades</button>-->\n    </div>\n    \n    <div class=\"col-3 text-right\">\n        <button *ngIf=\"!editarActividadesView\" type=\"button\" class=\"btn btn btn-outline-success\" (click)=\"editarActividades()\"><i\n            class=\"fa fa-edit\"></i> Editar actividades</button>\n    </div>\n</div>\n<br>\n<div class=\"col-12\" *ngIf=\"editarActividadesView\">\n    <div class=\"card\">\n        <div class=\"card-body\">\n            <div class=\"example-header\">\n                <mat-form-field>\n                    <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filtrar\">\n                </mat-form-field>\n            </div>\n            <div class=\"example-container\">\n\n                <mat-table [dataSource]=\"dataSource\" class=\"mat-elevation-z1\" matSort>\n\n                    <ng-container matColumnDef=\"select\">\n                        <th mat-header-cell *matHeaderCellDef>\n                            <mat-checkbox (change)=\"$event ? masterToggle() : null\"\n                                [checked]=\"selection.hasValue() && isAllSelected()\"\n                                [indeterminate]=\"selection.hasValue() && !isAllSelected()\"\n                                [aria-label]=\"checkboxLabel()\">\n                            </mat-checkbox>\n                        </th>\n                        <td mat-cell *matCellDef=\"let row\">\n                            <mat-checkbox (click)=\"$event.stopPropagation()\"\n                                (change)=\"$event ? selection.toggle(row) : null\" [checked]=\"selection.isSelected(row)\"\n                                [aria-label]=\"checkboxLabel(row)\">\n                            </mat-checkbox>\n                        </td>\n                    </ng-container>\n\n                    <!-- ID Column -->\n                    <ng-container matColumnDef=\"nombre\">\n                        <mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </mat-header-cell>\n                        <mat-cell *matCellDef=\"let row\"> {{row.nombre}} </mat-cell>\n                    </ng-container>\n\n                    <!-- Progress Column -->\n                    <ng-container matColumnDef=\"profesor\">\n                        <mat-header-cell *matHeaderCellDef mat-sort-header> Profesor </mat-header-cell>\n                        <mat-cell *matCellDef=\"let row\"> {{row.profesor}} </mat-cell>\n                    </ng-container>\n\n                    <!-- Name Column -->\n                    <ng-container matColumnDef=\"clase\">\n                        <mat-header-cell *matHeaderCellDef mat-sort-header> Clase </mat-header-cell>\n                        <mat-cell *matCellDef=\"let row\"> {{row.clase}} </mat-cell>\n                    </ng-container>\n\n                    <ng-container matColumnDef=\"estado\">\n                        <mat-header-cell *matHeaderCellDef mat-sort-header> Estado </mat-header-cell>\n                        <mat-cell *matCellDef=\"let row\"> {{row.estado}} </mat-cell>\n                    </ng-container>\n\n                    <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\n                    <mat-row *matRowDef=\"let row; columns: displayedColumns;\">\n                    </mat-row>\n                </mat-table>\n\n                <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\n            </div>\n            <div class=\"row justify-content-center text-center\">\n                <div class=\"col-3\">\n                    <button class=\"btn btn btn-danger\" (click)=\"cancelarEdicion()\">Cancelar</button>\n                </div>\n                <div class=\"col-3\">\n                    <button class=\"btn btn btn-success\" (click)=\"actualizar()\">Actualizar Actividades</button>\n                </div>\n                \n            </div>\n        </div>\n    </div>\n</div>\n<div id=\"graficas\">\n    <div class=\"row justify-content-center text-center\">\n        <div class=\"col-8\">\n            <h5>Estadisticas de las actividades</h5>\n        </div>\n        <div class=\"col-4\">\n            <div class=\"btn-group\">\n                <button type=\"button\" class=\"btn btn-info dropdown-toggle\" data-toggle=\"dropdown\"\n                    aria-haspopup=\"true\" aria-expanded=\"false\">\n                    {{estadoSeleccionado}}\n                </button>\n                <div class=\"dropdown-menu\">\n                    <div class=\"dropdown-item\" (click)=\"seleccionarEstado(estado)\" *ngFor=\"let estado of estados\">\n                        <a>{{estado.nombre}}</a>\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>\n    <div class=\"row justify-content-center text-center\">\n        <div class=\"col-11\">\n            <canvas id=\"progresoTotal\"></canvas>\n        </div>\n    </div>\n    <br>\n    <div class=\"row justify-content-center text-center\">\n        <div class=\"col-8\">\n            <h5>Estadisticas conjuntas</h5>\n        </div>\n        <div class=\"col-4\">\n            <div class=\"btn-group\">\n                <button type=\"button\" class=\"btn btn-info dropdown-toggle\" data-toggle=\"dropdown\"\n                    aria-haspopup=\"true\" aria-expanded=\"false\">\n                    {{estadoConjuntoSeleccionado.nombre}}\n                </button>\n                <div class=\"dropdown-menu\">\n                    <div class=\"dropdown-item\" (click)=\"seleccionarEstadoConjunto(estado)\" *ngFor=\"let estado of estadosConjunto\">\n                        <a>{{estado.nombre}}</a>\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>\n    <div class=\"row justify-content-center text-center\">\n        <div class=\"col-11\">\n            <canvas id=\"progresoConjuntoTotal\"></canvas>\n        </div>\n    </div>\n    <br>\n    <div class=\"row justify-content-center text-center\">\n        <div class=\"col-8\">\n            <h5>Estadisticas Globales del alumno</h5>\n        </div>\n        <div class=\"col-4\">\n            <div class=\"btn-group\">\n                <button type=\"button\" class=\"btn btn-info dropdown-toggle\" data-toggle=\"dropdown\"\n                    aria-haspopup=\"true\" aria-expanded=\"false\">\n                    {{estadoGeneralSeleccionado.nombre}}\n                </button>\n                <div class=\"dropdown-menu\">\n                    <div class=\"dropdown-item\" (click)=\"seleccionarEstadoGeneral(estado)\" *ngFor=\"let estado of estadosConjunto\">\n                        <a>{{estado.nombre}}</a>\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>\n    <div class=\"row justify-content-center text-center\">\n        <div class=\"col-11\">\n            <canvas id=\"resumenGeneral\"></canvas>\n        </div>\n    </div>\n</div>\n\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"row col-12 justify-content-center\">\n    <div class=\"col-6 text-left\">\n        <h3>Alumno: {{alumno.nombre}} {{alumno.apellidos}}</h3>\n    </div>\n    <div class=\"col-3 text-right\">\n        <button *ngIf=\"!editarActividadesView\" type=\"button\" class=\"btn btn-outline-danger\" (click)=\"cancelar()\"><i class=\"fa fa-times-circle\"></i> Cerrar Alumno</button>\n        <!--<button *ngIf=\"editarActividadesView\" type=\"button\" class=\"btn btn-outline-danger\" (click)=\"cancelarEdicion()\">Cancelar eleccion de actividades</button>-->\n    </div>\n    \n    <div class=\"col-3 text-right\">\n        <button *ngIf=\"!editarActividadesView\" type=\"button\" class=\"btn btn btn-outline-success\" (click)=\"editarActividades()\"><i\n            class=\"fa fa-edit\"></i> Editar actividades</button>\n    </div>\n</div>\n<br>\n<div class=\"col-12\" *ngIf=\"editarActividadesView\">\n    <div class=\"card\">\n        <div class=\"card-body\">\n            <div class=\"example-header\">\n                <mat-form-field>\n                    <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filtrar\">\n                </mat-form-field>\n            </div>\n            <div class=\"example-container\">\n\n                <mat-table [dataSource]=\"dataSource\" class=\"mat-elevation-z1\" matSort>\n\n                    <ng-container matColumnDef=\"select\">\n                        <th mat-header-cell *matHeaderCellDef>\n                            <mat-checkbox (change)=\"$event ? masterToggle() : null\"\n                                [checked]=\"selection.hasValue() && isAllSelected()\"\n                                [indeterminate]=\"selection.hasValue() && !isAllSelected()\"\n                                [aria-label]=\"checkboxLabel()\">\n                            </mat-checkbox>\n                        </th>\n                        <td mat-cell *matCellDef=\"let row\">\n                            <mat-checkbox (click)=\"$event.stopPropagation()\"\n                                (change)=\"$event ? selection.toggle(row) : null\" [checked]=\"selection.isSelected(row)\"\n                                [aria-label]=\"checkboxLabel(row)\">\n                            </mat-checkbox>\n                        </td>\n                    </ng-container>\n\n                    <!-- ID Column -->\n                    <ng-container matColumnDef=\"nombre\">\n                        <mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </mat-header-cell>\n                        <mat-cell *matCellDef=\"let row\"> {{row.nombre}} </mat-cell>\n                    </ng-container>\n\n                    <!-- Progress Column -->\n                    <ng-container matColumnDef=\"profesor\">\n                        <mat-header-cell *matHeaderCellDef mat-sort-header> Profesor </mat-header-cell>\n                        <mat-cell *matCellDef=\"let row\"> {{row.profesor}} </mat-cell>\n                    </ng-container>\n\n                    <!-- Name Column -->\n                    <ng-container matColumnDef=\"clase\">\n                        <mat-header-cell *matHeaderCellDef mat-sort-header> Clase </mat-header-cell>\n                        <mat-cell *matCellDef=\"let row\"> {{row.clase}} </mat-cell>\n                    </ng-container>\n\n                    <ng-container matColumnDef=\"estado\">\n                        <mat-header-cell *matHeaderCellDef mat-sort-header> Estado </mat-header-cell>\n                        <mat-cell *matCellDef=\"let row\"> {{row.estado}} </mat-cell>\n                    </ng-container>\n\n                    <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\n                    <mat-row *matRowDef=\"let row; columns: displayedColumns;\">\n                    </mat-row>\n                </mat-table>\n\n                <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\n            </div>\n            <div class=\"row justify-content-center text-center\">\n                <div class=\"col-3\">\n                    <button class=\"btn btn btn-danger\" (click)=\"cancelarEdicion()\">Cancelar</button>\n                </div>\n                <div class=\"col-3\">\n                    <button class=\"btn btn btn-success\" (click)=\"actualizar()\">Actualizar Actividades</button>\n                </div>\n                \n            </div>\n        </div>\n    </div>\n</div>\n<div id=\"graficas\">\n    <div class=\"row justify-content-center text-center\">\n        <div class=\"col-8\">\n            <h5>Estadisticas de las actividades</h5>\n        </div>\n        <div class=\"col-4\">\n            <div class=\"btn-group\">\n                <button type=\"button\" class=\"btn btn-info dropdown-toggle\" data-toggle=\"dropdown\"\n                    aria-haspopup=\"true\" aria-expanded=\"false\">\n                    {{estadoSeleccionado}}\n                </button>\n                <div class=\"dropdown-menu\">\n                    <div class=\"dropdown-item\" (click)=\"seleccionarEstado(estado)\" *ngFor=\"let estado of estados\">\n                        <a>{{estado.nombre}}</a>\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>\n    <div class=\"row justify-content-center text-center\">\n        <div class=\"col-11\">\n            <canvas id=\"progresoTotal\"></canvas>\n        </div>\n    </div>\n    <br>\n    <div class=\"row justify-content-center text-center\">\n        <div class=\"col-8\">\n            <h5>Estadisticas conjuntas</h5>\n        </div>\n        <div class=\"col-4\">\n            <div class=\"btn-group\">\n                <button type=\"button\" class=\"btn btn-info dropdown-toggle\" data-toggle=\"dropdown\"\n                    aria-haspopup=\"true\" aria-expanded=\"false\">\n                    {{estadoConjuntoSeleccionado.nombre}}\n                </button>\n                <div class=\"dropdown-menu\">\n                    <div class=\"dropdown-item\" (click)=\"seleccionarEstadoConjunto(estado)\" *ngFor=\"let estado of estadosConjunto\">\n                        <a>{{estado.nombre}}</a>\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>\n    <div class=\"row justify-content-center text-center\">\n        <div class=\"col-11\">\n            <canvas id=\"progresoConjuntoTotal\"></canvas>\n        </div>\n    </div>\n    <br>\n    <div class=\"row justify-content-center text-center\">\n        <div class=\"col-8\">\n            <h5>Estadisticas Globales del alumno</h5>\n        </div>\n        <div class=\"col-4\">\n            <div class=\"btn-group\">\n                <button type=\"button\" class=\"btn btn-info dropdown-toggle\" data-toggle=\"dropdown\"\n                    aria-haspopup=\"true\" aria-expanded=\"false\">\n                    {{estadoGeneralSeleccionado.nombre}}\n                </button>\n                <div class=\"dropdown-menu\">\n                    <div class=\"dropdown-item\" (click)=\"seleccionarEstadoGeneral(estado)\" *ngFor=\"let estado of estadosConjunto\">\n                        <a>{{estado.nombre}}</a>\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>\n    <div class=\"row justify-content-center text-center\">\n        <div class=\"col-11\">\n            <canvas id=\"resumenGeneral\"></canvas>\n        </div>\n    </div>\n</div>\n\n");
 
 /***/ }),
 
@@ -1420,6 +1420,25 @@ let EstudianteComponent = class EstudianteComponent {
         this.meDesconectoActividad = function (actividad) {
             this.socket.emit('meDesconectoActividad', actividad, this.estudiante);
         };
+        this.webCamConectada = function (actividad) {
+            this.socket.emit('webCamConectada', actividad, this.estudiante);
+        };
+        this.pulseraConectada = function (actividad) {
+            this.socket.emit('pulseraConectada', actividad, this.estudiante);
+        };
+        this.ledConectada = function (actividad) {
+            console.log("led conectado");
+            this.socket.emit('ledConectada', actividad, this.estudiante);
+        };
+        this.webCamDesconectada = function (actividad) {
+            this.socket.emit('webCamDesonectada', actividad, this.estudiante);
+        };
+        this.pulseraDesconectada = function (actividad) {
+            this.socket.emit('pulseraDesonectada', actividad, this.estudiante);
+        };
+        this.ledDesconectada = function (actividad) {
+            this.socket.emit('ledDesonectada', actividad, this.estudiante);
+        };
         this.lanzarSocketSrv = function () {
             var cli = this;
             this.socket.on('connect', function () {
@@ -1477,6 +1496,33 @@ let EstudianteComponent = class EstudianteComponent {
             this.socket.on('recepcionEmociones', function (datos) {
                 console.log(datos);
             });
+            this.socket.on('conectarWebCam', function (estudiante) {
+                cli.conectarSensor(cli.camara);
+            });
+            this.socket.on('conectarLed', function (estudiante) {
+                console.log("Conectar Led");
+                //cli.conectarSensor(cli.led);
+                cli.conectarLed(cli.led);
+            });
+            this.socket.on('conectarPulsera', function (estudiante) {
+                console.log("Conectar Pulsera");
+                //cli.conectarSensor(cli.pulsera);
+                cli.conectarPulsera(cli.pulsera);
+            });
+            this.socket.on('desconectarWebCam', function (estudiante) {
+                cli.desconectarSensor(cli.camara);
+            });
+            this.socket.on('desconectarLed', function (estudiante) {
+                cli.desconectarSensor(cli.led);
+            });
+            this.socket.on('desconectarPulsera', function (estudiante) {
+                cli.desconectarSensor(cli.pulsera);
+            });
+            /*
+             this.listaSensores.push(this.camara);
+            this.listaSensores.push(this.led);
+            this.listaSensores.push(this.pulsera);
+            */
         };
     }
     ngOnInit() {
@@ -1489,28 +1535,33 @@ let EstudianteComponent = class EstudianteComponent {
         console.log(act);
     }
     conectarse(actividad) {
-        //console.log("Me he conectado a la actividad");
-        this.conectadoaActividad = true;
-        this.actividadActual = actividad;
-        //console.log(this.actividadActual.alumnos);
-        /*for (var key in this.actividadActual.alumnos) {
-          if(this.actividadActual.alumnos[key].estudiante._id=this.estudiante._id){
-            console.log("Estudiate id: "+this.estudiante._id)
-            this.id_item=this.actividadActual.alumnos[key].id_item;
-            //console.log(this.id_item);
-          }
-        }*/
-        this.id_item = this.estudiante._id + actividad._id;
-        //this.soyEstudiante();
-        //this.conectarActividad();
-        //console.log("asd");
-        //this.conectarLed();
-        this.meConectoActividad(this.actividadActual);
-        //console.log(actividad);
-        if (actividad.estado == "Comenzada") {
-            this.empezar();
-        }
-        //this.empezar();
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
+            //console.log("Me he conectado a la actividad");
+            this.conectadoaActividad = true;
+            this.actividadActual = actividad;
+            //console.log(this.actividadActual.alumnos);
+            /*for (var key in this.actividadActual.alumnos) {
+              if(this.actividadActual.alumnos[key].estudiante._id=this.estudiante._id){
+                console.log("Estudiate id: "+this.estudiante._id)
+                this.id_item=this.actividadActual.alumnos[key].id_item;
+                //console.log(this.id_item);
+              }
+            }*/
+            this.id_item = this.estudiante._id + actividad._id;
+            //this.soyEstudiante();
+            //this.conectarActividad();
+            //console.log("asd");
+            //this.conectarLed();
+            this.meConectoActividad(this.actividadActual);
+            yield this.conectarWebCam(this.camara);
+            yield this.conectarLed(this.led);
+            yield this.conectarPulsera(this.pulsera);
+            //console.log(actividad);
+            if (actividad.estado == "Comenzada") {
+                //this.empezar()
+            }
+            //this.empezar();
+        });
     }
     desconectarse() {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
@@ -1597,9 +1648,13 @@ let EstudianteComponent = class EstudianteComponent {
                 }
             };
             try {
-                const stream = yield navigator.mediaDevices.getUserMedia(constraints);
-                this.camara.data.srcObject = stream;
-                sensor.estado = "Conectado";
+                if (sensor.data != null || sensor.data != undefined) {
+                    const stream = yield navigator.mediaDevices.getUserMedia(constraints);
+                    this.camara.data.srcObject = stream;
+                    sensor.estado = "Conectado";
+                    this.empezar();
+                    this.webCamConectada(this.actividadActual);
+                }
             }
             catch (e) {
                 //errorMsgElement.innerHTML = `navigator.getUserMedia error:${e.toString()}`;
@@ -1643,38 +1698,68 @@ let EstudianteComponent = class EstudianteComponent {
             //console.log("hemos cargado los modelos");
             //this.video.addEventListener('play', () => {
             //console.log(this.camara.data.srcObject);
-            this.canvas = faceapi.createCanvasFromMedia(this.camara.data);
-            document.body.append(this.canvas);
-            this.displaySize = { width: this.camara.data.width, height: this.camara.data.height };
-            faceapi.matchDimensions(this.canvas, this.displaySize);
-            this.intervaloDeEnvio = setInterval(() => tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
-                this.computacionDatos();
-            }), 7000);
-            this.intervaloGenerarDatos = setInterval(() => tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
-                try {
-                    const detections = yield faceapi.detectSingleFace(this.camara.data, new faceapi.TinyFaceDetectorOptions()).withFaceLandmarks().withFaceExpressions();
-                    var datos = faceapi.resizeResults(detections, this.displaySize).expressions;
-                    var datosFisicos = yield faceapi.detectSingleFace(this.camara.data).withFaceLandmarks().withAgeAndGender();
-                    var datosNeutral = faceapi.resizeResults(detections, this.displaySize).expressions.neutral;
-                    var datosHappy = faceapi.resizeResults(detections, this.displaySize).expressions.happy;
-                    var datosSad = faceapi.resizeResults(detections, this.displaySize).expressions.sad;
-                    var datosAngry = faceapi.resizeResults(detections, this.displaySize).expressions.angry;
-                    var datosFearful = faceapi.resizeResults(detections, this.displaySize).expressions.fearful;
-                    var datosSurprised = faceapi.resizeResults(detections, this.displaySize).expressions.surprised;
-                    var datosDisgusted = faceapi.resizeResults(detections, this.displaySize).expressions.disgusted;
-                    if (!this.estoyComputando) {
-                        this.emocionAlegria += datosHappy;
-                        this.emocionAsco += datosDisgusted;
-                        this.emocionIra += datosAngry;
-                        this.emocionMiedo += datosFearful;
-                        this.emocionSorpresa += datosSurprised;
-                        this.emocionTristeza += datosSad;
+            try {
+                this.canvas = faceapi.createCanvasFromMedia(this.camara.data);
+                document.body.append(this.canvas);
+                this.displaySize = { width: this.camara.data.width, height: this.camara.data.height };
+                faceapi.matchDimensions(this.canvas, this.displaySize);
+                this.intervaloGenerarDatos = setInterval(() => tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
+                    try {
+                        const detections = yield faceapi.detectSingleFace(this.camara.data, new faceapi.TinyFaceDetectorOptions()).withFaceLandmarks().withFaceExpressions();
+                        var datos = faceapi.resizeResults(detections, this.displaySize).expressions;
+                        var datosFisicos = yield faceapi.detectSingleFace(this.camara.data).withFaceLandmarks().withAgeAndGender();
+                        var datosNeutral = faceapi.resizeResults(detections, this.displaySize).expressions.neutral;
+                        var datosHappy = faceapi.resizeResults(detections, this.displaySize).expressions.happy;
+                        var datosSad = faceapi.resizeResults(detections, this.displaySize).expressions.sad;
+                        var datosAngry = faceapi.resizeResults(detections, this.displaySize).expressions.angry;
+                        var datosFearful = faceapi.resizeResults(detections, this.displaySize).expressions.fearful;
+                        var datosSurprised = faceapi.resizeResults(detections, this.displaySize).expressions.surprised;
+                        var datosDisgusted = faceapi.resizeResults(detections, this.displaySize).expressions.disgusted;
+                        if (!this.estoyComputando) {
+                            this.emocionAlegria += datosHappy;
+                            this.emocionAsco += datosDisgusted;
+                            this.emocionIra += datosAngry;
+                            this.emocionMiedo += datosFearful;
+                            this.emocionSorpresa += datosSurprised;
+                            this.emocionTristeza += datosSad;
+                        }
                     }
+                    catch (error) {
+                        //console.log("No hay datos que enviar");
+                    }
+                }), 1000);
+                this.intervaloDeEnvio = setInterval(() => tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
+                    this.computacionDatos();
+                }), 7000);
+            }
+            catch (ç) {
+            }
+            /*this.intervaloGenerarDatos = setInterval(async () => {
+        
+              try {
+                const detections = await faceapi.detectSingleFace(this.camara.data, new faceapi.TinyFaceDetectorOptions()).withFaceLandmarks().withFaceExpressions()
+                var datos = faceapi.resizeResults(detections, this.displaySize).expressions;
+                var datosFisicos = await faceapi.detectSingleFace(this.camara.data).withFaceLandmarks().withAgeAndGender()
+        
+                var datosNeutral = faceapi.resizeResults(detections, this.displaySize).expressions.neutral;
+                var datosHappy = faceapi.resizeResults(detections, this.displaySize).expressions.happy;
+                var datosSad = faceapi.resizeResults(detections, this.displaySize).expressions.sad;
+                var datosAngry = faceapi.resizeResults(detections, this.displaySize).expressions.angry;
+                var datosFearful = faceapi.resizeResults(detections, this.displaySize).expressions.fearful;
+                var datosSurprised = faceapi.resizeResults(detections, this.displaySize).expressions.surprised;
+                var datosDisgusted = faceapi.resizeResults(detections, this.displaySize).expressions.disgusted;
+                if(!this.estoyComputando){
+                  this.emocionAlegria += datosHappy;
+                  this.emocionAsco += datosDisgusted;
+                  this.emocionIra += datosAngry;
+                  this.emocionMiedo += datosFearful;
+                  this.emocionSorpresa += datosSurprised;
+                  this.emocionTristeza += datosSad;
                 }
-                catch (error) {
-                    //console.log("No hay datos que enviar");
-                }
-            }), 1000);
+              } catch (error) {
+                //console.log("No hay datos que enviar");
+              }
+            }, 1000)*/
         });
     }
     computacionDatos() {
@@ -1702,7 +1787,7 @@ let EstudianteComponent = class EstudianteComponent {
             //Alegria
             datos['alegria'] = {
                 x: x,
-                y: Number((this.emocionAlegria / this.datosTotalesEmocionales) * 100).toFixed(2),
+                y: Math.round((this.emocionAlegria / this.datosTotalesEmocionales) * 100),
             };
             if (predominante < datos['alegria'].y) {
                 predominante = datos['alegria'].y;
@@ -1711,7 +1796,7 @@ let EstudianteComponent = class EstudianteComponent {
             //Asco
             datos['asco'] = {
                 x: x,
-                y: Number((this.emocionAsco / this.datosTotalesEmocionales) * 100).toFixed(2),
+                y: Math.round((this.emocionAsco / this.datosTotalesEmocionales) * 100),
             };
             if (predominante < datos['asco'].y) {
                 predominante = datos['asco'].y;
@@ -1720,7 +1805,7 @@ let EstudianteComponent = class EstudianteComponent {
             //Ira
             datos['ira'] = {
                 x: x,
-                y: Number((this.emocionIra / this.datosTotalesEmocionales) * 100).toFixed(2),
+                y: Math.round((this.emocionIra / this.datosTotalesEmocionales) * 100),
             };
             if (predominante < datos['ira'].y) {
                 predominante = datos['ira'].y;
@@ -1729,7 +1814,7 @@ let EstudianteComponent = class EstudianteComponent {
             //Miedo
             datos['miedo'] = {
                 x: x,
-                y: Number((this.emocionMiedo / this.datosTotalesEmocionales) * 100).toFixed(2),
+                y: Math.round((this.emocionMiedo / this.datosTotalesEmocionales) * 100),
             };
             if (predominante < datos['miedo']) {
                 predominante = datos['miedo'].y;
@@ -1738,7 +1823,7 @@ let EstudianteComponent = class EstudianteComponent {
             //Sorpresa
             datos['sorpresa'] = {
                 x: x,
-                y: Number((this.emocionSorpresa / this.datosTotalesEmocionales) * 100).toFixed(2),
+                y: Math.round((this.emocionSorpresa / this.datosTotalesEmocionales) * 100),
             };
             if (predominante < datos['sorpresa']) {
                 predominante = datos['sorpresa'].y;
@@ -1747,7 +1832,7 @@ let EstudianteComponent = class EstudianteComponent {
             //Triteza
             datos['tristeza'] = {
                 x: x,
-                y: Number((this.emocionTristeza / this.datosTotalesEmocionales) * 100).toFixed(2),
+                y: Math.round((this.emocionTristeza / this.datosTotalesEmocionales) * 100),
             };
             if (predominante < datos['tristeza'].y) {
                 predominante = datos['tristeza'].y;
@@ -1803,7 +1888,7 @@ let EstudianteComponent = class EstudianteComponent {
             if (datos['pulsaciones'].y > 85) {
                 datos['distraido'] = {
                     x: x,
-                    y: Number(datos['sorpresa'].y * 100).toFixed(2),
+                    y: Math.round(datos['sorpresa'].y * 100),
                 };
             }
             if (datos['alegria'].y == NaN || datos['alegria'].y == null) {
@@ -1814,7 +1899,7 @@ let EstudianteComponent = class EstudianteComponent {
             }
             datos['concentrado'] = {
                 x: x,
-                y: Number(100 - datos['distraido'].y * 100).toFixed(2),
+                y: Math.round(100 - datos['distraido'].y * 100),
             };
             datos['frustrado'] = {
                 x: x,
@@ -1823,25 +1908,25 @@ let EstudianteComponent = class EstudianteComponent {
             if ((datos['sorpresa'].y + datos['tristeza'].y) > 0.25) {
                 datos['frustrado'] = {
                     x: x,
-                    y: Number(datos['frustrado'].y + 0.25 * 100).toFixed(2),
+                    y: Math.round(datos['frustrado'].y + 0.25 * 100),
                 };
             }
             if ((datos['asco'].y + datos['ira'].y) > 0.25) {
                 datos['frustrado'] = {
                     x: x,
-                    y: Number(datos['frustrado'].y + 0.25 * 100).toFixed(2),
+                    y: Math.round(datos['frustrado'].y + 0.25 * 100),
                 };
             }
             if ((datos['miedo'].y + datos['tristeza'].y) > 0.25) {
                 datos['frustrado'] = {
                     x: x,
-                    y: Number(datos['frustrado'].y + 0.25 * 100).toFixed(2),
+                    y: Math.round(datos['frustrado'].y + 0.25 * 100),
                 };
             }
             if ((datos['sorpresa'].y + datos['ira'].y) > 0.25) {
                 datos['frustrado'] = {
                     x: x,
-                    y: Number(datos['frustrado'].y + 0.25 * 100).toFixed(2),
+                    y: Math.round(datos['frustrado'].y + 0.25 * 100),
                 };
             }
             if (datos['alegria'].y == NaN || datos['alegria'].y == null) {
@@ -1852,7 +1937,7 @@ let EstudianteComponent = class EstudianteComponent {
             }
             datos['motivado'] = {
                 x: x,
-                y: Number(100 - datos['frustrado'].y * 100).toFixed(2),
+                y: Math.round(100 - datos['frustrado'].y * 100),
             };
             console.log("Datos listos para enviar");
             console.log(datos);
@@ -1882,20 +1967,25 @@ let EstudianteComponent = class EstudianteComponent {
     conectarPulsera(sensor) {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
             try {
-                pulseraMiband.connect();
-                sensor.estado = "Conectado";
-                this.intervaloPulsaciones = setInterval(async => {
-                    this.pulsometro(sensor);
-                }, 2000);
+                var conectado = yield pulseraMiband.connect();
+                console.log(conectado);
+                if (conectado) {
+                    sensor.estado = "Conectado";
+                    this.intervaloPulsaciones = setInterval(async => {
+                        this.pulsometro(sensor);
+                    }, 2000);
+                    this.pulseraConectada(this.actividadActual);
+                }
             }
             catch (e) {
+                console.log(e);
             }
         });
     }
     pulsometro(sensor) {
         if (sensor.estado == "Conectado") {
             this.pulsaciones = pulseraMiband.pulsacionesActuales;
-            console.log(this.pulsaciones);
+            //console.log(this.pulsaciones);
         }
     }
     desconectarSensor(sensor) {
@@ -1904,6 +1994,7 @@ let EstudianteComponent = class EstudianteComponent {
                 //console.log(sensor);
                 sensor.data = null;
                 sensor.estado = "Desconectado";
+                this.ledDesconectada(this.actividadActual);
             }
             if (sensor.nombre == "Camara") {
                 /*navigator.getUserMedia({ audio: false, video: true },
@@ -1933,11 +2024,13 @@ let EstudianteComponent = class EstudianteComponent {
                     track.stop();
                     sensor.data = null;
                     sensor.estado = "Desconectado";
+                    this.webCamDesconectada(this.actividadActual);
+                    clearImmediate(this.intervaloGenerarDatos);
                 }
                 catch (e) {
                     //errorMsgElement.innerHTML = `navigator.getUserMedia error:${e.toString()}`;
                     console.log(e);
-                    console.log("Has tenido un error");
+                    //console.log("Has tenido un error");
                 }
             }
             if (sensor.nombre == "Pulsera") {
@@ -1945,12 +2038,14 @@ let EstudianteComponent = class EstudianteComponent {
                 clearInterval(this.intervaloPulsaciones);
                 sensor.data = null;
                 sensor.estado = "Desconectado";
+                this.pulseraDesconectada(this.actividadActual);
             }
         });
     }
     //Implementacion del led
     conectarLed(sensor) {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
+            var ju = this;
             console.log("Conectandose...");
             try {
                 sensor.data = yield navigator.hid.requestDevice({
@@ -1961,11 +2056,17 @@ let EstudianteComponent = class EstudianteComponent {
                 });
                 //device.open();
                 //console.log(this.device);
-                this.led.estado = "Conectado";
-                yield sensor.data.open();
+                console.log(sensor.data);
+                if (sensor.data.length != 0) {
+                    this.led.estado = "Conectado";
+                    this.socket.emit('ledConectada', this.actividadActual, this.estudiante);
+                    yield sensor.data.open();
+                    //await ju.ledConectada(ju.actividadActual);
+                }
             }
             catch (err) {
                 // No device was selected.
+                console.log(err);
             }
             //console.log(this.listaSensores)
             if (this.device !== undefined) {
@@ -3131,6 +3232,28 @@ let ProfesorComponent = class ProfesorComponent {
             this.socket.emit('terminarActividad', actividad);
             this.socket.emit('borrarActividadLista', actividad);
         };
+        this.conectarWebCam = function (estudiante) {
+            this.socket.emit('conectarWebCam', estudiante);
+        };
+        this.conectarLed = function (estudiante) {
+            this.socket.emit('conectarLed', estudiante);
+        };
+        this.conectarPulsera = function (estudiante) {
+            this.socket.emit('conectarPulsera', estudiante);
+        };
+        this.desconectarWebCam = function (estudiante) {
+            this.socket.emit('desconectarWebCam', estudiante);
+        };
+        this.desconectarLed = function (estudiante) {
+            this.socket.emit('desconectarLed', estudiante);
+        };
+        this.desconectarPulsera = function (estudiante) {
+            this.socket.emit('desconectarPulsera', estudiante);
+        };
+        this.enviarDatos = function (datos, actividad) {
+            console.log("enviando datos");
+            this.socket.emit('enviarDatosFicticios', datos, actividad);
+        };
         this.lanzarSocketSrv = function () {
             var cli = this;
             this.socket.on('connect', function () {
@@ -3145,11 +3268,13 @@ let ProfesorComponent = class ProfesorComponent {
             this.socket.on('seHaConectado', function (res) {
                 if (!cli.esta(res)) {
                     cli.alumnosConectados.push(res);
+                    cli.verActividadComp.usuarioConectado(res);
                 }
             });
             this.socket.on('seHaDesconectado', function (res) {
                 if (cli.esta(res)) {
                     cli.alumnosConectados.splice(cli.posicionDelAlumnoConectado, 1);
+                    cli.verActividadComp.usuarioDesconectado(res);
                 }
             });
             this.socket.on('recepcionDatos', function (datos) {
@@ -3163,6 +3288,24 @@ let ProfesorComponent = class ProfesorComponent {
             });
             this.socket.on('actividadTerminada', function (res) {
                 cli.actividadTerminada(res);
+            });
+            this.socket.on('webCamConectada', function (estudiante) {
+                cli.verActividadComp.webCamActivada(estudiante);
+            });
+            this.socket.on('pulseraConectada', function (estudiante) {
+                cli.verActividadComp.pulseraActivada(estudiante);
+            });
+            this.socket.on('ledConectada', function (estudiante) {
+                cli.verActividadComp.ledActivado(estudiante);
+            });
+            this.socket.on('webCamDesonectada', function (estudiante) {
+                cli.verActividadComp.webCamDesconectada(estudiante);
+            });
+            this.socket.on('pulseraDesonectada', function (estudiante) {
+                cli.verActividadComp.pulseraDesconectada(estudiante);
+            });
+            this.socket.on('ledDesonectada', function (estudiante) {
+                cli.verActividadComp.ledDesconectada(estudiante);
             });
             /*
             this.socket.on('partidaCreada',function(partida){
@@ -4062,17 +4205,16 @@ let VerActividadComponent = class VerActividadComponent {
         this.datoTristeza = true;
         this.datoIra = true;
         this.estados = [
-            { nombre: 'alegria', checked: true },
-            { nombre: 'asco', checked: true },
-            { nombre: 'miedo', checked: false },
-            { nombre: 'sorpresa', checked: false },
-            { nombre: 'tristeza', checked: false },
-            { nombre: 'ira', checked: false },
-            { nombre: 'pulsaciones', checked: false },
-            { nombre: 'distraido', checked: false },
-            { nombre: 'concentrado', checked: false },
-            { nombre: 'frustrado', checked: false },
-            { nombre: 'motivado', checked: false },
+            { nombre: 'alegria', checked: true, color: [255, 255, 84] },
+            { nombre: 'asco', checked: true, color: [0, 0, 0] },
+            { nombre: 'miedo', checked: false, color: [0, 150, 0] },
+            { nombre: 'sorpresa', checked: false, color: [89, 189, 255] },
+            { nombre: 'tristeza', checked: false, color: [81, 81, 255] },
+            { nombre: 'pulsaciones', checked: false, color: [255, 0, 0] },
+            { nombre: 'distraido', checked: false, color: [70, 70, 70] },
+            { nombre: 'concentrado', checked: false, color: [84, 255, 84] },
+            { nombre: 'frustrado', checked: false, color: [123, 123, 123] },
+            { nombre: 'motivado', checked: false, color: [84, 25, 80] },
         ];
         this.estadosGlobales = [
             { nombre: 'alegria', checked: true, color: 'rgba(255,255,84,1)' },
@@ -4110,6 +4252,7 @@ let VerActividadComponent = class VerActividadComponent {
         this.alumnoSeleccionadoAlumno = false;
         this.objAlumnoSeleccionado = null;
         this.intervaloResumen = null;
+        this.simulandoDatos = false;
         //alumnosConectados=0;
         this.alumnosDesconectados = 0;
         //Datos de las Graficas 
@@ -4203,9 +4346,15 @@ let VerActividadComponent = class VerActividadComponent {
                 }
                 this.alumnosTabla.push({
                     id_item: this.actividad.alumnos[i].id_item,
-                    nombre: this.actividad.alumnos[i].estudiante.nombre + ' ' + this.actividad.alumnos[i].estudiante.apellidos,
+                    nombre: this.actividad.alumnos[i].estudiante.nombre,
+                    apellidos: this.actividad.alumnos[i].estudiante.apellidos,
                     estado: 'Desconectado',
-                    pulsaciones: pul / this.actividad.alumnos[i].datos.pulsaciones.length,
+                    //pulsaciones: pul / this.actividad.alumnos[i].datos.pulsaciones.length,
+                    pulsaciones: '--',
+                    webcam: this.actividad.alumnos[i].sensorWebCam,
+                    pulsera: this.actividad.alumnos[i].sensorPulsera,
+                    led: this.actividad.alumnos[i].sensorLed,
+                    estudiante: this.actividad.alumnos[i].estudiante,
                 });
             }
         }
@@ -4213,9 +4362,13 @@ let VerActividadComponent = class VerActividadComponent {
             for (let i = 0; i < this.actividad.alumnos.length; i++) {
                 this.alumnosTabla.push({
                     id_item: this.actividad.alumnos[i].id_item,
-                    nombre: this.actividad.alumnos[i].estudiante.nombre + ' ' + this.actividad.alumnos[i].estudiante.apellidos,
+                    nombre: this.actividad.alumnos[i].estudiante.nombre,
                     estado: 'Desconectado',
-                    pulsaciones: '100',
+                    pulsaciones: '--',
+                    estudiante: this.actividad.alumnos[i].estudiante,
+                    webcam: this.actividad.alumnos[i].sensorWebCam,
+                    pulsera: this.actividad.alumnos[i].sensorPulsera,
+                    led: this.actividad.alumnos[i].sensorLed,
                 });
             }
         }
@@ -4480,6 +4633,7 @@ let VerActividadComponent = class VerActividadComponent {
     }*/
     terminar() {
         //console.log(this.usuariosConectadoss);
+        clearInterval(this.intervaloSimularDatos);
         let ju = this;
         let act = this.actividad;
         act.fecha = moment__WEBPACK_IMPORTED_MODULE_3__().format('LLLL');
@@ -4601,6 +4755,7 @@ let VerActividadComponent = class VerActividadComponent {
                     this.actividad.alumnos[i].datos.concentrado.push({ x: datos.concentrado.x, y: datos.concentrado.y });
                     this.actividad.alumnos[i].datos.frustrado.push({ x: datos.frustrado.x, y: datos.frustrado.y });
                     this.actividad.alumnos[i].datos.motivado.push({ x: datos.motivado.x, y: datos.motivado.y });
+                    $('#' + datos.id_item + '').css("background-color", datos.color);
                     this.graficaLineal.update();
                 }
             }
@@ -4620,12 +4775,12 @@ let VerActividadComponent = class VerActividadComponent {
             let x = moment__WEBPACK_IMPORTED_MODULE_3__().format();
             this.estoyComputando = true;
             sumaTotalEmociones = this.resumen.alegria + this.resumen.asco + this.resumen.ira + this.resumen.miedo + this.resumen.sorpresa + this.resumen.tristeza;
-            this.datosResumenSeleccionados.alegria = (this.resumen.alegria / sumaTotalEmociones) * 100;
-            this.datosResumenSeleccionados.asco = (this.resumen.asco / sumaTotalEmociones) * 100;
-            this.datosResumenSeleccionados.ira = (this.resumen.ira / sumaTotalEmociones) * 100;
-            this.datosResumenSeleccionados.miedo = (this.resumen.miedo / sumaTotalEmociones) * 100;
-            this.datosResumenSeleccionados.sorpresa = (this.resumen.sorpresa / sumaTotalEmociones) * 100;
-            this.datosResumenSeleccionados.tristeza = (this.resumen.tristeza / sumaTotalEmociones) * 100;
+            this.datosResumenSeleccionados.alegria = Math.round((this.resumen.alegria / sumaTotalEmociones) * 100);
+            this.datosResumenSeleccionados.asco = Math.round((this.resumen.asco / sumaTotalEmociones) * 100);
+            this.datosResumenSeleccionados.ira = Math.round((this.resumen.ira / sumaTotalEmociones) * 100);
+            this.datosResumenSeleccionados.miedo = Math.round((this.resumen.miedo / sumaTotalEmociones) * 100);
+            this.datosResumenSeleccionados.sorpresa = Math.round((this.resumen.sorpresa / sumaTotalEmociones) * 100);
+            this.datosResumenSeleccionados.tristeza = Math.round((this.resumen.tristeza / sumaTotalEmociones) * 100);
             this.actividad.resumen.alegria.push({ x: x, y: this.datosResumenSeleccionados.alegria });
             this.actividad.resumen.asco.push({ x: x, y: this.datosResumenSeleccionados.asco });
             this.actividad.resumen.ira.push({ x: x, y: this.datosResumenSeleccionados.ira });
@@ -4645,10 +4800,9 @@ let VerActividadComponent = class VerActividadComponent {
             //Datos de las pulsaciones
             this.actividad.resumen.pulsaciones.push({ x: x, y: (this.resumen.pulsaciones / this.numPulsaciones) });
             //Datos cognitivos
-            let sumaTotalEstadoDisConc = 0;
-            this.datosResumenSeleccionados.concentrado = (this.resumen.concentrado / sumaTotalEstadoDisConc) * 100;
-            this.datosResumenSeleccionados.distraido = (this.resumen.distraido / sumaTotalEstadoDisConc) * 100;
-            sumaTotalEstadoDisConc = this.resumen.distraido + this.resumen.concentrado;
+            let sumaTotalEstadoDisConc = this.resumen.distraido + this.resumen.concentrado;
+            this.datosResumenSeleccionados.concentrado = Math.round((this.resumen.concentrado / sumaTotalEstadoDisConc) * 100);
+            this.datosResumenSeleccionados.distraido = Math.round((this.resumen.distraido / sumaTotalEstadoDisConc) * 100);
             this.actividad.resumen.distraido.push({ x: x, y: this.datosResumenSeleccionados.concentrado });
             this.actividad.resumen.concentrado.push({ x: x, y: this.datosResumenSeleccionados.concentrado });
             try {
@@ -4657,10 +4811,9 @@ let VerActividadComponent = class VerActividadComponent {
             }
             catch (e) {
             }
-            let sumaTotalEstadoFrusMotiv = 0;
-            this.datosResumenSeleccionados.motivado = (this.resumen.motivado / sumaTotalEstadoFrusMotiv) * 100;
-            this.datosResumenSeleccionados.frustrado = (this.resumen.frustrado / sumaTotalEstadoFrusMotiv) * 100;
-            sumaTotalEstadoFrusMotiv = this.resumen.frustrado + this.resumen.motivado;
+            let sumaTotalEstadoFrusMotiv = this.resumen.frustrado + this.resumen.motivado;
+            this.datosResumenSeleccionados.motivado = Math.round((this.resumen.motivado / sumaTotalEstadoFrusMotiv) * 100);
+            this.datosResumenSeleccionados.frustrado = Math.round((this.resumen.frustrado / sumaTotalEstadoFrusMotiv) * 100);
             this.actividad.resumen.frustrado.push({ x: x, y: this.datosResumenSeleccionados.frustrado });
             this.actividad.resumen.motivado.push({ x: x, y: this.datosResumenSeleccionados.motivado });
             try {
@@ -4919,7 +5072,7 @@ let VerActividadComponent = class VerActividadComponent {
                     if (this.alumnosSelect[i].nombre == "Media de todos") {
                         for (let j = 0; j < this.estados.length; j++) {
                             if (this.estados[j].checked) {
-                                var color = this.colorRGB();
+                                var color = this.colorRGB(this.estados[j].color);
                                 datos.push({
                                     label: this.estados[j].nombre + ' de ' + this.alumnosSelect[i].nombre,
                                     backgroundColor: color,
@@ -4937,7 +5090,7 @@ let VerActividadComponent = class VerActividadComponent {
                             if (this.alumnosSelect[i].id == this.actividad.alumnos[h].estudiante._id) {
                                 for (let j = 0; j < this.estados.length; j++) {
                                     if (this.estados[j].checked) {
-                                        var color = this.colorRGB();
+                                        var color = this.colorRGB(this.estados[j].color);
                                         datos.push({
                                             label: this.estados[j].nombre + ' de ' + this.alumnosSelect[i].nombre,
                                             backgroundColor: color,
@@ -5034,13 +5187,123 @@ let VerActividadComponent = class VerActividadComponent {
         }
         this.graficaResumen = new chart_js__WEBPACK_IMPORTED_MODULE_2__["Chart"]('estadoGlobal', this.configUsersConectados);
     }
-    colorRGB() {
+    colorRGB(estado) {
         //'rgba(81,81,255,0.4)'
-        var color = "(" + this.generarNumero() + "," + this.generarNumero() + "," + this.generarNumero() + ")";
-        return "rgb" + color;
+        console.log(estado);
+        var r = estado[0] + this.generarNumero();
+        var g = estado[1] + this.generarNumero();
+        var a = estado[2] + this.generarNumero();
+        console.log('rgba(' + r + ',' + g + ',' + a + ')');
+        var color = "(" + r + "," + g + "," + a + ",0.8)";
+        return "rgba" + color;
     }
     generarNumero() {
-        return (Math.random() * 255).toFixed(0);
+        return Math.round(Math.random() * 40);
+    }
+    simularDatos() {
+        var ju = this;
+        if (!this.simulandoDatos) {
+            this.simulandoDatos = true;
+            this.intervaloSimularDatos = setInterval(async => {
+                for (let i = 0; i < this.actividad.alumnos.length; i++) {
+                    var datos = {};
+                    var max = 100;
+                    var alegria = Math.round(Math.random() * (max - 0) + 0);
+                    max = max - alegria;
+                    var asco = Math.round(Math.random() * (max - 0) + 0);
+                    max = max - asco;
+                    var ira = Math.round(Math.random() * (max - 0) + 0);
+                    max = max - ira;
+                    var miedo = Math.round(Math.random() * (max - 0) + 0);
+                    max = max - miedo;
+                    var sorpresa = Math.round(Math.random() * (max - 0) + 0);
+                    max = max - sorpresa;
+                    var tristeza = Math.round(Math.random() * (max - 0) + 0);
+                    max = max - tristeza;
+                    datos['id_actividad'] = this.actividad['_id'];
+                    datos['id_item'] = this.actividad.alumnos[i].id_item;
+                    console.log("Datos generados1");
+                    let x = moment__WEBPACK_IMPORTED_MODULE_3__().format();
+                    //Estado Emocional
+                    datos['id_item'] = this.actividad.alumnos[i].id_item;
+                    //Alegria
+                    datos['alegria'] = {
+                        x: x,
+                        y: alegria,
+                    };
+                    //Asco
+                    datos['asco'] = {
+                        x: x,
+                        y: asco,
+                    };
+                    //Ira
+                    datos['ira'] = {
+                        x: x,
+                        y: ira,
+                    };
+                    //Miedo
+                    datos['miedo'] = {
+                        x: x,
+                        y: miedo,
+                    };
+                    //Sorpresa
+                    datos['sorpresa'] = {
+                        x: x,
+                        y: sorpresa,
+                    };
+                    //Triteza
+                    datos['tristeza'] = {
+                        x: x,
+                        y: tristeza,
+                    };
+                    console.log("Datos generados2");
+                    var num = Math.round(Math.random() * ((this.estadosConjunto[0].estados.length - 1) - 0) + 0);
+                    console.log(num);
+                    datos['color'] = this.estadosConjunto[0].estados[num].color;
+                    //Estado de las Pulsaciones
+                    datos['pulsaciones'] = {
+                        x: x,
+                        y: Math.round(Math.random() * (130 - 50) + 50),
+                    };
+                    //Estado temporal
+                    datos['tiempo'] = x;
+                    max = 100;
+                    var distraido = Math.round(Math.random() * (max - 0) + 0);
+                    max = 100 - distraido;
+                    var concentrado = Math.round(Math.random() * (max - 0) + 0);
+                    //Estado Cognitivo
+                    datos['distraido'] = {
+                        x: x,
+                        y: distraido,
+                    };
+                    datos['concentrado'] = {
+                        x: x,
+                        y: concentrado,
+                    };
+                    console.log("Datos generados4");
+                    max = 100;
+                    var frustrado = Math.round(Math.random() * (max - 0) + 0);
+                    max = 100 - frustrado;
+                    var motivado = Math.round(Math.random() * (max - 0) + 0);
+                    datos['frustrado'] = {
+                        x: x,
+                        y: frustrado,
+                    };
+                    datos['motivado'] = {
+                        x: x,
+                        y: motivado,
+                    };
+                    console.log("Datos generados5");
+                    console.log(datos);
+                    this.insertarDatos(datos);
+                    this.profesor.enviarDatos(datos, ju.actividad);
+                }
+            }, 7000);
+        }
+        else {
+            this.simulandoDatos = false;
+            clearInterval(this.intervaloSimularDatos);
+        }
     }
     ngOnDestroy() {
         clearInterval(this.intervaloResumen);
@@ -5096,16 +5359,94 @@ let VerActividadComponent = class VerActividadComponent {
         }
     }
     activarTodasWebCam() {
+        for (let i = 0; i < this.actividad.alumnos.length; i++) {
+            this.activarWebCam(this.actividad.alumnos[i].estudiante);
+        }
     }
     activarWebCam(usuario) {
+        this.profesor.conectarWebCam(usuario);
+    }
+    desactivarWebCam(usuario) {
+        this.profesor.desconectarWebCam(usuario);
+    }
+    webCamActivada(usuario) {
+        for (let i = 0; i < this.alumnosTabla.length; i++) {
+            if (usuario._id == this.alumnosTabla[i].estudiante._id) {
+                this.alumnosTabla[i].webcam = true;
+            }
+        }
+    }
+    webCamDesconectada(usuario) {
+        for (let i = 0; i < this.alumnosTabla.length; i++) {
+            if (usuario._id == this.alumnosTabla[i].estudiante._id) {
+                this.alumnosTabla[i].webcam = false;
+            }
+        }
     }
     activarTodasPulseras() {
+        for (let i = 0; i < this.actividad.alumnos.length; i++) {
+            this.activarPulsera(this.actividad.alumnos[i].estudiante);
+        }
     }
     activarPulsera(usuario) {
+        this.profesor.conectarPulsera(usuario);
+    }
+    desactivarPulsera(usuario) {
+        this.profesor.desconectarPulsera(usuario);
+    }
+    pulseraActivada(usuario) {
+        for (let i = 0; i < this.alumnosTabla.length; i++) {
+            if (usuario._id == this.alumnosTabla[i].estudiante._id) {
+                this.alumnosTabla[i].pulsera = true;
+            }
+        }
+    }
+    pulseraDesconectada(usuario) {
+        for (let i = 0; i < this.alumnosTabla.length; i++) {
+            if (usuario._id == this.alumnosTabla[i].estudiante._id) {
+                this.alumnosTabla[i].pulsera = false;
+            }
+        }
     }
     activarTodosLeds() {
+        for (let i = 0; i < this.actividad.alumnos.length; i++) {
+            this.activarLed(this.actividad.alumnos[i].estudiante);
+        }
     }
     activarLed(usuario) {
+        this.profesor.conectarLed(usuario);
+    }
+    desactivarLed(usuario) {
+        this.profesor.desconectarLed(usuario);
+    }
+    ledActivado(usuario) {
+        for (let i = 0; i < this.alumnosTabla.length; i++) {
+            if (usuario._id == this.alumnosTabla[i].estudiante._id) {
+                this.alumnosTabla[i].led = true;
+                console.log("led activado");
+            }
+        }
+    }
+    ledDesconectada(usuario) {
+        for (let i = 0; i < this.alumnosTabla.length; i++) {
+            if (usuario._id == this.alumnosTabla[i].estudiante._id) {
+                this.alumnosTabla[i].led = false;
+            }
+        }
+    }
+    usuarioConectado(usuario) {
+        for (let i = 0; i < this.alumnosTabla.length; i++) {
+            if (usuario._id == this.alumnosTabla[i].estudiante._id) {
+                this.alumnosTabla[i].estado = 'Conectado';
+            }
+        }
+    }
+    usuarioDesconectado(usuario) {
+        for (let i = 0; i < this.alumnosTabla.length; i++) {
+            if (usuario._id == this.alumnosTabla[i].estudiante._id) {
+                this.alumnosTabla[i].estado = 'Desconectado';
+            }
+        }
     }
 };
 VerActividadComponent.ctorParameters = () => [

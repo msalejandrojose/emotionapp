@@ -351,7 +351,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<style>\n  :host {\n    font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\";\n    font-size: 14px;\n    color: #333;\n    box-sizing: border-box;\n    -webkit-font-smoothing: antialiased;\n    -moz-osx-font-smoothing: grayscale;\n  }\n\n  h1,\n  h2,\n  h3,\n  h4,\n  h5,\n  h6 {\n    margin: 8px 0;\n  }\n\n  p {\n    margin: 0;\n  }\n\n  .spacer {\n    flex: 1;\n  }\n\n  .toolbar {\n    height: 60px;\n    margin: 0px;\n    display: flex;\n    align-items: center;\n    background-color: #54577C;\n    color: white;\n    font-weight: 600;\n  }\n\n  .toolbar img {\n    margin: 0 16px;\n  }\n\n  .toolbar #twitter-logo {\n    height: 40px;\n    margin: 0 16px;\n  }\n\n  .toolbar #twitter-logo:hover {\n    opacity: 0.8;\n  }\n\n  .content {\n    display: flex;\n    margin: 32px auto;\n    padding: 0 16px;\n    max-width: 960px;\n    flex-direction: column;\n    align-items: center;\n  }\n\n  svg.material-icons {\n    height: 24px;\n    width: auto;\n  }\n\n  svg.material-icons:not(:last-child) {\n    margin-right: 8px;\n  }\n\n  .card svg.material-icons path {\n    fill: #888;\n  }\n\n  .card-container {\n    display: flex;\n    flex-wrap: wrap;\n    justify-content: center;\n    margin-top: 16px;\n  }\n\n  .card {\n    border-radius: 4px;\n    border: 1px solid #eee;\n    background-color: #fafafa;\n    height: 40px;\n    width: 200px;\n    margin: 0 8px 16px;\n    padding: 16px;\n    display: flex;\n    flex-direction: row;\n    justify-content: center;\n    align-items: center;\n    transition: all 0.2s ease-in-out;\n    line-height: 24px;\n  }\n\n  .card-container .card:not(:last-child) {\n    margin-right: 0;\n  }\n\n  .card.card-small {\n    height: 16px;\n    width: 168px;\n  }\n\n  .card-container .card:not(.highlight-card) {\n    cursor: pointer;\n  }\n\n  .card-container .card:not(.highlight-card):hover {\n    transform: translateY(-3px);\n    box-shadow: 0 4px 17px rgba(black, 0.35);\n  }\n\n  .card-container .card:not(.highlight-card):hover .material-icons path {\n    fill: rgb(105, 103, 103);\n  }\n\n  .card.highlight-card {\n    background-color: #1976d2;\n    color: white;\n    font-weight: 600;\n    border: none;\n    width: auto;\n    min-width: 30%;\n    position: relative;\n  }\n\n  .card.card.highlight-card span {\n    margin-left: 60px;\n  }\n\n  svg#rocket {\n    width: 80px;\n    position: absolute;\n    left: -10px;\n    top: -24px;\n  }\n\n  svg#rocket-smoke {\n    height: 100vh;\n    position: absolute;\n    top: 10px;\n    right: 180px;\n    z-index: -10;\n  }\n\n  a,\n  a:visited,\n  a:hover {\n    color: #1976d2;\n    text-decoration: none;\n  }\n\n  a:hover {\n    color: #125699;\n  }\n\n  .terminal {\n    position: relative;\n    width: 80%;\n    max-width: 600px;\n    border-radius: 6px;\n    padding-top: 45px;\n    margin-top: 8px;\n    overflow: hidden;\n    background-color: rgb(15, 15, 16);\n  }\n\n  .terminal::before {\n    content: \"\\2022 \\2022 \\2022\";\n    position: absolute;\n    top: 0;\n    left: 0;\n    height: 4px;\n    background: rgb(58, 58, 58);\n    color: #c2c3c4;\n    width: 100%;\n    font-size: 2rem;\n    line-height: 0;\n    padding: 14px 0;\n    text-indent: 4px;\n  }\n\n  .terminal pre {\n    font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace;\n    color: white;\n    padding: 0 1rem 1rem;\n    margin: 0;\n  }\n\n  .circle-link {\n    height: 40px;\n    width: 40px;\n    border-radius: 40px;\n    margin: 8px;\n    background-color: white;\n    border: 1px solid #eeeeee;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    cursor: pointer;\n    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);\n    transition: 1s ease-out;\n  }\n\n  .circle-link:hover {\n    transform: translateY(-0.25rem);\n    box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);\n  }\n\n  footer {\n    margin-top: 8px;\n    display: flex;\n    align-items: center;\n    line-height: 20px;\n  }\n\n  footer a {\n    display: flex;\n    align-items: center;\n  }\n\n  .github-star-badge {\n    color: #24292e;\n    display: flex;\n    align-items: center;\n    font-size: 12px;\n    padding: 3px 10px;\n    border: 1px solid rgba(27, 31, 35, .2);\n    border-radius: 3px;\n    background-image: linear-gradient(-180deg, #fafbfc, #eff3f6 90%);\n    margin-left: 4px;\n    font-weight: 600;\n    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;\n  }\n\n  .github-star-badge:hover {\n    background-image: linear-gradient(-180deg, #f0f3f6, #e6ebf1 90%);\n    border-color: rgba(27, 31, 35, .35);\n    background-position: -.5em;\n  }\n\n  .github-star-badge .material-icons {\n    height: 16px;\n    width: 16px;\n    margin-right: 4px;\n  }\n\n  svg#clouds {\n    position: fixed;\n    bottom: -160px;\n    left: -230px;\n    z-index: -10;\n    width: 1920px;\n  }\n\n\n  /* Responsive Styles */\n  @media screen and (max-width: 767px) {\n\n    .card-container>*:not(.circle-link),\n    .terminal {\n      width: 100%;\n    }\n\n    .card:not(.highlight-card) {\n      height: 16px;\n      margin: 8px 0;\n    }\n\n    .card.highlight-card span {\n      margin-left: 72px;\n    }\n\n    svg#rocket-smoke {\n      right: 120px;\n      transform: rotate(-5deg);\n    }\n  }\n\n  @media screen and (max-width: 575px) {\n    svg#rocket-smoke {\n      display: none;\n      visibility: hidden;\n    }\n  }\n</style>\n\n<!-- Toolbar -->\n<div class=\"toolbar .container-fluid row justify-content-center\"  role=\"banner\">\n  <div class=\"col-sm-2 col-1 text-center\">\n    <img style=\"cursor: pointer;\" height=\"30px\" width=\"30px\" (click)=\"entrarHome()\" src=\"assets/Logo10.png\">\n  </div>\n  <div class=\"col-sm-10 col-11\">\n    <div class=\"row\">\n      <div class=\"row col-12 justify-content-center\">\n        <div class=\"col-6\">\n          <h3 class=\"text-left\" style=\"font-style: oblique;\" id=\"titulo\">EmotionAppAj</h3>\n        </div>\n        <div *ngIf=\"!dentro\" class=\"col-3 text-right\">\n          <button type=\"button\" (click)=\"entrarProfesor()\" class=\"btn btn-primary\">Profesor</button>\n        </div>\n        <div *ngIf=\"!dentro\" class=\"col-3 text-right\">\n          <button type=\"button\" (click)=\"entrarEstudiante()\" class=\"btn btn-success\">Estudiante</button>\n        </div>\n        <div *ngIf=\"dentro\" class=\"col-3 col-auto\">\n          {{personaIniciada.nombre}} {{personaIniciada.apellidos}}\n        </div>\n        <div *ngIf=\"dentro\" class=\"col-md-3 col-auto text-right\">\n          <button type=\"button\" (click)=\"salir()\" class=\"btn btn-danger\">Salir <i class=\"fa fa-sign-out\"></i></button>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n<!--Seccion del profesor-->\n<app-profesor id=\"profesor\" *ngIf=\"profesor\"></app-profesor>\n<!--Seccion del estudiante-->\n<app-estudiante id=\"estudiante\" *ngIf=\"estudiante\" (estudianteIniciado)=\"iniciarSesion($event)\"></app-estudiante>\n<div *ngIf=\"(!dentro && !visualizacion) || visualizacion\" >\n  <br>\n  <br>\n</div>\n<div *ngIf=\"!dentro && !visualizacion\" class=\"row justify-content-center\">\n  <div class=\"col-8 text-center\">\n    <h4>Le damos la bienvenida a la aplicacion web</h4>\n  </div>\n</div>\n<div *ngIf=\"(!dentro && !visualizacion) || visualizacion\">\n  <br>\n  <br>\n</div>\n<div *ngIf=\"!dentro && !visualizacion\" class=\"row justify-content-center\">\n  <div class=\"col-auto col-sm-6 text-center\">\n    <br>\n    <br>\n    <img height=\"380px\" width=\"380px\" src=\"assets/Logo10.png\">\n  </div>\n  <div class=\"col-auto col-md-auto text-right\">\n    <br>\n    <div class=\"text-center\">\n      <button type=\"button\" (click)=\"entrarProfesor()\" class=\"btn btn-primary btn-circle\">Profesor</button>\n    </div>\n    <br>\n    <div class=\"text-center\">\n      <button type=\"button\" (click)=\"entrarEstudiante()\" class=\"btn btn-success btn-circle\">Estudiante</button>\n    </div>\n  </div>\n</div>\n<div *ngIf=\"visualizacion\" class=\"row justify-content-center\">\n  <div *ngIf=\"acercaDe\" class=\"col-6\">\n    <h4>Acerca de </h4>\n    <ul>\n      <li>\n        <p>\n          Autor: Alejandro José Martínez Sánchez</p>\n      </li>\n      <li>\n        <p>\n          Encargado de desarrollar la aplicación EmotionAppAJ como correspondencia al Trabajo de Fin de Grado de Ingeniería\n          Informatica, en la intensificación de Tencologias de la Información.</p>\n      </li>\n      <li>\n        <p>\n          Herramienta para facilitar la tarea didactica a los docentes, con posibilidad de elaborar graficos y estadisticas\n          sobre la evolucion de sus alumnos en las activiades realizadas.\n        </p>\n      </li>\n      <li>\n        <p>\n          Fecha: Junio 2020\n        </p>\n      </li>\n    </ul>\n    <div class=\"text-center\">\n      <button type=\"button\" (click)=\"cerrarAcercaDe()\" class=\"btn btn-outline-danger\">Cerrar</button>\n    </div>\n    \n  </div>\n  <div *ngIf=\"privacidad\" class=\"col-6\">\n    <div class=\"text-center\">\n      <h4>Privacidad </h4>\n      <p>\n        El uso de esta aplicación utiliza información de caracter personal, a la hora de hacer un escaneo de la cara,\n        para la realización de la computación afectiva, pero no realiza ningun tipo de almanenamiento de dichas imagenes\n        solo de los datos obtenidos.\n      </p>\n      <div>\n        <button type=\"button\" (click)=\"cerrarPrivacidad()\" class=\"btn btn-outline-danger\">Cerrar</button>\n      </div>\n    </div>\n  </div>\n</div>\n<div *ngIf=\"(!dentro && !visualizacion) || visualizacion\">\n  <br>\n  <br>\n</div>\n<div *ngIf=\"(!dentro && !visualizacion) || visualizacion\">\n  <br>\n  <br>\n</div>\n<div class=\"footer container-fluid\" style=\"background-color:rgba(30, 30, 30,0.9); z-index: 2;\">\n  <br>\n  <div class=\"row justify-content-center\">\n    <div class=\"col-6 text-center\">\n      <h4 style=\"font-style: oblique;\">EmotionAppAj </h4>\n      <img style=\"cursor: pointer;\" height=\"30px\" width=\"30px\" src=\"assets/Logo10.png\">\n    </div>\n  </div>\n  <div class=\"row\">\n    <div class=\"col-6 text-center\">\n      <div class=\"row\">\n        <div class=\"col-12\">\n          <a style=\"cursor: pointer; color: white;\" (click)=\"ponerAcercaDe()\">\n            <h6>Acerda de</h6>\n          </a>\n        </div>\n      </div>\n      <div class=\"row\">\n        <div class=\"col-12\">\n          <a style=\"cursor: pointer; color: white;\" (click)=\"ponerPrivacidad()\">\n            <h6>Privacidad</h6>\n          </a>\n        </div>\n      </div>\n      <!--<div class=\"row\">\n        <div class=\"col-12\">\n          <a style=\"cursor: pointer; color: white;\"><h6 href=\"\">RGPD</h6></a>\n        </div>\n      </div>-->\n\n    </div>\n    <div class=\"col-6 text-center\">\n      <div class=\"row\">\n        <div class=\"col-12\">\n          <h6>Redes Sociales</h6>\n        </div>\n      </div>\n      <div class=\" row justify-content-center\">\n        <div class=\"col-1\">\n          <a class=\"icono_rrss\" href=\"https://www.instagram.com/?hl=es\" target=\"_blank\"><i class=\"fa fa-instagram fa-2x\"\n              width=\"15\" height=\"15\"></i></a>\n        </div>\n        <br>\n        <div class=\"col-1\">\n          <a class=\"icono_rrss\" href=\"https://www.facebook.com/alejandrojose.martinez.12\" target=\"_blank\"><i\n              class=\"fa fa-facebook fa-2x\" width=\"15\" height=\"15\"></i></a>\n        </div>\n        <br>\n        <div class=\"col-1\">\n          <a class=\"icono_rrss\" href=\"https://github.com/msalejandrojose/emotionapp\" target=\"_blank\"><i\n              class=\"fa fa-github fa-2x\" width=\"15\" height=\"15\"></i></a>\n        </div>\n        <div class=\"col-1\">\n          <a class=\"icono_rrss\" href=\"https://www.linkedin.com/in/alejandro-jos%C3%A9-256a211a9/\" target=\"_blank\"><i\n              class=\"fa fa-linkedin fa-2x\"></i></a>\n        </div>\n        <div class=\"col-1\">\n          <a class=\"icono_rrss\" href=\"mailto:msalejandrojose7@gmail.com\" target=\"_blank\"><i\n              class=\"fa fa-envelope fa-2x\"></i></a>\n        </div>\n      </div>\n    </div>\n  </div>\n  <br>\n  <div class=\"row\">\n    <div class=\"col-12 text-center\">\n      <p><i>\n          Esta aplicación web esta desarrollada como Proyecto de Fin de Grado para la universidad de Castilla-La Mancha\n          UCLM, Edificio Politecnico Albacete, a fecha de Junio 2020.\n        </i></p>\n    </div>\n  </div>\n  <br>\n</div>\n\n<!--Rutas-->\n<router-outlet></router-outlet>";
+    __webpack_exports__["default"] = "<style>\n  :host {\n    font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\";\n    font-size: 14px;\n    color: #333;\n    box-sizing: border-box;\n    -webkit-font-smoothing: antialiased;\n    -moz-osx-font-smoothing: grayscale;\n  }\n\n  h1,\n  h2,\n  h3,\n  h4,\n  h5,\n  h6 {\n    margin: 8px 0;\n  }\n\n  p {\n    margin: 0;\n  }\n\n  .spacer {\n    flex: 1;\n  }\n\n  .toolbar {\n    height: 60px;\n    margin: 0px;\n    display: flex;\n    align-items: center;\n    background-color: #54577C;\n    color: white;\n    font-weight: 600;\n  }\n\n  .toolbar img {\n    margin: 0 16px;\n  }\n\n  .toolbar #twitter-logo {\n    height: 40px;\n    margin: 0 16px;\n  }\n\n  .toolbar #twitter-logo:hover {\n    opacity: 0.8;\n  }\n\n  .content {\n    display: flex;\n    margin: 32px auto;\n    padding: 0 16px;\n    max-width: 960px;\n    flex-direction: column;\n    align-items: center;\n  }\n\n  svg.material-icons {\n    height: 24px;\n    width: auto;\n  }\n\n  svg.material-icons:not(:last-child) {\n    margin-right: 8px;\n  }\n\n  .card svg.material-icons path {\n    fill: #888;\n  }\n\n  .card-container {\n    display: flex;\n    flex-wrap: wrap;\n    justify-content: center;\n    margin-top: 16px;\n  }\n\n  .card {\n    border-radius: 4px;\n    border: 1px solid #eee;\n    background-color: #fafafa;\n    height: 40px;\n    width: 200px;\n    margin: 0 8px 16px;\n    padding: 16px;\n    display: flex;\n    flex-direction: row;\n    justify-content: center;\n    align-items: center;\n    transition: all 0.2s ease-in-out;\n    line-height: 24px;\n  }\n\n  .card-container .card:not(:last-child) {\n    margin-right: 0;\n  }\n\n  .card.card-small {\n    height: 16px;\n    width: 168px;\n  }\n\n  .card-container .card:not(.highlight-card) {\n    cursor: pointer;\n  }\n\n  .card-container .card:not(.highlight-card):hover {\n    transform: translateY(-3px);\n    box-shadow: 0 4px 17px rgba(black, 0.35);\n  }\n\n  .card-container .card:not(.highlight-card):hover .material-icons path {\n    fill: rgb(105, 103, 103);\n  }\n\n  .card.highlight-card {\n    background-color: #1976d2;\n    color: white;\n    font-weight: 600;\n    border: none;\n    width: auto;\n    min-width: 30%;\n    position: relative;\n  }\n\n  .card.card.highlight-card span {\n    margin-left: 60px;\n  }\n\n  svg#rocket {\n    width: 80px;\n    position: absolute;\n    left: -10px;\n    top: -24px;\n  }\n\n  svg#rocket-smoke {\n    height: 100vh;\n    position: absolute;\n    top: 10px;\n    right: 180px;\n    z-index: -10;\n  }\n\n  a,\n  a:visited,\n  a:hover {\n    color: #1976d2;\n    text-decoration: none;\n  }\n\n  a:hover {\n    color: #125699;\n  }\n\n  .terminal {\n    position: relative;\n    width: 80%;\n    max-width: 600px;\n    border-radius: 6px;\n    padding-top: 45px;\n    margin-top: 8px;\n    overflow: hidden;\n    background-color: rgb(15, 15, 16);\n  }\n\n  .terminal::before {\n    content: \"\\2022 \\2022 \\2022\";\n    position: absolute;\n    top: 0;\n    left: 0;\n    height: 4px;\n    background: rgb(58, 58, 58);\n    color: #c2c3c4;\n    width: 100%;\n    font-size: 2rem;\n    line-height: 0;\n    padding: 14px 0;\n    text-indent: 4px;\n  }\n\n  .terminal pre {\n    font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace;\n    color: white;\n    padding: 0 1rem 1rem;\n    margin: 0;\n  }\n\n  .circle-link {\n    height: 40px;\n    width: 40px;\n    border-radius: 40px;\n    margin: 8px;\n    background-color: white;\n    border: 1px solid #eeeeee;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    cursor: pointer;\n    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);\n    transition: 1s ease-out;\n  }\n\n  .circle-link:hover {\n    transform: translateY(-0.25rem);\n    box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);\n  }\n\n  footer {\n    margin-top: 8px;\n    display: flex;\n    align-items: center;\n    line-height: 20px;\n  }\n\n  footer a {\n    display: flex;\n    align-items: center;\n  }\n\n  .github-star-badge {\n    color: #24292e;\n    display: flex;\n    align-items: center;\n    font-size: 12px;\n    padding: 3px 10px;\n    border: 1px solid rgba(27, 31, 35, .2);\n    border-radius: 3px;\n    background-image: linear-gradient(-180deg, #fafbfc, #eff3f6 90%);\n    margin-left: 4px;\n    font-weight: 600;\n    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;\n  }\n\n  .github-star-badge:hover {\n    background-image: linear-gradient(-180deg, #f0f3f6, #e6ebf1 90%);\n    border-color: rgba(27, 31, 35, .35);\n    background-position: -.5em;\n  }\n\n  .github-star-badge .material-icons {\n    height: 16px;\n    width: 16px;\n    margin-right: 4px;\n  }\n\n  svg#clouds {\n    position: fixed;\n    bottom: -160px;\n    left: -230px;\n    z-index: -10;\n    width: 1920px;\n  }\n\n\n  /* Responsive Styles */\n  @media screen and (max-width: 767px) {\n\n    .card-container>*:not(.circle-link),\n    .terminal {\n      width: 100%;\n    }\n\n    .card:not(.highlight-card) {\n      height: 16px;\n      margin: 8px 0;\n    }\n\n    .card.highlight-card span {\n      margin-left: 72px;\n    }\n\n    svg#rocket-smoke {\n      right: 120px;\n      transform: rotate(-5deg);\n    }\n  }\n\n  @media screen and (max-width: 575px) {\n    svg#rocket-smoke {\n      display: none;\n      visibility: hidden;\n    }\n  }\n</style>\n\n<!-- Toolbar -->\n<div class=\"toolbar .container-fluid row justify-content-center\"  role=\"banner\">\n  <div class=\"col-sm-2 col-1 text-center\">\n    <img style=\"cursor: pointer;\" height=\"30px\" width=\"30px\" (click)=\"entrarHome()\" src=\"assets/Logo10.png\">\n  </div>\n  <div class=\"col-sm-10 col-11\">\n    <div class=\"row\">\n      <div class=\"row col-12 justify-content-center\">\n        <div class=\"col-6\">\n          <h3 class=\"text-left\" style=\"font-style: oblique;\" id=\"titulo\">EmotionAppAj</h3>\n        </div>\n        <div *ngIf=\"!dentro\" class=\"col-3 text-right\">\n          <button type=\"button\" (click)=\"entrarProfesor()\" class=\"btn btn-primary\">Profesor</button>\n        </div>\n        <div *ngIf=\"!dentro\" class=\"col-3 text-right\">\n          <button type=\"button\" (click)=\"entrarEstudiante()\" class=\"btn btn-success\">Estudiante</button>\n        </div>\n        <div *ngIf=\"dentro\" class=\"col-auto\">\n          {{personaIniciada.nombre}} {{personaIniciada.apellidos}}\n        </div>\n        <div *ngIf=\"dentro\" class=\"col-md-3 col-auto text-right\">\n          <button type=\"button\" (click)=\"salir()\" class=\"btn btn-danger\">Salir <i class=\"fa fa-sign-out\"></i></button>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n<!--Seccion del profesor-->\n<app-profesor id=\"profesor\" *ngIf=\"profesor\"></app-profesor>\n<!--Seccion del estudiante-->\n<app-estudiante id=\"estudiante\" *ngIf=\"estudiante\" (estudianteIniciado)=\"iniciarSesion($event)\"></app-estudiante>\n<div *ngIf=\"(!dentro && !visualizacion) || visualizacion\" >\n  <br>\n  <br>\n</div>\n<div *ngIf=\"!dentro && !visualizacion\" class=\"row justify-content-center\">\n  <div class=\"col-8 text-center\">\n    <h4>Le damos la bienvenida a la aplicacion web</h4>\n  </div>\n</div>\n<div *ngIf=\"(!dentro && !visualizacion) || visualizacion\">\n  <br>\n  <br>\n</div>\n<div *ngIf=\"!dentro && !visualizacion\" class=\"row justify-content-center\">\n  <div class=\"col-auto col-sm-6 text-center\">\n    <br>\n    <br>\n    <img height=\"380px\" width=\"380px\" src=\"assets/Logo10.png\">\n  </div>\n  <div class=\"col-auto col-md-auto text-right\">\n    <br>\n    <div class=\"text-center\">\n      <button type=\"button\" (click)=\"entrarProfesor()\" class=\"btn btn-primary btn-circle\">Profesor</button>\n    </div>\n    <br>\n    <div class=\"text-center\">\n      <button type=\"button\" (click)=\"entrarEstudiante()\" class=\"btn btn-success btn-circle\">Estudiante</button>\n    </div>\n  </div>\n</div>\n<div *ngIf=\"visualizacion\" class=\"row justify-content-center\">\n  <div *ngIf=\"acercaDe\" class=\"col-6\">\n    <h4>Acerca de </h4>\n    <ul>\n      <li>\n        <p>\n          Autor: Alejandro José Martínez Sánchez</p>\n      </li>\n      <li>\n        <p>\n          Encargado de desarrollar la aplicación EmotionAppAJ como correspondencia al Trabajo de Fin de Grado de Ingeniería\n          Informatica, en la intensificación de Tencologias de la Información.</p>\n      </li>\n      <li>\n        <p>\n          Herramienta para facilitar la tarea didactica a los docentes, con posibilidad de elaborar graficos y estadisticas\n          sobre la evolucion de sus alumnos en las activiades realizadas.\n        </p>\n      </li>\n      <li>\n        <p>\n          Fecha: Junio 2020\n        </p>\n      </li>\n    </ul>\n    <div class=\"text-center\">\n      <button type=\"button\" (click)=\"cerrarAcercaDe()\" class=\"btn btn-outline-danger\">Cerrar</button>\n    </div>\n    \n  </div>\n  <div *ngIf=\"privacidad\" class=\"col-6\">\n    <div class=\"text-center\">\n      <h4>Privacidad </h4>\n      <p>\n        El uso de esta aplicación utiliza información de caracter personal, a la hora de hacer un escaneo de la cara,\n        para la realización de la computación afectiva, pero no realiza ningun tipo de almanenamiento de dichas imagenes\n        solo de los datos obtenidos.\n      </p>\n      <div>\n        <button type=\"button\" (click)=\"cerrarPrivacidad()\" class=\"btn btn-outline-danger\">Cerrar</button>\n      </div>\n    </div>\n  </div>\n</div>\n<div *ngIf=\"(!dentro && !visualizacion) || visualizacion\">\n  <br>\n  <br>\n</div>\n<div *ngIf=\"(!dentro && !visualizacion) || visualizacion\">\n  <br>\n  <br>\n</div>\n<div class=\"footer container-fluid\" style=\"background-color:rgba(30, 30, 30,0.9); z-index: 2;\">\n  <br>\n  <div class=\"row justify-content-center\">\n    <div class=\"col-6 text-center\">\n      <h4 style=\"font-style: oblique;\">EmotionAppAj </h4>\n      <img style=\"cursor: pointer;\" height=\"30px\" width=\"30px\" src=\"assets/Logo10.png\">\n    </div>\n  </div>\n  <div class=\"row\">\n    <div class=\"col-6 text-center\">\n      <div class=\"row\">\n        <div class=\"col-12\">\n          <a style=\"cursor: pointer; color: white;\" (click)=\"ponerAcercaDe()\">\n            <h6>Acerda de</h6>\n          </a>\n        </div>\n      </div>\n      <div class=\"row\">\n        <div class=\"col-12\">\n          <a style=\"cursor: pointer; color: white;\" (click)=\"ponerPrivacidad()\">\n            <h6>Privacidad</h6>\n          </a>\n        </div>\n      </div>\n      <!--<div class=\"row\">\n        <div class=\"col-12\">\n          <a style=\"cursor: pointer; color: white;\"><h6 href=\"\">RGPD</h6></a>\n        </div>\n      </div>-->\n\n    </div>\n    <div class=\"col-6 text-center\">\n      <div class=\"row\">\n        <div class=\"col-12\">\n          <h6>Redes Sociales</h6>\n        </div>\n      </div>\n      <div class=\" row justify-content-center\">\n        <div class=\"col-1\">\n          <a class=\"icono_rrss\" href=\"https://www.instagram.com/?hl=es\" target=\"_blank\"><i class=\"fa fa-instagram fa-2x\"\n              width=\"15\" height=\"15\"></i></a>\n        </div>\n        <br>\n        <div class=\"col-1\">\n          <a class=\"icono_rrss\" href=\"https://www.facebook.com/alejandrojose.martinez.12\" target=\"_blank\"><i\n              class=\"fa fa-facebook fa-2x\" width=\"15\" height=\"15\"></i></a>\n        </div>\n        <br>\n        <div class=\"col-1\">\n          <a class=\"icono_rrss\" href=\"https://github.com/msalejandrojose/emotionapp\" target=\"_blank\"><i\n              class=\"fa fa-github fa-2x\" width=\"15\" height=\"15\"></i></a>\n        </div>\n        <div class=\"col-1\">\n          <a class=\"icono_rrss\" href=\"https://www.linkedin.com/in/alejandro-jos%C3%A9-256a211a9/\" target=\"_blank\"><i\n              class=\"fa fa-linkedin fa-2x\"></i></a>\n        </div>\n        <div class=\"col-1\">\n          <a class=\"icono_rrss\" href=\"mailto:msalejandrojose7@gmail.com\" target=\"_blank\"><i\n              class=\"fa fa-envelope fa-2x\"></i></a>\n        </div>\n      </div>\n    </div>\n  </div>\n  <br>\n  <div class=\"row\">\n    <div class=\"col-12 text-center\">\n      <p><i>\n          Esta aplicación web esta desarrollada como Proyecto de Fin de Grado para la universidad de Castilla-La Mancha\n          UCLM, Edificio Politecnico Albacete, a fecha de Junio 2020.\n        </i></p>\n    </div>\n  </div>\n  <br>\n</div>\n\n<!--Rutas-->\n<router-outlet></router-outlet>";
     /***/
   },
 
@@ -531,7 +531,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"row\">\n    <div class=\"col-12\">\n        <h3 class=\"text-center\">{{actividad.nombre}}</h3>\n    </div>\n</div>\n<div class=\"row justify-content-md-center\">\n    <div class=\"col-12\">\n        <h5 class=\"text-center\" *ngIf=\"actividad.estado=='Creada'\">Actividad sin empezar</h5>\n        <h5 class=\"text-center\" *ngIf=\"actividad.estado=='Comenzada'\">Actividad empezada</h5>\n        <h5 class=\"text-center\" *ngIf=\"actividad.estado=='Finalizada'\">Actividad finalizada</h5>\n    </div>\n</div>\n<div class=\"row justify-content-md-center text-center\">\n    <div class=\"col-3 text-left\">\n        <button *ngIf=\" !botonCreadaCargando && !botonFinalizadaCargando && !botonReanudarCargando\" type=\"button\"\n            class=\"btn btn-outline-danger\" (click)=\"cerrarActividad()\"><i class=\"fa fa-times-circle\"></i> Cerrar\n            Actividad</button>\n        <button *ngIf=\"botonCreadaCargando || botonFinalizadaCargando || botonReanudarCargando\" type=\"button\"\n            class=\"btn btn-outline-danger\" (click)=\"cerrarActividad()\" disabled><i class=\"fa fa-times-circle\"></i>\n            Cerrar Actividad</button>\n    </div>\n    <div class=\"row col-6 justify-content-center text-center\" *ngIf=\"!actividadAbierta\">\n        <div class=\"col-2 text-center\">\n            <div class=\"row justify-content-center\">\n                <button type=\"button\" class=\"btn btn-success btn-circle2\" disabled>\n                    <i class=\"fa fa-check\" aria-hidden=\"true\"></i>\n                </button>\n            </div>\n            <div class=\"row justify-content-center\">\n                Creada\n            </div>\n        </div>\n        <div class=\"col-3\">\n            <hr style=\"margin-top: 30%;\">\n        </div>\n        <div class=\"col-2 text-center\">\n            <div class=\"row justify-content-center\">\n                <button *ngIf=\"actividad.estado=='Comenzada' || actividad.estado=='Finalizada'\" type=\"button\"\n                    class=\"btn btn-success btn-circle2\" disabled>\n                    <i class=\"fa fa-check\" aria-hidden=\"true\"></i>\n                </button>\n                <button *ngIf=\"actividad.estado=='Creada'\" type=\"button\" class=\"btn btn-outline-secondary btn-circle2\"\n                    disabled>\n\n                </button>\n            </div>\n            <div class=\"row justify-content-center\">\n                Comenzada\n            </div>\n        </div>\n        <div class=\"col-3\">\n            <hr style=\"margin-top: 30%;\">\n        </div>\n        <div class=\"col-2 text-center\">\n            <div class=\"row justify-content-center\">\n                <button *ngIf=\"actividad.estado=='Finalizada'\" type=\"button\" class=\"btn btn-success btn-circle2\"\n                    disabled>\n                    <i class=\"fa fa-check\" aria-hidden=\"true\"></i>\n                </button>\n                <button *ngIf=\"actividad.estado=='Creada' || actividad.estado=='Comenzada'\" type=\"button\"\n                    class=\"btn btn-outline-secondary btn-circle2\" disabled>\n\n                </button>\n            </div>\n            <div class=\"row justify-content-center\">\n                Finalizada\n            </div>\n        </div>\n    </div>\n    <div class=\"col-3 text-right\">\n        <button\n            *ngIf=\"actividad.estado=='Creada' && !botonCreadaCargando && !botonFinalizadaCargando && !botonReanudarCargando\"\n            type=\"button\" class=\"btn btn-outline-success disenable\" (click)=\"comenzar()\"><i\n                class=\"fa fa-play-circle\"></i> Comenzar</button>\n        <button *ngIf=\"botonCreadaCargando\" class=\"btn btn-outline-success\" type=\"button\" disabled>\n            <span class=\"spinner-border spinner-border-sm\" role=\"status\" aria-hidden=\"true\"></span>\n            Comenzando...\n        </button>\n        <button\n            *ngIf=\"actividad.estado=='Comenzada' && !botonCreadaCargando && !botonFinalizadaCargando && !botonReanudarCargando\"\n            type=\"button\" class=\"btn btn-outline-dark disenable\" (click)=\"terminar()\"><i class=\"fa fa-stop-circle\"></i>\n            Terminar</button>\n        <button *ngIf=\"botonFinalizadaCargando\" class=\"btn btn-outline-dark\" type=\"button\" disabled>\n            <span class=\"spinner-border spinner-border-sm\" role=\"status\" aria-hidden=\"true\"></span>\n            Terminando...\n        </button>\n        <button\n            *ngIf=\"actividad.estado=='Finalizada' && !botonCreadaCargando && !botonFinalizadaCargando && !botonReanudarCargando\"\n            type=\"button\" class=\"btn btn-outline-success disenable\" (click)=\"comenzar()\"><i class=\"fa fa-undo\"></i>\n            Reanudar Actividad</button>\n        <button *ngIf=\"actividad.estado=='Finalizada' && botonReanudarCargando\" class=\"btn btn-outline-dark\"\n            type=\"button\" disabled>\n            <span class=\"spinner-border spinner-border-sm\" role=\"status\" aria-hidden=\"true\"></span>\n            Reanunando..\n        </button>\n    </div>\n\n</div>\n<br>\n<div class=\"row justify-content-center text-center\">\n    <div *ngIf=\"vistaGeneral\" class=\"btn-group btn-group-toggle\">\n        <label class=\"btn btn-outline-primary active\">\n            <input type=\"radio\" name=\"options\" id=\"general\" (click)=\"cambiarAGeneral()\" checked> General\n        </label>\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAMapa()\"> Mapa de la clase\n        </label>\n        <label *ngIf=\"actividad.estado=='Comenzada'\" class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAConectados()\"> Conectados\n        </label>\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAEvolucion()\"> Evolucion\n        </label>\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAMedia()\"> Media\n        </label>\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAAlumnos()\"> Alumnos\n        </label>\n    </div>\n    <div *ngIf=\"vistaMapaDeLaClase\" class=\"btn-group btn-group-toggle\">\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"general\" (click)=\"cambiarAGeneral()\"> General\n        </label>\n        <label class=\"btn btn-outline-primary active\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAMapa()\" checked> Mapa de la clase\n        </label>\n        <label *ngIf=\"actividad.estado=='Comenzada'\" class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAConectados()\"> Conectados\n        </label>\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAEvolucion()\"> Evolucion\n        </label>\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAMedia()\"> Media\n        </label>\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAAlumnos()\"> Alumnos\n        </label>\n    </div>\n    <div *ngIf=\"evolucion\" class=\"btn-group btn-group-toggle\">\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"general\" (click)=\"cambiarAGeneral()\"> General\n        </label>\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAMapa()\"> Mapa de la clase\n        </label>\n        <label *ngIf=\"actividad.estado=='Comenzada'\" class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAConectados()\"> Conectados\n        </label>\n        <label class=\"btn btn-outline-primary active\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAEvolucion()\" checked> Evolucion\n        </label>\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAMedia()\"> Media\n        </label>\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAAlumnos()\"> Alumnos\n        </label>\n    </div>\n    <div *ngIf=\"conectados\" class=\"btn-group btn-group-toggle\">\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"general\" (click)=\"cambiarAGeneral()\"> General\n        </label>\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAMapa()\"> Mapa de la clase\n        </label>\n        <label *ngIf=\"actividad.estado=='Comenzada'\" class=\"btn btn-outline-primary active\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAConectados()\" checked> Conectados\n        </label>\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAEvolucion()\"> Evolucion\n        </label>\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAMedia()\"> Media\n        </label>\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAAlumnos()\"> Alumnos\n        </label>\n    </div>\n    <div *ngIf=\"media\" class=\"btn-group btn-group-toggle\">\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"general\" (click)=\"cambiarAGeneral()\"> General\n        </label>\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAMapa()\"> Mapa de la clase\n        </label>\n        <label *ngIf=\"actividad.estado=='Comenzada'\" class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAConectados()\"> Conectados\n        </label>\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAEvolucion()\"> Evolucion\n        </label>\n        <label class=\"btn btn-outline-primary active\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAMedia()\" checked> Media\n        </label>\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAAlumnos()\"> Alumnos\n        </label>\n    </div>\n    <div *ngIf=\"tablaAlumnos\" class=\"btn-group btn-group-toggle\">\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"general\" (click)=\"cambiarAGeneral()\"> General\n        </label>\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAMapa()\"> Mapa de la clase\n        </label>\n        <label *ngIf=\"actividad.estado=='Comenzada'\" class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAConectados()\"> Conectados\n        </label>\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAEvolucion()\"> Evolucion\n        </label>\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAMedia()\"> Media\n        </label>\n        <label class=\"btn btn-outline-primary active\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAAlumnos()\" checked> Alumnos\n        </label>\n    </div>\n</div>\n<br>\n<div id=\"vistaGeneral\">\n    <div class=\"row justify-content-center\">\n        <div id=\"conectadosPequeños\" class=\"col-md-auto col-sm-auto\">\n            <h5 class=\"text-center card-title\">Usuarios Conectados</h5>\n            <canvas id=\"usersConectados\"></canvas>\n            <h6 class=\"text-center\">{{porUsuariosConectados}}% Usuarios conectados</h6>\n            <!--<h6 >{{((usuariosConectados.length()/usuariosTotales)*100)}}%</h6>-->\n        </div>\n        <div class=\"col-9\">\n            <div>\n                <div class=\"row\">\n                    <h5 class=\"col-12 text-center card-title\">Grafica</h5>\n                </div>\n                <div class=\"row text-center justify-content-center\">\n                    <div class=\"col-4\">\n                        <div class=\"btn-group\">\n                            <button type=\"button\" class=\"btn btn-info dropdown-toggle\" data-toggle=\"dropdown\"\n                                aria-haspopup=\"true\" aria-expanded=\"false\">\n                                Estado\n                            </button>\n                            <div class=\"dropdown-menu\">\n                                <div class=\"dropdown-item\" *ngFor=\"let estado of estados\">\n                                    <input type=\"checkbox\" class=\"form-check-input\" [(ngModel)]=\"estado.checked\">\n                                    <a>{{estado.nombre}}</a>\n                                </div>\n                                <!--<a class=\"dropdown-item\" *ngFor=\"let estado of estados\"\n                                        (click)=\"seleccionarEstado(estado)\">{{estado.nombre}}\n                                    </a>-->\n                            </div>\n                        </div>\n                    </div>\n                    <div class=\"col-4\">\n                        <div class=\"btn-group\">\n                            <button type=\"button\" class=\"btn btn-info dropdown-toggle\" data-toggle=\"dropdown\"\n                                aria-haspopup=\"true\" aria-expanded=\"false\">\n                                Alumnos\n                            </button>\n                            <div class=\"dropdown-menu\">\n                                <a *ngIf=\"alumnoSeleccionadoAlumno\" class=\"dropdown-item\">Media de la clase</a>\n                                <div class=\"dropdown-item\" *ngFor=\"let alumno of alumnosSelect\">\n                                    <input type=\"checkbox\" class=\"form-check-input\" [(ngModel)]=\"alumno.checked\">\n                                    <a>{{alumno.nombre}}</a>\n                                </div>\n                                <!--<a class=\"dropdown-item\" *ngFor=\"let alumno of alumnos\"\n                                        (click)=\"seleccionarAlumno(alumno)\">{{alumno.estudiante.nombre}}</a>-->\n                            </div>\n                        </div>\n                    </div>\n                    <div class=\"col-4\">\n                        <button type=\"button\" class=\"btn btn-outline-success\"\n                            (click)=\"actualizarGraficaLineal()\"><i class=\"fa fa-refresh\"></i> Actualizar</button>\n                    </div>\n                </div>\n            </div>\n            <div>\n                <canvas id=\"graficaLineal\"></canvas>\n            </div>\n        </div>\n    </div>\n    <br>\n    <div class=\"row justify-content-center\">\n        <div class=\"col-sm-auto col-md-7\">\n            <div class=\"text-center\">\n                <h5>Alumnos</h5>\n            </div>\n            <div class=\"example-header\">\n                <mat-form-field>\n                    <input matInput (keyup)=\"applyFilterA($event.target.value)\" placeholder=\"Filtrar\">\n                </mat-form-field>\n            </div>\n            <div class=\"example-container\">\n                <mat-table [dataSource]=\"dataSourceAlumnos\" class=\"mat-elevation-z1\" matSort>\n                    <ng-container matColumnDef=\"nombre\">\n                        <mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </mat-header-cell>\n                        <mat-cell *matCellDef=\"let element\"> {{element.nombre}} </mat-cell>\n                    </ng-container>\n                    <ng-container matColumnDef=\"estado\">\n                        <mat-header-cell *matHeaderCellDef mat-sort-header> Estado </mat-header-cell>\n                        <mat-cell *matCellDef=\"let row\"> {{row.estado}} </mat-cell>\n                    </ng-container>\n                    <ng-container matColumnDef=\"pulsaciones\">\n                        <mat-header-cell *matHeaderCellDef mat-sort-header> Pulsaciones </mat-header-cell>\n                        <mat-cell *matCellDef=\"let row\"> {{row.pulsaciones}} ppm </mat-cell>\n                    </ng-container>\n                    <ng-container matColumnDef=\"webcam\">\n                        <mat-header-cell *matHeaderCellDef><button class=\"btn btn-sm btn-primary\" (click)=\"activarTodasWebCam()\"><i class=\"fa fa-video-camera\"></i> Todos</button></mat-header-cell>\n                        <mat-cell *matCellDef=\"let row\"><button class=\"btn btn-sm btn-outline-primary\" (click)=\"activarWebCam(row)\"><i class=\"fa fa-video-camera\"></i> Activar</button></mat-cell>\n                    </ng-container>\n                    <ng-container matColumnDef=\"pulsera\">\n                        <mat-header-cell *matHeaderCellDef><button class=\"btn btn-sm btn-primary\" (click)=\"activarTodasPulseras()\"><i class=\"fa fa-heartbeat\"></i> Todos</button></mat-header-cell>\n                        <mat-cell *matCellDef=\"let row\"><button class=\"btn btn-sm btn-outline-primary\" (click)=\"activarPulsera(row)\"><i class=\"fa fa-heartbeat\"></i> Activar</button></mat-cell>\n                        <mat-cell *matCellDef=\"let row\"> {{row.pulsaciones}} ppm </mat-cell>\n                    </ng-container>\n                    <ng-container matColumnDef=\"led\">\n                        <mat-header-cell *matHeaderCellDef><button class=\"btn btn-sm btn-primary\" (click)=\"activarTodosLeds()\"><i class=\"fa fa-lightbulb-o\"></i> Todos</button></mat-header-cell>\n                        <mat-cell *matCellDef=\"let row\"><button class=\"btn btn-sm btn-outline-primary\" (click)=\"activarLed(row)\"><i class=\"fa fa-lightbulb-o\"></i> Activar</button></mat-cell>\n                    </ng-container>\n                    <mat-header-row *matHeaderRowDef=\"displayedColumnsAlumnos\"></mat-header-row>\n                    <mat-row *matRowDef=\"let row; columns: displayedColumnsAlumnos;\">\n                    </mat-row>\n                </mat-table>\n                <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\n            </div>\n        </div>\n        <div class=\"col-auto text-center\">\n            <div class=\"row\">\n                <div class=\"col-12 text-center\">\n                    <h5>Estado de la clase</h5>\n                </div>\n            </div>\n            <div class=\"row justify-content-center\">\n                <div class=\"col-5\">\n                    <div class=\"btn-group\">\n                        <button type=\"button\" class=\"btn btn-info dropdown-toggle\" data-toggle=\"dropdown\"\n                            aria-haspopup=\"true\" aria-expanded=\"false\">\n                            Estado\n                        </button>\n                        <div class=\"dropdown-menu\">\n                            <div class=\"dropdown-item\" *ngFor=\"let estado of estadosGlobales\">\n                                <input type=\"checkbox\" class=\"form-check-input\" [(ngModel)]=\"estado.checked\">\n                                <a>{{estado.nombre}}</a>\n                            </div>\n                            <!--<a class=\"dropdown-item\" *ngFor=\"let estado of estados\"\n                                    (click)=\"seleccionarEstado(estado)\">{{estado.nombre}}\n                                </a>-->\n                        </div>\n                    </div>\n                </div>\n                <div class=\"col-5\">\n                    <button type=\"button\" class=\"btn btn-outline-success\"\n                        (click)=\"actualizarGraficaGlobal()\"> <i class=\"fa fa-refresh\"></i> Actualizar</button>\n                </div>\n            </div>\n            <br>\n            <div>\n                <canvas id=\"estadoGlobal\"></canvas>\n            </div>\n        </div>\n    </div>\n</div>\n<div id=\"vistaMapaDeLaClase\" style=\"display: none;\" class=\"row col-12 justify-content-center\">\n    <div class=\"card col-12\">\n        <div class=\"card-body\">\n            <div class=\"row justify-content-center\">\n                <div class=\"col-6 text-center\">\n                    <h5 class=\"card-title\">Distribucion de la clase</h5>\n                </div>\n            </div>\n            <div class=\"row justify-content-center\">\n                <div class=\"col-3 text-center\">\n                    <div class=\"btn-group\">\n                        <button type=\"button\" class=\"btn btn-info dropdown-toggle\" data-toggle=\"dropdown\"\n                            aria-haspopup=\"true\" aria-expanded=\"false\">\n                            {{visualizacionSelected}}\n                        </button>\n                        <div class=\"dropdown-menu\">\n                            <a *ngIf=\"alumnoSeleccionadoAlumno\" class=\"dropdown-item\">Media de la clase</a>\n                            <div class=\"dropdown-item\" *ngFor=\"let visualizacion of visualizaciones\"\n                                (click)=\"seleccionVisualizacion(visualizacion)\">\n                                <a>{{visualizacion.nombre}}</a>\n                            </div>\n                            <!--<a class=\"dropdown-item\" *ngFor=\"let alumno of alumnos\"\n                                    (click)=\"seleccionarAlumno(alumno)\">{{alumno.estudiante.nombre}}</a>-->\n                        </div>\n                    </div>\n                </div>\n                <div class=\"col-3 text-center\">\n                    <div class=\"btn-group\">\n                        <button type=\"button\" class=\"btn btn-info dropdown-toggle\" data-toggle=\"dropdown\"\n                            aria-haspopup=\"true\" aria-expanded=\"false\">\n                            {{estadoConjuntoSeleccionado}}\n                        </button>\n                        <div class=\"dropdown-menu\">\n                            <div class=\"dropdown-item\" (click)=\"seleccionarEstadoConjunto(estado)\"\n                                *ngFor=\"let estado of estadosConjunto\">\n                                <a>{{estado.nombre}}</a>\n                            </div>\n                        </div>\n                    </div>\n                </div>\n            </div>\n            <br>\n            <div class=\"row justify-content-center\">\n                <div class=\"col-auto\">\n                    <div id=\"clase\" class=\"example-boundary\">\n                        <div id=\"{{item.id_item}}\" *ngFor=\"let item of actividad.alumnos\" class=\"example-box\"\n                            ondrop=\"myFunction(item)\" [cdkDragFreeDragPosition]=\"item.posicion\"\n                            cdkDragBoundary=\".example-boundary\" cdkDrag (cdkDragEnded)=\"dragEnded($event,item)\">\n                            {{item.estudiante.nombre}}\n                        </div>\n                    </div>\n                </div>\n                <div class=\"col-sm-6 col-12\">\n                    <div *ngIf=\"datoAlegria\">\n                        <div class=\"text-left\">\n                            <h6>Alegria</h6>\n                        </div>\n                        <div class=\"row\">\n                            <div class=\"progress col-10\">\n                                <div id=\"progress-alegria\" class=\"progress-bar\" role=\"progressbar\"\n                                    style=\"background-color: rgba(255,255,84,1)\" aria-valuenow=\"25\" aria-valuemin=\"0\"\n                                    aria-valuemax=\"100\"></div>\n                            </div>\n                            <div class=\"col-2\">\n                                {{datosResumenSeleccionados.alegria}}%\n                            </div>\n                        </div>\n                    </div>\n                    <div *ngIf=\"datoAsco\">\n                        <div class=\"text-left\">\n                            <h6>Asco</h6>\n                        </div>\n                        <div class=\"row\">\n                            <div class=\"progress col-10\">\n                                <div id=\"progress-asco\" class=\"progress-bar\" role=\"progressbar\"\n                                    style=\"background-color: rgba(0,0,0,0.5)\" aria-valuenow=\"25\" aria-valuemin=\"0\"\n                                    aria-valuemax=\"100\"></div>\n                            </div>\n                            <div class=\"col-2\">\n                                {{datosResumenSeleccionados.asco}}%\n                            </div>\n                        </div>\n                    </div>\n                    <div *ngIf=\"datoMiedo\">\n                        <div class=\"text-left\">\n                            <h6>Miedo</h6>\n                        </div>\n                        <div class=\"row\">\n                            <div class=\"progress col-10\">\n                                <div id=\"progress-miedo\" class=\"progress-bar\" role=\"progressbar\"\n                                    style=\"background-color: rgba(0,150,0,1)\" aria-valuenow=\"25\" aria-valuemin=\"0\"\n                                    aria-valuemax=\"100\"></div>\n                            </div>\n                            <div class=\"col-2\">\n                                {{datosResumenSeleccionados.miedo}}%\n                            </div>\n                        </div>\n                    </div>\n                    <div *ngIf=\"datoSorpresa\">\n                        <div class=\"text-left\">\n                            <h6>Sorpresa</h6>\n                        </div>\n                        <div class=\"row\">\n                            <div class=\"progress col-10\">\n                                <div id=\"progress-sorpresa\" class=\"progress-bar\" role=\"progressbar\"\n                                    style=\"background-color: rgba(89,189,255,1)\" aria-valuenow=\"25\" aria-valuemin=\"0\"\n                                    aria-valuemax=\"100\"></div>\n                            </div>\n                            <div class=\"col-2\">\n                                {{datosResumenSeleccionados.sorpresa}}%\n                            </div>\n                        </div>\n                    </div>\n                    <div *ngIf=\"datoTristeza\">\n                        <div class=\"text-left\">\n                            <h6>Tristeza</h6>\n                        </div>\n                        <div class=\"row\">\n                            <div class=\"progress col-10\">\n                                <div id=\"progress-tristeza\" class=\"progress-bar\" role=\"progressbar\"\n                                    style=\"background-color: rgba(81,81,255,1)\" aria-valuenow=\"25\" aria-valuemin=\"0\"\n                                    aria-valuemax=\"100\"></div>\n                            </div>\n                            <div class=\"col-2\">\n                                {{datosResumenSeleccionados.tristeza}}%\n                            </div>\n                        </div>\n                    </div>\n                    <div *ngIf=\"datoIra\">\n                        <div class=\"text-left\">\n                            <h6>Ira</h6>\n                        </div>\n                        <div class=\"row\">\n                            <div class=\"progress col-10\">\n                                <div id=\"progress-ira\" class=\"progress-bar\" role=\"progressbar\"\n                                    style=\"background-color: rgba(255,0,0,1)\" aria-valuenow=\"25\" aria-valuemin=\"0\"\n                                    aria-valuemax=\"100\"></div>\n                            </div>\n                            <div class=\"col-2\">\n                                {{datosResumenSeleccionados.ira}}%\n                            </div>\n                        </div>\n                    </div>\n                    <div *ngIf=\"datoconcentrado\">\n                        <div class=\"text-left\">\n                            <h6>Concentrado</h6>\n                        </div>\n                        <div class=\"row\">\n                            <div class=\"progress col-10\">\n                                <div id=\"progress-concentrado\" class=\"progress-bar\" role=\"progressbar\"\n                                    style=\"background-color: rgba(84,255,84,1)\" aria-valuenow=\"25\" aria-valuemin=\"0\"\n                                    aria-valuemax=\"100\"></div>\n                            </div>\n                            <div class=\"col-2\">\n                                {{datosResumenSeleccionados.concentrado}}%\n                            </div>\n                        </div>\n                    </div>\n                    <div *ngIf=\"datodistraido\">\n                        <div class=\"text-left\">\n                            <h6>Distraido</h6>\n                        </div>\n                        <div class=\"row\">\n                            <div class=\"progress col-10\">\n                                <div id=\"progress-distraido\" class=\"progress-bar\" role=\"progressbar\"\n                                    style=\"background-color: rgba(70,70,70,1)\" aria-valuenow=\"25\" aria-valuemin=\"0\"\n                                    aria-valuemax=\"100\"></div>\n                            </div>\n                            <div class=\"col-2\">\n                                {{datosResumenSeleccionados.distraido}}%\n                            </div>\n                        </div>\n                    </div>                 \n                    <div *ngIf=\"datomotivado\">\n                        <div class=\"text-left\">\n                            <h6>Motivado</h6>\n                        </div>\n                        <div class=\"row\">\n                            <div class=\"progress col-10\">\n                                <div id=\"progress-motivado\" class=\"progress-bar\" role=\"progressbar\"\n                                    style=\"background-color: rgba(84,25,80,1)\" aria-valuenow=\"25\" aria-valuemin=\"0\"\n                                    aria-valuemax=\"100\"></div>\n                            </div>\n                            <div class=\"col-2\">\n                                {{datosResumenSeleccionados.motivado}}%\n                            </div>\n                        </div>\n                    </div>\n                    <div *ngIf=\"datofrustrado\">\n                        <div class=\"text-left\">\n                            <h6>Frustrado</h6>\n                        </div>\n                        <div class=\"row\">\n                            <div class=\"progress col-10\">\n                                <div id=\"progress-frustrado\" class=\"progress-bar\" role=\"progressbar\"\n                                    style=\"background-color: rgba(123,123,123,1)\" aria-valuenow=\"25\" aria-valuemin=\"0\"\n                                    aria-valuemax=\"100\"></div>\n                            </div>\n                            <div class=\"col-2\">\n                                {{datosResumenSeleccionados.frustrado}}%\n                            </div>\n                        </div>\n                    </div>\n                    \n                </div>\n            </div>\n        </div>\n    </div>\n</div>\n<div id=\"GraficoEvolucion\">\n    <div class=\"row\">\n        <h5 class=\"col-12 text-center card-title\">Grafica</h5>\n    </div>\n    <div class=\"row text-center justify-content-center\">\n        <div class=\"col-4\">\n            <div class=\"btn-group\">\n                <button type=\"button\" class=\"btn btn-info dropdown-toggle\" data-toggle=\"dropdown\" aria-haspopup=\"true\"\n                    aria-expanded=\"false\">\n                    Estado\n                </button>\n                <div class=\"dropdown-menu\">\n                    <div class=\"dropdown-item\" *ngFor=\"let estado of estados\">\n                        <input type=\"checkbox\" class=\"form-check-input\" [(ngModel)]=\"estado.checked\">\n                        <a>{{estado.nombre}}</a>\n                    </div>\n                </div>\n            </div>\n        </div>\n        <div class=\"col-4\">\n            <div class=\"btn-group\">\n                <button type=\"button\" class=\"btn btn-info dropdown-toggle\" data-toggle=\"dropdown\" aria-haspopup=\"true\"\n                    aria-expanded=\"false\">\n                    Alumnos\n                </button>\n                <div class=\"dropdown-menu\">\n                    <a *ngIf=\"alumnoSeleccionadoAlumno\" class=\"dropdown-item\">Media de la clase</a>\n                    <div class=\"dropdown-item\" *ngFor=\"let alumno of alumnosSelect\">\n                        <input type=\"checkbox\" class=\"form-check-input\" [(ngModel)]=\"alumno.checked\">\n                        <a>{{alumno.nombre}}</a>\n                    </div>\n                </div>\n            </div>\n        </div>\n        <div class=\"col-4\">\n            <button type=\"button\" class=\"btn btn-outline-success\"\n                (click)=\"actualizarGraficaLineal()\"><i class=\"fa fa-refresh\"></i> Actualizar</button>\n        </div>\n    </div>\n    <div class=\"row\">\n        <div class=\"col-12\">\n            <canvas id=\"graficaLinealEntera\"></canvas>\n        </div>\n    </div>\n</div>\n<div id=\"gUsuariosConectados\" class=\"row\">\n    <div class=\"col-12\">\n        <h5 class=\"text-center card-title\">Usuarios Conectados</h5>\n        <canvas id=\"usersConectadosEntera\"></canvas>\n        <h6 class=\"text-center\">{{porUsuariosConectados}}%</h6>\n    </div>\n</div>\n<div id=\"gEstadoUsuarios\">\n\n</div>\n<div id=\"tablaUsuarios\">\n\n</div>\n<br>\n<br>\n<br>";
+    __webpack_exports__["default"] = "<div class=\"row\">\n    <div class=\"col-12\">\n        <h3 class=\"text-center\">{{actividad.nombre}}</h3>\n    </div>\n</div>\n<div class=\"row justify-content-md-center\">\n    <div class=\"col-12\">\n        <h5 class=\"text-center\" *ngIf=\"actividad.estado=='Creada'\">Actividad sin empezar</h5>\n        <h5 class=\"text-center\" *ngIf=\"actividad.estado=='Comenzada'\">Actividad empezada</h5>\n        <h5 class=\"text-center\" *ngIf=\"actividad.estado=='Finalizada'\">Actividad finalizada</h5>\n    </div>\n</div>\n<div class=\"row justify-content-md-center text-center\">\n    <div class=\"col-3 text-left\">\n        <button *ngIf=\" !botonCreadaCargando && !botonFinalizadaCargando && !botonReanudarCargando\" type=\"button\"\n            class=\"btn btn-outline-danger\" (click)=\"cerrarActividad()\"><i class=\"fa fa-times-circle\"></i> Cerrar\n            Actividad</button>\n        <button *ngIf=\"botonCreadaCargando || botonFinalizadaCargando || botonReanudarCargando\" type=\"button\"\n            class=\"btn btn-outline-danger\" (click)=\"cerrarActividad()\" disabled><i class=\"fa fa-times-circle\"></i>\n            Cerrar Actividad</button>\n    </div>\n    <div class=\"row col-6 justify-content-center text-center\" *ngIf=\"!actividadAbierta\">\n        <div class=\"col-2 text-center\">\n            <div class=\"row justify-content-center\">\n                <button type=\"button\" class=\"btn btn-success btn-circle2\" disabled>\n                    <i class=\"fa fa-check\" aria-hidden=\"true\"></i>\n                </button>\n            </div>\n            <div class=\"row justify-content-center\">\n                Creada\n            </div>\n        </div>\n        <div class=\"col-3\">\n            <hr style=\"margin-top: 30%;\">\n        </div>\n        <div class=\"col-2 text-center\">\n            <div class=\"row justify-content-center\">\n                <button *ngIf=\"actividad.estado=='Comenzada' || actividad.estado=='Finalizada'\" type=\"button\"\n                    class=\"btn btn-success btn-circle2\" disabled>\n                    <i class=\"fa fa-check\" aria-hidden=\"true\"></i>\n                </button>\n                <button *ngIf=\"actividad.estado=='Creada'\" type=\"button\" class=\"btn btn-outline-secondary btn-circle2\"\n                    disabled>\n\n                </button>\n            </div>\n            <div class=\"row justify-content-center\">\n                Comenzada\n            </div>\n        </div>\n        <div class=\"col-3\">\n            <hr style=\"margin-top: 30%;\">\n        </div>\n        <div class=\"col-2 text-center\">\n            <div class=\"row justify-content-center\">\n                <button *ngIf=\"actividad.estado=='Finalizada'\" type=\"button\" class=\"btn btn-success btn-circle2\"\n                    disabled>\n                    <i class=\"fa fa-check\" aria-hidden=\"true\"></i>\n                </button>\n                <button *ngIf=\"actividad.estado=='Creada' || actividad.estado=='Comenzada'\" type=\"button\"\n                    class=\"btn btn-outline-secondary btn-circle2\" disabled>\n\n                </button>\n            </div>\n            <div class=\"row justify-content-center\">\n                Finalizada\n            </div>\n        </div>\n    </div>\n    <div class=\"col-3 text-right\">\n        <button\n            *ngIf=\"actividad.estado=='Creada' && !botonCreadaCargando && !botonFinalizadaCargando && !botonReanudarCargando\"\n            type=\"button\" class=\"btn btn-outline-success disenable\" (click)=\"comenzar()\"><i\n                class=\"fa fa-play-circle\"></i> Comenzar</button>\n        <button *ngIf=\"botonCreadaCargando\" class=\"btn btn-outline-success\" type=\"button\" disabled>\n            <span class=\"spinner-border spinner-border-sm\" role=\"status\" aria-hidden=\"true\"></span>\n            Comenzando...\n        </button>\n        <button\n            *ngIf=\"actividad.estado=='Comenzada' && !botonCreadaCargando && !botonFinalizadaCargando && !botonReanudarCargando\"\n            type=\"button\" class=\"btn btn-outline-dark disenable\" (click)=\"terminar()\"><i class=\"fa fa-stop-circle\"></i>\n            Terminar</button>\n        <button *ngIf=\"botonFinalizadaCargando\" class=\"btn btn-outline-dark\" type=\"button\" disabled>\n            <span class=\"spinner-border spinner-border-sm\" role=\"status\" aria-hidden=\"true\"></span>\n            Terminando...\n        </button>\n        <button\n            *ngIf=\"actividad.estado=='Finalizada' && !botonCreadaCargando && !botonFinalizadaCargando && !botonReanudarCargando\"\n            type=\"button\" class=\"btn btn-outline-success disenable\" (click)=\"comenzar()\"><i class=\"fa fa-undo\"></i>\n            Reanudar Actividad</button>\n        <button *ngIf=\"actividad.estado=='Finalizada' && botonReanudarCargando\" class=\"btn btn-outline-dark\"\n            type=\"button\" disabled>\n            <span class=\"spinner-border spinner-border-sm\" role=\"status\" aria-hidden=\"true\"></span>\n            Reanunando..\n        </button>\n    </div>\n\n</div>\n<br>\n<div class=\"row justify-content-center text-center\">\n    <div *ngIf=\"vistaGeneral\" class=\"btn-group btn-group-toggle\">\n        <label class=\"btn btn-outline-primary active\">\n            <input type=\"radio\" name=\"options\" id=\"general\" (click)=\"cambiarAGeneral()\" checked> General\n        </label>\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAMapa()\"> Mapa de la clase\n        </label>\n        <label *ngIf=\"actividad.estado=='Comenzada'\" class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAConectados()\"> Conectados\n        </label>\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAEvolucion()\"> Evolucion\n        </label>\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAMedia()\"> Media\n        </label>\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAAlumnos()\"> Alumnos\n        </label>\n    </div>\n    <div *ngIf=\"vistaMapaDeLaClase\" class=\"btn-group btn-group-toggle\">\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"general\" (click)=\"cambiarAGeneral()\"> General\n        </label>\n        <label class=\"btn btn-outline-primary active\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAMapa()\" checked> Mapa de la clase\n        </label>\n        <label *ngIf=\"actividad.estado=='Comenzada'\" class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAConectados()\"> Conectados\n        </label>\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAEvolucion()\"> Evolucion\n        </label>\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAMedia()\"> Media\n        </label>\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAAlumnos()\"> Alumnos\n        </label>\n    </div>\n    <div *ngIf=\"evolucion\" class=\"btn-group btn-group-toggle\">\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"general\" (click)=\"cambiarAGeneral()\"> General\n        </label>\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAMapa()\"> Mapa de la clase\n        </label>\n        <label *ngIf=\"actividad.estado=='Comenzada'\" class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAConectados()\"> Conectados\n        </label>\n        <label class=\"btn btn-outline-primary active\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAEvolucion()\" checked> Evolucion\n        </label>\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAMedia()\"> Media\n        </label>\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAAlumnos()\"> Alumnos\n        </label>\n    </div>\n    <div *ngIf=\"conectados\" class=\"btn-group btn-group-toggle\">\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"general\" (click)=\"cambiarAGeneral()\"> General\n        </label>\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAMapa()\"> Mapa de la clase\n        </label>\n        <label *ngIf=\"actividad.estado=='Comenzada'\" class=\"btn btn-outline-primary active\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAConectados()\" checked> Conectados\n        </label>\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAEvolucion()\"> Evolucion\n        </label>\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAMedia()\"> Media\n        </label>\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAAlumnos()\"> Alumnos\n        </label>\n    </div>\n    <div *ngIf=\"media\" class=\"btn-group btn-group-toggle\">\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"general\" (click)=\"cambiarAGeneral()\"> General\n        </label>\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAMapa()\"> Mapa de la clase\n        </label>\n        <label *ngIf=\"actividad.estado=='Comenzada'\" class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAConectados()\"> Conectados\n        </label>\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAEvolucion()\"> Evolucion\n        </label>\n        <label class=\"btn btn-outline-primary active\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAMedia()\" checked> Media\n        </label>\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAAlumnos()\"> Alumnos\n        </label>\n    </div>\n    <div *ngIf=\"tablaAlumnos\" class=\"btn-group btn-group-toggle\">\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"general\" (click)=\"cambiarAGeneral()\"> General\n        </label>\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAMapa()\"> Mapa de la clase\n        </label>\n        <label *ngIf=\"actividad.estado=='Comenzada'\" class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAConectados()\"> Conectados\n        </label>\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAEvolucion()\"> Evolucion\n        </label>\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAMedia()\"> Media\n        </label>\n        <label class=\"btn btn-outline-primary active\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAAlumnos()\" checked> Alumnos\n        </label>\n    </div>\n</div>\n<br>\n<div *ngIf=\"actividad.estado=='Comenzada'\" class=\"row justify-content-center text-center\">\n    <div class=\"col-2\">\n        <button *ngIf=\"!simulandoDatos\" (click)=\"simularDatos()\" type=\"button\" class=\"btn btn-outline-success\"> <i\n                class=\"fa fa-bar-chart\"></i> Simular datos </button>\n        <button *ngIf=\"simulandoDatos\" (click)=\"simularDatos()\" type=\"button\" class=\"btn btn-outline-danger\"> <i\n                class=\"fa fa-bar-chart\"></i> Parar simulacion </button>\n    </div>\n</div>\n<br>\n<div id=\"vistaGeneral\">\n    <div class=\"row justify-content-center\">\n        <div id=\"conectadosPequeños\" class=\"col-md-auto col-sm-auto\">\n            <h5 class=\"text-center card-title\">Usuarios Conectados</h5>\n            <canvas id=\"usersConectados\"></canvas>\n            <h6 class=\"text-center\">{{porUsuariosConectados}}% Usuarios conectados</h6>\n            <!--<h6 >{{((usuariosConectados.length()/usuariosTotales)*100)}}%</h6>-->\n        </div>\n        <div class=\"col-9\">\n            <div>\n                <div class=\"row\">\n                    <h5 class=\"col-12 text-center card-title\">Grafica</h5>\n                </div>\n                <div class=\"row text-center justify-content-center\">\n                    <div class=\"col-4\">\n                        <div class=\"btn-group\">\n                            <button type=\"button\" class=\"btn btn-info dropdown-toggle\" data-toggle=\"dropdown\"\n                                aria-haspopup=\"true\" aria-expanded=\"false\">\n                                Estado\n                            </button>\n                            <div class=\"dropdown-menu\">\n                                <div class=\"dropdown-item\" *ngFor=\"let estado of estados\">\n                                    <input type=\"checkbox\" class=\"form-check-input\" [(ngModel)]=\"estado.checked\">\n                                    <a>{{estado.nombre}}</a>\n                                </div>\n                                <!--<a class=\"dropdown-item\" *ngFor=\"let estado of estados\"\n                                        (click)=\"seleccionarEstado(estado)\">{{estado.nombre}}\n                                    </a>-->\n                            </div>\n                        </div>\n                    </div>\n                    <div class=\"col-4\">\n                        <div class=\"btn-group\">\n                            <button type=\"button\" class=\"btn btn-info dropdown-toggle\" data-toggle=\"dropdown\"\n                                aria-haspopup=\"true\" aria-expanded=\"false\">\n                                Alumnos\n                            </button>\n                            <div class=\"dropdown-menu\">\n                                <a *ngIf=\"alumnoSeleccionadoAlumno\" class=\"dropdown-item\">Media de la clase</a>\n                                <div class=\"dropdown-item\" *ngFor=\"let alumno of alumnosSelect\">\n                                    <input type=\"checkbox\" class=\"form-check-input\" [(ngModel)]=\"alumno.checked\">\n                                    <a>{{alumno.nombre}}</a>\n                                </div>\n                                <!--<a class=\"dropdown-item\" *ngFor=\"let alumno of alumnos\"\n                                        (click)=\"seleccionarAlumno(alumno)\">{{alumno.estudiante.nombre}}</a>-->\n                            </div>\n                        </div>\n                    </div>\n                    <div class=\"col-4\">\n                        <button type=\"button\" class=\"btn btn-outline-success\" (click)=\"actualizarGraficaLineal()\"><i\n                                class=\"fa fa-refresh\"></i> Actualizar</button>\n                    </div>\n                </div>\n            </div>\n            <div>\n                <canvas id=\"graficaLineal\"></canvas>\n            </div>\n        </div>\n    </div>\n    <br>\n    <div class=\"row justify-content-center\">\n        <div class=\"col-sm-auto col-md-7\">\n            <div class=\"text-center\">\n                <h5>Alumnos</h5>\n            </div>\n            <div class=\"example-header\">\n                <mat-form-field>\n                    <input matInput (keyup)=\"applyFilterA($event.target.value)\" placeholder=\"Filtrar\">\n                </mat-form-field>\n            </div>\n            <div class=\"example-container\">\n                <mat-table [dataSource]=\"dataSourceAlumnos\" class=\"mat-elevation-z1\" matSort>\n                    <ng-container matColumnDef=\"nombre\">\n                        <mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </mat-header-cell>\n                        <mat-cell *matCellDef=\"let element\"> {{element.nombre}} </mat-cell>\n                    </ng-container>\n                    <ng-container matColumnDef=\"estado\">\n                        <mat-header-cell *matHeaderCellDef mat-sort-header> Estado </mat-header-cell>\n                        <mat-cell *matCellDef=\"let row\"> {{row.estado}} </mat-cell>\n                    </ng-container>\n                    <ng-container matColumnDef=\"pulsaciones\">\n                        <mat-header-cell *matHeaderCellDef mat-sort-header> Pulsaciones </mat-header-cell>\n                        <mat-cell *matCellDef=\"let row\">\n                            <div *ngIf=\"row.pulsaciones<=95\">{{row.pulsaciones}} ppm</div>\n                            <div *ngIf=\"row.pulsaciones>95\" style=\"color:red\">{{row.pulsaciones}} ppm</div>\n                        </mat-cell>\n                    </ng-container>\n                    <ng-container matColumnDef=\"webcam\">\n                        <mat-header-cell *matHeaderCellDef><button class=\"btn btn-sm btn-primary\"\n                                (click)=\"activarTodasWebCam()\"><i class=\"fa fa-video-camera\"></i> Todos</button>\n                        </mat-header-cell>\n                        <mat-cell *matCellDef=\"let row\">\n                            <button *ngIf=\"row.webcam!=true && row.estado!='Desconectado'\"\n                                class=\"btn btn-sm btn-outline-primary\" (click)=\"activarWebCam(row.estudiante)\"><i\n                                    class=\"fa fa-video-camera\"></i> Activar</button>\n                            <button *ngIf=\"row.webcam==true && row.estado!='Desconectado'\"\n                                class=\"btn btn-sm btn-outline-danger\" (click)=\"desactivarWebCam(row.estudiante)\"><i\n                                    class=\"fa fa-video-camera\"></i> Desactivar</button>\n                        </mat-cell>\n                    </ng-container>\n                    <ng-container matColumnDef=\"pulsera\">\n                        <mat-header-cell *matHeaderCellDef><button class=\"btn btn-sm btn-primary\"\n                                (click)=\"activarTodasPulseras()\"><i class=\"fa fa-heartbeat\"></i> Todos</button>\n                        </mat-header-cell>\n                        <mat-cell *matCellDef=\"let row\">\n                            <button *ngIf=\"row.pulsera!=true && row.estado!='Desconectado'\"\n                                class=\"btn btn-sm btn-outline-primary\" (click)=\"activarPulsera(row.estudiante)\"><i\n                                    class=\"fa fa-heartbeat\"></i> Activar</button>\n                            <button *ngIf=\"row.pulsera==true && row.estado!='Desconectado'\"\n                                class=\"btn btn-sm btn-outline-danger\" (click)=\"desactivarPulsera(row.estudiante)\"><i\n                                    class=\"fa fa-heartbeat\"></i> Desactivar</button>\n                        </mat-cell>\n                    </ng-container>\n                    <ng-container matColumnDef=\"led\">\n                        <mat-header-cell *matHeaderCellDef>\n                            <button class=\"btn btn-sm btn-primary\" (click)=\"activarTodosLeds()\"><i\n                                    class=\"fa fa-lightbulb-o\"></i> Todos</button>\n                        </mat-header-cell>\n                        <mat-cell *matCellDef=\"let row\">\n                            <button *ngIf=\"row.led!=true && row.estado!='Desconectado'\"\n                                class=\"btn btn-sm btn-outline-primary\" (click)=\"activarLed(row.estudiante)\"><i\n                                    class=\"fa fa-lightbulb-o\"></i> Activar</button>\n                            <button *ngIf=\"row.led==true && row.estado!='Desconectado'\"\n                                class=\"btn btn-sm btn-outline-danger\" (click)=\"desactivarLed(row.estudiante)\"><i\n                                    class=\"fa fa-lightbulb-o\"></i> Desactivar</button>\n                        </mat-cell>\n                    </ng-container>\n                    <mat-header-row *matHeaderRowDef=\"displayedColumnsAlumnos\"></mat-header-row>\n                    <mat-row *matRowDef=\"let row; columns: displayedColumnsAlumnos;\">\n                    </mat-row>\n                </mat-table>\n                <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\n            </div>\n        </div>\n        <div class=\"col-auto text-center\">\n            <div class=\"row\">\n                <div class=\"col-12 text-center\">\n                    <h5>Estado de la clase</h5>\n                </div>\n            </div>\n            <div class=\"row justify-content-center\">\n                <div class=\"col-5\">\n                    <div class=\"btn-group\">\n                        <button type=\"button\" class=\"btn btn-info dropdown-toggle\" data-toggle=\"dropdown\"\n                            aria-haspopup=\"true\" aria-expanded=\"false\">\n                            Estado\n                        </button>\n                        <div class=\"dropdown-menu\">\n                            <div class=\"dropdown-item\" *ngFor=\"let estado of estadosGlobales\">\n                                <input type=\"checkbox\" class=\"form-check-input\" [(ngModel)]=\"estado.checked\">\n                                <a>{{estado.nombre}}</a>\n                            </div>\n                            <!--<a class=\"dropdown-item\" *ngFor=\"let estado of estados\"\n                                    (click)=\"seleccionarEstado(estado)\">{{estado.nombre}}\n                                </a>-->\n                        </div>\n                    </div>\n                </div>\n                <div class=\"col-5\">\n                    <button type=\"button\" class=\"btn btn-outline-success\" (click)=\"actualizarGraficaGlobal()\"> <i\n                            class=\"fa fa-refresh\"></i> Actualizar</button>\n                </div>\n            </div>\n            <br>\n            <div>\n                <canvas id=\"estadoGlobal\"></canvas>\n            </div>\n        </div>\n    </div>\n</div>\n<div id=\"vistaMapaDeLaClase\" style=\"display: none;\" class=\"row col-12 justify-content-center\">\n    <div class=\"card col-12\">\n        <div class=\"card-body\">\n            <div class=\"row justify-content-center\">\n                <div class=\"col-6 text-center\">\n                    <h5 class=\"card-title\">Distribucion de la clase</h5>\n                </div>\n            </div>\n            <div class=\"row justify-content-center\">\n                <div class=\"col-3 text-center\">\n                    <div class=\"btn-group\">\n                        <button type=\"button\" class=\"btn btn-info dropdown-toggle\" data-toggle=\"dropdown\"\n                            aria-haspopup=\"true\" aria-expanded=\"false\">\n                            {{visualizacionSelected}}\n                        </button>\n                        <div class=\"dropdown-menu\">\n                            <a *ngIf=\"alumnoSeleccionadoAlumno\" class=\"dropdown-item\">Media de la clase</a>\n                            <div class=\"dropdown-item\" *ngFor=\"let visualizacion of visualizaciones\"\n                                (click)=\"seleccionVisualizacion(visualizacion)\">\n                                <a>{{visualizacion.nombre}}</a>\n                            </div>\n                            <!--<a class=\"dropdown-item\" *ngFor=\"let alumno of alumnos\"\n                                    (click)=\"seleccionarAlumno(alumno)\">{{alumno.estudiante.nombre}}</a>-->\n                        </div>\n                    </div>\n                </div>\n                <div class=\"col-3 text-center\">\n                    <div class=\"btn-group\">\n                        <button type=\"button\" class=\"btn btn-info dropdown-toggle\" data-toggle=\"dropdown\"\n                            aria-haspopup=\"true\" aria-expanded=\"false\">\n                            {{estadoConjuntoSeleccionado}}\n                        </button>\n                        <div class=\"dropdown-menu\">\n                            <div class=\"dropdown-item\" (click)=\"seleccionarEstadoConjunto(estado)\"\n                                *ngFor=\"let estado of estadosConjunto\">\n                                <a>{{estado.nombre}}</a>\n                            </div>\n                        </div>\n                    </div>\n                </div>\n            </div>\n            <br>\n            <div class=\"row justify-content-center\">\n                <div class=\"col-auto\">\n                    <div id=\"clase\" class=\"example-boundary\">\n                        <div id=\"{{item.id_item}}\" *ngFor=\"let item of actividad.alumnos\" class=\"example-box\"\n                            ondrop=\"myFunction(item)\" [cdkDragFreeDragPosition]=\"item.posicion\"\n                            cdkDragBoundary=\".example-boundary\" cdkDrag (cdkDragEnded)=\"dragEnded($event,item)\">\n                            {{item.estudiante.nombre}}\n                        </div>\n                    </div>\n                </div>\n                <div class=\"col-sm-6 col-12\">\n                    <div *ngIf=\"datoAlegria\">\n                        <div class=\"text-left\">\n                            <h6>Alegria</h6>\n                        </div>\n                        <div class=\"row\">\n                            <div class=\"progress col-10\">\n                                <div id=\"progress-alegria\" class=\"progress-bar\" role=\"progressbar\"\n                                    style=\"background-color: rgba(255,255,84,1)\" aria-valuenow=\"25\" aria-valuemin=\"0\"\n                                    aria-valuemax=\"100\"></div>\n                            </div>\n                            <div class=\"col-2\">\n                                {{datosResumenSeleccionados.alegria}}%\n                            </div>\n                        </div>\n                    </div>\n                    <div *ngIf=\"datoAsco\">\n                        <div class=\"text-left\">\n                            <h6>Asco</h6>\n                        </div>\n                        <div class=\"row\">\n                            <div class=\"progress col-10\">\n                                <div id=\"progress-asco\" class=\"progress-bar\" role=\"progressbar\"\n                                    style=\"background-color: rgba(0,0,0,0.5)\" aria-valuenow=\"25\" aria-valuemin=\"0\"\n                                    aria-valuemax=\"100\"></div>\n                            </div>\n                            <div class=\"col-2\">\n                                {{datosResumenSeleccionados.asco}}%\n                            </div>\n                        </div>\n                    </div>\n                    <div *ngIf=\"datoMiedo\">\n                        <div class=\"text-left\">\n                            <h6>Miedo</h6>\n                        </div>\n                        <div class=\"row\">\n                            <div class=\"progress col-10\">\n                                <div id=\"progress-miedo\" class=\"progress-bar\" role=\"progressbar\"\n                                    style=\"background-color: rgba(0,150,0,1)\" aria-valuenow=\"25\" aria-valuemin=\"0\"\n                                    aria-valuemax=\"100\"></div>\n                            </div>\n                            <div class=\"col-2\">\n                                {{datosResumenSeleccionados.miedo}}%\n                            </div>\n                        </div>\n                    </div>\n                    <div *ngIf=\"datoSorpresa\">\n                        <div class=\"text-left\">\n                            <h6>Sorpresa</h6>\n                        </div>\n                        <div class=\"row\">\n                            <div class=\"progress col-10\">\n                                <div id=\"progress-sorpresa\" class=\"progress-bar\" role=\"progressbar\"\n                                    style=\"background-color: rgba(89,189,255,1)\" aria-valuenow=\"25\" aria-valuemin=\"0\"\n                                    aria-valuemax=\"100\"></div>\n                            </div>\n                            <div class=\"col-2\">\n                                {{datosResumenSeleccionados.sorpresa}}%\n                            </div>\n                        </div>\n                    </div>\n                    <div *ngIf=\"datoTristeza\">\n                        <div class=\"text-left\">\n                            <h6>Tristeza</h6>\n                        </div>\n                        <div class=\"row\">\n                            <div class=\"progress col-10\">\n                                <div id=\"progress-tristeza\" class=\"progress-bar\" role=\"progressbar\"\n                                    style=\"background-color: rgba(81,81,255,1)\" aria-valuenow=\"25\" aria-valuemin=\"0\"\n                                    aria-valuemax=\"100\"></div>\n                            </div>\n                            <div class=\"col-2\">\n                                {{datosResumenSeleccionados.tristeza}}%\n                            </div>\n                        </div>\n                    </div>\n                    <div *ngIf=\"datoIra\">\n                        <div class=\"text-left\">\n                            <h6>Ira</h6>\n                        </div>\n                        <div class=\"row\">\n                            <div class=\"progress col-10\">\n                                <div id=\"progress-ira\" class=\"progress-bar\" role=\"progressbar\"\n                                    style=\"background-color: rgba(255,0,0,1)\" aria-valuenow=\"25\" aria-valuemin=\"0\"\n                                    aria-valuemax=\"100\"></div>\n                            </div>\n                            <div class=\"col-2\">\n                                {{datosResumenSeleccionados.ira}}%\n                            </div>\n                        </div>\n                    </div>\n                    <div *ngIf=\"datoconcentrado\">\n                        <div class=\"text-left\">\n                            <h6>Concentrado</h6>\n                        </div>\n                        <div class=\"row\">\n                            <div class=\"progress col-10\">\n                                <div id=\"progress-concentrado\" class=\"progress-bar\" role=\"progressbar\"\n                                    style=\"background-color: rgba(84,255,84,1)\" aria-valuenow=\"25\" aria-valuemin=\"0\"\n                                    aria-valuemax=\"100\"></div>\n                            </div>\n                            <div class=\"col-2\">\n                                {{datosResumenSeleccionados.concentrado}}%\n                            </div>\n                        </div>\n                    </div>\n                    <div *ngIf=\"datodistraido\">\n                        <div class=\"text-left\">\n                            <h6>Distraido</h6>\n                        </div>\n                        <div class=\"row\">\n                            <div class=\"progress col-10\">\n                                <div id=\"progress-distraido\" class=\"progress-bar\" role=\"progressbar\"\n                                    style=\"background-color: rgba(70,70,70,1)\" aria-valuenow=\"25\" aria-valuemin=\"0\"\n                                    aria-valuemax=\"100\"></div>\n                            </div>\n                            <div class=\"col-2\">\n                                {{datosResumenSeleccionados.distraido}}%\n                            </div>\n                        </div>\n                    </div>\n                    <div *ngIf=\"datomotivado\">\n                        <div class=\"text-left\">\n                            <h6>Motivado</h6>\n                        </div>\n                        <div class=\"row\">\n                            <div class=\"progress col-10\">\n                                <div id=\"progress-motivado\" class=\"progress-bar\" role=\"progressbar\"\n                                    style=\"background-color: rgba(84,25,80,1)\" aria-valuenow=\"25\" aria-valuemin=\"0\"\n                                    aria-valuemax=\"100\"></div>\n                            </div>\n                            <div class=\"col-2\">\n                                {{datosResumenSeleccionados.motivado}}%\n                            </div>\n                        </div>\n                    </div>\n                    <div *ngIf=\"datofrustrado\">\n                        <div class=\"text-left\">\n                            <h6>Frustrado</h6>\n                        </div>\n                        <div class=\"row\">\n                            <div class=\"progress col-10\">\n                                <div id=\"progress-frustrado\" class=\"progress-bar\" role=\"progressbar\"\n                                    style=\"background-color: rgba(123,123,123,1)\" aria-valuenow=\"25\" aria-valuemin=\"0\"\n                                    aria-valuemax=\"100\"></div>\n                            </div>\n                            <div class=\"col-2\">\n                                {{datosResumenSeleccionados.frustrado}}%\n                            </div>\n                        </div>\n                    </div>\n\n                </div>\n            </div>\n        </div>\n    </div>\n</div>\n<div id=\"GraficoEvolucion\">\n    <div class=\"row\">\n        <h5 class=\"col-12 text-center card-title\">Grafica</h5>\n    </div>\n    <div class=\"row text-center justify-content-center\">\n        <div class=\"col-4\">\n            <div class=\"btn-group\">\n                <button type=\"button\" class=\"btn btn-info dropdown-toggle\" data-toggle=\"dropdown\" aria-haspopup=\"true\"\n                    aria-expanded=\"false\">\n                    Estado\n                </button>\n                <div class=\"dropdown-menu\">\n                    <div class=\"dropdown-item\" *ngFor=\"let estado of estados\">\n                        <input type=\"checkbox\" class=\"form-check-input\" [(ngModel)]=\"estado.checked\">\n                        <a>{{estado.nombre}}</a>\n                    </div>\n                </div>\n            </div>\n        </div>\n        <div class=\"col-4\">\n            <div class=\"btn-group\">\n                <button type=\"button\" class=\"btn btn-info dropdown-toggle\" data-toggle=\"dropdown\" aria-haspopup=\"true\"\n                    aria-expanded=\"false\">\n                    Alumnos\n                </button>\n                <div class=\"dropdown-menu\">\n                    <a *ngIf=\"alumnoSeleccionadoAlumno\" class=\"dropdown-item\">Media de la clase</a>\n                    <div class=\"dropdown-item\" *ngFor=\"let alumno of alumnosSelect\">\n                        <input type=\"checkbox\" class=\"form-check-input\" [(ngModel)]=\"alumno.checked\">\n                        <a>{{alumno.nombre}}</a>\n                    </div>\n                </div>\n            </div>\n        </div>\n        <div class=\"col-4\">\n            <button type=\"button\" class=\"btn btn-outline-success\" (click)=\"actualizarGraficaLineal()\"><i\n                    class=\"fa fa-refresh\"></i> Actualizar</button>\n        </div>\n    </div>\n    <div class=\"row\">\n        <div class=\"col-12\">\n            <canvas id=\"graficaLinealEntera\"></canvas>\n        </div>\n    </div>\n</div>\n<div id=\"gUsuariosConectados\" class=\"row\">\n    <div class=\"col-12\">\n        <h5 class=\"text-center card-title\">Usuarios Conectados</h5>\n        <canvas id=\"usersConectadosEntera\"></canvas>\n        <h6 class=\"text-center\">{{porUsuariosConectados}}%</h6>\n    </div>\n</div>\n<div id=\"gEstadoUsuarios\">\n\n</div>\n<div id=\"tablaUsuarios\">\n    <div class=\"text-center\">\n        <h5>Alumnos</h5>\n    </div>\n    <div class=\"example-header\">\n        <mat-form-field>\n            <input matInput (keyup)=\"applyFilterA($event.target.value)\" placeholder=\"Filtrar\">\n        </mat-form-field>\n    </div>\n    <div class=\"example-container\">\n        <mat-table [dataSource]=\"dataSourceAlumnos\" class=\"mat-elevation-z1\" matSort>\n            <ng-container matColumnDef=\"nombre\">\n                <mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </mat-header-cell>\n                <mat-cell *matCellDef=\"let element\"> {{element.nombre}} </mat-cell>\n            </ng-container>\n            <ng-container matColumnDef=\"estado\">\n                <mat-header-cell *matHeaderCellDef mat-sort-header> Estado </mat-header-cell>\n                <mat-cell *matCellDef=\"let row\"> {{row.estado}} </mat-cell>\n            </ng-container>\n            <ng-container matColumnDef=\"pulsaciones\">\n                <mat-header-cell *matHeaderCellDef mat-sort-header> Pulsaciones </mat-header-cell>\n                <mat-cell *matCellDef=\"let row\">\n                    <div *ngIf=\"row.pulsaciones<=95\">{{row.pulsaciones}} ppm</div>\n                    <div *ngIf=\"row.pulsaciones>95\" style=\"color:red\">{{row.pulsaciones}} ppm</div>\n                </mat-cell>\n            </ng-container>\n            <ng-container matColumnDef=\"webcam\">\n                <mat-header-cell *matHeaderCellDef><button class=\"btn btn-sm btn-primary\"\n                        (click)=\"activarTodasWebCam()\"><i class=\"fa fa-video-camera\"></i> Todos</button>\n                </mat-header-cell>\n                <mat-cell *matCellDef=\"let row\">\n                    <button *ngIf=\"row.webcam!=true && row.estado!='Desconectado'\"\n                        class=\"btn btn-sm btn-outline-primary\" (click)=\"activarWebCam(row.estudiante)\"><i\n                            class=\"fa fa-video-camera\"></i> Activar</button>\n                    <button *ngIf=\"row.webcam==true && row.estado!='Desconectado'\" class=\"btn btn-sm btn-outline-danger\"\n                        (click)=\"desactivarWebCam(row.estudiante)\"><i class=\"fa fa-video-camera\"></i>\n                        Desactivar</button>\n                </mat-cell>\n            </ng-container>\n            <ng-container matColumnDef=\"pulsera\">\n                <mat-header-cell *matHeaderCellDef><button class=\"btn btn-sm btn-primary\"\n                        (click)=\"activarTodasPulseras()\"><i class=\"fa fa-heartbeat\"></i> Todos</button>\n                </mat-header-cell>\n                <mat-cell *matCellDef=\"let row\">\n                    <button *ngIf=\"row.pulsera!=true && row.estado!='Desconectado'\"\n                        class=\"btn btn-sm btn-outline-primary\" (click)=\"activarPulsera(row.estudiante)\"><i\n                            class=\"fa fa-heartbeat\"></i> Activar</button>\n                    <button *ngIf=\"row.pulsera==true && row.estado!='Desconectado'\"\n                        class=\"btn btn-sm btn-outline-danger\" (click)=\"desactivarPulsera(row.estudiante)\"><i\n                            class=\"fa fa-heartbeat\"></i> Desactivar</button>\n                </mat-cell>\n            </ng-container>\n            <ng-container matColumnDef=\"led\">\n                <mat-header-cell *matHeaderCellDef>\n                    <button class=\"btn btn-sm btn-primary\" (click)=\"activarTodosLeds()\"><i\n                            class=\"fa fa-lightbulb-o\"></i> Todos</button>\n                </mat-header-cell>\n                <mat-cell *matCellDef=\"let row\">\n                    <button *ngIf=\"row.led!=true && row.estado!='Desconectado'\" class=\"btn btn-sm btn-outline-primary\"\n                        (click)=\"activarLed(row.estudiante)\"><i class=\"fa fa-lightbulb-o\"></i> Activar</button>\n                    <button *ngIf=\"row.led==true && row.estado!='Desconectado'\" class=\"btn btn-sm btn-outline-danger\"\n                        (click)=\"desactivarLed(row.estudiante)\"><i class=\"fa fa-lightbulb-o\"></i> Desactivar</button>\n                </mat-cell>\n            </ng-container>\n            <mat-header-row *matHeaderRowDef=\"displayedColumnsAlumnos\"></mat-header-row>\n            <mat-row *matRowDef=\"let row; columns: displayedColumnsAlumnos;\">\n            </mat-row>\n        </mat-table>\n        <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\n    </div>\n</div>\n<br>\n<br>\n<br>";
     /***/
   },
 
@@ -551,7 +551,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"row col-12 justify-content-center\">\n    <div class=\"col-6 text-left\">\n        <h3>{{alumno.nombre}} {{alumno.apellidos}}</h3>\n    </div>\n    <div class=\"col-3 text-right\">\n        <button *ngIf=\"!editarActividadesView\" type=\"button\" class=\"btn btn-outline-danger\" (click)=\"cancelar()\"><i class=\"fa fa-times-circle\"></i> Cerrar Alumno</button>\n        <!--<button *ngIf=\"editarActividadesView\" type=\"button\" class=\"btn btn-outline-danger\" (click)=\"cancelarEdicion()\">Cancelar eleccion de actividades</button>-->\n    </div>\n    \n    <div class=\"col-3 text-right\">\n        <button *ngIf=\"!editarActividadesView\" type=\"button\" class=\"btn btn btn-outline-success\" (click)=\"editarActividades()\"><i\n            class=\"fa fa-edit\"></i> Editar actividades</button>\n    </div>\n</div>\n<br>\n<div class=\"col-12\" *ngIf=\"editarActividadesView\">\n    <div class=\"card\">\n        <div class=\"card-body\">\n            <div class=\"example-header\">\n                <mat-form-field>\n                    <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filtrar\">\n                </mat-form-field>\n            </div>\n            <div class=\"example-container\">\n\n                <mat-table [dataSource]=\"dataSource\" class=\"mat-elevation-z1\" matSort>\n\n                    <ng-container matColumnDef=\"select\">\n                        <th mat-header-cell *matHeaderCellDef>\n                            <mat-checkbox (change)=\"$event ? masterToggle() : null\"\n                                [checked]=\"selection.hasValue() && isAllSelected()\"\n                                [indeterminate]=\"selection.hasValue() && !isAllSelected()\"\n                                [aria-label]=\"checkboxLabel()\">\n                            </mat-checkbox>\n                        </th>\n                        <td mat-cell *matCellDef=\"let row\">\n                            <mat-checkbox (click)=\"$event.stopPropagation()\"\n                                (change)=\"$event ? selection.toggle(row) : null\" [checked]=\"selection.isSelected(row)\"\n                                [aria-label]=\"checkboxLabel(row)\">\n                            </mat-checkbox>\n                        </td>\n                    </ng-container>\n\n                    <!-- ID Column -->\n                    <ng-container matColumnDef=\"nombre\">\n                        <mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </mat-header-cell>\n                        <mat-cell *matCellDef=\"let row\"> {{row.nombre}} </mat-cell>\n                    </ng-container>\n\n                    <!-- Progress Column -->\n                    <ng-container matColumnDef=\"profesor\">\n                        <mat-header-cell *matHeaderCellDef mat-sort-header> Profesor </mat-header-cell>\n                        <mat-cell *matCellDef=\"let row\"> {{row.profesor}} </mat-cell>\n                    </ng-container>\n\n                    <!-- Name Column -->\n                    <ng-container matColumnDef=\"clase\">\n                        <mat-header-cell *matHeaderCellDef mat-sort-header> Clase </mat-header-cell>\n                        <mat-cell *matCellDef=\"let row\"> {{row.clase}} </mat-cell>\n                    </ng-container>\n\n                    <ng-container matColumnDef=\"estado\">\n                        <mat-header-cell *matHeaderCellDef mat-sort-header> Estado </mat-header-cell>\n                        <mat-cell *matCellDef=\"let row\"> {{row.estado}} </mat-cell>\n                    </ng-container>\n\n                    <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\n                    <mat-row *matRowDef=\"let row; columns: displayedColumns;\">\n                    </mat-row>\n                </mat-table>\n\n                <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\n            </div>\n            <div class=\"row justify-content-center text-center\">\n                <div class=\"col-3\">\n                    <button class=\"btn btn btn-danger\" (click)=\"cancelarEdicion()\">Cancelar</button>\n                </div>\n                <div class=\"col-3\">\n                    <button class=\"btn btn btn-success\" (click)=\"actualizar()\">Actualizar Actividades</button>\n                </div>\n                \n            </div>\n        </div>\n    </div>\n</div>\n<div id=\"graficas\">\n    <div class=\"row justify-content-center text-center\">\n        <div class=\"col-8\">\n            <h5>Estadisticas de las actividades</h5>\n        </div>\n        <div class=\"col-4\">\n            <div class=\"btn-group\">\n                <button type=\"button\" class=\"btn btn-info dropdown-toggle\" data-toggle=\"dropdown\"\n                    aria-haspopup=\"true\" aria-expanded=\"false\">\n                    {{estadoSeleccionado}}\n                </button>\n                <div class=\"dropdown-menu\">\n                    <div class=\"dropdown-item\" (click)=\"seleccionarEstado(estado)\" *ngFor=\"let estado of estados\">\n                        <a>{{estado.nombre}}</a>\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>\n    <div class=\"row justify-content-center text-center\">\n        <div class=\"col-11\">\n            <canvas id=\"progresoTotal\"></canvas>\n        </div>\n    </div>\n    <br>\n    <div class=\"row justify-content-center text-center\">\n        <div class=\"col-8\">\n            <h5>Estadisticas conjuntas</h5>\n        </div>\n        <div class=\"col-4\">\n            <div class=\"btn-group\">\n                <button type=\"button\" class=\"btn btn-info dropdown-toggle\" data-toggle=\"dropdown\"\n                    aria-haspopup=\"true\" aria-expanded=\"false\">\n                    {{estadoConjuntoSeleccionado.nombre}}\n                </button>\n                <div class=\"dropdown-menu\">\n                    <div class=\"dropdown-item\" (click)=\"seleccionarEstadoConjunto(estado)\" *ngFor=\"let estado of estadosConjunto\">\n                        <a>{{estado.nombre}}</a>\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>\n    <div class=\"row justify-content-center text-center\">\n        <div class=\"col-11\">\n            <canvas id=\"progresoConjuntoTotal\"></canvas>\n        </div>\n    </div>\n    <br>\n    <div class=\"row justify-content-center text-center\">\n        <div class=\"col-8\">\n            <h5>Estadisticas Globales del alumno</h5>\n        </div>\n        <div class=\"col-4\">\n            <div class=\"btn-group\">\n                <button type=\"button\" class=\"btn btn-info dropdown-toggle\" data-toggle=\"dropdown\"\n                    aria-haspopup=\"true\" aria-expanded=\"false\">\n                    {{estadoGeneralSeleccionado.nombre}}\n                </button>\n                <div class=\"dropdown-menu\">\n                    <div class=\"dropdown-item\" (click)=\"seleccionarEstadoGeneral(estado)\" *ngFor=\"let estado of estadosConjunto\">\n                        <a>{{estado.nombre}}</a>\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>\n    <div class=\"row justify-content-center text-center\">\n        <div class=\"col-11\">\n            <canvas id=\"resumenGeneral\"></canvas>\n        </div>\n    </div>\n</div>\n\n";
+    __webpack_exports__["default"] = "<div class=\"row col-12 justify-content-center\">\n    <div class=\"col-6 text-left\">\n        <h3>Alumno: {{alumno.nombre}} {{alumno.apellidos}}</h3>\n    </div>\n    <div class=\"col-3 text-right\">\n        <button *ngIf=\"!editarActividadesView\" type=\"button\" class=\"btn btn-outline-danger\" (click)=\"cancelar()\"><i class=\"fa fa-times-circle\"></i> Cerrar Alumno</button>\n        <!--<button *ngIf=\"editarActividadesView\" type=\"button\" class=\"btn btn-outline-danger\" (click)=\"cancelarEdicion()\">Cancelar eleccion de actividades</button>-->\n    </div>\n    \n    <div class=\"col-3 text-right\">\n        <button *ngIf=\"!editarActividadesView\" type=\"button\" class=\"btn btn btn-outline-success\" (click)=\"editarActividades()\"><i\n            class=\"fa fa-edit\"></i> Editar actividades</button>\n    </div>\n</div>\n<br>\n<div class=\"col-12\" *ngIf=\"editarActividadesView\">\n    <div class=\"card\">\n        <div class=\"card-body\">\n            <div class=\"example-header\">\n                <mat-form-field>\n                    <input matInput (keyup)=\"applyFilter($event.target.value)\" placeholder=\"Filtrar\">\n                </mat-form-field>\n            </div>\n            <div class=\"example-container\">\n\n                <mat-table [dataSource]=\"dataSource\" class=\"mat-elevation-z1\" matSort>\n\n                    <ng-container matColumnDef=\"select\">\n                        <th mat-header-cell *matHeaderCellDef>\n                            <mat-checkbox (change)=\"$event ? masterToggle() : null\"\n                                [checked]=\"selection.hasValue() && isAllSelected()\"\n                                [indeterminate]=\"selection.hasValue() && !isAllSelected()\"\n                                [aria-label]=\"checkboxLabel()\">\n                            </mat-checkbox>\n                        </th>\n                        <td mat-cell *matCellDef=\"let row\">\n                            <mat-checkbox (click)=\"$event.stopPropagation()\"\n                                (change)=\"$event ? selection.toggle(row) : null\" [checked]=\"selection.isSelected(row)\"\n                                [aria-label]=\"checkboxLabel(row)\">\n                            </mat-checkbox>\n                        </td>\n                    </ng-container>\n\n                    <!-- ID Column -->\n                    <ng-container matColumnDef=\"nombre\">\n                        <mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </mat-header-cell>\n                        <mat-cell *matCellDef=\"let row\"> {{row.nombre}} </mat-cell>\n                    </ng-container>\n\n                    <!-- Progress Column -->\n                    <ng-container matColumnDef=\"profesor\">\n                        <mat-header-cell *matHeaderCellDef mat-sort-header> Profesor </mat-header-cell>\n                        <mat-cell *matCellDef=\"let row\"> {{row.profesor}} </mat-cell>\n                    </ng-container>\n\n                    <!-- Name Column -->\n                    <ng-container matColumnDef=\"clase\">\n                        <mat-header-cell *matHeaderCellDef mat-sort-header> Clase </mat-header-cell>\n                        <mat-cell *matCellDef=\"let row\"> {{row.clase}} </mat-cell>\n                    </ng-container>\n\n                    <ng-container matColumnDef=\"estado\">\n                        <mat-header-cell *matHeaderCellDef mat-sort-header> Estado </mat-header-cell>\n                        <mat-cell *matCellDef=\"let row\"> {{row.estado}} </mat-cell>\n                    </ng-container>\n\n                    <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\n                    <mat-row *matRowDef=\"let row; columns: displayedColumns;\">\n                    </mat-row>\n                </mat-table>\n\n                <mat-paginator [pageSizeOptions]=\"[5, 10, 25, 100]\"></mat-paginator>\n            </div>\n            <div class=\"row justify-content-center text-center\">\n                <div class=\"col-3\">\n                    <button class=\"btn btn btn-danger\" (click)=\"cancelarEdicion()\">Cancelar</button>\n                </div>\n                <div class=\"col-3\">\n                    <button class=\"btn btn btn-success\" (click)=\"actualizar()\">Actualizar Actividades</button>\n                </div>\n                \n            </div>\n        </div>\n    </div>\n</div>\n<div id=\"graficas\">\n    <div class=\"row justify-content-center text-center\">\n        <div class=\"col-8\">\n            <h5>Estadisticas de las actividades</h5>\n        </div>\n        <div class=\"col-4\">\n            <div class=\"btn-group\">\n                <button type=\"button\" class=\"btn btn-info dropdown-toggle\" data-toggle=\"dropdown\"\n                    aria-haspopup=\"true\" aria-expanded=\"false\">\n                    {{estadoSeleccionado}}\n                </button>\n                <div class=\"dropdown-menu\">\n                    <div class=\"dropdown-item\" (click)=\"seleccionarEstado(estado)\" *ngFor=\"let estado of estados\">\n                        <a>{{estado.nombre}}</a>\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>\n    <div class=\"row justify-content-center text-center\">\n        <div class=\"col-11\">\n            <canvas id=\"progresoTotal\"></canvas>\n        </div>\n    </div>\n    <br>\n    <div class=\"row justify-content-center text-center\">\n        <div class=\"col-8\">\n            <h5>Estadisticas conjuntas</h5>\n        </div>\n        <div class=\"col-4\">\n            <div class=\"btn-group\">\n                <button type=\"button\" class=\"btn btn-info dropdown-toggle\" data-toggle=\"dropdown\"\n                    aria-haspopup=\"true\" aria-expanded=\"false\">\n                    {{estadoConjuntoSeleccionado.nombre}}\n                </button>\n                <div class=\"dropdown-menu\">\n                    <div class=\"dropdown-item\" (click)=\"seleccionarEstadoConjunto(estado)\" *ngFor=\"let estado of estadosConjunto\">\n                        <a>{{estado.nombre}}</a>\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>\n    <div class=\"row justify-content-center text-center\">\n        <div class=\"col-11\">\n            <canvas id=\"progresoConjuntoTotal\"></canvas>\n        </div>\n    </div>\n    <br>\n    <div class=\"row justify-content-center text-center\">\n        <div class=\"col-8\">\n            <h5>Estadisticas Globales del alumno</h5>\n        </div>\n        <div class=\"col-4\">\n            <div class=\"btn-group\">\n                <button type=\"button\" class=\"btn btn-info dropdown-toggle\" data-toggle=\"dropdown\"\n                    aria-haspopup=\"true\" aria-expanded=\"false\">\n                    {{estadoGeneralSeleccionado.nombre}}\n                </button>\n                <div class=\"dropdown-menu\">\n                    <div class=\"dropdown-item\" (click)=\"seleccionarEstadoGeneral(estado)\" *ngFor=\"let estado of estadosConjunto\">\n                        <a>{{estado.nombre}}</a>\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>\n    <div class=\"row justify-content-center text-center\">\n        <div class=\"col-11\">\n            <canvas id=\"resumenGeneral\"></canvas>\n        </div>\n    </div>\n</div>\n\n";
     /***/
   },
 
@@ -2248,6 +2248,31 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           this.socket.emit('meDesconectoActividad', actividad, this.estudiante);
         };
 
+        this.webCamConectada = function (actividad) {
+          this.socket.emit('webCamConectada', actividad, this.estudiante);
+        };
+
+        this.pulseraConectada = function (actividad) {
+          this.socket.emit('pulseraConectada', actividad, this.estudiante);
+        };
+
+        this.ledConectada = function (actividad) {
+          console.log("led conectado");
+          this.socket.emit('ledConectada', actividad, this.estudiante);
+        };
+
+        this.webCamDesconectada = function (actividad) {
+          this.socket.emit('webCamDesonectada', actividad, this.estudiante);
+        };
+
+        this.pulseraDesconectada = function (actividad) {
+          this.socket.emit('pulseraDesonectada', actividad, this.estudiante);
+        };
+
+        this.ledDesconectada = function (actividad) {
+          this.socket.emit('ledDesonectada', actividad, this.estudiante);
+        };
+
         this.lanzarSocketSrv = function () {
           var cli = this;
           this.socket.on('connect', function () {//console.log("Conectado al servidor de WebSockets");
@@ -2302,6 +2327,33 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           this.socket.on('recepcionEmociones', function (datos) {
             console.log(datos);
           });
+          this.socket.on('conectarWebCam', function (estudiante) {
+            cli.conectarSensor(cli.camara);
+          });
+          this.socket.on('conectarLed', function (estudiante) {
+            console.log("Conectar Led"); //cli.conectarSensor(cli.led);
+
+            cli.conectarLed(cli.led);
+          });
+          this.socket.on('conectarPulsera', function (estudiante) {
+            console.log("Conectar Pulsera"); //cli.conectarSensor(cli.pulsera);
+
+            cli.conectarPulsera(cli.pulsera);
+          });
+          this.socket.on('desconectarWebCam', function (estudiante) {
+            cli.desconectarSensor(cli.camara);
+          });
+          this.socket.on('desconectarLed', function (estudiante) {
+            cli.desconectarSensor(cli.led);
+          });
+          this.socket.on('desconectarPulsera', function (estudiante) {
+            cli.desconectarSensor(cli.pulsera);
+          });
+          /*
+           this.listaSensores.push(this.camara);
+          this.listaSensores.push(this.led);
+          this.listaSensores.push(this.pulsera);
+          */
         };
       }
 
@@ -2321,39 +2373,65 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "conectarse",
         value: function conectarse(actividad) {
-          //console.log("Me he conectado a la actividad");
-          this.conectadoaActividad = true;
-          this.actividadActual = actividad; //console.log(this.actividadActual.alumnos);
-
-          /*for (var key in this.actividadActual.alumnos) {
-            if(this.actividadActual.alumnos[key].estudiante._id=this.estudiante._id){
-              console.log("Estudiate id: "+this.estudiante._id)
-              this.id_item=this.actividadActual.alumnos[key].id_item;
-              //console.log(this.id_item);
-            }
-          }*/
-
-          this.id_item = this.estudiante._id + actividad._id; //this.soyEstudiante();
-          //this.conectarActividad();
-          //console.log("asd");
-          //this.conectarLed();
-
-          this.meConectoActividad(this.actividadActual); //console.log(actividad);
-
-          if (actividad.estado == "Comenzada") {
-            this.empezar();
-          } //this.empezar();
-
-        }
-      }, {
-        key: "desconectarse",
-        value: function desconectarse() {
           return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
           /*#__PURE__*/
           regeneratorRuntime.mark(function _callee2() {
             return regeneratorRuntime.wrap(function _callee2$(_context2) {
               while (1) {
                 switch (_context2.prev = _context2.next) {
+                  case 0:
+                    //console.log("Me he conectado a la actividad");
+                    this.conectadoaActividad = true;
+                    this.actividadActual = actividad; //console.log(this.actividadActual.alumnos);
+
+                    /*for (var key in this.actividadActual.alumnos) {
+                      if(this.actividadActual.alumnos[key].estudiante._id=this.estudiante._id){
+                        console.log("Estudiate id: "+this.estudiante._id)
+                        this.id_item=this.actividadActual.alumnos[key].id_item;
+                        //console.log(this.id_item);
+                      }
+                    }*/
+
+                    this.id_item = this.estudiante._id + actividad._id; //this.soyEstudiante();
+                    //this.conectarActividad();
+                    //console.log("asd");
+                    //this.conectarLed();
+
+                    this.meConectoActividad(this.actividadActual);
+                    _context2.next = 6;
+                    return this.conectarWebCam(this.camara);
+
+                  case 6:
+                    _context2.next = 8;
+                    return this.conectarLed(this.led);
+
+                  case 8:
+                    _context2.next = 10;
+                    return this.conectarPulsera(this.pulsera);
+
+                  case 10:
+                    //console.log(actividad);
+                    if (actividad.estado == "Comenzada") {} //this.empezar()
+                    //this.empezar();
+
+
+                  case 11:
+                  case "end":
+                    return _context2.stop();
+                }
+              }
+            }, _callee2, this);
+          }));
+        }
+      }, {
+        key: "desconectarse",
+        value: function desconectarse() {
+          return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
+          /*#__PURE__*/
+          regeneratorRuntime.mark(function _callee3() {
+            return regeneratorRuntime.wrap(function _callee3$(_context3) {
+              while (1) {
+                switch (_context3.prev = _context3.next) {
                   case 0:
                     //console.log("Me he desconectado de la actividad");
                     //console.log(this.actividadActual.alumnos);
@@ -2377,20 +2455,20 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                     clearInterval(this.intervaloGenerarDatos);
                     clearInterval(this.intervaloDeEnvio);
                     console.log(this.intervaloDeEnvio);
-                    _context2.next = 10;
+                    _context3.next = 10;
                     return 0;
 
                   case 10:
-                    this.listaActividades.length = _context2.sent;
-                    _context2.next = 13;
+                    this.listaActividades.length = _context3.sent;
+                    _context3.next = 13;
                     return this.obtenerActividadesComenzadas();
 
                   case 13:
                   case "end":
-                    return _context2.stop();
+                    return _context3.stop();
                 }
               }
-            }, _callee2, this);
+            }, _callee3, this);
           }));
         }
       }, {
@@ -2450,11 +2528,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function conectarWebCam(sensor) {
           return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
           /*#__PURE__*/
-          regeneratorRuntime.mark(function _callee3() {
+          regeneratorRuntime.mark(function _callee4() {
             var constraints, stream;
-            return regeneratorRuntime.wrap(function _callee3$(_context3) {
+            return regeneratorRuntime.wrap(function _callee4$(_context4) {
               while (1) {
-                switch (_context3.prev = _context3.next) {
+                switch (_context4.prev = _context4.next) {
                   case 0:
                     sensor.data = document.getElementById('video');
                     constraints = {
@@ -2464,29 +2542,39 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                         height: 480
                       }
                     };
-                    _context3.prev = 2;
-                    _context3.next = 5;
+                    _context4.prev = 2;
+
+                    if (!(sensor.data != null || sensor.data != undefined)) {
+                      _context4.next = 11;
+                      break;
+                    }
+
+                    _context4.next = 6;
                     return navigator.mediaDevices.getUserMedia(constraints);
 
-                  case 5:
-                    stream = _context3.sent;
+                  case 6:
+                    stream = _context4.sent;
                     this.camara.data.srcObject = stream;
                     sensor.estado = "Conectado";
-                    _context3.next = 13;
+                    this.empezar();
+                    this.webCamConectada(this.actividadActual);
+
+                  case 11:
+                    _context4.next = 16;
                     break;
 
-                  case 10:
-                    _context3.prev = 10;
-                    _context3.t0 = _context3["catch"](2);
-                    //errorMsgElement.innerHTML = `navigator.getUserMedia error:${e.toString()}`;
-                    console.log(_context3.t0);
-
                   case 13:
+                    _context4.prev = 13;
+                    _context4.t0 = _context4["catch"](2);
+                    //errorMsgElement.innerHTML = `navigator.getUserMedia error:${e.toString()}`;
+                    console.log(_context4.t0);
+
+                  case 16:
                   case "end":
-                    return _context3.stop();
+                    return _context4.stop();
                 }
               }
-            }, _callee3, this, [[2, 10]]);
+            }, _callee4, this, [[2, 13]]);
           }));
         }
       }, {
@@ -2521,12 +2609,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function empezar() {
           return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
           /*#__PURE__*/
-          regeneratorRuntime.mark(function _callee6() {
+          regeneratorRuntime.mark(function _callee7() {
             var _this = this;
 
-            return regeneratorRuntime.wrap(function _callee6$(_context6) {
+            return regeneratorRuntime.wrap(function _callee7$(_context7) {
               while (1) {
-                switch (_context6.prev = _context6.next) {
+                switch (_context7.prev = _context7.next) {
                   case 0:
                     //console.log(this.video.srcObject);
                     Promise.all([faceapi.nets.ageGenderNet.loadFromUri('assets/modelos'), faceapi.nets.faceExpressionNet.loadFromUri('assets/modelos'), faceapi.nets.faceLandmark68Net.loadFromUri('assets/modelos'), faceapi.nets.faceLandmark68TinyNet.loadFromUri('assets/modelos'), faceapi.nets.faceRecognitionNet.loadFromUri('assets/modelos'), faceapi.nets.ssdMobilenetv1.loadFromUri('assets/modelos'), faceapi.nets.tinyFaceDetector.loadFromUri('assets/modelos')]); //console.log(this.video.srcObject);
@@ -2534,91 +2622,118 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                     //this.video.addEventListener('play', () => {
                     //console.log(this.camara.data.srcObject);
 
-                    this.canvas = faceapi.createCanvasFromMedia(this.camara.data);
-                    document.body.append(this.canvas);
-                    this.displaySize = {
-                      width: this.camara.data.width,
-                      height: this.camara.data.height
-                    };
-                    faceapi.matchDimensions(this.canvas, this.displaySize);
-                    this.intervaloDeEnvio = setInterval(function () {
-                      return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](_this, void 0, void 0,
-                      /*#__PURE__*/
-                      regeneratorRuntime.mark(function _callee4() {
-                        return regeneratorRuntime.wrap(function _callee4$(_context4) {
-                          while (1) {
-                            switch (_context4.prev = _context4.next) {
-                              case 0:
-                                this.computacionDatos();
+                    try {
+                      this.canvas = faceapi.createCanvasFromMedia(this.camara.data);
+                      document.body.append(this.canvas);
+                      this.displaySize = {
+                        width: this.camara.data.width,
+                        height: this.camara.data.height
+                      };
+                      faceapi.matchDimensions(this.canvas, this.displaySize);
+                      this.intervaloGenerarDatos = setInterval(function () {
+                        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](_this, void 0, void 0,
+                        /*#__PURE__*/
+                        regeneratorRuntime.mark(function _callee5() {
+                          var detections, datos, datosFisicos, datosNeutral, datosHappy, datosSad, datosAngry, datosFearful, datosSurprised, datosDisgusted;
+                          return regeneratorRuntime.wrap(function _callee5$(_context5) {
+                            while (1) {
+                              switch (_context5.prev = _context5.next) {
+                                case 0:
+                                  _context5.prev = 0;
+                                  _context5.next = 3;
+                                  return faceapi.detectSingleFace(this.camara.data, new faceapi.TinyFaceDetectorOptions()).withFaceLandmarks().withFaceExpressions();
 
-                              case 1:
-                              case "end":
-                                return _context4.stop();
+                                case 3:
+                                  detections = _context5.sent;
+                                  datos = faceapi.resizeResults(detections, this.displaySize).expressions;
+                                  _context5.next = 7;
+                                  return faceapi.detectSingleFace(this.camara.data).withFaceLandmarks().withAgeAndGender();
+
+                                case 7:
+                                  datosFisicos = _context5.sent;
+                                  datosNeutral = faceapi.resizeResults(detections, this.displaySize).expressions.neutral;
+                                  datosHappy = faceapi.resizeResults(detections, this.displaySize).expressions.happy;
+                                  datosSad = faceapi.resizeResults(detections, this.displaySize).expressions.sad;
+                                  datosAngry = faceapi.resizeResults(detections, this.displaySize).expressions.angry;
+                                  datosFearful = faceapi.resizeResults(detections, this.displaySize).expressions.fearful;
+                                  datosSurprised = faceapi.resizeResults(detections, this.displaySize).expressions.surprised;
+                                  datosDisgusted = faceapi.resizeResults(detections, this.displaySize).expressions.disgusted;
+
+                                  if (!this.estoyComputando) {
+                                    this.emocionAlegria += datosHappy;
+                                    this.emocionAsco += datosDisgusted;
+                                    this.emocionIra += datosAngry;
+                                    this.emocionMiedo += datosFearful;
+                                    this.emocionSorpresa += datosSurprised;
+                                    this.emocionTristeza += datosSad;
+                                  }
+
+                                  _context5.next = 20;
+                                  break;
+
+                                case 18:
+                                  _context5.prev = 18;
+                                  _context5.t0 = _context5["catch"](0);
+
+                                case 20:
+                                case "end":
+                                  return _context5.stop();
+                              }
                             }
-                          }
-                        }, _callee4, this);
-                      }));
-                    }, 7000);
-                    this.intervaloGenerarDatos = setInterval(function () {
-                      return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](_this, void 0, void 0,
-                      /*#__PURE__*/
-                      regeneratorRuntime.mark(function _callee5() {
-                        var detections, datos, datosFisicos, datosNeutral, datosHappy, datosSad, datosAngry, datosFearful, datosSurprised, datosDisgusted;
-                        return regeneratorRuntime.wrap(function _callee5$(_context5) {
-                          while (1) {
-                            switch (_context5.prev = _context5.next) {
-                              case 0:
-                                _context5.prev = 0;
-                                _context5.next = 3;
-                                return faceapi.detectSingleFace(this.camara.data, new faceapi.TinyFaceDetectorOptions()).withFaceLandmarks().withFaceExpressions();
+                          }, _callee5, this, [[0, 18]]);
+                        }));
+                      }, 1000);
+                      this.intervaloDeEnvio = setInterval(function () {
+                        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](_this, void 0, void 0,
+                        /*#__PURE__*/
+                        regeneratorRuntime.mark(function _callee6() {
+                          return regeneratorRuntime.wrap(function _callee6$(_context6) {
+                            while (1) {
+                              switch (_context6.prev = _context6.next) {
+                                case 0:
+                                  this.computacionDatos();
 
-                              case 3:
-                                detections = _context5.sent;
-                                datos = faceapi.resizeResults(detections, this.displaySize).expressions;
-                                _context5.next = 7;
-                                return faceapi.detectSingleFace(this.camara.data).withFaceLandmarks().withAgeAndGender();
-
-                              case 7:
-                                datosFisicos = _context5.sent;
-                                datosNeutral = faceapi.resizeResults(detections, this.displaySize).expressions.neutral;
-                                datosHappy = faceapi.resizeResults(detections, this.displaySize).expressions.happy;
-                                datosSad = faceapi.resizeResults(detections, this.displaySize).expressions.sad;
-                                datosAngry = faceapi.resizeResults(detections, this.displaySize).expressions.angry;
-                                datosFearful = faceapi.resizeResults(detections, this.displaySize).expressions.fearful;
-                                datosSurprised = faceapi.resizeResults(detections, this.displaySize).expressions.surprised;
-                                datosDisgusted = faceapi.resizeResults(detections, this.displaySize).expressions.disgusted;
-
-                                if (!this.estoyComputando) {
-                                  this.emocionAlegria += datosHappy;
-                                  this.emocionAsco += datosDisgusted;
-                                  this.emocionIra += datosAngry;
-                                  this.emocionMiedo += datosFearful;
-                                  this.emocionSorpresa += datosSurprised;
-                                  this.emocionTristeza += datosSad;
-                                }
-
-                                _context5.next = 20;
-                                break;
-
-                              case 18:
-                                _context5.prev = 18;
-                                _context5.t0 = _context5["catch"](0);
-
-                              case 20:
-                              case "end":
-                                return _context5.stop();
+                                case 1:
+                                case "end":
+                                  return _context6.stop();
+                              }
                             }
-                          }
-                        }, _callee5, this, [[0, 18]]);
-                      }));
-                    }, 1000);
+                          }, _callee6, this);
+                        }));
+                      }, 7000);
+                    } catch (ç) {}
+                    /*this.intervaloGenerarDatos = setInterval(async () => {
+                               try {
+                        const detections = await faceapi.detectSingleFace(this.camara.data, new faceapi.TinyFaceDetectorOptions()).withFaceLandmarks().withFaceExpressions()
+                        var datos = faceapi.resizeResults(detections, this.displaySize).expressions;
+                        var datosFisicos = await faceapi.detectSingleFace(this.camara.data).withFaceLandmarks().withAgeAndGender()
+                                 var datosNeutral = faceapi.resizeResults(detections, this.displaySize).expressions.neutral;
+                        var datosHappy = faceapi.resizeResults(detections, this.displaySize).expressions.happy;
+                        var datosSad = faceapi.resizeResults(detections, this.displaySize).expressions.sad;
+                        var datosAngry = faceapi.resizeResults(detections, this.displaySize).expressions.angry;
+                        var datosFearful = faceapi.resizeResults(detections, this.displaySize).expressions.fearful;
+                        var datosSurprised = faceapi.resizeResults(detections, this.displaySize).expressions.surprised;
+                        var datosDisgusted = faceapi.resizeResults(detections, this.displaySize).expressions.disgusted;
+                        if(!this.estoyComputando){
+                          this.emocionAlegria += datosHappy;
+                          this.emocionAsco += datosDisgusted;
+                          this.emocionIra += datosAngry;
+                          this.emocionMiedo += datosFearful;
+                          this.emocionSorpresa += datosSurprised;
+                          this.emocionTristeza += datosSad;
+                        }
+                      } catch (error) {
+                        //console.log("No hay datos que enviar");
+                      }
+                    }, 1000)*/
 
-                  case 7:
+
+                  case 2:
                   case "end":
-                    return _context6.stop();
+                    return _context7.stop();
                 }
               }
-            }, _callee6, this);
+            }, _callee7, this);
           }));
         }
       }, {
@@ -2626,11 +2741,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function computacionDatos() {
           return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
           /*#__PURE__*/
-          regeneratorRuntime.mark(function _callee7() {
+          regeneratorRuntime.mark(function _callee8() {
             var datos, x, predominante;
-            return regeneratorRuntime.wrap(function _callee7$(_context7) {
+            return regeneratorRuntime.wrap(function _callee8$(_context8) {
               while (1) {
-                switch (_context7.prev = _context7.next) {
+                switch (_context8.prev = _context8.next) {
                   case 0:
                     /*
                     push({
@@ -2656,7 +2771,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
                     datos['alegria'] = {
                       x: x,
-                      y: Number(this.emocionAlegria / this.datosTotalesEmocionales * 100).toFixed(2)
+                      y: Math.round(this.emocionAlegria / this.datosTotalesEmocionales * 100)
                     };
 
                     if (predominante < datos['alegria'].y) {
@@ -2667,7 +2782,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
                     datos['asco'] = {
                       x: x,
-                      y: Number(this.emocionAsco / this.datosTotalesEmocionales * 100).toFixed(2)
+                      y: Math.round(this.emocionAsco / this.datosTotalesEmocionales * 100)
                     };
 
                     if (predominante < datos['asco'].y) {
@@ -2678,7 +2793,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
                     datos['ira'] = {
                       x: x,
-                      y: Number(this.emocionIra / this.datosTotalesEmocionales * 100).toFixed(2)
+                      y: Math.round(this.emocionIra / this.datosTotalesEmocionales * 100)
                     };
 
                     if (predominante < datos['ira'].y) {
@@ -2689,7 +2804,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
                     datos['miedo'] = {
                       x: x,
-                      y: Number(this.emocionMiedo / this.datosTotalesEmocionales * 100).toFixed(2)
+                      y: Math.round(this.emocionMiedo / this.datosTotalesEmocionales * 100)
                     };
 
                     if (predominante < datos['miedo']) {
@@ -2700,7 +2815,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
                     datos['sorpresa'] = {
                       x: x,
-                      y: Number(this.emocionSorpresa / this.datosTotalesEmocionales * 100).toFixed(2)
+                      y: Math.round(this.emocionSorpresa / this.datosTotalesEmocionales * 100)
                     };
 
                     if (predominante < datos['sorpresa']) {
@@ -2711,7 +2826,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
                     datos['tristeza'] = {
                       x: x,
-                      y: Number(this.emocionTristeza / this.datosTotalesEmocionales * 100).toFixed(2)
+                      y: Math.round(this.emocionTristeza / this.datosTotalesEmocionales * 100)
                     };
 
                     if (predominante < datos['tristeza'].y) {
@@ -2777,7 +2892,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                     if (datos['pulsaciones'].y > 85) {
                       datos['distraido'] = {
                         x: x,
-                        y: Number(datos['sorpresa'].y * 100).toFixed(2)
+                        y: Math.round(datos['sorpresa'].y * 100)
                       };
                     }
 
@@ -2790,7 +2905,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
                     datos['concentrado'] = {
                       x: x,
-                      y: Number(100 - datos['distraido'].y * 100).toFixed(2)
+                      y: Math.round(100 - datos['distraido'].y * 100)
                     };
                     datos['frustrado'] = {
                       x: x,
@@ -2800,28 +2915,28 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                     if (datos['sorpresa'].y + datos['tristeza'].y > 0.25) {
                       datos['frustrado'] = {
                         x: x,
-                        y: Number(datos['frustrado'].y + 0.25 * 100).toFixed(2)
+                        y: Math.round(datos['frustrado'].y + 0.25 * 100)
                       };
                     }
 
                     if (datos['asco'].y + datos['ira'].y > 0.25) {
                       datos['frustrado'] = {
                         x: x,
-                        y: Number(datos['frustrado'].y + 0.25 * 100).toFixed(2)
+                        y: Math.round(datos['frustrado'].y + 0.25 * 100)
                       };
                     }
 
                     if (datos['miedo'].y + datos['tristeza'].y > 0.25) {
                       datos['frustrado'] = {
                         x: x,
-                        y: Number(datos['frustrado'].y + 0.25 * 100).toFixed(2)
+                        y: Math.round(datos['frustrado'].y + 0.25 * 100)
                       };
                     }
 
                     if (datos['sorpresa'].y + datos['ira'].y > 0.25) {
                       datos['frustrado'] = {
                         x: x,
-                        y: Number(datos['frustrado'].y + 0.25 * 100).toFixed(2)
+                        y: Math.round(datos['frustrado'].y + 0.25 * 100)
                       };
                     }
 
@@ -2834,7 +2949,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
                     datos['motivado'] = {
                       x: x,
-                      y: Number(100 - datos['frustrado'].y * 100).toFixed(2)
+                      y: Math.round(100 - datos['frustrado'].y * 100)
                     };
                     console.log("Datos listos para enviar");
                     console.log(datos);
@@ -2844,10 +2959,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
                   case 56:
                   case "end":
-                    return _context7.stop();
+                    return _context8.stop();
                 }
               }
-            }, _callee7, this);
+            }, _callee8, this);
           }));
         }
       }, {
@@ -2878,35 +2993,51 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function conectarPulsera(sensor) {
           return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
           /*#__PURE__*/
-          regeneratorRuntime.mark(function _callee8() {
+          regeneratorRuntime.mark(function _callee9() {
             var _this2 = this;
 
-            return regeneratorRuntime.wrap(function _callee8$(_context8) {
+            var conectado;
+            return regeneratorRuntime.wrap(function _callee9$(_context9) {
               while (1) {
-                switch (_context8.prev = _context8.next) {
+                switch (_context9.prev = _context9.next) {
                   case 0:
-                    try {
-                      pulseraMiband.connect();
+                    _context9.prev = 0;
+                    _context9.next = 3;
+                    return pulseraMiband.connect();
+
+                  case 3:
+                    conectado = _context9.sent;
+                    console.log(conectado);
+
+                    if (conectado) {
                       sensor.estado = "Conectado";
                       this.intervaloPulsaciones = setInterval(function (async) {
                         _this2.pulsometro(sensor);
                       }, 2000);
-                    } catch (e) {}
+                      this.pulseraConectada(this.actividadActual);
+                    }
 
-                  case 1:
+                    _context9.next = 11;
+                    break;
+
+                  case 8:
+                    _context9.prev = 8;
+                    _context9.t0 = _context9["catch"](0);
+                    console.log(_context9.t0);
+
+                  case 11:
                   case "end":
-                    return _context8.stop();
+                    return _context9.stop();
                 }
               }
-            }, _callee8, this);
+            }, _callee9, this, [[0, 8]]);
           }));
         }
       }, {
         key: "pulsometro",
         value: function pulsometro(sensor) {
           if (sensor.estado == "Conectado") {
-            this.pulsaciones = pulseraMiband.pulsacionesActuales;
-            console.log(this.pulsaciones);
+            this.pulsaciones = pulseraMiband.pulsacionesActuales; //console.log(this.pulsaciones);
           }
         }
       }, {
@@ -2914,20 +3045,21 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function desconectarSensor(sensor) {
           return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
           /*#__PURE__*/
-          regeneratorRuntime.mark(function _callee9() {
+          regeneratorRuntime.mark(function _callee10() {
             var constraints, stream, track;
-            return regeneratorRuntime.wrap(function _callee9$(_context9) {
+            return regeneratorRuntime.wrap(function _callee10$(_context10) {
               while (1) {
-                switch (_context9.prev = _context9.next) {
+                switch (_context10.prev = _context10.next) {
                   case 0:
                     if (sensor.nombre == "Led") {
                       //console.log(sensor);
                       sensor.data = null;
                       sensor.estado = "Desconectado";
+                      this.ledDesconectada(this.actividadActual);
                     }
 
                     if (!(sensor.nombre == "Camara")) {
-                      _context9.next = 17;
+                      _context10.next = 18;
                       break;
                     }
 
@@ -2952,42 +3084,44 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                         height: 480
                       }
                     };
-                    _context9.prev = 3;
-                    _context9.next = 6;
+                    _context10.prev = 3;
+                    _context10.next = 6;
                     return navigator.mediaDevices.getUserMedia(constraints);
 
                   case 6:
-                    stream = _context9.sent;
+                    stream = _context10.sent;
                     track = stream.getTracks()[0]; // if only one media track
                     // ...
 
                     track.stop();
                     sensor.data = null;
                     sensor.estado = "Desconectado";
-                    _context9.next = 17;
+                    this.webCamDesconectada(this.actividadActual);
+                    clearImmediate(this.intervaloGenerarDatos);
+                    _context10.next = 18;
                     break;
 
-                  case 13:
-                    _context9.prev = 13;
-                    _context9.t0 = _context9["catch"](3);
+                  case 15:
+                    _context10.prev = 15;
+                    _context10.t0 = _context10["catch"](3);
                     //errorMsgElement.innerHTML = `navigator.getUserMedia error:${e.toString()}`;
-                    console.log(_context9.t0);
-                    console.log("Has tenido un error");
+                    console.log(_context10.t0); //console.log("Has tenido un error");
 
-                  case 17:
+                  case 18:
                     if (sensor.nombre == "Pulsera") {
                       pulseraMiband.desconnect();
                       clearInterval(this.intervaloPulsaciones);
                       sensor.data = null;
                       sensor.estado = "Desconectado";
+                      this.pulseraDesconectada(this.actividadActual);
                     }
 
-                  case 18:
+                  case 19:
                   case "end":
-                    return _context9.stop();
+                    return _context10.stop();
                 }
               }
-            }, _callee9, this, [[3, 13]]);
+            }, _callee10, this, [[3, 15]]);
           }));
         } //Implementacion del led
 
@@ -2996,14 +3130,16 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function conectarLed(sensor) {
           return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
           /*#__PURE__*/
-          regeneratorRuntime.mark(function _callee10() {
-            return regeneratorRuntime.wrap(function _callee10$(_context10) {
+          regeneratorRuntime.mark(function _callee11() {
+            var ju;
+            return regeneratorRuntime.wrap(function _callee11$(_context11) {
               while (1) {
-                switch (_context10.prev = _context10.next) {
+                switch (_context11.prev = _context11.next) {
                   case 0:
+                    ju = this;
                     console.log("Conectandose...");
-                    _context10.prev = 1;
-                    _context10.next = 4;
+                    _context11.prev = 2;
+                    _context11.next = 5;
                     return navigator.hid.requestDevice({
                       filters: [{
                         vendorId: 0x20a0,
@@ -3011,59 +3147,48 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                       }]
                     });
 
-                  case 4:
-                    sensor.data = _context10.sent;
+                  case 5:
+                    sensor.data = _context11.sent;
                     //device.open();
                     //console.log(this.device);
+                    console.log(sensor.data);
+
+                    if (!(sensor.data.length != 0)) {
+                      _context11.next = 12;
+                      break;
+                    }
+
                     this.led.estado = "Conectado";
-                    _context10.next = 8;
+                    this.socket.emit('ledConectada', this.actividadActual, this.estudiante);
+                    _context11.next = 12;
                     return sensor.data.open();
 
-                  case 8:
-                    _context10.next = 12;
+                  case 12:
+                    _context11.next = 17;
                     break;
 
-                  case 10:
-                    _context10.prev = 10;
-                    _context10.t0 = _context10["catch"](1);
+                  case 14:
+                    _context11.prev = 14;
+                    _context11.t0 = _context11["catch"](2);
+                    // No device was selected.
+                    console.log(_context11.t0);
 
-                  case 12:
+                  case 17:
                     //console.log(this.listaSensores)
                     if (this.device !== undefined) {// Add |device| to the UI.
                     }
 
-                  case 13:
+                  case 18:
                   case "end":
-                    return _context10.stop();
+                    return _context11.stop();
                 }
               }
-            }, _callee10, this, [[1, 10]]);
+            }, _callee11, this, [[2, 14]]);
           }));
         }
       }, {
         key: "ponerHappy",
         value: function ponerHappy() {
-          return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
-          /*#__PURE__*/
-          regeneratorRuntime.mark(function _callee11() {
-            return regeneratorRuntime.wrap(function _callee11$(_context11) {
-              while (1) {
-                switch (_context11.prev = _context11.next) {
-                  case 0:
-                    _context11.next = 2;
-                    return this.fadeToColor(this.led.data, [255, 255, 0]);
-
-                  case 2:
-                  case "end":
-                    return _context11.stop();
-                }
-              }
-            }, _callee11, this);
-          }));
-        }
-      }, {
-        key: "ponerNeutral",
-        value: function ponerNeutral() {
           return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
           /*#__PURE__*/
           regeneratorRuntime.mark(function _callee12() {
@@ -3072,7 +3197,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                 switch (_context12.prev = _context12.next) {
                   case 0:
                     _context12.next = 2;
-                    return this.fadeToColor(this.led.data, [84, 255, 84]);
+                    return this.fadeToColor(this.led.data, [255, 255, 0]);
 
                   case 2:
                   case "end":
@@ -3083,8 +3208,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           }));
         }
       }, {
-        key: "ponerSad",
-        value: function ponerSad() {
+        key: "ponerNeutral",
+        value: function ponerNeutral() {
           return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
           /*#__PURE__*/
           regeneratorRuntime.mark(function _callee13() {
@@ -3093,7 +3218,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                 switch (_context13.prev = _context13.next) {
                   case 0:
                     _context13.next = 2;
-                    return this.fadeToColor(this.led.data, [81, 81, 255]);
+                    return this.fadeToColor(this.led.data, [84, 255, 84]);
 
                   case 2:
                   case "end":
@@ -3104,8 +3229,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           }));
         }
       }, {
-        key: "ponerAngry",
-        value: function ponerAngry() {
+        key: "ponerSad",
+        value: function ponerSad() {
           return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
           /*#__PURE__*/
           regeneratorRuntime.mark(function _callee14() {
@@ -3114,7 +3239,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                 switch (_context14.prev = _context14.next) {
                   case 0:
                     _context14.next = 2;
-                    return this.fadeToColor(this.led.data, [255, 0, 0]);
+                    return this.fadeToColor(this.led.data, [81, 81, 255]);
 
                   case 2:
                   case "end":
@@ -3125,8 +3250,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           }));
         }
       }, {
-        key: "ponerFearful",
-        value: function ponerFearful() {
+        key: "ponerAngry",
+        value: function ponerAngry() {
           return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
           /*#__PURE__*/
           regeneratorRuntime.mark(function _callee15() {
@@ -3135,7 +3260,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                 switch (_context15.prev = _context15.next) {
                   case 0:
                     _context15.next = 2;
-                    return this.fadeToColor(this.led.data, [0, 150, 0]);
+                    return this.fadeToColor(this.led.data, [255, 0, 0]);
 
                   case 2:
                   case "end":
@@ -3146,8 +3271,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           }));
         }
       }, {
-        key: "ponerDisgusted",
-        value: function ponerDisgusted() {
+        key: "ponerFearful",
+        value: function ponerFearful() {
           return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
           /*#__PURE__*/
           regeneratorRuntime.mark(function _callee16() {
@@ -3156,7 +3281,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                 switch (_context16.prev = _context16.next) {
                   case 0:
                     _context16.next = 2;
-                    return this.fadeToColor(this.led.data, [80, 80, 80]);
+                    return this.fadeToColor(this.led.data, [0, 150, 0]);
 
                   case 2:
                   case "end":
@@ -3167,8 +3292,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           }));
         }
       }, {
-        key: "ponerSurprised",
-        value: function ponerSurprised() {
+        key: "ponerDisgusted",
+        value: function ponerDisgusted() {
           return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
           /*#__PURE__*/
           regeneratorRuntime.mark(function _callee17() {
@@ -3177,7 +3302,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                 switch (_context17.prev = _context17.next) {
                   case 0:
                     _context17.next = 2;
-                    return this.fadeToColor(this.led.data, [89, 189, 255]);
+                    return this.fadeToColor(this.led.data, [80, 80, 80]);
 
                   case 2:
                   case "end":
@@ -3188,8 +3313,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           }));
         }
       }, {
-        key: "ponerColor",
-        value: function ponerColor() {
+        key: "ponerSurprised",
+        value: function ponerSurprised() {
           return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
           /*#__PURE__*/
           regeneratorRuntime.mark(function _callee18() {
@@ -3198,7 +3323,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                 switch (_context18.prev = _context18.next) {
                   case 0:
                     _context18.next = 2;
-                    return this.fadeToColor(this.led.data, [this.colorPredominante[0], this.colorPredominante[1], this.colorPredominante[2]]);
+                    return this.fadeToColor(this.led.data, [89, 189, 255]);
 
                   case 2:
                   case "end":
@@ -3206,6 +3331,27 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                 }
               }
             }, _callee18, this);
+          }));
+        }
+      }, {
+        key: "ponerColor",
+        value: function ponerColor() {
+          return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
+          /*#__PURE__*/
+          regeneratorRuntime.mark(function _callee19() {
+            return regeneratorRuntime.wrap(function _callee19$(_context19) {
+              while (1) {
+                switch (_context19.prev = _context19.next) {
+                  case 0:
+                    _context19.next = 2;
+                    return this.fadeToColor(this.led.data, [this.colorPredominante[0], this.colorPredominante[1], this.colorPredominante[2]]);
+
+                  case 2:
+                  case "end":
+                    return _context19.stop();
+                }
+              }
+            }, _callee19, this);
           }));
         }
       }, {
@@ -3218,34 +3364,34 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
           return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
           /*#__PURE__*/
-          regeneratorRuntime.mark(function _callee19() {
+          regeneratorRuntime.mark(function _callee20() {
             var reportId, data;
-            return regeneratorRuntime.wrap(function _callee19$(_context19) {
+            return regeneratorRuntime.wrap(function _callee20$(_context20) {
               while (1) {
-                switch (_context19.prev = _context19.next) {
+                switch (_context20.prev = _context20.next) {
                   case 0:
                     reportId = 1; //console.log([r, g, b]);
 
                     data = Uint8Array.from([r, g, b]); //const negro = Uint8Array.from([0x63, 0, 0, 0, 0x00, 0x10, 0x00, 0x00]);
 
-                    _context19.prev = 2;
-                    _context19.next = 5;
+                    _context20.prev = 2;
+                    _context20.next = 5;
                     return device.sendFeatureReport(1, data);
 
                   case 5:
-                    _context19.next = 9;
+                    _context20.next = 9;
                     break;
 
                   case 7:
-                    _context19.prev = 7;
-                    _context19.t0 = _context19["catch"](2);
+                    _context20.prev = 7;
+                    _context20.t0 = _context20["catch"](2);
 
                   case 9:
                   case "end":
-                    return _context19.stop();
+                    return _context20.stop();
                 }
               }
-            }, _callee19, null, [[2, 7]]);
+            }, _callee20, null, [[2, 7]]);
           }));
         }
       }, {
@@ -3456,10 +3602,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function ngOnInit() {
           return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
           /*#__PURE__*/
-          regeneratorRuntime.mark(function _callee20() {
-            return regeneratorRuntime.wrap(function _callee20$(_context20) {
+          regeneratorRuntime.mark(function _callee21() {
+            return regeneratorRuntime.wrap(function _callee21$(_context21) {
               while (1) {
-                switch (_context20.prev = _context20.next) {
+                switch (_context21.prev = _context21.next) {
                   case 0:
                     this.datosPrimarios = this._formBuilder.group({
                       fromControlNombreActividad: true,
@@ -3469,10 +3615,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
                   case 1:
                   case "end":
-                    return _context20.stop();
+                    return _context21.stop();
                 }
               }
-            }, _callee20, this);
+            }, _callee21, this);
           }));
         }
       }, {
@@ -3908,11 +4054,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function guardarActividad() {
           return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
           /*#__PURE__*/
-          regeneratorRuntime.mark(function _callee21() {
+          regeneratorRuntime.mark(function _callee22() {
             var ju;
-            return regeneratorRuntime.wrap(function _callee21$(_context21) {
+            return regeneratorRuntime.wrap(function _callee22$(_context22) {
               while (1) {
-                switch (_context21.prev = _context21.next) {
+                switch (_context22.prev = _context22.next) {
                   case 0:
                     ju = this;
                     this.claseCreate.alumnos = this.alumnosSeleccionados;
@@ -3951,10 +4097,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
                   case 5:
                   case "end":
-                    return _context21.stop();
+                    return _context22.stop();
                 }
               }
-            }, _callee21, this);
+            }, _callee22, this);
           }));
         }
       }, {
@@ -4152,10 +4298,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function actualizarr(item) {
           return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
           /*#__PURE__*/
-          regeneratorRuntime.mark(function _callee22() {
-            return regeneratorRuntime.wrap(function _callee22$(_context22) {
+          regeneratorRuntime.mark(function _callee23() {
+            return regeneratorRuntime.wrap(function _callee23$(_context23) {
               while (1) {
-                switch (_context22.prev = _context22.next) {
+                switch (_context23.prev = _context23.next) {
                   case 0:
                     this.arryaAlumnos.push(new _Modelos_modelos__WEBPACK_IMPORTED_MODULE_3__["Alumnos"](item, item.posicion, this.editarActividad, null));
                     this.alumnosSeleccionados = this.arryaAlumnos;
@@ -4163,10 +4309,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
                   case 3:
                   case "end":
-                    return _context22.stop();
+                    return _context23.stop();
                 }
               }
-            }, _callee22, this);
+            }, _callee23, this);
           }));
         }
       }, {
@@ -4469,10 +4615,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function actualizarr(item) {
           return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
           /*#__PURE__*/
-          regeneratorRuntime.mark(function _callee23() {
-            return regeneratorRuntime.wrap(function _callee23$(_context23) {
+          regeneratorRuntime.mark(function _callee24() {
+            return regeneratorRuntime.wrap(function _callee24$(_context24) {
               while (1) {
-                switch (_context23.prev = _context23.next) {
+                switch (_context24.prev = _context24.next) {
                   case 0:
                     this.arryaAlumnos.push(new _Modelos_modelos__WEBPACK_IMPORTED_MODULE_3__["AlumnosClase"](item, {
                       x: 0,
@@ -4483,10 +4629,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
                   case 3:
                   case "end":
-                    return _context23.stop();
+                    return _context24.stop();
                 }
               }
-            }, _callee23, this);
+            }, _callee24, this);
           }));
         }
       }, {
@@ -4953,6 +5099,35 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           this.socket.emit('borrarActividadLista', actividad);
         };
 
+        this.conectarWebCam = function (estudiante) {
+          this.socket.emit('conectarWebCam', estudiante);
+        };
+
+        this.conectarLed = function (estudiante) {
+          this.socket.emit('conectarLed', estudiante);
+        };
+
+        this.conectarPulsera = function (estudiante) {
+          this.socket.emit('conectarPulsera', estudiante);
+        };
+
+        this.desconectarWebCam = function (estudiante) {
+          this.socket.emit('desconectarWebCam', estudiante);
+        };
+
+        this.desconectarLed = function (estudiante) {
+          this.socket.emit('desconectarLed', estudiante);
+        };
+
+        this.desconectarPulsera = function (estudiante) {
+          this.socket.emit('desconectarPulsera', estudiante);
+        };
+
+        this.enviarDatos = function (datos, actividad) {
+          console.log("enviando datos");
+          this.socket.emit('enviarDatosFicticios', datos, actividad);
+        };
+
         this.lanzarSocketSrv = function () {
           var cli = this;
           this.socket.on('connect', function () {
@@ -4967,11 +5142,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           this.socket.on('seHaConectado', function (res) {
             if (!cli.esta(res)) {
               cli.alumnosConectados.push(res);
+              cli.verActividadComp.usuarioConectado(res);
             }
           });
           this.socket.on('seHaDesconectado', function (res) {
             if (cli.esta(res)) {
               cli.alumnosConectados.splice(cli.posicionDelAlumnoConectado, 1);
+              cli.verActividadComp.usuarioDesconectado(res);
             }
           });
           this.socket.on('recepcionDatos', function (datos) {
@@ -4984,6 +5161,24 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           });
           this.socket.on('actividadTerminada', function (res) {
             cli.actividadTerminada(res);
+          });
+          this.socket.on('webCamConectada', function (estudiante) {
+            cli.verActividadComp.webCamActivada(estudiante);
+          });
+          this.socket.on('pulseraConectada', function (estudiante) {
+            cli.verActividadComp.pulseraActivada(estudiante);
+          });
+          this.socket.on('ledConectada', function (estudiante) {
+            cli.verActividadComp.ledActivado(estudiante);
+          });
+          this.socket.on('webCamDesonectada', function (estudiante) {
+            cli.verActividadComp.webCamDesconectada(estudiante);
+          });
+          this.socket.on('pulseraDesonectada', function (estudiante) {
+            cli.verActividadComp.pulseraDesconectada(estudiante);
+          });
+          this.socket.on('ledDesonectada', function (estudiante) {
+            cli.verActividadComp.ledDesconectada(estudiante);
           });
           /*
           this.socket.on('partidaCreada',function(partida){
@@ -5044,11 +5239,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function ngOnInit() {
           return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
           /*#__PURE__*/
-          regeneratorRuntime.mark(function _callee24() {
+          regeneratorRuntime.mark(function _callee25() {
             var ju;
-            return regeneratorRuntime.wrap(function _callee24$(_context24) {
+            return regeneratorRuntime.wrap(function _callee25$(_context25) {
               while (1) {
-                switch (_context24.prev = _context24.next) {
+                switch (_context25.prev = _context25.next) {
                   case 0:
                     //this.socket = new ClienteWS('profesor');
                     //this.socket.ini();
@@ -5056,7 +5251,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
                     ju = this; //this.listaAlumnos=this.estudiantes.getEstudiantes();
 
-                    _context24.next = 4;
+                    _context25.next = 4;
                     return $.getJSON("/verEstudiantes", function (data) {
                       //console.log(data);
                       ju.listaAlumnos = data;
@@ -5066,7 +5261,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                     });
 
                   case 4:
-                    _context24.next = 6;
+                    _context25.next = 6;
                     return $.getJSON("/verActividades", function (data) {
                       //console.log(data);
                       ju.listaActividades = data;
@@ -5076,7 +5271,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                     });
 
                   case 6:
-                    _context24.next = 8;
+                    _context25.next = 8;
                     return $.getJSON("/verClases", function (data) {
                       //console.log(data);
                       ju.listaClases = data;
@@ -5087,10 +5282,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
                   case 8:
                   case "end":
-                    return _context24.stop();
+                    return _context25.stop();
                 }
               }
-            }, _callee24, this);
+            }, _callee25, this);
           }));
         }
         /*ngOnChanges() {
@@ -5102,15 +5297,15 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function ngAfterViewInit() {
           return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
           /*#__PURE__*/
-          regeneratorRuntime.mark(function _callee25() {
+          regeneratorRuntime.mark(function _callee26() {
             var ju;
-            return regeneratorRuntime.wrap(function _callee25$(_context25) {
+            return regeneratorRuntime.wrap(function _callee26$(_context26) {
               while (1) {
-                switch (_context25.prev = _context25.next) {
+                switch (_context26.prev = _context26.next) {
                   case 0:
                     ju = this; //this.listaAlumnos=this.estudiantes.getEstudiantes();
 
-                    _context25.next = 3;
+                    _context26.next = 3;
                     return $.getJSON("/verEstudiantes", function (data) {
                       //console.log(data);
                       ju.listaAlumnos = data;
@@ -5121,10 +5316,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
                   case 3:
                   case "end":
-                    return _context25.stop();
+                    return _context26.stop();
                 }
               }
-            }, _callee25, this);
+            }, _callee26, this);
           }));
         }
       }, {
@@ -5398,11 +5593,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function cerrarModal() {
           return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
           /*#__PURE__*/
-          regeneratorRuntime.mark(function _callee26() {
+          regeneratorRuntime.mark(function _callee27() {
             var ju;
-            return regeneratorRuntime.wrap(function _callee26$(_context26) {
+            return regeneratorRuntime.wrap(function _callee27$(_context27) {
               while (1) {
-                switch (_context26.prev = _context26.next) {
+                switch (_context27.prev = _context27.next) {
                   case 0:
                     this.crearActividad = false;
                     this.crearClase = false;
@@ -5410,7 +5605,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                     this.editarClase = false;
                     ju = this; //this.listaAlumnos=this.estudiantes.getEstudiantes();
 
-                    _context26.next = 7;
+                    _context27.next = 7;
                     return $.getJSON("/verEstudiantes", function (data) {
                       //console.log(data);
                       ju.listaAlumnos = data;
@@ -5420,7 +5615,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                     });
 
                   case 7:
-                    _context26.next = 9;
+                    _context27.next = 9;
                     return $.getJSON("/verActividades", function (data) {
                       //console.log(data);
                       ju.listaActividades = data;
@@ -5430,7 +5625,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                     });
 
                   case 9:
-                    _context26.next = 11;
+                    _context27.next = 11;
                     return $.getJSON("/verClases", function (data) {
                       //console.log(data);
                       ju.listaClases = data;
@@ -5441,10 +5636,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
                   case 11:
                   case "end":
-                    return _context26.stop();
+                    return _context27.stop();
                 }
               }
-            }, _callee26, this);
+            }, _callee27, this);
           }));
         }
       }, {
@@ -5514,16 +5709,16 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function actualizarClases() {
           return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
           /*#__PURE__*/
-          regeneratorRuntime.mark(function _callee27() {
+          regeneratorRuntime.mark(function _callee28() {
             var ju;
-            return regeneratorRuntime.wrap(function _callee27$(_context27) {
+            return regeneratorRuntime.wrap(function _callee28$(_context28) {
               while (1) {
-                switch (_context27.prev = _context27.next) {
+                switch (_context28.prev = _context28.next) {
                   case 0:
                     this.crearClase = false;
                     this.editarClase = false;
                     ju = this;
-                    _context27.next = 5;
+                    _context28.next = 5;
                     return $.getJSON("/verClases", function (data) {
                       //console.log(data);
                       ju.listaClases = data;
@@ -5534,10 +5729,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
                   case 5:
                   case "end":
-                    return _context27.stop();
+                    return _context28.stop();
                 }
               }
-            }, _callee27, this);
+            }, _callee28, this);
           }));
         }
       }, {
@@ -5584,14 +5779,14 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function borrarC(clase) {
           return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
           /*#__PURE__*/
-          regeneratorRuntime.mark(function _callee28() {
+          regeneratorRuntime.mark(function _callee29() {
             var ju;
-            return regeneratorRuntime.wrap(function _callee28$(_context28) {
+            return regeneratorRuntime.wrap(function _callee29$(_context29) {
               while (1) {
-                switch (_context28.prev = _context28.next) {
+                switch (_context29.prev = _context29.next) {
                   case 0:
                     ju = this;
-                    _context28.next = 3;
+                    _context29.next = 3;
                     return $.ajax({
                       type: 'DELETE',
                       url: '/eliminarClase',
@@ -5612,10 +5807,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
                   case 3:
                   case "end":
-                    return _context28.stop();
+                    return _context29.stop();
                 }
               }
-            }, _callee28, this);
+            }, _callee29, this);
           }));
         }
       }, {
@@ -5668,11 +5863,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function crearActividadAsociada(clase) {
           return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
           /*#__PURE__*/
-          regeneratorRuntime.mark(function _callee29() {
+          regeneratorRuntime.mark(function _callee30() {
             var ju, actividadCreate, arrayAlumnos, i;
-            return regeneratorRuntime.wrap(function _callee29$(_context29) {
+            return regeneratorRuntime.wrap(function _callee30$(_context30) {
               while (1) {
-                switch (_context29.prev = _context29.next) {
+                switch (_context30.prev = _context30.next) {
                   case 0:
                     this.creandoActividadAsociada = true;
                     ju = this;
@@ -5732,7 +5927,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                     }
 
                     actividadCreate.alumnos = arrayAlumnos;
-                    _context29.next = 11;
+                    _context30.next = 11;
                     return $.ajax({
                       type: 'POST',
                       url: '/agregarActividadEnClase',
@@ -5757,10 +5952,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
                   case 11:
                   case "end":
-                    return _context29.stop();
+                    return _context30.stop();
                 }
               }
-            }, _callee29, this);
+            }, _callee30, this);
           }));
         }
       }, {
@@ -6116,37 +6311,44 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         this.datoIra = true;
         this.estados = [{
           nombre: 'alegria',
-          checked: true
+          checked: true,
+          color: [255, 255, 84]
         }, {
           nombre: 'asco',
-          checked: true
+          checked: true,
+          color: [0, 0, 0]
         }, {
           nombre: 'miedo',
-          checked: false
+          checked: false,
+          color: [0, 150, 0]
         }, {
           nombre: 'sorpresa',
-          checked: false
+          checked: false,
+          color: [89, 189, 255]
         }, {
           nombre: 'tristeza',
-          checked: false
-        }, {
-          nombre: 'ira',
-          checked: false
+          checked: false,
+          color: [81, 81, 255]
         }, {
           nombre: 'pulsaciones',
-          checked: false
+          checked: false,
+          color: [255, 0, 0]
         }, {
           nombre: 'distraido',
-          checked: false
+          checked: false,
+          color: [70, 70, 70]
         }, {
           nombre: 'concentrado',
-          checked: false
+          checked: false,
+          color: [84, 255, 84]
         }, {
           nombre: 'frustrado',
-          checked: false
+          checked: false,
+          color: [123, 123, 123]
         }, {
           nombre: 'motivado',
-          checked: false
+          checked: false,
+          color: [84, 25, 80]
         }];
         this.estadosGlobales = [{
           nombre: 'alegria',
@@ -6213,7 +6415,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         this.alumnoSeleccionado = 'Media de la clase';
         this.alumnoSeleccionadoAlumno = false;
         this.objAlumnoSeleccionado = null;
-        this.intervaloResumen = null; //alumnosConectados=0;
+        this.intervaloResumen = null;
+        this.simulandoDatos = false; //alumnosConectados=0;
 
         this.alumnosDesconectados = 0; //Datos de las Graficas 
 
@@ -6314,18 +6517,28 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
               this.alumnosTabla.push({
                 id_item: this.actividad.alumnos[i].id_item,
-                nombre: this.actividad.alumnos[i].estudiante.nombre + ' ' + this.actividad.alumnos[i].estudiante.apellidos,
+                nombre: this.actividad.alumnos[i].estudiante.nombre,
+                apellidos: this.actividad.alumnos[i].estudiante.apellidos,
                 estado: 'Desconectado',
-                pulsaciones: pul / this.actividad.alumnos[i].datos.pulsaciones.length
+                //pulsaciones: pul / this.actividad.alumnos[i].datos.pulsaciones.length,
+                pulsaciones: '--',
+                webcam: this.actividad.alumnos[i].sensorWebCam,
+                pulsera: this.actividad.alumnos[i].sensorPulsera,
+                led: this.actividad.alumnos[i].sensorLed,
+                estudiante: this.actividad.alumnos[i].estudiante
               });
             }
           } else {
             for (var _i2 = 0; _i2 < this.actividad.alumnos.length; _i2++) {
               this.alumnosTabla.push({
                 id_item: this.actividad.alumnos[_i2].id_item,
-                nombre: this.actividad.alumnos[_i2].estudiante.nombre + ' ' + this.actividad.alumnos[_i2].estudiante.apellidos,
+                nombre: this.actividad.alumnos[_i2].estudiante.nombre,
                 estado: 'Desconectado',
-                pulsaciones: '100'
+                pulsaciones: '--',
+                estudiante: this.actividad.alumnos[_i2].estudiante,
+                webcam: this.actividad.alumnos[_i2].sensorWebCam,
+                pulsera: this.actividad.alumnos[_i2].sensorPulsera,
+                led: this.actividad.alumnos[_i2].sensorLed
               });
             }
           }
@@ -6349,12 +6562,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function cargarGraficas() {
           return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
           /*#__PURE__*/
-          regeneratorRuntime.mark(function _callee30() {
+          regeneratorRuntime.mark(function _callee31() {
             var _i3, i;
 
-            return regeneratorRuntime.wrap(function _callee30$(_context30) {
+            return regeneratorRuntime.wrap(function _callee31$(_context31) {
               while (1) {
-                switch (_context30.prev = _context30.next) {
+                switch (_context31.prev = _context31.next) {
                   case 0:
                     this.ocultarTodos();
                     this.vistaGeneral = true;
@@ -6412,11 +6625,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                       this.usersConectadosGraf.destroy();
                     }
 
-                    _context30.next = 15;
+                    _context31.next = 15;
                     return new chart_js__WEBPACK_IMPORTED_MODULE_2__["Chart"]('usersConectados', this.configUsersConectados);
 
                   case 15:
-                    this.usersConectadosGraf = _context30.sent;
+                    this.usersConectadosGraf = _context31.sent;
                     //Grafica Lineal 
 
                     /*this.configuracionGraficaLineal = {
@@ -6469,10 +6682,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
                   case 17:
                   case "end":
-                    return _context30.stop();
+                    return _context31.stop();
                 }
               }
-            }, _callee30, this);
+            }, _callee31, this);
           }));
         }
       }, {
@@ -6489,10 +6702,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           setInterval(function () {
             return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](_this12, void 0, void 0,
             /*#__PURE__*/
-            regeneratorRuntime.mark(function _callee31() {
-              return regeneratorRuntime.wrap(function _callee31$(_context31) {
+            regeneratorRuntime.mark(function _callee32() {
+              return regeneratorRuntime.wrap(function _callee32$(_context32) {
                 while (1) {
-                  switch (_context31.prev = _context31.next) {
+                  switch (_context32.prev = _context32.next) {
                     case 0:
                       //console.log(this.aluConectados);
                       if (this.numAlumnosConectados != this.aluConectados.length) {
@@ -6535,10 +6748,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
                     case 1:
                     case "end":
-                      return _context31.stop();
+                      return _context32.stop();
                   }
                 }
-              }, _callee31, this);
+              }, _callee32, this);
             }));
           }, 1000);
         }
@@ -6650,6 +6863,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         key: "terminar",
         value: function terminar() {
           //console.log(this.usuariosConectadoss);
+          clearInterval(this.intervaloSimularDatos);
           var ju = this;
           var act = this.actividad;
           act.fecha = moment__WEBPACK_IMPORTED_MODULE_3__().format('LLLL');
@@ -6697,29 +6911,29 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function cambiarAGeneral() {
           return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
           /*#__PURE__*/
-          regeneratorRuntime.mark(function _callee32() {
-            return regeneratorRuntime.wrap(function _callee32$(_context32) {
+          regeneratorRuntime.mark(function _callee33() {
+            return regeneratorRuntime.wrap(function _callee33$(_context33) {
               while (1) {
-                switch (_context32.prev = _context32.next) {
+                switch (_context33.prev = _context33.next) {
                   case 0:
                     this.ocultarTodos();
                     document.getElementById("vistaGeneral").style.display = "block";
                     this.vistaGeneral = true;
                     this.vistaMapaDeLaClase = false;
-                    _context32.next = 6;
+                    _context33.next = 6;
                     return this.cargarGraficas();
 
                   case 6:
                     console.log("terminado de cargar");
-                    _context32.next = 9;
+                    _context33.next = 9;
                     return this.cargarGraficas();
 
                   case 9:
                   case "end":
-                    return _context32.stop();
+                    return _context33.stop();
                 }
               }
-            }, _callee32, this);
+            }, _callee33, this);
           }));
         }
       }, {
@@ -6844,6 +7058,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                   x: datos.motivado.x,
                   y: datos.motivado.y
                 });
+                $('#' + datos.id_item + '').css("background-color", datos.color);
                 this.graficaLineal.update();
               }
             }
@@ -6861,11 +7076,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function insertarResumen() {
           return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
           /*#__PURE__*/
-          regeneratorRuntime.mark(function _callee33() {
+          regeneratorRuntime.mark(function _callee34() {
             var sumaTotalEmociones, x, sumaTotalEstadoDisConc, sumaTotalEstadoFrusMotiv;
-            return regeneratorRuntime.wrap(function _callee33$(_context33) {
+            return regeneratorRuntime.wrap(function _callee34$(_context34) {
               while (1) {
-                switch (_context33.prev = _context33.next) {
+                switch (_context34.prev = _context34.next) {
                   case 0:
                     //Datos Emocionales
                     sumaTotalEmociones = 0; //console.log(this.resumen);
@@ -6873,12 +7088,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                     x = moment__WEBPACK_IMPORTED_MODULE_3__().format();
                     this.estoyComputando = true;
                     sumaTotalEmociones = this.resumen.alegria + this.resumen.asco + this.resumen.ira + this.resumen.miedo + this.resumen.sorpresa + this.resumen.tristeza;
-                    this.datosResumenSeleccionados.alegria = this.resumen.alegria / sumaTotalEmociones * 100;
-                    this.datosResumenSeleccionados.asco = this.resumen.asco / sumaTotalEmociones * 100;
-                    this.datosResumenSeleccionados.ira = this.resumen.ira / sumaTotalEmociones * 100;
-                    this.datosResumenSeleccionados.miedo = this.resumen.miedo / sumaTotalEmociones * 100;
-                    this.datosResumenSeleccionados.sorpresa = this.resumen.sorpresa / sumaTotalEmociones * 100;
-                    this.datosResumenSeleccionados.tristeza = this.resumen.tristeza / sumaTotalEmociones * 100;
+                    this.datosResumenSeleccionados.alegria = Math.round(this.resumen.alegria / sumaTotalEmociones * 100);
+                    this.datosResumenSeleccionados.asco = Math.round(this.resumen.asco / sumaTotalEmociones * 100);
+                    this.datosResumenSeleccionados.ira = Math.round(this.resumen.ira / sumaTotalEmociones * 100);
+                    this.datosResumenSeleccionados.miedo = Math.round(this.resumen.miedo / sumaTotalEmociones * 100);
+                    this.datosResumenSeleccionados.sorpresa = Math.round(this.resumen.sorpresa / sumaTotalEmociones * 100);
+                    this.datosResumenSeleccionados.tristeza = Math.round(this.resumen.tristeza / sumaTotalEmociones * 100);
                     this.actividad.resumen.alegria.push({
                       x: x,
                       y: this.datosResumenSeleccionados.alegria
@@ -6919,10 +7134,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                       y: this.resumen.pulsaciones / this.numPulsaciones
                     }); //Datos cognitivos
 
-                    sumaTotalEstadoDisConc = 0;
-                    this.datosResumenSeleccionados.concentrado = this.resumen.concentrado / sumaTotalEstadoDisConc * 100;
-                    this.datosResumenSeleccionados.distraido = this.resumen.distraido / sumaTotalEstadoDisConc * 100;
                     sumaTotalEstadoDisConc = this.resumen.distraido + this.resumen.concentrado;
+                    this.datosResumenSeleccionados.concentrado = Math.round(this.resumen.concentrado / sumaTotalEstadoDisConc * 100);
+                    this.datosResumenSeleccionados.distraido = Math.round(this.resumen.distraido / sumaTotalEstadoDisConc * 100);
                     this.actividad.resumen.distraido.push({
                       x: x,
                       y: this.datosResumenSeleccionados.concentrado
@@ -6937,10 +7151,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                       document.getElementById("progress-concentrado").style.width = this.datosResumenSeleccionados.concentrado + "%";
                     } catch (e) {}
 
-                    sumaTotalEstadoFrusMotiv = 0;
-                    this.datosResumenSeleccionados.motivado = this.resumen.motivado / sumaTotalEstadoFrusMotiv * 100;
-                    this.datosResumenSeleccionados.frustrado = this.resumen.frustrado / sumaTotalEstadoFrusMotiv * 100;
                     sumaTotalEstadoFrusMotiv = this.resumen.frustrado + this.resumen.motivado;
+                    this.datosResumenSeleccionados.motivado = Math.round(this.resumen.motivado / sumaTotalEstadoFrusMotiv * 100);
+                    this.datosResumenSeleccionados.frustrado = Math.round(this.resumen.frustrado / sumaTotalEstadoFrusMotiv * 100);
                     this.actividad.resumen.frustrado.push({
                       x: x,
                       y: this.datosResumenSeleccionados.frustrado
@@ -6978,12 +7191,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                     this.numPulsaciones = 0;
                     console.log(this.actividad);
 
-                  case 40:
+                  case 38:
                   case "end":
-                    return _context33.stop();
+                    return _context34.stop();
                 }
               }
-            }, _callee33, this);
+            }, _callee34, this);
           }));
         }
       }, {
@@ -7211,12 +7424,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function actualizarGraficaLineal() {
           return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
           /*#__PURE__*/
-          regeneratorRuntime.mark(function _callee34() {
+          regeneratorRuntime.mark(function _callee35() {
             var datos, i, j, color, h, _j;
 
-            return regeneratorRuntime.wrap(function _callee34$(_context34) {
+            return regeneratorRuntime.wrap(function _callee35$(_context35) {
               while (1) {
-                switch (_context34.prev = _context34.next) {
+                switch (_context35.prev = _context35.next) {
                   case 0:
                     datos = [];
 
@@ -7225,7 +7438,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                         if (this.alumnosSelect[i].nombre == "Media de todos") {
                           for (j = 0; j < this.estados.length; j++) {
                             if (this.estados[j].checked) {
-                              color = this.colorRGB();
+                              color = this.colorRGB(this.estados[j].color);
                               datos.push({
                                 label: this.estados[j].nombre + ' de ' + this.alumnosSelect[i].nombre,
                                 backgroundColor: color,
@@ -7242,7 +7455,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                             if (this.alumnosSelect[i].id == this.actividad.alumnos[h].estudiante._id) {
                               for (_j = 0; _j < this.estados.length; _j++) {
                                 if (this.estados[_j].checked) {
-                                  color = this.colorRGB();
+                                  color = this.colorRGB(this.estados[_j].color);
                                   datos.push({
                                     label: this.estados[_j].nombre + ' de ' + this.alumnosSelect[i].nombre,
                                     backgroundColor: color,
@@ -7308,10 +7521,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
                   case 5:
                   case "end":
-                    return _context34.stop();
+                    return _context35.stop();
                 }
               }
-            }, _callee34, this);
+            }, _callee35, this);
           }));
         }
       }, {
@@ -7357,15 +7570,131 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         }
       }, {
         key: "colorRGB",
-        value: function colorRGB() {
+        value: function colorRGB(estado) {
           //'rgba(81,81,255,0.4)'
-          var color = "(" + this.generarNumero() + "," + this.generarNumero() + "," + this.generarNumero() + ")";
-          return "rgb" + color;
+          console.log(estado);
+          var r = estado[0] + this.generarNumero();
+          var g = estado[1] + this.generarNumero();
+          var a = estado[2] + this.generarNumero();
+          console.log('rgba(' + r + ',' + g + ',' + a + ')');
+          var color = "(" + r + "," + g + "," + a + ",0.8)";
+          return "rgba" + color;
         }
       }, {
         key: "generarNumero",
         value: function generarNumero() {
-          return (Math.random() * 255).toFixed(0);
+          return Math.round(Math.random() * 40);
+        }
+      }, {
+        key: "simularDatos",
+        value: function simularDatos() {
+          var _this14 = this;
+
+          var ju = this;
+
+          if (!this.simulandoDatos) {
+            this.simulandoDatos = true;
+            this.intervaloSimularDatos = setInterval(function (async) {
+              for (var i = 0; i < _this14.actividad.alumnos.length; i++) {
+                var datos = {};
+                var max = 100;
+                var alegria = Math.round(Math.random() * (max - 0) + 0);
+                max = max - alegria;
+                var asco = Math.round(Math.random() * (max - 0) + 0);
+                max = max - asco;
+                var ira = Math.round(Math.random() * (max - 0) + 0);
+                max = max - ira;
+                var miedo = Math.round(Math.random() * (max - 0) + 0);
+                max = max - miedo;
+                var sorpresa = Math.round(Math.random() * (max - 0) + 0);
+                max = max - sorpresa;
+                var tristeza = Math.round(Math.random() * (max - 0) + 0);
+                max = max - tristeza;
+                datos['id_actividad'] = _this14.actividad['_id'];
+                datos['id_item'] = _this14.actividad.alumnos[i].id_item;
+                console.log("Datos generados1");
+                var x = moment__WEBPACK_IMPORTED_MODULE_3__().format(); //Estado Emocional
+
+                datos['id_item'] = _this14.actividad.alumnos[i].id_item; //Alegria
+
+                datos['alegria'] = {
+                  x: x,
+                  y: alegria
+                }; //Asco
+
+                datos['asco'] = {
+                  x: x,
+                  y: asco
+                }; //Ira
+
+                datos['ira'] = {
+                  x: x,
+                  y: ira
+                }; //Miedo
+
+                datos['miedo'] = {
+                  x: x,
+                  y: miedo
+                }; //Sorpresa
+
+                datos['sorpresa'] = {
+                  x: x,
+                  y: sorpresa
+                }; //Triteza
+
+                datos['tristeza'] = {
+                  x: x,
+                  y: tristeza
+                };
+                console.log("Datos generados2");
+                var num = Math.round(Math.random() * (_this14.estadosConjunto[0].estados.length - 1 - 0) + 0);
+                console.log(num);
+                datos['color'] = _this14.estadosConjunto[0].estados[num].color; //Estado de las Pulsaciones
+
+                datos['pulsaciones'] = {
+                  x: x,
+                  y: Math.round(Math.random() * (130 - 50) + 50)
+                }; //Estado temporal
+
+                datos['tiempo'] = x;
+                max = 100;
+                var distraido = Math.round(Math.random() * (max - 0) + 0);
+                max = 100 - distraido;
+                var concentrado = Math.round(Math.random() * (max - 0) + 0); //Estado Cognitivo
+
+                datos['distraido'] = {
+                  x: x,
+                  y: distraido
+                };
+                datos['concentrado'] = {
+                  x: x,
+                  y: concentrado
+                };
+                console.log("Datos generados4");
+                max = 100;
+                var frustrado = Math.round(Math.random() * (max - 0) + 0);
+                max = 100 - frustrado;
+                var motivado = Math.round(Math.random() * (max - 0) + 0);
+                datos['frustrado'] = {
+                  x: x,
+                  y: frustrado
+                };
+                datos['motivado'] = {
+                  x: x,
+                  y: motivado
+                };
+                console.log("Datos generados5");
+                console.log(datos);
+
+                _this14.insertarDatos(datos);
+
+                _this14.profesor.enviarDatos(datos, ju.actividad);
+              }
+            }, 7000);
+          } else {
+            this.simulandoDatos = false;
+            clearInterval(this.intervaloSimularDatos);
+          }
         }
       }, {
         key: "ngOnDestroy",
@@ -7427,22 +7756,128 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         }
       }, {
         key: "activarTodasWebCam",
-        value: function activarTodasWebCam() {}
+        value: function activarTodasWebCam() {
+          for (var i = 0; i < this.actividad.alumnos.length; i++) {
+            this.activarWebCam(this.actividad.alumnos[i].estudiante);
+          }
+        }
       }, {
         key: "activarWebCam",
-        value: function activarWebCam(usuario) {}
+        value: function activarWebCam(usuario) {
+          this.profesor.conectarWebCam(usuario);
+        }
+      }, {
+        key: "desactivarWebCam",
+        value: function desactivarWebCam(usuario) {
+          this.profesor.desconectarWebCam(usuario);
+        }
+      }, {
+        key: "webCamActivada",
+        value: function webCamActivada(usuario) {
+          for (var i = 0; i < this.alumnosTabla.length; i++) {
+            if (usuario._id == this.alumnosTabla[i].estudiante._id) {
+              this.alumnosTabla[i].webcam = true;
+            }
+          }
+        }
+      }, {
+        key: "webCamDesconectada",
+        value: function webCamDesconectada(usuario) {
+          for (var i = 0; i < this.alumnosTabla.length; i++) {
+            if (usuario._id == this.alumnosTabla[i].estudiante._id) {
+              this.alumnosTabla[i].webcam = false;
+            }
+          }
+        }
       }, {
         key: "activarTodasPulseras",
-        value: function activarTodasPulseras() {}
+        value: function activarTodasPulseras() {
+          for (var i = 0; i < this.actividad.alumnos.length; i++) {
+            this.activarPulsera(this.actividad.alumnos[i].estudiante);
+          }
+        }
       }, {
         key: "activarPulsera",
-        value: function activarPulsera(usuario) {}
+        value: function activarPulsera(usuario) {
+          this.profesor.conectarPulsera(usuario);
+        }
+      }, {
+        key: "desactivarPulsera",
+        value: function desactivarPulsera(usuario) {
+          this.profesor.desconectarPulsera(usuario);
+        }
+      }, {
+        key: "pulseraActivada",
+        value: function pulseraActivada(usuario) {
+          for (var i = 0; i < this.alumnosTabla.length; i++) {
+            if (usuario._id == this.alumnosTabla[i].estudiante._id) {
+              this.alumnosTabla[i].pulsera = true;
+            }
+          }
+        }
+      }, {
+        key: "pulseraDesconectada",
+        value: function pulseraDesconectada(usuario) {
+          for (var i = 0; i < this.alumnosTabla.length; i++) {
+            if (usuario._id == this.alumnosTabla[i].estudiante._id) {
+              this.alumnosTabla[i].pulsera = false;
+            }
+          }
+        }
       }, {
         key: "activarTodosLeds",
-        value: function activarTodosLeds() {}
+        value: function activarTodosLeds() {
+          for (var i = 0; i < this.actividad.alumnos.length; i++) {
+            this.activarLed(this.actividad.alumnos[i].estudiante);
+          }
+        }
       }, {
         key: "activarLed",
-        value: function activarLed(usuario) {}
+        value: function activarLed(usuario) {
+          this.profesor.conectarLed(usuario);
+        }
+      }, {
+        key: "desactivarLed",
+        value: function desactivarLed(usuario) {
+          this.profesor.desconectarLed(usuario);
+        }
+      }, {
+        key: "ledActivado",
+        value: function ledActivado(usuario) {
+          for (var i = 0; i < this.alumnosTabla.length; i++) {
+            if (usuario._id == this.alumnosTabla[i].estudiante._id) {
+              this.alumnosTabla[i].led = true;
+              console.log("led activado");
+            }
+          }
+        }
+      }, {
+        key: "ledDesconectada",
+        value: function ledDesconectada(usuario) {
+          for (var i = 0; i < this.alumnosTabla.length; i++) {
+            if (usuario._id == this.alumnosTabla[i].estudiante._id) {
+              this.alumnosTabla[i].led = false;
+            }
+          }
+        }
+      }, {
+        key: "usuarioConectado",
+        value: function usuarioConectado(usuario) {
+          for (var i = 0; i < this.alumnosTabla.length; i++) {
+            if (usuario._id == this.alumnosTabla[i].estudiante._id) {
+              this.alumnosTabla[i].estado = 'Conectado';
+            }
+          }
+        }
+      }, {
+        key: "usuarioDesconectado",
+        value: function usuarioDesconectado(usuario) {
+          for (var i = 0; i < this.alumnosTabla.length; i++) {
+            if (usuario._id == this.alumnosTabla[i].estudiante._id) {
+              this.alumnosTabla[i].estado = 'Desconectado';
+            }
+          }
+        }
       }]);
 
       return VerActividadComponent;
@@ -7731,10 +8166,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "masterToggle",
         value: function masterToggle() {
-          var _this14 = this;
+          var _this15 = this;
 
           this.isAllSelected() ? this.selection.clear() : this.dataSource.data.forEach(function (row) {
-            return _this14.selection.select(row);
+            return _this15.selection.select(row);
           });
         }
       }, {
@@ -8302,11 +8737,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function ngOnInit() {
           return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
           /*#__PURE__*/
-          regeneratorRuntime.mark(function _callee35() {
+          regeneratorRuntime.mark(function _callee36() {
             var ju;
-            return regeneratorRuntime.wrap(function _callee35$(_context35) {
+            return regeneratorRuntime.wrap(function _callee36$(_context36) {
               while (1) {
-                switch (_context35.prev = _context35.next) {
+                switch (_context36.prev = _context36.next) {
                   case 0:
                     /*var ju = this;
                     console.log(this.clase);
@@ -8317,7 +8752,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                     this.actualizarClase();
                     ju = this; //this.listaAlumnos=this.estudiantes.getEstudiantes();
 
-                    _context35.next = 5;
+                    _context36.next = 5;
                     return $.getJSON("/verEstudiantes", function (data) {
                       //console.log(data);
                       ju.listaAlumnos = data;
@@ -8325,10 +8760,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
                   case 5:
                   case "end":
-                    return _context35.stop();
+                    return _context36.stop();
                 }
               }
-            }, _callee35, this);
+            }, _callee36, this);
           }));
         }
       }, {
@@ -8351,11 +8786,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function actualizarClase() {
           return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
           /*#__PURE__*/
-          regeneratorRuntime.mark(function _callee36() {
+          regeneratorRuntime.mark(function _callee37() {
             var ju;
-            return regeneratorRuntime.wrap(function _callee36$(_context36) {
+            return regeneratorRuntime.wrap(function _callee37$(_context37) {
               while (1) {
-                switch (_context36.prev = _context36.next) {
+                switch (_context37.prev = _context37.next) {
                   case 0:
                     ju = this;
                     /*$.getJSON("/verClase", this.clase, function (data) {
@@ -8395,10 +8830,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
                   case 2:
                   case "end":
-                    return _context36.stop();
+                    return _context37.stop();
                 }
               }
-            }, _callee36, this);
+            }, _callee37, this);
           }));
         }
       }, {
@@ -8876,7 +9311,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       _createClass(VerEstadisticasClaseComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this15 = this;
+          var _this16 = this;
 
           console.log(this.clase);
           this.estadoConjuntoSeleccionado = this.estadosConjunto[0];
@@ -8891,7 +9326,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           this.dataSource.paginator = this.paginator;
           this.dataSource.sort = this.sort;
           this.dataSource.data.forEach(function (row) {
-            _this15.selection.select(row);
+            _this16.selection.select(row);
           });
           this.computarDatos();
           this.actualizarGraficas();
@@ -8913,10 +9348,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "masterToggle",
         value: function masterToggle() {
-          var _this16 = this;
+          var _this17 = this;
 
           this.isAllSelected() ? this.selection.clear() : this.dataSource.data.forEach(function (row) {
-            return _this16.selection.select(row);
+            return _this17.selection.select(row);
           });
         }
       }, {

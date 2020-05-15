@@ -572,6 +572,8 @@ function Centro() {
         var ju = this;
         try {
             console.log("Insertar datos");
+            console.log(datos);
+            console.log(this.actividades);
             console.log(this.actividades[datos.id_actividad]);
             for (let i = 0; i < this.actividades[datos.id_actividad].alumnos.length; i++) {
                 console.log(this.actividades[datos.id_actividad].alumnos[i]);

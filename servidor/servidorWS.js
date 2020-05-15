@@ -18,39 +18,39 @@ function ServidorWS() {
             //socket.join('123');
             console.log("Nueva conexión");
 
-            socket.on('soyEstudiante',function(estudiante){
+            socket.on('soyEstudiante', function (estudiante) {
                 //socket.join("estudiantes");
                 socket.join(estudiante._id);
                 //console.log("El id del estudiante es: "+estudiante._id);
                 console.log("Conexion asignada al estudiante");
             })
-            socket.on('soyProfesor',function(){
+            socket.on('soyProfesor', function () {
                 socket.join("profesores");
                 console.log("Conexion asignada al profesor");
             })
-            socket.on('abrirActividad',function(actividad){
+            socket.on('abrirActividad', function (actividad) {
                 //console.log(actividad);
                 socket.join(actividad._id);
                 console.log("Conexion asignada a la actividad");
             })
-            socket.on('meConectoActividad',function(actividad,estudiante){
+            socket.on('meConectoActividad', function (actividad, estudiante) {
                 //console.log(actividad);
-                cli.enviarATodos(io, actividad._id, 'seHaConectado',estudiante);
+                cli.enviarATodos(io, actividad._id, 'seHaConectado', estudiante);
             });
-            socket.on('listoParaRecibirDatos',function(actividad){
-                for(let i =0;i<actividad.alumnos.length;i++){
+            socket.on('listoParaRecibirDatos', function (actividad) {
+                for (let i = 0; i < actividad.alumnos.length; i++) {
                     cli.enviarATodos(io, actividad.alumnos[i].estudiante._id, "enviaDatos", actividad);
                 }
             })
-            
-            socket.on('listoParaNoRecibirDatos',function(actividad){
-                for(let i =0;i<actividad.alumnos.length;i++){
+
+            socket.on('listoParaNoRecibirDatos', function (actividad) {
+                for (let i = 0; i < actividad.alumnos.length; i++) {
                     cli.enviarATodos(io, actividad.alumnos[i].estudiante._id, "noEnviaDatos", actividad);
                 }
             })
-            socket.on('meDesconectoActividad',function(actividad,estudiante){
-                if(actividad!=null || actividad!=undefined){
-                    cli.enviarATodos(io,actividad._id, 'seHaDesconectado',estudiante);
+            socket.on('meDesconectoActividad', function (actividad, estudiante) {
+                if (actividad != null || actividad != undefined) {
+                    cli.enviarATodos(io, actividad._id, 'seHaDesconectado', estudiante);
                 }
             })
 
@@ -61,10 +61,10 @@ function ServidorWS() {
                     //console.log(u.alumnos);
                     //console.log(u.alumnos[i].estudiante._id);
                     //socket.join("profesor");
-                    for(let i =0;i<u.alumnos.length;i++){
+                    for (let i = 0; i < u.alumnos.length; i++) {
                         cli.enviarATodos(io, u.alumnos[i].estudiante._id, "actividades", u);
                     }
-                    
+
                 })
 
                 /*juego.crearPartida(nombrePartida, nick, function (partida) {
@@ -73,8 +73,8 @@ function ServidorWS() {
                 });*/
             });
 
-            socket.on('modificacionDeActividad',function(actividad){
-                for(let i =0;i<actividad.alumnos.length;i++){
+            socket.on('modificacionDeActividad', function (actividad) {
+                for (let i = 0; i < actividad.alumnos.length; i++) {
                     cli.enviarATodos(io, actividad.alumnos[i].estudiante._id, "actividades", actividad);
                 }
             })
@@ -82,44 +82,111 @@ function ServidorWS() {
             socket.on('borrarActividadLista', function (actividad) {
                 centro.borrarActividadLista(actividad, function (u) {
                     cli.enviarRemitente(socket, "actividadBorrada", u);
-                    for(let i =0;i<u.alumnos.length;i++){
+                    for (let i = 0; i < u.alumnos.length; i++) {
                         cli.enviarATodos(io, u.alumnos[i].estudiante._id, "borrarActividad", u);
                     }
                     //cli.enviarATodos(io, "estudiantes", "borrarActividad", u);
                 });
             })
 
-            socket.on('envioDeDatos',function(datos,actividad){
+            socket.on('envioDeDatos', function (datos, actividad) {
                 //console.log(datos);
-                if(actividad){
+                if (actividad) {
                     centro.insertarDatos(datos);
                     cli.enviarATodos(io, actividad._id, "recepcionDatos", datos);
                 }
             })
-
-            socket.on('empezarActividad',function(actividad){
+            
+            socket.on('enviarDatosFicticios', function (datos, actividad) {
                 //console.log(datos);
-                if(actividad){
-                    centro.empezarActividad(actividad,function(res){
+                console.log("Datos Fincticios");
+                console.log(datos);
+                console.log(actividad);
+                if (actividad) {
+                    centro.insertarDatos(datos);
+                }
+            })
+
+            socket.on('empezarActividad', function (actividad) {
+                //console.log(datos);
+                if (actividad) {
+                    centro.empezarActividad(actividad, function (res) {
                         console.log(res);
                         cli.enviarATodos(io, actividad._id, "actividadEmpezada", res);
                     });
-                    
+
                 }
             })
 
-            socket.on('terminarActividad',function(actividad){
-                if(actividad){
-                    centro.terminarActividad(actividad,function(res){
+            socket.on('terminarActividad', function (actividad) {
+                if (actividad) {
+                    centro.terminarActividad(actividad, function (res) {
                         cli.enviarATodos(io, actividad._id, "actividadTerminada", res);
                     });
-                    
+
                 }
             })
 
-            socket.on('disconect',function(actividad,estudiante){
-                cli.enviarATodos(io,actividad._id, 'seHaDesconectado',estudiante);
+            socket.on('disconect', function (actividad, estudiante) {
+                cli.enviarATodos(io, actividad._id, 'seHaDesconectado', estudiante);
             })
+
+            socket.on('conectarWebCam', function (estudiante) {
+                cli.enviarATodos(io, estudiante._id, 'conectarWebCam', estudiante);
+            });
+            socket.on('conectarLed', function (estudiante) {
+                cli.enviarATodos(io, estudiante._id, 'conectarLed', estudiante);
+            });
+            socket.on('conectarPulsera', function (estudiante) {
+                cli.enviarATodos(io, estudiante._id, 'conectarPulsera', estudiante);
+            });
+
+            socket.on('webCamConectada', function (actividad, estudiante) {
+                if(actividad!=null){
+                    cli.enviarATodos(io, actividad._id, 'webCamConectada', estudiante);
+                }
+                
+            })
+            socket.on('pulseraConectada', function (actividad, estudiante) {
+                if(actividad!=null){
+                    cli.enviarATodos(io, actividad._id, 'pulseraConectada', estudiante);
+                }
+                
+            })
+            socket.on('ledConectada', function (actividad, estudiante) {
+                console.log("Led conectada");
+                if(actividad!=null){
+                    cli.enviarATodos(io, actividad._id, 'ledConectada', estudiante);
+                    console.log("Led conectado");
+                }
+                
+            })
+
+            socket.on('webCamDesonectada', function (actividad, estudiante) {
+                if (actividad != null || actividad != undefined) {
+                    cli.enviarATodos(io, actividad._id, 'webCamDesonectada', estudiante);
+                }
+            })
+            socket.on('pulseraDesonectada', function (actividad, estudiante) {
+                if (actividad != null || actividad != undefined) {
+                    cli.enviarATodos(io, actividad._id, 'pulseraDesonectada', estudiante);
+                }
+            })
+            socket.on('ledDesonectada', function (actividad, estudiante) {
+                if (actividad != null || actividad != undefined) {
+                    cli.enviarATodos(io, actividad._id, 'ledDesonectada', estudiante);
+                }
+            })
+
+            socket.on('desconectarWebCam', function (estudiante) {
+                cli.enviarATodos(io, estudiante._id, 'desconectarWebCam', estudiante);
+            });
+            socket.on('desconectarLed', function (estudiante) {
+                cli.enviarATodos(io, estudiante._id, 'desconectarLed', estudiante);
+            });
+            socket.on('desconectarPulsera', function (estudiante) {
+                cli.enviarATodos(io, estudiante._id, 'desconectarPulsera', estudiante);
+            });
 
             /*
             this.socket.emit('crearActividadLista',this.id,actividad,function(){

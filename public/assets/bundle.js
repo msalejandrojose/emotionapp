@@ -2716,7 +2716,6 @@ class pulseraMiBand {
     
 
     async connect() {
-        console.log("asd");
         const device = await navigator.bluetooth.requestDevice({
             filters: [{ services: [miband.advertisementService] }],
             optionalServices: miband.optionalServices
@@ -2726,7 +2725,13 @@ class pulseraMiBand {
         console.log('Connected');
         this.band = new miband(server);
         this.startBandInit();
-
+        console.log(this.band);
+        if(device!=null){
+            return true;
+        }else{
+            return false;
+        }
+        
     }
 
     desconnect() {
