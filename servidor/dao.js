@@ -33,8 +33,8 @@ function Dao() {
         obtener(this.usuarios, criterio, callback);
     };*/
 
-    this.obtenerEstudianteCriterio = function(criterio,callback){
-        obtener(this.Estudiante,criterio,callback);
+    this.obtenerEstudianteCriterio = function (criterio, callback) {
+        obtener(this.Estudiante, criterio, callback);
     }
 
     this.insertarEstudiante = function (est, callback) {
@@ -42,8 +42,8 @@ function Dao() {
         insertar(this.Estudiante, est, callback);
     }
 
-    this.modificarEstudiante = function (id,est, callback) {
-        modificarColeccion(this.Estudiante, id ,est, callback);
+    this.modificarEstudiante = function (id, est, callback) {
+        modificarColeccion(this.Estudiante, id, est, callback);
     }
 
     this.eliminarEstudiante = function (est, callback) {
@@ -54,15 +54,15 @@ function Dao() {
         obtenerTodos(this.Estudiante, callback);
     }
 
-    this.obtenerClaseCriterio = function(id,callback){
-        obtener(this.Clase,{ _id: ObjectID(id) },callback);
+    this.obtenerClaseCriterio = function (id, callback) {
+        obtener(this.Clase, { _id: ObjectID(id) }, callback);
     }
 
     this.insertarClase = function (act, callback) {
         insertar(this.Clase, act, callback);
     }
 
-    this.modificarClase = function (id,act, callback) {
+    this.modificarClase = function (id, act, callback) {
         modificarColeccion(this.Clase, id, act, callback);
     }
 
@@ -78,7 +78,7 @@ function Dao() {
         insertar(this.Actividad, act, callback);
     }
 
-    this.modificarActividad = function (id,act, callback) {
+    this.modificarActividad = function (id, act, callback) {
         modificarColeccion(this.Actividad, id, act, callback);
     }
 
@@ -86,8 +86,8 @@ function Dao() {
         eliminar(this.Actividad, { _id: ObjectID(act._id) }, callback);
     }
 
-    this.obtenerActividadCriterio = function(id,callback){
-        obtener(this.Actividad,{ _id: ObjectID(id) },callback);
+    this.obtenerActividadCriterio = function (id, callback) {
+        obtener(this.Actividad, { _id: ObjectID(id) }, callback);
     }
 
     this.mostrarActividades = function (callback) {
@@ -95,14 +95,16 @@ function Dao() {
     }
 
     function obtener(coleccion, criterio, callback) {
+        console.log(criterio);
         coleccion.find(criterio).toArray(function (error, usr) {
-            //console.log(usr)
+            console.log(usr);
             if (usr.length == 0) {
                 callback(undefined);
             }
             else {
                 callback(usr[0]);
             }
+
         });
     };
 

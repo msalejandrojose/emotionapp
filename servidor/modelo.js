@@ -266,6 +266,7 @@ function Centro() {
                             console.log("ID");
                             console.log(ru._id);
                             ju.dao.obtenerActividadCriterio(ru._id, function (res) {
+                                console.log(res);
                                 callback(res);
                                 db.close();
                             })
