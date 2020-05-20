@@ -7,6 +7,7 @@ function Centro() {
     //Atributos
     this.clases = {};
     this.actividades = {};
+    this.profesores = {};
     this.resumenActividades = {}
     this.actividadesEnProceso = {};
     this.intervalo = null;
@@ -14,6 +15,7 @@ function Centro() {
     this.actividadesListas = {};
     this.dao = new dao.Dao();
     this.estoyComputando=false;
+    
 
 
     //METODOS
@@ -488,6 +490,66 @@ function Centro() {
 
     }
 
+    //CRUD Profesores
+
+    this.mostrarProfesores = function(callback){
+        var ju = this;
+        this.dao.connect(function (db) {
+            ju.dao.mostrarProfesores(function (u) {
+                ju.profesores = u;
+                console.log(u);
+                callback(u);
+                db.close();
+            });
+        });
+    }
+
+    this.agregarProfesor = function(profesor,callback){
+        var ju = this;
+        let p = {
+            nombre: profesor.nombre,
+            apellidos: profesor.apellidos,
+            departamento: profesor.departamento,
+        }
+        this.dao.connect(function (db) {
+            ju.dao.insertarProfesor(p, function (u) {
+                ju.profesores[u._id] = new Profesor(u._id, u.nombre, u.apellidos, u.departamento);
+                console.log(ju.profesores[u._id]);
+                callback(u);
+                db.close();
+            });
+        });
+    }
+
+    this.editarProfesor = function(profesor,callback){
+        var ju = this;
+        let p = {
+            nombre: profesor.nombre,
+            apellidos: profesor.apellidos,
+            departamento: profesor.departamento,
+        }
+        this.dao.connect(function (db) {
+            ju.dao.modificarProfesor(profesor._id, p, function (u) {
+                ju.profesores[u._id] = new Profesor(u._id, u.nombre, u.apellidos, u.departamento);
+                console.log(ju.profesores[u._id]);
+                callback(u);
+                db.close();
+            });
+        });
+    }
+
+    this.borrarProfesor = function(profesor,callback){
+        var ju = this;
+        this.dao.connect(function (db) {
+            ju.dao.eliminarProfesor(profesor, function (u) {
+                delete ju.profesores[profesor._id];
+                //console.log(u);
+                callback(profesor);
+                db.close();
+            });
+        });
+    }
+
     //Gestion de datos de la actividad
     this.empezarActividad = function (actividad, callback) {
         var ju = this;
@@ -861,6 +923,13 @@ function Estudiante(id, nombre, apellidos, clase, email, contrasena) {
         return this;
     }
 
+}
+
+function Profesor(id,nombre,apellidos,departamento){
+    this._id = id;
+    this.nombre=nombre;
+    this.apellidos=apellidos;
+    this.departamento=departamento;
 }
 
 function Alumno(estudiante, posicion, actividad, datos,sensorWebCam,sensorPulsera,sensorLed) {

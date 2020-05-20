@@ -94,6 +94,23 @@ function Dao() {
         obtenerTodos(this.Actividad, callback);
     }
 
+    this.insertarProfesor = function (est, callback) {
+        //console.log(estudiante);
+        insertar(this.Profesor, est, callback);
+    }
+
+    this.modificarProfesor = function (id, est, callback) {
+        modificarColeccion(this.Profesor, id, est, callback);
+    }
+
+    this.eliminarProfesor = function (est, callback) {
+        eliminar(this.Profesor, { _id: ObjectID(est._id) }, callback);
+    }
+
+    this.mostrarProfesores = function (callback) {
+        obtenerTodos(this.Profesor, callback);
+    }
+
     function obtener(coleccion, criterio, callback) {
         console.log(criterio);
         coleccion.find(criterio).toArray(function (error, usr) {

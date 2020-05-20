@@ -231,6 +231,48 @@ app.delete("/borrarActividadEnClase", function (request, response) {
   })
 });
 
+app.get("/verProfesores", function (request, response) {
+  centro.mostrarProfesores(function (res) {
+    response.send(res);
+    //return res;
+  })
+});
+
+app.post("/registrarProfesor", function (request, response) {
+  var profesor = request.body;
+  console.log(profesor);
+  centro.agregarProfesor(profesor, function (res) {
+    if (res != '') {
+      console.log("Profesor creado");
+      response.send(res);
+    }
+  })
+});
+
+app.post("/actualizarProfesor", function (request, response) {
+  var profesor = request.body;
+  console.log(profesor);
+  console.log("ASD");
+  centro.editarProfesor(profesor, function (res) {
+    if (res != '') {
+      console.log("Profesor actualizado");
+      console.log(res);
+      response.send(res);
+    }
+  })
+});
+
+app.delete("/eliminarProfesor", function (request, response) {
+  var profesor = request.body;
+  console.log(profesor);
+  centro.borrarProfesor(profesor, function (res) {
+    if (res != '') {
+      console.log("Profesor borrado");
+      response.send(res);
+    }
+  })
+});
+
 app.post("/estudianteIniciarSesion", function (request, response) {
   var est = request.body;
   //console.log(est);
