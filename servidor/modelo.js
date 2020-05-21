@@ -629,11 +629,12 @@ function Centro() {
             //console.log(key);
             //console.log(this.actividades);
             //console.log(this.actividades[key]);
-            if(this.actividades[key]){
+            if(!this.actividades[key]){
                 for(var k in this.actividades){
                     if(k==key){
                         console.log("PETA");
                         this.actividades[key]=this.actividades[k];
+                        console.log(this.actividades[key]);
                     }
                 }
             }
