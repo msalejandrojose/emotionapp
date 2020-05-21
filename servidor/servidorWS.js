@@ -92,18 +92,18 @@ function ServidorWS() {
             socket.on('envioDeDatos', function (datos, actividad) {
                 //console.log(datos);
                 if (actividad) {
-                    centro.insertarDatos(datos);
+                    centro.insertarDatos(datos,null);
                     cli.enviarATodos(io, actividad._id, "recepcionDatos", datos);
                 }
             })
             
             socket.on('enviarDatosFicticios', function (datos, actividad) {
                 //console.log(datos);
-                console.log("Datos Fincticios");
-                console.log(datos);
-                console.log(actividad);
+                //console.log("Datos Fincticios");
+                //console.log(datos);
+                //console.log(actividad);
                 if (actividad) {
-                    centro.insertarDatos(datos);
+                    centro.insertarDatos(datos,actividad);
                 }
             })
 
@@ -111,7 +111,7 @@ function ServidorWS() {
                 //console.log(datos);
                 if (actividad) {
                     centro.empezarActividad(actividad, function (res) {
-                        console.log(res);
+                        //console.log(res);
                         cli.enviarATodos(io, actividad._id, "actividadEmpezada", res);
                     });
 

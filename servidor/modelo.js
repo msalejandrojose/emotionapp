@@ -34,7 +34,8 @@ function Centro() {
         this.dao.connect(function (db) {
             ju.dao.insertarEstudiante(e, function (u) {
                 ju.estudiantes[u._id] = new Estudiante(u._id, u.nombre, u.apellidos, u.clase, u.email, u.contrasena);
-                console.log(ju.estudiantes[u._id]);
+                //console.log("Estudiante")
+                //console.log(ju.estudiantes[u._id]);
                 //ju.borrarEstudiante(email);
                 //ju.modificarEstudiante("emailAntiguo", "nombre", "apellidos", "clase", "emailNuevo", "contrasena");
                 callback(u);
@@ -100,7 +101,7 @@ function Centro() {
         this.dao.connect(function (db) {
             ju.dao.insertarClase(a, function (ru) {
                 ju.clases[ru._id] = new Clase(ru._id, ru.nombre, ru.profesor, ru.alumnos, ru.actividades, ru.resumen);
-                console.log(ju.clases);
+                //console.log(ju.clases);
                 callback(ru);
                 db.close();
             });
@@ -139,10 +140,10 @@ function Centro() {
                 //delete ju.clases[act._id];
                 k = u;
                 var jus = ju;
-                console.log(u);
+                //console.log(u);
                 for (var i in a.actividades) {
-                    console.log('hola');
-                    console.log(a.actividades[i]);
+                    //console.log('hola');
+                    //console.log(a.actividades[i]);
                     jus.dao.eliminarActividad(a.actividades[i], function (u) {
                         console.log('Actividad borrada');
                         console.log(u);
@@ -165,8 +166,8 @@ function Centro() {
         var ju = this;
         this.dao.connect(function (db) {
             ju.dao.obtenerClaseCriterio(clase._id, function (c) {
-                console.log(c)
-                console.log("clase actualizada");
+                //console.log(c)
+                //console.log("clase actualizada");
                 callback(c);
                 db.close();
             });
@@ -178,7 +179,7 @@ function Centro() {
         this.dao.connect(function (db) {
             ju.dao.mostrarClases(function (u) {
                 ju.clases = u;
-                console.log(u);
+                //console.log(u);
                 callback(u);
                 db.close();
             });
@@ -189,7 +190,7 @@ function Centro() {
 
     this.crearActividadEnClase = function (clase, actividad, callback) {
         var ju = this;
-        console.log("crearActividadEnClase")
+        //console.log("crearActividadEnClase")
         //console.log(clase);
         //console.log(actividad);
         if (!this.clases[clase._id]) {
@@ -251,7 +252,7 @@ function Centro() {
                     act.alumnos = alu;
                     ju.dao.modificarActividad(ru._id, act, function (r) {
                         ju.actividades[ru._id] = new Actividad(ru._id, ru.nombre, ru.profesor, ru.fecha, ru.alumnos, ru.estado, ru.clase);
-                        console.log("Actividad Agregada")
+                        //console.log("Actividad Agregada")
                         ac.actividades[ru._id] = ru;
                         ju.dao.modificarClase(clase._id, ac, function (u) {
                             //console.log("elemento añadido")
@@ -265,10 +266,10 @@ function Centro() {
                                 callback(c);
                                 db.close();
                             });*/
-                            console.log("ID");
-                            console.log(ru._id);
+                            //console.log("ID");
+                            //console.log(ru._id);
                             ju.dao.obtenerActividadCriterio(ru._id, function (res) {
-                                console.log(res);
+                                //console.log(res);
                                 callback(res);
                                 db.close();
                             })
@@ -344,11 +345,11 @@ function Centro() {
     this.borrarActividadEnClase = function (actividad, callback) {
         var ju = this;
         var bbdd;
-        console.log('Hola')
+        //console.log('Hola')
         this.dao.connect(function (db) {
             bbdd = db;
             ju.dao.obtenerClaseCriterio(actividad.clase._id, function (clase) {
-                console.log('Hola')
+                //console.log('Hola')
                 ju.dao.eliminarActividad(actividad, function (u) {
                     delete ju.actividades[actividad._id];
                     let c = {
@@ -359,7 +360,7 @@ function Centro() {
                         resumen: clase.resumen,
                     }
                     delete c.actividades[actividad._id]
-                    console.log('Hola')
+                    //console.log('Hola')
                     ju.dao.modificarClase(clase._id, c, function (u) {
                         delete clase[actividad._id];
                         ju.clases[clase._id] = clase;
@@ -447,8 +448,8 @@ function Centro() {
                 if (act.estado == "Comenzada") {
                     ju.actividadesListas[act._id] = act;
                 }
-                console.log("Valor de la bbdd");
-                console.log(u);
+                //console.log("Valor de la bbdd");
+                //console.log(u);
                 if (u != null) {
                     ju.actividades[u._id] = act;
                     callback(act);
@@ -489,6 +490,14 @@ function Centro() {
         });
 
     }
+    this.obtenerActividadComenzada = function(act,callback){
+        if(this.actividades[act._id]!=undefined || this.actividades[act._id]!=null){
+            console.log("coneseguir");
+            callback(this.actividades[act._id]);
+        }else{
+            callback(null);
+        }
+    }
 
     //CRUD Profesores
 
@@ -497,7 +506,7 @@ function Centro() {
         this.dao.connect(function (db) {
             ju.dao.mostrarProfesores(function (u) {
                 ju.profesores = u;
-                console.log(u);
+                //console.log(u);
                 callback(u);
                 db.close();
             });
@@ -514,7 +523,7 @@ function Centro() {
         this.dao.connect(function (db) {
             ju.dao.insertarProfesor(p, function (u) {
                 ju.profesores[u._id] = new Profesor(u._id, u.nombre, u.apellidos, u.departamento);
-                console.log(ju.profesores[u._id]);
+                //console.log(ju.profesores[u._id]);
                 callback(u);
                 db.close();
             });
@@ -531,7 +540,7 @@ function Centro() {
         this.dao.connect(function (db) {
             ju.dao.modificarProfesor(profesor._id, p, function (u) {
                 ju.profesores[u._id] = new Profesor(u._id, u.nombre, u.apellidos, u.departamento);
-                console.log(ju.profesores[u._id]);
+                //console.log(ju.profesores[u._id]);
                 callback(u);
                 db.close();
             });
@@ -553,18 +562,18 @@ function Centro() {
     //Gestion de datos de la actividad
     this.empezarActividad = function (actividad, callback) {
         var ju = this;
-        console.log("Empezar");
-        console.log(actividad._id);
+        //console.log("Empezar");
+        //console.log(actividad._id);
         this.actividades[actividad._id] = actividad;
-        console.log(this.actividades);
+        //console.log(this.actividades);
         this.actividadesListas[actividad._id] = actividad;
-        console.log("Actividad Comenzada");
+        //console.log("Actividad Comenzada");
         if (actividad.clase._id == "") {
             this.editarActividad(actividad, function (res) {
                 if (res != '') {
                     var num = 0;
-                    console.log("Actividad empezada");
-                    console.log(res);
+                    //console.log("Actividad empezada");
+                    //console.log(res);
                     ju.actividadesEnProceso[actividad._id] = actividad._id;
                     ju.resumenActividades[actividad._id] = new DatosResumen();
                     ju.comprobar()
@@ -574,8 +583,8 @@ function Centro() {
         } else {
             this.editarActividadEnClase(actividad, function (res) {
                 if (res != '') {
-                    console.log("Actividad empezada");
-                    console.log(res);
+                    //console.log("Actividad empezada");
+                    //console.log(res);
                     ju.actividadesEnProceso[actividad._id] = actividad._id;
                     ju.resumenActividades[actividad._id] = new DatosResumen();
                     ju.comprobar()
@@ -586,7 +595,7 @@ function Centro() {
     }
 
     this.comprobar = function () {
-        console.log("Comprobar");
+        //console.log("Comprobar");
         var num = 0;
         for (var key in this.actividadesEnProceso) {
             num++;
@@ -598,12 +607,14 @@ function Centro() {
             }, 20000);
         }
         if (num == 0) {
+            console.log("Limpiar el intervalo");
             clearImmediate(this.intervalo);
         }
     }
 
     this.hacerResumenActividad = function () {
         this.estoyComputando=true;
+        
         for (var key in this.actividadesEnProceso) {
             var tiempo = moment().format();
             var sumatorioE = this.resumenActividades[key].alegria +
@@ -614,7 +625,18 @@ function Centro() {
                 this.resumenActividades[key].tristeza;
             var sumatorioDC = this.resumenActividades[key].distraido + this.resumenActividades[key].concentrado;
             var sumatorioMF = this.resumenActividades[key].motivado + this.resumenActividades[key].frustrado;
-
+            //console.log(sumatorioE);
+            //console.log(key);
+            //console.log(this.actividades);
+            //console.log(this.actividades[key]);
+            if(this.actividades[key]){
+                for(var k in this.actividades){
+                    if(k==key){
+                        console.log("PETA");
+                        this.actividades[key]=this.actividades[k];
+                    }
+                }
+            }
             this.actividades[key].resumen.alegria.push({y:this.resumenActividades[key].alegria / sumatorioE,x:tiempo});
             this.actividades[key].resumen.asco.push( {y:this.resumenActividades[key].asco / sumatorioE,x:tiempo});
             this.actividades[key].resumen.concentrado.push( {y:this.resumenActividades[key].concentrado / sumatorioDC,x:tiempo});
@@ -631,18 +653,27 @@ function Centro() {
         this.estoyComputando=false;
     }
 
-    this.insertarDatos = function (datos) {
+    this.insertarDatos = function (datos,act) {
         var ju = this;
+        if(act==null){
+
+        }else{
+            if(this.actividades[act._id]==null || this.actividades[act._id]==undefined){
+                this.actividades[act._id]=act;
+                this.resumenActividades[act._id] = new DatosResumen();
+            }
+        }
         try {
-            console.log("Insertar datos");
-            console.log(datos);
-            console.log(this.actividades);
-            console.log(this.actividades[datos.id_actividad]);
+            //console.log("Insertar datos");
+            //console.log(datos);
+            //console.log(this.actividades);
+            //console.log(this.actividades[datos.id_actividad]);
             for (let i = 0; i < this.actividades[datos.id_actividad].alumnos.length; i++) {
-                console.log(this.actividades[datos.id_actividad].alumnos[i]);
-                console.log(datos.id_item);
+                //console.log(this.actividades[datos.id_actividad].alumnos[i]);
+                //console.log(datos.id_item);
                 if (datos.id_item == ju.actividades[datos.id_actividad].alumnos[i].id_item) {
                     if(!ju.estoyComputando){
+                        console.log(ju.resumenActividades[datos.id_actividad]);
                         ju.resumenActividades[datos.id_actividad]['alegria'] += datos.alegria.y;
                         ju.resumenActividades[datos.id_actividad]['asco'] += datos.asco.y;
                         ju.resumenActividades[datos.id_actividad]['concentrado'] += datos.concentrado.y;
@@ -669,7 +700,7 @@ function Centro() {
                     ju.actividades[datos.id_actividad].alumnos[i].datos.concentrado.push({ x: datos.concentrado.x, y: datos.concentrado.y });
                     ju.actividades[datos.id_actividad].alumnos[i].datos.frustrado.push({ x: datos.frustrado.x, y: datos.frustrado.y });
                     ju.actividades[datos.id_actividad].alumnos[i].datos.motivado.push({ x: datos.motivado.x, y: datos.motivado.y });
-                    console.log("Datos modificados en el servidor");
+                    //console.log("Datos modificados en el servidor");
                 }
             }
         } catch (e) {
@@ -681,42 +712,69 @@ function Centro() {
 
     this.terminarActividad = function (actividad, callback) {
         var ju = this;
-        console.log("SERVIDOR");
-        console.log(actividad._id);
-        console.log(ju.actividades);
-        for (var key in ju.actividades) {
-            if (ju.actividades[key]._id == actividad._id) {
-                ju.actividades[key].estado = "Finalizada";
-                ju.actividades[key].fecha = actividad.fecha;
-                console.log("datos a almacenar");
-                console.log(ju.actividades[key].resumen);
-                console.log(ju.actividades[key].alumnos[0].datos);
-                if (actividad.clase._id == "") {
-                    this.editarActividad(ju.actividades[key], function (res) {
-                        if (res != '') {
-                            console.log("Actividad terminada");
-                            console.log(res);
-                            delete ju.actividadesEnProceso[actividad._id];
-                            delete ju.resumenActividades[actividad._id];
-                            ju.comprobar();
-                            callback(ju.actividades[key]);
-                        }
-                    })
-                } else {
-                    this.editarActividadEnClase(ju.actividades[key], function (res) {
-                        if (res != '') {
-                            console.log("Actividad terminda");
-                            console.log(res);
-                            delete ju.actividadesEnProceso[actividad._id];
-                            delete ju.resumenActividades[actividad._id];
-                            ju.comprobar()
-                            callback(ju.actividades[key]);
-                        }
-                    })
+        //console.log("SERVIDOR");
+        //console.log(actividad._id);
+        //console.log(ju.actividades);
+        if(this.actividades[actividad._id]){
+            for (var key in ju.actividades) {
+                if (ju.actividades[key]._id == actividad._id) {
+                    ju.actividades[key].estado = "Finalizada";
+                    ju.actividades[key].fecha = actividad.fecha;
+                    //console.log("datos a almacenar");
+                    //console.log(ju.actividades[key].resumen);
+                    //console.log(ju.actividades[key].alumnos[0].datos);
+                    if (actividad.clase._id == "") {
+                        this.editarActividad(ju.actividades[key], function (res) {
+                            if (res != '') {
+                                //console.log("Actividad terminada");
+                                //console.log(res);
+                                delete ju.actividadesEnProceso[actividad._id];
+                                delete ju.resumenActividades[actividad._id];
+                                ju.comprobar();
+                                callback(ju.actividades[key]);
+                            }
+                        })
+                    } else {
+                        this.editarActividadEnClase(ju.actividades[key], function (res) {
+                            if (res != '') {
+                                //console.log("Actividad terminda");
+                                //console.log(res);
+                                delete ju.actividadesEnProceso[actividad._id];
+                                delete ju.resumenActividades[actividad._id];
+                                ju.comprobar()
+                                callback(ju.actividades[key]);
+                            }
+                        })
+                    }
+                    break;
                 }
-                break;
+            }
+        }else{
+            if (actividad.clase._id == "") {
+                this.editarActividad(actividad, function (res) {
+                    if (res != '') {
+                        //console.log("Actividad terminada");
+                        //console.log(res);
+                        delete ju.actividadesEnProceso[actividad._id];
+                        delete ju.resumenActividades[actividad._id];
+                        ju.comprobar();
+                        callback(ju.actividades[key]);
+                    }
+                })
+            } else {
+                this.editarActividadEnClase(actividad, function (res) {
+                    if (res != '') {
+                        //console.log("Actividad terminda");
+                        //console.log(res);
+                        delete ju.actividadesEnProceso[actividad._id];
+                        delete ju.resumenActividades[actividad._id];
+                        ju.comprobar()
+                        callback(ju.actividades[key]);
+                    }
+                })
             }
         }
+        
     }
 
     //Añadir Alumnos a la Actividad
@@ -727,7 +785,7 @@ function Centro() {
             act.alumnos[emailEstudiante] = new Alumno(this.estudiantes[emailEstudiante]);
             this.dao.connect(function (db) {
                 ju.dao.modificarActividad(act, function (u) {
-                    console.log(ju.actividades);
+                    //console.log(ju.actividades);
                     ju.actividades[_id].anadirAlumno(ju.estudiantes[emailEstudiante]);
                     callback(u);
                     db.close();
@@ -745,7 +803,7 @@ function Centro() {
             delete act.alumnos[emailAlumno];
             this.dao.connect(function (db) {
                 ju.dao.modificarActividad(act, function (u) {
-                    console.log(ju.actividades);
+                    //console.log(ju.actividades);
                     //ju.actividades[nombreActividad].anadirAlumno(ju.estudiantes[emailEstudiante]);
                     ju.actividades[_id].borrarAlumno(emailAlumno);
                     callback(u);
@@ -787,7 +845,7 @@ function Centro() {
         if (this.actividadesListas[act._id] == null) {
             this.actividadesListas[act._id] = act;
         }
-        console.log(this.actividadesListas);
+        //console.log(this.actividadesListas);
         callback(this.actividadesListas[act._id]);
     }
 
@@ -798,7 +856,7 @@ function Centro() {
 
     this.mostrarActividadListasxAlumno = function (id_alu, callback) {
         let actividades = [];
-        console.log(id_alu);
+        //console.log(id_alu);
         for (var id in this.actividadesListas) {
             for (let i = 0; i < this.actividadesListas[id].alumnos.length; i++) {
                 if (this.actividadesListas[id].alumnos[i].estudiante._id == id_alu) {
@@ -815,12 +873,14 @@ function Centro() {
         var ju = this;
         this.dao.connect(function (db) {
             ju.dao.obtenerEstudianteCriterio({ $and: [{ 'contrasena': contrasena }, { 'email': email }] }, function (u) {
-                if (!u) {
-                    //console.log("No se ha podido loguear");
+                if (u==undefined) {
+                    console.log(u);
+                    callback({_id:null});
                 }
                 else {
                     //console.log("El usuario es: " + u._id);
                     //console.log("Se ha podido Loguear");
+                    console.log(u);
                     callback(u);
                 }
                 db.close();

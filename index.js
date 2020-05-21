@@ -281,6 +281,14 @@ app.post("/estudianteIniciarSesion", function (request, response) {
   })
 });
 
+app.post("/obtenerActividadComenzada", function (request, response) {
+  var act = request.body;
+  centro.obtenerActividadComenzada(act, function (res) {
+    response.send(res);
+  })
+});
+
+
 
 server.listen(app.get('port'), function () {
   console.log('Node app se está ejecutando en el puerto', port);
