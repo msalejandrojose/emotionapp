@@ -8059,6 +8059,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               _this13.mensajeProcesoEnMarcha();
             }
           }, 2000);
+          setTimeout(function (async) {
+            if (_this13.botonCreadaCargando) {
+              _this13.mensajeProcesoEnMarcha();
+            }
+          }, 6000);
           $.ajax({
             type: 'POST',
             url: '/empezarActividad',
@@ -8145,7 +8150,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             if (_this15.botonFinalizadaCargando) {
               _this15.mensajeProcesoEnMarcha();
             }
-          }, 2000); //this.profesor.terminarActividad(this.actividad);
+          }, 2000);
+          setTimeout(function (async) {
+            if (_this15.botonCreadaCargando) {
+              _this15.mensajeProcesoEnMarcha();
+            }
+          }, 6000); //this.profesor.terminarActividad(this.actividad);
 
           $.ajax({
             type: 'POST',
@@ -8911,6 +8921,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
           if (!this.simulandoDatos) {
             this.simulandoDatos = true;
+            this.actualizarGraficaLineal();
 
             if (this.numSimulaciones == 0) {
               this.activarTodasPulseras();

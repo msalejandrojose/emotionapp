@@ -5520,6 +5520,11 @@ let VerActividadComponent = class VerActividadComponent {
                 this.mensajeProcesoEnMarcha();
             }
         }, 2000);
+        setTimeout(async => {
+            if (this.botonCreadaCargando) {
+                this.mensajeProcesoEnMarcha();
+            }
+        }, 6000);
         $.ajax({
             type: 'POST',
             url: '/empezarActividad',
@@ -5598,6 +5603,11 @@ let VerActividadComponent = class VerActividadComponent {
                 this.mensajeProcesoEnMarcha();
             }
         }, 2000);
+        setTimeout(async => {
+            if (this.botonCreadaCargando) {
+                this.mensajeProcesoEnMarcha();
+            }
+        }, 6000);
         //this.profesor.terminarActividad(this.actividad);
         $.ajax({
             type: 'POST',
@@ -6198,6 +6208,7 @@ let VerActividadComponent = class VerActividadComponent {
         var ju = this;
         if (!this.simulandoDatos) {
             this.simulandoDatos = true;
+            this.actualizarGraficaLineal();
             if (this.numSimulaciones == 0) {
                 this.activarTodasPulseras();
                 this.activarTodasWebCam();
