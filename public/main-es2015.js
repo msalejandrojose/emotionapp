@@ -1980,7 +1980,43 @@ let EstudianteComponent = class EstudianteComponent {
             datos['color'] = 'rgba(' + this.colorPredominante[0] + ',' + this.colorPredominante[1] + ',' + this.colorPredominante[2] + ',' + this.colorPredominante[3] + ')';
             //console.log('rgba('+this.colorPredominante[0]+','+this.colorPredominante[1]+','+this.colorPredominante[2]+','+this.colorPredominante[3]+')');
             $('#estadoAlumno').css('background-color', 'rgba(' + this.colorPredominante[0] + ',' + this.colorPredominante[1] + ',' + this.colorPredominante[2] + ',' + this.colorPredominante[3] + ')');
-            this.ponerColor();
+            if (this.pulsaciones < 100) {
+                this.ponerColor();
+                this.limpiarIntervalos();
+            }
+            else if (this.pulsaciones >= 100 && this.pulsaciones < 120) {
+                this.limpiarIntervalos();
+                this.intervaloAlto = setInterval(async => {
+                    setTimeout(async => {
+                        this.ponerColor();
+                    }, 900);
+                    setTimeout(async => {
+                        this.ponerNegro();
+                    }, 100);
+                }, 1000);
+            }
+            else if (this.pulsaciones >= 120 && this.pulsaciones < 140) {
+                this.limpiarIntervalos();
+                this.intervaloMuyAlto = setInterval(async => {
+                    setTimeout(async => {
+                        this.ponerColor();
+                    }, 600);
+                    setTimeout(async => {
+                        this.ponerNegro();
+                    }, 100);
+                }, 700);
+            }
+            else if (this.pulsaciones >= 140) {
+                this.limpiarIntervalos();
+                this.intervaloAltisimo = setInterval(async => {
+                    setTimeout(async => {
+                        this.ponerColor();
+                    }, 300);
+                    setTimeout(async => {
+                        this.ponerNegro();
+                    }, 100);
+                }, 400);
+            }
             this.emocionAlegria = 0;
             this.emocionAsco = 0;
             this.emocionIra = 0;
@@ -2061,6 +2097,11 @@ let EstudianteComponent = class EstudianteComponent {
             //this.enviarEmocionesWebCam(datos);
             this.estoyComputando = false;
         });
+    }
+    limpiarIntervalos() {
+        clearInterval(this.intervaloAlto);
+        clearInterval(this.intervaloMuyAlto);
+        clearInterval(this.intervaloAltisimo);
     }
     parar() {
         /*this.video.addEventListener('stop', function () {
@@ -2235,6 +2276,11 @@ let EstudianteComponent = class EstudianteComponent {
     ponerColor() {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
             yield this.fadeToColor(this.led.data, [this.colorPredominante[0], this.colorPredominante[1], this.colorPredominante[2]]);
+        });
+    }
+    ponerNegro() {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
+            yield this.fadeToColor(this.led.data, [0, 0, 0]);
         });
     }
     fadeToColor(device, [r, g, b]) {
