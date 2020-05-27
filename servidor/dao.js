@@ -79,7 +79,11 @@ function Dao() {
     }
 
     this.modificarActividad = function (id, act, callback) {
-        modificarColeccion(this.Actividad, id, act, callback);
+        //console.log(act);
+        var ju = this;
+        modificarColeccion(this.Actividad, id, act, function(u){
+            ju.obtenerActividadCriterio(id,callback);
+        });
     }
 
     this.eliminarActividad = function (act, callback) {
@@ -87,6 +91,7 @@ function Dao() {
     }
 
     this.obtenerActividadCriterio = function (id, callback) {
+        console.log(id);
         obtener(this.Actividad, { _id: ObjectID(id) }, callback);
     }
 
@@ -112,10 +117,10 @@ function Dao() {
     }
 
     function obtener(coleccion, criterio, callback) {
-        console.log(criterio);
+        //console.log(criterio);
         coleccion.find(criterio).toArray(function (error, usr) {
             console.log(usr);
-            if (usr.length == 0) {
+            if (usr.length == 0 || usr==undefined) {
                 callback(undefined);
             }
             else {
@@ -136,12 +141,15 @@ function Dao() {
             if (err) {
                 console.log("No se pudo actualizar (método genérico)");
                 console.log(err)
+                callback(result);
             }
             else {
                 console.log("Elemento actualizado");
+                //console.log(usr);
+                callback(usr);
             }
             //console.log(result);
-            callback(result);
+            
         });
     }
 
@@ -151,7 +159,7 @@ function Dao() {
 
     function eliminar(coleccion, criterio, callback) {
         coleccion.deleteOne(criterio, function (err, result) {
-            console.log(err);
+            //console.log(err);
             if (!err) {
                 console.log("Elemento borrado");
                 callback(result);

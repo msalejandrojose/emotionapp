@@ -14,8 +14,8 @@ function Centro() {
     this.estudiantes = {};
     this.actividadesListas = {};
     this.dao = new dao.Dao();
-    this.estoyComputando=false;
-    
+    this.estoyComputando = false;
+
 
 
     //METODOS
@@ -134,29 +134,26 @@ function Centro() {
         var ju = this;
         var k;
         var bbdd;
+        var a = act;
+        var bbdd;
         await this.dao.connect(function (db) {
-            var a = act;
-            ju.dao.eliminarClase(act, function (u) {
-                //delete ju.clases[act._id];
-                k = u;
-                var jus = ju;
-                //console.log(u);
-                for (var i in a.actividades) {
-                    //console.log('hola');
-                    //console.log(a.actividades[i]);
-                    jus.dao.eliminarActividad(a.actividades[i], function (u) {
-                        console.log('Actividad borrada');
-                        console.log(u);
-                        delete ju.actividades[act._id];
+            var jus = ju;
+            for (var i in act.actividades) {
+                console.log('hola');
+                console.log(act.actividades[i]);
+                ju.dao.eliminarActividad(act.actividades[i], function (u) {
+                    console.log(u);
+                    console.log('Actividad borrada');
+                    //console.log(u);
+                    delete ju.actividades[act._id];
+                    jus.dao.eliminarClase(act, function (u) {
+                        callback(u);
+                        //db.close();
                     });
-                    //ju.borrarActividad(i.actividades[i]);
-                }
-
-                callback(u);
-
-            });
+                });
+                //ju.borrarActividad(i.actividades[i]);
+            }
             bbdd = db;
-
         });
         bbdd.close();
         //}
@@ -210,24 +207,6 @@ function Centro() {
                 resumen: actividad.resumen,
                 clase: actividad.clase,
             }
-            /*this.dao.connect(function (db) {
-                //console.log(a);
-                ju.agregarActividad(actividad.nombre, actividad.profesor, actividad.fecha, actividad.alumnos, actividad.resumen, function (act) {
-                    a.actividades[act._id] = new Actividad(act._id,act.nombre, act.profesor, act.fecha, act.alumnos, act.resumen);
-                    //console.log(act);
-                    console.log("Actividad Agregada")
-                    ju.dao.modificarClase(clase._id, a, function (u) {
-                        //console.log(u);
-                        //console.log(ju.clases);
-                        //ju.clases[clase._id].actividades[actividad._id]=new Actividad(actividad._id,actividad.nombre,actividad.profesor,actividad.fecha,actividad.alumnos,actividad.estado);
-                        console.log("Actividad añadida a la clase");
-                        clase.actividades[act._id]=act;
-                        console.log(clase)
-                        callback(clase);
-                        db.close();
-                    });
-                })
-            });*/
             this.dao.connect(function (db) {
                 ju.dao.insertarActividad(a, function (ru) {
                     let act = {
@@ -246,7 +225,7 @@ function Centro() {
                     for (let i = 0; i < ru.alumnos.length; i++) {
                         //item.id_item = item.estudiante._id + ru._id;
                         //alu.push(ru.alumnos[i].id_item=ru.alumnos[i].estudiante._id + ru._id);
-                        alu.push(new Alumno(ru.alumnos[i].estudiante, ru.alumnos[i].posicion, ru, ru.alumnos[i].datos,ru.alumnos[i].sensorWebCam,ru.alumnos[i].sensorPulsera,ru.alumnos[i].sensorLed));
+                        alu.push(new Alumno(ru.alumnos[i].estudiante, ru.alumnos[i].posicion, ru, ru.alumnos[i].datos, ru.alumnos[i].sensorWebCam, ru.alumnos[i].sensorPulsera, ru.alumnos[i].sensorLed));
                     }
                     ru.alumnos = alu;
                     act.alumnos = alu;
@@ -268,11 +247,10 @@ function Centro() {
                             });*/
                             //console.log("ID");
                             //console.log(ru._id);
-                            ju.dao.obtenerActividadCriterio(ru._id, function (res) {
-                                //console.log(res);
-                                callback(res);
-                                db.close();
-                            })
+                            console.log("Actividad Creada:");
+                            console.log(r);
+                            callback(r);
+                            db.close();
                         });
                     })
 
@@ -302,13 +280,8 @@ function Centro() {
             bbdd = db;
             ju.dao.obtenerClaseCriterio(actividad.clase._id, function (clase) {
                 ju.dao.modificarActividad(actividad._id, act, function (u) {
-                    if (act.estado == "Comenzada") {
-                        ju.actividadesListas[actividad._id] = actividad;
-                    }
-                    if (u != null) {
-                        ju.actividades[u._id] = actividad;
-                        //callback(act); ///////
-                    }
+                    console.log("ACtivididad modificada");
+                    console.log(u._id);
                     let c = {
                         nombre: clase.nombre,
                         profesor: clase.profesor,
@@ -316,20 +289,22 @@ function Centro() {
                         actividades: clase.actividades,
                         resumen: clase.resumen,
                     }
+                    if (act.estado == "Comenzada") {
+                        ju.actividadesListas[u._id] = u;
+                    }
+                    if (u != null) {
+                        ju.actividades[u._id] = u;
+                        c.actividades[u._id] = u;
+                    }
 
-                    c.actividades[actividad._id] = actividad;
-                    ju.dao.modificarClase(clase._id, c, function (u) {
-                        clase[actividad._id] = actividad;
-                        ju.clases[clase._id] = clase;
-                        //ju.clases[clase._id].actividades[actividad._id] = actividad;
-                        /*ju.editarActividad(actividad, function (act) {
-                            callback(clase);
+                    ju.dao.modificarClase(clase._id, c, function (ru) {
+                        if (ru != null || ru != undefined) {
+                            console.log("Clase modificada");
+                            console.log(ru);
+                            callback(u);
                             db.close();
-                        });*/
-                        callback(actividad);
-                        db.close();
+                        }
                     });
-                    //db.close();
                 });
             })
             /*ju.dao.modificarClase(clase._id, a, function (u) {
@@ -414,7 +389,7 @@ function Centro() {
                 for (let i = 0; i < ru.alumnos.length; i++) {
                     //item.id_item = item.estudiante._id + ru._id;
                     //alu.push(ru.alumnos[i].id_item=ru.alumnos[i].estudiante._id + ru._id);
-                    alu.push(new Alumno(ru.alumnos[i].estudiante, ru.alumnos[i].posicion, ru, ru.alumnos[i].datos,ru.alumnos[i].sensorWebCam,ru.alumnos[i].sensorPulsera,ru.alumnos[i].sensorLed));
+                    alu.push(new Alumno(ru.alumnos[i].estudiante, ru.alumnos[i].posicion, ru, ru.alumnos[i].datos, ru.alumnos[i].sensorWebCam, ru.alumnos[i].sensorPulsera, ru.alumnos[i].sensorLed));
                 }
                 ru.alumnos = alu;
                 ju.dao.modificarActividad(ru._id, ru, function (u) {
@@ -451,8 +426,9 @@ function Centro() {
                 //console.log("Valor de la bbdd");
                 //console.log(u);
                 if (u != null) {
-                    ju.actividades[u._id] = act;
-                    callback(act);
+                    //console.log(act._id);
+                    ju.actividades[u._id] = u;
+                    callback(u);
                 }
                 db.close();
             });
@@ -470,6 +446,15 @@ function Centro() {
             });
         });
         //}
+    }
+    this.obtenerActividad = function (act, callback) {
+        var ju = this;
+        this.dao.connect(function (db) {
+            ju.dao.obtenerActividadCriterio(act._id, function (u) {
+                callback(u);
+                db.close();
+            });
+        });
     }
     this.verActividadesDeAlumno = function (alumno, callback) {
         var ju = this;
@@ -490,18 +475,18 @@ function Centro() {
         });
 
     }
-    this.obtenerActividadComenzada = function(act,callback){
-        if(this.actividades[act._id]!=undefined || this.actividades[act._id]!=null){
+    this.obtenerActividadComenzada = function (act, callback) {
+        if (this.actividades[act._id] != undefined || this.actividades[act._id] != null) {
             console.log("coneseguir");
             callback(this.actividades[act._id]);
-        }else{
+        } else {
             callback(null);
         }
     }
 
     //CRUD Profesores
 
-    this.mostrarProfesores = function(callback){
+    this.mostrarProfesores = function (callback) {
         var ju = this;
         this.dao.connect(function (db) {
             ju.dao.mostrarProfesores(function (u) {
@@ -513,7 +498,7 @@ function Centro() {
         });
     }
 
-    this.agregarProfesor = function(profesor,callback){
+    this.agregarProfesor = function (profesor, callback) {
         var ju = this;
         let p = {
             nombre: profesor.nombre,
@@ -530,7 +515,7 @@ function Centro() {
         });
     }
 
-    this.editarProfesor = function(profesor,callback){
+    this.editarProfesor = function (profesor, callback) {
         var ju = this;
         let p = {
             nombre: profesor.nombre,
@@ -547,7 +532,7 @@ function Centro() {
         });
     }
 
-    this.borrarProfesor = function(profesor,callback){
+    this.borrarProfesor = function (profesor, callback) {
         var ju = this;
         this.dao.connect(function (db) {
             ju.dao.eliminarProfesor(profesor, function (u) {
@@ -567,7 +552,7 @@ function Centro() {
         this.actividades[actividad._id] = actividad;
         //console.log(this.actividades);
         this.actividadesListas[actividad._id] = actividad;
-        //console.log("Actividad Comenzada");
+        console.log("Actividad Comenzada");
         if (actividad.clase._id == "") {
             this.editarActividad(actividad, function (res) {
                 if (res != '') {
@@ -577,7 +562,8 @@ function Centro() {
                     ju.actividadesEnProceso[actividad._id] = actividad._id;
                     ju.resumenActividades[actividad._id] = new DatosResumen();
                     ju.comprobar()
-                    callback(actividad);
+                    console.log(res);
+                    callback(res);
                 }
             });
         } else {
@@ -588,7 +574,8 @@ function Centro() {
                     ju.actividadesEnProceso[actividad._id] = actividad._id;
                     ju.resumenActividades[actividad._id] = new DatosResumen();
                     ju.comprobar()
-                    callback(actividad);
+                    console.log(res);
+                    callback(res);
                 }
             });
         }
@@ -601,7 +588,7 @@ function Centro() {
             num++;
         }
         if (num == 1) {
-            console.log("Creacion del intervalo");
+            //console.log("Creacion del intervalo");
             this.intervalo = setInterval(async => {
                 this.hacerResumenActividad();
             }, 20000);
@@ -613,8 +600,8 @@ function Centro() {
     }
 
     this.hacerResumenActividad = function () {
-        this.estoyComputando=true;
-        
+        this.estoyComputando = true;
+
         for (var key in this.actividadesEnProceso) {
             var tiempo = moment().format();
             var sumatorioE = this.resumenActividades[key].alegria +
@@ -629,40 +616,44 @@ function Centro() {
             //console.log(key);
             //console.log(this.actividades);
             //console.log(this.actividades[key]);
-            if(!this.actividades[key]){
-                for(var k in this.actividades){
-                    if(k==key){
+            if (this.actividades[key] == undefined && this.actividades[key] == null) {
+                for (var k in this.actividades) {
+                    if (k == key) {
                         console.log("PETA");
-                        this.actividades[key]=this.actividades[k];
+                        this.actividades[key] = this.actividades[k];
                         console.log(this.actividades[key]);
                     }
                 }
             }
-            this.actividades[key].resumen.alegria.push({y:this.resumenActividades[key].alegria / sumatorioE,x:tiempo});
-            this.actividades[key].resumen.asco.push( {y:this.resumenActividades[key].asco / sumatorioE,x:tiempo});
-            this.actividades[key].resumen.concentrado.push( {y:this.resumenActividades[key].concentrado / sumatorioDC,x:tiempo});
-            this.actividades[key].resumen.distraido.push( {y:this.resumenActividades[key].distraido / sumatorioDC,x:tiempo});
-            this.actividades[key].resumen.frustrado.push( {y:this.resumenActividades[key].frustrado / sumatorioMF,x:tiempo});
-            this.actividades[key].resumen.ira.push( {y:this.resumenActividades[key].ira / sumatorioE,x:tiempo});
-            this.actividades[key].resumen.miedo.push( {y:this.resumenActividades[key].miedo / sumatorioE,x:tiempo});
-            this.actividades[key].resumen.motivado.push( {y:this.resumenActividades[key].motivado / sumatorioMF,x:tiempo});
-            this.actividades[key].resumen.sorpresa.push( {y:this.resumenActividades[key].sorpresa / sumatorioE,x:tiempo});
-            this.actividades[key].resumen.tristeza.push( {y:this.resumenActividades[key].tristeza / sumatorioE,x:tiempo});
-            this.actividades[key].resumen.pulsaciones.push( {y:this.resumenActividades[key].pulsaciones / this.resumenActividades[key].nPulsaciones,x:tiempo});
+            this.actividades[key].resumen.alegria.push({ y: this.resumenActividades[key].alegria*100 / sumatorioE, x: tiempo });
+            this.actividades[key].resumen.asco.push({ y: this.resumenActividades[key].asco*100 / sumatorioE, x: tiempo });
+            this.actividades[key].resumen.concentrado.push({ y: this.resumenActividades[key].concentrado*100 / sumatorioDC, x: tiempo });
+            this.actividades[key].resumen.distraido.push({ y: this.resumenActividades[key].distraido*100 / sumatorioDC, x: tiempo });
+            this.actividades[key].resumen.frustrado.push({ y: this.resumenActividades[key].frustrado*100 / sumatorioMF, x: tiempo });
+            this.actividades[key].resumen.ira.push({ y: this.resumenActividades[key].ira*100 / sumatorioE, x: tiempo });
+            this.actividades[key].resumen.miedo.push({ y: this.resumenActividades[key].miedo*100 / sumatorioE, x: tiempo });
+            this.actividades[key].resumen.motivado.push({ y: this.resumenActividades[key].motivado*100 / sumatorioMF, x: tiempo });
+            this.actividades[key].resumen.sorpresa.push({ y: this.resumenActividades[key].sorpresa*100 / sumatorioE, x: tiempo });
+            this.actividades[key].resumen.tristeza.push({ y: this.resumenActividades[key].tristeza*100 / sumatorioE, x: tiempo });
+            this.actividades[key].resumen.pulsaciones.push({ y: this.resumenActividades[key].pulsaciones / this.resumenActividades[key].nPulsaciones, x: tiempo });
             this.resumenActividades[key] = new DatosResumen();
+            console.log("resumen");
         }
-        this.estoyComputando=false;
+        this.estoyComputando = false;
     }
 
-    this.insertarDatos = function (datos,act) {
+    this.insertarDatos = function (datos, act) {
         var ju = this;
-        if(act==null){
+        var id;
+        if (act == null) {
 
-        }else{
-            if(this.actividades[act._id]==null || this.actividades[act._id]==undefined){
-                this.actividades[act._id]=act;
+        } else {
+            if (this.actividades[act._id] == null || this.actividades[act._id] == undefined) {
+                this.actividades[act._id] = act;
                 this.resumenActividades[act._id] = new DatosResumen();
+                console.log("Cambio de actividad en la insercion de datos");
             }
+
         }
         try {
             //console.log("Insertar datos");
@@ -673,7 +664,8 @@ function Centro() {
                 //console.log(this.actividades[datos.id_actividad].alumnos[i]);
                 //console.log(datos.id_item);
                 if (datos.id_item == ju.actividades[datos.id_actividad].alumnos[i].id_item) {
-                    if(!ju.estoyComputando){
+                    if (!ju.estoyComputando) {
+                        console.log(datos);
                         console.log(ju.resumenActividades[datos.id_actividad]);
                         ju.resumenActividades[datos.id_actividad]['alegria'] += datos.alegria.y;
                         ju.resumenActividades[datos.id_actividad]['asco'] += datos.asco.y;
@@ -701,10 +693,12 @@ function Centro() {
                     ju.actividades[datos.id_actividad].alumnos[i].datos.concentrado.push({ x: datos.concentrado.x, y: datos.concentrado.y });
                     ju.actividades[datos.id_actividad].alumnos[i].datos.frustrado.push({ x: datos.frustrado.x, y: datos.frustrado.y });
                     ju.actividades[datos.id_actividad].alumnos[i].datos.motivado.push({ x: datos.motivado.x, y: datos.motivado.y });
-                    //console.log("Datos modificados en el servidor");
+                    console.log(ju.actividades[datos.id_actividad].alumnos[i].datos);
+                    console.log("Datos modificados en el servidor");
                 }
             }
         } catch (e) {
+            //console.log("error en la inserccion de datos");
             console.log(e);
         }
         //console.log(this.actividades[datos.id_actividad]);
@@ -716,7 +710,8 @@ function Centro() {
         //console.log("SERVIDOR");
         //console.log(actividad._id);
         //console.log(ju.actividades);
-        if(this.actividades[actividad._id]){
+        console.log("Terminar Actividad")
+        if (this.actividades[actividad._id]) {
             for (var key in ju.actividades) {
                 if (ju.actividades[key]._id == actividad._id) {
                     ju.actividades[key].estado = "Finalizada";
@@ -724,6 +719,8 @@ function Centro() {
                     //console.log("datos a almacenar");
                     //console.log(ju.actividades[key].resumen);
                     //console.log(ju.actividades[key].alumnos[0].datos);
+                    console.log("Actividad terminada");
+                    //console.log(ju.actividades[key]);
                     if (actividad.clase._id == "") {
                         this.editarActividad(ju.actividades[key], function (res) {
                             if (res != '') {
@@ -732,7 +729,10 @@ function Centro() {
                                 delete ju.actividadesEnProceso[actividad._id];
                                 delete ju.resumenActividades[actividad._id];
                                 ju.comprobar();
-                                callback(ju.actividades[key]);
+                                console.log(res);
+                                console.log("terminada y enviada");
+                                console.log(ju.actividadesEnProceso);
+                                callback(res);
                             }
                         })
                     } else {
@@ -743,14 +743,17 @@ function Centro() {
                                 delete ju.actividadesEnProceso[actividad._id];
                                 delete ju.resumenActividades[actividad._id];
                                 ju.comprobar()
-                                callback(ju.actividades[key]);
+                                console.log(res);
+                                console.log("terminada y enviada");
+                                console.log(ju.actividadesEnProceso);
+                                callback(res);
                             }
                         })
                     }
                     break;
                 }
             }
-        }else{
+        } else {
             if (actividad.clase._id == "") {
                 this.editarActividad(actividad, function (res) {
                     if (res != '') {
@@ -775,7 +778,7 @@ function Centro() {
                 })
             }
         }
-        
+
     }
 
     //Añadir Alumnos a la Actividad
@@ -874,9 +877,9 @@ function Centro() {
         var ju = this;
         this.dao.connect(function (db) {
             ju.dao.obtenerEstudianteCriterio({ $and: [{ 'contrasena': contrasena }, { 'email': email }] }, function (u) {
-                if (u==undefined) {
+                if (u == undefined) {
                     console.log(u);
-                    callback({_id:null});
+                    callback({ _id: null });
                 }
                 else {
                     //console.log("El usuario es: " + u._id);
@@ -986,41 +989,41 @@ function Estudiante(id, nombre, apellidos, clase, email, contrasena) {
 
 }
 
-function Profesor(id,nombre,apellidos,departamento){
+function Profesor(id, nombre, apellidos, departamento) {
     this._id = id;
-    this.nombre=nombre;
-    this.apellidos=apellidos;
-    this.departamento=departamento;
+    this.nombre = nombre;
+    this.apellidos = apellidos;
+    this.departamento = departamento;
 }
 
-function Alumno(estudiante, posicion, actividad, datos,sensorWebCam,sensorPulsera,sensorLed) {
+function Alumno(estudiante, posicion, actividad, datos, sensorWebCam, sensorPulsera, sensorLed) {
 
     //Atributos
     this.estudiante = estudiante;
     this.posicion = posicion;
     this.id_item = this.estudiante._id + actividad._id;
     this.datos = datos;
-    this.sensorWebCam=sensorWebCam;
-    this.sensorPulsera=sensorPulsera;
-    this.sensorLed=sensorLed;
+    this.sensorWebCam = sensorWebCam;
+    this.sensorPulsera = sensorPulsera;
+    this.sensorLed = sensorLed;
     this.setActividad = function (act) {
         this.id_item = this.estudiante._id + act._id;
     }
 }
 
 function DatosResumen() {
-    this.alegria=0;
-    this.asco=0;
-    this.concentrado=0;
-    this.distraido=0;
-    this.frustrado=0;
-    this.ira=0;
-    this.miedo=0;
-    this.motivado=0;
-    this.sorpresa=0;
-    this.tristeza=0;
-    this.pulsaciones=0;
-    this.nPulsaciones=0;
+    this.alegria = 0;
+    this.asco = 0;
+    this.concentrado = 0;
+    this.distraido = 0;
+    this.frustrado = 0;
+    this.ira = 0;
+    this.miedo = 0;
+    this.motivado = 0;
+    this.sorpresa = 0;
+    this.tristeza = 0;
+    this.pulsaciones = 0;
+    this.nPulsaciones = 0;
 }
 
 module.exports.Centro = Centro;

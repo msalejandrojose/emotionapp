@@ -288,6 +288,13 @@ app.post("/obtenerActividadComenzada", function (request, response) {
   })
 });
 
+app.post("/obtenerActividad", function (request, response) {
+  var act = request.body;
+  centro.obtenerActividad(act, function (res) {
+    response.send(res);
+  })
+});
+
 
 
 server.listen(app.get('port'), function () {
