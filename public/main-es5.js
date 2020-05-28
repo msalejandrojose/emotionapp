@@ -11367,7 +11367,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               ira += this.actividades[i].resumen.ira[_j18].y;
             }
 
-            this.datosGenerales.ira.push(alegria / this.actividades[i].resumen.ira.length);
+            this.datosGenerales.ira.push(ira / this.actividades[i].resumen.ira.length);
 
             for (var _j19 = 0; _j19 < this.actividades[i].resumen.pulsaciones.length; _j19++) {
               pulsaciones += this.actividades[i].resumen.pulsaciones[_j19].y;

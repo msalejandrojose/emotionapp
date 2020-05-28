@@ -8073,7 +8073,7 @@ let VerEstadisticasClaseComponent = class VerEstadisticasClaseComponent {
             for (let j = 0; j < this.actividades[i].resumen.ira.length; j++) {
                 ira += this.actividades[i].resumen.ira[j].y;
             }
-            this.datosGenerales.ira.push(alegria / this.actividades[i].resumen.ira.length);
+            this.datosGenerales.ira.push(ira / this.actividades[i].resumen.ira.length);
             for (let j = 0; j < this.actividades[i].resumen.pulsaciones.length; j++) {
                 pulsaciones += this.actividades[i].resumen.pulsaciones[j].y;
             }
