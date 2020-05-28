@@ -599,7 +599,7 @@ function Centro() {
         }
     }
 
-    this.hacerResumenActividad = function () {
+    this.hacerResumenActividad = async function () {
         this.estoyComputando = true;
 
         for (var key in this.actividadesEnProceso) {
@@ -642,7 +642,7 @@ function Centro() {
         this.estoyComputando = false;
     }
 
-    this.insertarDatos = function (datos, act) {
+    this.insertarDatos = async function (datos, act) {
         var ju = this;
         var id;
         if (act == null) {
@@ -694,6 +694,7 @@ function Centro() {
                     ju.actividades[datos.id_actividad].alumnos[i].datos.frustrado.push({ x: datos.frustrado.x, y: datos.frustrado.y });
                     ju.actividades[datos.id_actividad].alumnos[i].datos.motivado.push({ x: datos.motivado.x, y: datos.motivado.y });
                     console.log(ju.actividades[datos.id_actividad].alumnos[i].datos);
+                    console.log(datos.id_actividad);
                     console.log("Datos modificados en el servidor");
                 }
             }
@@ -712,6 +713,7 @@ function Centro() {
         //console.log(ju.actividades);
         console.log("Terminar Actividad")
         if (this.actividades[actividad._id]) {
+            console.log("Esta guardada");
             for (var key in ju.actividades) {
                 if (ju.actividades[key]._id == actividad._id) {
                     ju.actividades[key].estado = "Finalizada";
@@ -722,7 +724,7 @@ function Centro() {
                     console.log("Actividad terminada");
                     //console.log(ju.actividades[key]);
                     if (actividad.clase._id == "") {
-                        this.editarActividad(ju.actividades[key], function (res) {
+                        this.editarActividad(ju.actividades[actividad._id], function (res) {
                             if (res != '') {
                                 //console.log("Actividad terminada");
                                 //console.log(res);
@@ -736,7 +738,11 @@ function Centro() {
                             }
                         })
                     } else {
-                        this.editarActividadEnClase(ju.actividades[key], function (res) {
+                        console.log("***");
+                        console.log(key);
+                        console.log(actividad._id);
+                        console.log(ju.actividades[key].alumnos[0].datos);
+                        this.editarActividadEnClase(ju.actividades[actividad._id], function (res) {
                             if (res != '') {
                                 //console.log("Actividad terminda");
                                 //console.log(res);
@@ -745,7 +751,8 @@ function Centro() {
                                 ju.comprobar()
                                 console.log(res);
                                 console.log("terminada y enviada");
-                                console.log(ju.actividadesEnProceso);
+                                console.log(ju.actividades[key]);
+                                //console.log(ju.actividades);
                                 callback(res);
                             }
                         })
@@ -754,6 +761,7 @@ function Centro() {
                 }
             }
         } else {
+            console.log("Esta no guardada");
             if (actividad.clase._id == "") {
                 this.editarActividad(actividad, function (res) {
                     if (res != '') {
