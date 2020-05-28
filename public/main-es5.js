@@ -11513,7 +11513,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           for (var i = 0; i < this.estadoConjuntoSeleccionado.estados.length; i++) {
             datos.push({
               type: 'bar',
-              label: 'Datos de media de' + this.estadoConjuntoSeleccionado.estados[i].nombre,
+              label: 'Datos de media de ' + this.estadoConjuntoSeleccionado.estados[i].nombre,
               data: this.datosGenerales[this.estadoConjuntoSeleccionado.estados[i].nombre],
               backgroundColor: this.estadoConjuntoSeleccionado.estados[i].color,
               borderColor: this.estadoConjuntoSeleccionado.estados[i].color,
