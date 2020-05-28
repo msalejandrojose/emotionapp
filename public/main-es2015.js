@@ -5456,6 +5456,7 @@ let VerActividadComponent = class VerActividadComponent {
                 }
             };
             this.porUsuariosConectados = (this.numAlumnosConectados / this.numAlumnosTotales) * 100;
+            this.porUsuariosConectados = Math.round(this.porUsuariosConectados);
             //console.log("Porcentaje:")
             //console.log(this.numAlumnosConectados);
             //console.log(this.usuariosTotales);
@@ -5530,6 +5531,7 @@ let VerActividadComponent = class VerActividadComponent {
                 this.dataGrafConectados = [this.numAlumnosConectados, this.numAlumnosDesconectados];
                 //console.log(this.dataGrafConectados);
                 this.porUsuariosConectados = (this.numAlumnosConectados / this.numAlumnosTotales) * 100;
+                this.porUsuariosConectados = Math.round(this.porUsuariosConectados);
                 //console.log("Porcentaje:")
                 //console.log(this.numAlumnosConectados);
                 //console.log(this.usuariosTotales);

@@ -8005,7 +8005,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                         }
                       }
                     };
-                    this.porUsuariosConectados = this.numAlumnosConectados / this.numAlumnosTotales * 100; //console.log("Porcentaje:")
+                    this.porUsuariosConectados = this.numAlumnosConectados / this.numAlumnosTotales * 100;
+                    this.porUsuariosConectados = Math.round(this.porUsuariosConectados); //console.log("Porcentaje:")
                     //console.log(this.numAlumnosConectados);
                     //console.log(this.usuariosTotales);
 
@@ -8014,15 +8015,15 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                       this.usersConectadosGrafEntera.destroy();
                     }
 
-                    _context38.next = 16;
+                    _context38.next = 17;
                     return new chart_js__WEBPACK_IMPORTED_MODULE_2__["Chart"]('usersConectados', this.configUsersConectados);
 
-                  case 16:
+                  case 17:
                     this.usersConectadosGraf = _context38.sent;
-                    _context38.next = 19;
+                    _context38.next = 20;
                     return new chart_js__WEBPACK_IMPORTED_MODULE_2__["Chart"]('usersConectadosEntera', this.configUsersConectados);
 
-                  case 19:
+                  case 20:
                     this.usersConectadosGrafEntera = _context38.sent;
                     //Grafica Lineal 
 
@@ -8074,7 +8075,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                     console.log("cargar graficas");*/
                     this.actualizarGraficaLineal();
 
-                  case 21:
+                  case 22:
                   case "end":
                     return _context38.stop();
                 }
@@ -8108,7 +8109,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                         this.numAlumnosDesconectados = this.numAlumnosTotales - this.numAlumnosConectados;
                         this.dataGrafConectados = [this.numAlumnosConectados, this.numAlumnosDesconectados]; //console.log(this.dataGrafConectados);
 
-                        this.porUsuariosConectados = this.numAlumnosConectados / this.numAlumnosTotales * 100; //console.log("Porcentaje:")
+                        this.porUsuariosConectados = this.numAlumnosConectados / this.numAlumnosTotales * 100;
+                        this.porUsuariosConectados = Math.round(this.porUsuariosConectados); //console.log("Porcentaje:")
                         //console.log(this.numAlumnosConectados);
                         //console.log(this.usuariosTotales);
                         //console.log(this.usuariosTotales);
