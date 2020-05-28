@@ -4515,9 +4515,9 @@ let ProfesorComponent = class ProfesorComponent {
                   ju.editarAlumno = false;
                   console.log(ju.listaAlumnos);
                 });*/
-                $.getJSON("/verActividades", function (data) {
+                $.getJSON("/verActividades", function (dataa) {
                     //console.log(data);
-                    ju.listaActividades = data;
+                    ju.listaActividades = dataa;
                     ju.dataSourceActividades = new _angular_material__WEBPACK_IMPORTED_MODULE_10__["MatTableDataSource"](ju.listaActividades.reverse());
                     ju.dataSourceActividades.paginator = ju.paginatorA;
                     ju.dataSourceActividades.sort = ju.sortA;
@@ -4542,7 +4542,7 @@ let ProfesorComponent = class ProfesorComponent {
                         ju.crearClase = false;
                         ju.editarClase = false;
                         ju.verClase = false;
-                        ju.abrirActividad(actividad);
+                        ju.abrirActividad(data);
                     }
                 });
                 //ju.menActividadCreada();
@@ -4562,9 +4562,9 @@ let ProfesorComponent = class ProfesorComponent {
             success: function (data) {
                 //this.actividad=data;
                 //ju.ultimaActividadCreada = data;
-                $.getJSON("/verActividades", function (data) {
+                $.getJSON("/verActividades", function (dataa) {
                     //console.log(data);
-                    ju.listaActividades = data;
+                    ju.listaActividades = dataa;
                     ju.dataSourceActividades = new _angular_material__WEBPACK_IMPORTED_MODULE_10__["MatTableDataSource"](ju.listaActividades.reverse());
                     ju.dataSourceActividades.paginator = ju.paginatorA;
                     ju.dataSourceActividades.sort = ju.sortA;
@@ -4589,7 +4589,7 @@ let ProfesorComponent = class ProfesorComponent {
                         ju.crearClase = false;
                         ju.editarClase = false;
                         ju.verClase = false;
-                        ju.abrirActividad(actividad);
+                        ju.abrirActividad(data);
                     }
                 });
                 //ju.menActividadEditada();
@@ -5381,6 +5381,7 @@ let VerActividadComponent = class VerActividadComponent {
                         pulsera: this.actividad.alumnos[i].sensorPulsera,
                         led: this.actividad.alumnos[i].sensorLed,
                         estudiante: this.actividad.alumnos[i].estudiante,
+                        intervalo: '',
                     });
                 }
             }
@@ -5395,6 +5396,7 @@ let VerActividadComponent = class VerActividadComponent {
                         webcam: this.actividad.alumnos[i].sensorWebCam,
                         pulsera: this.actividad.alumnos[i].sensorPulsera,
                         led: this.actividad.alumnos[i].sensorLed,
+                        intervalo: '',
                     });
                 }
             }
@@ -5841,14 +5843,16 @@ let VerActividadComponent = class VerActividadComponent {
                             this.numPulsaciones++;
                             this.actividad.alumnos[i].datos.pulsaciones.push({ x: datos.pulsaciones.x, y: datos.pulsaciones.y });
                             this.alumnosTabla[i].pulsaciones = datos.pulsaciones.y;
-                            if (datos.pulsaciones.y > 120) {
-                                setInterval(async => {
+                            if (datos.pulsaciones.y > 100) {
+                                this.alumnosTabla[i].intervalo = setInterval(async => {
                                     $('#' + datos.id_item + '').fadeTo(500, .1)
                                         .fadeTo(500, 1);
                                 }, 1000);
                             }
                             else {
-                                $('#' + datos.id_item + '').fadeTo(500, 1).fadeTo(500, 1);
+                                clearInterval(this.alumnosTabla[i].intervalo);
+                                $('#' + datos.id_item + '').fadeTo(5000, 1);
+                                $('#' + datos.id_item + '').css("background-color", datos.color);
                             }
                         }
                         else {

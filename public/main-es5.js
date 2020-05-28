@@ -6814,9 +6814,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                 console.log(ju.listaAlumnos);
               });*/
 
-              $.getJSON("/verActividades", function (data) {
+              $.getJSON("/verActividades", function (dataa) {
                 //console.log(data);
-                ju.listaActividades = data;
+                ju.listaActividades = dataa;
                 ju.dataSourceActividades = new _angular_material__WEBPACK_IMPORTED_MODULE_10__["MatTableDataSource"](ju.listaActividades.reverse());
                 ju.dataSourceActividades.paginator = ju.paginatorA;
                 ju.dataSourceActividades.sort = ju.sortA;
@@ -6841,7 +6841,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                   ju.crearClase = false;
                   ju.editarClase = false;
                   ju.verClase = false;
-                  ju.abrirActividad(actividad);
+                  ju.abrirActividad(data);
                 }
               }); //ju.menActividadCreada();
               //ju.listaActividades.push(actividad);
@@ -6862,9 +6862,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             success: function success(data) {
               //this.actividad=data;
               //ju.ultimaActividadCreada = data;
-              $.getJSON("/verActividades", function (data) {
+              $.getJSON("/verActividades", function (dataa) {
                 //console.log(data);
-                ju.listaActividades = data;
+                ju.listaActividades = dataa;
                 ju.dataSourceActividades = new _angular_material__WEBPACK_IMPORTED_MODULE_10__["MatTableDataSource"](ju.listaActividades.reverse());
                 ju.dataSourceActividades.paginator = ju.paginatorA;
                 ju.dataSourceActividades.sort = ju.sortA;
@@ -6889,7 +6889,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                   ju.crearClase = false;
                   ju.editarClase = false;
                   ju.verClase = false;
-                  ju.abrirActividad(actividad);
+                  ju.abrirActividad(data);
                 }
               }); //ju.menActividadEditada();
             },
@@ -7903,7 +7903,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                           webcam: this.actividad.alumnos[i].sensorWebCam,
                           pulsera: this.actividad.alumnos[i].sensorPulsera,
                           led: this.actividad.alumnos[i].sensorLed,
-                          estudiante: this.actividad.alumnos[i].estudiante
+                          estudiante: this.actividad.alumnos[i].estudiante,
+                          intervalo: ''
                         });
                       }
                     } else {
@@ -7916,7 +7917,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                           estudiante: this.actividad.alumnos[_i5].estudiante,
                           webcam: this.actividad.alumnos[_i5].sensorWebCam,
                           pulsera: this.actividad.alumnos[_i5].sensorPulsera,
-                          led: this.actividad.alumnos[_i5].sensorLed
+                          led: this.actividad.alumnos[_i5].sensorLed,
+                          intervalo: ''
                         });
                       }
                     } //console.log(this.alumnosTabla);
@@ -8512,12 +8514,14 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                     });
                     this.alumnosTabla[i].pulsaciones = datos.pulsaciones.y;
 
-                    if (datos.pulsaciones.y > 120) {
-                      setInterval(function (async) {
+                    if (datos.pulsaciones.y > 100) {
+                      this.alumnosTabla[i].intervalo = setInterval(function (async) {
                         $('#' + datos.id_item + '').fadeTo(500, .1).fadeTo(500, 1);
                       }, 1000);
                     } else {
-                      $('#' + datos.id_item + '').fadeTo(500, 1).fadeTo(500, 1);
+                      clearInterval(this.alumnosTabla[i].intervalo);
+                      $('#' + datos.id_item + '').fadeTo(5000, 1);
+                      $('#' + datos.id_item + '').css("background-color", datos.color);
                     }
                   } else {
                     this.alumnosTabla[i].pulsaciones = '--';

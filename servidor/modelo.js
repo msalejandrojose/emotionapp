@@ -394,7 +394,7 @@ function Centro() {
                 ru.alumnos = alu;
                 ju.dao.modificarActividad(ru._id, ru, function (u) {
                     ju.actividades[u._id] = new Actividad(u._id, u.nombre, u.profesor, u.fecha, u.alumnos, u.estado, u.clase);
-                    callback(ru);
+                    callback(u);
                     db.close();
                 });
             });
@@ -716,8 +716,8 @@ function Centro() {
             console.log("Esta guardada");
             for (var key in ju.actividades) {
                 if (ju.actividades[key]._id == actividad._id) {
-                    ju.actividades[key].estado = "Finalizada";
-                    ju.actividades[key].fecha = actividad.fecha;
+                    ju.actividades[actividad._id].estado = "Finalizada";
+                    ju.actividades[actividad._id].fecha = actividad.fecha;
                     //console.log("datos a almacenar");
                     //console.log(ju.actividades[key].resumen);
                     //console.log(ju.actividades[key].alumnos[0].datos);
