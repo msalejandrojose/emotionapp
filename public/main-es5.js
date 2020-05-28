@@ -6429,9 +6429,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
             cancelButtonText: 'Cancelar',
-            confirmButtonText: 'Si, deseo borrarlo',
-            timer: 2000,
-            timerProgressBar: true
+            confirmButtonText: 'Si, deseo borrarlo'
           }).then(function (result) {
             if (result.value) {
               Swal.fire('Borrado!', "El alumno '" + item.nombre + "' se ha borrado.", 'success', $.ajax({

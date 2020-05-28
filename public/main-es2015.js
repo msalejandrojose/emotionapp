@@ -4188,8 +4188,6 @@ let ProfesorComponent = class ProfesorComponent {
             cancelButtonColor: '#d33',
             cancelButtonText: 'Cancelar',
             confirmButtonText: 'Si, deseo borrarlo',
-            timer: 2000,
-            timerProgressBar: true,
         }).then((result) => {
             if (result.value) {
                 Swal.fire('Borrado!', "El alumno '" + item.nombre + "' se ha borrado.", 'success', $.ajax({
