@@ -331,7 +331,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<br>\n\n<div *ngIf=\"noHayEstudiante\" class=\"row justify-content-md-center\">\n    <div class=\"card col-md-6\">\n        <div class=\"card-body\">\n            <h4 class=\"card-title\">Iniciar Sesion</h4>\n            <div>\n                <label>Email</label>\n                <input [(ngModel)]=\"estudiante.email\" type=\"email\" class=\"form-control\" id=\"emailIS\" ng-model=\"email\"\n                    placeholder=\"Email\" (keydown.enter)=\"pulsar($event)\">\n                <br>\n                <label>Contraseña</label>\n                <input [(ngModel)]=\"estudiante.contrasena\" type=\"password\" class=\"form-control\" id=\"contrasenaIS\"\n                    ng-model=\"contrasena\" (keydown.enter)=\"pulsar($event)\" placeholder=\"Contraseña\">\n                <br>\n                <div class=\"row justify-content-center\">\n                    <div class=\"col-4\">\n                        <button type=\"button\" (click)=\"limpiar()\" class=\"btn btn-raised btn-danger\"><i\n                                class=\"fa fa-trash\"></i>Limpiar</button>\n                    </div>\n                    <div class=\"col-4\">\n                        <button *ngIf=\"!iniciando\" type=\"button\" (click)=\"iniciarSesion()\"\n                            class=\"btn btn-raised btn-success\">Iniciar\n                            Sesion</button>\n                        <button *ngIf=\"iniciando\" class=\"btn btn-raised btn-success disabled\" type=\"button\" disabled>\n                            <span class=\"spinner-border spinner-border-sm\" role=\"status\" aria-hidden=\"true\"></span>\n                            Iniciando ...\n                        </button>\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>\n</div>\n<!--<div *ngIf=\"!noHayEstudiante\" class=\"row justify-content-right\">\n    <div class=\"col-9\">\n\n    </div>\n    <div class=\"col-3 text-right\">\n        <button type=\"button\" (click)=\"abrirGestionSensores()\" class=\"btn btn-outline-success text-right\"><i\n                class=\"fa fa-cog\"></i>Abrir Sensores</button>\n    </div>\n</div>-->\n<div *ngIf=\"!noHayEstudiante\">\n    <div class=\"row\">\n        <div class=\"col-3\">\n\n        </div>\n        <div *ngIf=\"configurarSensores\" class=\"col-6\">\n            <h3>Sensores</h3>\n            <table class=\"table table-striped\">\n                <thead class=\"thead-light\">\n                    <tr>\n                        <th scope=\"col\">Nombre</th>\n                        <th scope=\"col\">Estado</th>\n                        <th scope=\"col\"></th>\n                        <th scope=\"col\"></th>\n                    </tr>\n                </thead>\n                <tbody *ngFor=\"let sensor of listaSensores\">\n                    <tr>\n                        <td>{{sensor.nombre}}</td>\n                        <td>{{sensor.estado}}</td>\n                        <td *ngIf=\"sensor.estado=='Desconectado' && !sensor.cargando\"><button type=\"button\"\n                                class=\"btn btn-outline-primary\" (click)=\"conectarSensor(sensor)\">Conectarse</button>\n                        </td>\n                        <td *ngIf=\"sensor.cargando\"><button\n                                class=\"btn btn-outline-primary disabled\" type=\"button\" disabled>\n                                <span class=\"spinner-border spinner-border-sm\" role=\"status\" aria-hidden=\"true\"></span>\n                                Conectando ...\n                            </button></td>\n                        <td *ngIf=\"sensor.estado=='Conectado'  && !sensor.cargando\"><button type=\"button\"\n                                class=\"btn btn-outline-danger\"\n                                (click)=\"desconectarSensor(sensor)\">Desconectarse</button></td>\n                        <td></td>\n                    </tr>\n                </tbody>\n            </table>\n        </div>\n        <div *ngIf=\"!configurarSensores\" class=\"col-6\">\n\n        </div>\n        <div class=\"col-3 text-right\">\n            <button *ngIf=\"!configurarSensores\" type=\"button\" (click)=\"abrirGestionSensores()\"\n                class=\"btn btn-outline-success text-right\"><i class=\"fa fa-cog\"></i>Abrir Sensores</button>\n            <button *ngIf=\"configurarSensores\" type=\"button\" (click)=\"cerrarGestionSensores()\"\n                class=\"btn btn-outline-danger text-right\"><i class=\"fa fa-cog\"></i>Cerrar Sensores</button>\n        </div>\n    </div>\n    <div *ngIf=\"!conectadoaActividad\" class=\"row justify-content-center\">\n        <div class=\"col-12\">\n            <h3>Actividades listas</h3>\n            <table class=\"table table-striped\">\n                <thead class=\"thead-light\">\n                    <tr>\n                        <th scope=\"col\">Nombre</th>\n                        <th scope=\"col\">Profesor</th>\n                        <th scope=\"col\">Estado</th>\n                        <th scope=\"col\"></th>\n                    </tr>\n                </thead>\n                <tbody *ngFor=\"let actividad of listaActividades\">\n                    <tr>\n                        <td>{{actividad.nombre}}</td>\n                        <td>{{actividad.profesor.nombre}}</td>\n                        <td>{{actividad.estado}}</td>\n                        <td><button *ngIf=\"actividad.estado!='Finalizada'\" type=\"button\" class=\"btn btn-outline-primary\"\n                                (click)=\"conectarse(actividad)\">Conectarse</button></td>\n                    </tr>\n                </tbody>\n            </table>\n        </div>\n    </div>\n    <div *ngIf=\"conectadoaActividad\" class=\"row justify-content-center\">\n        <br>\n        <br>\n        <br>\n        <br>\n        <br>\n        <br>\n        <br>\n    </div>\n    <div *ngIf=\"conectadoaActividad\" class=\"row justify-content-center\">\n        <div class=\"col-3 text-center\">\n            <i class=\"fa fa-wifi fa-5x\"></i>\n        </div>\n    </div>\n    <div *ngIf=\"conectadoaActividad\" class=\"row justify-content-center\">\n        <div class=\"col-3 text-center\">\n            <h5>Conectado</h5>\n        </div>\n    </div>\n    <div *ngIf=\"conectadoaActividad\" class=\"row justify-content-center\">\n        <div class=\"col-3 text-center\">\n            <button type=\"button\" class=\"btn btn-outline-danger\" (click)=\"desconectarse()\">Desconectarse</button>\n        </div>\n    </div>\n    <div class=\"row justify-content-md-center\">\n        <!--*ngIf=\"!noHayEstudiante && conectadoaActividad\"-->\n        <div class=\"col-md-8\" style=\"visibility: hidden;\">\n            <video id=\"video\" width=\"480\" height=\"360\" autoplay muted></video>\n        </div>\n        <!--<div *ngIf=\"conectadoaActividad\" class=\"col-md-4\" id=\"estadoAlumno\" class=\"circulo\">\n            <p>Estado</p>\n        </div>-->\n    </div>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<br>\n\n<div *ngIf=\"noHayEstudiante\" class=\"row justify-content-md-center\">\n    <div class=\"card col-md-6\">\n        <div class=\"card-body\">\n            <h4 class=\"card-title\">Iniciar Sesion</h4>\n            <div>\n                <label>Email</label>\n                <input [(ngModel)]=\"estudiante.email\" type=\"email\" class=\"form-control\" id=\"emailIS\" ng-model=\"email\"\n                    placeholder=\"Email\" (keydown.enter)=\"pulsar($event)\">\n                <br>\n                <label>Contraseña</label>\n                <input [(ngModel)]=\"estudiante.contrasena\" type=\"password\" class=\"form-control\" id=\"contrasenaIS\"\n                    ng-model=\"contrasena\" (keydown.enter)=\"pulsar($event)\" placeholder=\"Contraseña\">\n                <br>\n                <div class=\"row justify-content-center\">\n                    <div class=\"col-4\">\n                        <button type=\"button\" (click)=\"limpiar()\" class=\"btn btn-raised btn-danger\"><i\n                                class=\"fa fa-trash\"></i>Limpiar</button>\n                    </div>\n                    <div class=\"col-4\">\n                        <button *ngIf=\"!iniciando\" type=\"button\" (click)=\"iniciarSesion()\"\n                            class=\"btn btn-raised btn-success\">Iniciar\n                            Sesion</button>\n                        <button *ngIf=\"iniciando\" class=\"btn btn-raised btn-success disabled\" type=\"button\" disabled>\n                            <span class=\"spinner-border spinner-border-sm\" role=\"status\" aria-hidden=\"true\"></span>\n                            Iniciando ...\n                        </button>\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>\n</div>\n<!--<div *ngIf=\"!noHayEstudiante\" class=\"row justify-content-right\">\n    <div class=\"col-9\">\n\n    </div>\n    <div class=\"col-3 text-right\">\n        <button type=\"button\" (click)=\"abrirGestionSensores()\" class=\"btn btn-outline-success text-right\"><i\n                class=\"fa fa-cog\"></i>Abrir Sensores</button>\n    </div>\n</div>-->\n<div *ngIf=\"!noHayEstudiante\">\n    <div class=\"row\">\n        <div class=\"col-3\">\n\n        </div>\n        <div *ngIf=\"configurarSensores\" class=\"col-6\">\n            <h3>Sensores</h3>\n            <table class=\"table table-striped\">\n                <thead class=\"thead-light\">\n                    <tr>\n                        <th scope=\"col\">Nombre</th>\n                        <th scope=\"col\">Estado</th>\n                        <th scope=\"col\"></th>\n                        <th scope=\"col\"></th>\n                    </tr>\n                </thead>\n                <tbody *ngFor=\"let sensor of listaSensores\">\n                    <tr>\n                        <td>{{sensor.nombre}}</td>\n                        <td>{{sensor.estado}}</td>\n                        <td *ngIf=\"sensor.estado=='Desconectado' && !sensor.cargando\"><button type=\"button\"\n                                class=\"btn btn-outline-primary\" (click)=\"conectarSensor(sensor)\">Conectarse</button>\n                        </td>\n                        <td *ngIf=\"sensor.cargando\"><button\n                                class=\"btn btn-outline-primary disabled\" type=\"button\" disabled>\n                                <span class=\"spinner-border spinner-border-sm\" role=\"status\" aria-hidden=\"true\"></span>\n                                Conectando ...\n                            </button></td>\n                        <td *ngIf=\"sensor.estado=='Conectado'  && !sensor.cargando\"><button type=\"button\"\n                                class=\"btn btn-outline-danger\"\n                                (click)=\"desconectarSensor(sensor)\">Desconectarse</button></td>\n                        <td></td>\n                    </tr>\n                </tbody>\n            </table>\n        </div>\n        <div *ngIf=\"!configurarSensores\" class=\"col-6\">\n\n        </div>\n        <div class=\"col-3 text-right\">\n            <button *ngIf=\"!configurarSensores\" type=\"button\" (click)=\"abrirGestionSensores()\"\n                class=\"btn btn-outline-success text-right\"><i class=\"fa fa-cog\"></i>Abrir Sensores</button>\n            <button *ngIf=\"configurarSensores\" type=\"button\" (click)=\"cerrarGestionSensores()\"\n                class=\"btn btn-outline-danger text-right\"><i class=\"fa fa-cog\"></i>Cerrar Sensores</button>\n        </div>\n    </div>\n    <div *ngIf=\"!conectadoaActividad\" class=\"row justify-content-center\">\n        <div class=\"col-12\">\n            <h3>Actividades listas</h3>\n            <table class=\"table table-striped\">\n                <thead class=\"thead-light\">\n                    <tr>\n                        <th scope=\"col\">Nombre</th>\n                        <th scope=\"col\">Profesor</th>\n                        <th scope=\"col\">Estado</th>\n                        <th scope=\"col\"></th>\n                    </tr>\n                </thead>\n                <tbody *ngFor=\"let actividad of listaActividades\">\n                    <tr>\n                        <td>{{actividad.nombre}}</td>\n                        <td>{{actividad.profesor.nombre}}</td>\n                        <td>{{actividad.estado}}</td>\n                        <td><button *ngIf=\"actividad.estado!='Finalizada'\" type=\"button\" class=\"btn btn-outline-primary\"\n                                (click)=\"conectarse(actividad)\">Conectarse</button></td>\n                    </tr>\n                </tbody>\n            </table>\n        </div>\n    </div>\n    <div *ngIf=\"conectadoaActividad\"  class=\"row justify-content-center\">\n        <br>\n        <br>\n        <br>\n        <br>\n        <br>\n        <br>\n        <br>\n    </div>\n    <div *ngIf=\"conectadoaActividad\" class=\"row justify-content-center\">\n        <div class=\"col-3 text-center\">\n            <i class=\"fa fa-wifi fa-5x\"></i>\n        </div>\n    </div>\n    <div *ngIf=\"conectadoaActividad\" class=\"row justify-content-center\">\n        <div class=\"col-3 text-center\">\n            <h5>Conectado</h5>\n        </div>\n    </div>\n    <div *ngIf=\"conectadoaActividad\" class=\"row justify-content-center\">\n        <div class=\"col-3 text-center\">\n            <button type=\"button\" class=\"btn btn-outline-danger\" (click)=\"desconectarse()\">Desconectarse</button>\n        </div>\n    </div>\n    <div class=\"row justify-content-md-center\">\n        <!--*ngIf=\"!noHayEstudiante && conectadoaActividad\"-->\n        <div class=\"col-md-8\" style=\"visibility: hidden;\">\n            <video id=\"video\" width=\"480\" height=\"360\" autoplay muted></video>\n        </div>\n        <!--<div *ngIf=\"conectadoaActividad\" class=\"col-md-4\" id=\"estadoAlumno\" class=\"circulo\">\n            <p>Estado</p>\n        </div>-->\n    </div>\n</div>");
 
 /***/ }),
 
@@ -1583,7 +1583,7 @@ let EstudianteComponent = class EstudianteComponent {
             this.socket.on('conectarLed', function (estudiante) {
                 //console.log("Conectar Led");
                 //cli.conectarSensor(cli.led);
-                if (cli.led.estado = "Conectado") {
+                if (cli.led.estado == "Conectado") {
                     cli.ledConectada(cli.actividadActual, estudiante);
                 }
                 else {
@@ -1643,10 +1643,24 @@ let EstudianteComponent = class EstudianteComponent {
         };
     }
     ngOnInit() {
+        //window.onbeforeunload = this.preguntarAntesDeSalir();
         //this.empezar();
+        window.addEventListener("beforeunload", (event) => {
+            if (this.conectadoaActividad) {
+                //event.preventDefault();
+                event.returnValue = "Se ha desconectado de la actividad";
+                //console.log(event);
+                //this.meDesconectoActividad(this.actividadActual);
+                this.desconectarse();
+                return event;
+            }
+        });
         this.listaSensores.push(this.camara);
         this.listaSensores.push(this.led);
         this.listaSensores.push(this.pulsera);
+    }
+    myFunction() {
+        return "Write something clever here...";
     }
     prueba(act) {
         console.log(act);
@@ -1666,7 +1680,7 @@ let EstudianteComponent = class EstudianteComponent {
               }
             }*/
             this.id_item = this.estudiante._id + actividad._id;
-            this.empezar();
+            //this.empezar();
             //this.soyEstudiante();
             //this.conectarActividad();
             //console.log("asd");
@@ -1677,13 +1691,17 @@ let EstudianteComponent = class EstudianteComponent {
             yield this.conectarPulsera(this.pulsera);
             //console.log(actividad);
             if (actividad.estado == "Comenzada") {
-                //this.empezar()
+                this.empezar();
             }
             //this.empezar();
         });
     }
     desconectarse() {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
+            var ju = this;
+            this.webCamDesconectada(this.actividadActual);
+            this.pulseraDesconectada(this.actividadActual);
+            this.ledDesconectada(this.actividadActual);
             //console.log("Me he desconectado de la actividad");
             //console.log(this.actividadActual.alumnos);
             /*for (var key in this.actividadActual.alumnos) {
@@ -1698,12 +1716,12 @@ let EstudianteComponent = class EstudianteComponent {
             //this.conectarActividad();
             //console.log("asd");
             //this.conectarLed();
-            this.meDesconectoActividad(this.actividadActual);
-            clearInterval(this.intervaloDeEnvio);
+            this.meDesconectoActividad(ju.actividadActual);
+            clearInterval(ju.intervaloDeEnvio);
             this.conectadoaActividad = false;
             this.actividadActual = null;
-            clearInterval(this.intervaloGenerarDatos);
-            clearInterval(this.intervaloDeEnvio);
+            clearInterval(ju.intervaloGenerarDatos);
+            clearInterval(ju.intervaloDeEnvio);
             console.log(this.intervaloDeEnvio);
             this.listaActividades.length = yield 0;
             yield this.obtenerActividadesComenzadas();
@@ -1820,82 +1838,55 @@ let EstudianteComponent = class EstudianteComponent {
     empezar() {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
             //console.log(this.video.srcObject);
-            Promise.all([
-                faceapi.nets.ageGenderNet.loadFromUri('assets/modelos'),
-                faceapi.nets.faceExpressionNet.loadFromUri('assets/modelos'),
-                faceapi.nets.faceLandmark68Net.loadFromUri('assets/modelos'),
-                faceapi.nets.faceLandmark68TinyNet.loadFromUri('assets/modelos'),
-                faceapi.nets.faceRecognitionNet.loadFromUri('assets/modelos'),
-                faceapi.nets.ssdMobilenetv1.loadFromUri('assets/modelos'),
-                faceapi.nets.tinyFaceDetector.loadFromUri('assets/modelos'),
-            ]);
-            //console.log(this.video.srcObject);
-            //console.log("hemos cargado los modelos");
-            //this.video.addEventListener('play', () => {
-            //console.log(this.camara.data.srcObject);
-            try {
-                this.canvas = faceapi.createCanvasFromMedia(this.camara.data);
-                document.body.append(this.canvas);
-                this.displaySize = { width: this.camara.data.width, height: this.camara.data.height };
-                faceapi.matchDimensions(this.canvas, this.displaySize);
-                this.intervaloGenerarDatos = setInterval(() => tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
-                    try {
-                        const detections = yield faceapi.detectSingleFace(this.camara.data, new faceapi.TinyFaceDetectorOptions()).withFaceLandmarks().withFaceExpressions();
-                        var datos = faceapi.resizeResults(detections, this.displaySize).expressions;
-                        var datosFisicos = yield faceapi.detectSingleFace(this.camara.data).withFaceLandmarks().withAgeAndGender();
-                        var datosNeutral = faceapi.resizeResults(detections, this.displaySize).expressions.neutral;
-                        var datosHappy = faceapi.resizeResults(detections, this.displaySize).expressions.happy;
-                        var datosSad = faceapi.resizeResults(detections, this.displaySize).expressions.sad;
-                        var datosAngry = faceapi.resizeResults(detections, this.displaySize).expressions.angry;
-                        var datosFearful = faceapi.resizeResults(detections, this.displaySize).expressions.fearful;
-                        var datosSurprised = faceapi.resizeResults(detections, this.displaySize).expressions.surprised;
-                        var datosDisgusted = faceapi.resizeResults(detections, this.displaySize).expressions.disgusted;
-                        if (!this.estoyComputando) {
-                            this.emocionAlegria += datosHappy;
-                            this.emocionAsco += datosDisgusted;
-                            this.emocionIra += datosAngry;
-                            this.emocionMiedo += datosFearful;
-                            this.emocionSorpresa += datosSurprised;
-                            this.emocionTristeza += datosSad;
+            if (this.camara.data) {
+                Promise.all([
+                    faceapi.nets.ageGenderNet.loadFromUri('assets/modelos'),
+                    faceapi.nets.faceExpressionNet.loadFromUri('assets/modelos'),
+                    faceapi.nets.faceLandmark68Net.loadFromUri('assets/modelos'),
+                    faceapi.nets.faceLandmark68TinyNet.loadFromUri('assets/modelos'),
+                    faceapi.nets.faceRecognitionNet.loadFromUri('assets/modelos'),
+                    faceapi.nets.ssdMobilenetv1.loadFromUri('assets/modelos'),
+                    faceapi.nets.tinyFaceDetector.loadFromUri('assets/modelos'),
+                ]);
+                try {
+                    this.canvas = faceapi.createCanvasFromMedia(this.camara.data);
+                    document.body.append(this.canvas);
+                    this.displaySize = { width: this.camara.data.width, height: this.camara.data.height };
+                    faceapi.matchDimensions(this.canvas, this.displaySize);
+                    this.intervaloGenerarDatos = setInterval(() => tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
+                        try {
+                            var detections = yield faceapi.detectSingleFace(this.camara.data, new faceapi.TinyFaceDetectorOptions()).withFaceLandmarks().withFaceExpressions();
+                            //var datos = faceapi.resizeResults(detections, this.displaySize).expressions;
+                            //var datosFisicos = await faceapi.detectSingleFace(this.camara.data).withFaceLandmarks().withAgeAndGender()
+                            var datosNeutral = faceapi.resizeResults(detections, this.displaySize).expressions.neutral;
+                            var datosHappy = faceapi.resizeResults(detections, this.displaySize).expressions.happy;
+                            var datosSad = faceapi.resizeResults(detections, this.displaySize).expressions.sad;
+                            var datosAngry = faceapi.resizeResults(detections, this.displaySize).expressions.angry;
+                            var datosFearful = faceapi.resizeResults(detections, this.displaySize).expressions.fearful;
+                            var datosSurprised = faceapi.resizeResults(detections, this.displaySize).expressions.surprised;
+                            var datosDisgusted = faceapi.resizeResults(detections, this.displaySize).expressions.disgusted;
+                            if (!this.estoyComputando) {
+                                this.emocionAlegria += datosHappy;
+                                this.emocionAsco += datosDisgusted;
+                                this.emocionIra += datosAngry;
+                                this.emocionMiedo += datosFearful;
+                                this.emocionSorpresa += datosSurprised;
+                                this.emocionTristeza += datosSad;
+                            }
                         }
-                    }
-                    catch (error) {
-                        //console.log("No hay datos que enviar");
-                    }
-                }), 1000);
-                this.intervaloDeEnvio = setInterval(() => tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
-                    this.computacionDatos();
-                }), 7000);
-            }
-            catch (ç) {
-                console.log(ç);
-            }
-            /*this.intervaloGenerarDatos = setInterval(async () => {
-        
-              try {
-                const detections = await faceapi.detectSingleFace(this.camara.data, new faceapi.TinyFaceDetectorOptions()).withFaceLandmarks().withFaceExpressions()
-                var datos = faceapi.resizeResults(detections, this.displaySize).expressions;
-                var datosFisicos = await faceapi.detectSingleFace(this.camara.data).withFaceLandmarks().withAgeAndGender()
-        
-                var datosNeutral = faceapi.resizeResults(detections, this.displaySize).expressions.neutral;
-                var datosHappy = faceapi.resizeResults(detections, this.displaySize).expressions.happy;
-                var datosSad = faceapi.resizeResults(detections, this.displaySize).expressions.sad;
-                var datosAngry = faceapi.resizeResults(detections, this.displaySize).expressions.angry;
-                var datosFearful = faceapi.resizeResults(detections, this.displaySize).expressions.fearful;
-                var datosSurprised = faceapi.resizeResults(detections, this.displaySize).expressions.surprised;
-                var datosDisgusted = faceapi.resizeResults(detections, this.displaySize).expressions.disgusted;
-                if(!this.estoyComputando){
-                  this.emocionAlegria += datosHappy;
-                  this.emocionAsco += datosDisgusted;
-                  this.emocionIra += datosAngry;
-                  this.emocionMiedo += datosFearful;
-                  this.emocionSorpresa += datosSurprised;
-                  this.emocionTristeza += datosSad;
+                        catch (error) {
+                            //console.log("No hay datos que enviar");
+                            //console.log(error);
+                        }
+                    }), 1000);
                 }
-              } catch (error) {
-                //console.log("No hay datos que enviar");
-              }
-            }, 1000)*/
+                catch (e) {
+                    //console.log(e);
+                }
+            }
+            this.intervaloDeEnvio = setInterval(async => {
+                this.computacionDatos();
+            }, 7000);
         });
     }
     computacionDatos() {
@@ -1913,205 +1904,219 @@ let EstudianteComponent = class EstudianteComponent {
                 datos['id_actividad'] = this.actividadActual._id;
             }
             catch (e) {
-                console.log(e);
+                //console.log(e);
             }
             let x = moment__WEBPACK_IMPORTED_MODULE_4__().format();
-            let predominante = 0;
-            //Estado Emocional
-            this.datosTotalesEmocionales = this.emocionAlegria + this.emocionAsco + this.emocionIra + this.emocionMiedo + this.emocionSorpresa + this.emocionTristeza; //+this.emocionNeutra;
-            datos['id_item'] = this.id_item;
-            this.colorPredominante = this.ColorNeutral2;
-            //Alegria
-            datos['alegria'] = {
-                x: x,
-                y: Math.round((this.emocionAlegria / this.datosTotalesEmocionales) * 100),
-            };
-            if (predominante < datos['alegria'].y) {
-                predominante = datos['alegria'].y;
-                this.colorPredominante = this.ColorHappy2;
+            if (this.pulsera.estado == "Conectado") {
+                datos['pulsaciones'] = {
+                    x: x,
+                    y: this.pulsaciones,
+                };
             }
-            //Asco
-            datos['asco'] = {
-                x: x,
-                y: Math.round((this.emocionAsco / this.datosTotalesEmocionales) * 100),
-            };
-            if (predominante < datos['asco'].y) {
-                predominante = datos['asco'].y;
-                this.colorPredominante = this.ColorDisgusted2;
-            }
-            //Ira
-            datos['ira'] = {
-                x: x,
-                y: Math.round((this.emocionIra / this.datosTotalesEmocionales) * 100),
-            };
-            if (predominante < datos['ira'].y) {
-                predominante = datos['ira'].y;
-                this.colorPredominante = this.ColorAngry2;
-            }
-            //Miedo
-            datos['miedo'] = {
-                x: x,
-                y: Math.round((this.emocionMiedo / this.datosTotalesEmocionales) * 100),
-            };
-            if (predominante < datos['miedo']) {
-                predominante = datos['miedo'].y;
-                this.colorPredominante = this.ColorFearful2;
-            }
-            //Sorpresa
-            datos['sorpresa'] = {
-                x: x,
-                y: Math.round((this.emocionSorpresa / this.datosTotalesEmocionales) * 100),
-            };
-            if (predominante < datos['sorpresa']) {
-                predominante = datos['sorpresa'].y;
-                this.colorPredominante = this.ColorSurprised2;
-            }
-            //Triteza
-            datos['tristeza'] = {
-                x: x,
-                y: Math.round((this.emocionTristeza / this.datosTotalesEmocionales) * 100),
-            };
-            if (predominante < datos['tristeza'].y) {
-                predominante = datos['tristeza'].y;
-                this.colorPredominante = this.ColorSad2;
-            }
-            predominante = 0;
-            /*datos['neutra']=this.emocionNeutra/this.datosTotalesEmocionales;
-            if(datos['tristeza']<datos['neutra']){
-              this.colorPredominante=this.ColorNeutral2;
-            }*/
-            if (this.ColorAngry2 == this.colorPredominante) {
-                datos['estadoEmocional'] = 'Ira';
-            }
-            if (this.ColorDisgusted2 == this.colorPredominante) {
-                datos['estadoEmocional'] = 'Asco';
-            }
-            if (this.ColorFearful2 == this.colorPredominante) {
-                datos['estadoEmocional'] = 'Miedo';
-            }
-            if (this.ColorHappy2 == this.colorPredominante) {
-                datos['estadoEmocional'] = 'Feliz';
-            }
-            if (this.ColorSad2 == this.colorPredominante) {
-                datos['estadoEmocional'] = 'Triste';
-            }
-            if (this.ColorSurprised2 == this.colorPredominante) {
-                datos['estadoEmocional'] = 'Sorpresa';
-            }
-            datos['color'] = 'rgba(' + this.colorPredominante[0] + ',' + this.colorPredominante[1] + ',' + this.colorPredominante[2] + ',' + this.colorPredominante[3] + ')';
-            //console.log('rgba('+this.colorPredominante[0]+','+this.colorPredominante[1]+','+this.colorPredominante[2]+','+this.colorPredominante[3]+')');
-            //$('#estadoAlumno').css('background-color', 'rgba(' + this.colorPredominante[0] + ',' + this.colorPredominante[1] + ',' + this.colorPredominante[2] + ',' + this.colorPredominante[3] + ')');
-            if (this.pulsaciones < 100) {
-                this.ponerColor();
-                this.limpiarIntervalos();
-            }
-            else if (this.pulsaciones >= 100 && this.pulsaciones < 120) {
-                this.limpiarIntervalos();
-                this.intervaloAlto = setInterval(async => {
-                    setTimeout(async => {
+            if (this.camara.estado == "Conectado") {
+                let predominante = 0;
+                //Estado Emocional
+                this.datosTotalesEmocionales = this.emocionAlegria + this.emocionAsco + this.emocionIra + this.emocionMiedo + this.emocionSorpresa + this.emocionTristeza; //+this.emocionNeutra;
+                datos['id_item'] = this.id_item;
+                this.colorPredominante = this.ColorNeutral2;
+                //Alegria
+                datos['alegria'] = {
+                    x: x,
+                    y: Math.round((this.emocionAlegria / this.datosTotalesEmocionales) * 100),
+                };
+                if (predominante < datos['alegria'].y) {
+                    predominante = datos['alegria'].y;
+                    this.colorPredominante = this.ColorHappy2;
+                }
+                //Asco
+                datos['asco'] = {
+                    x: x,
+                    y: Math.round((this.emocionAsco / this.datosTotalesEmocionales) * 100),
+                };
+                if (predominante < datos['asco'].y) {
+                    predominante = datos['asco'].y;
+                    this.colorPredominante = this.ColorDisgusted2;
+                }
+                //Ira
+                datos['ira'] = {
+                    x: x,
+                    y: Math.round((this.emocionIra / this.datosTotalesEmocionales) * 100),
+                };
+                if (predominante < datos['ira'].y) {
+                    predominante = datos['ira'].y;
+                    this.colorPredominante = this.ColorAngry2;
+                }
+                //Miedo
+                datos['miedo'] = {
+                    x: x,
+                    y: Math.round((this.emocionMiedo / this.datosTotalesEmocionales) * 100),
+                };
+                if (predominante < datos['miedo']) {
+                    predominante = datos['miedo'].y;
+                    this.colorPredominante = this.ColorFearful2;
+                }
+                //Sorpresa
+                datos['sorpresa'] = {
+                    x: x,
+                    y: Math.round((this.emocionSorpresa / this.datosTotalesEmocionales) * 100),
+                };
+                if (predominante < datos['sorpresa']) {
+                    predominante = datos['sorpresa'].y;
+                    this.colorPredominante = this.ColorSurprised2;
+                }
+                //Triteza
+                datos['tristeza'] = {
+                    x: x,
+                    y: Math.round((this.emocionTristeza / this.datosTotalesEmocionales) * 100),
+                };
+                if (predominante < datos['tristeza'].y) {
+                    predominante = datos['tristeza'].y;
+                    this.colorPredominante = this.ColorSad2;
+                }
+                predominante = 0;
+                /*datos['neutra']=this.emocionNeutra/this.datosTotalesEmocionales;
+                if(datos['tristeza']<datos['neutra']){
+                  this.colorPredominante=this.ColorNeutral2;
+                }*/
+                if (this.ColorAngry2 == this.colorPredominante) {
+                    datos['estadoEmocional'] = 'Ira';
+                }
+                if (this.ColorDisgusted2 == this.colorPredominante) {
+                    datos['estadoEmocional'] = 'Asco';
+                }
+                if (this.ColorFearful2 == this.colorPredominante) {
+                    datos['estadoEmocional'] = 'Miedo';
+                }
+                if (this.ColorHappy2 == this.colorPredominante) {
+                    datos['estadoEmocional'] = 'Feliz';
+                }
+                if (this.ColorSad2 == this.colorPredominante) {
+                    datos['estadoEmocional'] = 'Triste';
+                }
+                if (this.ColorSurprised2 == this.colorPredominante) {
+                    datos['estadoEmocional'] = 'Sorpresa';
+                }
+                datos['color'] = 'rgba(' + this.colorPredominante[0] + ',' + this.colorPredominante[1] + ',' + this.colorPredominante[2] + ',' + this.colorPredominante[3] + ')';
+                //console.log('rgba('+this.colorPredominante[0]+','+this.colorPredominante[1]+','+this.colorPredominante[2]+','+this.colorPredominante[3]+')');
+                //$('#estadoAlumno').css('background-color', 'rgba(' + this.colorPredominante[0] + ',' + this.colorPredominante[1] + ',' + this.colorPredominante[2] + ',' + this.colorPredominante[3] + ')');
+                if (this.led.data) {
+                    if (this.pulsaciones < 100) {
                         this.ponerColor();
-                    }, 900);
-                    setTimeout(async => {
-                        this.ponerNegro();
-                    }, 100);
-                }, 1000);
-            }
-            else if (this.pulsaciones >= 120 && this.pulsaciones < 140) {
-                this.limpiarIntervalos();
-                this.intervaloMuyAlto = setInterval(async => {
-                    setTimeout(async => {
-                        this.ponerColor();
-                    }, 600);
-                    setTimeout(async => {
-                        this.ponerNegro();
-                    }, 100);
-                }, 700);
-            }
-            else if (this.pulsaciones >= 140) {
-                this.limpiarIntervalos();
-                this.intervaloAltisimo = setInterval(async => {
-                    setTimeout(async => {
-                        this.ponerColor();
-                    }, 300);
-                    setTimeout(async => {
-                        this.ponerNegro();
-                    }, 100);
-                }, 400);
-            }
-            this.emocionAlegria = 0;
-            this.emocionAsco = 0;
-            this.emocionIra = 0;
-            this.emocionMiedo = 0;
-            this.emocionSorpresa = 0;
-            this.emocionTristeza = 0;
-            this.emocionNeutra = 0;
-            this.datosTotalesEmocionales = 0;
-            //Estado de las Pulsaciones
-            datos['pulsaciones'] = {
-                x: x,
-                y: this.pulsaciones,
-            };
-            //Estado temporal
-            datos['tiempo'] = x;
-            //Estado Cognitivo
-            datos['distraido'] = {
-                x: x,
-                y: 0,
-            };
-            if (datos['pulsaciones'].y > 85) {
+                        this.limpiarIntervalos();
+                    }
+                    else if (this.pulsaciones >= 100 && this.pulsaciones < 120) {
+                        this.limpiarIntervalos();
+                        this.intervaloAlto = setInterval(async => {
+                            setTimeout(async => {
+                                this.ponerColor();
+                            }, 900);
+                            setTimeout(async => {
+                                this.ponerNegro();
+                            }, 100);
+                        }, 1000);
+                    }
+                    else if (this.pulsaciones >= 120 && this.pulsaciones < 140) {
+                        this.limpiarIntervalos();
+                        this.intervaloMuyAlto = setInterval(async => {
+                            setTimeout(async => {
+                                this.ponerColor();
+                            }, 600);
+                            setTimeout(async => {
+                                this.ponerNegro();
+                            }, 100);
+                        }, 700);
+                    }
+                    else if (this.pulsaciones >= 140) {
+                        this.limpiarIntervalos();
+                        this.intervaloAltisimo = setInterval(async => {
+                            setTimeout(async => {
+                                this.ponerColor();
+                            }, 300);
+                            setTimeout(async => {
+                                this.ponerNegro();
+                            }, 100);
+                        }, 400);
+                    }
+                }
+                this.emocionAlegria = 0;
+                this.emocionAsco = 0;
+                this.emocionIra = 0;
+                this.emocionMiedo = 0;
+                this.emocionSorpresa = 0;
+                this.emocionTristeza = 0;
+                this.emocionNeutra = 0;
+                this.datosTotalesEmocionales = 0;
+                //Estado de las Pulsaciones
+                //Estado temporal
+                datos['tiempo'] = x;
+                //Estado Cognitivo
                 datos['distraido'] = {
                     x: x,
-                    y: Math.round(datos['sorpresa'].y * 100),
+                    y: 0,
                 };
-            }
-            if (datos['alegria'].y == NaN || datos['alegria'].y == null) {
-                datos['distraido'] = {
+                if (this.pulsera.estado == "Conectado") {
+                    if (datos['pulsaciones'].y > 85) {
+                        datos['distraido'] = {
+                            x: x,
+                            y: Math.round(datos['sorpresa'].y * 100),
+                        };
+                    }
+                }
+                else {
+                    datos['distraido'] = {
+                        x: x,
+                        y: Math.round(datos['sorpresa'].y * 100),
+                    };
+                }
+                if (datos['alegria'].y == NaN || datos['alegria'].y == null) {
+                    datos['distraido'] = {
+                        x: x,
+                        y: 100,
+                    };
+                }
+                datos['concentrado'] = {
                     x: x,
-                    y: 100,
+                    y: Math.round(100 - datos['distraido'].y * 100),
                 };
-            }
-            datos['concentrado'] = {
-                x: x,
-                y: Math.round(100 - datos['distraido'].y * 100),
-            };
-            datos['frustrado'] = {
-                x: x,
-                y: 0,
-            };
-            if ((datos['sorpresa'].y + datos['tristeza'].y) > 0.25) {
                 datos['frustrado'] = {
                     x: x,
-                    y: Math.round(datos['frustrado'].y + 0.25 * 100),
+                    y: 0,
                 };
-            }
-            if ((datos['asco'].y + datos['ira'].y) > 0.25) {
-                datos['frustrado'] = {
+                if ((datos['sorpresa'].y + datos['tristeza'].y) > 0.25) {
+                    datos['frustrado'] = {
+                        x: x,
+                        y: Math.round(datos['frustrado'].y + 0.25 * 100),
+                    };
+                }
+                if ((datos['asco'].y + datos['ira'].y) > 0.25) {
+                    datos['frustrado'] = {
+                        x: x,
+                        y: Math.round(datos['frustrado'].y + 0.25 * 100),
+                    };
+                }
+                if ((datos['miedo'].y + datos['tristeza'].y) > 0.25) {
+                    datos['frustrado'] = {
+                        x: x,
+                        y: Math.round(datos['frustrado'].y + 0.25 * 100),
+                    };
+                }
+                if ((datos['sorpresa'].y + datos['ira'].y) > 0.25) {
+                    datos['frustrado'] = {
+                        x: x,
+                        y: Math.round(datos['frustrado'].y + 0.25 * 100),
+                    };
+                }
+                if (datos['alegria'].y == NaN || datos['alegria'].y == null) {
+                    datos['frustrado'] = {
+                        x: x,
+                        y: 1 * 100,
+                    };
+                }
+                datos['motivado'] = {
                     x: x,
-                    y: Math.round(datos['frustrado'].y + 0.25 * 100),
+                    y: Math.round(100 - datos['frustrado'].y * 100),
                 };
             }
-            if ((datos['miedo'].y + datos['tristeza'].y) > 0.25) {
-                datos['frustrado'] = {
-                    x: x,
-                    y: Math.round(datos['frustrado'].y + 0.25 * 100),
-                };
-            }
-            if ((datos['sorpresa'].y + datos['ira'].y) > 0.25) {
-                datos['frustrado'] = {
-                    x: x,
-                    y: Math.round(datos['frustrado'].y + 0.25 * 100),
-                };
-            }
-            if (datos['alegria'].y == NaN || datos['alegria'].y == null) {
-                datos['frustrado'] = {
-                    x: x,
-                    y: 1 * 100,
-                };
-            }
-            datos['motivado'] = {
-                x: x,
-                y: Math.round(100 - datos['frustrado'].y * 100),
-            };
             console.log("Datos listos para enviar");
             console.log(datos);
             this.enviarDatos(datos);
@@ -2158,7 +2163,6 @@ let EstudianteComponent = class EstudianteComponent {
                     this.intervaloPulsaciones = setInterval(async => {
                         this.pulsometro(sensor);
                     }, 2000);
-                    this.pulseraConectada(this.actividadActual);
                 }
                 else {
                     sensor.cargando = false;
@@ -2176,6 +2180,7 @@ let EstudianteComponent = class EstudianteComponent {
             //console.log(this.pulsaciones);
             if (this.pulsaciones > 0) {
                 sensor.cargando = false;
+                this.pulseraConectada(this.actividadActual);
             }
         }
     }
@@ -2267,6 +2272,9 @@ let EstudianteComponent = class EstudianteComponent {
                     this.led.estado = "Conectado";
                     //await ju.ledConectada(ju.actividadActual);
                 }
+                else {
+                    sensor.cargando = false;
+                }
             }
             catch (err) {
                 // No device was selected.
@@ -2345,12 +2353,12 @@ let EstudianteComponent = class EstudianteComponent {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
             const reportId = 1;
             //console.log([r, g, b]);
-            console.log(this.led.data);
-            console.log(device);
+            //console.log(this.led.data);
+            //console.log(device);
             const data = Uint8Array.from([r, g, b]);
             //const negro = Uint8Array.from([0x63, 0, 0, 0, 0x00, 0x10, 0x00, 0x00]);
             try {
-                console.log(data);
+                //console.log(data);
                 yield device.sendFeatureReport(1, data);
                 //await device.sendFeatureReport(1,negro);
             }
@@ -3872,7 +3880,7 @@ let ProfesorComponent = class ProfesorComponent {
         };
         this.borrarActividadLista = function (actividad) {
             this.socket.emit('borrarActividadLista', actividad);
-            console.log("Actividad: " + actividad._id + " YA NO está lista.");
+            //console.log("Actividad: " + actividad._id + " YA NO está lista.");
         };
         this.listoParaRecibirDatos = function (actividad) {
             this.socket.emit('listoParaRecibirDatos', actividad);
@@ -5810,6 +5818,9 @@ let VerActividadComponent = class VerActividadComponent {
     }
     cerrarActividad() {
         //this.actividadCreada.emit("cerrar");
+        if (this.actividad.estado == "Creada") {
+            this.profesor.listoParaNoRecibirDatos(this.actividad);
+        }
         if (this.actividad.estado == "Comenzada") {
             Swal.fire('Se cerrará la aplicación.', 'El proceso de recolección de datos, seguira ejecutandose en segundo plano.', 'question');
         }
@@ -6819,7 +6830,7 @@ let VerActividadComponent = class VerActividadComponent {
         for (let i = 0; i < this.alumnosTabla.length; i++) {
             if (usuario._id == this.alumnosTabla[i].estudiante._id) {
                 this.alumnosTabla[i].pulsera = true;
-                this.alumnosTabla[i].cargandoP = true;
+                this.alumnosTabla[i].cargandoP = false;
             }
         }
     }

@@ -625,16 +625,16 @@ function Centro() {
                     }
                 }
             }
-            this.actividades[key].resumen.alegria.push({ y: this.resumenActividades[key].alegria*100 / sumatorioE, x: tiempo });
-            this.actividades[key].resumen.asco.push({ y: this.resumenActividades[key].asco*100 / sumatorioE, x: tiempo });
-            this.actividades[key].resumen.concentrado.push({ y: this.resumenActividades[key].concentrado*100 / sumatorioDC, x: tiempo });
-            this.actividades[key].resumen.distraido.push({ y: this.resumenActividades[key].distraido*100 / sumatorioDC, x: tiempo });
-            this.actividades[key].resumen.frustrado.push({ y: this.resumenActividades[key].frustrado*100 / sumatorioMF, x: tiempo });
-            this.actividades[key].resumen.ira.push({ y: this.resumenActividades[key].ira*100 / sumatorioE, x: tiempo });
-            this.actividades[key].resumen.miedo.push({ y: this.resumenActividades[key].miedo*100 / sumatorioE, x: tiempo });
-            this.actividades[key].resumen.motivado.push({ y: this.resumenActividades[key].motivado*100 / sumatorioMF, x: tiempo });
-            this.actividades[key].resumen.sorpresa.push({ y: this.resumenActividades[key].sorpresa*100 / sumatorioE, x: tiempo });
-            this.actividades[key].resumen.tristeza.push({ y: this.resumenActividades[key].tristeza*100 / sumatorioE, x: tiempo });
+            this.actividades[key].resumen.alegria.push({ y: this.resumenActividades[key].alegria * 100 / sumatorioE, x: tiempo });
+            this.actividades[key].resumen.asco.push({ y: this.resumenActividades[key].asco * 100 / sumatorioE, x: tiempo });
+            this.actividades[key].resumen.concentrado.push({ y: this.resumenActividades[key].concentrado * 100 / sumatorioDC, x: tiempo });
+            this.actividades[key].resumen.distraido.push({ y: this.resumenActividades[key].distraido * 100 / sumatorioDC, x: tiempo });
+            this.actividades[key].resumen.frustrado.push({ y: this.resumenActividades[key].frustrado * 100 / sumatorioMF, x: tiempo });
+            this.actividades[key].resumen.ira.push({ y: this.resumenActividades[key].ira * 100 / sumatorioE, x: tiempo });
+            this.actividades[key].resumen.miedo.push({ y: this.resumenActividades[key].miedo * 100 / sumatorioE, x: tiempo });
+            this.actividades[key].resumen.motivado.push({ y: this.resumenActividades[key].motivado * 100 / sumatorioMF, x: tiempo });
+            this.actividades[key].resumen.sorpresa.push({ y: this.resumenActividades[key].sorpresa * 100 / sumatorioE, x: tiempo });
+            this.actividades[key].resumen.tristeza.push({ y: this.resumenActividades[key].tristeza * 100 / sumatorioE, x: tiempo });
             this.actividades[key].resumen.pulsaciones.push({ y: this.resumenActividades[key].pulsaciones / this.resumenActividades[key].nPulsaciones, x: tiempo });
             this.resumenActividades[key] = new DatosResumen();
             console.log("resumen");
@@ -730,6 +730,7 @@ function Centro() {
                                 //console.log(res);
                                 delete ju.actividadesEnProceso[actividad._id];
                                 delete ju.resumenActividades[actividad._id];
+                                ju.actividadesListas[actividad._id] = actividad;
                                 ju.comprobar();
                                 console.log(res);
                                 console.log("terminada y enviada");
@@ -748,6 +749,7 @@ function Centro() {
                                 //console.log(res);
                                 delete ju.actividadesEnProceso[actividad._id];
                                 delete ju.resumenActividades[actividad._id];
+                                ju.actividadesListas[actividad._id] = actividad;
                                 ju.comprobar()
                                 console.log(res);
                                 console.log("terminada y enviada");
@@ -769,6 +771,7 @@ function Centro() {
                         //console.log(res);
                         delete ju.actividadesEnProceso[actividad._id];
                         delete ju.resumenActividades[actividad._id];
+                        ju.actividadesListas[actividad._id] = actividad;
                         ju.comprobar();
                         callback(ju.actividades[key]);
                     }
@@ -780,13 +783,14 @@ function Centro() {
                         //console.log(res);
                         delete ju.actividadesEnProceso[actividad._id];
                         delete ju.resumenActividades[actividad._id];
+                        ju.actividadesListas[actividad._id] = actividad;
                         ju.comprobar()
                         callback(ju.actividades[key]);
                     }
                 })
             }
         }
-
+        //console.log(this.actividadesListas);
     }
 
     //Añadir Alumnos a la Actividad

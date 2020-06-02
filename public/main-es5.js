@@ -379,7 +379,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<br>\n\n<div *ngIf=\"noHayEstudiante\" class=\"row justify-content-md-center\">\n    <div class=\"card col-md-6\">\n        <div class=\"card-body\">\n            <h4 class=\"card-title\">Iniciar Sesion</h4>\n            <div>\n                <label>Email</label>\n                <input [(ngModel)]=\"estudiante.email\" type=\"email\" class=\"form-control\" id=\"emailIS\" ng-model=\"email\"\n                    placeholder=\"Email\" (keydown.enter)=\"pulsar($event)\">\n                <br>\n                <label>Contraseña</label>\n                <input [(ngModel)]=\"estudiante.contrasena\" type=\"password\" class=\"form-control\" id=\"contrasenaIS\"\n                    ng-model=\"contrasena\" (keydown.enter)=\"pulsar($event)\" placeholder=\"Contraseña\">\n                <br>\n                <div class=\"row justify-content-center\">\n                    <div class=\"col-4\">\n                        <button type=\"button\" (click)=\"limpiar()\" class=\"btn btn-raised btn-danger\"><i\n                                class=\"fa fa-trash\"></i>Limpiar</button>\n                    </div>\n                    <div class=\"col-4\">\n                        <button *ngIf=\"!iniciando\" type=\"button\" (click)=\"iniciarSesion()\"\n                            class=\"btn btn-raised btn-success\">Iniciar\n                            Sesion</button>\n                        <button *ngIf=\"iniciando\" class=\"btn btn-raised btn-success disabled\" type=\"button\" disabled>\n                            <span class=\"spinner-border spinner-border-sm\" role=\"status\" aria-hidden=\"true\"></span>\n                            Iniciando ...\n                        </button>\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>\n</div>\n<!--<div *ngIf=\"!noHayEstudiante\" class=\"row justify-content-right\">\n    <div class=\"col-9\">\n\n    </div>\n    <div class=\"col-3 text-right\">\n        <button type=\"button\" (click)=\"abrirGestionSensores()\" class=\"btn btn-outline-success text-right\"><i\n                class=\"fa fa-cog\"></i>Abrir Sensores</button>\n    </div>\n</div>-->\n<div *ngIf=\"!noHayEstudiante\">\n    <div class=\"row\">\n        <div class=\"col-3\">\n\n        </div>\n        <div *ngIf=\"configurarSensores\" class=\"col-6\">\n            <h3>Sensores</h3>\n            <table class=\"table table-striped\">\n                <thead class=\"thead-light\">\n                    <tr>\n                        <th scope=\"col\">Nombre</th>\n                        <th scope=\"col\">Estado</th>\n                        <th scope=\"col\"></th>\n                        <th scope=\"col\"></th>\n                    </tr>\n                </thead>\n                <tbody *ngFor=\"let sensor of listaSensores\">\n                    <tr>\n                        <td>{{sensor.nombre}}</td>\n                        <td>{{sensor.estado}}</td>\n                        <td *ngIf=\"sensor.estado=='Desconectado' && !sensor.cargando\"><button type=\"button\"\n                                class=\"btn btn-outline-primary\" (click)=\"conectarSensor(sensor)\">Conectarse</button>\n                        </td>\n                        <td *ngIf=\"sensor.cargando\"><button\n                                class=\"btn btn-outline-primary disabled\" type=\"button\" disabled>\n                                <span class=\"spinner-border spinner-border-sm\" role=\"status\" aria-hidden=\"true\"></span>\n                                Conectando ...\n                            </button></td>\n                        <td *ngIf=\"sensor.estado=='Conectado'  && !sensor.cargando\"><button type=\"button\"\n                                class=\"btn btn-outline-danger\"\n                                (click)=\"desconectarSensor(sensor)\">Desconectarse</button></td>\n                        <td></td>\n                    </tr>\n                </tbody>\n            </table>\n        </div>\n        <div *ngIf=\"!configurarSensores\" class=\"col-6\">\n\n        </div>\n        <div class=\"col-3 text-right\">\n            <button *ngIf=\"!configurarSensores\" type=\"button\" (click)=\"abrirGestionSensores()\"\n                class=\"btn btn-outline-success text-right\"><i class=\"fa fa-cog\"></i>Abrir Sensores</button>\n            <button *ngIf=\"configurarSensores\" type=\"button\" (click)=\"cerrarGestionSensores()\"\n                class=\"btn btn-outline-danger text-right\"><i class=\"fa fa-cog\"></i>Cerrar Sensores</button>\n        </div>\n    </div>\n    <div *ngIf=\"!conectadoaActividad\" class=\"row justify-content-center\">\n        <div class=\"col-12\">\n            <h3>Actividades listas</h3>\n            <table class=\"table table-striped\">\n                <thead class=\"thead-light\">\n                    <tr>\n                        <th scope=\"col\">Nombre</th>\n                        <th scope=\"col\">Profesor</th>\n                        <th scope=\"col\">Estado</th>\n                        <th scope=\"col\"></th>\n                    </tr>\n                </thead>\n                <tbody *ngFor=\"let actividad of listaActividades\">\n                    <tr>\n                        <td>{{actividad.nombre}}</td>\n                        <td>{{actividad.profesor.nombre}}</td>\n                        <td>{{actividad.estado}}</td>\n                        <td><button *ngIf=\"actividad.estado!='Finalizada'\" type=\"button\" class=\"btn btn-outline-primary\"\n                                (click)=\"conectarse(actividad)\">Conectarse</button></td>\n                    </tr>\n                </tbody>\n            </table>\n        </div>\n    </div>\n    <div *ngIf=\"conectadoaActividad\" class=\"row justify-content-center\">\n        <br>\n        <br>\n        <br>\n        <br>\n        <br>\n        <br>\n        <br>\n    </div>\n    <div *ngIf=\"conectadoaActividad\" class=\"row justify-content-center\">\n        <div class=\"col-3 text-center\">\n            <i class=\"fa fa-wifi fa-5x\"></i>\n        </div>\n    </div>\n    <div *ngIf=\"conectadoaActividad\" class=\"row justify-content-center\">\n        <div class=\"col-3 text-center\">\n            <h5>Conectado</h5>\n        </div>\n    </div>\n    <div *ngIf=\"conectadoaActividad\" class=\"row justify-content-center\">\n        <div class=\"col-3 text-center\">\n            <button type=\"button\" class=\"btn btn-outline-danger\" (click)=\"desconectarse()\">Desconectarse</button>\n        </div>\n    </div>\n    <div class=\"row justify-content-md-center\">\n        <!--*ngIf=\"!noHayEstudiante && conectadoaActividad\"-->\n        <div class=\"col-md-8\" style=\"visibility: hidden;\">\n            <video id=\"video\" width=\"480\" height=\"360\" autoplay muted></video>\n        </div>\n        <!--<div *ngIf=\"conectadoaActividad\" class=\"col-md-4\" id=\"estadoAlumno\" class=\"circulo\">\n            <p>Estado</p>\n        </div>-->\n    </div>\n</div>";
+    __webpack_exports__["default"] = "<br>\n\n<div *ngIf=\"noHayEstudiante\" class=\"row justify-content-md-center\">\n    <div class=\"card col-md-6\">\n        <div class=\"card-body\">\n            <h4 class=\"card-title\">Iniciar Sesion</h4>\n            <div>\n                <label>Email</label>\n                <input [(ngModel)]=\"estudiante.email\" type=\"email\" class=\"form-control\" id=\"emailIS\" ng-model=\"email\"\n                    placeholder=\"Email\" (keydown.enter)=\"pulsar($event)\">\n                <br>\n                <label>Contraseña</label>\n                <input [(ngModel)]=\"estudiante.contrasena\" type=\"password\" class=\"form-control\" id=\"contrasenaIS\"\n                    ng-model=\"contrasena\" (keydown.enter)=\"pulsar($event)\" placeholder=\"Contraseña\">\n                <br>\n                <div class=\"row justify-content-center\">\n                    <div class=\"col-4\">\n                        <button type=\"button\" (click)=\"limpiar()\" class=\"btn btn-raised btn-danger\"><i\n                                class=\"fa fa-trash\"></i>Limpiar</button>\n                    </div>\n                    <div class=\"col-4\">\n                        <button *ngIf=\"!iniciando\" type=\"button\" (click)=\"iniciarSesion()\"\n                            class=\"btn btn-raised btn-success\">Iniciar\n                            Sesion</button>\n                        <button *ngIf=\"iniciando\" class=\"btn btn-raised btn-success disabled\" type=\"button\" disabled>\n                            <span class=\"spinner-border spinner-border-sm\" role=\"status\" aria-hidden=\"true\"></span>\n                            Iniciando ...\n                        </button>\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>\n</div>\n<!--<div *ngIf=\"!noHayEstudiante\" class=\"row justify-content-right\">\n    <div class=\"col-9\">\n\n    </div>\n    <div class=\"col-3 text-right\">\n        <button type=\"button\" (click)=\"abrirGestionSensores()\" class=\"btn btn-outline-success text-right\"><i\n                class=\"fa fa-cog\"></i>Abrir Sensores</button>\n    </div>\n</div>-->\n<div *ngIf=\"!noHayEstudiante\">\n    <div class=\"row\">\n        <div class=\"col-3\">\n\n        </div>\n        <div *ngIf=\"configurarSensores\" class=\"col-6\">\n            <h3>Sensores</h3>\n            <table class=\"table table-striped\">\n                <thead class=\"thead-light\">\n                    <tr>\n                        <th scope=\"col\">Nombre</th>\n                        <th scope=\"col\">Estado</th>\n                        <th scope=\"col\"></th>\n                        <th scope=\"col\"></th>\n                    </tr>\n                </thead>\n                <tbody *ngFor=\"let sensor of listaSensores\">\n                    <tr>\n                        <td>{{sensor.nombre}}</td>\n                        <td>{{sensor.estado}}</td>\n                        <td *ngIf=\"sensor.estado=='Desconectado' && !sensor.cargando\"><button type=\"button\"\n                                class=\"btn btn-outline-primary\" (click)=\"conectarSensor(sensor)\">Conectarse</button>\n                        </td>\n                        <td *ngIf=\"sensor.cargando\"><button\n                                class=\"btn btn-outline-primary disabled\" type=\"button\" disabled>\n                                <span class=\"spinner-border spinner-border-sm\" role=\"status\" aria-hidden=\"true\"></span>\n                                Conectando ...\n                            </button></td>\n                        <td *ngIf=\"sensor.estado=='Conectado'  && !sensor.cargando\"><button type=\"button\"\n                                class=\"btn btn-outline-danger\"\n                                (click)=\"desconectarSensor(sensor)\">Desconectarse</button></td>\n                        <td></td>\n                    </tr>\n                </tbody>\n            </table>\n        </div>\n        <div *ngIf=\"!configurarSensores\" class=\"col-6\">\n\n        </div>\n        <div class=\"col-3 text-right\">\n            <button *ngIf=\"!configurarSensores\" type=\"button\" (click)=\"abrirGestionSensores()\"\n                class=\"btn btn-outline-success text-right\"><i class=\"fa fa-cog\"></i>Abrir Sensores</button>\n            <button *ngIf=\"configurarSensores\" type=\"button\" (click)=\"cerrarGestionSensores()\"\n                class=\"btn btn-outline-danger text-right\"><i class=\"fa fa-cog\"></i>Cerrar Sensores</button>\n        </div>\n    </div>\n    <div *ngIf=\"!conectadoaActividad\" class=\"row justify-content-center\">\n        <div class=\"col-12\">\n            <h3>Actividades listas</h3>\n            <table class=\"table table-striped\">\n                <thead class=\"thead-light\">\n                    <tr>\n                        <th scope=\"col\">Nombre</th>\n                        <th scope=\"col\">Profesor</th>\n                        <th scope=\"col\">Estado</th>\n                        <th scope=\"col\"></th>\n                    </tr>\n                </thead>\n                <tbody *ngFor=\"let actividad of listaActividades\">\n                    <tr>\n                        <td>{{actividad.nombre}}</td>\n                        <td>{{actividad.profesor.nombre}}</td>\n                        <td>{{actividad.estado}}</td>\n                        <td><button *ngIf=\"actividad.estado!='Finalizada'\" type=\"button\" class=\"btn btn-outline-primary\"\n                                (click)=\"conectarse(actividad)\">Conectarse</button></td>\n                    </tr>\n                </tbody>\n            </table>\n        </div>\n    </div>\n    <div *ngIf=\"conectadoaActividad\"  class=\"row justify-content-center\">\n        <br>\n        <br>\n        <br>\n        <br>\n        <br>\n        <br>\n        <br>\n    </div>\n    <div *ngIf=\"conectadoaActividad\" class=\"row justify-content-center\">\n        <div class=\"col-3 text-center\">\n            <i class=\"fa fa-wifi fa-5x\"></i>\n        </div>\n    </div>\n    <div *ngIf=\"conectadoaActividad\" class=\"row justify-content-center\">\n        <div class=\"col-3 text-center\">\n            <h5>Conectado</h5>\n        </div>\n    </div>\n    <div *ngIf=\"conectadoaActividad\" class=\"row justify-content-center\">\n        <div class=\"col-3 text-center\">\n            <button type=\"button\" class=\"btn btn-outline-danger\" (click)=\"desconectarse()\">Desconectarse</button>\n        </div>\n    </div>\n    <div class=\"row justify-content-md-center\">\n        <!--*ngIf=\"!noHayEstudiante && conectadoaActividad\"-->\n        <div class=\"col-md-8\" style=\"visibility: hidden;\">\n            <video id=\"video\" width=\"480\" height=\"360\" autoplay muted></video>\n        </div>\n        <!--<div *ngIf=\"conectadoaActividad\" class=\"col-md-4\" id=\"estadoAlumno\" class=\"circulo\">\n            <p>Estado</p>\n        </div>-->\n    </div>\n</div>";
     /***/
   },
 
@@ -2477,7 +2477,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           this.socket.on('conectarLed', function (estudiante) {
             //console.log("Conectar Led");
             //cli.conectarSensor(cli.led);
-            if (cli.led.estado = "Conectado") {
+            if (cli.led.estado == "Conectado") {
               cli.ledConectada(cli.actividadActual, estudiante);
             } else {
               Swal.fire({
@@ -2538,10 +2538,29 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       _createClass(EstudianteComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
+          var _this = this;
+
+          //window.onbeforeunload = this.preguntarAntesDeSalir();
           //this.empezar();
+          window.addEventListener("beforeunload", function (event) {
+            if (_this.conectadoaActividad) {
+              //event.preventDefault();
+              event.returnValue = "Se ha desconectado de la actividad"; //console.log(event);
+              //this.meDesconectoActividad(this.actividadActual);
+
+              _this.desconectarse();
+
+              return event;
+            }
+          });
           this.listaSensores.push(this.camara);
           this.listaSensores.push(this.led);
           this.listaSensores.push(this.pulsera);
+        }
+      }, {
+        key: "myFunction",
+        value: function myFunction() {
+          return "Write something clever here...";
         }
       }, {
         key: "prueba",
@@ -2571,31 +2590,32 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                       }
                     }*/
 
-                    this.id_item = this.estudiante._id + actividad._id;
-                    this.empezar(); //this.soyEstudiante();
+                    this.id_item = this.estudiante._id + actividad._id; //this.empezar();
+                    //this.soyEstudiante();
                     //this.conectarActividad();
                     //console.log("asd");
                     //this.conectarLed();
 
                     this.meConectoActividad(this.actividadActual);
-                    _context2.next = 8;
+                    _context2.next = 7;
                     return this.conectarWebCam(this.camara);
 
-                  case 8:
-                    _context2.next = 10;
+                  case 7:
+                    _context2.next = 9;
                     return this.conectarLed(this.led);
 
-                  case 10:
-                    _context2.next = 12;
+                  case 9:
+                    _context2.next = 11;
                     return this.conectarPulsera(this.pulsera);
 
-                  case 12:
+                  case 11:
                     //console.log(actividad);
-                    if (actividad.estado == "Comenzada") {} //this.empezar()
-                    //this.empezar();
+                    if (actividad.estado == "Comenzada") {
+                      this.empezar();
+                    } //this.empezar();
 
 
-                  case 13:
+                  case 12:
                   case "end":
                     return _context2.stop();
                 }
@@ -2609,11 +2629,15 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
           /*#__PURE__*/
           regeneratorRuntime.mark(function _callee3() {
+            var ju;
             return regeneratorRuntime.wrap(function _callee3$(_context3) {
               while (1) {
                 switch (_context3.prev = _context3.next) {
                   case 0:
-                    //console.log("Me he desconectado de la actividad");
+                    ju = this;
+                    this.webCamDesconectada(this.actividadActual);
+                    this.pulseraDesconectada(this.actividadActual);
+                    this.ledDesconectada(this.actividadActual); //console.log("Me he desconectado de la actividad");
                     //console.log(this.actividadActual.alumnos);
 
                     /*for (var key in this.actividadActual.alumnos) {
@@ -2623,27 +2647,28 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                         //console.log(this.id_item);
                       }
                     }*/
+
                     this.id_item = null; //this.soyEstudiante();
                     //this.conectarActividad();
                     //console.log("asd");
                     //this.conectarLed();
 
-                    this.meDesconectoActividad(this.actividadActual);
-                    clearInterval(this.intervaloDeEnvio);
+                    this.meDesconectoActividad(ju.actividadActual);
+                    clearInterval(ju.intervaloDeEnvio);
                     this.conectadoaActividad = false;
                     this.actividadActual = null;
-                    clearInterval(this.intervaloGenerarDatos);
-                    clearInterval(this.intervaloDeEnvio);
+                    clearInterval(ju.intervaloGenerarDatos);
+                    clearInterval(ju.intervaloDeEnvio);
                     console.log(this.intervaloDeEnvio);
-                    _context3.next = 10;
+                    _context3.next = 14;
                     return 0;
 
-                  case 10:
+                  case 14:
                     this.listaActividades.length = _context3.sent;
-                    _context3.next = 13;
+                    _context3.next = 17;
                     return this.obtenerActividadesComenzadas();
 
-                  case 13:
+                  case 17:
                   case "end":
                     return _context3.stop();
                 }
@@ -2806,133 +2831,88 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function empezar() {
           return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
           /*#__PURE__*/
-          regeneratorRuntime.mark(function _callee7() {
-            var _this = this;
+          regeneratorRuntime.mark(function _callee6() {
+            var _this2 = this;
 
-            return regeneratorRuntime.wrap(function _callee7$(_context7) {
+            return regeneratorRuntime.wrap(function _callee6$(_context6) {
               while (1) {
-                switch (_context7.prev = _context7.next) {
+                switch (_context6.prev = _context6.next) {
                   case 0:
                     //console.log(this.video.srcObject);
-                    Promise.all([faceapi.nets.ageGenderNet.loadFromUri('assets/modelos'), faceapi.nets.faceExpressionNet.loadFromUri('assets/modelos'), faceapi.nets.faceLandmark68Net.loadFromUri('assets/modelos'), faceapi.nets.faceLandmark68TinyNet.loadFromUri('assets/modelos'), faceapi.nets.faceRecognitionNet.loadFromUri('assets/modelos'), faceapi.nets.ssdMobilenetv1.loadFromUri('assets/modelos'), faceapi.nets.tinyFaceDetector.loadFromUri('assets/modelos')]); //console.log(this.video.srcObject);
-                    //console.log("hemos cargado los modelos");
-                    //this.video.addEventListener('play', () => {
-                    //console.log(this.camara.data.srcObject);
+                    if (this.camara.data) {
+                      Promise.all([faceapi.nets.ageGenderNet.loadFromUri('assets/modelos'), faceapi.nets.faceExpressionNet.loadFromUri('assets/modelos'), faceapi.nets.faceLandmark68Net.loadFromUri('assets/modelos'), faceapi.nets.faceLandmark68TinyNet.loadFromUri('assets/modelos'), faceapi.nets.faceRecognitionNet.loadFromUri('assets/modelos'), faceapi.nets.ssdMobilenetv1.loadFromUri('assets/modelos'), faceapi.nets.tinyFaceDetector.loadFromUri('assets/modelos')]);
 
-                    try {
-                      this.canvas = faceapi.createCanvasFromMedia(this.camara.data);
-                      document.body.append(this.canvas);
-                      this.displaySize = {
-                        width: this.camara.data.width,
-                        height: this.camara.data.height
-                      };
-                      faceapi.matchDimensions(this.canvas, this.displaySize);
-                      this.intervaloGenerarDatos = setInterval(function () {
-                        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](_this, void 0, void 0,
-                        /*#__PURE__*/
-                        regeneratorRuntime.mark(function _callee5() {
-                          var detections, datos, datosFisicos, datosNeutral, datosHappy, datosSad, datosAngry, datosFearful, datosSurprised, datosDisgusted;
-                          return regeneratorRuntime.wrap(function _callee5$(_context5) {
-                            while (1) {
-                              switch (_context5.prev = _context5.next) {
-                                case 0:
-                                  _context5.prev = 0;
-                                  _context5.next = 3;
-                                  return faceapi.detectSingleFace(this.camara.data, new faceapi.TinyFaceDetectorOptions()).withFaceLandmarks().withFaceExpressions();
+                      try {
+                        this.canvas = faceapi.createCanvasFromMedia(this.camara.data);
+                        document.body.append(this.canvas);
+                        this.displaySize = {
+                          width: this.camara.data.width,
+                          height: this.camara.data.height
+                        };
+                        faceapi.matchDimensions(this.canvas, this.displaySize);
+                        this.intervaloGenerarDatos = setInterval(function () {
+                          return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](_this2, void 0, void 0,
+                          /*#__PURE__*/
+                          regeneratorRuntime.mark(function _callee5() {
+                            var detections, datosNeutral, datosHappy, datosSad, datosAngry, datosFearful, datosSurprised, datosDisgusted;
+                            return regeneratorRuntime.wrap(function _callee5$(_context5) {
+                              while (1) {
+                                switch (_context5.prev = _context5.next) {
+                                  case 0:
+                                    _context5.prev = 0;
+                                    _context5.next = 3;
+                                    return faceapi.detectSingleFace(this.camara.data, new faceapi.TinyFaceDetectorOptions()).withFaceLandmarks().withFaceExpressions();
 
-                                case 3:
-                                  detections = _context5.sent;
-                                  datos = faceapi.resizeResults(detections, this.displaySize).expressions;
-                                  _context5.next = 7;
-                                  return faceapi.detectSingleFace(this.camara.data).withFaceLandmarks().withAgeAndGender();
+                                  case 3:
+                                    detections = _context5.sent;
+                                    //var datos = faceapi.resizeResults(detections, this.displaySize).expressions;
+                                    //var datosFisicos = await faceapi.detectSingleFace(this.camara.data).withFaceLandmarks().withAgeAndGender()
+                                    datosNeutral = faceapi.resizeResults(detections, this.displaySize).expressions.neutral;
+                                    datosHappy = faceapi.resizeResults(detections, this.displaySize).expressions.happy;
+                                    datosSad = faceapi.resizeResults(detections, this.displaySize).expressions.sad;
+                                    datosAngry = faceapi.resizeResults(detections, this.displaySize).expressions.angry;
+                                    datosFearful = faceapi.resizeResults(detections, this.displaySize).expressions.fearful;
+                                    datosSurprised = faceapi.resizeResults(detections, this.displaySize).expressions.surprised;
+                                    datosDisgusted = faceapi.resizeResults(detections, this.displaySize).expressions.disgusted;
 
-                                case 7:
-                                  datosFisicos = _context5.sent;
-                                  datosNeutral = faceapi.resizeResults(detections, this.displaySize).expressions.neutral;
-                                  datosHappy = faceapi.resizeResults(detections, this.displaySize).expressions.happy;
-                                  datosSad = faceapi.resizeResults(detections, this.displaySize).expressions.sad;
-                                  datosAngry = faceapi.resizeResults(detections, this.displaySize).expressions.angry;
-                                  datosFearful = faceapi.resizeResults(detections, this.displaySize).expressions.fearful;
-                                  datosSurprised = faceapi.resizeResults(detections, this.displaySize).expressions.surprised;
-                                  datosDisgusted = faceapi.resizeResults(detections, this.displaySize).expressions.disgusted;
+                                    if (!this.estoyComputando) {
+                                      this.emocionAlegria += datosHappy;
+                                      this.emocionAsco += datosDisgusted;
+                                      this.emocionIra += datosAngry;
+                                      this.emocionMiedo += datosFearful;
+                                      this.emocionSorpresa += datosSurprised;
+                                      this.emocionTristeza += datosSad;
+                                    }
 
-                                  if (!this.estoyComputando) {
-                                    this.emocionAlegria += datosHappy;
-                                    this.emocionAsco += datosDisgusted;
-                                    this.emocionIra += datosAngry;
-                                    this.emocionMiedo += datosFearful;
-                                    this.emocionSorpresa += datosSurprised;
-                                    this.emocionTristeza += datosSad;
-                                  }
+                                    _context5.next = 16;
+                                    break;
 
-                                  _context5.next = 20;
-                                  break;
+                                  case 14:
+                                    _context5.prev = 14;
+                                    _context5.t0 = _context5["catch"](0);
 
-                                case 18:
-                                  _context5.prev = 18;
-                                  _context5.t0 = _context5["catch"](0);
-
-                                case 20:
-                                case "end":
-                                  return _context5.stop();
+                                  case 16:
+                                  case "end":
+                                    return _context5.stop();
+                                }
                               }
-                            }
-                          }, _callee5, this, [[0, 18]]);
-                        }));
-                      }, 1000);
-                      this.intervaloDeEnvio = setInterval(function () {
-                        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](_this, void 0, void 0,
-                        /*#__PURE__*/
-                        regeneratorRuntime.mark(function _callee6() {
-                          return regeneratorRuntime.wrap(function _callee6$(_context6) {
-                            while (1) {
-                              switch (_context6.prev = _context6.next) {
-                                case 0:
-                                  this.computacionDatos();
-
-                                case 1:
-                                case "end":
-                                  return _context6.stop();
-                              }
-                            }
-                          }, _callee6, this);
-                        }));
-                      }, 7000);
-                    } catch (ç) {
-                      console.log(ç);
-                    }
-                    /*this.intervaloGenerarDatos = setInterval(async () => {
-                               try {
-                        const detections = await faceapi.detectSingleFace(this.camara.data, new faceapi.TinyFaceDetectorOptions()).withFaceLandmarks().withFaceExpressions()
-                        var datos = faceapi.resizeResults(detections, this.displaySize).expressions;
-                        var datosFisicos = await faceapi.detectSingleFace(this.camara.data).withFaceLandmarks().withAgeAndGender()
-                                 var datosNeutral = faceapi.resizeResults(detections, this.displaySize).expressions.neutral;
-                        var datosHappy = faceapi.resizeResults(detections, this.displaySize).expressions.happy;
-                        var datosSad = faceapi.resizeResults(detections, this.displaySize).expressions.sad;
-                        var datosAngry = faceapi.resizeResults(detections, this.displaySize).expressions.angry;
-                        var datosFearful = faceapi.resizeResults(detections, this.displaySize).expressions.fearful;
-                        var datosSurprised = faceapi.resizeResults(detections, this.displaySize).expressions.surprised;
-                        var datosDisgusted = faceapi.resizeResults(detections, this.displaySize).expressions.disgusted;
-                        if(!this.estoyComputando){
-                          this.emocionAlegria += datosHappy;
-                          this.emocionAsco += datosDisgusted;
-                          this.emocionIra += datosAngry;
-                          this.emocionMiedo += datosFearful;
-                          this.emocionSorpresa += datosSurprised;
-                          this.emocionTristeza += datosSad;
-                        }
-                      } catch (error) {
-                        //console.log("No hay datos que enviar");
+                            }, _callee5, this, [[0, 14]]);
+                          }));
+                        }, 1000);
+                      } catch (e) {//console.log(e);
                       }
-                    }, 1000)*/
+                    }
 
+                    this.intervaloDeEnvio = setInterval(function (async) {
+                      _this2.computacionDatos();
+                    }, 7000);
 
                   case 2:
                   case "end":
-                    return _context7.stop();
+                    return _context6.stop();
                 }
               }
-            }, _callee7, this);
+            }, _callee6, this);
           }));
         }
       }, {
@@ -2940,13 +2920,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function computacionDatos() {
           return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
           /*#__PURE__*/
-          regeneratorRuntime.mark(function _callee8() {
-            var _this2 = this;
+          regeneratorRuntime.mark(function _callee7() {
+            var _this3 = this;
 
             var datos, x, predominante;
-            return regeneratorRuntime.wrap(function _callee8$(_context8) {
+            return regeneratorRuntime.wrap(function _callee7$(_context7) {
               while (1) {
-                switch (_context8.prev = _context8.next) {
+                switch (_context7.prev = _context7.next) {
                   case 0:
                     /*
                     push({
@@ -2960,246 +2940,261 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
                     try {
                       datos['id_actividad'] = this.actividadActual._id;
-                    } catch (e) {
-                      console.log(e);
+                    } catch (e) {//console.log(e);
                     }
 
                     x = moment__WEBPACK_IMPORTED_MODULE_4__().format();
-                    predominante = 0; //Estado Emocional
 
-                    this.datosTotalesEmocionales = this.emocionAlegria + this.emocionAsco + this.emocionIra + this.emocionMiedo + this.emocionSorpresa + this.emocionTristeza; //+this.emocionNeutra;
-
-                    datos['id_item'] = this.id_item;
-                    this.colorPredominante = this.ColorNeutral2; //Alegria
-
-                    datos['alegria'] = {
-                      x: x,
-                      y: Math.round(this.emocionAlegria / this.datosTotalesEmocionales * 100)
-                    };
-
-                    if (predominante < datos['alegria'].y) {
-                      predominante = datos['alegria'].y;
-                      this.colorPredominante = this.ColorHappy2;
-                    } //Asco
-
-
-                    datos['asco'] = {
-                      x: x,
-                      y: Math.round(this.emocionAsco / this.datosTotalesEmocionales * 100)
-                    };
-
-                    if (predominante < datos['asco'].y) {
-                      predominante = datos['asco'].y;
-                      this.colorPredominante = this.ColorDisgusted2;
-                    } //Ira
-
-
-                    datos['ira'] = {
-                      x: x,
-                      y: Math.round(this.emocionIra / this.datosTotalesEmocionales * 100)
-                    };
-
-                    if (predominante < datos['ira'].y) {
-                      predominante = datos['ira'].y;
-                      this.colorPredominante = this.ColorAngry2;
-                    } //Miedo
-
-
-                    datos['miedo'] = {
-                      x: x,
-                      y: Math.round(this.emocionMiedo / this.datosTotalesEmocionales * 100)
-                    };
-
-                    if (predominante < datos['miedo']) {
-                      predominante = datos['miedo'].y;
-                      this.colorPredominante = this.ColorFearful2;
-                    } //Sorpresa
-
-
-                    datos['sorpresa'] = {
-                      x: x,
-                      y: Math.round(this.emocionSorpresa / this.datosTotalesEmocionales * 100)
-                    };
-
-                    if (predominante < datos['sorpresa']) {
-                      predominante = datos['sorpresa'].y;
-                      this.colorPredominante = this.ColorSurprised2;
-                    } //Triteza
-
-
-                    datos['tristeza'] = {
-                      x: x,
-                      y: Math.round(this.emocionTristeza / this.datosTotalesEmocionales * 100)
-                    };
-
-                    if (predominante < datos['tristeza'].y) {
-                      predominante = datos['tristeza'].y;
-                      this.colorPredominante = this.ColorSad2;
+                    if (this.pulsera.estado == "Conectado") {
+                      datos['pulsaciones'] = {
+                        x: x,
+                        y: this.pulsaciones
+                      };
                     }
 
-                    predominante = 0;
-                    /*datos['neutra']=this.emocionNeutra/this.datosTotalesEmocionales;
-                    if(datos['tristeza']<datos['neutra']){
-                      this.colorPredominante=this.ColorNeutral2;
-                    }*/
+                    if (this.camara.estado == "Conectado") {
+                      predominante = 0; //Estado Emocional
 
-                    if (this.ColorAngry2 == this.colorPredominante) {
-                      datos['estadoEmocional'] = 'Ira';
-                    }
+                      this.datosTotalesEmocionales = this.emocionAlegria + this.emocionAsco + this.emocionIra + this.emocionMiedo + this.emocionSorpresa + this.emocionTristeza; //+this.emocionNeutra;
 
-                    if (this.ColorDisgusted2 == this.colorPredominante) {
-                      datos['estadoEmocional'] = 'Asco';
-                    }
+                      datos['id_item'] = this.id_item;
+                      this.colorPredominante = this.ColorNeutral2; //Alegria
 
-                    if (this.ColorFearful2 == this.colorPredominante) {
-                      datos['estadoEmocional'] = 'Miedo';
-                    }
+                      datos['alegria'] = {
+                        x: x,
+                        y: Math.round(this.emocionAlegria / this.datosTotalesEmocionales * 100)
+                      };
 
-                    if (this.ColorHappy2 == this.colorPredominante) {
-                      datos['estadoEmocional'] = 'Feliz';
-                    }
+                      if (predominante < datos['alegria'].y) {
+                        predominante = datos['alegria'].y;
+                        this.colorPredominante = this.ColorHappy2;
+                      } //Asco
 
-                    if (this.ColorSad2 == this.colorPredominante) {
-                      datos['estadoEmocional'] = 'Triste';
-                    }
 
-                    if (this.ColorSurprised2 == this.colorPredominante) {
-                      datos['estadoEmocional'] = 'Sorpresa';
-                    }
+                      datos['asco'] = {
+                        x: x,
+                        y: Math.round(this.emocionAsco / this.datosTotalesEmocionales * 100)
+                      };
 
-                    datos['color'] = 'rgba(' + this.colorPredominante[0] + ',' + this.colorPredominante[1] + ',' + this.colorPredominante[2] + ',' + this.colorPredominante[3] + ')'; //console.log('rgba('+this.colorPredominante[0]+','+this.colorPredominante[1]+','+this.colorPredominante[2]+','+this.colorPredominante[3]+')');
-                    //$('#estadoAlumno').css('background-color', 'rgba(' + this.colorPredominante[0] + ',' + this.colorPredominante[1] + ',' + this.colorPredominante[2] + ',' + this.colorPredominante[3] + ')');
+                      if (predominante < datos['asco'].y) {
+                        predominante = datos['asco'].y;
+                        this.colorPredominante = this.ColorDisgusted2;
+                      } //Ira
 
-                    if (this.pulsaciones < 100) {
-                      this.ponerColor();
-                      this.limpiarIntervalos();
-                    } else if (this.pulsaciones >= 100 && this.pulsaciones < 120) {
-                      this.limpiarIntervalos();
-                      this.intervaloAlto = setInterval(function (async) {
-                        setTimeout(function (async) {
-                          _this2.ponerColor();
-                        }, 900);
-                        setTimeout(function (async) {
-                          _this2.ponerNegro();
-                        }, 100);
-                      }, 1000);
-                    } else if (this.pulsaciones >= 120 && this.pulsaciones < 140) {
-                      this.limpiarIntervalos();
-                      this.intervaloMuyAlto = setInterval(function (async) {
-                        setTimeout(function (async) {
-                          _this2.ponerColor();
-                        }, 600);
-                        setTimeout(function (async) {
-                          _this2.ponerNegro();
-                        }, 100);
-                      }, 700);
-                    } else if (this.pulsaciones >= 140) {
-                      this.limpiarIntervalos();
-                      this.intervaloAltisimo = setInterval(function (async) {
-                        setTimeout(function (async) {
-                          _this2.ponerColor();
-                        }, 300);
-                        setTimeout(function (async) {
-                          _this2.ponerNegro();
-                        }, 100);
-                      }, 400);
-                    }
 
-                    this.emocionAlegria = 0;
-                    this.emocionAsco = 0;
-                    this.emocionIra = 0;
-                    this.emocionMiedo = 0;
-                    this.emocionSorpresa = 0;
-                    this.emocionTristeza = 0;
-                    this.emocionNeutra = 0;
-                    this.datosTotalesEmocionales = 0; //Estado de las Pulsaciones
+                      datos['ira'] = {
+                        x: x,
+                        y: Math.round(this.emocionIra / this.datosTotalesEmocionales * 100)
+                      };
 
-                    datos['pulsaciones'] = {
-                      x: x,
-                      y: this.pulsaciones
-                    }; //Estado temporal
+                      if (predominante < datos['ira'].y) {
+                        predominante = datos['ira'].y;
+                        this.colorPredominante = this.ColorAngry2;
+                      } //Miedo
 
-                    datos['tiempo'] = x; //Estado Cognitivo
 
-                    datos['distraido'] = {
-                      x: x,
-                      y: 0
-                    };
+                      datos['miedo'] = {
+                        x: x,
+                        y: Math.round(this.emocionMiedo / this.datosTotalesEmocionales * 100)
+                      };
 
-                    if (datos['pulsaciones'].y > 85) {
+                      if (predominante < datos['miedo']) {
+                        predominante = datos['miedo'].y;
+                        this.colorPredominante = this.ColorFearful2;
+                      } //Sorpresa
+
+
+                      datos['sorpresa'] = {
+                        x: x,
+                        y: Math.round(this.emocionSorpresa / this.datosTotalesEmocionales * 100)
+                      };
+
+                      if (predominante < datos['sorpresa']) {
+                        predominante = datos['sorpresa'].y;
+                        this.colorPredominante = this.ColorSurprised2;
+                      } //Triteza
+
+
+                      datos['tristeza'] = {
+                        x: x,
+                        y: Math.round(this.emocionTristeza / this.datosTotalesEmocionales * 100)
+                      };
+
+                      if (predominante < datos['tristeza'].y) {
+                        predominante = datos['tristeza'].y;
+                        this.colorPredominante = this.ColorSad2;
+                      }
+
+                      predominante = 0;
+                      /*datos['neutra']=this.emocionNeutra/this.datosTotalesEmocionales;
+                      if(datos['tristeza']<datos['neutra']){
+                        this.colorPredominante=this.ColorNeutral2;
+                      }*/
+
+                      if (this.ColorAngry2 == this.colorPredominante) {
+                        datos['estadoEmocional'] = 'Ira';
+                      }
+
+                      if (this.ColorDisgusted2 == this.colorPredominante) {
+                        datos['estadoEmocional'] = 'Asco';
+                      }
+
+                      if (this.ColorFearful2 == this.colorPredominante) {
+                        datos['estadoEmocional'] = 'Miedo';
+                      }
+
+                      if (this.ColorHappy2 == this.colorPredominante) {
+                        datos['estadoEmocional'] = 'Feliz';
+                      }
+
+                      if (this.ColorSad2 == this.colorPredominante) {
+                        datos['estadoEmocional'] = 'Triste';
+                      }
+
+                      if (this.ColorSurprised2 == this.colorPredominante) {
+                        datos['estadoEmocional'] = 'Sorpresa';
+                      }
+
+                      datos['color'] = 'rgba(' + this.colorPredominante[0] + ',' + this.colorPredominante[1] + ',' + this.colorPredominante[2] + ',' + this.colorPredominante[3] + ')'; //console.log('rgba('+this.colorPredominante[0]+','+this.colorPredominante[1]+','+this.colorPredominante[2]+','+this.colorPredominante[3]+')');
+                      //$('#estadoAlumno').css('background-color', 'rgba(' + this.colorPredominante[0] + ',' + this.colorPredominante[1] + ',' + this.colorPredominante[2] + ',' + this.colorPredominante[3] + ')');
+
+                      if (this.led.data) {
+                        if (this.pulsaciones < 100) {
+                          this.ponerColor();
+                          this.limpiarIntervalos();
+                        } else if (this.pulsaciones >= 100 && this.pulsaciones < 120) {
+                          this.limpiarIntervalos();
+                          this.intervaloAlto = setInterval(function (async) {
+                            setTimeout(function (async) {
+                              _this3.ponerColor();
+                            }, 900);
+                            setTimeout(function (async) {
+                              _this3.ponerNegro();
+                            }, 100);
+                          }, 1000);
+                        } else if (this.pulsaciones >= 120 && this.pulsaciones < 140) {
+                          this.limpiarIntervalos();
+                          this.intervaloMuyAlto = setInterval(function (async) {
+                            setTimeout(function (async) {
+                              _this3.ponerColor();
+                            }, 600);
+                            setTimeout(function (async) {
+                              _this3.ponerNegro();
+                            }, 100);
+                          }, 700);
+                        } else if (this.pulsaciones >= 140) {
+                          this.limpiarIntervalos();
+                          this.intervaloAltisimo = setInterval(function (async) {
+                            setTimeout(function (async) {
+                              _this3.ponerColor();
+                            }, 300);
+                            setTimeout(function (async) {
+                              _this3.ponerNegro();
+                            }, 100);
+                          }, 400);
+                        }
+                      }
+
+                      this.emocionAlegria = 0;
+                      this.emocionAsco = 0;
+                      this.emocionIra = 0;
+                      this.emocionMiedo = 0;
+                      this.emocionSorpresa = 0;
+                      this.emocionTristeza = 0;
+                      this.emocionNeutra = 0;
+                      this.datosTotalesEmocionales = 0; //Estado de las Pulsaciones
+                      //Estado temporal
+
+                      datos['tiempo'] = x; //Estado Cognitivo
+
                       datos['distraido'] = {
                         x: x,
-                        y: Math.round(datos['sorpresa'].y * 100)
+                        y: 0
                       };
-                    }
 
-                    if (datos['alegria'].y == NaN || datos['alegria'].y == null) {
-                      datos['distraido'] = {
+                      if (this.pulsera.estado == "Conectado") {
+                        if (datos['pulsaciones'].y > 85) {
+                          datos['distraido'] = {
+                            x: x,
+                            y: Math.round(datos['sorpresa'].y * 100)
+                          };
+                        }
+                      } else {
+                        datos['distraido'] = {
+                          x: x,
+                          y: Math.round(datos['sorpresa'].y * 100)
+                        };
+                      }
+
+                      if (datos['alegria'].y == NaN || datos['alegria'].y == null) {
+                        datos['distraido'] = {
+                          x: x,
+                          y: 100
+                        };
+                      }
+
+                      datos['concentrado'] = {
                         x: x,
-                        y: 100
+                        y: Math.round(100 - datos['distraido'].y * 100)
                       };
-                    }
-
-                    datos['concentrado'] = {
-                      x: x,
-                      y: Math.round(100 - datos['distraido'].y * 100)
-                    };
-                    datos['frustrado'] = {
-                      x: x,
-                      y: 0
-                    };
-
-                    if (datos['sorpresa'].y + datos['tristeza'].y > 0.25) {
                       datos['frustrado'] = {
                         x: x,
-                        y: Math.round(datos['frustrado'].y + 0.25 * 100)
+                        y: 0
                       };
-                    }
 
-                    if (datos['asco'].y + datos['ira'].y > 0.25) {
-                      datos['frustrado'] = {
+                      if (datos['sorpresa'].y + datos['tristeza'].y > 0.25) {
+                        datos['frustrado'] = {
+                          x: x,
+                          y: Math.round(datos['frustrado'].y + 0.25 * 100)
+                        };
+                      }
+
+                      if (datos['asco'].y + datos['ira'].y > 0.25) {
+                        datos['frustrado'] = {
+                          x: x,
+                          y: Math.round(datos['frustrado'].y + 0.25 * 100)
+                        };
+                      }
+
+                      if (datos['miedo'].y + datos['tristeza'].y > 0.25) {
+                        datos['frustrado'] = {
+                          x: x,
+                          y: Math.round(datos['frustrado'].y + 0.25 * 100)
+                        };
+                      }
+
+                      if (datos['sorpresa'].y + datos['ira'].y > 0.25) {
+                        datos['frustrado'] = {
+                          x: x,
+                          y: Math.round(datos['frustrado'].y + 0.25 * 100)
+                        };
+                      }
+
+                      if (datos['alegria'].y == NaN || datos['alegria'].y == null) {
+                        datos['frustrado'] = {
+                          x: x,
+                          y: 1 * 100
+                        };
+                      }
+
+                      datos['motivado'] = {
                         x: x,
-                        y: Math.round(datos['frustrado'].y + 0.25 * 100)
+                        y: Math.round(100 - datos['frustrado'].y * 100)
                       };
                     }
 
-                    if (datos['miedo'].y + datos['tristeza'].y > 0.25) {
-                      datos['frustrado'] = {
-                        x: x,
-                        y: Math.round(datos['frustrado'].y + 0.25 * 100)
-                      };
-                    }
-
-                    if (datos['sorpresa'].y + datos['ira'].y > 0.25) {
-                      datos['frustrado'] = {
-                        x: x,
-                        y: Math.round(datos['frustrado'].y + 0.25 * 100)
-                      };
-                    }
-
-                    if (datos['alegria'].y == NaN || datos['alegria'].y == null) {
-                      datos['frustrado'] = {
-                        x: x,
-                        y: 1 * 100
-                      };
-                    }
-
-                    datos['motivado'] = {
-                      x: x,
-                      y: Math.round(100 - datos['frustrado'].y * 100)
-                    };
                     console.log("Datos listos para enviar");
                     console.log(datos);
                     this.enviarDatos(datos); //this.enviarEmocionesWebCam(datos);
 
                     this.estoyComputando = false;
 
-                  case 55:
+                  case 11:
                   case "end":
-                    return _context8.stop();
+                    return _context7.stop();
                 }
               }
-            }, _callee8, this);
+            }, _callee7, this);
           }));
         }
       }, {
@@ -3244,48 +3239,47 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function conectarPulsera(sensor) {
           return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
           /*#__PURE__*/
-          regeneratorRuntime.mark(function _callee9() {
-            var _this3 = this;
+          regeneratorRuntime.mark(function _callee8() {
+            var _this4 = this;
 
             var conectado;
-            return regeneratorRuntime.wrap(function _callee9$(_context9) {
+            return regeneratorRuntime.wrap(function _callee8$(_context8) {
               while (1) {
-                switch (_context9.prev = _context9.next) {
+                switch (_context8.prev = _context8.next) {
                   case 0:
-                    _context9.prev = 0;
+                    _context8.prev = 0;
                     sensor.cargando = true;
-                    _context9.next = 4;
+                    _context8.next = 4;
                     return pulseraMiband.connect();
 
                   case 4:
-                    conectado = _context9.sent;
+                    conectado = _context8.sent;
                     console.log(conectado);
 
                     if (conectado) {
                       sensor.estado = "Conectado";
                       this.intervaloPulsaciones = setInterval(function (async) {
-                        _this3.pulsometro(sensor);
+                        _this4.pulsometro(sensor);
                       }, 2000);
-                      this.pulseraConectada(this.actividadActual);
                     } else {
                       sensor.cargando = false;
                     }
 
-                    _context9.next = 12;
+                    _context8.next = 12;
                     break;
 
                   case 9:
-                    _context9.prev = 9;
-                    _context9.t0 = _context9["catch"](0);
+                    _context8.prev = 9;
+                    _context8.t0 = _context8["catch"](0);
                     //console.log(e);
                     sensor.cargando = false;
 
                   case 12:
                   case "end":
-                    return _context9.stop();
+                    return _context8.stop();
                 }
               }
-            }, _callee9, this, [[0, 9]]);
+            }, _callee8, this, [[0, 9]]);
           }));
         }
       }, {
@@ -3296,6 +3290,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
             if (this.pulsaciones > 0) {
               sensor.cargando = false;
+              this.pulseraConectada(this.actividadActual);
             }
           }
         }
@@ -3304,11 +3299,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function desconectarSensor(sensor) {
           return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
           /*#__PURE__*/
-          regeneratorRuntime.mark(function _callee10() {
+          regeneratorRuntime.mark(function _callee9() {
             var constraints, stream, track;
-            return regeneratorRuntime.wrap(function _callee10$(_context10) {
+            return regeneratorRuntime.wrap(function _callee9$(_context9) {
               while (1) {
-                switch (_context10.prev = _context10.next) {
+                switch (_context9.prev = _context9.next) {
                   case 0:
                     if (sensor.nombre == "Led") {
                       //console.log(sensor);
@@ -3322,7 +3317,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                     }
 
                     if (!(sensor.nombre == "Camara")) {
-                      _context10.next = 20;
+                      _context9.next = 20;
                       break;
                     }
 
@@ -3347,13 +3342,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                         height: 480
                       }
                     };
-                    _context10.prev = 3;
+                    _context9.prev = 3;
                     sensor.cargando = true;
-                    _context10.next = 7;
+                    _context9.next = 7;
                     return navigator.mediaDevices.getUserMedia(constraints);
 
                   case 7:
-                    stream = _context10.sent;
+                    stream = _context9.sent;
                     track = stream.getTracks()[0]; // if only one media track
                     // ...
 
@@ -3363,14 +3358,14 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                     sensor.estado = "Desconectado";
                     this.webCamDesconectada(this.actividadActual);
                     clearImmediate(this.intervaloGenerarDatos);
-                    _context10.next = 20;
+                    _context9.next = 20;
                     break;
 
                   case 17:
-                    _context10.prev = 17;
-                    _context10.t0 = _context10["catch"](3);
+                    _context9.prev = 17;
+                    _context9.t0 = _context9["catch"](3);
                     //errorMsgElement.innerHTML = `navigator.getUserMedia error:${e.toString()}`;
-                    console.log(_context10.t0); //console.log("Has tenido un error");
+                    console.log(_context9.t0); //console.log("Has tenido un error");
 
                   case 20:
                     if (sensor.nombre == "Pulsera") {
@@ -3385,10 +3380,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
                   case 21:
                   case "end":
-                    return _context10.stop();
+                    return _context9.stop();
                 }
               }
-            }, _callee10, this, [[3, 17]]);
+            }, _callee9, this, [[3, 17]]);
           }));
         } //Implementacion del led
 
@@ -3397,17 +3392,17 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function conectarLed(sensor) {
           return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
           /*#__PURE__*/
-          regeneratorRuntime.mark(function _callee11() {
+          regeneratorRuntime.mark(function _callee10() {
             var ju, led;
-            return regeneratorRuntime.wrap(function _callee11$(_context11) {
+            return regeneratorRuntime.wrap(function _callee10$(_context10) {
               while (1) {
-                switch (_context11.prev = _context11.next) {
+                switch (_context10.prev = _context10.next) {
                   case 0:
                     ju = this;
                     sensor.cargando = true;
                     console.log("Conectandose...");
-                    _context11.prev = 3;
-                    _context11.next = 6;
+                    _context10.prev = 3;
+                    _context10.next = 6;
                     return navigator.hid.requestDevice({
                       filters: [{
                         vendorId: 0x20a0,
@@ -3416,18 +3411,18 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                     });
 
                   case 6:
-                    led = _context11.sent;
+                    led = _context10.sent;
                     //device.open();
                     //console.log(this.device);
                     console.log(led);
 
                     if (!(led.length != 0)) {
-                      _context11.next = 17;
+                      _context10.next = 19;
                       break;
                     }
 
                     this.socket.emit('ledConectada', this.actividadActual, this.estudiante);
-                    _context11.next = 12;
+                    _context10.next = 12;
                     return led[0].open();
 
                   case 12:
@@ -3437,28 +3432,34 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                     sensor.cargando = false;
                     this.led.estado = "Conectado"; //await ju.ledConectada(ju.actividadActual);
 
-                  case 17:
-                    _context11.next = 23;
+                    _context10.next = 20;
                     break;
 
                   case 19:
-                    _context11.prev = 19;
-                    _context11.t0 = _context11["catch"](3);
+                    sensor.cargando = false;
+
+                  case 20:
+                    _context10.next = 26;
+                    break;
+
+                  case 22:
+                    _context10.prev = 22;
+                    _context10.t0 = _context10["catch"](3);
                     // No device was selected.
                     sensor.cargando = false;
-                    console.log(_context11.t0);
+                    console.log(_context10.t0);
 
-                  case 23:
+                  case 26:
                     //console.log(this.listaSensores)
                     if (this.device !== undefined) {// Add |device| to the UI.
                     }
 
-                  case 24:
+                  case 27:
                   case "end":
-                    return _context11.stop();
+                    return _context10.stop();
                 }
               }
-            }, _callee11, this, [[3, 19]]);
+            }, _callee10, this, [[3, 22]]);
           }));
         }
       }, {
@@ -3486,13 +3487,34 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function ponerHappy() {
           return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
           /*#__PURE__*/
+          regeneratorRuntime.mark(function _callee11() {
+            return regeneratorRuntime.wrap(function _callee11$(_context11) {
+              while (1) {
+                switch (_context11.prev = _context11.next) {
+                  case 0:
+                    _context11.next = 2;
+                    return this.fadeToColor(this.led.data, [255, 255, 0]);
+
+                  case 2:
+                  case "end":
+                    return _context11.stop();
+                }
+              }
+            }, _callee11, this);
+          }));
+        }
+      }, {
+        key: "ponerNeutral",
+        value: function ponerNeutral() {
+          return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
+          /*#__PURE__*/
           regeneratorRuntime.mark(function _callee12() {
             return regeneratorRuntime.wrap(function _callee12$(_context12) {
               while (1) {
                 switch (_context12.prev = _context12.next) {
                   case 0:
                     _context12.next = 2;
-                    return this.fadeToColor(this.led.data, [255, 255, 0]);
+                    return this.fadeToColor(this.led.data, [84, 255, 84]);
 
                   case 2:
                   case "end":
@@ -3503,8 +3525,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           }));
         }
       }, {
-        key: "ponerNeutral",
-        value: function ponerNeutral() {
+        key: "ponerSad",
+        value: function ponerSad() {
           return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
           /*#__PURE__*/
           regeneratorRuntime.mark(function _callee13() {
@@ -3513,7 +3535,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                 switch (_context13.prev = _context13.next) {
                   case 0:
                     _context13.next = 2;
-                    return this.fadeToColor(this.led.data, [84, 255, 84]);
+                    return this.fadeToColor(this.led.data, [81, 81, 255]);
 
                   case 2:
                   case "end":
@@ -3524,8 +3546,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           }));
         }
       }, {
-        key: "ponerSad",
-        value: function ponerSad() {
+        key: "ponerAngry",
+        value: function ponerAngry() {
           return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
           /*#__PURE__*/
           regeneratorRuntime.mark(function _callee14() {
@@ -3534,7 +3556,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                 switch (_context14.prev = _context14.next) {
                   case 0:
                     _context14.next = 2;
-                    return this.fadeToColor(this.led.data, [81, 81, 255]);
+                    return this.fadeToColor(this.led.data, [255, 0, 0]);
 
                   case 2:
                   case "end":
@@ -3545,8 +3567,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           }));
         }
       }, {
-        key: "ponerAngry",
-        value: function ponerAngry() {
+        key: "ponerFearful",
+        value: function ponerFearful() {
           return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
           /*#__PURE__*/
           regeneratorRuntime.mark(function _callee15() {
@@ -3555,7 +3577,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                 switch (_context15.prev = _context15.next) {
                   case 0:
                     _context15.next = 2;
-                    return this.fadeToColor(this.led.data, [255, 0, 0]);
+                    return this.fadeToColor(this.led.data, [0, 150, 0]);
 
                   case 2:
                   case "end":
@@ -3566,8 +3588,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           }));
         }
       }, {
-        key: "ponerFearful",
-        value: function ponerFearful() {
+        key: "ponerDisgusted",
+        value: function ponerDisgusted() {
           return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
           /*#__PURE__*/
           regeneratorRuntime.mark(function _callee16() {
@@ -3576,7 +3598,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                 switch (_context16.prev = _context16.next) {
                   case 0:
                     _context16.next = 2;
-                    return this.fadeToColor(this.led.data, [0, 150, 0]);
+                    return this.fadeToColor(this.led.data, [80, 80, 80]);
 
                   case 2:
                   case "end":
@@ -3587,8 +3609,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           }));
         }
       }, {
-        key: "ponerDisgusted",
-        value: function ponerDisgusted() {
+        key: "ponerSurprised",
+        value: function ponerSurprised() {
           return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
           /*#__PURE__*/
           regeneratorRuntime.mark(function _callee17() {
@@ -3597,7 +3619,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                 switch (_context17.prev = _context17.next) {
                   case 0:
                     _context17.next = 2;
-                    return this.fadeToColor(this.led.data, [80, 80, 80]);
+                    return this.fadeToColor(this.led.data, [89, 189, 255]);
 
                   case 2:
                   case "end":
@@ -3608,8 +3630,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           }));
         }
       }, {
-        key: "ponerSurprised",
-        value: function ponerSurprised() {
+        key: "ponerColor",
+        value: function ponerColor() {
           return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
           /*#__PURE__*/
           regeneratorRuntime.mark(function _callee18() {
@@ -3618,7 +3640,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                 switch (_context18.prev = _context18.next) {
                   case 0:
                     _context18.next = 2;
-                    return this.fadeToColor(this.led.data, [89, 189, 255]);
+                    return this.fadeToColor(this.led.data, [this.colorPredominante[0], this.colorPredominante[1], this.colorPredominante[2]]);
 
                   case 2:
                   case "end":
@@ -3629,8 +3651,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           }));
         }
       }, {
-        key: "ponerColor",
-        value: function ponerColor() {
+        key: "ponerNegro",
+        value: function ponerNegro() {
           return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
           /*#__PURE__*/
           regeneratorRuntime.mark(function _callee19() {
@@ -3639,7 +3661,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                 switch (_context19.prev = _context19.next) {
                   case 0:
                     _context19.next = 2;
-                    return this.fadeToColor(this.led.data, [this.colorPredominante[0], this.colorPredominante[1], this.colorPredominante[2]]);
+                    return this.fadeToColor(this.led.data, [0, 0, 0]);
 
                   case 2:
                   case "end":
@@ -3650,8 +3672,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           }));
         }
       }, {
-        key: "ponerNegro",
-        value: function ponerNegro() {
+        key: "ponerBlanco",
+        value: function ponerBlanco() {
           return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
           /*#__PURE__*/
           regeneratorRuntime.mark(function _callee20() {
@@ -3660,7 +3682,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                 switch (_context20.prev = _context20.next) {
                   case 0:
                     _context20.next = 2;
-                    return this.fadeToColor(this.led.data, [0, 0, 0]);
+                    return this.fadeToColor(this.led.data, [255, 255, 255]);
 
                   case 2:
                   case "end":
@@ -3668,27 +3690,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                 }
               }
             }, _callee20, this);
-          }));
-        }
-      }, {
-        key: "ponerBlanco",
-        value: function ponerBlanco() {
-          return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
-          /*#__PURE__*/
-          regeneratorRuntime.mark(function _callee21() {
-            return regeneratorRuntime.wrap(function _callee21$(_context21) {
-              while (1) {
-                switch (_context21.prev = _context21.next) {
-                  case 0:
-                    _context21.next = 2;
-                    return this.fadeToColor(this.led.data, [255, 255, 255]);
-
-                  case 2:
-                  case "end":
-                    return _context21.stop();
-                }
-              }
-            }, _callee21, this);
           }));
         }
       }, {
@@ -3701,37 +3702,36 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
           return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
           /*#__PURE__*/
-          regeneratorRuntime.mark(function _callee22() {
+          regeneratorRuntime.mark(function _callee21() {
             var reportId, data;
-            return regeneratorRuntime.wrap(function _callee22$(_context22) {
+            return regeneratorRuntime.wrap(function _callee21$(_context21) {
               while (1) {
-                switch (_context22.prev = _context22.next) {
+                switch (_context21.prev = _context21.next) {
                   case 0:
                     reportId = 1; //console.log([r, g, b]);
+                    //console.log(this.led.data);
+                    //console.log(device);
 
-                    console.log(this.led.data);
-                    console.log(device);
                     data = Uint8Array.from([r, g, b]); //const negro = Uint8Array.from([0x63, 0, 0, 0, 0x00, 0x10, 0x00, 0x00]);
 
-                    _context22.prev = 4;
-                    console.log(data);
-                    _context22.next = 8;
+                    _context21.prev = 2;
+                    _context21.next = 5;
                     return device.sendFeatureReport(1, data);
 
-                  case 8:
-                    _context22.next = 12;
+                  case 5:
+                    _context21.next = 9;
                     break;
 
-                  case 10:
-                    _context22.prev = 10;
-                    _context22.t0 = _context22["catch"](4);
+                  case 7:
+                    _context21.prev = 7;
+                    _context21.t0 = _context21["catch"](2);
 
-                  case 12:
+                  case 9:
                   case "end":
-                    return _context22.stop();
+                    return _context21.stop();
                 }
               }
-            }, _callee22, this, [[4, 10]]);
+            }, _callee21, null, [[2, 7]]);
           }));
         }
       }, {
@@ -3949,11 +3949,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function ngOnInit() {
           return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
           /*#__PURE__*/
-          regeneratorRuntime.mark(function _callee23() {
+          regeneratorRuntime.mark(function _callee22() {
             var ju;
-            return regeneratorRuntime.wrap(function _callee23$(_context23) {
+            return regeneratorRuntime.wrap(function _callee22$(_context22) {
               while (1) {
-                switch (_context23.prev = _context23.next) {
+                switch (_context22.prev = _context22.next) {
                   case 0:
                     ju = this;
                     this.datosPrimarios = this._formBuilder.group({
@@ -3970,10 +3970,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
                   case 3:
                   case "end":
-                    return _context23.stop();
+                    return _context22.stop();
                 }
               }
-            }, _callee23, this);
+            }, _callee22, this);
           }));
         }
       }, {
@@ -4010,10 +4010,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "masterToggle",
         value: function masterToggle() {
-          var _this4 = this;
+          var _this5 = this;
 
           this.isAllSelected() ? this.selection.clear() : this.dataSource.data.forEach(function (row) {
-            return _this4.selection.select(row);
+            return _this5.selection.select(row);
           });
         }
       }, {
@@ -4150,11 +4150,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function anadirProfesorLista() {
           return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
           /*#__PURE__*/
-          regeneratorRuntime.mark(function _callee24() {
+          regeneratorRuntime.mark(function _callee23() {
             var ju, profesor;
-            return regeneratorRuntime.wrap(function _callee24$(_context24) {
+            return regeneratorRuntime.wrap(function _callee23$(_context23) {
               while (1) {
-                switch (_context24.prev = _context24.next) {
+                switch (_context23.prev = _context23.next) {
                   case 0:
                     ju = this;
                     profesor = {
@@ -4197,10 +4197,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
                   case 3:
                   case "end":
-                    return _context24.stop();
+                    return _context23.stop();
                 }
               }
-            }, _callee24, this);
+            }, _callee23, this);
           }));
         }
       }, {
@@ -4427,10 +4427,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "masterToggle",
         value: function masterToggle() {
-          var _this5 = this;
+          var _this6 = this;
 
           this.isAllSelected() ? this.selection.clear() : this.dataSource.data.forEach(function (row) {
-            return _this5.selection.select(row);
+            return _this6.selection.select(row);
           });
         }
       }, {
@@ -4505,11 +4505,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function guardarActividad() {
           return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
           /*#__PURE__*/
-          regeneratorRuntime.mark(function _callee25() {
+          regeneratorRuntime.mark(function _callee24() {
             var ju;
-            return regeneratorRuntime.wrap(function _callee25$(_context25) {
+            return regeneratorRuntime.wrap(function _callee24$(_context24) {
               while (1) {
-                switch (_context25.prev = _context25.next) {
+                switch (_context24.prev = _context24.next) {
                   case 0:
                     ju = this;
                     this.claseCreate.alumnos = this.alumnosSeleccionados;
@@ -4549,10 +4549,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
                   case 6:
                   case "end":
-                    return _context25.stop();
+                    return _context24.stop();
                 }
               }
-            }, _callee25, this);
+            }, _callee24, this);
           }));
         }
       }, {
@@ -4575,11 +4575,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function anadirProfesorLista() {
           return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
           /*#__PURE__*/
-          regeneratorRuntime.mark(function _callee26() {
+          regeneratorRuntime.mark(function _callee25() {
             var ju, profesor;
-            return regeneratorRuntime.wrap(function _callee26$(_context26) {
+            return regeneratorRuntime.wrap(function _callee25$(_context25) {
               while (1) {
-                switch (_context26.prev = _context26.next) {
+                switch (_context25.prev = _context25.next) {
                   case 0:
                     ju = this;
                     profesor = {
@@ -4622,10 +4622,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
                   case 3:
                   case "end":
-                    return _context26.stop();
+                    return _context25.stop();
                 }
               }
-            }, _callee26, this);
+            }, _callee25, this);
           }));
         }
       }, {
@@ -4939,18 +4939,18 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "ngOnChanges",
         value: function ngOnChanges() {
-          var _this6 = this;
+          var _this7 = this;
 
           this.dataSource = new _angular_material__WEBPACK_IMPORTED_MODULE_5__["MatTableDataSource"](this.estudiantes.reverse());
           console.log(this.editarActividad);
           this.dataSource.data.forEach(function (row) {
-            for (var i in _this6.editarActividad.alumnos) {
-              if (_this6.editarActividad.alumnos[i].estudiante._id == row._id) {
-                _this6.selection.select(row);
+            for (var i in _this7.editarActividad.alumnos) {
+              if (_this7.editarActividad.alumnos[i].estudiante._id == row._id) {
+                _this7.selection.select(row);
 
-                _this6.actualizarr(row);
+                _this7.actualizarr(row);
 
-                _this6.arrayAlumnosAntiguos.push(new _Modelos_modelos__WEBPACK_IMPORTED_MODULE_3__["Alumnos"](_this6.editarActividad.alumnos[i].estudiante, _this6.editarActividad.alumnos[i].posicion, _this6.editarActividad, _this6.editarActividad.alumnos[i].datos));
+                _this7.arrayAlumnosAntiguos.push(new _Modelos_modelos__WEBPACK_IMPORTED_MODULE_3__["Alumnos"](_this7.editarActividad.alumnos[i].estudiante, _this7.editarActividad.alumnos[i].posicion, _this7.editarActividad, _this7.editarActividad.alumnos[i].datos));
               }
             } //this.actualizarr(row);
             //console.log(this.arryaAlumnos);
@@ -4962,10 +4962,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function actualizarr(item) {
           return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
           /*#__PURE__*/
-          regeneratorRuntime.mark(function _callee27() {
-            return regeneratorRuntime.wrap(function _callee27$(_context27) {
+          regeneratorRuntime.mark(function _callee26() {
+            return regeneratorRuntime.wrap(function _callee26$(_context26) {
               while (1) {
-                switch (_context27.prev = _context27.next) {
+                switch (_context26.prev = _context26.next) {
                   case 0:
                     this.arryaAlumnos.push(new _Modelos_modelos__WEBPACK_IMPORTED_MODULE_3__["Alumnos"](item, item.posicion, this.editarActividad, null));
                     this.alumnosSeleccionados = this.arryaAlumnos;
@@ -4973,10 +4973,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
                   case 3:
                   case "end":
-                    return _context27.stop();
+                    return _context26.stop();
                 }
               }
-            }, _callee27, this);
+            }, _callee26, this);
           }));
         }
       }, {
@@ -5008,14 +5008,14 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "masterToggle",
         value: function masterToggle() {
-          var _this7 = this;
+          var _this8 = this;
 
           this.isAllSelected() ? this.selection.clear() : this.dataSource.data.forEach(function (row) {
-            _this7.selection.select(row); //this.arryaAlumnos.push(new Alumnos(row, { x: 0, y: 0 }, this.editarActividad))
+            _this8.selection.select(row); //this.arryaAlumnos.push(new Alumnos(row, { x: 0, y: 0 }, this.editarActividad))
             //this.alumnosSeleccionados = this.arryaAlumnos;
 
 
-            _this7.ponerAlumnos();
+            _this8.ponerAlumnos();
           });
         }
       }, {
@@ -5122,11 +5122,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function anadirProfesorLista() {
           return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
           /*#__PURE__*/
-          regeneratorRuntime.mark(function _callee28() {
+          regeneratorRuntime.mark(function _callee27() {
             var ju, profesor;
-            return regeneratorRuntime.wrap(function _callee28$(_context28) {
+            return regeneratorRuntime.wrap(function _callee27$(_context27) {
               while (1) {
-                switch (_context28.prev = _context28.next) {
+                switch (_context27.prev = _context27.next) {
                   case 0:
                     ju = this;
                     profesor = {
@@ -5169,10 +5169,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
                   case 3:
                   case "end":
-                    return _context28.stop();
+                    return _context27.stop();
                 }
               }
-            }, _callee28, this);
+            }, _callee27, this);
           }));
         }
       }, {
@@ -5357,25 +5357,25 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "ngOnChanges",
         value: function ngOnChanges() {
-          var _this8 = this;
+          var _this9 = this;
 
           this.dataSource = new _angular_material__WEBPACK_IMPORTED_MODULE_5__["MatTableDataSource"](this.estudiantes);
           /*console.log("Prueba");
           console.log(this.dataSource);*/
 
           this.dataSource.data.forEach(function (row) {
-            for (var i in _this8.editarActividad.alumnos) {
-              if (_this8.editarActividad.alumnos[i].estudiante._id == row._id) {
-                _this8.selection.select(row);
+            for (var i in _this9.editarActividad.alumnos) {
+              if (_this9.editarActividad.alumnos[i].estudiante._id == row._id) {
+                _this9.selection.select(row);
 
-                _this8.actualizarr(row);
+                _this9.actualizarr(row);
 
-                _this8.arrayAlumnosAntiguos.push(new _Modelos_modelos__WEBPACK_IMPORTED_MODULE_3__["AlumnosClase"](_this8.editarActividad.alumnos[i].estudiante, _this8.editarActividad.alumnos[i].posicion));
+                _this9.arrayAlumnosAntiguos.push(new _Modelos_modelos__WEBPACK_IMPORTED_MODULE_3__["AlumnosClase"](_this9.editarActividad.alumnos[i].estudiante, _this9.editarActividad.alumnos[i].posicion));
               }
             } //this.actualizarr(row);
 
 
-            console.log(_this8.arryaAlumnos);
+            console.log(_this9.arryaAlumnos);
           });
         }
       }, {
@@ -5383,10 +5383,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function actualizarr(item) {
           return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
           /*#__PURE__*/
-          regeneratorRuntime.mark(function _callee29() {
-            return regeneratorRuntime.wrap(function _callee29$(_context29) {
+          regeneratorRuntime.mark(function _callee28() {
+            return regeneratorRuntime.wrap(function _callee28$(_context28) {
               while (1) {
-                switch (_context29.prev = _context29.next) {
+                switch (_context28.prev = _context28.next) {
                   case 0:
                     this.arryaAlumnos.push(new _Modelos_modelos__WEBPACK_IMPORTED_MODULE_3__["AlumnosClase"](item, {
                       x: 0,
@@ -5397,10 +5397,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
                   case 3:
                   case "end":
-                    return _context29.stop();
+                    return _context28.stop();
                 }
               }
-            }, _callee29, this);
+            }, _callee28, this);
           }));
         }
       }, {
@@ -5432,14 +5432,14 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "masterToggle",
         value: function masterToggle() {
-          var _this9 = this;
+          var _this10 = this;
 
           this.isAllSelected() ? this.selection.clear() : this.dataSource.data.forEach(function (row) {
-            _this9.selection.select(row); //this.arryaAlumnos.push(new Alumnos(row, { x: 0, y: 0 }, this.editarActividad))
+            _this10.selection.select(row); //this.arryaAlumnos.push(new Alumnos(row, { x: 0, y: 0 }, this.editarActividad))
             //this.alumnosSeleccionados = this.arryaAlumnos;
 
 
-            _this9.ponerAlumnos();
+            _this10.ponerAlumnos();
           });
         }
       }, {
@@ -5540,11 +5540,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function anadirProfesorLista() {
           return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
           /*#__PURE__*/
-          regeneratorRuntime.mark(function _callee30() {
+          regeneratorRuntime.mark(function _callee29() {
             var ju, profesor;
-            return regeneratorRuntime.wrap(function _callee30$(_context30) {
+            return regeneratorRuntime.wrap(function _callee29$(_context29) {
               while (1) {
-                switch (_context30.prev = _context30.next) {
+                switch (_context29.prev = _context29.next) {
                   case 0:
                     ju = this;
                     profesor = {
@@ -5587,10 +5587,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
                   case 3:
                   case "end":
-                    return _context30.stop();
+                    return _context29.stop();
                 }
               }
-            }, _callee30, this);
+            }, _callee29, this);
           }));
         }
       }, {
@@ -6052,8 +6052,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         };
 
         this.borrarActividadLista = function (actividad) {
-          this.socket.emit('borrarActividadLista', actividad);
-          console.log("Actividad: " + actividad._id + " YA NO está lista.");
+          this.socket.emit('borrarActividadLista', actividad); //console.log("Actividad: " + actividad._id + " YA NO está lista.");
         };
 
         this.listoParaRecibirDatos = function (actividad) {
@@ -6216,11 +6215,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function ngOnInit() {
           return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
           /*#__PURE__*/
-          regeneratorRuntime.mark(function _callee31() {
+          regeneratorRuntime.mark(function _callee30() {
             var ju;
-            return regeneratorRuntime.wrap(function _callee31$(_context31) {
+            return regeneratorRuntime.wrap(function _callee30$(_context30) {
               while (1) {
-                switch (_context31.prev = _context31.next) {
+                switch (_context30.prev = _context30.next) {
                   case 0:
                     //this.socket = new ClienteWS('profesor');
                     //this.socket.ini();
@@ -6261,10 +6260,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
                   case 6:
                   case "end":
-                    return _context31.stop();
+                    return _context30.stop();
                 }
               }
-            }, _callee31, this);
+            }, _callee30, this);
           }));
         }
         /*ngOnChanges() {
@@ -6276,15 +6275,15 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function ngAfterViewInit() {
           return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
           /*#__PURE__*/
-          regeneratorRuntime.mark(function _callee32() {
+          regeneratorRuntime.mark(function _callee31() {
             var ju;
-            return regeneratorRuntime.wrap(function _callee32$(_context32) {
+            return regeneratorRuntime.wrap(function _callee31$(_context31) {
               while (1) {
-                switch (_context32.prev = _context32.next) {
+                switch (_context31.prev = _context31.next) {
                   case 0:
                     ju = this; //this.listaAlumnos=this.estudiantes.getEstudiantes();
 
-                    _context32.next = 3;
+                    _context31.next = 3;
                     return $.getJSON("/verEstudiantes", function (data) {
                       //console.log(data);
                       ju.listaAlumnos = data;
@@ -6295,10 +6294,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
                   case 3:
                   case "end":
-                    return _context32.stop();
+                    return _context31.stop();
                 }
               }
-            }, _callee32, this);
+            }, _callee31, this);
           }));
         }
       }, {
@@ -6778,11 +6777,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function cerrarModal() {
           return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
           /*#__PURE__*/
-          regeneratorRuntime.mark(function _callee33() {
+          regeneratorRuntime.mark(function _callee32() {
             var ju;
-            return regeneratorRuntime.wrap(function _callee33$(_context33) {
+            return regeneratorRuntime.wrap(function _callee32$(_context32) {
               while (1) {
-                switch (_context33.prev = _context33.next) {
+                switch (_context32.prev = _context32.next) {
                   case 0:
                     this.crearActividad = false;
                     this.crearClase = false;
@@ -6792,7 +6791,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                     this.crearProfesor = false;
                     ju = this; //this.listaAlumnos=this.estudiantes.getEstudiantes();
 
-                    _context33.next = 9;
+                    _context32.next = 9;
                     return $.getJSON("/verEstudiantes", function (data) {
                       //console.log(data);
                       ju.listaAlumnos = data;
@@ -6802,7 +6801,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                     });
 
                   case 9:
-                    _context33.next = 11;
+                    _context32.next = 11;
                     return $.getJSON("/verActividades", function (data) {
                       //console.log(data);
                       ju.listaActividades = data;
@@ -6812,7 +6811,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                     });
 
                   case 11:
-                    _context33.next = 13;
+                    _context32.next = 13;
                     return $.getJSON("/verClases", function (data) {
                       //console.log(data);
                       ju.listaClases = data;
@@ -6822,7 +6821,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                     });
 
                   case 13:
-                    _context33.next = 15;
+                    _context32.next = 15;
                     return $.getJSON("/verProfesores", function (data) {
                       //console.log(data);
                       ju.listaProfesores = data;
@@ -6833,10 +6832,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
                   case 15:
                   case "end":
-                    return _context33.stop();
+                    return _context32.stop();
                 }
               }
-            }, _callee33, this);
+            }, _callee32, this);
           }));
         }
       }, {
@@ -6947,11 +6946,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function actualizarClases(clase, editada) {
           return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
           /*#__PURE__*/
-          regeneratorRuntime.mark(function _callee34() {
+          regeneratorRuntime.mark(function _callee33() {
             var ju;
-            return regeneratorRuntime.wrap(function _callee34$(_context34) {
+            return regeneratorRuntime.wrap(function _callee33$(_context33) {
               while (1) {
-                switch (_context34.prev = _context34.next) {
+                switch (_context33.prev = _context33.next) {
                   case 0:
                     this.crearClase = false;
                     this.editarClase = false;
@@ -6989,10 +6988,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
                   case 5:
                   case "end":
-                    return _context34.stop();
+                    return _context33.stop();
                 }
               }
-            }, _callee34, this);
+            }, _callee33, this);
           }));
         }
       }, {
@@ -7035,13 +7034,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                 success: function success(data) {
                   return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
                   /*#__PURE__*/
-                  regeneratorRuntime.mark(function _callee35() {
-                    return regeneratorRuntime.wrap(function _callee35$(_context35) {
+                  regeneratorRuntime.mark(function _callee34() {
+                    return regeneratorRuntime.wrap(function _callee34$(_context34) {
                       while (1) {
-                        switch (_context35.prev = _context35.next) {
+                        switch (_context34.prev = _context34.next) {
                           case 0:
                             console.log("Actividad eliminado");
-                            _context35.next = 3;
+                            _context34.next = 3;
                             return $.getJSON("/verActividades", function (data) {
                               ju.listaActividades = data;
                               ju.dataSourceActividades = new _angular_material__WEBPACK_IMPORTED_MODULE_10__["MatTableDataSource"](ju.listaActividades.reverse());
@@ -7051,10 +7050,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
                           case 3:
                           case "end":
-                            return _context35.stop();
+                            return _context34.stop();
                         }
                       }
-                    }, _callee35);
+                    }, _callee34);
                   }));
                 },
                 contentType: 'application/json',
@@ -7068,11 +7067,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function borrarC(clase) {
           return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
           /*#__PURE__*/
-          regeneratorRuntime.mark(function _callee36() {
+          regeneratorRuntime.mark(function _callee35() {
             var ju;
-            return regeneratorRuntime.wrap(function _callee36$(_context36) {
+            return regeneratorRuntime.wrap(function _callee35$(_context35) {
               while (1) {
-                switch (_context36.prev = _context36.next) {
+                switch (_context35.prev = _context35.next) {
                   case 0:
                     ju = this;
                     Swal.fire({
@@ -7108,10 +7107,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
                   case 2:
                   case "end":
-                    return _context36.stop();
+                    return _context35.stop();
                 }
               }
-            }, _callee36, this);
+            }, _callee35, this);
           }));
         }
       }, {
@@ -7174,12 +7173,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function crearActividadAsociada(clase) {
           return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
           /*#__PURE__*/
-          regeneratorRuntime.mark(function _callee37() {
+          regeneratorRuntime.mark(function _callee36() {
             var ju, actividadCreate, num, i, arrayAlumnos, _i4;
 
-            return regeneratorRuntime.wrap(function _callee37$(_context37) {
+            return regeneratorRuntime.wrap(function _callee36$(_context36) {
               while (1) {
-                switch (_context37.prev = _context37.next) {
+                switch (_context36.prev = _context36.next) {
                   case 0:
                     this.creandoActividadAsociada = true;
                     ju = this;
@@ -7246,7 +7245,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                     }
 
                     actividadCreate.alumnos = arrayAlumnos;
-                    _context37.next = 14;
+                    _context36.next = 14;
                     return $.ajax({
                       type: 'POST',
                       url: '/agregarActividadEnClase',
@@ -7300,37 +7299,18 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
                   case 14:
                   case "end":
-                    return _context37.stop();
+                    return _context36.stop();
                 }
               }
-            }, _callee37, this);
+            }, _callee36, this);
           }));
         }
       }, {
         key: "menActividadCreada",
         value: function menActividadCreada() {
-          var _this10 = this;
-
-          var men = this._snackBar.open('Actividad Creada', 'Abrir', {
-            duration: 5000
-          });
-
-          men.onAction().subscribe(function () {
-            _this10.gestionClases = false;
-            _this10.gestionActividades = true;
-            _this10.crearClase = false;
-            _this10.editarClase = false;
-            _this10.verClase = false;
-
-            _this10.abrirActividad(_this10.ultimaActividadCreada);
-          });
-        }
-      }, {
-        key: "menActividadEditada",
-        value: function menActividadEditada() {
           var _this11 = this;
 
-          var men = this._snackBar.open('Actividad Editada', 'Abrir', {
+          var men = this._snackBar.open('Actividad Creada', 'Abrir', {
             duration: 5000
           });
 
@@ -7342,6 +7322,25 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             _this11.verClase = false;
 
             _this11.abrirActividad(_this11.ultimaActividadCreada);
+          });
+        }
+      }, {
+        key: "menActividadEditada",
+        value: function menActividadEditada() {
+          var _this12 = this;
+
+          var men = this._snackBar.open('Actividad Editada', 'Abrir', {
+            duration: 5000
+          });
+
+          men.onAction().subscribe(function () {
+            _this12.gestionClases = false;
+            _this12.gestionActividades = true;
+            _this12.crearClase = false;
+            _this12.editarClase = false;
+            _this12.verClase = false;
+
+            _this12.abrirActividad(_this12.ultimaActividadCreada);
           });
         }
       }, {
@@ -7904,14 +7903,14 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function ngOnInit() {
           return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
           /*#__PURE__*/
-          regeneratorRuntime.mark(function _callee38() {
-            var _this12 = this;
+          regeneratorRuntime.mark(function _callee37() {
+            var _this13 = this;
 
             var ju, i, pul, j, _i5;
 
-            return regeneratorRuntime.wrap(function _callee38$(_context38) {
+            return regeneratorRuntime.wrap(function _callee37$(_context37) {
               while (1) {
-                switch (_context38.prev = _context38.next) {
+                switch (_context37.prev = _context37.next) {
                   case 0:
                     ju = this;
                     this.id_actividad = this.actividad._id;
@@ -7950,7 +7949,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                       }
 
                       this.intervaloResumen = setInterval(function (async) {
-                        _this12.insertarResumen();
+                        _this13.insertarResumen();
                       }, 20000);
                     }
 
@@ -8011,10 +8010,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
                   case 21:
                   case "end":
-                    return _context38.stop();
+                    return _context37.stop();
                 }
               }
-            }, _callee38, this);
+            }, _callee37, this);
           }));
         }
       }, {
@@ -8031,12 +8030,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function cargarGraficas() {
           return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
           /*#__PURE__*/
-          regeneratorRuntime.mark(function _callee39() {
+          regeneratorRuntime.mark(function _callee38() {
             var _i6, i;
 
-            return regeneratorRuntime.wrap(function _callee39$(_context39) {
+            return regeneratorRuntime.wrap(function _callee38$(_context38) {
               while (1) {
-                switch (_context39.prev = _context39.next) {
+                switch (_context38.prev = _context38.next) {
                   case 0:
                     this.ocultarTodos();
                     this.vistaGeneral = true;
@@ -8098,16 +8097,16 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                       this.usersConectadosGrafEntera.destroy();
                     }
 
-                    _context39.next = 17;
+                    _context38.next = 17;
                     return new chart_js__WEBPACK_IMPORTED_MODULE_2__["Chart"]('usersConectados', this.configUsersConectados);
 
                   case 17:
-                    this.usersConectadosGraf = _context39.sent;
-                    _context39.next = 20;
+                    this.usersConectadosGraf = _context38.sent;
+                    _context38.next = 20;
                     return new chart_js__WEBPACK_IMPORTED_MODULE_2__["Chart"]('usersConectadosEntera', this.configUsersConectados);
 
                   case 20:
-                    this.usersConectadosGrafEntera = _context39.sent;
+                    this.usersConectadosGrafEntera = _context38.sent;
                     //Grafica Lineal 
 
                     /*this.configuracionGraficaLineal = {
@@ -8160,10 +8159,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
                   case 22:
                   case "end":
-                    return _context39.stop();
+                    return _context38.stop();
                 }
               }
-            }, _callee39, this);
+            }, _callee38, this);
           }));
         }
       }, {
@@ -8175,15 +8174,15 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "comprobarDatos",
         value: function comprobarDatos() {
-          var _this13 = this;
+          var _this14 = this;
 
           setInterval(function () {
-            return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](_this13, void 0, void 0,
+            return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](_this14, void 0, void 0,
             /*#__PURE__*/
-            regeneratorRuntime.mark(function _callee40() {
-              return regeneratorRuntime.wrap(function _callee40$(_context40) {
+            regeneratorRuntime.mark(function _callee39() {
+              return regeneratorRuntime.wrap(function _callee39$(_context39) {
                 while (1) {
-                  switch (_context40.prev = _context40.next) {
+                  switch (_context39.prev = _context39.next) {
                     case 0:
                       //console.log(this.aluConectados);
                       if (this.numAlumnosConectados != this.aluConectados.length) {
@@ -8229,10 +8228,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
                     case 1:
                     case "end":
-                      return _context40.stop();
+                      return _context39.stop();
                   }
                 }
-              }, _callee40, this);
+              }, _callee39, this);
             }));
           }, 1000);
         }
@@ -8274,7 +8273,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "comenzar",
         value: function comenzar() {
-          var _this14 = this;
+          var _this15 = this;
 
           this.botonCreadaCargando = true;
           this.botonReanudarCargando = true;
@@ -8283,18 +8282,18 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           act.estado = "Comenzada"; //this.profesor.empezarActividad(this.actividad);
 
           setTimeout(function (async) {
-            if (_this14.botonCreadaCargando) {
-              _this14.mensajeProcesoEnMarcha();
+            if (_this15.botonCreadaCargando) {
+              _this15.mensajeProcesoEnMarcha();
             }
           }, 5000);
           setTimeout(function (async) {
-            if (_this14.botonCreadaCargando) {
-              _this14.mensajeProcesoEnMarcha();
+            if (_this15.botonCreadaCargando) {
+              _this15.mensajeProcesoEnMarcha();
             }
           }, 15000);
           setTimeout(function (async) {
-            if (_this14.botonCreadaCargando) {
-              _this14.mensajeAlgoHaIdoMal();
+            if (_this15.botonCreadaCargando) {
+              _this15.mensajeAlgoHaIdoMal();
             }
           }, 25000);
           $.ajax({
@@ -8331,13 +8330,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "actividadEmpezada",
         value: function actividadEmpezada(actividad) {
-          var _this15 = this;
+          var _this16 = this;
 
           //console.log(actividad);
           this.actividad = actividad;
           this.profesor.listoParaRecibirDatos(this.actividad);
           this.intervaloResumen = setInterval(function (async) {
-            _this15.insertarResumen();
+            _this16.insertarResumen();
           }, 20000);
           this.botonCreadaCargando = false;
           this.botonReanudarCargando = false;
@@ -8370,7 +8369,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "terminar",
         value: function terminar() {
-          var _this16 = this;
+          var _this17 = this;
 
           //console.log(this.usuariosConectadoss);
           clearInterval(this.intervaloSimularDatos);
@@ -8380,18 +8379,18 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           act.estado = "Finalizada";
           this.botonFinalizadaCargando = true;
           setTimeout(function (async) {
-            if (_this16.botonFinalizadaCargando) {
-              _this16.mensajeProcesoEnMarcha();
+            if (_this17.botonFinalizadaCargando) {
+              _this17.mensajeProcesoEnMarcha();
             }
           }, 5000);
           setTimeout(function (async) {
-            if (_this16.botonFinalizadaCargando) {
-              _this16.mensajeProcesoEnMarcha();
+            if (_this17.botonFinalizadaCargando) {
+              _this17.mensajeProcesoEnMarcha();
             }
           }, 15000);
           setTimeout(function (async) {
-            if (_this16.botonFinalizadaCargando) {
-              _this16.mensajeAlgoHaIdoMal();
+            if (_this17.botonFinalizadaCargando) {
+              _this17.mensajeAlgoHaIdoMal();
             }
           }, 25000); //this.profesor.terminarActividad(this.actividad);
 
@@ -8429,6 +8428,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         key: "cerrarActividad",
         value: function cerrarActividad() {
           //this.actividadCreada.emit("cerrar");
+          if (this.actividad.estado == "Creada") {
+            this.profesor.listoParaNoRecibirDatos(this.actividad);
+          }
+
           if (this.actividad.estado == "Comenzada") {
             Swal.fire('Se cerrará la aplicación.', 'El proceso de recolección de datos, seguira ejecutandose en segundo plano.', 'question');
           }
@@ -8441,10 +8444,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function cambiarAGeneral() {
           return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
           /*#__PURE__*/
-          regeneratorRuntime.mark(function _callee41() {
-            return regeneratorRuntime.wrap(function _callee41$(_context41) {
+          regeneratorRuntime.mark(function _callee40() {
+            return regeneratorRuntime.wrap(function _callee40$(_context40) {
               while (1) {
-                switch (_context41.prev = _context41.next) {
+                switch (_context40.prev = _context40.next) {
                   case 0:
                     this.ocultarTodos();
                     document.getElementById("vistaGeneral").style.display = "block";
@@ -8456,10 +8459,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
                   case 4:
                   case "end":
-                    return _context41.stop();
+                    return _context40.stop();
                 }
               }
-            }, _callee41, this);
+            }, _callee40, this);
           }));
         }
       }, {
@@ -8626,11 +8629,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function insertarResumen() {
           return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
           /*#__PURE__*/
-          regeneratorRuntime.mark(function _callee42() {
+          regeneratorRuntime.mark(function _callee41() {
             var sumaTotalEmociones, x, sumaTotalEstadoDisConc, sumaTotalEstadoFrusMotiv;
-            return regeneratorRuntime.wrap(function _callee42$(_context42) {
+            return regeneratorRuntime.wrap(function _callee41$(_context41) {
               while (1) {
-                switch (_context42.prev = _context42.next) {
+                switch (_context41.prev = _context41.next) {
                   case 0:
                     //Datos Emocionales
                     sumaTotalEmociones = 0; //console.log(this.resumen);
@@ -8742,10 +8745,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
                   case 37:
                   case "end":
-                    return _context42.stop();
+                    return _context41.stop();
                 }
               }
-            }, _callee42, this);
+            }, _callee41, this);
           }));
         }
       }, {
@@ -8973,43 +8976,43 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function actualizarGraficaLineal() {
           return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
           /*#__PURE__*/
-          regeneratorRuntime.mark(function _callee43() {
-            var _this17 = this;
+          regeneratorRuntime.mark(function _callee42() {
+            var _this18 = this;
 
-            return regeneratorRuntime.wrap(function _callee43$(_context43) {
+            return regeneratorRuntime.wrap(function _callee42$(_context42) {
               while (1) {
-                switch (_context43.prev = _context43.next) {
+                switch (_context42.prev = _context42.next) {
                   case 0:
-                    _context43.next = 2;
+                    _context42.next = 2;
                     return setTimeout(function (async) {
                       // console.log("asdasd");
                       var datos = [];
 
-                      for (var i = 0; i < _this17.alumnosSelect.length; i++) {
-                        if (_this17.alumnosSelect[i].checked) {
-                          if (_this17.alumnosSelect[i].nombre == "media") {
-                            for (var j = 0; j < _this17.estados.length; j++) {
-                              if (_this17.estados[j].checked) {
-                                if (_this17.estados[j].nombre == "pulsaciones") {
-                                  var color = _this17.colorRGB(_this17.estados[j].color, i + j);
+                      for (var i = 0; i < _this18.alumnosSelect.length; i++) {
+                        if (_this18.alumnosSelect[i].checked) {
+                          if (_this18.alumnosSelect[i].nombre == "media") {
+                            for (var j = 0; j < _this18.estados.length; j++) {
+                              if (_this18.estados[j].checked) {
+                                if (_this18.estados[j].nombre == "pulsaciones") {
+                                  var color = _this18.colorRGB(_this18.estados[j].color, i + j);
 
                                   datos.push({
-                                    label: _this17.estados[j].nombre + ' de ' + _this17.alumnosSelect[i].nombre,
+                                    label: _this18.estados[j].nombre + ' de ' + _this18.alumnosSelect[i].nombre,
                                     backgroundColor: color,
                                     borderColor: color,
                                     fill: false,
-                                    data: _this17.actividad.resumen['' + _this17.estados[j].nombre + ''],
+                                    data: _this18.actividad.resumen['' + _this18.estados[j].nombre + ''],
                                     yAxisID: 'y-axis-2'
                                   });
                                 } else {
-                                  var color = _this17.colorRGB(_this17.estados[j].color, i + j);
+                                  var color = _this18.colorRGB(_this18.estados[j].color, i + j);
 
                                   datos.push({
-                                    label: _this17.estados[j].nombre + ' de ' + _this17.alumnosSelect[i].nombre,
+                                    label: _this18.estados[j].nombre + ' de ' + _this18.alumnosSelect[i].nombre,
                                     backgroundColor: color,
                                     borderColor: color,
                                     fill: false,
-                                    data: _this17.actividad.resumen['' + _this17.estados[j].nombre + ''],
+                                    data: _this18.actividad.resumen['' + _this18.estados[j].nombre + ''],
                                     yAxisID: 'y-axis-1'
                                   });
                                 } // console.log(this.alumnosSelect);
@@ -9018,30 +9021,30 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                               }
                             }
                           } else {
-                            for (var h = 0; h < _this17.actividad.alumnos.length; h++) {
-                              if (_this17.alumnosSelect[i].id == _this17.actividad.alumnos[h].estudiante._id) {
-                                for (var _j = 0; _j < _this17.estados.length; _j++) {
-                                  if (_this17.estados[_j].checked) {
-                                    if (_this17.estados[_j].nombre == "pulsaciones") {
-                                      var color = _this17.colorRGB(_this17.estados[_j].color, i + h);
+                            for (var h = 0; h < _this18.actividad.alumnos.length; h++) {
+                              if (_this18.alumnosSelect[i].id == _this18.actividad.alumnos[h].estudiante._id) {
+                                for (var _j = 0; _j < _this18.estados.length; _j++) {
+                                  if (_this18.estados[_j].checked) {
+                                    if (_this18.estados[_j].nombre == "pulsaciones") {
+                                      var color = _this18.colorRGB(_this18.estados[_j].color, i + h);
 
                                       datos.push({
-                                        label: _this17.estados[_j].nombre + ' de ' + _this17.alumnosSelect[i].nombre,
+                                        label: _this18.estados[_j].nombre + ' de ' + _this18.alumnosSelect[i].nombre,
                                         backgroundColor: color,
                                         borderColor: color,
                                         fill: false,
-                                        data: _this17.actividad.alumnos[h].datos['' + _this17.estados[_j].nombre + ''],
+                                        data: _this18.actividad.alumnos[h].datos['' + _this18.estados[_j].nombre + ''],
                                         yAxisID: 'y-axis-2'
                                       });
                                     } else {
-                                      var color = _this17.colorRGB(_this17.estados[_j].color, i + h);
+                                      var color = _this18.colorRGB(_this18.estados[_j].color, i + h);
 
                                       datos.push({
-                                        label: _this17.estados[_j].nombre + ' de ' + _this17.alumnosSelect[i].nombre,
+                                        label: _this18.estados[_j].nombre + ' de ' + _this18.alumnosSelect[i].nombre,
                                         backgroundColor: color,
                                         borderColor: color,
                                         fill: false,
-                                        data: _this17.actividad.alumnos[h].datos['' + _this17.estados[_j].nombre + ''],
+                                        data: _this18.actividad.alumnos[h].datos['' + _this18.estados[_j].nombre + ''],
                                         yAxisID: 'y-axis-1'
                                       });
                                     } // console.log(this.alumnosSelect);
@@ -9055,7 +9058,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                         }
                       }
 
-                      _this17.configuracionGraficaLineal = {
+                      _this18.configuracionGraficaLineal = {
                         type: 'line',
                         data: {
                           datasets: datos
@@ -9064,7 +9067,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                           responsive: true,
                           title: {
                             display: true,
-                            text: _this17.estadoSeleccionado
+                            text: _this18.estadoSeleccionado
                           },
                           legend: {
                             position: 'bottom'
@@ -9124,28 +9127,28 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                         }
                       };
 
-                      if (_this17.graficaLineal != null) {
-                        _this17.graficaLineal.destroy();
+                      if (_this18.graficaLineal != null) {
+                        _this18.graficaLineal.destroy();
 
-                        _this17.graficaLinealEntera.destroy();
+                        _this18.graficaLinealEntera.destroy();
                       }
 
-                      _this17.graficaLineal = new chart_js__WEBPACK_IMPORTED_MODULE_2__["Chart"]('graficaLineal', _this17.configuracionGraficaLineal);
-                      _this17.graficaLinealEntera = new chart_js__WEBPACK_IMPORTED_MODULE_2__["Chart"]('graficaLinealEntera', _this17.configuracionGraficaLineal);
+                      _this18.graficaLineal = new chart_js__WEBPACK_IMPORTED_MODULE_2__["Chart"]('graficaLineal', _this18.configuracionGraficaLineal);
+                      _this18.graficaLinealEntera = new chart_js__WEBPACK_IMPORTED_MODULE_2__["Chart"]('graficaLinealEntera', _this18.configuracionGraficaLineal);
                     }, 500);
 
                   case 2:
                   case "end":
-                    return _context43.stop();
+                    return _context42.stop();
                 }
               }
-            }, _callee43);
+            }, _callee42);
           }));
         }
       }, {
         key: "actualizarGraficaGlobal",
         value: function actualizarGraficaGlobal() {
-          var _this18 = this;
+          var _this19 = this;
 
           // console.log(this.estadosGlobales);
           setTimeout(function (async) {
@@ -9153,15 +9156,15 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             var colores = [];
             var datos = [];
 
-            for (var i = 0; i < _this18.estadosGlobales.length; i++) {
-              if (_this18.estadosGlobales[i].checked) {
-                labels.push(_this18.estadosGlobales[i].nombre);
-                colores.push(_this18.estadosGlobales[i].color);
-                datos.push(_this18.datosResumenSeleccionados[_this18.estadosGlobales[i].nombre]);
+            for (var i = 0; i < _this19.estadosGlobales.length; i++) {
+              if (_this19.estadosGlobales[i].checked) {
+                labels.push(_this19.estadosGlobales[i].nombre);
+                colores.push(_this19.estadosGlobales[i].color);
+                datos.push(_this19.datosResumenSeleccionados[_this19.estadosGlobales[i].nombre]);
               }
             }
 
-            _this18.configUsersConectados = {
+            _this19.configUsersConectados = {
               type: 'doughnut',
               data: {
                 labels: labels,
@@ -9180,14 +9183,14 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               }
             };
 
-            if (_this18.graficaResumen != null) {
-              _this18.graficaResumen.destroy();
+            if (_this19.graficaResumen != null) {
+              _this19.graficaResumen.destroy();
 
-              _this18.graficaResumenEntera.destroy();
+              _this19.graficaResumenEntera.destroy();
             }
 
-            _this18.graficaResumen = new chart_js__WEBPACK_IMPORTED_MODULE_2__["Chart"]('estadoGlobal', _this18.configUsersConectados);
-            _this18.graficaResumenEntera = new chart_js__WEBPACK_IMPORTED_MODULE_2__["Chart"]('estadoGlobalEntero', _this18.configUsersConectados);
+            _this19.graficaResumen = new chart_js__WEBPACK_IMPORTED_MODULE_2__["Chart"]('estadoGlobal', _this19.configUsersConectados);
+            _this19.graficaResumenEntera = new chart_js__WEBPACK_IMPORTED_MODULE_2__["Chart"]('estadoGlobalEntero', _this19.configUsersConectados);
           }, 500);
         }
       }, {
@@ -9210,7 +9213,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "simularDatos",
         value: function simularDatos() {
-          var _this19 = this;
+          var _this20 = this;
 
           var ju = this; // console.log("NumSimulaciones: "+this.numSimulaciones);
 
@@ -9226,15 +9229,15 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             }
 
             this.intervaloSimularDatos = setInterval(function (async) {
-              for (var i = 0; i < _this19.actividad.alumnos.length; i++) {
-                if (_this19.numSimulaciones == 0) {
-                  _this19.usuarioConectado(_this19.actividad.alumnos[i].estudiante);
+              for (var i = 0; i < _this20.actividad.alumnos.length; i++) {
+                if (_this20.numSimulaciones == 0) {
+                  _this20.usuarioConectado(_this20.actividad.alumnos[i].estudiante);
 
-                  _this19.activarTodasPulseras();
+                  _this20.activarTodasPulseras();
 
-                  _this19.activarTodasWebCam();
+                  _this20.activarTodasWebCam();
 
-                  _this19.activarTodosLeds();
+                  _this20.activarTodosLeds();
                 }
 
                 var datos = {};
@@ -9251,14 +9254,14 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                 max = max - sorpresa;
                 var tristeza = Math.round(Math.random() * (max - 0) + 0);
                 max = max - tristeza;
-                console.log(_this19.actividad);
-                datos['id_actividad'] = _this19.id_actividad;
-                console.log("ID Actividad: " + _this19.actividad._id);
-                datos['id_item'] = _this19.actividad.alumnos[i].id_item; //console.log("Datos generados1");
+                console.log(_this20.actividad);
+                datos['id_actividad'] = _this20.id_actividad;
+                console.log("ID Actividad: " + _this20.actividad._id);
+                datos['id_item'] = _this20.actividad.alumnos[i].id_item; //console.log("Datos generados1");
 
                 var x = moment__WEBPACK_IMPORTED_MODULE_3__().format(); //Estado Emocional
 
-                datos['id_item'] = _this19.actividad.alumnos[i].id_item; //Alegria
+                datos['id_item'] = _this20.actividad.alumnos[i].id_item; //Alegria
 
                 datos['alegria'] = {
                   x: x,
@@ -9290,10 +9293,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                   y: tristeza
                 }; //console.log("Datos generados2");
 
-                var num = Math.round(Math.random() * (_this19.estadosConjunto[0].estados.length - 1 - 0) + 0); //console.log(num);
+                var num = Math.round(Math.random() * (_this20.estadosConjunto[0].estados.length - 1 - 0) + 0); //console.log(num);
 
-                datos['color'] = _this19.estadosConjunto[0].estados[num].color;
-                datos['estadoEmocional'] = _this19.estadosConjunto[0].estados[num].nombre;
+                datos['color'] = _this20.estadosConjunto[0].estados[num].color;
+                datos['estadoEmocional'] = _this20.estadosConjunto[0].estados[num].nombre;
                 datos; //Estado de las Pulsaciones
 
                 datos['pulsaciones'] = {
@@ -9331,12 +9334,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
                 console.log(datos);
 
-                _this19.insertarDatos(datos);
+                _this20.insertarDatos(datos);
 
-                _this19.profesor.enviarDatos(datos, ju.actividad);
+                _this20.profesor.enviarDatos(datos, ju.actividad);
               }
 
-              _this19.numSimulaciones++;
+              _this20.numSimulaciones++;
             }, 7000);
           } else {
             this.simulandoDatos = false;
@@ -9386,7 +9389,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "mensajeAlgoHaIdoMal",
         value: function mensajeAlgoHaIdoMal() {
-          var _this20 = this;
+          var _this21 = this;
 
           Swal.fire({
             icon: 'error',
@@ -9396,7 +9399,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             timer: 3000,
             timerProgressBar: true
           }).then(function (result) {
-            _this20.profesor.salir();
+            _this21.profesor.salir();
           });
         }
       }, {
@@ -9536,18 +9539,18 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "activarWebCam",
         value: function activarWebCam(usuario) {
-          var _this21 = this;
+          var _this22 = this;
 
           var _loop = function _loop(i) {
-            if (usuario._id == _this21.alumnosTabla[i].estudiante._id) {
-              if (_this21.simulandoDatos) {
-                _this21.alumnosTabla[i].webcam = true;
+            if (usuario._id == _this22.alumnosTabla[i].estudiante._id) {
+              if (_this22.simulandoDatos) {
+                _this22.alumnosTabla[i].webcam = true;
               } else {
-                _this21.profesor.conectarWebCam(usuario);
+                _this22.profesor.conectarWebCam(usuario);
 
-                _this21.alumnosTabla[i].cargandoC = true;
+                _this22.alumnosTabla[i].cargandoC = true;
                 setTimeout(function (async) {
-                  _this21.alumnosTabla[i].cargandoC = false;
+                  _this22.alumnosTabla[i].cargandoC = false;
                 }, 7000);
               }
             }
@@ -9607,18 +9610,18 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "activarPulsera",
         value: function activarPulsera(usuario) {
-          var _this22 = this;
+          var _this23 = this;
 
           var _loop2 = function _loop2(i) {
-            if (usuario._id == _this22.alumnosTabla[i].estudiante._id) {
-              if (_this22.simulandoDatos) {
-                _this22.alumnosTabla[i].pulsera = true;
+            if (usuario._id == _this23.alumnosTabla[i].estudiante._id) {
+              if (_this23.simulandoDatos) {
+                _this23.alumnosTabla[i].pulsera = true;
               } else {
-                _this22.profesor.conectarPulsera(usuario);
+                _this23.profesor.conectarPulsera(usuario);
 
-                _this22.alumnosTabla[i].cargandoP = true;
+                _this23.alumnosTabla[i].cargandoP = true;
                 setTimeout(function (async) {
-                  _this22.alumnosTabla[i].cargandoP = false;
+                  _this23.alumnosTabla[i].cargandoP = false;
                 }, 7000);
               }
             }
@@ -9647,7 +9650,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           for (var i = 0; i < this.alumnosTabla.length; i++) {
             if (usuario._id == this.alumnosTabla[i].estudiante._id) {
               this.alumnosTabla[i].pulsera = true;
-              this.alumnosTabla[i].cargandoP = true;
+              this.alumnosTabla[i].cargandoP = false;
             }
           }
         }
@@ -9678,18 +9681,18 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "activarLed",
         value: function activarLed(usuario) {
-          var _this23 = this;
+          var _this24 = this;
 
           var _loop3 = function _loop3(i) {
-            if (usuario._id == _this23.alumnosTabla[i].estudiante._id) {
-              if (_this23.simulandoDatos) {
-                _this23.alumnosTabla[i].led = true;
+            if (usuario._id == _this24.alumnosTabla[i].estudiante._id) {
+              if (_this24.simulandoDatos) {
+                _this24.alumnosTabla[i].led = true;
               } else {
-                _this23.profesor.conectarLed(usuario);
+                _this24.profesor.conectarLed(usuario);
 
-                _this23.alumnosTabla[i].cargandoL = true;
+                _this24.alumnosTabla[i].cargandoL = true;
                 setTimeout(function (async) {
-                  _this23.alumnosTabla[i].cargandoL = false;
+                  _this24.alumnosTabla[i].cargandoL = false;
                 }, 7000);
               }
             }
@@ -10067,10 +10070,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "masterToggle",
         value: function masterToggle() {
-          var _this24 = this;
+          var _this25 = this;
 
           this.isAllSelected() ? this.selection.clear() : this.dataSource.data.forEach(function (row) {
-            return _this24.selection.select(row);
+            return _this25.selection.select(row);
           });
         }
       }, {
@@ -10653,11 +10656,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function ngOnInit() {
           return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
           /*#__PURE__*/
-          regeneratorRuntime.mark(function _callee44() {
+          regeneratorRuntime.mark(function _callee43() {
             var ju;
-            return regeneratorRuntime.wrap(function _callee44$(_context44) {
+            return regeneratorRuntime.wrap(function _callee43$(_context43) {
               while (1) {
-                switch (_context44.prev = _context44.next) {
+                switch (_context43.prev = _context43.next) {
                   case 0:
                     /*var ju = this;
                     console.log(this.clase);
@@ -10668,7 +10671,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                     this.actualizarClase();
                     ju = this; //this.listaAlumnos=this.estudiantes.getEstudiantes();
 
-                    _context44.next = 5;
+                    _context43.next = 5;
                     return $.getJSON("/verEstudiantes", function (data) {
                       //console.log(data);
                       ju.listaAlumnos = data;
@@ -10676,10 +10679,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
                   case 5:
                   case "end":
-                    return _context44.stop();
+                    return _context43.stop();
                 }
               }
-            }, _callee44, this);
+            }, _callee43, this);
           }));
         }
       }, {
@@ -10702,11 +10705,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function actualizarClase() {
           return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
           /*#__PURE__*/
-          regeneratorRuntime.mark(function _callee45() {
+          regeneratorRuntime.mark(function _callee44() {
             var ju;
-            return regeneratorRuntime.wrap(function _callee45$(_context45) {
+            return regeneratorRuntime.wrap(function _callee44$(_context44) {
               while (1) {
-                switch (_context45.prev = _context45.next) {
+                switch (_context44.prev = _context44.next) {
                   case 0:
                     ju = this;
                     /*$.getJSON("/verClase", this.clase, function (data) {
@@ -10746,10 +10749,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
                   case 2:
                   case "end":
-                    return _context45.stop();
+                    return _context44.stop();
                 }
               }
-            }, _callee45, this);
+            }, _callee44, this);
           }));
         }
       }, {
@@ -11337,7 +11340,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       _createClass(VerEstadisticasClaseComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this25 = this;
+          var _this26 = this;
 
           console.log(this.clase);
           this.estadoConjuntoSeleccionado = this.estadosConjunto[0];
@@ -11352,7 +11355,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           this.dataSource.paginator = this.paginator;
           this.dataSource.sort = this.sort;
           this.dataSource.data.forEach(function (row) {
-            _this25.selection.select(row);
+            _this26.selection.select(row);
           });
           this.computarDatos();
           this.actualizarGraficas();
@@ -11374,10 +11377,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "masterToggle",
         value: function masterToggle() {
-          var _this26 = this;
+          var _this27 = this;
 
           this.isAllSelected() ? this.selection.clear() : this.dataSource.data.forEach(function (row) {
-            return _this26.selection.select(row);
+            return _this27.selection.select(row);
           });
         }
       }, {
