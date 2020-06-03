@@ -6523,42 +6523,42 @@ let VerActividadComponent = class VerActividadComponent {
     }
     actualizarGraficaGlobal() {
         // console.log(this.estadosGlobales);
-        setTimeout(async => {
-            var labels = [];
-            var colores = [];
-            var datos = [];
-            for (let i = 0; i < this.estadosGlobales.length; i++) {
-                if (this.estadosGlobales[i].checked) {
-                    labels.push(this.estadosGlobales[i].nombre);
-                    colores.push(this.estadosGlobales[i].color);
-                    datos.push(this.datosResumenSeleccionados[this.estadosGlobales[i].nombre]);
-                }
+        //setTimeout(async => {
+        var labels = [];
+        var colores = [];
+        var datos = [];
+        for (let i = 0; i < this.estadosGlobales.length; i++) {
+            if (this.estadosGlobales[i].checked) {
+                labels.push(this.estadosGlobales[i].nombre);
+                colores.push(this.estadosGlobales[i].color);
+                datos.push(this.datosResumenSeleccionados[this.estadosGlobales[i].nombre]);
             }
-            this.configUsersConectados = {
-                type: 'doughnut',
-                data: {
-                    labels: labels,
-                    datasets: [{
-                            backgroundColor: colores,
-                            data: datos
-                        }]
+        }
+        this.configUsersConectados = {
+            type: 'doughnut',
+            data: {
+                labels: labels,
+                datasets: [{
+                        backgroundColor: colores,
+                        data: datos
+                    }]
+            },
+            options: {
+                responsive: true,
+                cutoutPercentage: 50,
+                borderColor: 'rgba(12,12,12,1)',
+                legend: {
+                    position: 'right',
                 },
-                options: {
-                    responsive: true,
-                    cutoutPercentage: 50,
-                    borderColor: 'rgba(12,12,12,1)',
-                    legend: {
-                        position: 'right',
-                    },
-                }
-            };
-            if (this.graficaResumen != null) {
-                this.graficaResumen.destroy();
-                this.graficaResumenEntera.destroy();
             }
-            this.graficaResumen = new chart_js__WEBPACK_IMPORTED_MODULE_2__["Chart"]('estadoGlobal', this.configUsersConectados);
-            this.graficaResumenEntera = new chart_js__WEBPACK_IMPORTED_MODULE_2__["Chart"]('estadoGlobalEntero', this.configUsersConectados);
-        }, 500);
+        };
+        if (this.graficaResumen != null) {
+            this.graficaResumen.destroy();
+            this.graficaResumenEntera.destroy();
+        }
+        this.graficaResumen = new chart_js__WEBPACK_IMPORTED_MODULE_2__["Chart"]('estadoGlobal', this.configUsersConectados);
+        this.graficaResumenEntera = new chart_js__WEBPACK_IMPORTED_MODULE_2__["Chart"]('estadoGlobalEntero', this.configUsersConectados);
+        //}, 500);
     }
     colorRGB(estado, num) {
         //'rgba(81,81,255,0.)'

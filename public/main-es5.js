@@ -9387,50 +9387,46 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "actualizarGraficaGlobal",
         value: function actualizarGraficaGlobal() {
-          var _this19 = this;
-
           // console.log(this.estadosGlobales);
-          setTimeout(function (async) {
-            var labels = [];
-            var colores = [];
-            var datos = [];
+          //setTimeout(async => {
+          var labels = [];
+          var colores = [];
+          var datos = [];
 
-            for (var i = 0; i < _this19.estadosGlobales.length; i++) {
-              if (_this19.estadosGlobales[i].checked) {
-                labels.push(_this19.estadosGlobales[i].nombre);
-                colores.push(_this19.estadosGlobales[i].color);
-                datos.push(_this19.datosResumenSeleccionados[_this19.estadosGlobales[i].nombre]);
+          for (var i = 0; i < this.estadosGlobales.length; i++) {
+            if (this.estadosGlobales[i].checked) {
+              labels.push(this.estadosGlobales[i].nombre);
+              colores.push(this.estadosGlobales[i].color);
+              datos.push(this.datosResumenSeleccionados[this.estadosGlobales[i].nombre]);
+            }
+          }
+
+          this.configUsersConectados = {
+            type: 'doughnut',
+            data: {
+              labels: labels,
+              datasets: [{
+                backgroundColor: colores,
+                data: datos
+              }]
+            },
+            options: {
+              responsive: true,
+              cutoutPercentage: 50,
+              borderColor: 'rgba(12,12,12,1)',
+              legend: {
+                position: 'right'
               }
             }
+          };
 
-            _this19.configUsersConectados = {
-              type: 'doughnut',
-              data: {
-                labels: labels,
-                datasets: [{
-                  backgroundColor: colores,
-                  data: datos
-                }]
-              },
-              options: {
-                responsive: true,
-                cutoutPercentage: 50,
-                borderColor: 'rgba(12,12,12,1)',
-                legend: {
-                  position: 'right'
-                }
-              }
-            };
+          if (this.graficaResumen != null) {
+            this.graficaResumen.destroy();
+            this.graficaResumenEntera.destroy();
+          }
 
-            if (_this19.graficaResumen != null) {
-              _this19.graficaResumen.destroy();
-
-              _this19.graficaResumenEntera.destroy();
-            }
-
-            _this19.graficaResumen = new chart_js__WEBPACK_IMPORTED_MODULE_2__["Chart"]('estadoGlobal', _this19.configUsersConectados);
-            _this19.graficaResumenEntera = new chart_js__WEBPACK_IMPORTED_MODULE_2__["Chart"]('estadoGlobalEntero', _this19.configUsersConectados);
-          }, 500);
+          this.graficaResumen = new chart_js__WEBPACK_IMPORTED_MODULE_2__["Chart"]('estadoGlobal', this.configUsersConectados);
+          this.graficaResumenEntera = new chart_js__WEBPACK_IMPORTED_MODULE_2__["Chart"]('estadoGlobalEntero', this.configUsersConectados); //}, 500);
         }
       }, {
         key: "colorRGB",
@@ -9452,7 +9448,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "simularDatos",
         value: function simularDatos() {
-          var _this20 = this;
+          var _this19 = this;
 
           var ju = this; // console.log("NumSimulaciones: "+this.numSimulaciones);
 
@@ -9468,15 +9464,15 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             }
 
             this.intervaloSimularDatos = setInterval(function (async) {
-              for (var i = 0; i < _this20.actividad.alumnos.length; i++) {
-                if (_this20.numSimulaciones == 0) {
-                  _this20.usuarioConectado(_this20.actividad.alumnos[i].estudiante);
+              for (var i = 0; i < _this19.actividad.alumnos.length; i++) {
+                if (_this19.numSimulaciones == 0) {
+                  _this19.usuarioConectado(_this19.actividad.alumnos[i].estudiante);
 
-                  _this20.activarTodasPulseras();
+                  _this19.activarTodasPulseras();
 
-                  _this20.activarTodasWebCam();
+                  _this19.activarTodasWebCam();
 
-                  _this20.activarTodosLeds();
+                  _this19.activarTodosLeds();
                 }
 
                 var datos = {};
@@ -9493,14 +9489,14 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                 max = max - sorpresa;
                 var tristeza = Math.round(Math.random() * (max - 0) + 0);
                 max = max - tristeza;
-                console.log(_this20.actividad);
-                datos['id_actividad'] = _this20.id_actividad;
-                console.log("ID Actividad: " + _this20.actividad._id);
-                datos['id_item'] = _this20.actividad.alumnos[i].id_item; //console.log("Datos generados1");
+                console.log(_this19.actividad);
+                datos['id_actividad'] = _this19.id_actividad;
+                console.log("ID Actividad: " + _this19.actividad._id);
+                datos['id_item'] = _this19.actividad.alumnos[i].id_item; //console.log("Datos generados1");
 
                 var x = moment__WEBPACK_IMPORTED_MODULE_3__().format(); //Estado Emocional
 
-                datos['id_item'] = _this20.actividad.alumnos[i].id_item; //Alegria
+                datos['id_item'] = _this19.actividad.alumnos[i].id_item; //Alegria
 
                 datos['alegria'] = {
                   x: x,
@@ -9532,10 +9528,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                   y: tristeza
                 }; //console.log("Datos generados2");
 
-                var num = Math.round(Math.random() * (_this20.estadosConjunto[0].estados.length - 1 - 0) + 0); //console.log(num);
+                var num = Math.round(Math.random() * (_this19.estadosConjunto[0].estados.length - 1 - 0) + 0); //console.log(num);
 
-                datos['color'] = _this20.estadosConjunto[0].estados[num].color;
-                datos['estadoEmocional'] = _this20.estadosConjunto[0].estados[num].nombre;
+                datos['color'] = _this19.estadosConjunto[0].estados[num].color;
+                datos['estadoEmocional'] = _this19.estadosConjunto[0].estados[num].nombre;
                 datos; //Estado de las Pulsaciones
 
                 datos['pulsaciones'] = {
@@ -9573,12 +9569,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
                 console.log(datos);
 
-                _this20.insertarDatos(datos);
+                _this19.insertarDatos(datos);
 
-                _this20.profesor.enviarDatos(datos, ju.actividad);
+                _this19.profesor.enviarDatos(datos, ju.actividad);
               }
 
-              _this20.numSimulaciones++;
+              _this19.numSimulaciones++;
             }, 7000);
           } else {
             this.simulandoDatos = false;
@@ -9629,7 +9625,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "mensajeAlgoHaIdoMal",
         value: function mensajeAlgoHaIdoMal() {
-          var _this21 = this;
+          var _this20 = this;
 
           Swal.fire({
             icon: 'error',
@@ -9639,7 +9635,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             timer: 3000,
             timerProgressBar: true
           }).then(function (result) {
-            _this21.profesor.salir();
+            _this20.profesor.salir();
           });
         }
       }, {
@@ -9779,18 +9775,18 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "activarWebCam",
         value: function activarWebCam(usuario) {
-          var _this22 = this;
+          var _this21 = this;
 
           var _loop = function _loop(i) {
-            if (usuario._id == _this22.alumnosTabla[i].estudiante._id) {
-              if (_this22.simulandoDatos) {
-                _this22.alumnosTabla[i].webcam = true;
+            if (usuario._id == _this21.alumnosTabla[i].estudiante._id) {
+              if (_this21.simulandoDatos) {
+                _this21.alumnosTabla[i].webcam = true;
               } else {
-                _this22.profesor.conectarWebCam(usuario);
+                _this21.profesor.conectarWebCam(usuario);
 
-                _this22.alumnosTabla[i].cargandoC = true;
+                _this21.alumnosTabla[i].cargandoC = true;
                 setTimeout(function (async) {
-                  _this22.alumnosTabla[i].cargandoC = false;
+                  _this21.alumnosTabla[i].cargandoC = false;
                 }, 7000);
               }
             }
@@ -9850,18 +9846,18 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "activarPulsera",
         value: function activarPulsera(usuario) {
-          var _this23 = this;
+          var _this22 = this;
 
           var _loop2 = function _loop2(i) {
-            if (usuario._id == _this23.alumnosTabla[i].estudiante._id) {
-              if (_this23.simulandoDatos) {
-                _this23.alumnosTabla[i].pulsera = true;
+            if (usuario._id == _this22.alumnosTabla[i].estudiante._id) {
+              if (_this22.simulandoDatos) {
+                _this22.alumnosTabla[i].pulsera = true;
               } else {
-                _this23.profesor.conectarPulsera(usuario);
+                _this22.profesor.conectarPulsera(usuario);
 
-                _this23.alumnosTabla[i].cargandoP = true;
+                _this22.alumnosTabla[i].cargandoP = true;
                 setTimeout(function (async) {
-                  _this23.alumnosTabla[i].cargandoP = false;
+                  _this22.alumnosTabla[i].cargandoP = false;
                 }, 7000);
               }
             }
@@ -9921,18 +9917,18 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "activarLed",
         value: function activarLed(usuario) {
-          var _this24 = this;
+          var _this23 = this;
 
           var _loop3 = function _loop3(i) {
-            if (usuario._id == _this24.alumnosTabla[i].estudiante._id) {
-              if (_this24.simulandoDatos) {
-                _this24.alumnosTabla[i].led = true;
+            if (usuario._id == _this23.alumnosTabla[i].estudiante._id) {
+              if (_this23.simulandoDatos) {
+                _this23.alumnosTabla[i].led = true;
               } else {
-                _this24.profesor.conectarLed(usuario);
+                _this23.profesor.conectarLed(usuario);
 
-                _this24.alumnosTabla[i].cargandoL = true;
+                _this23.alumnosTabla[i].cargandoL = true;
                 setTimeout(function (async) {
-                  _this24.alumnosTabla[i].cargandoL = false;
+                  _this23.alumnosTabla[i].cargandoL = false;
                 }, 7000);
               }
             }
@@ -10310,10 +10306,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "masterToggle",
         value: function masterToggle() {
-          var _this25 = this;
+          var _this24 = this;
 
           this.isAllSelected() ? this.selection.clear() : this.dataSource.data.forEach(function (row) {
-            return _this25.selection.select(row);
+            return _this24.selection.select(row);
           });
         }
       }, {
@@ -11580,7 +11576,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       _createClass(VerEstadisticasClaseComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this26 = this;
+          var _this25 = this;
 
           console.log(this.clase);
           this.estadoConjuntoSeleccionado = this.estadosConjunto[0];
@@ -11595,7 +11591,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           this.dataSource.paginator = this.paginator;
           this.dataSource.sort = this.sort;
           this.dataSource.data.forEach(function (row) {
-            _this26.selection.select(row);
+            _this25.selection.select(row);
           });
           this.computarDatos();
           this.actualizarGraficas();
@@ -11617,10 +11613,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "masterToggle",
         value: function masterToggle() {
-          var _this27 = this;
+          var _this26 = this;
 
           this.isAllSelected() ? this.selection.clear() : this.dataSource.data.forEach(function (row) {
-            return _this27.selection.select(row);
+            return _this26.selection.select(row);
           });
         }
       }, {
