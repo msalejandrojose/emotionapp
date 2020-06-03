@@ -3059,39 +3059,41 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                       //$('#estadoAlumno').css('background-color', 'rgba(' + this.colorPredominante[0] + ',' + this.colorPredominante[1] + ',' + this.colorPredominante[2] + ',' + this.colorPredominante[3] + ')');
 
                       if (this.led.data) {
-                        if (this.pulsaciones < 100) {
-                          this.ponerColor();
-                          this.limpiarIntervalos();
-                        } else if (this.pulsaciones >= 100 && this.pulsaciones < 120) {
-                          this.limpiarIntervalos();
-                          this.intervaloAlto = setInterval(function (async) {
-                            setTimeout(function (async) {
-                              _this3.ponerColor();
-                            }, 900);
-                            setTimeout(function (async) {
-                              _this3.ponerNegro();
-                            }, 100);
-                          }, 1000);
-                        } else if (this.pulsaciones >= 120 && this.pulsaciones < 140) {
-                          this.limpiarIntervalos();
-                          this.intervaloMuyAlto = setInterval(function (async) {
-                            setTimeout(function (async) {
-                              _this3.ponerColor();
-                            }, 600);
-                            setTimeout(function (async) {
-                              _this3.ponerNegro();
-                            }, 100);
-                          }, 700);
-                        } else if (this.pulsaciones >= 140) {
-                          this.limpiarIntervalos();
-                          this.intervaloAltisimo = setInterval(function (async) {
-                            setTimeout(function (async) {
-                              _this3.ponerColor();
-                            }, 300);
-                            setTimeout(function (async) {
-                              _this3.ponerNegro();
-                            }, 100);
-                          }, 400);
+                        if (this.pulsera.estado == "Conectado") {
+                          if (this.pulsaciones < 100) {
+                            this.ponerColor();
+                            this.limpiarIntervalos();
+                          } else if (this.pulsaciones >= 100 && this.pulsaciones < 120) {
+                            this.limpiarIntervalos();
+                            this.intervaloAlto = setInterval(function (async) {
+                              setTimeout(function (async) {
+                                _this3.ponerColor();
+                              }, 900);
+                              setTimeout(function (async) {
+                                _this3.ponerNegro();
+                              }, 100);
+                            }, 1000);
+                          } else if (this.pulsaciones >= 120 && this.pulsaciones < 140) {
+                            this.limpiarIntervalos();
+                            this.intervaloMuyAlto = setInterval(function (async) {
+                              setTimeout(function (async) {
+                                _this3.ponerColor();
+                              }, 600);
+                              setTimeout(function (async) {
+                                _this3.ponerNegro();
+                              }, 100);
+                            }, 700);
+                          } else if (this.pulsaciones >= 140) {
+                            this.limpiarIntervalos();
+                            this.intervaloAltisimo = setInterval(function (async) {
+                              setTimeout(function (async) {
+                                _this3.ponerColor();
+                              }, 300);
+                              setTimeout(function (async) {
+                                _this3.ponerNegro();
+                              }, 100);
+                            }, 400);
+                          }
                         }
                       }
 
@@ -3116,15 +3118,17 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                         if (datos['pulsaciones'].y > 85) {
                           datos['distraido'] = {
                             x: x,
-                            y: Math.round(datos['sorpresa'].y * 100)
+                            y: Math.round(datos['sorpresa'].y)
                           };
                         }
                       } else {
                         datos['distraido'] = {
                           x: x,
-                          y: Math.round(datos['sorpresa'].y * 100)
+                          y: Math.round(datos['sorpresa'].y)
                         };
                       }
+
+                      console.log(datos);
 
                       if (datos['alegria'].y == NaN || datos['alegria'].y == null) {
                         datos['distraido'] = {
@@ -3133,53 +3137,55 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                         };
                       }
 
+                      console.log(datos);
                       datos['concentrado'] = {
                         x: x,
-                        y: Math.round(100 - datos['distraido'].y * 100)
+                        y: Math.round(100 - datos['distraido'].y)
                       };
+                      console.log(datos);
                       datos['frustrado'] = {
                         x: x,
                         y: 0
                       };
 
-                      if (datos['sorpresa'].y + datos['tristeza'].y > 0.25) {
+                      if (datos['sorpresa'].y + datos['tristeza'].y > 25) {
                         datos['frustrado'] = {
                           x: x,
-                          y: Math.round(datos['frustrado'].y + 0.25 * 100)
+                          y: Math.round(datos['frustrado'].y + 25)
                         };
                       }
 
-                      if (datos['asco'].y + datos['ira'].y > 0.25) {
+                      if (datos['asco'].y + datos['ira'].y > 25) {
                         datos['frustrado'] = {
                           x: x,
-                          y: Math.round(datos['frustrado'].y + 0.25 * 100)
+                          y: Math.round(datos['frustrado'].y + 25)
                         };
                       }
 
-                      if (datos['miedo'].y + datos['tristeza'].y > 0.25) {
+                      if (datos['miedo'].y + datos['tristeza'].y > 25) {
                         datos['frustrado'] = {
                           x: x,
-                          y: Math.round(datos['frustrado'].y + 0.25 * 100)
+                          y: Math.round(datos['frustrado'].y + 25)
                         };
                       }
 
-                      if (datos['sorpresa'].y + datos['ira'].y > 0.25) {
+                      if (datos['sorpresa'].y + datos['ira'].y > 25) {
                         datos['frustrado'] = {
                           x: x,
-                          y: Math.round(datos['frustrado'].y + 0.25 * 100)
+                          y: Math.round(datos['frustrado'].y + 25)
                         };
                       }
 
                       if (datos['alegria'].y == NaN || datos['alegria'].y == null) {
                         datos['frustrado'] = {
                           x: x,
-                          y: 1 * 100
+                          y: 100
                         };
                       }
 
                       datos['motivado'] = {
                         x: x,
-                        y: Math.round(100 - datos['frustrado'].y * 100)
+                        y: Math.round(100 - datos['frustrado'].y)
                       };
                     }
 
@@ -8392,7 +8398,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             if (_this17.botonFinalizadaCargando) {
               _this17.mensajeAlgoHaIdoMal();
             }
-          }, 25000); //this.profesor.terminarActividad(this.actividad);
+          }, 27000); //this.profesor.terminarActividad(this.actividad);
 
           $.ajax({
             type: 'POST',

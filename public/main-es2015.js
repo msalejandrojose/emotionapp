@@ -2000,42 +2000,44 @@ let EstudianteComponent = class EstudianteComponent {
                 //console.log('rgba('+this.colorPredominante[0]+','+this.colorPredominante[1]+','+this.colorPredominante[2]+','+this.colorPredominante[3]+')');
                 //$('#estadoAlumno').css('background-color', 'rgba(' + this.colorPredominante[0] + ',' + this.colorPredominante[1] + ',' + this.colorPredominante[2] + ',' + this.colorPredominante[3] + ')');
                 if (this.led.data) {
-                    if (this.pulsaciones < 100) {
-                        this.ponerColor();
-                        this.limpiarIntervalos();
-                    }
-                    else if (this.pulsaciones >= 100 && this.pulsaciones < 120) {
-                        this.limpiarIntervalos();
-                        this.intervaloAlto = setInterval(async => {
-                            setTimeout(async => {
-                                this.ponerColor();
-                            }, 900);
-                            setTimeout(async => {
-                                this.ponerNegro();
-                            }, 100);
-                        }, 1000);
-                    }
-                    else if (this.pulsaciones >= 120 && this.pulsaciones < 140) {
-                        this.limpiarIntervalos();
-                        this.intervaloMuyAlto = setInterval(async => {
-                            setTimeout(async => {
-                                this.ponerColor();
-                            }, 600);
-                            setTimeout(async => {
-                                this.ponerNegro();
-                            }, 100);
-                        }, 700);
-                    }
-                    else if (this.pulsaciones >= 140) {
-                        this.limpiarIntervalos();
-                        this.intervaloAltisimo = setInterval(async => {
-                            setTimeout(async => {
-                                this.ponerColor();
-                            }, 300);
-                            setTimeout(async => {
-                                this.ponerNegro();
-                            }, 100);
-                        }, 400);
+                    if (this.pulsera.estado == "Conectado") {
+                        if (this.pulsaciones < 100) {
+                            this.ponerColor();
+                            this.limpiarIntervalos();
+                        }
+                        else if (this.pulsaciones >= 100 && this.pulsaciones < 120) {
+                            this.limpiarIntervalos();
+                            this.intervaloAlto = setInterval(async => {
+                                setTimeout(async => {
+                                    this.ponerColor();
+                                }, 900);
+                                setTimeout(async => {
+                                    this.ponerNegro();
+                                }, 100);
+                            }, 1000);
+                        }
+                        else if (this.pulsaciones >= 120 && this.pulsaciones < 140) {
+                            this.limpiarIntervalos();
+                            this.intervaloMuyAlto = setInterval(async => {
+                                setTimeout(async => {
+                                    this.ponerColor();
+                                }, 600);
+                                setTimeout(async => {
+                                    this.ponerNegro();
+                                }, 100);
+                            }, 700);
+                        }
+                        else if (this.pulsaciones >= 140) {
+                            this.limpiarIntervalos();
+                            this.intervaloAltisimo = setInterval(async => {
+                                setTimeout(async => {
+                                    this.ponerColor();
+                                }, 300);
+                                setTimeout(async => {
+                                    this.ponerNegro();
+                                }, 100);
+                            }, 400);
+                        }
                     }
                 }
                 this.emocionAlegria = 0;
@@ -2058,63 +2060,66 @@ let EstudianteComponent = class EstudianteComponent {
                     if (datos['pulsaciones'].y > 85) {
                         datos['distraido'] = {
                             x: x,
-                            y: Math.round(datos['sorpresa'].y * 100),
+                            y: Math.round(datos['sorpresa'].y),
                         };
                     }
                 }
                 else {
                     datos['distraido'] = {
                         x: x,
-                        y: Math.round(datos['sorpresa'].y * 100),
+                        y: Math.round(datos['sorpresa'].y),
                     };
                 }
+                console.log(datos);
                 if (datos['alegria'].y == NaN || datos['alegria'].y == null) {
                     datos['distraido'] = {
                         x: x,
                         y: 100,
                     };
                 }
+                console.log(datos);
                 datos['concentrado'] = {
                     x: x,
-                    y: Math.round(100 - datos['distraido'].y * 100),
+                    y: Math.round(100 - datos['distraido'].y),
                 };
+                console.log(datos);
                 datos['frustrado'] = {
                     x: x,
                     y: 0,
                 };
-                if ((datos['sorpresa'].y + datos['tristeza'].y) > 0.25) {
+                if ((datos['sorpresa'].y + datos['tristeza'].y) > 25) {
                     datos['frustrado'] = {
                         x: x,
-                        y: Math.round(datos['frustrado'].y + 0.25 * 100),
+                        y: Math.round(datos['frustrado'].y + 25),
                     };
                 }
-                if ((datos['asco'].y + datos['ira'].y) > 0.25) {
+                if ((datos['asco'].y + datos['ira'].y) > 25) {
                     datos['frustrado'] = {
                         x: x,
-                        y: Math.round(datos['frustrado'].y + 0.25 * 100),
+                        y: Math.round(datos['frustrado'].y + 25),
                     };
                 }
-                if ((datos['miedo'].y + datos['tristeza'].y) > 0.25) {
+                if ((datos['miedo'].y + datos['tristeza'].y) > 25) {
                     datos['frustrado'] = {
                         x: x,
-                        y: Math.round(datos['frustrado'].y + 0.25 * 100),
+                        y: Math.round(datos['frustrado'].y + 25),
                     };
                 }
-                if ((datos['sorpresa'].y + datos['ira'].y) > 0.25) {
+                if ((datos['sorpresa'].y + datos['ira'].y) > 25) {
                     datos['frustrado'] = {
                         x: x,
-                        y: Math.round(datos['frustrado'].y + 0.25 * 100),
+                        y: Math.round(datos['frustrado'].y + 25),
                     };
                 }
                 if (datos['alegria'].y == NaN || datos['alegria'].y == null) {
                     datos['frustrado'] = {
                         x: x,
-                        y: 1 * 100,
+                        y: 100,
                     };
                 }
                 datos['motivado'] = {
                     x: x,
-                    y: Math.round(100 - datos['frustrado'].y * 100),
+                    y: Math.round(100 - datos['frustrado'].y),
                 };
             }
             console.log("Datos listos para enviar");
@@ -5786,7 +5791,7 @@ let VerActividadComponent = class VerActividadComponent {
             if (this.botonFinalizadaCargando) {
                 this.mensajeAlgoHaIdoMal();
             }
-        }, 25000);
+        }, 27000);
         //this.profesor.terminarActividad(this.actividad);
         $.ajax({
             type: 'POST',
