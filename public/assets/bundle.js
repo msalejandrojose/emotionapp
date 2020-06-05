@@ -2442,7 +2442,7 @@ class MiBand extends EventEmitter {
         this.emit('authenticated')
 
       } else if (cmd === '100104') {  // Set New Key FAIL
-        this.emit('error', 'Key Sending failed')
+        //this.emit('error', 'Key Sending failed')
       } else if (cmd === '100204') {  // Req Random Number FAIL
         this.emit('error', 'Key Sending failed')
       } else if (cmd === '100304') {
@@ -2711,36 +2711,39 @@ class pulseraMiBand {
     constructor() {
         this.chart = [];
         this.band = {};
-        this.pulsacionesActuales=0;
+        this.pulsacionesActuales = 0;
     }
-    
+
 
     async connect() {
-        const device = await navigator.bluetooth.requestDevice({
-            filters: [{ services: [miband.advertisementService] }],
-            optionalServices: miband.optionalServices
-        });
-        console.log('Connecting to device...');
-        const server = await device.gatt.connect();
-        console.log('Connected');
-        this.band = new miband(server);
-        this.startBandInit();
-        console.log(this.band);
-        if(device!=null){
-            return true;
-        }else{
-            return false;
+        try {
+            const device = await navigator.bluetooth.requestDevice({
+                filters: [{ services: [miband.advertisementService] }],
+                optionalServices: miband.optionalServices
+            });
+            console.log('Connecting to device...');
+            const server = await device.gatt.connect();
+            console.log('Connected');
+            this.band = new miband(server);
+            this.startBandInit();
+            console.log(this.band);
+            if (device != null) {
+                return true;
+            } else {
+                return false;
+            }
+        } catch (e) {
+            //console.log(e);
         }
-        
     }
 
     desconnect() {
-        try{
+        try {
             this.band.hrmStop();
-        }catch(e){
+        } catch (e) {
 
         }
-        
+
     }
 
     async startBandInit() {
@@ -2749,7 +2752,7 @@ class pulseraMiBand {
             console.log('Starting heart rate medition...');
             this.band.on('heart_rate', (rate) => {
                 //console.log(rate);
-                this.pulsacionesActuales=rate;
+                this.pulsacionesActuales = rate;
             });
             //this.log('Start hour: ' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds());
             await this.band.hrmStart();
