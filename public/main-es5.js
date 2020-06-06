@@ -579,7 +579,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"row\">\n    <div class=\"col-12\">\n        <h3 class=\"text-center\">{{actividad.nombre}}</h3>\n    </div>\n</div>\n<br>\n<div class=\"row\">\n    <div class=\"col-12\">\n        <nav>\n            <ol class=\"breadcrumb\">\n                <li class=\"breadcrumb-item\" (click)=\"cerrarActividad()\"><a class=\"migas\"><i class=\"fa fa-home\"></i>\n                        Home</a></li>\n                <li class=\"breadcrumb-item active\" aria-current=\"page\">Ver Actividad</li>\n            </ol>\n        </nav>\n    </div>\n</div>\n<div class=\"row justify-content-md-center\">\n    <div class=\"col-12\">\n        <h5 class=\"text-center\" *ngIf=\"actividad.estado=='Creada'\">Actividad sin empezar</h5>\n        <h5 class=\"text-center\" *ngIf=\"actividad.estado=='Comenzada'\">Actividad empezada</h5>\n        <h5 class=\"text-center\" *ngIf=\"actividad.estado=='Finalizada'\">Actividad finalizada</h5>\n    </div>\n</div>\n<div class=\"row justify-content-md-center text-center\">\n    <div class=\"col-3 text-left\">\n        <button\n            *ngIf=\"actividad.estado=='Creada' && !botonCreadaCargando && !botonFinalizadaCargando && !botonReanudarCargando\"\n            type=\"button\" class=\"btn btn-outline-success disenable\" (click)=\"comenzar()\"><i\n                class=\"fa fa-play-circle\"></i> Comenzar</button>\n        <button *ngIf=\"botonCreadaCargando\" class=\"btn btn-outline-success\" type=\"button\" disabled>\n            <span class=\"spinner-border spinner-border-sm\" role=\"status\" aria-hidden=\"true\"></span>\n            Comenzando...\n        </button>\n        <button\n            *ngIf=\"actividad.estado=='Comenzada' && !botonCreadaCargando && !botonFinalizadaCargando && !botonReanudarCargando\"\n            type=\"button\" class=\"btn btn-outline-danger disenable\" (click)=\"terminar()\"><i\n                class=\"fa fa-stop-circle\"></i>\n            Terminar</button>\n        <button *ngIf=\"botonFinalizadaCargando\" class=\"btn btn-outline-danger\" type=\"button\" disabled>\n            <span class=\"spinner-border spinner-border-sm\" role=\"status\" aria-hidden=\"true\"></span>\n            Terminando...\n        </button>\n        <button\n            *ngIf=\"actividad.estado=='Finalizada' && !botonCreadaCargando && !botonFinalizadaCargando && !botonReanudarCargando\"\n            type=\"button\" class=\"btn btn-outline-success disenable\" (click)=\"comenzar()\"><i class=\"fa fa-undo\"></i>\n            Reanudar Actividad</button>\n        <button *ngIf=\"actividad.estado=='Finalizada' && botonReanudarCargando\" class=\"btn btn-outline-danger\"\n            type=\"button\" disabled>\n            <span class=\"spinner-border spinner-border-sm\" role=\"status\" aria-hidden=\"true\"></span>\n            Reanunando..\n        </button>\n    </div>\n    <div class=\"row col-6 justify-content-center text-center\" *ngIf=\"!actividadAbierta\">\n        <div class=\"col-2 text-center\">\n            <div class=\"row justify-content-center\">\n                <button type=\"button\" class=\"btn btn-success btn-circle2\" disabled>\n                    <i class=\"fa fa-check\" aria-hidden=\"true\"></i>\n                </button>\n            </div>\n            <div class=\"row justify-content-center\">\n                Creada\n            </div>\n        </div>\n        <div class=\"col-3\">\n            <hr style=\"margin-top: 20%;\">\n        </div>\n        <div class=\"col-2 text-center\">\n            <div class=\"row justify-content-center\">\n                <button *ngIf=\"actividad.estado=='Comenzada' || actividad.estado=='Finalizada'\" type=\"button\"\n                    class=\"btn btn-success btn-circle2\" disabled>\n                    <i class=\"fa fa-check\" aria-hidden=\"true\"></i>\n                </button>\n                <button *ngIf=\"actividad.estado=='Creada'\" type=\"button\" class=\"btn btn-outline-secondary btn-circle2\"\n                    disabled>\n\n                </button>\n            </div>\n            <div class=\"row justify-content-center\">\n                Comenzada\n            </div>\n        </div>\n        <div class=\"col-3\">\n            <hr style=\"margin-top: 20%;\">\n        </div>\n        <div class=\"col-2 text-center\">\n            <div class=\"row justify-content-center\">\n                <button *ngIf=\"actividad.estado=='Finalizada'\" type=\"button\" class=\"btn btn-success btn-circle2\"\n                    disabled>\n                    <i class=\"fa fa-check\" aria-hidden=\"true\"></i>\n                </button>\n                <button *ngIf=\"actividad.estado=='Creada' || actividad.estado=='Comenzada'\" type=\"button\"\n                    class=\"btn btn-outline-secondary btn-circle2\" disabled>\n\n                </button>\n            </div>\n            <div class=\"row justify-content-center\">\n                Finalizada\n            </div>\n        </div>\n    </div>\n    <div class=\"col-3 text-right\">\n        <button *ngIf=\" !botonCreadaCargando && !botonFinalizadaCargando && !botonReanudarCargando\" type=\"button\"\n            class=\"btn btn-dark\" (click)=\"cerrarActividad()\"><i class=\"fa fa-times-circle\"></i> Volver atrás</button>\n        <button *ngIf=\"botonCreadaCargando || botonFinalizadaCargando || botonReanudarCargando\" type=\"button\"\n            class=\"btn btn-dark\" (click)=\"cerrarActividad()\" disabled><i class=\"fa fa-times-circle\"></i>\n            Volver atrás</button>\n    </div>\n</div>\n<br>\n<div class=\"row justify-content-center text-center\">\n    <div *ngIf=\"vistaGeneral\" class=\"btn-group btn-group-toggle\">\n        <label class=\"btn btn-outline-primary active\">\n            <input type=\"radio\" name=\"options\" id=\"general\" (click)=\"cambiarAGeneral()\" checked> General\n        </label>\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAMapa()\"> Mapa de la clase\n        </label>\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAEvolucion()\"> Evolucion\n        </label>\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAMedia()\"> Media\n        </label>\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAAlumnos()\"> Alumnos\n        </label>\n    </div>\n    <div *ngIf=\"vistaMapaDeLaClase\" class=\"btn-group btn-group-toggle\">\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"general\" (click)=\"cambiarAGeneral()\"> General\n        </label>\n        <label class=\"btn btn-outline-primary active\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAMapa()\" checked> Mapa de la clase\n        </label>\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAEvolucion()\"> Evolucion\n        </label>\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAMedia()\"> Media\n        </label>\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAAlumnos()\"> Alumnos\n        </label>\n    </div>\n    <div *ngIf=\"evolucion\" class=\"btn-group btn-group-toggle\">\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"general\" (click)=\"cambiarAGeneral()\"> General\n        </label>\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAMapa()\"> Mapa de la clase\n        </label>\n        <label class=\"btn btn-outline-primary active\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAEvolucion()\" checked> Evolucion\n        </label>\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAMedia()\"> Media\n        </label>\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAAlumnos()\"> Alumnos\n        </label>\n    </div>\n    <div *ngIf=\"conectados\" class=\"btn-group btn-group-toggle\">\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"general\" (click)=\"cambiarAGeneral()\"> General\n        </label>\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAMapa()\"> Mapa de la clase\n        </label>\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAEvolucion()\"> Evolucion\n        </label>\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAMedia()\"> Media\n        </label>\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAAlumnos()\"> Alumnos\n        </label>\n    </div>\n    <div *ngIf=\"media\" class=\"btn-group btn-group-toggle\">\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"general\" (click)=\"cambiarAGeneral()\"> General\n        </label>\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAMapa()\"> Mapa de la clase\n        </label>\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAEvolucion()\"> Evolucion\n        </label>\n        <label class=\"btn btn-outline-primary active\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAMedia()\" checked> Media\n        </label>\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAAlumnos()\"> Alumnos\n        </label>\n    </div>\n    <div *ngIf=\"tablaAlumnos\" class=\"btn-group btn-group-toggle\">\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"general\" (click)=\"cambiarAGeneral()\"> General\n        </label>\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAMapa()\"> Mapa de la clase\n        </label>\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAEvolucion()\"> Evolucion\n        </label>\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAMedia()\"> Media\n        </label>\n        <label class=\"btn btn-outline-primary active\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAAlumnos()\" checked> Alumnos\n        </label>\n    </div>\n</div>\n<br>\n<div *ngIf=\"actividad.estado=='Comenzada' && !botonCreadaCargando && !botonFinalizadaCargando && !botonReanudarCargando\" class=\"row justify-content-center text-center\">\n    <div class=\"col-2\">\n        <button *ngIf=\"!simulandoDatos\" (click)=\"simularDatos()\" type=\"button\" class=\"btn btn-outline-success\"> <i\n                class=\"fa fa-bar-chart\"></i> Simular datos </button>\n        <button *ngIf=\"simulandoDatos\" (click)=\"simularDatos()\" type=\"button\" class=\"btn btn-outline-danger\"> <i\n                class=\"fa fa-bar-chart\"></i> Parar simulacion </button>\n    </div>\n</div>\n<br>\n<div id=\"vistaGeneral\">\n    <div class=\"row justify-content-center\">\n        <!--<div id=\"conectadosPequeños\" class=\"col-4 card\">\n            <div class=\"card-body\">\n                <h6 class=\"card-title text-center\">Usuarios Conectados</h6>\n                <canvas id=\"usersConectados\"></canvas>\n                <h6 class=\"text-center\">{{porUsuariosConectados}}% Usuarios conectados</h6>\n            </div>\n        </div>-->\n        <div id=\"conectadosPequeños\" class=\"col-auto\">\n            <h5 class=\"text-center card-title\">Usuarios Conectados</h5>\n            <canvas id=\"usersConectados\"></canvas>\n            <h6 class=\"text-center\">{{porUsuariosConectados}}% Alumnos conectados</h6>\n        </div>\n        <!--<div class=\"col-auto card\">\n            <div class=\"card-body\">\n                <h6 class=\"card-title text-center\">Grafica</h6>\n                <div class=\"row text-center justify-content-center\">\n                    <div class=\"col-4\">\n                        <div class=\"btn-group\">\n                            <button type=\"button\" class=\"btn btn-info dropdown-toggle\" data-toggle=\"dropdown\"\n                                aria-haspopup=\"true\" aria-expanded=\"false\">\n                                Estado\n                            </button>\n                            <div class=\"dropdown-menu\">\n                                <div class=\"dropdown-item\" *ngFor=\"let estado of estados\">\n                                    <input type=\"checkbox\" class=\"form-check-input\" [(ngModel)]=\"estado.checked\">\n                                    <a>{{estado.nombre}}</a>\n                                </div>\n                            </div>\n                        </div>\n                    </div>\n                    <div class=\"col-4\">\n                        <div class=\"btn-group\">\n                            <button type=\"button\" class=\"btn btn-info dropdown-toggle\" data-toggle=\"dropdown\"\n                                aria-haspopup=\"true\" aria-expanded=\"false\">\n                                Alumnos\n                            </button>\n                            <div class=\"dropdown-menu\">\n                                <a *ngIf=\"alumnoSeleccionadoAlumno\" class=\"dropdown-item\">Media de la clase</a>\n                                <div class=\"dropdown-item\" *ngFor=\"let alumno of alumnosSelect\">\n                                    <input type=\"checkbox\" class=\"form-check-input\" [(ngModel)]=\"alumno.checked\">\n                                    <a>{{alumno.nombre}}</a>\n                                </div>\n                            </div>\n                        </div>\n                    </div>\n                    <div class=\"col-4\">\n                        <button type=\"button\" class=\"btn btn-outline-success\" (click)=\"actualizarGraficaLineal()\"><i\n                                class=\"fa fa-refresh\"></i> Actualizar</button>\n                    </div>\n                </div>\n                <div class=\"row text-center justify-content-center\">\n                    <canvas id=\"graficaLineal\"></canvas>\n                </div>\n            </div>\n        </div>-->\n        <div class=\"col-9\">\n            <div>\n                <div class=\"row\">\n                    <h5 class=\"col-12 text-center card-title\">Grafica</h5>\n                </div>\n                <div class=\"row text-center justify-content-center\">\n                    <div class=\"col-6\">\n                        <div class=\"btn-group\">\n                            <button type=\"button\" class=\"btn btn-info dropdown-toggle\" data-toggle=\"dropdown\"\n                                aria-haspopup=\"true\" aria-expanded=\"false\">\n                                Estado\n                            </button>\n                            <div class=\"dropdown-menu\">\n                                <div class=\"dropdown-item\" *ngFor=\"let estado of estados\">\n                                    <input type=\"checkbox\" class=\"form-check-input\" (click)=\"actualizarGraficaLineal()\"\n                                        [(ngModel)]=\"estado.checked\">\n                                    <a>{{estado.nombre}}</a>\n                                </div>\n                            </div>\n                        </div>\n                    </div>\n                    <div class=\"col-6\">\n                        <div class=\"btn-group\">\n                            <button type=\"button\" class=\"btn btn-info dropdown-toggle\" data-toggle=\"dropdown\"\n                                aria-haspopup=\"true\" aria-expanded=\"false\">\n                                Alumnos\n                            </button>\n                            <div class=\"dropdown-menu\">\n                                <a *ngIf=\"alumnoSeleccionadoAlumno\" class=\"dropdown-item\">Media de la clase</a>\n                                <div class=\"dropdown-item\" *ngFor=\"let alumno of alumnosSelect\">\n                                    <input type=\"checkbox\" class=\"form-check-input\" (click)=\"actualizarGraficaLineal()\"\n                                        [(ngModel)]=\"alumno.checked\">\n                                    <a>{{alumno.nombre}}</a>\n                                </div>\n                            </div>\n                        </div>\n                    </div>\n                    <!--<div class=\"col-4\">\n                        <button type=\"button\" class=\"btn btn-outline-success\" (click)=\"actualizarGraficaLineal()\"><i\n                                class=\"fa fa-refresh\"></i> Actualizar</button>\n                    </div>-->\n                </div>\n            </div>\n            <div>\n                <canvas id=\"graficaLineal\"></canvas>\n            </div>\n        </div>\n    </div>\n    <br>\n    <div class=\"row justify-content-center\">\n        <div class=\"col-sm-auto col-md-7\">\n            <div class=\"text-center\">\n                <i class=\"fa fa-users fa-2x\"></i>\n                <h5>Alumnos</h5>\n            </div>\n            <div class=\"example-header\">\n                <mat-form-field>\n                    <input matInput (keyup)=\"applyFilterA($event.target.value)\" placeholder=\"Filtrar\">\n                </mat-form-field>\n            </div>\n            <div class=\"example-container\">\n                <mat-table [dataSource]=\"dataSourceAlumnos\" class=\"mat-elevation-z1\" matSort>\n                    <ng-container matColumnDef=\"nombre\">\n                        <mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </mat-header-cell>\n                        <mat-cell *matCellDef=\"let element\"> {{element.nombre}} </mat-cell>\n                    </ng-container>\n                    <ng-container matColumnDef=\"estado\">\n                        <mat-header-cell *matHeaderCellDef mat-sort-header> Estado </mat-header-cell>\n                        <mat-cell *matCellDef=\"let row\"> {{row.estado}} </mat-cell>\n                    </ng-container>\n                    <ng-container matColumnDef=\"pulsaciones\">\n                        <mat-header-cell *matHeaderCellDef mat-sort-header> Pulsaciones </mat-header-cell>\n                        <mat-cell *matCellDef=\"let row\">\n                            <div *ngIf=\"row.pulsaciones<=95\">{{row.pulsaciones}} ppm</div>\n                            <div *ngIf=\"row.pulsaciones>95\" style=\"color:red\">{{row.pulsaciones}} ppm</div>\n                        </mat-cell>\n                    </ng-container>\n                    <ng-container matColumnDef=\"webcam\">\n                        <mat-header-cell *matHeaderCellDef><button class=\"btn btn-sm btn-primary\"\n                                (click)=\"activarTodasWebCam()\"><i class=\"fa fa-video-camera\"></i> Todos</button>\n                        </mat-header-cell>\n                        <mat-cell *matCellDef=\"let row\">\n                            <button *ngIf=\"row.webcam!=true && row.estado!='Desconectado' && !row.cargandoC\"\n                                class=\"btn btn-sm btn-outline-primary\" (click)=\"activarWebCam(row.estudiante)\"><i\n                                    class=\"fa fa-video-camera\"></i>\n                                Activar</button>\n                            <button *ngIf=\"row.cargandoC\" class=\"btn btn-sm btn-outline-primary disabled\" type=\"button\"\n                                disabled>\n                                <span class=\"spinner-border spinner-border-sm\" role=\"status\" aria-hidden=\"true\"></span>\n                                Activando ...\n                            </button>\n                            <button *ngIf=\"row.webcam==true && row.estado!='Desconectado' && !row.cargandoC\"\n                                class=\"btn btn-sm btn-outline-danger\" (click)=\"desactivarWebCam(row.estudiante)\"><i\n                                    class=\"fa fa-video-camera\"></i>\n                                Desactivar</button>\n                        </mat-cell>\n                    </ng-container>\n                    <ng-container matColumnDef=\"pulsera\">\n                        <mat-header-cell *matHeaderCellDef><button class=\"btn btn-sm btn-primary\"\n                                (click)=\"activarTodasPulseras()\"><i class=\"fa fa-heartbeat\"></i> Todos</button>\n                        </mat-header-cell>\n                        <mat-cell *matCellDef=\"let row\">\n                            <button *ngIf=\"row.pulsera!=true && row.estado!='Desconectado' && !row.cargandoP\"\n                                class=\"btn btn-sm btn-outline-primary\" (click)=\"activarPulsera(row.estudiante)\"><i\n                                    class=\"fa fa-heartbeat\"></i>\n                                Activar</button>\n                            <button *ngIf=\"row.cargandoP\" class=\"btn btn-sm btn-outline-primary disabled\" type=\"button\"\n                                disabled>\n                                <span class=\"spinner-border spinner-border-sm\" role=\"status\" aria-hidden=\"true\"></span>\n                                Activando ...\n                            </button>\n                            <button *ngIf=\"row.pulsera==true && row.estado!='Desconectado' && !row.cargandoP\"\n                                class=\"btn btn-sm btn-outline-danger\" (click)=\"desactivarPulsera(row.estudiante)\"><i\n                                    class=\"fa fa-heartbeat\"></i>\n                                Desactivar</button>\n                        </mat-cell>\n                    </ng-container>\n                    <ng-container matColumnDef=\"led\">\n                        <mat-header-cell *matHeaderCellDef>\n                            <button class=\"btn btn-sm btn-primary\" (click)=\"activarTodosLeds()\"><i\n                                    class=\"fa fa-lightbulb-o\"></i> Todos</button>\n                        </mat-header-cell>\n                        <mat-cell *matCellDef=\"let row\">\n                            <button *ngIf=\"row.led!=true && row.estado!='Desconectado' && !row.cargandoL\"\n                                class=\"btn btn-sm btn-outline-primary\" (click)=\"activarLed(row.estudiante)\"><i\n                                    class=\"fa fa-lightbulb-o\"></i> Activar</button>\n                            <button *ngIf=\"row.cargandoL\" class=\"btn btn-sm btn-outline-primary disabled\" type=\"button\"\n                                disabled>\n                                <span class=\"spinner-border spinner-border-sm\" role=\"status\" aria-hidden=\"true\"></span>\n                                Activando ...\n                            </button>\n                            <button *ngIf=\"row.led==true && row.estado!='Desconectado' && !row.cargandoL\"\n                                class=\"btn btn-sm btn-outline-danger\" (click)=\"desactivarLed(row.estudiante)\"><i\n                                    class=\"fa fa-lightbulb-o\"></i> Desactivar</button>\n                        </mat-cell>\n                    </ng-container>\n                    <mat-header-row *matHeaderRowDef=\"displayedColumnsAlumnos\"></mat-header-row>\n                    <mat-row *matRowDef=\"let row; columns: displayedColumnsAlumnos;\">\n                    </mat-row>\n                </mat-table>\n                <mat-paginator [pageSizeOptions]=\"[10, 25, 100]\"></mat-paginator>\n            </div>\n        </div>\n        <!--<div class=\"col-auto text-center card\">\n            <div class=\"card-body\">\n                <h6 class=\"card-title text-center\">Estado de la clase</h6>\n                <div class=\"row justify-content-center\">\n                    <div class=\"col-5\">\n                        <div class=\"btn-group\">\n                            <button type=\"button\" class=\"btn btn-info dropdown-toggle\" data-toggle=\"dropdown\"\n                                aria-haspopup=\"true\" aria-expanded=\"false\">\n                                Estado\n                            </button>\n                            <div class=\"dropdown-menu\">\n                                <div class=\"dropdown-item\" *ngFor=\"let estado of estadosGlobales\">\n                                    <input type=\"checkbox\" class=\"form-check-input\" [(ngModel)]=\"estado.checked\">\n                                    <a>{{estado.nombre}}</a>\n                                </div>\n                            </div>\n                        </div>\n                    </div>\n                    <div class=\"col-5\">\n                        <button type=\"button\" class=\"btn btn-outline-success\" (click)=\"actualizarGraficaGlobal()\"> <i\n                                class=\"fa fa-refresh\"></i> Actualizar</button>\n                    </div>\n                </div>\n                <br>\n                <div>\n                    <canvas id=\"estadoGlobal\"></canvas>\n                </div>\n            </div>\n        </div>-->\n        <div class=\"col-auto text-center\">\n            <div class=\"row\">\n                <div class=\"col-12 text-center\">\n                    <h5>Estado de la clase</h5>\n                </div>\n            </div>\n            <div class=\"row justify-content-center\">\n                <div class=\"col-5 text-center\">\n                    <div class=\"btn-group\">\n                        <button type=\"button\" class=\"btn btn-info dropdown-toggle\" data-toggle=\"dropdown\"\n                            aria-haspopup=\"true\" aria-expanded=\"false\">\n                            {{estadosConjuntoSeleccionado.nombre}}\n                        </button>\n                        <div class=\"dropdown-menu\">\n                            <div class=\"dropdown-item\" *ngFor=\"let estado of estadosConjunto2\">\n                                <a (click)=\"seleccionarEstadoGlobal(estado)\">{{estado.nombre}}</a>\n                            </div>\n                        </div>\n                    </div>\n                </div>\n                <!--<div class=\"col-5\">\n                    <button type=\"button\" class=\"btn btn-outline-success\" (click)=\"actualizarGraficaGlobal()\"> <i\n                            class=\"fa fa-refresh\"></i> Actualizar</button>\n                </div>-->\n            </div>\n            <br>\n            <div>\n                <canvas id=\"estadoGlobal\"></canvas>\n            </div>\n        </div>\n    </div>\n</div>\n<div id=\"vistaMapaDeLaClase\" class=\"col-12\" style=\"display: none;\">\n    <div class=\"row\">\n        <div class=\"card col-12\">\n            <div class=\"card-body\">\n                <div class=\"row justify-content-center\">\n                    <div class=\"col-6 text-center\">\n                        <h5 class=\"card-title\">Distribucion de la clase</h5>\n                    </div>\n                </div>\n                <div class=\"row justify-content-center\">\n                    <!--<div class=\"col-4 text-center\">\n                        <div class=\"btn-group\">\n                            <button type=\"button\" class=\"btn btn-info dropdown-toggle\" data-toggle=\"dropdown\"\n                                aria-haspopup=\"true\" aria-expanded=\"false\">\n                                {{visualizacionSelected}}\n                            </button>\n                            <div class=\"dropdown-menu\">\n                                <a *ngIf=\"alumnoSeleccionadoAlumno\" class=\"dropdown-item\">Media de la clase</a>\n                                <div class=\"dropdown-item\" *ngFor=\"let visualizacion of visualizaciones\"\n                                    (click)=\"seleccionVisualizacion(visualizacion)\">\n                                    <a>{{visualizacion.nombre}}</a>\n                                </div>\n                            </div>\n                        </div>\n                    </div>-->\n                    <div class=\"col-6 text-center\">\n                        <div class=\"btn-group\">\n                            <button type=\"button\" class=\"btn btn-info dropdown-toggle\" data-toggle=\"dropdown\"\n                                aria-haspopup=\"true\" aria-expanded=\"false\">\n                                {{estadoConjuntoSeleccionado}}\n                            </button>\n                            <div class=\"dropdown-menu\">\n                                <div class=\"dropdown-item\" (click)=\"seleccionarEstadoConjunto(estado)\"\n                                    *ngFor=\"let estado of estadosConjunto\">\n                                    <a>{{estado.nombre}}</a>\n                                </div>\n                            </div>\n                        </div>\n                    </div>\n                    <div *ngIf=\"actividad.estado=='Comenzada'\" class=\"col-6 text-center\">\n                        <button *ngIf=\"!actualizandoResumen\" type=\"button\" class=\"btn btn-outline-success\" (click)=\"actualizarResumen()\"><i\n                                class=\"fa fa-refresh\"></i> Actualizar</button>\n                        <!--actualizandoResumen-->\n                        <button *ngIf=\"actualizandoResumen\" class=\"btn btn-outline-success disabled\" type=\"button\"\n                            disabled>\n                            <span class=\"spinner-border spinner-border-sm\" role=\"status\" aria-hidden=\"true\"></span>\n                            Actualizando ...\n                        </button>\n                    </div>\n                </div>\n                <br>\n                <div class=\"row justify-content-center\">\n                    <div class=\"col-auto\">\n                        <div id=\"clase\" class=\"example-boundary\">\n                            <div id=\"{{item.id_item}}\" *ngFor=\"let item of actividad.alumnos\" class=\"example-box\"\n                                ondrop=\"myFunction(item)\" [cdkDragFreeDragPosition]=\"item.posicion\"\n                                cdkDragBoundary=\".example-boundary\" cdkDrag (cdkDragEnded)=\"dragEnded($event,item)\">\n                                {{item.estudiante.nombre}}\n                            </div>\n                        </div>\n                    </div>\n                    <div *ngIf=\"visualizacionSelected.nombre == 'Mapa de Calor'\" class=\"col-auto\">\n                        <div class=\"example-boundary heatmap\" data=\"data\"></div>\n                    </div>\n                    <div class=\"col-sm-6 col-12\">\n                        <div id=\"datoAlegria\">\n                            <div class=\"text-left\">\n                                <h6>Alegria</h6>\n                            </div>\n                            <div class=\"row\">\n                                <div class=\"progress col-10\">\n                                    <div id=\"progress-alegria\" class=\"progress-bar\" role=\"progressbar\"\n                                        style=\"background-color: rgba(255,255,84,1)\" aria-valuenow=\"25\"\n                                        aria-valuemin=\"0\" aria-valuemax=\"100\"></div>\n                                </div>\n                                <div class=\"col-2\">\n                                    {{datosResumenSeleccionados.alegria}}%\n                                </div>\n                            </div>\n                        </div>\n                        <div id=\"datoAsco\">\n                            <div class=\"text-left\">\n                                <h6>Asco</h6>\n                            </div>\n                            <div class=\"row\">\n                                <div class=\"progress col-10\">\n                                    <div id=\"progress-asco\" class=\"progress-bar\" role=\"progressbar\"\n                                        style=\"background-color: rgba(0,0,0,0.5)\" aria-valuenow=\"25\" aria-valuemin=\"0\"\n                                        aria-valuemax=\"100\"></div>\n                                </div>\n                                <div class=\"col-2\">\n                                    {{datosResumenSeleccionados.asco}}%\n                                </div>\n                            </div>\n                        </div>\n                        <div id=\"datoMiedo\">\n                            <div class=\"text-left\">\n                                <h6>Miedo</h6>\n                            </div>\n                            <div class=\"row\">\n                                <div class=\"progress col-10\">\n                                    <div id=\"progress-miedo\" class=\"progress-bar\" role=\"progressbar\"\n                                        style=\"background-color: rgba(0,150,0,1)\" aria-valuenow=\"25\" aria-valuemin=\"0\"\n                                        aria-valuemax=\"100\"></div>\n                                </div>\n                                <div class=\"col-2\">\n                                    {{datosResumenSeleccionados.miedo}}%\n                                </div>\n                            </div>\n                        </div>\n                        <div id=\"datoSorpresa\">\n                            <div class=\"text-left\">\n                                <h6>Sorpresa</h6>\n                            </div>\n                            <div class=\"row\">\n                                <div class=\"progress col-10\">\n                                    <div id=\"progress-sorpresa\" class=\"progress-bar\" role=\"progressbar\"\n                                        style=\"background-color: rgba(89,189,255,1)\" aria-valuenow=\"25\"\n                                        aria-valuemin=\"0\" aria-valuemax=\"100\"></div>\n                                </div>\n                                <div class=\"col-2\">\n                                    {{datosResumenSeleccionados.sorpresa}}%\n                                </div>\n                            </div>\n                        </div>\n                        <div id=\"datoTristeza\">\n                            <div class=\"text-left\">\n                                <h6>Tristeza</h6>\n                            </div>\n                            <div class=\"row\">\n                                <div class=\"progress col-10\">\n                                    <div id=\"progress-tristeza\" class=\"progress-bar\" role=\"progressbar\"\n                                        style=\"background-color: rgba(81,81,255,1)\" aria-valuenow=\"25\" aria-valuemin=\"0\"\n                                        aria-valuemax=\"100\"></div>\n                                </div>\n                                <div class=\"col-2\">\n                                    {{datosResumenSeleccionados.tristeza}}%\n                                </div>\n                            </div>\n                        </div>\n                        <div id=\"datoIra\">\n                            <div class=\"text-left\">\n                                <h6>Ira</h6>\n                            </div>\n                            <div class=\"row\">\n                                <div class=\"progress col-10\">\n                                    <div id=\"progress-ira\" class=\"progress-bar\" role=\"progressbar\"\n                                        style=\"background-color: rgba(255,0,0,1)\" aria-valuenow=\"25\" aria-valuemin=\"0\"\n                                        aria-valuemax=\"100\"></div>\n                                </div>\n                                <div class=\"col-2\">\n                                    {{datosResumenSeleccionados.ira}}%\n                                </div>\n                            </div>\n                        </div>\n                        <div id=\"datoconcentrado\">\n                            <div class=\"text-left\">\n                                <h6>Concentrado</h6>\n                            </div>\n                            <div class=\"row\">\n                                <div class=\"progress col-10\">\n                                    <div id=\"progress-concentrado\" class=\"progress-bar\" role=\"progressbar\"\n                                        style=\"background-color: rgba(84,255,84,1)\" aria-valuenow=\"25\" aria-valuemin=\"0\"\n                                        aria-valuemax=\"100\"></div>\n                                </div>\n                                <div class=\"col-2\">\n                                    {{datosResumenSeleccionados.concentrado}}%\n                                </div>\n                            </div>\n                        </div>\n                        <div id=\"datodistraido\">\n                            <div class=\"text-left\">\n                                <h6>Distraido</h6>\n                            </div>\n                            <div class=\"row\">\n                                <div class=\"progress col-10\">\n                                    <div id=\"progress-distraido\" class=\"progress-bar\" role=\"progressbar\"\n                                        style=\"background-color: rgba(70,70,70,1)\" aria-valuenow=\"25\" aria-valuemin=\"0\"\n                                        aria-valuemax=\"100\"></div>\n                                </div>\n                                <div class=\"col-2\">\n                                    {{datosResumenSeleccionados.distraido}}%\n                                </div>\n                            </div>\n                        </div>\n                        <div id=\"datomotivado\">\n                            <div class=\"text-left\">\n                                <h6>Motivado</h6>\n                            </div>\n                            <div class=\"row\">\n                                <div class=\"progress col-10\">\n                                    <div id=\"progress-motivado\" class=\"progress-bar\" role=\"progressbar\"\n                                        style=\"background-color: rgba(84,25,80,1)\" aria-valuenow=\"25\" aria-valuemin=\"0\"\n                                        aria-valuemax=\"100\"></div>\n                                </div>\n                                <div class=\"col-2\">\n                                    {{datosResumenSeleccionados.motivado}}%\n                                </div>\n                            </div>\n                        </div>\n                        <div id=\"datofrustrado\">\n                            <div class=\"text-left\">\n                                <h6>Frustrado</h6>\n                            </div>\n                            <div class=\"row\">\n                                <div class=\"progress col-10\">\n                                    <div id=\"progress-frustrado\" class=\"progress-bar\" role=\"progressbar\"\n                                        style=\"background-color: rgba(123,123,123,1)\" aria-valuenow=\"25\"\n                                        aria-valuemin=\"0\" aria-valuemax=\"100\"></div>\n                                </div>\n                                <div class=\"col-2\">\n                                    {{datosResumenSeleccionados.frustrado}}%\n                                </div>\n                            </div>\n                        </div>\n\n                    </div>\n                </div>\n            </div>\n            <br>\n        </div>\n    </div>\n\n</div>\n<div id=\"GraficoEvolucion\">\n    <div class=\"row justify-content-center\">\n        <div class=\"col-8\">\n            <div>\n                <div class=\"row\">\n                    <h4 class=\"col-12 text-left card-title\">Grafica</h4>\n                </div>\n                <div class=\"row text-center justify-content-center\">\n                    <div class=\"col-6\">\n                        <div class=\"btn-group\">\n                            <button type=\"button\" class=\"btn btn-info dropdown-toggle\" data-toggle=\"dropdown\"\n                                aria-haspopup=\"true\" aria-expanded=\"false\">\n                                Estado\n                            </button>\n                            <div class=\"dropdown-menu\">\n                                <div class=\"dropdown-item\" *ngFor=\"let estado of estados\">\n                                    <input type=\"checkbox\" class=\"form-check-input\" (click)=\"actualizarGraficaLineal()\"\n                                        [(ngModel)]=\"estado.checked\">\n                                    <a>{{estado.nombre}}</a>\n                                </div>\n                            </div>\n                        </div>\n                    </div>\n                    <div class=\"col-6\">\n                        <div class=\"btn-group\">\n                            <button type=\"button\" class=\"btn btn-info dropdown-toggle\" data-toggle=\"dropdown\"\n                                aria-haspopup=\"true\" aria-expanded=\"false\">\n                                Alumnos\n                            </button>\n                            <div class=\"dropdown-menu\">\n                                <a *ngIf=\"alumnoSeleccionadoAlumno\" class=\"dropdown-item\">Media de la clase</a>\n                                <div class=\"dropdown-item\" *ngFor=\"let alumno of alumnosSelect\">\n                                    <input type=\"checkbox\" class=\"form-check-input\" (click)=\"actualizarGraficaLineal()\"\n                                        [(ngModel)]=\"alumno.checked\">\n                                    <a>{{alumno.nombre}}</a>\n                                </div>\n                            </div>\n                        </div>\n                    </div>\n                    <!--<div class=\"col-4\">\n                        <button type=\"button\" class=\"btn btn-outline-success\" (click)=\"actualizarGraficaLineal()\"><i\n                                class=\"fa fa-refresh\"></i> Actualizar</button>\n                    </div>-->\n                </div>\n                <div class=\"row\">\n                    <div class=\"col-12\">\n                        <canvas id=\"graficaLinealEntera\"></canvas>\n                    </div>\n                </div>\n            </div>\n            <!--<div>\n                <canvas id=\"graficaLinealEntera\"></canvas>\n            </div>-->\n        </div>\n    </div>\n</div>\n<!--<div id=\"gUsuariosConectados\">\n    <div class=\"row justify-content-center\">\n        <div class=\"col-8\">\n            <h4 class=\"text-left card-title\">Alumnos Conectados</h4>\n            <canvas id=\"usersConectadosEntera\"></canvas>\n            <h6 class=\"text-center\">{{porUsuariosConectados}}%</h6>\n        </div>\n    </div>\n\n</div>-->\n<div id=\"gEstadoUsuarios\">\n    <div class=\"row justify-content-center\">\n        <div class=\"col-8\">\n            <div class=\"row\">\n                <div class=\"col-12 text-left\">\n                    <h4>Estado de la clase</h4>\n                </div>\n            </div>\n            <div class=\"row justify-content-center\">\n                <div class=\"col-5 text-center\">\n                    <div class=\"btn-group\">\n                        <button type=\"button\" class=\"btn btn-info dropdown-toggle\" data-toggle=\"dropdown\"\n                            aria-haspopup=\"true\" aria-expanded=\"false\">\n                            {{estadosConjuntoSeleccionado.nombre}}\n                        </button>\n                        <div class=\"dropdown-menu\">\n                            <div class=\"dropdown-item\" *ngFor=\"let estado of estadosConjunto2\">\n                                <a (click)=\"seleccionarEstadoGlobal(estado)\">{{estado.nombre}}</a>\n                            </div>\n                        </div>\n                    </div>\n                </div>\n                <!--<div class=\"col-5\">\n                    <button type=\"button\" class=\"btn btn-outline-success\" (click)=\"actualizarGraficaGlobal()\"> <i\n                            class=\"fa fa-refresh\"></i> Actualizar</button>\n                </div>-->\n            </div>\n            <br>\n            <div>\n                <canvas id=\"estadoGlobalEntero\"></canvas>\n            </div>\n        </div>\n    </div>\n\n</div>\n<div id=\"tablaUsuarios\">\n    <div class=\"row justify-content-center\">\n        <div class=\"col-10\">\n            <div class=\"text-left\">\n                <h4>Alumnos</h4>\n            </div>\n            <div class=\"example-header\">\n                <mat-form-field>\n                    <input matInput (keyup)=\"applyFilterA($event.target.value)\" placeholder=\"Filtrar\">\n                </mat-form-field>\n            </div>\n            <div class=\"row justify-content-center\">\n                <div class=\"col-12\">\n                    <div class=\"example-container\">\n                        <mat-table [dataSource]=\"dataSourceAlumnos\" class=\"mat-elevation-z1\" matSort>\n                            <ng-container matColumnDef=\"nombre\">\n                                <mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </mat-header-cell>\n                                <mat-cell *matCellDef=\"let element\"> {{element.nombre}} </mat-cell>\n                            </ng-container>\n                            <ng-container matColumnDef=\"estado\">\n                                <mat-header-cell *matHeaderCellDef mat-sort-header> Estado </mat-header-cell>\n                                <mat-cell *matCellDef=\"let row\"> {{row.estado}} </mat-cell>\n                            </ng-container>\n                            <ng-container matColumnDef=\"pulsaciones\">\n                                <mat-header-cell *matHeaderCellDef mat-sort-header> Pulsaciones </mat-header-cell>\n                                <mat-cell *matCellDef=\"let row\">\n                                    <div *ngIf=\"row.pulsaciones<=95\">{{row.pulsaciones}} ppm</div>\n                                    <div *ngIf=\"row.pulsaciones>95\" style=\"color:red\">{{row.pulsaciones}} ppm</div>\n                                </mat-cell>\n                            </ng-container>\n                            <ng-container matColumnDef=\"webcam\">\n                                <mat-header-cell *matHeaderCellDef><button class=\"btn btn-sm btn-primary\"\n                                        (click)=\"activarTodasWebCam()\"><i class=\"fa fa-video-camera\"></i> Todos</button>\n                                </mat-header-cell>\n                                <mat-cell *matCellDef=\"let row\">\n                                    <button *ngIf=\"row.webcam!=true && row.estado!='Desconectado' && !row.cargandoC\"\n                                        class=\"btn btn-sm btn-outline-primary\"\n                                        (click)=\"activarWebCam(row.estudiante)\"><i class=\"fa fa-video-camera\"></i>\n                                        Activar</button>\n                                    <button *ngIf=\"row.cargandoC\" class=\"btn btn-sm btn-outline-primary disabled\"\n                                        type=\"button\" disabled>\n                                        <span class=\"spinner-border spinner-border-sm\" role=\"status\"\n                                            aria-hidden=\"true\"></span>\n                                        Activando ...\n                                    </button>\n                                    <button *ngIf=\"row.webcam==true && row.estado!='Desconectado' && !row.cargandoC\"\n                                        class=\"btn btn-sm btn-outline-danger\"\n                                        (click)=\"desactivarWebCam(row.estudiante)\"><i class=\"fa fa-video-camera\"></i>\n                                        Desactivar</button>\n                                </mat-cell>\n                            </ng-container>\n                            <ng-container matColumnDef=\"pulsera\">\n                                <mat-header-cell *matHeaderCellDef><button class=\"btn btn-sm btn-primary\"\n                                        (click)=\"activarTodasPulseras()\"><i class=\"fa fa-heartbeat\"></i> Todos</button>\n                                </mat-header-cell>\n                                <mat-cell *matCellDef=\"let row\">\n                                    <button *ngIf=\"row.pulsera!=true && row.estado!='Desconectado' && !row.cargandoP\"\n                                        class=\"btn btn-sm btn-outline-primary\"\n                                        (click)=\"activarPulsera(row.estudiante)\"><i class=\"fa fa-heartbeat\"></i>\n                                        Activar</button>\n                                    <button *ngIf=\"row.cargandoP\" class=\"btn btn-sm btn-outline-primary disabled\"\n                                        type=\"button\" disabled>\n                                        <span class=\"spinner-border spinner-border-sm\" role=\"status\"\n                                            aria-hidden=\"true\"></span>\n                                        Activando ...\n                                    </button>\n                                    <button *ngIf=\"row.pulsera==true && row.estado!='Desconectado' && !row.cargandoP\"\n                                        class=\"btn btn-sm btn-outline-danger\"\n                                        (click)=\"desactivarPulsera(row.estudiante)\"><i class=\"fa fa-heartbeat\"></i>\n                                        Desactivar</button>\n                                </mat-cell>\n                            </ng-container>\n                            <ng-container matColumnDef=\"led\">\n                                <mat-header-cell *matHeaderCellDef>\n                                    <button class=\"btn btn-sm btn-primary\" (click)=\"activarTodosLeds()\"><i\n                                            class=\"fa fa-lightbulb-o\"></i> Todos</button>\n                                </mat-header-cell>\n                                <mat-cell *matCellDef=\"let row\">\n                                    <button *ngIf=\"row.led!=true && row.estado!='Desconectado' && !row.cargandoL\"\n                                        class=\"btn btn-sm btn-outline-primary\" (click)=\"activarLed(row.estudiante)\"><i\n                                            class=\"fa fa-lightbulb-o\"></i> Activar</button>\n                                    <button *ngIf=\"row.cargandoL\" class=\"btn btn-sm btn-outline-primary disabled\"\n                                        type=\"button\" disabled>\n                                        <span class=\"spinner-border spinner-border-sm\" role=\"status\"\n                                            aria-hidden=\"true\"></span>\n                                        Activando ...\n                                    </button>\n                                    <button *ngIf=\"row.led==true && row.estado!='Desconectado' && !row.cargandoL\"\n                                        class=\"btn btn-sm btn-outline-danger\" (click)=\"desactivarLed(row.estudiante)\"><i\n                                            class=\"fa fa-lightbulb-o\"></i> Desactivar</button>\n                                </mat-cell>\n                            </ng-container>\n                            <mat-header-row *matHeaderRowDef=\"displayedColumnsAlumnos\"></mat-header-row>\n                            <mat-row *matRowDef=\"let row; columns: displayedColumnsAlumnos;\">\n                            </mat-row>\n                        </mat-table>\n                        <mat-paginator [pageSizeOptions]=\"[10, 25, 100]\"></mat-paginator>\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>\n</div>\n<br>\n<br>\n<br>";
+    __webpack_exports__["default"] = "<div class=\"row\">\n    <div class=\"col-12\">\n        <h3 class=\"text-center\">{{actividad.nombre}}</h3>\n    </div>\n</div>\n<br>\n<div class=\"row\">\n    <div class=\"col-12\">\n        <nav>\n            <ol class=\"breadcrumb\">\n                <li class=\"breadcrumb-item\" (click)=\"cerrarActividad()\"><a class=\"migas\"><i class=\"fa fa-home\"></i>\n                        Home</a></li>\n                <li class=\"breadcrumb-item active\" aria-current=\"page\">Ver Actividad</li>\n            </ol>\n        </nav>\n    </div>\n</div>\n<div class=\"row justify-content-md-center\">\n    <div class=\"col-12\">\n        <h5 class=\"text-center\" *ngIf=\"actividad.estado=='Creada'\">Actividad sin empezar</h5>\n        <h5 class=\"text-center\" *ngIf=\"actividad.estado=='Comenzada'\">Actividad empezada</h5>\n        <h5 class=\"text-center\" *ngIf=\"actividad.estado=='Finalizada'\">Actividad finalizada</h5>\n    </div>\n</div>\n<div class=\"row justify-content-md-center text-center\">\n    <div class=\"col-3 text-left\">\n        <button\n            *ngIf=\"actividad.estado=='Creada' && !botonCreadaCargando && !botonFinalizadaCargando && !botonReanudarCargando\"\n            type=\"button\" class=\"btn btn-outline-success disenable\" (click)=\"comenzar()\"><i\n                class=\"fa fa-play-circle\"></i> Comenzar</button>\n        <button *ngIf=\"botonCreadaCargando\" class=\"btn btn-outline-success\" type=\"button\" disabled>\n            <span class=\"spinner-border spinner-border-sm\" role=\"status\" aria-hidden=\"true\"></span>\n            Comenzando...\n        </button>\n        <button\n            *ngIf=\"actividad.estado=='Comenzada' && !botonCreadaCargando && !botonFinalizadaCargando && !botonReanudarCargando\"\n            type=\"button\" class=\"btn btn-outline-danger disenable\" (click)=\"terminar()\"><i\n                class=\"fa fa-stop-circle\"></i>\n            Terminar</button>\n        <button *ngIf=\"botonFinalizadaCargando\" class=\"btn btn-outline-danger\" type=\"button\" disabled>\n            <span class=\"spinner-border spinner-border-sm\" role=\"status\" aria-hidden=\"true\"></span>\n            Terminando...\n        </button>\n        <button\n            *ngIf=\"actividad.estado=='Finalizada' && !botonCreadaCargando && !botonFinalizadaCargando && !botonReanudarCargando\"\n            type=\"button\" class=\"btn btn-outline-success disenable\" (click)=\"comenzar()\"><i class=\"fa fa-undo\"></i>\n            Reanudar Actividad</button>\n        <button *ngIf=\"actividad.estado=='Finalizada' && botonReanudarCargando\" class=\"btn btn-outline-danger\"\n            type=\"button\" disabled>\n            <span class=\"spinner-border spinner-border-sm\" role=\"status\" aria-hidden=\"true\"></span>\n            Reanunando..\n        </button>\n    </div>\n    <div class=\"row col-6 justify-content-center text-center\" *ngIf=\"!actividadAbierta\">\n        <div class=\"col-2 text-center\">\n            <div class=\"row justify-content-center\">\n                <button type=\"button\" class=\"btn btn-success btn-circle2\" disabled>\n                    <i class=\"fa fa-check\" aria-hidden=\"true\"></i>\n                </button>\n            </div>\n            <div class=\"row justify-content-center\">\n                Creada\n            </div>\n        </div>\n        <div class=\"col-3\">\n            <hr style=\"margin-top: 20%;\">\n        </div>\n        <div class=\"col-2 text-center\">\n            <div class=\"row justify-content-center\">\n                <button *ngIf=\"actividad.estado=='Comenzada' || actividad.estado=='Finalizada'\" type=\"button\"\n                    class=\"btn btn-success btn-circle2\" disabled>\n                    <i class=\"fa fa-check\" aria-hidden=\"true\"></i>\n                </button>\n                <button *ngIf=\"actividad.estado=='Creada'\" type=\"button\" class=\"btn btn-outline-secondary btn-circle2\"\n                    disabled>\n\n                </button>\n            </div>\n            <div class=\"row justify-content-center\">\n                Comenzada\n            </div>\n        </div>\n        <div class=\"col-3\">\n            <hr style=\"margin-top: 20%;\">\n        </div>\n        <div class=\"col-2 text-center\">\n            <div class=\"row justify-content-center\">\n                <button *ngIf=\"actividad.estado=='Finalizada'\" type=\"button\" class=\"btn btn-success btn-circle2\"\n                    disabled>\n                    <i class=\"fa fa-check\" aria-hidden=\"true\"></i>\n                </button>\n                <button *ngIf=\"actividad.estado=='Creada' || actividad.estado=='Comenzada'\" type=\"button\"\n                    class=\"btn btn-outline-secondary btn-circle2\" disabled>\n\n                </button>\n            </div>\n            <div class=\"row justify-content-center\">\n                Finalizada\n            </div>\n        </div>\n    </div>\n    <div class=\"col-3 text-right\">\n        <button *ngIf=\" !botonCreadaCargando && !botonFinalizadaCargando && !botonReanudarCargando\" type=\"button\"\n            class=\"btn btn-dark\" (click)=\"cerrarActividad()\"><i class=\"fa fa-times-circle\"></i> Volver atrás</button>\n        <button *ngIf=\"botonCreadaCargando || botonFinalizadaCargando || botonReanudarCargando\" type=\"button\"\n            class=\"btn btn-dark\" (click)=\"cerrarActividad()\" disabled><i class=\"fa fa-times-circle\"></i>\n            Volver atrás</button>\n    </div>\n</div>\n<br>\n<div class=\"row justify-content-center text-center\">\n    <div *ngIf=\"vistaGeneral\" class=\"btn-group btn-group-toggle\">\n        <label class=\"btn btn-outline-primary active\">\n            <input type=\"radio\" name=\"options\" id=\"general\" (click)=\"cambiarAGeneral()\" checked> General\n        </label>\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAMapa()\"> Mapa de la clase\n        </label>\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAEvolucion()\"> Evolucion\n        </label>\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAMedia()\"> Media\n        </label>\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAAlumnos()\"> Alumnos\n        </label>\n    </div>\n    <div *ngIf=\"vistaMapaDeLaClase\" class=\"btn-group btn-group-toggle\">\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"general\" (click)=\"cambiarAGeneral()\"> General\n        </label>\n        <label class=\"btn btn-outline-primary active\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAMapa()\" checked> Mapa de la clase\n        </label>\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAEvolucion()\"> Evolucion\n        </label>\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAMedia()\"> Media\n        </label>\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAAlumnos()\"> Alumnos\n        </label>\n    </div>\n    <div *ngIf=\"evolucion\" class=\"btn-group btn-group-toggle\">\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"general\" (click)=\"cambiarAGeneral()\"> General\n        </label>\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAMapa()\"> Mapa de la clase\n        </label>\n        <label class=\"btn btn-outline-primary active\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAEvolucion()\" checked> Evolucion\n        </label>\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAMedia()\"> Media\n        </label>\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAAlumnos()\"> Alumnos\n        </label>\n    </div>\n    <div *ngIf=\"conectados\" class=\"btn-group btn-group-toggle\">\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"general\" (click)=\"cambiarAGeneral()\"> General\n        </label>\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAMapa()\"> Mapa de la clase\n        </label>\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAEvolucion()\"> Evolucion\n        </label>\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAMedia()\"> Media\n        </label>\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAAlumnos()\"> Alumnos\n        </label>\n    </div>\n    <div *ngIf=\"media\" class=\"btn-group btn-group-toggle\">\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"general\" (click)=\"cambiarAGeneral()\"> General\n        </label>\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAMapa()\"> Mapa de la clase\n        </label>\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAEvolucion()\"> Evolucion\n        </label>\n        <label class=\"btn btn-outline-primary active\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAMedia()\" checked> Media\n        </label>\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAAlumnos()\"> Alumnos\n        </label>\n    </div>\n    <div *ngIf=\"tablaAlumnos\" class=\"btn-group btn-group-toggle\">\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"general\" (click)=\"cambiarAGeneral()\"> General\n        </label>\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAMapa()\"> Mapa de la clase\n        </label>\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAEvolucion()\"> Evolucion\n        </label>\n        <label class=\"btn btn-outline-primary\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAMedia()\"> Media\n        </label>\n        <label class=\"btn btn-outline-primary active\">\n            <input type=\"radio\" name=\"options\" id=\"mapa_de_clase\" (click)=\"cambiarAAlumnos()\" checked> Alumnos\n        </label>\n    </div>\n</div>\n<br>\n<div *ngIf=\"actividad.estado=='Comenzada' && !botonCreadaCargando && !botonFinalizadaCargando && !botonReanudarCargando\"\n    class=\"row justify-content-center text-center\">\n    <div class=\"col-2\">\n        <button *ngIf=\"!simulandoDatos\" (click)=\"simularDatos()\" type=\"button\" class=\"btn btn-outline-success\"> <i\n                class=\"fa fa-bar-chart\"></i> Simular datos </button>\n        <button *ngIf=\"simulandoDatos\" (click)=\"simularDatos()\" type=\"button\" class=\"btn btn-outline-danger\"> <i\n                class=\"fa fa-bar-chart\"></i> Parar simulacion </button>\n    </div>\n</div>\n<br>\n<div id=\"vistaGeneral\">\n    <div class=\"row justify-content-center\">\n        <!--<div id=\"conectadosPequeños\" class=\"col-4 card\">\n            <div class=\"card-body\">\n                <h6 class=\"card-title text-center\">Usuarios Conectados</h6>\n                <canvas id=\"usersConectados\"></canvas>\n                <h6 class=\"text-center\">{{porUsuariosConectados}}% Usuarios conectados</h6>\n            </div>\n        </div>-->\n        <div id=\"conectadosPequeños\" class=\"col-auto\">\n            <h5 class=\"text-center card-title\">Usuarios Conectados</h5>\n            <canvas id=\"usersConectados\"></canvas>\n            <h6 class=\"text-center\">{{porUsuariosConectados}}% Alumnos conectados</h6>\n        </div>\n        <!--<div class=\"col-auto card\">\n            <div class=\"card-body\">\n                <h6 class=\"card-title text-center\">Grafica</h6>\n                <div class=\"row text-center justify-content-center\">\n                    <div class=\"col-4\">\n                        <div class=\"btn-group\">\n                            <button type=\"button\" class=\"btn btn-info dropdown-toggle\" data-toggle=\"dropdown\"\n                                aria-haspopup=\"true\" aria-expanded=\"false\">\n                                Estado\n                            </button>\n                            <div class=\"dropdown-menu\">\n                                <div class=\"dropdown-item\" *ngFor=\"let estado of estados\">\n                                    <input type=\"checkbox\" class=\"form-check-input\" [(ngModel)]=\"estado.checked\">\n                                    <a>{{estado.nombre}}</a>\n                                </div>\n                            </div>\n                        </div>\n                    </div>\n                    <div class=\"col-4\">\n                        <div class=\"btn-group\">\n                            <button type=\"button\" class=\"btn btn-info dropdown-toggle\" data-toggle=\"dropdown\"\n                                aria-haspopup=\"true\" aria-expanded=\"false\">\n                                Alumnos\n                            </button>\n                            <div class=\"dropdown-menu\">\n                                <a *ngIf=\"alumnoSeleccionadoAlumno\" class=\"dropdown-item\">Media de la clase</a>\n                                <div class=\"dropdown-item\" *ngFor=\"let alumno of alumnosSelect\">\n                                    <input type=\"checkbox\" class=\"form-check-input\" [(ngModel)]=\"alumno.checked\">\n                                    <a>{{alumno.nombre}}</a>\n                                </div>\n                            </div>\n                        </div>\n                    </div>\n                    <div class=\"col-4\">\n                        <button type=\"button\" class=\"btn btn-outline-success\" (click)=\"actualizarGraficaLineal()\"><i\n                                class=\"fa fa-refresh\"></i> Actualizar</button>\n                    </div>\n                </div>\n                <div class=\"row text-center justify-content-center\">\n                    <canvas id=\"graficaLineal\"></canvas>\n                </div>\n            </div>\n        </div>-->\n        <div class=\"col-9\">\n            <div>\n                <div class=\"row\">\n                    <h5 class=\"col-12 text-center card-title\">Grafica</h5>\n                </div>\n                <div class=\"row text-center justify-content-center\">\n                    <div class=\"col-6\">\n                        <div class=\"btn-group\">\n                            <button type=\"button\" class=\"btn btn-info dropdown-toggle\" data-toggle=\"dropdown\"\n                                aria-haspopup=\"true\" aria-expanded=\"false\">\n                                Estado\n                            </button>\n                            <div class=\"dropdown-menu\">\n                                <div class=\"dropdown-item\" *ngFor=\"let estado of estados\">\n                                    <input type=\"checkbox\" class=\"form-check-input\" (click)=\"actualizarGraficaLineal()\"\n                                        [(ngModel)]=\"estado.checked\">\n                                    <a>{{estado.nombre}}</a>\n                                </div>\n                            </div>\n                        </div>\n                    </div>\n                    <div class=\"col-6\">\n                        <div class=\"btn-group\">\n                            <button type=\"button\" class=\"btn btn-info dropdown-toggle\" data-toggle=\"dropdown\"\n                                aria-haspopup=\"true\" aria-expanded=\"false\">\n                                Alumnos\n                            </button>\n                            <div class=\"dropdown-menu\">\n                                <a *ngIf=\"alumnoSeleccionadoAlumno\" class=\"dropdown-item\">Media de la clase</a>\n                                <div class=\"dropdown-item\" *ngFor=\"let alumno of alumnosSelect\">\n                                    <input type=\"checkbox\" class=\"form-check-input\" (click)=\"actualizarGraficaLineal()\"\n                                        [(ngModel)]=\"alumno.checked\">\n                                    <a>{{alumno.nombre}}</a>\n                                </div>\n                            </div>\n                        </div>\n                    </div>\n                    <!--<div class=\"col-4\">\n                        <button type=\"button\" class=\"btn btn-outline-success\" (click)=\"actualizarGraficaLineal()\"><i\n                                class=\"fa fa-refresh\"></i> Actualizar</button>\n                    </div>-->\n                </div>\n            </div>\n            <div>\n                <canvas id=\"graficaLineal\"></canvas>\n            </div>\n        </div>\n    </div>\n    <br>\n    <div class=\"row justify-content-center\">\n        <div class=\"col-sm-auto col-md-7\">\n            <div class=\"text-center\">\n                <i class=\"fa fa-users fa-2x\"></i>\n                <h5>Alumnos</h5>\n            </div>\n            <div class=\"example-header\">\n                <mat-form-field>\n                    <input matInput (keyup)=\"applyFilterA($event.target.value)\" placeholder=\"Filtrar\">\n                </mat-form-field>\n            </div>\n            <div class=\"example-container\">\n                <mat-table [dataSource]=\"dataSourceAlumnos\" class=\"mat-elevation-z1\" matSort>\n                    <ng-container matColumnDef=\"nombre\">\n                        <mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </mat-header-cell>\n                        <mat-cell *matCellDef=\"let element\"> {{element.nombre}} </mat-cell>\n                    </ng-container>\n                    <ng-container matColumnDef=\"estado\">\n                        <mat-header-cell *matHeaderCellDef mat-sort-header> Estado </mat-header-cell>\n                        <mat-cell *matCellDef=\"let row\"> {{row.estado}} </mat-cell>\n                    </ng-container>\n                    <ng-container matColumnDef=\"pulsaciones\">\n                        <mat-header-cell *matHeaderCellDef mat-sort-header> Pulsaciones </mat-header-cell>\n                        <mat-cell *matCellDef=\"let row\">\n                            <div *ngIf=\"row.pulsaciones<=95\">{{row.pulsaciones}} ppm</div>\n                            <div *ngIf=\"row.pulsaciones>95\" style=\"color:red\">{{row.pulsaciones}} ppm</div>\n                        </mat-cell>\n                    </ng-container>\n                    <ng-container matColumnDef=\"webcam\">\n                        <mat-header-cell *matHeaderCellDef><button class=\"btn btn-sm btn-primary\"\n                                (click)=\"activarTodasWebCam()\"><i class=\"fa fa-video-camera\"></i> Todos</button>\n                        </mat-header-cell>\n                        <mat-cell *matCellDef=\"let row\">\n                            <button *ngIf=\"row.webcam!=true && row.estado!='Desconectado' && !row.cargandoC\"\n                                class=\"btn btn-sm btn-outline-primary\" (click)=\"activarWebCam(row.estudiante)\"><i\n                                    class=\"fa fa-video-camera\"></i>\n                                Activar</button>\n                            <button *ngIf=\"row.cargandoC\" class=\"btn btn-sm btn-outline-primary disabled\" type=\"button\"\n                                disabled>\n                                <span class=\"spinner-border spinner-border-sm\" role=\"status\" aria-hidden=\"true\"></span>\n                                Activando ...\n                            </button>\n                            <button *ngIf=\"row.webcam==true && row.estado!='Desconectado' && !row.cargandoC\"\n                                class=\"btn btn-sm btn-outline-danger\" (click)=\"desactivarWebCam(row.estudiante)\"><i\n                                    class=\"fa fa-video-camera\"></i>\n                                Desactivar</button>\n                        </mat-cell>\n                    </ng-container>\n                    <ng-container matColumnDef=\"pulsera\">\n                        <mat-header-cell *matHeaderCellDef><button class=\"btn btn-sm btn-primary\"\n                                (click)=\"activarTodasPulseras()\"><i class=\"fa fa-heartbeat\"></i> Todos</button>\n                        </mat-header-cell>\n                        <mat-cell *matCellDef=\"let row\">\n                            <button *ngIf=\"row.pulsera!=true && row.estado!='Desconectado' && !row.cargandoP\"\n                                class=\"btn btn-sm btn-outline-primary\" (click)=\"activarPulsera(row.estudiante)\"><i\n                                    class=\"fa fa-heartbeat\"></i>\n                                Activar</button>\n                            <button *ngIf=\"row.cargandoP\" class=\"btn btn-sm btn-outline-primary disabled\" type=\"button\"\n                                disabled>\n                                <span class=\"spinner-border spinner-border-sm\" role=\"status\" aria-hidden=\"true\"></span>\n                                Activando ...\n                            </button>\n                            <button *ngIf=\"row.pulsera==true && row.estado!='Desconectado' && !row.cargandoP\"\n                                class=\"btn btn-sm btn-outline-danger\" (click)=\"desactivarPulsera(row.estudiante)\"><i\n                                    class=\"fa fa-heartbeat\"></i>\n                                Desactivar</button>\n                        </mat-cell>\n                    </ng-container>\n                    <ng-container matColumnDef=\"led\">\n                        <mat-header-cell *matHeaderCellDef>\n                            <button class=\"btn btn-sm btn-primary\" (click)=\"activarTodosLeds()\"><i\n                                    class=\"fa fa-lightbulb-o\"></i> Todos</button>\n                        </mat-header-cell>\n                        <mat-cell *matCellDef=\"let row\">\n                            <button *ngIf=\"row.led!=true && row.estado!='Desconectado' && !row.cargandoL\"\n                                class=\"btn btn-sm btn-outline-primary\" (click)=\"activarLed(row.estudiante)\"><i\n                                    class=\"fa fa-lightbulb-o\"></i> Activar</button>\n                            <button *ngIf=\"row.cargandoL\" class=\"btn btn-sm btn-outline-primary disabled\" type=\"button\"\n                                disabled>\n                                <span class=\"spinner-border spinner-border-sm\" role=\"status\" aria-hidden=\"true\"></span>\n                                Activando ...\n                            </button>\n                            <button *ngIf=\"row.led==true && row.estado!='Desconectado' && !row.cargandoL\"\n                                class=\"btn btn-sm btn-outline-danger\" (click)=\"desactivarLed(row.estudiante)\"><i\n                                    class=\"fa fa-lightbulb-o\"></i> Desactivar</button>\n                        </mat-cell>\n                    </ng-container>\n                    <mat-header-row *matHeaderRowDef=\"displayedColumnsAlumnos\"></mat-header-row>\n                    <mat-row *matRowDef=\"let row; columns: displayedColumnsAlumnos;\">\n                    </mat-row>\n                </mat-table>\n                <mat-paginator [pageSizeOptions]=\"[10, 25, 100]\"></mat-paginator>\n            </div>\n        </div>\n        <!--<div class=\"col-auto text-center card\">\n            <div class=\"card-body\">\n                <h6 class=\"card-title text-center\">Estado de la clase</h6>\n                <div class=\"row justify-content-center\">\n                    <div class=\"col-5\">\n                        <div class=\"btn-group\">\n                            <button type=\"button\" class=\"btn btn-info dropdown-toggle\" data-toggle=\"dropdown\"\n                                aria-haspopup=\"true\" aria-expanded=\"false\">\n                                Estado\n                            </button>\n                            <div class=\"dropdown-menu\">\n                                <div class=\"dropdown-item\" *ngFor=\"let estado of estadosGlobales\">\n                                    <input type=\"checkbox\" class=\"form-check-input\" [(ngModel)]=\"estado.checked\">\n                                    <a>{{estado.nombre}}</a>\n                                </div>\n                            </div>\n                        </div>\n                    </div>\n                    <div class=\"col-5\">\n                        <button type=\"button\" class=\"btn btn-outline-success\" (click)=\"actualizarGraficaGlobal()\"> <i\n                                class=\"fa fa-refresh\"></i> Actualizar</button>\n                    </div>\n                </div>\n                <br>\n                <div>\n                    <canvas id=\"estadoGlobal\"></canvas>\n                </div>\n            </div>\n        </div>-->\n        <div class=\"col-auto text-center\">\n            <div class=\"row\">\n                <div class=\"col-12 text-center\">\n                    <h5>Estado de la clase</h5>\n                </div>\n            </div>\n            <div class=\"row justify-content-center\">\n                <div class=\"col-5 text-center\">\n                    <div class=\"btn-group\">\n                        <button type=\"button\" class=\"btn btn-info dropdown-toggle\" data-toggle=\"dropdown\"\n                            aria-haspopup=\"true\" aria-expanded=\"false\">\n                            {{estadosConjuntoSeleccionado.nombre}}\n                        </button>\n                        <div class=\"dropdown-menu\">\n                            <div class=\"dropdown-item\" *ngFor=\"let estado of estadosConjunto2\">\n                                <a (click)=\"seleccionarEstadoGlobal(estado)\">{{estado.nombre}}</a>\n                            </div>\n                        </div>\n                    </div>\n                </div>\n                <!--<div class=\"col-5\">\n                    <button type=\"button\" class=\"btn btn-outline-success\" (click)=\"actualizarGraficaGlobal()\"> <i\n                            class=\"fa fa-refresh\"></i> Actualizar</button>\n                </div>-->\n            </div>\n            <br>\n            <div>\n                <canvas id=\"estadoGlobal\"></canvas>\n            </div>\n        </div>\n    </div>\n</div>\n<div id=\"vistaMapaDeLaClase\" class=\"col-12\" style=\"display: none;\">\n    <div class=\"row\">\n        <div class=\"card col-12\">\n            <div class=\"card-body\">\n                <div class=\"row justify-content-center\">\n                    <div class=\"col-6 text-center\">\n                        <h5 class=\"card-title\">Distribucion de la clase</h5>\n                    </div>\n                </div>\n                <div class=\"row justify-content-center\">\n                    <!--<div class=\"col-4 text-center\">\n                        <div class=\"btn-group\">\n                            <button type=\"button\" class=\"btn btn-info dropdown-toggle\" data-toggle=\"dropdown\"\n                                aria-haspopup=\"true\" aria-expanded=\"false\">\n                                {{visualizacionSelected}}\n                            </button>\n                            <div class=\"dropdown-menu\">\n                                <a *ngIf=\"alumnoSeleccionadoAlumno\" class=\"dropdown-item\">Media de la clase</a>\n                                <div class=\"dropdown-item\" *ngFor=\"let visualizacion of visualizaciones\"\n                                    (click)=\"seleccionVisualizacion(visualizacion)\">\n                                    <a>{{visualizacion.nombre}}</a>\n                                </div>\n                            </div>\n                        </div>\n                    </div>-->\n                    <div class=\"col-md-6\">\n\n                    </div>\n                    <div class=\"col-md-6 col-auto\">\n                        <div class=\"row justify-content-center\">\n                            <div class=\"col-6 text-center\">\n                                <div class=\"btn-group\">\n                                    <button type=\"button\" class=\"btn btn-info dropdown-toggle\" data-toggle=\"dropdown\"\n                                        aria-haspopup=\"true\" aria-expanded=\"false\">\n                                        {{estadoConjuntoSeleccionado}}\n                                    </button>\n                                    <div class=\"dropdown-menu\">\n                                        <div class=\"dropdown-item\" (click)=\"seleccionarEstadoConjunto(estado)\"\n                                            *ngFor=\"let estado of estadosConjunto\">\n                                            <a>{{estado.nombre}}</a>\n                                        </div>\n                                    </div>\n                                </div>\n                            </div>\n                            <div *ngIf=\"actividad.estado=='Comenzada'\" class=\"col-6 text-center\">\n                                <button *ngIf=\"!actualizandoResumen\" type=\"button\" class=\"btn btn-outline-success\"\n                                    (click)=\"actualizarResumen()\"><i class=\"fa fa-refresh\"></i> Actualizar</button>\n                                <!--actualizandoResumen-->\n                                <button *ngIf=\"actualizandoResumen\" class=\"btn btn-outline-success disabled\"\n                                    type=\"button\" disabled>\n                                    <span class=\"spinner-border spinner-border-sm\" role=\"status\"\n                                        aria-hidden=\"true\"></span>\n                                    Actualizando ...\n                                </button>\n                            </div>\n                        </div>\n                    </div>\n                </div>\n                <br>\n                <div class=\"row justify-content-center\">\n                    <div class=\"col-auto\">\n                        <div id=\"clase\" class=\"example-boundary\">\n                            <div id=\"{{item.id_item}}\" *ngFor=\"let item of actividad.alumnos\" class=\"example-box\"\n                                ondrop=\"myFunction(item)\" [cdkDragFreeDragPosition]=\"item.posicion\"\n                                cdkDragBoundary=\".example-boundary\" cdkDrag (cdkDragEnded)=\"dragEnded($event,item)\">\n                                {{item.estudiante.nombre}}\n                            </div>\n                        </div>\n                    </div>\n                    <div *ngIf=\"visualizacionSelected.nombre == 'Mapa de Calor'\" class=\"col-auto\">\n                        <div class=\"example-boundary heatmap\" data=\"data\"></div>\n                    </div>\n                    <div class=\"col-sm-6 col-12\">\n                        <div id=\"datoAlegria\">\n                            <div class=\"text-left\">\n                                <h6>Alegria</h6>\n                            </div>\n                            <div class=\"row\">\n                                <div class=\"progress col-10\">\n                                    <div id=\"progress-alegria\" class=\"progress-bar\" role=\"progressbar\"\n                                        style=\"background-color: rgba(255,255,84,1)\" aria-valuenow=\"25\"\n                                        aria-valuemin=\"0\" aria-valuemax=\"100\"></div>\n                                </div>\n                                <div class=\"col-2\">\n                                    {{datosResumenSeleccionados.alegria}}%\n                                </div>\n                            </div>\n                        </div>\n                        <div id=\"datoAsco\">\n                            <div class=\"text-left\">\n                                <h6>Asco</h6>\n                            </div>\n                            <div class=\"row\">\n                                <div class=\"progress col-10\">\n                                    <div id=\"progress-asco\" class=\"progress-bar\" role=\"progressbar\"\n                                        style=\"background-color: rgba(0,0,0,0.5)\" aria-valuenow=\"25\" aria-valuemin=\"0\"\n                                        aria-valuemax=\"100\"></div>\n                                </div>\n                                <div class=\"col-2\">\n                                    {{datosResumenSeleccionados.asco}}%\n                                </div>\n                            </div>\n                        </div>\n                        <div id=\"datoMiedo\">\n                            <div class=\"text-left\">\n                                <h6>Miedo</h6>\n                            </div>\n                            <div class=\"row\">\n                                <div class=\"progress col-10\">\n                                    <div id=\"progress-miedo\" class=\"progress-bar\" role=\"progressbar\"\n                                        style=\"background-color: rgba(0,150,0,1)\" aria-valuenow=\"25\" aria-valuemin=\"0\"\n                                        aria-valuemax=\"100\"></div>\n                                </div>\n                                <div class=\"col-2\">\n                                    {{datosResumenSeleccionados.miedo}}%\n                                </div>\n                            </div>\n                        </div>\n                        <div id=\"datoSorpresa\">\n                            <div class=\"text-left\">\n                                <h6>Sorpresa</h6>\n                            </div>\n                            <div class=\"row\">\n                                <div class=\"progress col-10\">\n                                    <div id=\"progress-sorpresa\" class=\"progress-bar\" role=\"progressbar\"\n                                        style=\"background-color: rgba(89,189,255,1)\" aria-valuenow=\"25\"\n                                        aria-valuemin=\"0\" aria-valuemax=\"100\"></div>\n                                </div>\n                                <div class=\"col-2\">\n                                    {{datosResumenSeleccionados.sorpresa}}%\n                                </div>\n                            </div>\n                        </div>\n                        <div id=\"datoTristeza\">\n                            <div class=\"text-left\">\n                                <h6>Tristeza</h6>\n                            </div>\n                            <div class=\"row\">\n                                <div class=\"progress col-10\">\n                                    <div id=\"progress-tristeza\" class=\"progress-bar\" role=\"progressbar\"\n                                        style=\"background-color: rgba(81,81,255,1)\" aria-valuenow=\"25\" aria-valuemin=\"0\"\n                                        aria-valuemax=\"100\"></div>\n                                </div>\n                                <div class=\"col-2\">\n                                    {{datosResumenSeleccionados.tristeza}}%\n                                </div>\n                            </div>\n                        </div>\n                        <div id=\"datoIra\">\n                            <div class=\"text-left\">\n                                <h6>Ira</h6>\n                            </div>\n                            <div class=\"row\">\n                                <div class=\"progress col-10\">\n                                    <div id=\"progress-ira\" class=\"progress-bar\" role=\"progressbar\"\n                                        style=\"background-color: rgba(255,0,0,1)\" aria-valuenow=\"25\" aria-valuemin=\"0\"\n                                        aria-valuemax=\"100\"></div>\n                                </div>\n                                <div class=\"col-2\">\n                                    {{datosResumenSeleccionados.ira}}%\n                                </div>\n                            </div>\n                        </div>\n                        <div id=\"datoconcentrado\">\n                            <div class=\"text-left\">\n                                <h6>Concentrado</h6>\n                            </div>\n                            <div class=\"row\">\n                                <div class=\"progress col-10\">\n                                    <div id=\"progress-concentrado\" class=\"progress-bar\" role=\"progressbar\"\n                                        style=\"background-color: rgba(84,255,84,1)\" aria-valuenow=\"25\" aria-valuemin=\"0\"\n                                        aria-valuemax=\"100\"></div>\n                                </div>\n                                <div class=\"col-2\">\n                                    {{datosResumenSeleccionados.concentrado}}%\n                                </div>\n                            </div>\n                        </div>\n                        <div id=\"datodistraido\">\n                            <div class=\"text-left\">\n                                <h6>Distraido</h6>\n                            </div>\n                            <div class=\"row\">\n                                <div class=\"progress col-10\">\n                                    <div id=\"progress-distraido\" class=\"progress-bar\" role=\"progressbar\"\n                                        style=\"background-color: rgba(70,70,70,1)\" aria-valuenow=\"25\" aria-valuemin=\"0\"\n                                        aria-valuemax=\"100\"></div>\n                                </div>\n                                <div class=\"col-2\">\n                                    {{datosResumenSeleccionados.distraido}}%\n                                </div>\n                            </div>\n                        </div>\n                        <div id=\"datomotivado\">\n                            <div class=\"text-left\">\n                                <h6>Motivado</h6>\n                            </div>\n                            <div class=\"row\">\n                                <div class=\"progress col-10\">\n                                    <div id=\"progress-motivado\" class=\"progress-bar\" role=\"progressbar\"\n                                        style=\"background-color: rgba(84,25,80,1)\" aria-valuenow=\"25\" aria-valuemin=\"0\"\n                                        aria-valuemax=\"100\"></div>\n                                </div>\n                                <div class=\"col-2\">\n                                    {{datosResumenSeleccionados.motivado}}%\n                                </div>\n                            </div>\n                        </div>\n                        <div id=\"datofrustrado\">\n                            <div class=\"text-left\">\n                                <h6>Frustrado</h6>\n                            </div>\n                            <div class=\"row\">\n                                <div class=\"progress col-10\">\n                                    <div id=\"progress-frustrado\" class=\"progress-bar\" role=\"progressbar\"\n                                        style=\"background-color: rgba(123,123,123,1)\" aria-valuenow=\"25\"\n                                        aria-valuemin=\"0\" aria-valuemax=\"100\"></div>\n                                </div>\n                                <div class=\"col-2\">\n                                    {{datosResumenSeleccionados.frustrado}}%\n                                </div>\n                            </div>\n                        </div>\n\n                    </div>\n                </div>\n            </div>\n            <br>\n        </div>\n    </div>\n\n</div>\n<div id=\"GraficoEvolucion\">\n    <div class=\"row justify-content-center\">\n        <div class=\"col-8\">\n            <div>\n                <div class=\"row\">\n                    <h4 class=\"col-12 text-left card-title\">Grafica</h4>\n                </div>\n                <div class=\"row text-center justify-content-center\">\n                    <div class=\"col-6\">\n                        <div class=\"btn-group\">\n                            <button type=\"button\" class=\"btn btn-info dropdown-toggle\" data-toggle=\"dropdown\"\n                                aria-haspopup=\"true\" aria-expanded=\"false\">\n                                Estado\n                            </button>\n                            <div class=\"dropdown-menu\">\n                                <div class=\"dropdown-item\" *ngFor=\"let estado of estados\">\n                                    <input type=\"checkbox\" class=\"form-check-input\" (click)=\"actualizarGraficaLineal()\"\n                                        [(ngModel)]=\"estado.checked\">\n                                    <a>{{estado.nombre}}</a>\n                                </div>\n                            </div>\n                        </div>\n                    </div>\n                    <div class=\"col-6\">\n                        <div class=\"btn-group\">\n                            <button type=\"button\" class=\"btn btn-info dropdown-toggle\" data-toggle=\"dropdown\"\n                                aria-haspopup=\"true\" aria-expanded=\"false\">\n                                Alumnos\n                            </button>\n                            <div class=\"dropdown-menu\">\n                                <a *ngIf=\"alumnoSeleccionadoAlumno\" class=\"dropdown-item\">Media de la clase</a>\n                                <div class=\"dropdown-item\" *ngFor=\"let alumno of alumnosSelect\">\n                                    <input type=\"checkbox\" class=\"form-check-input\" (click)=\"actualizarGraficaLineal()\"\n                                        [(ngModel)]=\"alumno.checked\">\n                                    <a>{{alumno.nombre}}</a>\n                                </div>\n                            </div>\n                        </div>\n                    </div>\n                    <!--<div class=\"col-4\">\n                        <button type=\"button\" class=\"btn btn-outline-success\" (click)=\"actualizarGraficaLineal()\"><i\n                                class=\"fa fa-refresh\"></i> Actualizar</button>\n                    </div>-->\n                </div>\n                <div class=\"row\">\n                    <div class=\"col-12\">\n                        <canvas id=\"graficaLinealEntera\"></canvas>\n                    </div>\n                </div>\n            </div>\n            <!--<div>\n                <canvas id=\"graficaLinealEntera\"></canvas>\n            </div>-->\n        </div>\n    </div>\n</div>\n<!--<div id=\"gUsuariosConectados\">\n    <div class=\"row justify-content-center\">\n        <div class=\"col-8\">\n            <h4 class=\"text-left card-title\">Alumnos Conectados</h4>\n            <canvas id=\"usersConectadosEntera\"></canvas>\n            <h6 class=\"text-center\">{{porUsuariosConectados}}%</h6>\n        </div>\n    </div>\n\n</div>-->\n<div id=\"gEstadoUsuarios\">\n    <div class=\"row justify-content-center\">\n        <div class=\"col-8\">\n            <div class=\"row\">\n                <div class=\"col-12 text-left\">\n                    <h4>Estado de la clase</h4>\n                </div>\n            </div>\n            <div class=\"row justify-content-center\">\n                <div class=\"col-5 text-center\">\n                    <div class=\"btn-group\">\n                        <button type=\"button\" class=\"btn btn-info dropdown-toggle\" data-toggle=\"dropdown\"\n                            aria-haspopup=\"true\" aria-expanded=\"false\">\n                            {{estadosConjuntoSeleccionado.nombre}}\n                        </button>\n                        <div class=\"dropdown-menu\">\n                            <div class=\"dropdown-item\" *ngFor=\"let estado of estadosConjunto2\">\n                                <a (click)=\"seleccionarEstadoGlobal(estado)\">{{estado.nombre}}</a>\n                            </div>\n                        </div>\n                    </div>\n                </div>\n                <!--<div class=\"col-5\">\n                    <button type=\"button\" class=\"btn btn-outline-success\" (click)=\"actualizarGraficaGlobal()\"> <i\n                            class=\"fa fa-refresh\"></i> Actualizar</button>\n                </div>-->\n            </div>\n            <br>\n            <div>\n                <canvas id=\"estadoGlobalEntero\"></canvas>\n            </div>\n        </div>\n    </div>\n\n</div>\n<div id=\"tablaUsuarios\">\n    <div class=\"row justify-content-center\">\n        <div class=\"col-10\">\n            <div class=\"text-left\">\n                <h4>Alumnos</h4>\n            </div>\n            <div class=\"example-header\">\n                <mat-form-field>\n                    <input matInput (keyup)=\"applyFilterA($event.target.value)\" placeholder=\"Filtrar\">\n                </mat-form-field>\n            </div>\n            <div class=\"row justify-content-center\">\n                <div class=\"col-12\">\n                    <div class=\"example-container\">\n                        <mat-table [dataSource]=\"dataSourceAlumnos\" class=\"mat-elevation-z1\" matSort>\n                            <ng-container matColumnDef=\"nombre\">\n                                <mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </mat-header-cell>\n                                <mat-cell *matCellDef=\"let element\"> {{element.nombre}} </mat-cell>\n                            </ng-container>\n                            <ng-container matColumnDef=\"estado\">\n                                <mat-header-cell *matHeaderCellDef mat-sort-header> Estado </mat-header-cell>\n                                <mat-cell *matCellDef=\"let row\"> {{row.estado}} </mat-cell>\n                            </ng-container>\n                            <ng-container matColumnDef=\"pulsaciones\">\n                                <mat-header-cell *matHeaderCellDef mat-sort-header> Pulsaciones </mat-header-cell>\n                                <mat-cell *matCellDef=\"let row\">\n                                    <div *ngIf=\"row.pulsaciones<=95\">{{row.pulsaciones}} ppm</div>\n                                    <div *ngIf=\"row.pulsaciones>95\" style=\"color:red\">{{row.pulsaciones}} ppm</div>\n                                </mat-cell>\n                            </ng-container>\n                            <ng-container matColumnDef=\"webcam\">\n                                <mat-header-cell *matHeaderCellDef><button class=\"btn btn-sm btn-primary\"\n                                        (click)=\"activarTodasWebCam()\"><i class=\"fa fa-video-camera\"></i> Todos</button>\n                                </mat-header-cell>\n                                <mat-cell *matCellDef=\"let row\">\n                                    <button *ngIf=\"row.webcam!=true && row.estado!='Desconectado' && !row.cargandoC\"\n                                        class=\"btn btn-sm btn-outline-primary\"\n                                        (click)=\"activarWebCam(row.estudiante)\"><i class=\"fa fa-video-camera\"></i>\n                                        Activar</button>\n                                    <button *ngIf=\"row.cargandoC\" class=\"btn btn-sm btn-outline-primary disabled\"\n                                        type=\"button\" disabled>\n                                        <span class=\"spinner-border spinner-border-sm\" role=\"status\"\n                                            aria-hidden=\"true\"></span>\n                                        Activando ...\n                                    </button>\n                                    <button *ngIf=\"row.webcam==true && row.estado!='Desconectado' && !row.cargandoC\"\n                                        class=\"btn btn-sm btn-outline-danger\"\n                                        (click)=\"desactivarWebCam(row.estudiante)\"><i class=\"fa fa-video-camera\"></i>\n                                        Desactivar</button>\n                                </mat-cell>\n                            </ng-container>\n                            <ng-container matColumnDef=\"pulsera\">\n                                <mat-header-cell *matHeaderCellDef><button class=\"btn btn-sm btn-primary\"\n                                        (click)=\"activarTodasPulseras()\"><i class=\"fa fa-heartbeat\"></i> Todos</button>\n                                </mat-header-cell>\n                                <mat-cell *matCellDef=\"let row\">\n                                    <button *ngIf=\"row.pulsera!=true && row.estado!='Desconectado' && !row.cargandoP\"\n                                        class=\"btn btn-sm btn-outline-primary\"\n                                        (click)=\"activarPulsera(row.estudiante)\"><i class=\"fa fa-heartbeat\"></i>\n                                        Activar</button>\n                                    <button *ngIf=\"row.cargandoP\" class=\"btn btn-sm btn-outline-primary disabled\"\n                                        type=\"button\" disabled>\n                                        <span class=\"spinner-border spinner-border-sm\" role=\"status\"\n                                            aria-hidden=\"true\"></span>\n                                        Activando ...\n                                    </button>\n                                    <button *ngIf=\"row.pulsera==true && row.estado!='Desconectado' && !row.cargandoP\"\n                                        class=\"btn btn-sm btn-outline-danger\"\n                                        (click)=\"desactivarPulsera(row.estudiante)\"><i class=\"fa fa-heartbeat\"></i>\n                                        Desactivar</button>\n                                </mat-cell>\n                            </ng-container>\n                            <ng-container matColumnDef=\"led\">\n                                <mat-header-cell *matHeaderCellDef>\n                                    <button class=\"btn btn-sm btn-primary\" (click)=\"activarTodosLeds()\"><i\n                                            class=\"fa fa-lightbulb-o\"></i> Todos</button>\n                                </mat-header-cell>\n                                <mat-cell *matCellDef=\"let row\">\n                                    <button *ngIf=\"row.led!=true && row.estado!='Desconectado' && !row.cargandoL\"\n                                        class=\"btn btn-sm btn-outline-primary\" (click)=\"activarLed(row.estudiante)\"><i\n                                            class=\"fa fa-lightbulb-o\"></i> Activar</button>\n                                    <button *ngIf=\"row.cargandoL\" class=\"btn btn-sm btn-outline-primary disabled\"\n                                        type=\"button\" disabled>\n                                        <span class=\"spinner-border spinner-border-sm\" role=\"status\"\n                                            aria-hidden=\"true\"></span>\n                                        Activando ...\n                                    </button>\n                                    <button *ngIf=\"row.led==true && row.estado!='Desconectado' && !row.cargandoL\"\n                                        class=\"btn btn-sm btn-outline-danger\" (click)=\"desactivarLed(row.estudiante)\"><i\n                                            class=\"fa fa-lightbulb-o\"></i> Desactivar</button>\n                                </mat-cell>\n                            </ng-container>\n                            <mat-header-row *matHeaderRowDef=\"displayedColumnsAlumnos\"></mat-header-row>\n                            <mat-row *matRowDef=\"let row; columns: displayedColumnsAlumnos;\">\n                            </mat-row>\n                        </mat-table>\n                        <mat-paginator [pageSizeOptions]=\"[10, 25, 100]\"></mat-paginator>\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>\n</div>\n<br>\n<br>\n<br>";
     /***/
   },
 
@@ -8567,7 +8567,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           this.actividad = actividad;
           this.profesor.listoParaRecibirDatos(this.actividad);
           this.intervaloResumen = setInterval(function (async) {
-            _this16.insertarResumen();
+            if (_this16.resumen.alegria > 0) {
+              _this16.insertarResumen();
+            }
           }, 20000);
           this.botonCreadaCargando = false;
           this.botonReanudarCargando = false;
@@ -8602,8 +8604,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function terminar() {
           var _this17 = this;
 
-          //console.log(this.usuariosConectadoss);
+          this.limpiarMapaClase(); //console.log(this.usuariosConectadoss);
+
           clearInterval(this.intervaloSimularDatos);
+          this.simulandoDatos = false;
           var ju = this;
           var act = this.actividad;
           act.fecha = moment__WEBPACK_IMPORTED_MODULE_3__().format('LLLL');
@@ -8644,6 +8648,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
               document.getElementById("conectadosPequeños").style.display = "none";
               ju.ngOnInit();
+              ju.cargarGraficas();
+              ju.actualizarGraficaGlobal();
             },
             contentType: 'application/json',
             dataType: 'json'
@@ -8652,9 +8658,76 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "limpiarMapaClase",
         value: function limpiarMapaClase() {
-          for (var i = 0; i < this.alumnosTabla.length; i++) {
-            clearInterval(this.alumnosTabla[i].intervalo);
-          }
+          return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
+          /*#__PURE__*/
+          regeneratorRuntime.mark(function _callee40() {
+            var _this18 = this;
+
+            var _loop, i;
+
+            return regeneratorRuntime.wrap(function _callee40$(_context41) {
+              while (1) {
+                switch (_context41.prev = _context41.next) {
+                  case 0:
+                    _loop =
+                    /*#__PURE__*/
+                    regeneratorRuntime.mark(function _loop(i) {
+                      return regeneratorRuntime.wrap(function _loop$(_context40) {
+                        while (1) {
+                          switch (_context40.prev = _context40.next) {
+                            case 0:
+                              _context40.next = 2;
+                              return console.log(_this18.alumnosTabla[i].intervalo);
+
+                            case 2:
+                              _context40.next = 4;
+                              return clearInterval(_this18.alumnosTabla[i].intervalo);
+
+                            case 4:
+                              _context40.next = 6;
+                              return console.log(_this18.alumnosTabla[i].intervalo);
+
+                            case 6:
+                              _this18.alumnosTabla[i].intervalo = setInterval(function () {
+                                $('#' + _this18.alumnosTabla[i].id_item + '').css("background-color", 'rgba(255,255,255,1)');
+                              }, 1);
+                              _context40.next = 9;
+                              return clearInterval(_this18.alumnosTabla[i].intervalo);
+
+                            case 9:
+                              setTimeout(function (async) {
+                                $('#' + _this18.alumnosTabla[i].id_item + '').css("background-color", 'rgba(255,255,255,1)');
+                              }, 1500);
+
+                            case 10:
+                            case "end":
+                              return _context40.stop();
+                          }
+                        }
+                      }, _loop);
+                    });
+                    i = 0;
+
+                  case 2:
+                    if (!(i < this.alumnosTabla.length)) {
+                      _context41.next = 7;
+                      break;
+                    }
+
+                    return _context41.delegateYield(_loop(i), "t0", 4);
+
+                  case 4:
+                    i++;
+                    _context41.next = 2;
+                    break;
+
+                  case 7:
+                  case "end":
+                    return _context41.stop();
+                }
+              }
+            }, _callee40, this);
+          }));
         }
       }, {
         key: "actividadTerminada",
@@ -8686,10 +8759,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function cambiarAGeneral() {
           return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
           /*#__PURE__*/
-          regeneratorRuntime.mark(function _callee40() {
-            return regeneratorRuntime.wrap(function _callee40$(_context40) {
+          regeneratorRuntime.mark(function _callee41() {
+            return regeneratorRuntime.wrap(function _callee41$(_context42) {
               while (1) {
-                switch (_context40.prev = _context40.next) {
+                switch (_context42.prev = _context42.next) {
                   case 0:
                     this.ocultarTodos();
                     document.getElementById("vistaGeneral").style.display = "block";
@@ -8701,10 +8774,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
                   case 4:
                   case "end":
-                    return _context40.stop();
+                    return _context42.stop();
                 }
               }
-            }, _callee40, this);
+            }, _callee41, this);
           }));
         }
       }, {
@@ -8760,109 +8833,153 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "insertarDatos",
         value: function insertarDatos(datos) {
-          //console.log(datos);
-          console.log(datos);
-          console.log(this.actividad.alumnos);
+          return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
+          /*#__PURE__*/
+          regeneratorRuntime.mark(function _callee42() {
+            var _this19 = this;
 
-          for (var i = 0; i < this.actividad.alumnos.length; i++) {
-            for (var j = 0; j < this.alumnosTabla.length; j++) {
-              if (datos.id_item == this.actividad.alumnos[i].id_item && datos.id_item == this.alumnosTabla[j].id_item) {
-                if (!this.estoyComputando) {
-                  if (this.alumnosTabla[j].webcam) {
-                    this.resumen.alegria += datos.alegria.y;
-                    this.resumen.asco += datos.asco.y;
-                    this.resumen.concentrado += datos.concentrado.y;
-                    this.resumen.distraido += datos.distraido.y;
-                    this.resumen.frustrado += datos.frustrado.y;
-                    this.resumen.ira += datos.ira.y;
-                    this.resumen.miedo += datos.miedo.y;
-                    this.resumen.motivado += datos.motivado.y;
-                    this.resumen.sorpresa += datos.sorpresa.y;
-                    this.resumen.tristeza += datos.tristeza.y;
-                    this.actividad.alumnos[i].datos.alegria.push({
-                      x: datos.alegria.x,
-                      y: datos.alegria.y
-                    });
-                    this.actividad.alumnos[i].datos.asco.push({
-                      x: datos.asco.x,
-                      y: datos.asco.y
-                    });
-                    this.actividad.alumnos[i].datos.ira.push({
-                      x: datos.ira.x,
-                      y: datos.ira.y
-                    });
-                    this.actividad.alumnos[i].datos.miedo.push({
-                      x: datos.miedo.x,
-                      y: datos.miedo.y
-                    });
-                    this.actividad.alumnos[i].datos.sorpresa.push({
-                      x: datos.sorpresa.x,
-                      y: datos.sorpresa.y
-                    });
-                    this.actividad.alumnos[i].datos.tristeza.push({
-                      x: datos.tristeza.x,
-                      y: datos.tristeza.y
-                    });
-                    this.actividad.alumnos[i].datos.tiempo.push({
-                      x: datos.tiempo.x,
-                      y: datos.tiempo.y
-                    });
-                    this.actividad.alumnos[i].datos.distraido.push({
-                      x: datos.distraido.x,
-                      y: datos.distraido.y
-                    });
-                    this.actividad.alumnos[i].datos.concentrado.push({
-                      x: datos.concentrado.x,
-                      y: datos.concentrado.y
-                    });
-                    this.actividad.alumnos[i].datos.frustrado.push({
-                      x: datos.frustrado.x,
-                      y: datos.frustrado.y
-                    });
-                    this.actividad.alumnos[i].datos.motivado.push({
-                      x: datos.motivado.x,
-                      y: datos.motivado.y
-                    });
-                    $('#' + datos.id_item + '').css("background-color", datos.color);
-                    this.alumnosTabla[i].estado = datos.estadoEmocional;
-                  } else {
-                    this.alumnosTabla[i].estado = '--';
-                  }
+            var i, _loop2, j;
 
-                  if (this.alumnosTabla[j].pulsera) {
-                    this.resumen.pulsaciones += datos.pulsaciones.y;
-                    this.numPulsaciones++;
-                    this.actividad.alumnos[i].datos.pulsaciones.push({
-                      x: datos.pulsaciones.x,
-                      y: datos.pulsaciones.y
-                    });
-                    this.alumnosTabla[i].pulsaciones = datos.pulsaciones.y;
+            return regeneratorRuntime.wrap(function _callee42$(_context43) {
+              while (1) {
+                switch (_context43.prev = _context43.next) {
+                  case 0:
+                    //console.log(datos);
+                    //console.log(datos);
+                    //console.log(this.actividad.alumnos);
+                    for (i = 0; i < this.actividad.alumnos.length; i++) {
+                      _loop2 = function _loop2(j) {
+                        if (datos.id_item == _this19.actividad.alumnos[i].id_item && datos.id_item == _this19.alumnosTabla[j].id_item) {
+                          if (!_this19.estoyComputando) {
+                            if (_this19.alumnosTabla[j].webcam) {
+                              _this19.resumen.alegria += datos.alegria.y;
+                              _this19.resumen.asco += datos.asco.y;
+                              _this19.resumen.concentrado += datos.concentrado.y;
+                              _this19.resumen.distraido += datos.distraido.y;
+                              _this19.resumen.frustrado += datos.frustrado.y;
+                              _this19.resumen.ira += datos.ira.y;
+                              _this19.resumen.miedo += datos.miedo.y;
+                              _this19.resumen.motivado += datos.motivado.y;
+                              _this19.resumen.sorpresa += datos.sorpresa.y;
+                              _this19.resumen.tristeza += datos.tristeza.y;
 
-                    if (datos.pulsaciones.y > 100) {
-                      this.alumnosTabla[i].intervalo = setInterval(function (async) {
-                        setTimeout(function (async) {
-                          $('#' + datos.id_item + '').css("background-color", datos.color);
-                        }, 900);
-                        setTimeout(function (async) {
-                          $('#' + datos.id_item + '').css("background-color", 'rgba(255,255,255,1)');
-                        }, 100);
-                      }, 1000);
-                    } else {
-                      clearInterval(this.alumnosTabla[i].intervalo); //$('#' + datos.id_item + '').fadeTo(5000, 1);
+                              _this19.actividad.alumnos[i].datos.alegria.push({
+                                x: datos.alegria.x,
+                                y: datos.alegria.y
+                              });
 
-                      $('#' + datos.id_item + '').css("background-color", datos.color);
+                              _this19.actividad.alumnos[i].datos.asco.push({
+                                x: datos.asco.x,
+                                y: datos.asco.y
+                              });
+
+                              _this19.actividad.alumnos[i].datos.ira.push({
+                                x: datos.ira.x,
+                                y: datos.ira.y
+                              });
+
+                              _this19.actividad.alumnos[i].datos.miedo.push({
+                                x: datos.miedo.x,
+                                y: datos.miedo.y
+                              });
+
+                              _this19.actividad.alumnos[i].datos.sorpresa.push({
+                                x: datos.sorpresa.x,
+                                y: datos.sorpresa.y
+                              });
+
+                              _this19.actividad.alumnos[i].datos.tristeza.push({
+                                x: datos.tristeza.x,
+                                y: datos.tristeza.y
+                              });
+
+                              _this19.actividad.alumnos[i].datos.tiempo.push({
+                                x: datos.tiempo.x,
+                                y: datos.tiempo.y
+                              });
+
+                              _this19.actividad.alumnos[i].datos.distraido.push({
+                                x: datos.distraido.x,
+                                y: datos.distraido.y
+                              });
+
+                              _this19.actividad.alumnos[i].datos.concentrado.push({
+                                x: datos.concentrado.x,
+                                y: datos.concentrado.y
+                              });
+
+                              _this19.actividad.alumnos[i].datos.frustrado.push({
+                                x: datos.frustrado.x,
+                                y: datos.frustrado.y
+                              });
+
+                              _this19.actividad.alumnos[i].datos.motivado.push({
+                                x: datos.motivado.x,
+                                y: datos.motivado.y
+                              });
+
+                              $('#' + datos.id_item + '').css("background-color", datos.color);
+                              _this19.alumnosTabla[i].estado = datos.estadoEmocional;
+                            } else {
+                              _this19.alumnosTabla[i].estado = '--';
+                            }
+
+                            if (_this19.alumnosTabla[j].pulsera) {
+                              _this19.resumen.pulsaciones += datos.pulsaciones.y;
+                              _this19.numPulsaciones++;
+
+                              _this19.actividad.alumnos[i].datos.pulsaciones.push({
+                                x: datos.pulsaciones.x,
+                                y: datos.pulsaciones.y
+                              });
+
+                              _this19.alumnosTabla[j].pulsaciones = datos.pulsaciones.y;
+
+                              if (datos.pulsaciones.y > 100) {
+                                _this19.alumnosTabla[j].intervalo = setInterval(function () {
+                                  setTimeout(function () {
+                                    $('#' + datos.id_item + '').css("background-color", datos.color);
+                                  }, 900);
+                                  setTimeout(function () {
+                                    $('#' + datos.id_item + '').css("background-color", 'rgba(255,255,255,1)');
+                                    console.log("intervalo");
+                                  }, 100);
+                                  console.log(_this19.alumnosTabla[j].intervalo);
+                                }, 1000);
+                              } else {
+                                clearInterval(_this19.alumnosTabla[j].intervalo); //$('#' + datos.id_item + '').fadeTo(5000, 1);
+
+                                $('#' + datos.id_item + '').css("background-color", datos.color);
+                              }
+                            } else {
+                              _this19.alumnosTabla[j].pulsaciones = '--';
+                              clearInterval(_this19.alumnosTabla[j].intervalo);
+                              $('#' + datos.id_item + '').css("background-color", datos.color);
+                            }
+
+                            _this19.graficaLineal.update();
+
+                            _this19.graficaLinealEntera.update();
+                          }
+                        }
+                      };
+
+                      for (j = 0; j < this.alumnosTabla.length; j++) {
+                        _loop2(j);
+                      }
                     }
-                  } else {
-                    this.alumnosTabla[i].pulsaciones = '--';
-                  }
 
-                  this.graficaLineal.update();
-                  this.graficaLinealEntera.update();
+                  case 1:
+                  case "end":
+                    return _context43.stop();
                 }
               }
-            }
-          }
+            }, _callee42, this);
+          }));
         }
+      }, {
+        key: "parpadeo",
+        value: function parpadeo() {}
       }, {
         key: "animacion",
         value: function animacion(id) {
@@ -8876,11 +8993,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function insertarResumen() {
           return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
           /*#__PURE__*/
-          regeneratorRuntime.mark(function _callee41() {
+          regeneratorRuntime.mark(function _callee43() {
             var sumaTotalEmociones, x, sumaTotalEstadoDisConc, sumaTotalEstadoFrusMotiv;
-            return regeneratorRuntime.wrap(function _callee41$(_context41) {
+            return regeneratorRuntime.wrap(function _callee43$(_context44) {
               while (1) {
-                switch (_context41.prev = _context41.next) {
+                switch (_context44.prev = _context44.next) {
                   case 0:
                     //Datos Emocionales
                     sumaTotalEmociones = 0; //console.log(this.resumen);
@@ -8992,10 +9109,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
                   case 37:
                   case "end":
-                    return _context41.stop();
+                    return _context44.stop();
                 }
               }
-            }, _callee41, this);
+            }, _callee43, this);
           }));
         }
       }, {
@@ -9223,43 +9340,43 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function actualizarGraficaLineal() {
           return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
           /*#__PURE__*/
-          regeneratorRuntime.mark(function _callee42() {
-            var _this18 = this;
+          regeneratorRuntime.mark(function _callee44() {
+            var _this20 = this;
 
-            return regeneratorRuntime.wrap(function _callee42$(_context42) {
+            return regeneratorRuntime.wrap(function _callee44$(_context45) {
               while (1) {
-                switch (_context42.prev = _context42.next) {
+                switch (_context45.prev = _context45.next) {
                   case 0:
-                    _context42.next = 2;
+                    _context45.next = 2;
                     return setTimeout(function (async) {
                       // console.log("asdasd");
                       var datos = [];
 
-                      for (var i = 0; i < _this18.alumnosSelect.length; i++) {
-                        if (_this18.alumnosSelect[i].checked) {
-                          if (_this18.alumnosSelect[i].nombre == "media") {
-                            for (var j = 0; j < _this18.estados.length; j++) {
-                              if (_this18.estados[j].checked) {
-                                if (_this18.estados[j].nombre == "pulsaciones") {
-                                  var color = _this18.colorRGB(_this18.estados[j].color, i + j);
+                      for (var _i7 = 0; _i7 < _this20.alumnosSelect.length; _i7++) {
+                        if (_this20.alumnosSelect[_i7].checked) {
+                          if (_this20.alumnosSelect[_i7].nombre == "media") {
+                            for (var j = 0; j < _this20.estados.length; j++) {
+                              if (_this20.estados[j].checked) {
+                                if (_this20.estados[j].nombre == "pulsaciones") {
+                                  var color = _this20.colorRGB(_this20.estados[j].color, _i7 + j);
 
                                   datos.push({
-                                    label: _this18.estados[j].nombre + ' de ' + _this18.alumnosSelect[i].nombre,
+                                    label: _this20.estados[j].nombre + ' de ' + _this20.alumnosSelect[_i7].nombre,
                                     backgroundColor: color,
                                     borderColor: color,
                                     fill: false,
-                                    data: _this18.actividad.resumen['' + _this18.estados[j].nombre + ''],
+                                    data: _this20.actividad.resumen['' + _this20.estados[j].nombre + ''],
                                     yAxisID: 'y-axis-2'
                                   });
                                 } else {
-                                  var color = _this18.colorRGB(_this18.estados[j].color, i + j);
+                                  var color = _this20.colorRGB(_this20.estados[j].color, _i7 + j);
 
                                   datos.push({
-                                    label: _this18.estados[j].nombre + ' de ' + _this18.alumnosSelect[i].nombre,
+                                    label: _this20.estados[j].nombre + ' de ' + _this20.alumnosSelect[_i7].nombre,
                                     backgroundColor: color,
                                     borderColor: color,
                                     fill: false,
-                                    data: _this18.actividad.resumen['' + _this18.estados[j].nombre + ''],
+                                    data: _this20.actividad.resumen['' + _this20.estados[j].nombre + ''],
                                     yAxisID: 'y-axis-1'
                                   });
                                 } // console.log(this.alumnosSelect);
@@ -9268,30 +9385,30 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                               }
                             }
                           } else {
-                            for (var h = 0; h < _this18.actividad.alumnos.length; h++) {
-                              if (_this18.alumnosSelect[i].id == _this18.actividad.alumnos[h].estudiante._id) {
-                                for (var _j11 = 0; _j11 < _this18.estados.length; _j11++) {
-                                  if (_this18.estados[_j11].checked) {
-                                    if (_this18.estados[_j11].nombre == "pulsaciones") {
-                                      var color = _this18.colorRGB(_this18.estados[_j11].color, i + h);
+                            for (var h = 0; h < _this20.actividad.alumnos.length; h++) {
+                              if (_this20.alumnosSelect[_i7].id == _this20.actividad.alumnos[h].estudiante._id) {
+                                for (var _j11 = 0; _j11 < _this20.estados.length; _j11++) {
+                                  if (_this20.estados[_j11].checked) {
+                                    if (_this20.estados[_j11].nombre == "pulsaciones") {
+                                      var color = _this20.colorRGB(_this20.estados[_j11].color, _i7 + h);
 
                                       datos.push({
-                                        label: _this18.estados[_j11].nombre + ' de ' + _this18.alumnosSelect[i].nombre,
+                                        label: _this20.estados[_j11].nombre + ' de ' + _this20.alumnosSelect[_i7].nombre,
                                         backgroundColor: color,
                                         borderColor: color,
                                         fill: false,
-                                        data: _this18.actividad.alumnos[h].datos['' + _this18.estados[_j11].nombre + ''],
+                                        data: _this20.actividad.alumnos[h].datos['' + _this20.estados[_j11].nombre + ''],
                                         yAxisID: 'y-axis-2'
                                       });
                                     } else {
-                                      var color = _this18.colorRGB(_this18.estados[_j11].color, i + h);
+                                      var color = _this20.colorRGB(_this20.estados[_j11].color, _i7 + h);
 
                                       datos.push({
-                                        label: _this18.estados[_j11].nombre + ' de ' + _this18.alumnosSelect[i].nombre,
+                                        label: _this20.estados[_j11].nombre + ' de ' + _this20.alumnosSelect[_i7].nombre,
                                         backgroundColor: color,
                                         borderColor: color,
                                         fill: false,
-                                        data: _this18.actividad.alumnos[h].datos['' + _this18.estados[_j11].nombre + ''],
+                                        data: _this20.actividad.alumnos[h].datos['' + _this20.estados[_j11].nombre + ''],
                                         yAxisID: 'y-axis-1'
                                       });
                                     } // console.log(this.alumnosSelect);
@@ -9305,7 +9422,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                         }
                       }
 
-                      _this18.configuracionGraficaLineal = {
+                      _this20.configuracionGraficaLineal = {
                         type: 'line',
                         data: {
                           datasets: datos
@@ -9314,7 +9431,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                           responsive: true,
                           title: {
                             display: true,
-                            text: _this18.estadoSeleccionado
+                            text: _this20.estadoSeleccionado
                           },
                           legend: {
                             position: 'bottom'
@@ -9374,22 +9491,22 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                         }
                       };
 
-                      if (_this18.graficaLineal != null) {
-                        _this18.graficaLineal.destroy();
+                      if (_this20.graficaLineal != null) {
+                        _this20.graficaLineal.destroy();
 
-                        _this18.graficaLinealEntera.destroy();
+                        _this20.graficaLinealEntera.destroy();
                       }
 
-                      _this18.graficaLineal = new chart_js__WEBPACK_IMPORTED_MODULE_2__["Chart"]('graficaLineal', _this18.configuracionGraficaLineal);
-                      _this18.graficaLinealEntera = new chart_js__WEBPACK_IMPORTED_MODULE_2__["Chart"]('graficaLinealEntera', _this18.configuracionGraficaLineal);
+                      _this20.graficaLineal = new chart_js__WEBPACK_IMPORTED_MODULE_2__["Chart"]('graficaLineal', _this20.configuracionGraficaLineal);
+                      _this20.graficaLinealEntera = new chart_js__WEBPACK_IMPORTED_MODULE_2__["Chart"]('graficaLinealEntera', _this20.configuracionGraficaLineal);
                     }, 500);
 
                   case 2:
                   case "end":
-                    return _context42.stop();
+                    return _context45.stop();
                 }
               }
-            }, _callee42);
+            }, _callee44);
           }));
         }
       }, {
@@ -9404,11 +9521,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           var colores = [];
           var datos = [];
 
-          for (var i = 0; i < this.estadosGlobales.length; i++) {
-            if (this.estadosGlobales[i].checked) {
-              labels.push(this.estadosGlobales[i].nombre);
-              colores.push(this.estadosGlobales[i].color);
-              datos.push(this.datosResumenSeleccionados[this.estadosGlobales[i].nombre]);
+          for (var _i8 = 0; _i8 < this.estadosGlobales.length; _i8++) {
+            if (this.estadosGlobales[_i8].checked) {
+              labels.push(this.estadosGlobales[_i8].nombre);
+              colores.push(this.estadosGlobales[_i8].color);
+              datos.push(this.datosResumenSeleccionados[this.estadosGlobales[_i8].nombre]);
             }
           }
 
@@ -9459,151 +9576,228 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "simularDatos",
         value: function simularDatos() {
-          var _this19 = this;
+          return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
+          /*#__PURE__*/
+          regeneratorRuntime.mark(function _callee45() {
+            var _this21 = this;
 
-          var ju = this; // console.log("NumSimulaciones: "+this.numSimulaciones);
+            var ju, _i10, _loop3, _i11;
 
-          if (!this.simulandoDatos) {
-            this.numSimulaciones = 0;
-            this.simulandoDatos = true;
-            this.actualizarGraficaLineal();
+            return regeneratorRuntime.wrap(function _callee45$(_context47) {
+              while (1) {
+                switch (_context47.prev = _context47.next) {
+                  case 0:
+                    ju = this; // console.log("NumSimulaciones: "+this.numSimulaciones);
 
-            if (this.numSimulaciones == 0) {
-              this.activarTodasPulseras();
-              this.activarTodasWebCam();
-              this.activarTodosLeds();
-            }
+                    if (this.simulandoDatos) {
+                      _context47.next = 9;
+                      break;
+                    }
 
-            this.intervaloSimularDatos = setInterval(function (async) {
-              for (var i = 0; i < _this19.actividad.alumnos.length; i++) {
-                if (_this19.numSimulaciones == 0) {
-                  _this19.usuarioConectado(_this19.actividad.alumnos[i].estudiante);
+                    this.numSimulaciones = 0;
+                    this.simulandoDatos = true;
+                    this.actualizarGraficaLineal();
 
-                  _this19.activarTodasPulseras();
+                    if (this.numSimulaciones == 0) {
+                      this.activarTodasPulseras();
+                      this.activarTodasWebCam();
+                      this.activarTodosLeds();
+                    }
 
-                  _this19.activarTodasWebCam();
+                    this.intervaloSimularDatos = setInterval(function (async) {
+                      for (var _i9 = 0; _i9 < _this21.actividad.alumnos.length; _i9++) {
+                        if (_this21.numSimulaciones == 0) {
+                          _this21.usuarioConectado(_this21.actividad.alumnos[_i9].estudiante);
 
-                  _this19.activarTodosLeds();
+                          _this21.activarTodasPulseras();
+
+                          _this21.activarTodasWebCam();
+
+                          _this21.activarTodosLeds();
+                        }
+
+                        var datos = {};
+                        var max = 100;
+                        var alegria = Math.round(Math.random() * (max - 0) + 0);
+                        max = max - alegria;
+                        var asco = Math.round(Math.random() * (max - 0) + 0);
+                        max = max - asco;
+                        var ira = Math.round(Math.random() * (max - 0) + 0);
+                        max = max - ira;
+                        var miedo = Math.round(Math.random() * (max - 0) + 0);
+                        max = max - miedo;
+                        var sorpresa = Math.round(Math.random() * (max - 0) + 0);
+                        max = max - sorpresa;
+                        var tristeza = Math.round(Math.random() * (max - 0) + 0);
+                        max = max - tristeza;
+                        console.log(_this21.actividad);
+                        datos['id_actividad'] = _this21.id_actividad;
+                        console.log("ID Actividad: " + _this21.actividad._id);
+                        datos['id_item'] = _this21.actividad.alumnos[_i9].id_item; //console.log("Datos generados1");
+
+                        var x = moment__WEBPACK_IMPORTED_MODULE_3__().format(); //Estado Emocional
+
+                        datos['id_item'] = _this21.actividad.alumnos[_i9].id_item; //Alegria
+
+                        datos['alegria'] = {
+                          x: x,
+                          y: alegria
+                        }; //Asco
+
+                        datos['asco'] = {
+                          x: x,
+                          y: asco
+                        }; //Ira
+
+                        datos['ira'] = {
+                          x: x,
+                          y: ira
+                        }; //Miedo
+
+                        datos['miedo'] = {
+                          x: x,
+                          y: miedo
+                        }; //Sorpresa
+
+                        datos['sorpresa'] = {
+                          x: x,
+                          y: sorpresa
+                        }; //Triteza
+
+                        datos['tristeza'] = {
+                          x: x,
+                          y: tristeza
+                        }; //console.log("Datos generados2");
+
+                        var num = Math.round(Math.random() * (_this21.estadosConjunto[0].estados.length - 1 - 0) + 0); //console.log(num);
+
+                        datos['color'] = _this21.estadosConjunto[0].estados[num].color;
+                        datos['estadoEmocional'] = _this21.estadosConjunto[0].estados[num].nombre;
+                        datos; //Estado de las Pulsaciones
+
+                        datos['pulsaciones'] = {
+                          x: x,
+                          y: Math.round(Math.random() * (130 - 50) + 50)
+                        }; //Estado temporal
+
+                        datos['tiempo'] = x;
+                        max = 100;
+                        var distraido = Math.round(Math.random() * (max - 0) + 0);
+                        max = 100 - distraido;
+                        var concentrado = Math.round(Math.random() * (max - 0) + 0); //Estado Cognitivo
+
+                        datos['distraido'] = {
+                          x: x,
+                          y: distraido
+                        };
+                        datos['concentrado'] = {
+                          x: x,
+                          y: concentrado
+                        }; //console.log("Datos generados4");
+
+                        max = 100;
+                        var frustrado = Math.round(Math.random() * (max - 0) + 0);
+                        max = 100 - frustrado;
+                        var motivado = Math.round(Math.random() * (max - 0) + 0);
+                        datos['frustrado'] = {
+                          x: x,
+                          y: frustrado
+                        };
+                        datos['motivado'] = {
+                          x: x,
+                          y: motivado
+                        }; //console.log("Datos generados5");
+
+                        console.log(datos);
+
+                        _this21.insertarDatos(datos);
+
+                        _this21.profesor.enviarDatos(datos, ju.actividad);
+                      }
+
+                      _this21.numSimulaciones++;
+                    }, 7000);
+                    _context47.next = 20;
+                    break;
+
+                  case 9:
+                    this.simulandoDatos = false;
+                    clearInterval(this.intervaloSimularDatos);
+                    this.numSimulaciones == 0;
+
+                    for (_i10 = 0; _i10 < this.actividad.alumnos.length; _i10++) {
+                      this.usuarioDesconectado(this.actividad.alumnos[_i10].estudiante);
+                    } //console.log(this.alumnosTabla);
+
+
+                    _loop3 =
+                    /*#__PURE__*/
+                    regeneratorRuntime.mark(function _loop3(_i11) {
+                      return regeneratorRuntime.wrap(function _loop3$(_context46) {
+                        while (1) {
+                          switch (_context46.prev = _context46.next) {
+                            case 0:
+                              _context46.next = 2;
+                              return console.log(_this21.alumnosTabla[_i11].intervalo);
+
+                            case 2:
+                              _context46.next = 4;
+                              return clearInterval(_this21.alumnosTabla[_i11].intervalo);
+
+                            case 4:
+                              _context46.next = 6;
+                              return console.log(_this21.alumnosTabla[_i11].intervalo);
+
+                            case 6:
+                              _this21.alumnosTabla[_i11].intervalo = setInterval(function () {
+                                $('#' + _this21.alumnosTabla[_i11].id_item + '').css("background-color", 'rgba(255,255,255,1)');
+                              }, 1);
+                              _context46.next = 9;
+                              return clearInterval(_this21.alumnosTabla[_i11].intervalo);
+
+                            case 9:
+                              setTimeout(function (async) {
+                                $('#' + _this21.alumnosTabla[_i11].id_item + '').css("background-color", 'rgba(255,255,255,1)');
+                              }, 1500);
+
+                            case 10:
+                            case "end":
+                              return _context46.stop();
+                          }
+                        }
+                      }, _loop3);
+                    });
+                    _i11 = 0;
+
+                  case 15:
+                    if (!(_i11 < this.alumnosTabla.length)) {
+                      _context47.next = 20;
+                      break;
+                    }
+
+                    return _context47.delegateYield(_loop3(_i11), "t0", 17);
+
+                  case 17:
+                    _i11++;
+                    _context47.next = 15;
+                    break;
+
+                  case 20:
+                  case "end":
+                    return _context47.stop();
                 }
-
-                var datos = {};
-                var max = 100;
-                var alegria = Math.round(Math.random() * (max - 0) + 0);
-                max = max - alegria;
-                var asco = Math.round(Math.random() * (max - 0) + 0);
-                max = max - asco;
-                var ira = Math.round(Math.random() * (max - 0) + 0);
-                max = max - ira;
-                var miedo = Math.round(Math.random() * (max - 0) + 0);
-                max = max - miedo;
-                var sorpresa = Math.round(Math.random() * (max - 0) + 0);
-                max = max - sorpresa;
-                var tristeza = Math.round(Math.random() * (max - 0) + 0);
-                max = max - tristeza;
-                console.log(_this19.actividad);
-                datos['id_actividad'] = _this19.id_actividad;
-                console.log("ID Actividad: " + _this19.actividad._id);
-                datos['id_item'] = _this19.actividad.alumnos[i].id_item; //console.log("Datos generados1");
-
-                var x = moment__WEBPACK_IMPORTED_MODULE_3__().format(); //Estado Emocional
-
-                datos['id_item'] = _this19.actividad.alumnos[i].id_item; //Alegria
-
-                datos['alegria'] = {
-                  x: x,
-                  y: alegria
-                }; //Asco
-
-                datos['asco'] = {
-                  x: x,
-                  y: asco
-                }; //Ira
-
-                datos['ira'] = {
-                  x: x,
-                  y: ira
-                }; //Miedo
-
-                datos['miedo'] = {
-                  x: x,
-                  y: miedo
-                }; //Sorpresa
-
-                datos['sorpresa'] = {
-                  x: x,
-                  y: sorpresa
-                }; //Triteza
-
-                datos['tristeza'] = {
-                  x: x,
-                  y: tristeza
-                }; //console.log("Datos generados2");
-
-                var num = Math.round(Math.random() * (_this19.estadosConjunto[0].estados.length - 1 - 0) + 0); //console.log(num);
-
-                datos['color'] = _this19.estadosConjunto[0].estados[num].color;
-                datos['estadoEmocional'] = _this19.estadosConjunto[0].estados[num].nombre;
-                datos; //Estado de las Pulsaciones
-
-                datos['pulsaciones'] = {
-                  x: x,
-                  y: Math.round(Math.random() * (130 - 50) + 50)
-                }; //Estado temporal
-
-                datos['tiempo'] = x;
-                max = 100;
-                var distraido = Math.round(Math.random() * (max - 0) + 0);
-                max = 100 - distraido;
-                var concentrado = Math.round(Math.random() * (max - 0) + 0); //Estado Cognitivo
-
-                datos['distraido'] = {
-                  x: x,
-                  y: distraido
-                };
-                datos['concentrado'] = {
-                  x: x,
-                  y: concentrado
-                }; //console.log("Datos generados4");
-
-                max = 100;
-                var frustrado = Math.round(Math.random() * (max - 0) + 0);
-                max = 100 - frustrado;
-                var motivado = Math.round(Math.random() * (max - 0) + 0);
-                datos['frustrado'] = {
-                  x: x,
-                  y: frustrado
-                };
-                datos['motivado'] = {
-                  x: x,
-                  y: motivado
-                }; //console.log("Datos generados5");
-
-                console.log(datos);
-
-                _this19.insertarDatos(datos);
-
-                _this19.profesor.enviarDatos(datos, ju.actividad);
               }
-
-              _this19.numSimulaciones++;
-            }, 7000);
-          } else {
-            this.simulandoDatos = false;
-            clearInterval(this.intervaloSimularDatos);
-            this.numSimulaciones == 0;
-
-            for (var i = 0; i < this.actividad.alumnos.length; i++) {
-              this.usuarioDesconectado(this.actividad.alumnos[i].estudiante);
-              clearInterval(this.alumnosTabla[i].intervalo);
-            } //this.usuarioDesconectado()
-
-          }
+            }, _callee45, this);
+          }));
         }
       }, {
         key: "actualizarResumen",
         value: function actualizarResumen() {
           this.actualizandoResumen = true;
-          this.insertarResumen(); //this.resumenActualizar();
+
+          if (this.resumen.alegria >= 20) {
+            this.insertarResumen();
+          }
 
           this.actualizandoResumen = false;
         }
@@ -9640,7 +9834,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "mensajeAlgoHaIdoMal",
         value: function mensajeAlgoHaIdoMal() {
-          var _this20 = this;
+          var _this22 = this;
 
           Swal.fire({
             icon: 'error',
@@ -9650,7 +9844,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             timer: 3000,
             timerProgressBar: true
           }).then(function (result) {
-            _this20.profesor.salir();
+            _this22.profesor.salir();
           });
         }
       }, {
@@ -9778,11 +9972,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "activarTodasWebCam",
         value: function activarTodasWebCam() {
-          for (var i = 0; i < this.alumnosTabla.length; i++) {
+          for (var _i12 = 0; _i12 < this.alumnosTabla.length; _i12++) {
             if (this.simulandoDatos) {
-              this.alumnosTabla[i].webcam = true;
+              this.alumnosTabla[_i12].webcam = true;
             } else {
-              this.activarWebCam(this.alumnosTabla[i].estudiante);
+              this.activarWebCam(this.alumnosTabla[_i12].estudiante);
             }
           } //console.log(this.alumnosTabla);
 
@@ -9790,34 +9984,34 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "activarWebCam",
         value: function activarWebCam(usuario) {
-          var _this21 = this;
+          var _this23 = this;
 
-          var _loop = function _loop(i) {
-            if (usuario._id == _this21.alumnosTabla[i].estudiante._id) {
-              if (_this21.simulandoDatos) {
-                _this21.alumnosTabla[i].webcam = true;
+          var _loop4 = function _loop4(_i13) {
+            if (usuario._id == _this23.alumnosTabla[_i13].estudiante._id) {
+              if (_this23.simulandoDatos) {
+                _this23.alumnosTabla[_i13].webcam = true;
               } else {
-                _this21.profesor.conectarWebCam(usuario);
+                _this23.profesor.conectarWebCam(usuario);
 
-                _this21.alumnosTabla[i].cargandoC = true;
+                _this23.alumnosTabla[_i13].cargandoC = true;
                 setTimeout(function (async) {
-                  _this21.alumnosTabla[i].cargandoC = false;
+                  _this23.alumnosTabla[_i13].cargandoC = false;
                 }, 7000);
               }
             }
           };
 
-          for (var i = 0; i < this.alumnosTabla.length; i++) {
-            _loop(i);
+          for (var _i13 = 0; _i13 < this.alumnosTabla.length; _i13++) {
+            _loop4(_i13);
           }
         }
       }, {
         key: "desactivarWebCam",
         value: function desactivarWebCam(usuario) {
           if (this.simulandoDatos) {
-            for (var i = 0; i < this.alumnosTabla.length; i++) {
-              if (usuario._id == this.alumnosTabla[i].estudiante._id) {
-                this.alumnosTabla[i].webcam = false;
+            for (var _i14 = 0; _i14 < this.alumnosTabla.length; _i14++) {
+              if (usuario._id == this.alumnosTabla[_i14].estudiante._id) {
+                this.alumnosTabla[_i14].webcam = false;
               }
             }
           } else {
@@ -9827,30 +10021,30 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "webCamActivada",
         value: function webCamActivada(usuario) {
-          for (var i = 0; i < this.alumnosTabla.length; i++) {
-            if (usuario._id == this.alumnosTabla[i].estudiante._id) {
-              this.alumnosTabla[i].webcam = true;
-              this.alumnosTabla[i].cargandoC = false;
+          for (var _i15 = 0; _i15 < this.alumnosTabla.length; _i15++) {
+            if (usuario._id == this.alumnosTabla[_i15].estudiante._id) {
+              this.alumnosTabla[_i15].webcam = true;
+              this.alumnosTabla[_i15].cargandoC = false;
             }
           }
         }
       }, {
         key: "webCamDesconectada",
         value: function webCamDesconectada(usuario) {
-          for (var i = 0; i < this.alumnosTabla.length; i++) {
-            if (usuario._id == this.alumnosTabla[i].estudiante._id) {
-              this.alumnosTabla[i].webcam = false;
+          for (var _i16 = 0; _i16 < this.alumnosTabla.length; _i16++) {
+            if (usuario._id == this.alumnosTabla[_i16].estudiante._id) {
+              this.alumnosTabla[_i16].webcam = false;
             }
           }
         }
       }, {
         key: "activarTodasPulseras",
         value: function activarTodasPulseras() {
-          for (var i = 0; i < this.alumnosTabla.length; i++) {
+          for (var _i17 = 0; _i17 < this.alumnosTabla.length; _i17++) {
             if (this.simulandoDatos) {
-              this.alumnosTabla[i].pulsera = true;
+              this.alumnosTabla[_i17].pulsera = true;
             } else {
-              this.activarPulsera(this.alumnosTabla[i].estudiante);
+              this.activarPulsera(this.alumnosTabla[_i17].estudiante);
             }
           }
           /*for (let i = 0; i < this.actividad.alumnos.length; i++) {
@@ -9861,34 +10055,34 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "activarPulsera",
         value: function activarPulsera(usuario) {
-          var _this22 = this;
+          var _this24 = this;
 
-          var _loop2 = function _loop2(i) {
-            if (usuario._id == _this22.alumnosTabla[i].estudiante._id) {
-              if (_this22.simulandoDatos) {
-                _this22.alumnosTabla[i].pulsera = true;
+          var _loop5 = function _loop5(_i18) {
+            if (usuario._id == _this24.alumnosTabla[_i18].estudiante._id) {
+              if (_this24.simulandoDatos) {
+                _this24.alumnosTabla[_i18].pulsera = true;
               } else {
-                _this22.profesor.conectarPulsera(usuario);
+                _this24.profesor.conectarPulsera(usuario);
 
-                _this22.alumnosTabla[i].cargandoP = true;
+                _this24.alumnosTabla[_i18].cargandoP = true;
                 setTimeout(function (async) {
-                  _this22.alumnosTabla[i].cargandoP = false;
+                  _this24.alumnosTabla[_i18].cargandoP = false;
                 }, 7000);
               }
             }
           };
 
-          for (var i = 0; i < this.alumnosTabla.length; i++) {
-            _loop2(i);
+          for (var _i18 = 0; _i18 < this.alumnosTabla.length; _i18++) {
+            _loop5(_i18);
           }
         }
       }, {
         key: "desactivarPulsera",
         value: function desactivarPulsera(usuario) {
-          for (var i = 0; i < this.alumnosTabla.length; i++) {
-            if (usuario._id == this.alumnosTabla[i].estudiante._id) {
+          for (var _i19 = 0; _i19 < this.alumnosTabla.length; _i19++) {
+            if (usuario._id == this.alumnosTabla[_i19].estudiante._id) {
               if (this.simulandoDatos) {
-                this.alumnosTabla[i].pulsera = false;
+                this.alumnosTabla[_i19].pulsera = false;
               } else {
                 this.profesor.desconectarPulsera(usuario);
               }
@@ -9898,30 +10092,30 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "pulseraActivada",
         value: function pulseraActivada(usuario) {
-          for (var i = 0; i < this.alumnosTabla.length; i++) {
-            if (usuario._id == this.alumnosTabla[i].estudiante._id) {
-              this.alumnosTabla[i].pulsera = true;
-              this.alumnosTabla[i].cargandoP = false;
+          for (var _i20 = 0; _i20 < this.alumnosTabla.length; _i20++) {
+            if (usuario._id == this.alumnosTabla[_i20].estudiante._id) {
+              this.alumnosTabla[_i20].pulsera = true;
+              this.alumnosTabla[_i20].cargandoP = false;
             }
           }
         }
       }, {
         key: "pulseraDesconectada",
         value: function pulseraDesconectada(usuario) {
-          for (var i = 0; i < this.alumnosTabla.length; i++) {
-            if (usuario._id == this.alumnosTabla[i].estudiante._id) {
-              this.alumnosTabla[i].pulsera = false;
+          for (var _i21 = 0; _i21 < this.alumnosTabla.length; _i21++) {
+            if (usuario._id == this.alumnosTabla[_i21].estudiante._id) {
+              this.alumnosTabla[_i21].pulsera = false;
             }
           }
         }
       }, {
         key: "activarTodosLeds",
         value: function activarTodosLeds() {
-          for (var i = 0; i < this.alumnosTabla.length; i++) {
+          for (var _i22 = 0; _i22 < this.alumnosTabla.length; _i22++) {
             if (this.simulandoDatos) {
-              this.alumnosTabla[i].led = true;
+              this.alumnosTabla[_i22].led = true;
             } else {
-              this.activarLed(this.alumnosTabla[i].estudiante);
+              this.activarLed(this.alumnosTabla[_i22].estudiante);
             }
           }
           /*for (let i = 0; i < this.actividad.alumnos.length; i++) {
@@ -9932,34 +10126,34 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "activarLed",
         value: function activarLed(usuario) {
-          var _this23 = this;
+          var _this25 = this;
 
-          var _loop3 = function _loop3(i) {
-            if (usuario._id == _this23.alumnosTabla[i].estudiante._id) {
-              if (_this23.simulandoDatos) {
-                _this23.alumnosTabla[i].led = true;
+          var _loop6 = function _loop6(_i23) {
+            if (usuario._id == _this25.alumnosTabla[_i23].estudiante._id) {
+              if (_this25.simulandoDatos) {
+                _this25.alumnosTabla[_i23].led = true;
               } else {
-                _this23.profesor.conectarLed(usuario);
+                _this25.profesor.conectarLed(usuario);
 
-                _this23.alumnosTabla[i].cargandoL = true;
+                _this25.alumnosTabla[_i23].cargandoL = true;
                 setTimeout(function (async) {
-                  _this23.alumnosTabla[i].cargandoL = false;
+                  _this25.alumnosTabla[_i23].cargandoL = false;
                 }, 7000);
               }
             }
           };
 
-          for (var i = 0; i < this.alumnosTabla.length; i++) {
-            _loop3(i);
+          for (var _i23 = 0; _i23 < this.alumnosTabla.length; _i23++) {
+            _loop6(_i23);
           }
         }
       }, {
         key: "desactivarLed",
         value: function desactivarLed(usuario) {
           if (this.simulandoDatos) {
-            for (var i = 0; i < this.alumnosTabla.length; i++) {
-              if (usuario._id == this.alumnosTabla[i].estudiante._id) {
-                this.alumnosTabla[i].led = false;
+            for (var _i24 = 0; _i24 < this.alumnosTabla.length; _i24++) {
+              if (usuario._id == this.alumnosTabla[_i24].estudiante._id) {
+                this.alumnosTabla[_i24].led = false;
               }
             }
           } else {
@@ -9969,28 +10163,28 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "ledActivado",
         value: function ledActivado(usuario) {
-          for (var i = 0; i < this.alumnosTabla.length; i++) {
-            if (usuario._id == this.alumnosTabla[i].estudiante._id) {
-              this.alumnosTabla[i].led = true;
-              this.alumnosTabla[i].cargandoL = false; //console.log("led activado");
+          for (var _i25 = 0; _i25 < this.alumnosTabla.length; _i25++) {
+            if (usuario._id == this.alumnosTabla[_i25].estudiante._id) {
+              this.alumnosTabla[_i25].led = true;
+              this.alumnosTabla[_i25].cargandoL = false; //console.log("led activado");
             }
           }
         }
       }, {
         key: "ledDesconectada",
         value: function ledDesconectada(usuario) {
-          for (var i = 0; i < this.alumnosTabla.length; i++) {
-            if (usuario._id == this.alumnosTabla[i].estudiante._id) {
-              this.alumnosTabla[i].led = false;
+          for (var _i26 = 0; _i26 < this.alumnosTabla.length; _i26++) {
+            if (usuario._id == this.alumnosTabla[_i26].estudiante._id) {
+              this.alumnosTabla[_i26].led = false;
             }
           }
         }
       }, {
         key: "usuarioConectado",
         value: function usuarioConectado(usuario) {
-          for (var i = 0; i < this.alumnosTabla.length; i++) {
-            if (usuario._id == this.alumnosTabla[i].estudiante._id) {
-              this.alumnosTabla[i].estado = 'Conectado';
+          for (var _i27 = 0; _i27 < this.alumnosTabla.length; _i27++) {
+            if (usuario._id == this.alumnosTabla[_i27].estudiante._id) {
+              this.alumnosTabla[_i27].estado = 'Conectado';
 
               if (!this.usuarioYaConectado(usuario)) {
                 this.aluConectados.push(usuario);
@@ -10005,8 +10199,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function usuarioYaConectado(usuario) {
           var num = 0;
 
-          for (var i = 0; i < this.aluConectados.length; i++) {
-            if (this.aluConectados[i]._id == usuario._id) {
+          for (var _i28 = 0; _i28 < this.aluConectados.length; _i28++) {
+            if (this.aluConectados[_i28]._id == usuario._id) {
               num++;
             }
           }
@@ -10020,9 +10214,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "usuarioDesconectado",
         value: function usuarioDesconectado(usuario) {
-          for (var i = 0; i < this.alumnosTabla.length; i++) {
-            if (usuario._id == this.alumnosTabla[i].estudiante._id) {
-              this.alumnosTabla[i].estado = 'Desconectado';
+          for (var _i29 = 0; _i29 < this.alumnosTabla.length; _i29++) {
+            if (usuario._id == this.alumnosTabla[_i29].estudiante._id) {
+              this.alumnosTabla[_i29].estado = 'Desconectado';
 
               for (var j = 0; j < this.aluConectados.length; j++) {
                 if (this.aluConectados[j]._id == usuario._id) {
@@ -10321,10 +10515,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "masterToggle",
         value: function masterToggle() {
-          var _this24 = this;
+          var _this26 = this;
 
           this.isAllSelected() ? this.selection.clear() : this.dataSource.data.forEach(function (row) {
-            return _this24.selection.select(row);
+            return _this26.selection.select(row);
           });
         }
       }, {
@@ -10446,8 +10640,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "computarDatos",
         value: function computarDatos() {
-          for (var i = 0; i < this.actividades.length; i++) {
-            this.labels.push(this.actividades[i].nombre);
+          for (var _i30 = 0; _i30 < this.actividades.length; _i30++) {
+            this.labels.push(this.actividades[_i30].nombre);
             var alegria = 0;
             var asco = 0;
             var miedo = 0;
@@ -10460,105 +10654,105 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             var frustrado = 0;
             var motivado = 0;
 
-            for (var j = 0; j < this.actividades[i].resumen.alegria.length; j++) {
-              alegria += this.actividades[i].resumen.alegria[j].y;
+            for (var j = 0; j < this.actividades[_i30].resumen.alegria.length; j++) {
+              alegria += this.actividades[_i30].resumen.alegria[j].y;
             }
 
-            this.datosGenerales.alegria.push(alegria / this.actividades[i].resumen.alegria.length);
+            this.datosGenerales.alegria.push(alegria / this.actividades[_i30].resumen.alegria.length);
 
-            for (var _j12 = 0; _j12 < this.actividades[i].resumen.asco.length; _j12++) {
-              asco += this.actividades[i].resumen.asco[_j12].y;
+            for (var _j12 = 0; _j12 < this.actividades[_i30].resumen.asco.length; _j12++) {
+              asco += this.actividades[_i30].resumen.asco[_j12].y;
             }
 
-            this.datosGenerales.asco.push(asco / this.actividades[i].resumen.asco.length);
+            this.datosGenerales.asco.push(asco / this.actividades[_i30].resumen.asco.length);
 
-            for (var _j13 = 0; _j13 < this.actividades[i].resumen.miedo.length; _j13++) {
-              miedo += this.actividades[i].resumen.miedo[_j13].y;
+            for (var _j13 = 0; _j13 < this.actividades[_i30].resumen.miedo.length; _j13++) {
+              miedo += this.actividades[_i30].resumen.miedo[_j13].y;
             }
 
-            this.datosGenerales.miedo.push(miedo / this.actividades[i].resumen.miedo.length);
+            this.datosGenerales.miedo.push(miedo / this.actividades[_i30].resumen.miedo.length);
 
-            for (var _j14 = 0; _j14 < this.actividades[i].resumen.sorpresa.length; _j14++) {
-              sorpresa += this.actividades[i].resumen.sorpresa[_j14].y;
+            for (var _j14 = 0; _j14 < this.actividades[_i30].resumen.sorpresa.length; _j14++) {
+              sorpresa += this.actividades[_i30].resumen.sorpresa[_j14].y;
             }
 
-            this.datosGenerales.sorpresa.push(sorpresa / this.actividades[i].resumen.sorpresa.length);
+            this.datosGenerales.sorpresa.push(sorpresa / this.actividades[_i30].resumen.sorpresa.length);
 
-            for (var _j15 = 0; _j15 < this.actividades[i].resumen.tristeza.length; _j15++) {
-              tristeza += this.actividades[i].resumen.tristeza[_j15].y;
+            for (var _j15 = 0; _j15 < this.actividades[_i30].resumen.tristeza.length; _j15++) {
+              tristeza += this.actividades[_i30].resumen.tristeza[_j15].y;
             }
 
-            this.datosGenerales.tristeza.push(tristeza / this.actividades[i].resumen.tristeza.length);
+            this.datosGenerales.tristeza.push(tristeza / this.actividades[_i30].resumen.tristeza.length);
 
-            for (var _j16 = 0; _j16 < this.actividades[i].resumen.ira.length; _j16++) {
-              ira += this.actividades[i].resumen.ira[_j16].y;
+            for (var _j16 = 0; _j16 < this.actividades[_i30].resumen.ira.length; _j16++) {
+              ira += this.actividades[_i30].resumen.ira[_j16].y;
             }
 
-            this.datosGenerales.ira.push(ira / this.actividades[i].resumen.ira.length);
+            this.datosGenerales.ira.push(ira / this.actividades[_i30].resumen.ira.length);
 
-            for (var _j17 = 0; _j17 < this.actividades[i].resumen.pulsaciones.length; _j17++) {
-              pulsaciones += this.actividades[i].resumen.pulsaciones[_j17].y;
+            for (var _j17 = 0; _j17 < this.actividades[_i30].resumen.pulsaciones.length; _j17++) {
+              pulsaciones += this.actividades[_i30].resumen.pulsaciones[_j17].y;
             }
 
-            this.datosGenerales.pulsaciones.push(pulsaciones / this.actividades[i].resumen.pulsaciones.length);
+            this.datosGenerales.pulsaciones.push(pulsaciones / this.actividades[_i30].resumen.pulsaciones.length);
 
-            for (var _j18 = 0; _j18 < this.actividades[i].resumen.distraido.length; _j18++) {
-              distraido += this.actividades[i].resumen.distraido[_j18].y;
+            for (var _j18 = 0; _j18 < this.actividades[_i30].resumen.distraido.length; _j18++) {
+              distraido += this.actividades[_i30].resumen.distraido[_j18].y;
             }
 
-            this.datosGenerales.distraido.push(distraido / this.actividades[i].resumen.distraido.length);
+            this.datosGenerales.distraido.push(distraido / this.actividades[_i30].resumen.distraido.length);
 
-            for (var _j19 = 0; _j19 < this.actividades[i].resumen.concentrado.length; _j19++) {
-              concentrado += this.actividades[i].resumen.concentrado[_j19].y;
+            for (var _j19 = 0; _j19 < this.actividades[_i30].resumen.concentrado.length; _j19++) {
+              concentrado += this.actividades[_i30].resumen.concentrado[_j19].y;
             }
 
-            this.datosGenerales.concentrado.push(concentrado / this.actividades[i].resumen.concentrado.length);
+            this.datosGenerales.concentrado.push(concentrado / this.actividades[_i30].resumen.concentrado.length);
 
-            for (var _j20 = 0; _j20 < this.actividades[i].resumen.frustrado.length; _j20++) {
-              frustrado += this.actividades[i].resumen.frustrado[_j20].y;
+            for (var _j20 = 0; _j20 < this.actividades[_i30].resumen.frustrado.length; _j20++) {
+              frustrado += this.actividades[_i30].resumen.frustrado[_j20].y;
             }
 
-            this.datosGenerales.frustrado.push(frustrado / this.actividades[i].resumen.frustrado.length);
+            this.datosGenerales.frustrado.push(frustrado / this.actividades[_i30].resumen.frustrado.length);
 
-            for (var _j21 = 0; _j21 < this.actividades[i].resumen.motivado.length; _j21++) {
-              motivado += this.actividades[i].resumen.motivado[_j21].y;
+            for (var _j21 = 0; _j21 < this.actividades[_i30].resumen.motivado.length; _j21++) {
+              motivado += this.actividades[_i30].resumen.motivado[_j21].y;
             }
 
-            this.datosGenerales.motivado.push(motivado / this.actividades[i].resumen.motivado.length);
+            this.datosGenerales.motivado.push(motivado / this.actividades[_i30].resumen.motivado.length);
 
-            for (var _j22 = 0; _j22 < this.actividades[i].alumnos.length; _j22++) {
-              if (this.actividades[i].alumnos[_j22].estudiante._id == this.alumno._id) {
+            for (var _j22 = 0; _j22 < this.actividades[_i30].alumnos.length; _j22++) {
+              if (this.actividades[_i30].alumnos[_j22].estudiante._id == this.alumno._id) {
                 for (var q = 0; q < this.estados.length; q++) {
                   var a = 0;
 
-                  for (var k = 0; k < this.actividades[i].alumnos[_j22].datos[this.estados[q].nombre].length; k++) {
-                    a += this.actividades[i].alumnos[_j22].datos[this.estados[q].nombre][k].y;
+                  for (var k = 0; k < this.actividades[_i30].alumnos[_j22].datos[this.estados[q].nombre].length; k++) {
+                    a += this.actividades[_i30].alumnos[_j22].datos[this.estados[q].nombre][k].y;
                   }
 
-                  this.datosIndividuales[this.estados[q].nombre].push(a / this.actividades[i].alumnos[_j22].datos[this.estados[q].nombre].length);
+                  this.datosIndividuales[this.estados[q].nombre].push(a / this.actividades[_i30].alumnos[_j22].datos[this.estados[q].nombre].length);
                 }
 
                 var a = 0;
 
-                for (var x = 0; x < this.actividades[i].alumnos[_j22].datos.pulsaciones.length; x++) {
-                  a += this.actividades[i].alumnos[_j22].datos.pulsaciones[x].y;
+                for (var x = 0; x < this.actividades[_i30].alumnos[_j22].datos.pulsaciones.length; x++) {
+                  a += this.actividades[_i30].alumnos[_j22].datos.pulsaciones[x].y;
                 }
 
-                this.datosIndividuales.pulsaciones.push(a / this.actividades[i].alumnos[_j22].datos.pulsaciones.length);
+                this.datosIndividuales.pulsaciones.push(a / this.actividades[_i30].alumnos[_j22].datos.pulsaciones.length);
               }
             }
           }
 
-          for (var _i7 = 0; _i7 < this.estadoGlobalAlumno.length; _i7++) {
+          for (var _i31 = 0; _i31 < this.estadoGlobalAlumno.length; _i31++) {
             var a = 0; //console.log(this.datosIndividuales)
 
-            for (var _j23 = 0; _j23 < this.datosIndividuales[this.estadoGlobalAlumno[_i7].nombre].length; _j23++) {
+            for (var _j23 = 0; _j23 < this.datosIndividuales[this.estadoGlobalAlumno[_i31].nombre].length; _j23++) {
               //console.log(this.datosIndividuales[this.estadoGlobalAlumno[i].nombre][j]);
-              a += this.datosIndividuales[this.estadoGlobalAlumno[_i7].nombre][_j23];
+              a += this.datosIndividuales[this.estadoGlobalAlumno[_i31].nombre][_j23];
             } //console.log(a);
 
 
-            this.estadoGlobalAlumno[_i7].datos = a / this.datosIndividuales[this.estadoGlobalAlumno[_i7].nombre].length;
+            this.estadoGlobalAlumno[_i31].datos = a / this.datosIndividuales[this.estadoGlobalAlumno[_i31].nombre].length;
           }
         }
       }, {
@@ -10660,13 +10854,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function actualizarEC() {
           var datos = [];
 
-          for (var i = 0; i < this.estadoConjuntoSeleccionado.estados.length; i++) {
+          for (var _i32 = 0; _i32 < this.estadoConjuntoSeleccionado.estados.length; _i32++) {
             datos.push({
               type: 'bar',
-              label: '' + this.estadoConjuntoSeleccionado.estados[i].nombre,
-              data: this.datosIndividuales[this.estadoConjuntoSeleccionado.estados[i].nombre],
-              backgroundColor: this.estadoConjuntoSeleccionado.estados[i].color,
-              borderColor: this.estadoConjuntoSeleccionado.estados[i].color,
+              label: '' + this.estadoConjuntoSeleccionado.estados[_i32].nombre,
+              data: this.datosIndividuales[this.estadoConjuntoSeleccionado.estados[_i32].nombre],
+              backgroundColor: this.estadoConjuntoSeleccionado.estados[_i32].color,
+              borderColor: this.estadoConjuntoSeleccionado.estados[_i32].color,
               barPercentage: 0.9
             });
           }
@@ -10720,7 +10914,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           var colores = [];
           var datos = []; //console.log(this.estadoGlobalAlumno);
 
-          for (var i = 0; i < this.estadoGeneralSeleccionado.estados.length; i++) {
+          for (var _i33 = 0; _i33 < this.estadoGeneralSeleccionado.estados.length; _i33++) {
             /*datos.push(
               {
                 type: 'bar',
@@ -10732,9 +10926,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               }
             );*/
             for (var j = 0; j < this.estadoGlobalAlumno.length; j++) {
-              if (this.estadoGlobalAlumno[j].nombre == this.estadoGeneralSeleccionado.estados[i].nombre) {
-                labels.push(this.estadoGeneralSeleccionado.estados[i].nombre);
-                colores.push(this.estadoGeneralSeleccionado.estados[i].color);
+              if (this.estadoGlobalAlumno[j].nombre == this.estadoGeneralSeleccionado.estados[_i33].nombre) {
+                labels.push(this.estadoGeneralSeleccionado.estados[_i33].nombre);
+                colores.push(this.estadoGeneralSeleccionado.estados[_i33].color);
                 datos.push(this.estadoGlobalAlumno[j].datos);
               }
             }
@@ -10907,11 +11101,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function ngOnInit() {
           return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
           /*#__PURE__*/
-          regeneratorRuntime.mark(function _callee43() {
+          regeneratorRuntime.mark(function _callee46() {
             var ju;
-            return regeneratorRuntime.wrap(function _callee43$(_context43) {
+            return regeneratorRuntime.wrap(function _callee46$(_context48) {
               while (1) {
-                switch (_context43.prev = _context43.next) {
+                switch (_context48.prev = _context48.next) {
                   case 0:
                     /*var ju = this;
                     console.log(this.clase);
@@ -10922,7 +11116,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                     this.actualizarClase();
                     ju = this; //this.listaAlumnos=this.estudiantes.getEstudiantes();
 
-                    _context43.next = 5;
+                    _context48.next = 5;
                     return $.getJSON("/verEstudiantes", function (data) {
                       //console.log(data);
                       ju.listaAlumnos = data;
@@ -10930,10 +11124,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
                   case 5:
                   case "end":
-                    return _context43.stop();
+                    return _context48.stop();
                 }
               }
-            }, _callee43, this);
+            }, _callee46, this);
           }));
         }
       }, {
@@ -10956,11 +11150,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function actualizarClase() {
           return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
           /*#__PURE__*/
-          regeneratorRuntime.mark(function _callee44() {
+          regeneratorRuntime.mark(function _callee47() {
             var ju;
-            return regeneratorRuntime.wrap(function _callee44$(_context44) {
+            return regeneratorRuntime.wrap(function _callee47$(_context49) {
               while (1) {
-                switch (_context44.prev = _context44.next) {
+                switch (_context49.prev = _context49.next) {
                   case 0:
                     ju = this;
                     /*$.getJSON("/verClase", this.clase, function (data) {
@@ -11000,10 +11194,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
                   case 2:
                   case "end":
-                    return _context44.stop();
+                    return _context49.stop();
                 }
               }
-            }, _callee44, this);
+            }, _callee47, this);
           }));
         }
       }, {
@@ -11126,14 +11320,14 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           actividadCreate.fecha = moment__WEBPACK_IMPORTED_MODULE_2__().format('LLLL');
           var arrayAlumnos = [];
 
-          for (var _i8 = 0; _i8 < this.clase.alumnos.length; _i8++) {
+          for (var _i34 = 0; _i34 < this.clase.alumnos.length; _i34++) {
             arrayAlumnos.push({
-              estudiante: this.clase.alumnos[_i8].estudiante,
+              estudiante: this.clase.alumnos[_i34].estudiante,
               id_item: '',
-              posicion: this.clase.alumnos[_i8].posicion,
-              sensorWebCam: this.clase.alumnos[_i8].sensorWebCam,
-              sensorPulsera: this.clase.alumnos[_i8].sensorPulsera,
-              sensorLed: this.clase.alumnos[_i8].sensorLed,
+              posicion: this.clase.alumnos[_i34].posicion,
+              sensorWebCam: this.clase.alumnos[_i34].sensorWebCam,
+              sensorPulsera: this.clase.alumnos[_i34].sensorPulsera,
+              sensorLed: this.clase.alumnos[_i34].sensorLed,
               datos: {
                 alegria: [],
                 asco: [],
@@ -11221,14 +11415,14 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           actividadCreate.fecha = moment__WEBPACK_IMPORTED_MODULE_2__().format('LLLL');
           var arrayAlumnos = [];
 
-          for (var i = 0; i < clase.alumnos.length; i++) {
+          for (var _i35 = 0; _i35 < clase.alumnos.length; _i35++) {
             arrayAlumnos.push({
-              estudiante: clase.alumnos[i].estudiante,
+              estudiante: clase.alumnos[_i35].estudiante,
               id_item: '',
-              posicion: clase.alumnos[i].posicion,
-              sensorWebCam: clase.alumnos[i].sensorWebCam,
-              sensorPulsera: clase.alumnos[i].sensorPulsera,
-              sensorLed: clase.alumnos[i].sensorLed,
+              posicion: clase.alumnos[_i35].posicion,
+              sensorWebCam: clase.alumnos[_i35].sensorWebCam,
+              sensorPulsera: clase.alumnos[_i35].sensorPulsera,
+              sensorLed: clase.alumnos[_i35].sensorLed,
               datos: {
                 alegria: [],
                 asco: [],
@@ -11591,7 +11785,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       _createClass(VerEstadisticasClaseComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this25 = this;
+          var _this27 = this;
 
           console.log(this.clase);
           this.estadoConjuntoSeleccionado = this.estadosConjunto[0];
@@ -11606,7 +11800,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           this.dataSource.paginator = this.paginator;
           this.dataSource.sort = this.sort;
           this.dataSource.data.forEach(function (row) {
-            _this25.selection.select(row);
+            _this27.selection.select(row);
           });
           this.computarDatos();
           this.actualizarGraficas();
@@ -11628,10 +11822,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "masterToggle",
         value: function masterToggle() {
-          var _this26 = this;
+          var _this28 = this;
 
           this.isAllSelected() ? this.selection.clear() : this.dataSource.data.forEach(function (row) {
-            return _this26.selection.select(row);
+            return _this28.selection.select(row);
           });
         }
       }, {
@@ -11762,8 +11956,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "computarDatos",
         value: function computarDatos() {
-          for (var i = 0; i < this.actividades.length; i++) {
-            this.labels.push(this.actividades[i].nombre);
+          for (var _i36 = 0; _i36 < this.actividades.length; _i36++) {
+            this.labels.push(this.actividades[_i36].nombre);
             var alegria = 0;
             var asco = 0;
             var miedo = 0;
@@ -11776,71 +11970,71 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             var frustrado = 0;
             var motivado = 0;
 
-            for (var j = 0; j < this.actividades[i].resumen.alegria.length; j++) {
-              alegria += this.actividades[i].resumen.alegria[j].y;
+            for (var j = 0; j < this.actividades[_i36].resumen.alegria.length; j++) {
+              alegria += this.actividades[_i36].resumen.alegria[j].y;
             }
 
-            this.datosGenerales.alegria.push(alegria / this.actividades[i].resumen.alegria.length);
+            this.datosGenerales.alegria.push(alegria / this.actividades[_i36].resumen.alegria.length);
 
-            for (var _j24 = 0; _j24 < this.actividades[i].resumen.asco.length; _j24++) {
-              asco += this.actividades[i].resumen.asco[_j24].y;
+            for (var _j24 = 0; _j24 < this.actividades[_i36].resumen.asco.length; _j24++) {
+              asco += this.actividades[_i36].resumen.asco[_j24].y;
             }
 
-            this.datosGenerales.asco.push(asco / this.actividades[i].resumen.asco.length);
+            this.datosGenerales.asco.push(asco / this.actividades[_i36].resumen.asco.length);
 
-            for (var _j25 = 0; _j25 < this.actividades[i].resumen.miedo.length; _j25++) {
-              miedo += this.actividades[i].resumen.miedo[_j25].y;
+            for (var _j25 = 0; _j25 < this.actividades[_i36].resumen.miedo.length; _j25++) {
+              miedo += this.actividades[_i36].resumen.miedo[_j25].y;
             }
 
-            this.datosGenerales.miedo.push(miedo / this.actividades[i].resumen.miedo.length);
+            this.datosGenerales.miedo.push(miedo / this.actividades[_i36].resumen.miedo.length);
 
-            for (var _j26 = 0; _j26 < this.actividades[i].resumen.sorpresa.length; _j26++) {
-              sorpresa += this.actividades[i].resumen.sorpresa[_j26].y;
+            for (var _j26 = 0; _j26 < this.actividades[_i36].resumen.sorpresa.length; _j26++) {
+              sorpresa += this.actividades[_i36].resumen.sorpresa[_j26].y;
             }
 
-            this.datosGenerales.sorpresa.push(sorpresa / this.actividades[i].resumen.sorpresa.length);
+            this.datosGenerales.sorpresa.push(sorpresa / this.actividades[_i36].resumen.sorpresa.length);
 
-            for (var _j27 = 0; _j27 < this.actividades[i].resumen.tristeza.length; _j27++) {
-              tristeza += this.actividades[i].resumen.tristeza[_j27].y;
+            for (var _j27 = 0; _j27 < this.actividades[_i36].resumen.tristeza.length; _j27++) {
+              tristeza += this.actividades[_i36].resumen.tristeza[_j27].y;
             }
 
-            this.datosGenerales.tristeza.push(tristeza / this.actividades[i].resumen.tristeza.length);
+            this.datosGenerales.tristeza.push(tristeza / this.actividades[_i36].resumen.tristeza.length);
 
-            for (var _j28 = 0; _j28 < this.actividades[i].resumen.ira.length; _j28++) {
-              ira += this.actividades[i].resumen.ira[_j28].y;
+            for (var _j28 = 0; _j28 < this.actividades[_i36].resumen.ira.length; _j28++) {
+              ira += this.actividades[_i36].resumen.ira[_j28].y;
             }
 
-            this.datosGenerales.ira.push(ira / this.actividades[i].resumen.ira.length);
+            this.datosGenerales.ira.push(ira / this.actividades[_i36].resumen.ira.length);
 
-            for (var _j29 = 0; _j29 < this.actividades[i].resumen.pulsaciones.length; _j29++) {
-              pulsaciones += this.actividades[i].resumen.pulsaciones[_j29].y;
+            for (var _j29 = 0; _j29 < this.actividades[_i36].resumen.pulsaciones.length; _j29++) {
+              pulsaciones += this.actividades[_i36].resumen.pulsaciones[_j29].y;
             }
 
-            this.datosGenerales.pulsaciones.push(pulsaciones / this.actividades[i].resumen.pulsaciones.length);
+            this.datosGenerales.pulsaciones.push(pulsaciones / this.actividades[_i36].resumen.pulsaciones.length);
 
-            for (var _j30 = 0; _j30 < this.actividades[i].resumen.distraido.length; _j30++) {
-              distraido += this.actividades[i].resumen.distraido[_j30].y;
+            for (var _j30 = 0; _j30 < this.actividades[_i36].resumen.distraido.length; _j30++) {
+              distraido += this.actividades[_i36].resumen.distraido[_j30].y;
             }
 
-            this.datosGenerales.distraido.push(distraido / this.actividades[i].resumen.distraido.length);
+            this.datosGenerales.distraido.push(distraido / this.actividades[_i36].resumen.distraido.length);
 
-            for (var _j31 = 0; _j31 < this.actividades[i].resumen.concentrado.length; _j31++) {
-              concentrado += this.actividades[i].resumen.asco[_j31].y;
+            for (var _j31 = 0; _j31 < this.actividades[_i36].resumen.concentrado.length; _j31++) {
+              concentrado += this.actividades[_i36].resumen.asco[_j31].y;
             }
 
-            this.datosGenerales.concentrado.push(concentrado / this.actividades[i].resumen.concentrado.length);
+            this.datosGenerales.concentrado.push(concentrado / this.actividades[_i36].resumen.concentrado.length);
 
-            for (var _j32 = 0; _j32 < this.actividades[i].resumen.frustrado.length; _j32++) {
-              frustrado += this.actividades[i].resumen.frustrado[_j32].y;
+            for (var _j32 = 0; _j32 < this.actividades[_i36].resumen.frustrado.length; _j32++) {
+              frustrado += this.actividades[_i36].resumen.frustrado[_j32].y;
             }
 
-            this.datosGenerales.frustrado.push(frustrado / this.actividades[i].resumen.frustrado.length);
+            this.datosGenerales.frustrado.push(frustrado / this.actividades[_i36].resumen.frustrado.length);
 
-            for (var _j33 = 0; _j33 < this.actividades[i].resumen.motivado.length; _j33++) {
-              motivado += this.actividades[i].resumen.motivado[_j33].y;
+            for (var _j33 = 0; _j33 < this.actividades[_i36].resumen.motivado.length; _j33++) {
+              motivado += this.actividades[_i36].resumen.motivado[_j33].y;
             }
 
-            this.datosGenerales.motivado.push(motivado / this.actividades[i].resumen.motivado.length);
+            this.datosGenerales.motivado.push(motivado / this.actividades[_i36].resumen.motivado.length);
             /*for (let j = 0; j < this.actividades[i].alumnos.length; j++) {
               if (this.actividades[i].alumnos[j].estudiante._id == this.alumno._id) {
                 for (let q = 0; q < this.estados.length; q++) {
@@ -11961,13 +12155,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function actualizarEC() {
           var datos = [];
 
-          for (var i = 0; i < this.estadoConjuntoSeleccionado.estados.length; i++) {
+          for (var _i37 = 0; _i37 < this.estadoConjuntoSeleccionado.estados.length; _i37++) {
             datos.push({
               type: 'bar',
-              label: 'Datos de media de ' + this.estadoConjuntoSeleccionado.estados[i].nombre,
-              data: this.datosGenerales[this.estadoConjuntoSeleccionado.estados[i].nombre],
-              backgroundColor: this.estadoConjuntoSeleccionado.estados[i].color,
-              borderColor: this.estadoConjuntoSeleccionado.estados[i].color,
+              label: 'Datos de media de ' + this.estadoConjuntoSeleccionado.estados[_i37].nombre,
+              data: this.datosGenerales[this.estadoConjuntoSeleccionado.estados[_i37].nombre],
+              backgroundColor: this.estadoConjuntoSeleccionado.estados[_i37].color,
+              borderColor: this.estadoConjuntoSeleccionado.estados[_i37].color,
               barPercentage: 0.9
             });
           }
@@ -12022,7 +12216,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           var datos = [];
           console.log(this.estadoGlobalAlumno);
 
-          for (var i = 0; i < this.estadoGeneralSeleccionado.estados.length; i++) {
+          for (var _i38 = 0; _i38 < this.estadoGeneralSeleccionado.estados.length; _i38++) {
             /*datos.push(
               {
                 type: 'bar',
@@ -12034,9 +12228,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               }
             );*/
             for (var j = 0; j < this.estadoGlobalAlumno.length; j++) {
-              if (this.estadoGlobalAlumno[j].nombre == this.estadoGeneralSeleccionado.estados[i].nombre) {
-                labels.push(this.estadoGeneralSeleccionado.estados[i].nombre);
-                colores.push(this.estadoGeneralSeleccionado.estados[i].color);
+              if (this.estadoGlobalAlumno[j].nombre == this.estadoGeneralSeleccionado.estados[_i38].nombre) {
+                labels.push(this.estadoGeneralSeleccionado.estados[_i38].nombre);
+                colores.push(this.estadoGeneralSeleccionado.estados[_i38].color);
                 datos.push(this.estadoGlobalAlumno[j].datos);
               }
             }
