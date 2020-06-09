@@ -3247,6 +3247,15 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           });
         }
       }, {
+        key: "noSeHaPodidoConectar",
+        value: function noSeHaPodidoConectar() {
+          Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'No se ha podido conectar, comprueba el estado del Bluetooth'
+          });
+        }
+      }, {
         key: "actualizaNavegador",
         value: function actualizaNavegador() {
           var _this5 = this;
@@ -3313,6 +3322,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                       }, 2000);
                     } else {
                       sensor.cargando = false;
+                      this.noSeHaPodidoConectar();
                     }
 
                     _context8.next = 13;

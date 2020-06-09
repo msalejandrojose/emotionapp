@@ -2162,6 +2162,13 @@ let EstudianteComponent = class EstudianteComponent {
             text: 'Navegador no valido',
         });
     }
+    noSeHaPodidoConectar() {
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'No se ha podido conectar, comprueba el estado del Bluetooth',
+        });
+    }
     actualizaNavegador() {
         Swal.fire({
             icon: 'error',
@@ -2206,6 +2213,7 @@ let EstudianteComponent = class EstudianteComponent {
                 }
                 else {
                     sensor.cargando = false;
+                    this.noSeHaPodidoConectar();
                 }
             }
             catch (e) {
