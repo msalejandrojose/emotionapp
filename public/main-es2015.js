@@ -1747,7 +1747,7 @@ let EstudianteComponent = class EstudianteComponent {
             data: JSON.stringify(ju.estudiante),
             success: function (data) {
                 //console.log(data);
-                console.log(data);
+                //console.log(data);
                 if (data._id == null) {
                     Swal.fire({
                         icon: 'error',
@@ -2164,9 +2164,11 @@ let EstudianteComponent = class EstudianteComponent {
     }
     noSeHaPodidoConectar() {
         Swal.fire({
-            icon: 'error',
+            icon: 'warning',
             title: 'Oops...',
             text: 'No se ha podido conectar, comprueba el estado del Bluetooth',
+            timer: 3000,
+            timerProgressBar: true,
         });
     }
     actualizaNavegador() {

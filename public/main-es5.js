@@ -2699,8 +2699,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             data: JSON.stringify(ju.estudiante),
             success: function success(data) {
               //console.log(data);
-              console.log(data);
-
+              //console.log(data);
               if (data._id == null) {
                 Swal.fire({
                   icon: 'error',
@@ -3250,9 +3249,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         key: "noSeHaPodidoConectar",
         value: function noSeHaPodidoConectar() {
           Swal.fire({
-            icon: 'error',
+            icon: 'warning',
             title: 'Oops...',
-            text: 'No se ha podido conectar, comprueba el estado del Bluetooth'
+            text: 'No se ha podido conectar, comprueba el estado del Bluetooth',
+            timer: 3000,
+            timerProgressBar: true
           });
         }
       }, {
