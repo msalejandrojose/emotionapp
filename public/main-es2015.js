@@ -2068,7 +2068,7 @@ let EstudianteComponent = class EstudianteComponent {
                     y: 0,
                 };
                 if (this.pulsera.estado == "Conectado") {
-                    if (datos['pulsaciones'].y > 85) {
+                    if (datos['pulsaciones'].y > 85 || datos['pulsaciones'].y < 50) {
                         datos['distraido'] = {
                             x: x,
                             y: Math.round(datos['sorpresa'].y),
@@ -5782,6 +5782,11 @@ let VerActividadComponent = class VerActividadComponent {
                     });
                 }
             }
+            if (this.actividad.estado == 'Comenzada') {
+                this.activarTodasPulseras();
+                this.activarTodasWebCam();
+                this.activarTodosLeds();
+            }
             //console.log(this.alumnosTabla);
             this.dataSourceAlumnos = new _angular_material__WEBPACK_IMPORTED_MODULE_5__["MatTableDataSource"](this.alumnosTabla);
             this.dataSourceAlumnos.paginator = this.paginatorA;
@@ -6203,7 +6208,7 @@ let VerActividadComponent = class VerActividadComponent {
             this.profesor.listoParaNoRecibirDatos(this.actividad);
         }
         if (this.actividad.estado == "Comenzada") {
-            Swal.fire('Se cerrará la aplicación.', 'El proceso de recolección de datos, seguira ejecutandose en segundo plano.', 'question');
+            Swal.fire('Se cerrará la aplicación.', 'El proceso de recolección de datos, seguira ejecutándose en segundo plano.', 'question');
         }
         clearInterval(this.intervaloResumen);
         this.profesor.cerrarActividad('ok');

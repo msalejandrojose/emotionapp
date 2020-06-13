@@ -3127,7 +3127,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                       };
 
                       if (this.pulsera.estado == "Conectado") {
-                        if (datos['pulsaciones'].y > 85) {
+                        if (datos['pulsaciones'].y > 85 || datos['pulsaciones'].y < 50) {
                           datos['distraido'] = {
                             x: x,
                             y: Math.round(datos['sorpresa'].y)
@@ -8422,6 +8422,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                           cargandoL: false
                         });
                       }
+                    }
+
+                    if (this.actividad.estado == 'Comenzada') {
+                      this.activarTodasPulseras();
+                      this.activarTodasWebCam();
+                      this.activarTodosLeds();
                     } //console.log(this.alumnosTabla);
 
 
@@ -8429,7 +8435,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                     this.dataSourceAlumnos.paginator = this.paginatorA;
                     this.dataSourceAlumnos.sort = this.sortA;
 
-                  case 20:
+                  case 21:
                   case "end":
                     return _context37.stop();
                 }
@@ -9073,7 +9079,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           }
 
           if (this.actividad.estado == "Comenzada") {
-            Swal.fire('Se cerrará la aplicación.', 'El proceso de recolección de datos, seguira ejecutandose en segundo plano.', 'question');
+            Swal.fire('Se cerrará la aplicación.', 'El proceso de recolección de datos, seguira ejecutándose en segundo plano.', 'question');
           }
 
           clearInterval(this.intervaloResumen);
