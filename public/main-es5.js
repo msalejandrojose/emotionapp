@@ -9336,109 +9336,113 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                     x = moment__WEBPACK_IMPORTED_MODULE_3__().format();
                     this.estoyComputando = true;
                     sumaTotalEmociones = this.resumen.alegria + this.resumen.asco + this.resumen.ira + this.resumen.miedo + this.resumen.sorpresa + this.resumen.tristeza;
-                    this.datosResumenSeleccionados.alegria = Math.round(this.resumen.alegria / sumaTotalEmociones * 100);
-                    this.datosResumenSeleccionados.asco = Math.round(this.resumen.asco / sumaTotalEmociones * 100);
-                    this.datosResumenSeleccionados.ira = Math.round(this.resumen.ira / sumaTotalEmociones * 100);
-                    this.datosResumenSeleccionados.miedo = Math.round(this.resumen.miedo / sumaTotalEmociones * 100);
-                    this.datosResumenSeleccionados.sorpresa = Math.round(this.resumen.sorpresa / sumaTotalEmociones * 100);
-                    this.datosResumenSeleccionados.tristeza = Math.round(this.resumen.tristeza / sumaTotalEmociones * 100);
-                    this.actividad.resumen.alegria.push({
-                      x: x,
-                      y: this.datosResumenSeleccionados.alegria
-                    });
-                    this.actividad.resumen.asco.push({
-                      x: x,
-                      y: this.datosResumenSeleccionados.asco
-                    });
-                    this.actividad.resumen.ira.push({
-                      x: x,
-                      y: this.datosResumenSeleccionados.ira
-                    });
-                    this.actividad.resumen.miedo.push({
-                      x: x,
-                      y: this.datosResumenSeleccionados.miedo
-                    });
-                    this.actividad.resumen.sorpresa.push({
-                      x: x,
-                      y: this.datosResumenSeleccionados.sorpresa
-                    });
-                    this.actividad.resumen.tristeza.push({
-                      x: x,
-                      y: this.datosResumenSeleccionados.tristeza
-                    });
 
-                    try {
-                      document.getElementById("progress-alegria").style.width = this.datosResumenSeleccionados.alegria + "%";
-                      document.getElementById("progress-asco").style.width = this.datosResumenSeleccionados.asco + "%";
-                      document.getElementById("progress-ira").style.width = this.datosResumenSeleccionados.ira + "%";
-                      document.getElementById("progress-miedo").style.width = this.datosResumenSeleccionados.miedo + "%";
-                      document.getElementById("progress-sorpresa").style.width = this.datosResumenSeleccionados.sorpresa + "%";
-                      document.getElementById("progress-tristeza").style.width = this.datosResumenSeleccionados.tristeza + "%";
-                    } catch (e) {} //Datos de las pulsaciones
+                    if (sumaTotalEmociones > 0) {
+                      this.datosResumenSeleccionados.alegria = Math.round(this.resumen.alegria / sumaTotalEmociones * 100);
+                      this.datosResumenSeleccionados.asco = Math.round(this.resumen.asco / sumaTotalEmociones * 100);
+                      this.datosResumenSeleccionados.ira = Math.round(this.resumen.ira / sumaTotalEmociones * 100);
+                      this.datosResumenSeleccionados.miedo = Math.round(this.resumen.miedo / sumaTotalEmociones * 100);
+                      this.datosResumenSeleccionados.sorpresa = Math.round(this.resumen.sorpresa / sumaTotalEmociones * 100);
+                      this.datosResumenSeleccionados.tristeza = Math.round(this.resumen.tristeza / sumaTotalEmociones * 100);
+                      this.actividad.resumen.alegria.push({
+                        x: x,
+                        y: this.datosResumenSeleccionados.alegria
+                      });
+                      this.actividad.resumen.asco.push({
+                        x: x,
+                        y: this.datosResumenSeleccionados.asco
+                      });
+                      this.actividad.resumen.ira.push({
+                        x: x,
+                        y: this.datosResumenSeleccionados.ira
+                      });
+                      this.actividad.resumen.miedo.push({
+                        x: x,
+                        y: this.datosResumenSeleccionados.miedo
+                      });
+                      this.actividad.resumen.sorpresa.push({
+                        x: x,
+                        y: this.datosResumenSeleccionados.sorpresa
+                      });
+                      this.actividad.resumen.tristeza.push({
+                        x: x,
+                        y: this.datosResumenSeleccionados.tristeza
+                      });
+
+                      try {
+                        document.getElementById("progress-alegria").style.width = this.datosResumenSeleccionados.alegria + "%";
+                        document.getElementById("progress-asco").style.width = this.datosResumenSeleccionados.asco + "%";
+                        document.getElementById("progress-ira").style.width = this.datosResumenSeleccionados.ira + "%";
+                        document.getElementById("progress-miedo").style.width = this.datosResumenSeleccionados.miedo + "%";
+                        document.getElementById("progress-sorpresa").style.width = this.datosResumenSeleccionados.sorpresa + "%";
+                        document.getElementById("progress-tristeza").style.width = this.datosResumenSeleccionados.tristeza + "%";
+                      } catch (e) {} //Datos de las pulsaciones
 
 
-                    this.actividad.resumen.pulsaciones.push({
-                      x: x,
-                      y: this.resumen.pulsaciones / this.numPulsaciones
-                    }); //Datos cognitivos
+                      this.actividad.resumen.pulsaciones.push({
+                        x: x,
+                        y: this.resumen.pulsaciones / this.numPulsaciones
+                      }); //Datos cognitivos
 
-                    sumaTotalEstadoDisConc = this.resumen.distraido + this.resumen.concentrado;
-                    this.datosResumenSeleccionados.concentrado = Math.round(this.resumen.concentrado / sumaTotalEstadoDisConc * 100);
-                    this.datosResumenSeleccionados.distraido = Math.round(this.resumen.distraido / sumaTotalEstadoDisConc * 100);
-                    this.actividad.resumen.distraido.push({
-                      x: x,
-                      y: this.datosResumenSeleccionados.concentrado
-                    });
-                    this.actividad.resumen.concentrado.push({
-                      x: x,
-                      y: this.datosResumenSeleccionados.concentrado
-                    });
+                      sumaTotalEstadoDisConc = this.resumen.distraido + this.resumen.concentrado;
+                      this.datosResumenSeleccionados.concentrado = Math.round(this.resumen.concentrado / sumaTotalEstadoDisConc * 100);
+                      this.datosResumenSeleccionados.distraido = Math.round(this.resumen.distraido / sumaTotalEstadoDisConc * 100);
+                      this.actividad.resumen.distraido.push({
+                        x: x,
+                        y: this.datosResumenSeleccionados.concentrado
+                      });
+                      this.actividad.resumen.concentrado.push({
+                        x: x,
+                        y: this.datosResumenSeleccionados.concentrado
+                      });
 
-                    try {
-                      document.getElementById("progress-distraido").style.width = this.datosResumenSeleccionados.distraido + "%";
-                      document.getElementById("progress-concentrado").style.width = this.datosResumenSeleccionados.concentrado + "%";
-                    } catch (e) {}
+                      try {
+                        document.getElementById("progress-distraido").style.width = this.datosResumenSeleccionados.distraido + "%";
+                        document.getElementById("progress-concentrado").style.width = this.datosResumenSeleccionados.concentrado + "%";
+                      } catch (e) {}
 
-                    sumaTotalEstadoFrusMotiv = this.resumen.frustrado + this.resumen.motivado;
-                    this.datosResumenSeleccionados.motivado = Math.round(this.resumen.motivado / sumaTotalEstadoFrusMotiv * 100);
-                    this.datosResumenSeleccionados.frustrado = Math.round(this.resumen.frustrado / sumaTotalEstadoFrusMotiv * 100);
-                    this.actividad.resumen.frustrado.push({
-                      x: x,
-                      y: this.datosResumenSeleccionados.frustrado
-                    });
-                    this.actividad.resumen.motivado.push({
-                      x: x,
-                      y: this.datosResumenSeleccionados.motivado
-                    });
+                      sumaTotalEstadoFrusMotiv = this.resumen.frustrado + this.resumen.motivado;
+                      this.datosResumenSeleccionados.motivado = Math.round(this.resumen.motivado / sumaTotalEstadoFrusMotiv * 100);
+                      this.datosResumenSeleccionados.frustrado = Math.round(this.resumen.frustrado / sumaTotalEstadoFrusMotiv * 100);
+                      this.actividad.resumen.frustrado.push({
+                        x: x,
+                        y: this.datosResumenSeleccionados.frustrado
+                      });
+                      this.actividad.resumen.motivado.push({
+                        x: x,
+                        y: this.datosResumenSeleccionados.motivado
+                      });
 
-                    try {
-                      document.getElementById("progress-frustrado").style.width = this.datosResumenSeleccionados.frustrado + "%";
-                      document.getElementById("progress-motivado").style.width = this.datosResumenSeleccionados.motivado + "%";
-                    } catch (e) {}
+                      try {
+                        document.getElementById("progress-frustrado").style.width = this.datosResumenSeleccionados.frustrado + "%";
+                        document.getElementById("progress-motivado").style.width = this.datosResumenSeleccionados.motivado + "%";
+                      } catch (e) {}
 
-                    this.estoyComputando = false; //Datos del tiempo
+                      this.estoyComputando = false; //Datos del tiempo
 
-                    this.actividad.resumen.tiempo.push(x);
-                    console.log("Resumen");
-                    console.log(this.resumen);
-                    this.actualizarGraficaGlobal(); //Reseteo de datos
+                      this.actividad.resumen.tiempo.push(x);
+                      console.log("Resumen");
+                      console.log(this.resumen);
+                      this.actualizarGraficaGlobal(); //Reseteo de datos
 
-                    this.resumen = {
-                      alegria: 0,
-                      asco: 0,
-                      miedo: 0,
-                      sorpresa: 0,
-                      tristeza: 0,
-                      ira: 0,
-                      distraido: 0,
-                      concentrado: 0,
-                      frustrado: 0,
-                      motivado: 0,
-                      pulsaciones: 0
-                    };
-                    this.numPulsaciones = 0; // console.log(this.actividad);
+                      this.resumen = {
+                        alegria: 0,
+                        asco: 0,
+                        miedo: 0,
+                        sorpresa: 0,
+                        tristeza: 0,
+                        ira: 0,
+                        distraido: 0,
+                        concentrado: 0,
+                        frustrado: 0,
+                        motivado: 0,
+                        pulsaciones: 0
+                      };
+                      this.numPulsaciones = 0;
+                    } // console.log(this.actividad);
 
-                  case 37:
+
+                  case 5:
                   case "end":
                     return _context44.stop();
                 }

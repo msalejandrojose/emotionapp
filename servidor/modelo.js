@@ -541,6 +541,8 @@ function Centro() {
         this.estoyComputando = true;
 
         for (var key in this.actividadesEnProceso) {
+            
+              
             var tiempo = moment().format();
             var sumatorioE = this.resumenActividades[key].alegria +
                 this.resumenActividades[key].asco +
@@ -550,6 +552,7 @@ function Centro() {
                 this.resumenActividades[key].tristeza;
             var sumatorioDC = this.resumenActividades[key].distraido + this.resumenActividades[key].concentrado;
             var sumatorioMF = this.resumenActividades[key].motivado + this.resumenActividades[key].frustrado;
+            if(sumatorioE>0){
             //console.log(sumatorioE);
             //console.log(key);
             //console.log(this.actividades);
@@ -576,6 +579,7 @@ function Centro() {
             this.actividades[key].resumen.pulsaciones.push({ y: this.resumenActividades[key].pulsaciones / this.resumenActividades[key].nPulsaciones, x: tiempo });
             this.resumenActividades[key] = new DatosResumen();
             console.log("resumen");
+            }
         }
         this.estoyComputando = false;
     }
