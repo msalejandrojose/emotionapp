@@ -6937,8 +6937,8 @@ let VerActividadComponent = class VerActividadComponent {
                         datos['tiempo'] = x;
                         max = 100;
                         var distraido = Math.round(Math.random() * (max - 0) + 0);
-                        max = 100 - distraido;
-                        var concentrado = Math.round(Math.random() * (max - 0) + 0);
+                        var concentrado = 100 - distraido;
+                        //var concentrado = Math.round(Math.random() * (max - 0) + 0);
                         //Estado Cognitivo
                         datos['distraido'] = {
                             x: x,
@@ -6951,8 +6951,8 @@ let VerActividadComponent = class VerActividadComponent {
                         //console.log("Datos generados4");
                         max = 100;
                         var frustrado = Math.round(Math.random() * (max - 0) + 0);
-                        max = 100 - frustrado;
-                        var motivado = Math.round(Math.random() * (max - 0) + 0);
+                        var motivado = 100 - frustrado;
+                        //var motivado = Math.round(Math.random() * (max - 0) + 0);
                         datos['frustrado'] = {
                             x: x,
                             y: frustrado,
@@ -7673,24 +7673,29 @@ let VerAlumnoComponent = class VerAlumnoComponent {
             for (let j = 0; j < this.actividades[i].resumen.concentrado.length; j++) {
                 concentrado += this.actividades[i].resumen.concentrado[j].y;
             }
-            this.datosGenerales.distraido.push(distraido / (distraido + concentrado));
-            this.datosGenerales.concentrado.push(concentrado / (distraido + concentrado));
+            this.datosGenerales.distraido.push(distraido * 100 / (distraido + concentrado));
+            this.datosGenerales.concentrado.push(concentrado * 100 / (distraido + concentrado));
             for (let j = 0; j < this.actividades[i].resumen.frustrado.length; j++) {
                 frustrado += this.actividades[i].resumen.frustrado[j].y;
             }
             for (let j = 0; j < this.actividades[i].resumen.motivado.length; j++) {
                 motivado += this.actividades[i].resumen.motivado[j].y;
             }
-            this.datosGenerales.frustrado.push(frustrado / (frustrado + motivado));
-            this.datosGenerales.motivado.push(motivado / (frustrado + motivado));
+            this.datosGenerales.frustrado.push(frustrado * 100 / (frustrado + motivado));
+            this.datosGenerales.motivado.push(motivado * 100 / (frustrado + motivado));
             for (let j = 0; j < this.actividades[i].alumnos.length; j++) {
                 if (this.actividades[i].alumnos[j].estudiante._id == this.alumno._id) {
                     for (let q = 0; q < this.estados.length; q++) {
                         var a = 0;
+                        var num = 0;
                         for (let k = 0; k < this.actividades[i].alumnos[j].datos[this.estados[q].nombre].length; k++) {
-                            a += this.actividades[i].alumnos[j].datos[this.estados[q].nombre][k].y;
+                            if (this.actividades[i].alumnos[j].datos[this.estados[q].nombre][k].y != null || this.actividades[i].alumnos[j].datos[this.estados[q].nombre][k].y != undefined) {
+                                a += this.actividades[i].alumnos[j].datos[this.estados[q].nombre][k].y;
+                                num++;
+                            }
                         }
-                        this.datosIndividuales[this.estados[q].nombre].push(a / this.actividades[i].alumnos[j].datos[this.estados[q].nombre].length);
+                        this.datosIndividuales[this.estados[q].nombre].push(a / num);
+                        num = 0;
                     }
                     var a = 0;
                     for (let x = 0; x < this.actividades[i].alumnos[j].datos.pulsaciones.length; x++) {
@@ -8668,16 +8673,16 @@ let VerEstadisticasClaseComponent = class VerEstadisticasClaseComponent {
             for (let j = 0; j < this.actividades[i].resumen.concentrado.length; j++) {
                 concentrado += this.actividades[i].resumen.asco[j].y;
             }
-            this.datosGenerales.distraido.push(distraido / (distraido + concentrado));
-            this.datosGenerales.concentrado.push(concentrado / (distraido + concentrado));
+            this.datosGenerales.distraido.push(distraido * 100 / (distraido + concentrado));
+            this.datosGenerales.concentrado.push(concentrado * 100 / (distraido + concentrado));
             for (let j = 0; j < this.actividades[i].resumen.frustrado.length; j++) {
                 frustrado += this.actividades[i].resumen.frustrado[j].y;
             }
             for (let j = 0; j < this.actividades[i].resumen.motivado.length; j++) {
                 motivado += this.actividades[i].resumen.motivado[j].y;
             }
-            this.datosGenerales.frustrado.push(frustrado / (frustrado + motivado));
-            this.datosGenerales.motivado.push(motivado / (frustrado + motivado));
+            this.datosGenerales.frustrado.push(frustrado * 100 / (frustrado + motivado));
+            this.datosGenerales.motivado.push(motivado * 100 / (frustrado + motivado));
             /*for (let j = 0; j < this.actividades[i].alumnos.length; j++) {
               if (this.actividades[i].alumnos[j].estudiante._id == this.alumno._id) {
                 for (let q = 0; q < this.estados.length; q++) {

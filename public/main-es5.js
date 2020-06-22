@@ -10018,8 +10018,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                         datos['tiempo'] = x;
                         max = 100;
                         var distraido = Math.round(Math.random() * (max - 0) + 0);
-                        max = 100 - distraido;
-                        var concentrado = Math.round(Math.random() * (max - 0) + 0); //Estado Cognitivo
+                        var concentrado = 100 - distraido; //var concentrado = Math.round(Math.random() * (max - 0) + 0);
+                        //Estado Cognitivo
 
                         datos['distraido'] = {
                           x: x,
@@ -10032,8 +10032,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
                         max = 100;
                         var frustrado = Math.round(Math.random() * (max - 0) + 0);
-                        max = 100 - frustrado;
-                        var motivado = Math.round(Math.random() * (max - 0) + 0);
+                        var motivado = 100 - frustrado; //var motivado = Math.round(Math.random() * (max - 0) + 0);
+
                         datos['frustrado'] = {
                           x: x,
                           y: frustrado
@@ -11039,8 +11039,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               concentrado += this.actividades[_i30].resumen.concentrado[_j19].y;
             }
 
-            this.datosGenerales.distraido.push(distraido / (distraido + concentrado));
-            this.datosGenerales.concentrado.push(concentrado / (distraido + concentrado));
+            this.datosGenerales.distraido.push(distraido * 100 / (distraido + concentrado));
+            this.datosGenerales.concentrado.push(concentrado * 100 / (distraido + concentrado));
 
             for (var _j20 = 0; _j20 < this.actividades[_i30].resumen.frustrado.length; _j20++) {
               frustrado += this.actividades[_i30].resumen.frustrado[_j20].y;
@@ -11050,19 +11050,24 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               motivado += this.actividades[_i30].resumen.motivado[_j21].y;
             }
 
-            this.datosGenerales.frustrado.push(frustrado / (frustrado + motivado));
-            this.datosGenerales.motivado.push(motivado / (frustrado + motivado));
+            this.datosGenerales.frustrado.push(frustrado * 100 / (frustrado + motivado));
+            this.datosGenerales.motivado.push(motivado * 100 / (frustrado + motivado));
 
             for (var _j22 = 0; _j22 < this.actividades[_i30].alumnos.length; _j22++) {
               if (this.actividades[_i30].alumnos[_j22].estudiante._id == this.alumno._id) {
                 for (var q = 0; q < this.estados.length; q++) {
                   var a = 0;
+                  var num = 0;
 
                   for (var k = 0; k < this.actividades[_i30].alumnos[_j22].datos[this.estados[q].nombre].length; k++) {
-                    a += this.actividades[_i30].alumnos[_j22].datos[this.estados[q].nombre][k].y;
+                    if (this.actividades[_i30].alumnos[_j22].datos[this.estados[q].nombre][k].y != null || this.actividades[_i30].alumnos[_j22].datos[this.estados[q].nombre][k].y != undefined) {
+                      a += this.actividades[_i30].alumnos[_j22].datos[this.estados[q].nombre][k].y;
+                      num++;
+                    }
                   }
 
-                  this.datosIndividuales[this.estados[q].nombre].push(a / this.actividades[_i30].alumnos[_j22].datos[this.estados[q].nombre].length);
+                  this.datosIndividuales[this.estados[q].nombre].push(a / num);
+                  num = 0;
                 }
 
                 var a = 0;
@@ -12353,8 +12358,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               concentrado += this.actividades[_i36].resumen.asco[_j31].y;
             }
 
-            this.datosGenerales.distraido.push(distraido / (distraido + concentrado));
-            this.datosGenerales.concentrado.push(concentrado / (distraido + concentrado));
+            this.datosGenerales.distraido.push(distraido * 100 / (distraido + concentrado));
+            this.datosGenerales.concentrado.push(concentrado * 100 / (distraido + concentrado));
 
             for (var _j32 = 0; _j32 < this.actividades[_i36].resumen.frustrado.length; _j32++) {
               frustrado += this.actividades[_i36].resumen.frustrado[_j32].y;
@@ -12364,8 +12369,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               motivado += this.actividades[_i36].resumen.motivado[_j33].y;
             }
 
-            this.datosGenerales.frustrado.push(frustrado / (frustrado + motivado));
-            this.datosGenerales.motivado.push(motivado / (frustrado + motivado));
+            this.datosGenerales.frustrado.push(frustrado * 100 / (frustrado + motivado));
+            this.datosGenerales.motivado.push(motivado * 100 / (frustrado + motivado));
             /*for (let j = 0; j < this.actividades[i].alumnos.length; j++) {
               if (this.actividades[i].alumnos[j].estudiante._id == this.alumno._id) {
                 for (let q = 0; q < this.estados.length; q++) {
