@@ -35,7 +35,7 @@
     "jquery": "^3.4.1",
     "mat-select-filter": "^2.3.6",
     "miband": "^0.1.4",
-    "moment": "^2.24.0",
+    "moment": "^2.29.2",
     "ngx-face-api-js": "^0.1.1",
     "ngx-webcam": "^0.2.6",
     "popper.js": "^1.16.1",
